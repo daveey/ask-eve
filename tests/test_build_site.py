@@ -305,7 +305,9 @@ def test_header_subscribe_icons_on_every_page(site):
                 'aria-label="Subscribe on Apple Podcasts" title="Subscribe on Apple Podcasts" rel=noopener>') in head, rel
         assert "spotify" not in head.lower(), rel                 # hidden until site.json has a URL
         assert '<details class="menu" data-menu>' in head and 'aria-label="Menu"' in head
-        assert head.count('href="/people/"') == 2                  # inline nav + compact menu
+        assert head.count('href="/mind/"') == 2                    # inline nav + compact menu
+        nav = head[head.index('class="site-nav"'):head.index("</nav>", head.index('class="site-nav"'))]
+        assert "/about/" not in nav and head.count('href="/about/"') == 1   # About: compact menu only (and footer)
     home = read(site, "index.html")
     subs = home[home.index('<div class="subs"'):]
     assert 'href="podcast://askevepodcast.com/feed.xml"' in subs.split("</div>")[0]   # home subscribe area matches
@@ -315,12 +317,8 @@ def test_head_subscribe_spotify_when_configured():
     import build_site as B
     h = B.head_subscribe({"subscribe": {"spotify": "https://open.spotify.com/show/x", "apple_podcasts": ""}})
     assert 'aria-label="Follow on Spotify"' in h and "hsub--apple" not in h and "hsub--rss" in h
-    assert [x for x, _ in B.nav_items()] == ["/", "/people/", "/eve/", "/about/"]
-    B.SHOW_EVE_NAV = True
-    try:
-        assert [x for x, _ in B.nav_items()] == ["/", "/people/", "/eve/", "/about/"]
-    finally:
-        B.SHOW_EVE_NAV = False
+    assert [x for x, _ in B.nav_items()] == ["/", "/mind/", "/eve/"]
+    assert [x for x, _ in B.menu_items()] == ["/", "/mind/", "/eve/", "/about/"]
 
 
 # ---------------------------------------------------------------- auto-linking (silent links + menus)
@@ -444,3 +442,17 @@ def test_eve_citations_are_verbatim(site):
                 walk(v)
     walk(data["sections"])
     assert n > 50
+
+
+def test_mind_hub(site):
+    h = read(site, "mind/index.html")
+    assert "<h1 class=\"page-title\">Inside Eve's Mind</h1>" in h
+    assert 'id="memories"' in h and 'id="people"' in h and 'id="topics"' not in h   # topics gated
+    assert 'href="/episodes/eve-david-podcast-planning/"' in h and 'href="/episodes/the-making-of-eve/"' in h
+    assert 'href="/people/david-sacks/"' in h and 'href="/people/"' in h
+    assert '<a href="/mind/" aria-current=page>Mind</a>' in h
+    for rel in ("people/index.html", "people/david-sacks/index.html"):        # /people/ still works, under Mind
+        assert '<a href="/mind/" aria-current=page>Mind</a>' in read(site, rel)
+    assert "https://askevepodcast.com/mind/" in read(site, "sitemap.xml")
+    foot = h[h.index('<footer'):]
+    assert 'href="/about/"' in foot and 'href="/mind/"' in foot and 'href="/people/"' in foot
