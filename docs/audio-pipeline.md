@@ -674,7 +674,7 @@ jobs:
 | `XAI_API_KEY` (extra, fallback/translations only) | xAI console | TTS | local `.env`; GitHub secret if CI renders `mic-plus-tts` |
 | `UPLOAD_AUTH_SECRET` | David generates it (`openssl rand -hex 32`) | Bearer secret the Shortcut sends to the upload Worker | Worker secret (`npx wrangler@4 secret put UPLOAD_AUTH_SECRET`); typed into the iOS Shortcut "Text" action |
 | `PRESIGN_R2_ACCESS_KEY_ID` / `PRESIGN_R2_SECRET_ACCESS_KEY` | Cloudflare dash → R2 → Manage API tokens, a **second** token | **Object Read & Write on `ask-eve-masters` only**. Write-only isn't offered as a separate level, as far as I could tell (UNVERIFIED) | Worker secrets |
-| `GH_DISPATCH_TOKEN` | GitHub → Settings → Developer settings → Fine-grained tokens | Repository `daveey/ask-eve-memory` only, **Actions: Read and write** (https://docs.github.com/rest/actions/workflows#create-a-workflow-dispatch-event). Set an expiry and rotate it | Worker secret only, never on the phone |
+| `GH_DISPATCH_TOKEN` | GitHub → Settings → Developer settings → Fine-grained tokens | Repository `daveey/ask-eve` only, **Actions: Read and write** (https://docs.github.com/rest/actions/workflows#create-a-workflow-dispatch-event). Set an expiry and rotate it | Worker secret only, never on the phone |
 
 Add GitHub secrets via repo → Settings → Secrets and variables → Actions, or with `gh secret set CLOUDFLARE_API_TOKEN`. Add `.env`, `work/`, `out/`, and `models/*.rnnn` (unless pinned deliberately) to `.gitignore` before the first recording.
 
@@ -831,7 +831,7 @@ routes = [{ pattern = "upload.<domain>", custom_domain = true }]
 binding = "MASTERS"
 bucket_name = "ask-eve-masters"
 [vars]
-GH_REPO = "daveey/ask-eve-memory"
+GH_REPO = "daveey/ask-eve"
 # secrets (npx wrangler@4 secret put …): UPLOAD_AUTH_SECRET, PRESIGN_R2_ACCESS_KEY_ID,
 #   PRESIGN_R2_SECRET_ACCESS_KEY, CLOUDFLARE_ACCOUNT_ID, GH_DISPATCH_TOKEN
 ```
