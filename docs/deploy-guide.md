@@ -321,12 +321,12 @@ Rollback is for David (or for you only when a task in *Current instructions* say
 | 5 | Public domain | `curl -sI https://audio.askevepodcast.com/does-not-exist` | 404 from R2 (not a DNS/TLS error) |
 | 6 | CORS | `curl -sI -H 'Origin: https://askevepodcast.com' https://audio.askevepodcast.com/<any object>` | `access-control-allow-origin: https://askevepodcast.com` |
 | 7 | D1 migrated | `d1 migrations list ask-eve-meta --remote` (in workers/upload) | 0001 applied, nothing pending |
-| 8 | Worker secrets | `npx wrangler@4 secret list` | 4 names, no CF API token |
+| 8 | Worker secrets | `npx wrangler@4 secret list` | 4 names (6 with on-the-go: + NOTIFY_TOKEN, NOTIFY_TO), no CF API token |
 | 9 | Worker auth | §4 smoke tests | 401 / presign / 200 PUT / 404 |
-| 10 | GitHub secrets | `gh secret list -R daveey/ask-eve` | 7 names (R2 pair, CLOUDFLARE_ACCOUNT_ID, CLOUDFLARE_D1_TOKEN, XAI_API_KEY, D1_READ_TOKEN, CLOUDFLARE_PAGES_TOKEN) |
+| 10 | GitHub secrets | `gh secret list -R daveey/ask-eve` | 7 names (R2 pair, CLOUDFLARE_ACCOUNT_ID, CLOUDFLARE_D1_TOKEN, XAI_API_KEY, D1_READ_TOKEN, CLOUDFLARE_PAGES_TOKEN; 11 with on-the-go: + GDRIVE_CLIENT_ID, GDRIVE_CLIENT_SECRET, GDRIVE_REFRESH_TOKEN, NOTIFY_TOKEN) |
 | 11 | Actions may open PRs | `gh api repos/daveey/ask-eve/actions/permissions/workflow` | `can_approve_pull_request_reviews: true` |
 | 12 | Site + feed | `curl -sI https://askevepodcast.com/feed.xml` | 200, rss+xml |
 | 13 | Email | send a test mail to podcast@askevepodcast.com | arrives at the routed inbox |
 | 14 | E2E | §9 | PR opened, main untouched, no audio in git |
-| 15 | No secrets in git | `git log -p origin/main \| grep -cE 'xai-[A-Za-z0-9]{20}\|gh[pousr]_[A-Za-z0-9]{20}\|github_pat_'` | `0` |
+| 15 | No secrets in git | `git log -p origin/main \| grep -cE 'xai-[A-Za-z0-9]{20}\|gh[pousr]_[A-Za-z0-9]{20}\|github_pat_[A-Za-z0-9_]{20}'` | `0` (a bare `github_pat_` also matches the regexes written in this guide, ingest.yml and notify.py) |
 | 16 | Deploy token gone | dashboard → API Tokens | deploy token revoked/expired, or (broker deploy) the scoped token never left the broker and is in no GitHub secret |

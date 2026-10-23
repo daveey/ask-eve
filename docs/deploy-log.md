@@ -22,15 +22,19 @@ Deploy token: broker-held `user/cf-askeve` (Ask Eve account b4d4a3f8b5b4d5ba074f
   `d1 migrations list`: no migrations to apply.
 - PR: https://github.com/daveey/ask-eve/pull/1 (merged by the deploy agent under David's standing approval).
 
-### D-004 partially done 2026-10-23T11:19Z — GITHUB_TOKEN blocked
-- deploy: "Uploaded ask-eve-upload", custom domain upload.askevepodcast.com, version 622640b5-b832-41e2-a1bd-858fc4c0b65a
+### D-004 done 2026-10-23T12:29Z (GITHUB_TOKEN supplied outside this agent)
+- deploy: "Uploaded ask-eve-upload", custom domain upload.askevepodcast.com, version 622640b5-b832-41e2-a1bd-858fc4c0b65a;
+  redeployed from main 42fe45c (on-the-go /notify) as version 087f5cfa-94c8-4f59-8dc0-bd89bd0cfd61
 - `npm test`: `node --test test/` fails on Node 26 (Cannot find module …/test); fixed to `node --test test/*.test.mjs` in PR #2 → pass 10, fail 0
-- secret list: R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY, UPLOAD_TOKEN (GITHUB_TOKEN pending)
+  (13/0 after #6)
+- secret list: GITHUB_TOKEN, NOTIFY_TO, NOTIFY_TOKEN, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY, UPLOAD_TOKEN. This agent set the R2 pair and
+  UPLOAD_TOKEN; GITHUB_TOKEN and the NOTIFY_* pair were set by the build side (on-the-go, PR #6) while this deploy ran. Creating the PAT here
+  was blocked: the browser signed in as daveey asked for GitHub sudo re-auth (passkey / GitHub Mobile / authenticator).
 - smoke: no-auth presign 401; presign → raw/2026-10-23_smoke-test/phone.m4a, PUT, audio/mp4, 1800; PUT 200; get + cmp "same";
   ingest no-such-upload → 404 "object not found; PUT the file first"; smoke object deleted.
+- Worker → GitHub dispatch: `/ingest` for e2e-test → `{"dispatched":true,"github_status":204}`; that run (39953630323) was cancelled on purpose,
+  because D-007 had already run the same ingest.
 - UPLOAD_TOKEN: broker scope `user/askeve-upload-token` (not a file).
-- blocked: the fine-grained PAT needs GitHub sudo re-auth (passkey / GitHub Mobile / TOTP) in the agent browser. Until then `/ingest`
-  returns 502 `github_status: 401`.
 
 ### D-005 done 2026-10-23T11:19Z
 - secrets: CLOUDFLARE_ACCOUNT_ID, CLOUDFLARE_D1_TOKEN (`askeve-d1-rw`, D1 Write only), R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY, XAI_API_KEY
@@ -47,5 +51,24 @@ Deploy token: broker-held `user/cf-askeve` (Ask Eve account b4d4a3f8b5b4d5ba074f
 - Email Routing: already enabled on askevepodcast.com (status ready) with a rule for podcast@askevepodcast.com marked "(temporary)"
   forwarding to a verified gmail.com destination. Rule 7 forbids David's personal Gmail; left untouched pending David's choice of inbox.
 
+### D-007 done 2026-10-23T12:27Z
+- upload: Worker presign + PUT 200 of `raw/2026-10-23_e2e-test/phone.m4a` (7.6 MB). The guide's 30 s memo can't pass: run
+  https://github.com/daveey/ask-eve/actions/runs/39946344161 failed at the alignment gate (`coverage 0.0 < 0.5`). The test track therefore
+  holds David's 152 turns voiced with xAI TTS (`rex`) at their transcript offsets (8372 s).
+- run https://github.com/daveey/ask-eve/actions/runs/39947415283: alignment 0.9926, then crashed in revoice
+  (`Eve clip at 3014.120s overlaps the previous clip`). Fixed in https://github.com/daveey/ask-eve/pull/9 (test added, 98 passed).
+- run https://github.com/daveey/ask-eve/actions/runs/39950300319 (workflow_dispatch, main 42fe45c): completed/success
+- PR https://github.com/daveey/ask-eve/pull/10 "Ingest: 2026-10-23_e2e-test". Files: only text (alignment/chapters/manifest/segments/
+  show-notes/timeline/d1_upsert.sql under artifacts/2026-10-23_e2e-test/ and episodes/2026-10-23_e2e-test.md), no audio. Body: Turns 304,
+  Alignment coverage 0.9926 (asr-david-gaps), mic-plus-tts, "real xAI TTS; placeholder turns: []".
+- main before and after: 42fe45c3a2b2ddaf8669a2523d1722f007910601 (unchanged by the run)
+- cleanup: PR #10 closed without merging, branch deleted; deleted `raw/2026-10-23_e2e-test/phone.m4a` and
+  `staging/2026-10-23_e2e-test/2026-10-23_e2e-test.v1.mp3` from ask-eve-masters. The run's on-the-go steps also copied the test raw/MP3 to
+  Google Drive `Ask Eve/2026-10-23_e2e-test/` and sent the ready email (and a failure email for the cancelled run 39953630323).
+
+### D-008 not started (blocked on David merging ingest PR #4, per the table)
+
 ### Cleanup
 - deleted the pre-guide leftovers (empty, created by David's agent before this guide existed): R2 bucket `askeve-audio`, D1 `askeve` (bc9948de-…).
+- §11 #15: the guide's grep counts its own regexes (4 hits, all patterns in deploy-guide.md / ingest.yml / notify.py); with
+  `github_pat_[A-Za-z0-9_]{20}` the count is 0.
