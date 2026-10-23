@@ -9,7 +9,7 @@ built by `shortcuts/build_onthego.py`). Neither file contains a secret: Eve Done
 
 | When | You do | What happens |
 |---|---|---|
-| Start | **Press the Action Button** (set to the *Screen Recording* control) | 3-second countdown, then the screen recording runs with the microphone on |
+| Start | **Run Eve Start** | It starts a Voice Memos recording (your mic), turns on Do Not Disturb, marks the capture open and opens Grok |
 | | **Tap "Eve Start"** on the Lock Screen (Face ID unlocks as you look) | Do Not Disturb on (a call would stop the recording), the capture is marked open (`Ask Eve/active.txt`), Grok opens |
 | | Tap Grok's voice button, say **"Ask Eve, take one."** | That phrase is the sync anchor the aligner looks for |
 | Talk | Walk and talk. Leaving Grok mid-interview is safe: Eve Done sees no finished recording and leaves the capture open | |
