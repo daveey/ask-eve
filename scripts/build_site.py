@@ -28,7 +28,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import render_feed as F  # noqa: E402
-from frontmatter import episode_type, parse_front_matter_block  # noqa: E402
+from frontmatter import episode_type, parse_front_matter_block, season  # noqa: E402
 import sqlite_apply  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -155,6 +155,7 @@ def load_site(db: Path, include_drafts: bool) -> tuple[list[dict], list[dict]]:
         ep["context"] = ctx if isinstance(ctx, str) else ""
         ep["topics"] = topics if isinstance(topics, list) else []
         ep["episode_type"] = episode_type(ep["fm"])   # front matter wins over D1 (default full)
+        ep["season"] = season(ep["fm"])               # front matter `season:` (default 1)
         if ep["episode_type"] == "bonus":
             ep["episode_number"] = None
         if ep["context"]:
@@ -973,7 +974,7 @@ def build(db: Path, out: Path, include_drafts: bool) -> int:
     for fe in feed_eps:
         if fe["slug"] in by_slug:
             src = by_slug[fe["slug"]]
-            for k in ("context", "topics", "episode_type", "episode_number"):
+            for k in ("context", "topics", "episode_type", "episode_number", "season"):
                 fe[k] = src[k]
     (out / "feed.xml").write_text(F.render(feed_eps))
     shutil.rmtree(out / "assets", ignore_errors=True)   # drop stale hashed assets from earlier local builds
