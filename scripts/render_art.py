@@ -81,7 +81,7 @@ def main() -> int:
         db = sqlite3.connect(a.db)
         db.row_factory = sqlite3.Row
         where = "" if a.include_drafts else "WHERE status = 'published'"
-        eps = [dict(r) for r in db.execute(f"SELECT slug, title, episode_number, date FROM episodes {where}")]
+        eps = [dict(r) for r in db.execute(f"SELECT slug, title, episode_number, episode_type, date FROM episodes {where}")]
     with sync_playwright() as p:
         br = p.chromium.launch()
 
@@ -102,7 +102,11 @@ def main() -> int:
         shot(og_html("Conversations with an AI who argues back", "The podcast", "ask-eve", "EVE"), 1200, 630, STATIC / "og" / "default.jpg", True)
         for ep in eps:
             num = ep["episode_number"]
-            shot(og_html(ep["title"], f"Episode {num}" if num is not None else "Episode", ep["slug"], f"EP {num if num is not None else '·'}"),
+            if ep["episode_type"] == "bonus":
+                kicker, mark = "Bonus", "BONUS"
+            else:
+                kicker, mark = (f"Episode {num}" if num is not None else "Episode"), f"EP {num if num is not None else '·'}"
+            shot(og_html(ep["title"], kicker, ep["slug"], mark),
                  1200, 630, STATIC / "og" / f"{ep['slug']}.jpg", True)
         shot(show_cover_html(3000), 3000, 3000, STATIC / "art" / "cover-3000.jpg", True)
         br.close()

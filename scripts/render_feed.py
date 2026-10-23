@@ -97,6 +97,15 @@ def load(db: Path, include_drafts: bool) -> list[dict]:
     return eps
 
 
+def itunes_episode(ep: dict) -> int | None:
+    """<itunes:episode> value: positive numbers on full episodes only. Bonus/trailer items and episode 0
+    (Apple wants a positive integer) get no number at all rather than 0."""
+    n = ep.get("episode_number")
+    if (ep.get("episode_type") or "full") != "full" or n is None:
+        return None
+    return int(n) if int(n) >= 1 else None
+
+
 def render(eps: list[dict], now: str | None = None) -> str:
     e = html.escape
     items = []
@@ -116,8 +125,8 @@ def render(eps: list[dict], now: str | None = None) -> str:
     <enclosure url="{e(ep['audio_url'])}" length="{ep['audio_bytes']}" type="{e(ep['audio_mime'] or 'audio/mpeg')}"/>
     <itunes:duration>{ep['duration_seconds']}</itunes:duration>
     <itunes:explicit>{'true' if ep['explicit'] else 'false'}</itunes:explicit>
-    <itunes:episodeType>{e(ep['episode_type'])}</itunes:episodeType>{f'''
-    <itunes:episode>{ep['episode_number']}</itunes:episode>''' if ep['episode_number'] is not None and ep['episode_number'] > 0 else ''}
+    <itunes:episodeType>{e(ep.get('episode_type') or 'full')}</itunes:episodeType>{f'''
+    <itunes:episode>{itunes_episode(ep)}</itunes:episode>''' if itunes_episode(ep) is not None else ''}
     <podcast:transcript url="{SITE}/episodes/{e(ep['slug'])}/transcript.txt" type="text/plain"/>
     <podcast:chapters url="https://audio.askevepodcast.com/chapters/en/{e(Path(ep['audio_key'] or ep['slug']).stem)}.json" type="application/json+chapters"/>
   </item>""")
