@@ -13,6 +13,7 @@ MASTERS_BUCKET = "ask-eve-masters"
 GH_REPO = "daveey/ask-eve"
 GH_WORKFLOW = "ingest.yml"
 GH_REF = "main"
+NOTIFY_FROM = "eve@askevepodcast.com"   # sender for /notify; the zone has Email Routing enabled
 
 [[r2_buckets]]
 binding = "MASTERS"
@@ -26,7 +27,12 @@ database_name = "ask-eve-meta"
 database_id = "8e196805-d1fa-438e-a8f6-17562c50631c"   # ask-eve-meta
 migrations_dir = "../../migrations"
 
-# Secrets (never in this file): npx wrangler@4 secret put UPLOAD_TOKEN | R2_ACCESS_KEY_ID | R2_SECRET_ACCESS_KEY | GITHUB_TOKEN
+# /notify sends with this binding. Cloudflare only delivers send_email to addresses VERIFIED in this account's
+# Email Routing, so the Worker can't mail anyone else. The recipient is the NOTIFY_TO secret (kept out of git).
+[[send_email]]
+name = "MAILER"
+
+# Secrets (never in this file): npx wrangler@4 secret put UPLOAD_TOKEN | R2_ACCESS_KEY_ID | R2_SECRET_ACCESS_KEY | GITHUB_TOKEN | NOTIFY_TOKEN | NOTIFY_TO
 
 [observability]
 enabled = true
