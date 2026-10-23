@@ -315,7 +315,7 @@ def test_head_subscribe_spotify_when_configured():
     import build_site as B
     h = B.head_subscribe({"subscribe": {"spotify": "https://open.spotify.com/show/x", "apple_podcasts": ""}})
     assert 'aria-label="Follow on Spotify"' in h and "hsub--apple" not in h and "hsub--rss" in h
-    assert [x for x, _ in B.nav_items()] == ["/", "/people/", "/about/"]
+    assert [x for x, _ in B.nav_items()] == ["/", "/people/", "/eve/", "/about/"]
     B.SHOW_EVE_NAV = True
     try:
         assert [x for x, _ in B.nav_items()] == ["/", "/people/", "/eve/", "/about/"]
@@ -392,3 +392,55 @@ def test_linker_rules():
     assert B.Linker(ents, "/people/david-sacks/").text("Sacks") == "Sacks"                     # self link dropped -> plain
     assert B.Linker(ents, "/", exclude={"david-sacks"}).text("Sacks") == "Sacks"
     assert L.text("<b>Sacks</b>").startswith("&lt;b&gt;<a class=\"xl\"")
+
+
+# ---------------------------------------------------------------- Meet Eve
+def test_eve_page_quotes_link_to_their_moment(site):
+    h = read(site, "eve/index.html")
+    assert "<h1 class=\"page-title\">I'm Eve.</h1>" in h
+    assert 'href="/eve/"' in read(site, "index.html")          # in the header nav
+    data = json.loads((ROOT / "index/eve.json").read_text())
+    srcs = re.findall(r'<a class="q__src" href="/episodes/([^/]+)/#(t=\d+|turn-\d+)"', h)
+    assert len(srcs) >= 40
+    ep0 = read(site, f"episodes/{EP0}/index.html")
+    for slug, frag in srcs:
+        assert slug in (EP0, EP1)
+        if frag.startswith("t="):
+            sec = int(frag[2:])
+            assert sec >= 0
+    # the exchange answer at 09:14:08 points at the turn that starts at that offset
+    m = re.search(r'id="turn-(\d+)" data-start="([\d.]+)"[^>]*>(?:(?!</li>).)*?09:14 UTC(?:(?!</li>).)*?Mostly context', ep0, re.S)
+    assert m and f'/episodes/{EP0}/#t={int(float(m.group(2)))}' in h
+
+
+def test_eve_page_hides_pending_episode(site):
+    h = read(site, "eve/index.html")
+    assert "eve-cant-find-andreessen" not in h and "pending" not in h.lower()
+    assert "episode 2" not in h.lower()
+    assert "Why her memory missed" not in h
+    assert "SpaceXSI [sic]" in h                                  # editorial mark kept on display
+    assert "no weapons, no sexual content involving minors" in h   # hard-limits line kept
+
+
+def test_eve_citations_are_verbatim(site):
+    import build_site as B
+    db = site.parent / "d.sqlite"
+    eps, _ = B.load_site(db, True)
+    R = B.EveSources(eps)
+    data = json.loads((ROOT / "index/eve.json").read_text())
+    n = 0
+
+    def walk(o):
+        nonlocal n
+        if isinstance(o, dict):
+            if "quote_excerpt" in o and "episode_slug" in o:
+                r = R.resolve(o)                 # raises if not verbatim
+                assert (r is None) == (o["episode_slug"] not in R.eps or bool(o.get("pending")))
+                n += r is not None
+            for v in o.values():
+                walk(v)
+        elif isinstance(o, list):
+            for v in o:
+                walk(v)
+    walk(data["sections"])
+    assert n > 50
