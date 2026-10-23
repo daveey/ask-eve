@@ -1,11 +1,18 @@
 {
- "alignment_coverage": 0.0972,
- "matchable": 72,
+ "alignment_coverage": 0.0864,
+ "matchable": 81,
  "matched": 7,
  "asr_model": "faster-whisper small int8",
- "median_abs_error_s": 0.23,
- "p95_abs_error_s": 0.46,
- "max_abs_error_s": 0.96,
+ "median_abs_error_s": 0.9,
+ "p95_abs_error_s": 1.01,
+ "max_abs_error_s": 16.03,
  "tolerance_s": 2.0,
- "outside_tolerance": []
+ "outside_tolerance": [
+  {
+   "i": 0,
+   "speaker": "Eve",
+   "placed": 16.21,
+   "found": 0.18
+  }
+ ]
 }

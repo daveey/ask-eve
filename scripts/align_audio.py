@@ -43,6 +43,7 @@ class Turn:
     created_at: str          # ISO-8601 UTC
     t: float                 # seconds since first turn's createTime
     text: str
+    meta: str = ""           # "> ..." lines under the turn (e.g. "relayed as:"); never spoken, never matched
 
 
 class ASRBackend(Protocol):
@@ -121,7 +122,9 @@ def parse_transcript(md: str, share: dict | None = None) -> list[Turn]:
     for line in body.split("\n"):
         tm = TURN_RE.match(line)
         if tm:
-            raw.append([tm.group(4), (int(tm.group(1)), int(tm.group(2)), int(tm.group(3))), tm.group(5)])
+            raw.append([tm.group(4), (int(tm.group(1)), int(tm.group(2)), int(tm.group(3))), tm.group(5), ""])
+        elif raw and line.startswith(">"):
+            raw[-1][3] += line[1:].strip() + "\n"   # metadata block, not part of the spoken turn
         elif raw and line.strip():
             raw[-1][2] += "\n" + line
     if share is not None:
@@ -134,14 +137,15 @@ def parse_transcript(md: str, share: dict | None = None) -> list[Turn]:
             raise ValueError("transcript has no front-matter date and no share JSON was given")
         day = dt.datetime.fromisoformat(date).replace(tzinfo=dt.timezone.utc)
         stamps, prev = [], None
-        for _, (h, mi, s), _ in raw:
+        for _, (h, mi, s), _, _ in raw:
             ts = day.replace(hour=h, minute=mi, second=s)
             while prev is not None and ts < prev - dt.timedelta(hours=12):
                 ts += dt.timedelta(days=1)
             stamps.append(ts)
             prev = ts
     t0 = stamps[0]
-    return [Turn(i, sp, _iso(st), (st - t0).total_seconds(), txt.strip()) for i, ((sp, _, txt), st) in enumerate(zip(raw, stamps))]
+    return [Turn(i, sp, _iso(st), (st - t0).total_seconds(), txt.strip(), meta.strip())
+            for i, ((sp, _, txt, meta), st) in enumerate(zip(raw, stamps))]
 
 
 # ---------------------------------------------------------------- matching
