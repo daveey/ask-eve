@@ -1,9 +1,9 @@
 {
   "episode": "the-making-of-eve",
   "stem": "2026-10-23_the-making-of-eve",
-  "title": "The Making of Eve",
+  "title": "Bonus: The Making of Eve",
   "turns": 83,
-  "transcript_sha256": "f0b777cfacaea6c14072df032e163099fb48dfb518fbe146c42fbd2d15791d83",
+  "transcript_sha256": "165aab4f9d232315fb6a4d7f648b61b4579e6d808cb4e6c837139edca4b97d58",
   "model": "grok-4.7",
   "temperature": 0,
   "prompt_version": 1,

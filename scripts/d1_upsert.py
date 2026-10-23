@@ -16,7 +16,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from align_audio import parse_transcript  # noqa: E402
-from frontmatter import parse_front_matter_block  # noqa: E402
+from frontmatter import episode_type, parse_front_matter_block  # noqa: E402
 
 AUDIO_BASE = "https://audio.askevepodcast.com/"
 AI_DISCLOSURE = ("AI-reconstructed audio: the voices in this episode were generated with xAI text-to-speech from the "
@@ -73,7 +73,10 @@ def build_sql(transcript: Path, repo_root: Path, slug: str, alignment: dict | No
         ep.update({k: alignment.get(k) for k in ("sync_offset_seconds", "alignment_method", "alignment_coverage", "asr_model",
                                                  "recording_started_at", "raw_audio_sha256")})
         ep["alignment_path"] = f"alignment/{stem}.json"
-    if episode_number is not None:
+    ep["episode_type"] = episode_type(fm)
+    if ep["episode_type"] == "bonus":       # bonus episodes are unnumbered
+        ep["episode_number"] = None
+    elif episode_number is not None:
         ep["episode_number"] = episode_number
     if revoice:
         ep["tts_voice"] = revoice.get("tts")

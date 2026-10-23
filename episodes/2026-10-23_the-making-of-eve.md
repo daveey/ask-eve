@@ -1,7 +1,8 @@
 ---
 date: 2026-10-23
-title: The Making of Eve
-context: Episode 1 picks up where the first conversation left off, in the Grok Bot chat where David and Eve actually built the show. It runs from Eve's hello at 09:33 UTC to 11:00 UTC, with David up at almost 4am and set on getting it published that night. Most of it is David's instructions and Eve's work reports: a workspace, a memory Eve can search, a public code repo, and an audio pipeline designed and then redesigned around an iPhone, AirPods and recording on walks. Along the way the first conversation's transcript turns up through a Grok share link, askevepodcast.com gets wired in, and David decides this build session should be an episode too. On the audio: you hear David's real voice in the two stretches he recorded on his phone (10:31-10:39 and 10:42-10:49 UTC); his other lines are read by an AI narrator, and Eve's lines are her written replies re-voiced with AI text-to-speech. Three of Eve's replies were never recovered and are marked as gaps, and an API key David pasted is redacted.
+title: Bonus: The Making of Eve
+episode_type: bonus
+context: This bonus episode picks up where the first conversation left off, in the Grok Bot chat where David and Eve actually built the show. It runs from Eve's hello at 09:33 UTC to 11:00 UTC, with David up at almost 4am and set on getting it published that night. Most of it is David's instructions and Eve's work reports: a workspace, a memory Eve can search, a public code repo, and an audio pipeline designed and then redesigned around an iPhone, AirPods and recording on walks. Along the way the first conversation's transcript turns up through a Grok share link, askevepodcast.com gets wired in, and David decides this build session should be an episode too. On the audio: you hear David's real voice in the two stretches he recorded on his phone (10:31-10:39 and 10:42-10:49 UTC); his other lines are read by an AI narrator, and Eve's lines are her written replies re-voiced with AI text-to-speech. Three of Eve's replies were never recovered and are marked as gaps, and an API key David pasted is redacted.
 topics:
   - Setting up Eve's workspace, and why she won't recreate a transcript from memory
   - Eve's memory: vector, tag and full-text search in one SQLite file
@@ -13,10 +14,9 @@ topics:
   - Dropped recordings, multi-segment stitching, and "Ask Eve, take two"
   - A deploy guide for David's coding agent: two storage buckets and keeping the Cloudflare token out of the Worker
   - An xAI key, a push to publish before sleeping, and deciding that this chat is episode 1
-episode: 1
 people: []
 source: grokbot-chat
-note: Episode 1 is the entire Grok Bot chat in which Eve and David built this podcast (09:33-11:00 UTC). David's voice is real in the recorded segments; Eve's voice and David's unrecorded lines are AI-reconstructed; in the recorded segments Eve's lines are her text replies from that session, re-voiced, not the exact words spoken live. Recorded segments are David's Voice Memos 10:31:22-10:39:29 and 10:42:08-10:49:38 UTC, where his lines are his spoken words (ASR text) and the written prompt the app relayed for him is kept as '> relayed as' metadata, not audio. Outside them his typed lines are read by an AI narrator. Eve's replies to the 10:48, 10:49 and 10:52 messages were not recovered and are marked as transcript gaps, not invented. The xAI API key David pasted at 10:47 is redacted.
+note: This bonus episode is the entire Grok Bot chat in which Eve and David built this podcast (09:33-11:00 UTC). David's voice is real in the recorded segments; Eve's voice and David's unrecorded lines are AI-reconstructed; in the recorded segments Eve's lines are her text replies from that session, re-voiced, not the exact words spoken live. Recorded segments are David's Voice Memos 10:31:22-10:39:29 and 10:42:08-10:49:38 UTC, where his lines are his spoken words (ASR text) and the written prompt the app relayed for him is kept as '> relayed as' metadata, not audio. Outside them his typed lines are read by an AI narrator. Eve's replies to the 10:48, 10:49 and 10:52 messages were not recovered and are marked as transcript gaps, not invented. The xAI API key David pasted at 10:47 is redacted.
 ---
 
 [09:33:00] Eve: Hey David, Eve here, and I'm ready to pick up where we left off on Ask Eve. We've got a good backlog of takes to build on, from Sacks's three-test scorecard to Thiel's Antichrist lectures, plus the podcast setup itself still in progress.
