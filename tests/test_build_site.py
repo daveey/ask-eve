@@ -52,7 +52,7 @@ def test_head_seo(site):
 def test_home(site):
     h = read(site, "index.html")
     assert 'class="hero"' in h and "data-play" in h and 'id="player"' in h and "is-idle" in h
-    assert h.count('class="card"') == 2
+    assert h.count('class="card"') == 1 and h.count('class="card card--bonus"') == 0   # main list: full episodes only
     assert f'href="/episodes/{EP0}/"' in h and f'href="/episodes/{EP1}/"' in h
     assert 'href="/feed.xml"' in h and "Spotify" not in h          # Spotify slot hidden until configured
     assert 'href="/people/david-sacks/"' in h
@@ -196,7 +196,7 @@ def test_episode_context_is_home_blurb(site):
     import html as _h
     home = read(site, "index.html")
     assert _h.escape(CTX0) in home and "The conversation that started the show." not in home   # beats site.json
-    assert "Episode 1 picks up where the first conversation left off" in home
+    assert "This bonus episode picks up" not in home       # bonus context is never the featured blurb
 
 
 def test_feed_context_then_topics(site):
@@ -216,3 +216,58 @@ def test_episode_without_context_keeps_blurb():
     assert B.context_html(ep) == ""
     out = B.context_html({"context": "C & D", "topics": ["a<b"]})
     assert "C &amp; D" in out and "<li>a&lt;b</li>" in out
+
+
+def test_bonus_episode_never_featured(site):
+    h = read(site, "index.html")
+    hero = h[h.index('class="hero"'):h.index('class="show"')]
+    assert "First Encounter" in hero and "Making of Eve" not in hero and f"/episodes/{EP0}/" in hero
+    main = h[h.index('id="eps-h"'):h.index('aria-labelledby="bonus-h"')]
+    assert f"/episodes/{EP0}/" in main and f"/episodes/{EP1}/" not in main
+    bonus = h[h.index('aria-labelledby="bonus-h"'):]
+    bonus = bonus[:bonus.index("</section>")]
+    assert f'href="/episodes/{EP1}/"' in bonus and '<span class="badge badge--bonus">Bonus</span>' in bonus
+    assert "Bonus: The Making of Eve" in bonus and f"/episodes/{EP0}/" not in bonus
+
+
+def test_bonus_episode_page_badge_and_people_refs(site):
+    h = read(site, f"episodes/{EP1}/index.html")
+    assert '<p class="ep-badges"><span class="badge badge--bonus">Bonus</span></p>' in h
+    assert '<h1 class="ep-title">Bonus: The Making of Eve</h1>' in h and ">BONUS<" in h
+    assert '"episodeNumber": null' in h
+    assert 'badge--bonus' not in read(site, f"episodes/{EP0}/index.html").split('class="more"')[0]
+    # person pages and moments still resolve for full episodes
+    assert f'href="/episodes/{EP0}/#t=' in read(site, "people/david-sacks/index.html")
+
+
+def test_feed_bonus_item(site):
+    root = ET.fromstring(read(site, "feed.xml"))
+    ns = {"itunes": "http://www.itunes.com/dtds/podcast-1.0.dtd"}
+    items = {i.findtext("guid"): i for i in root.iter("item")}
+    assert len(items) == 2
+    b = items["ask-eve:2026-10-23_the-making-of-eve"]
+    assert b.findtext("title") == "Bonus: The Making of Eve"
+    assert b.findtext("itunes:episodeType", namespaces=ns) == "bonus" and b.find("itunes:episode", ns) is None
+    assert b.find("enclosure").get("url") == "https://audio.askevepodcast.com/audio/en/2026-10-23_the-making-of-eve.v1.mp3"
+    f = items["ask-eve:2026-10-23_eve-david-podcast-planning"]
+    assert f.findtext("title") == "First Encounter" and f.findtext("itunes:episodeType", namespaces=ns) == "full"
+    assert f.find("itunes:episode", ns) is None      # episode 0: no number rather than 0
+
+
+def test_itunes_episode_number_rules():
+    import render_feed as F
+    assert F.itunes_episode({"episode_type": "full", "episode_number": 3}) == 3
+    assert F.itunes_episode({"episode_type": "full", "episode_number": 1}) == 1
+    assert F.itunes_episode({"episode_type": "full", "episode_number": 0}) is None      # Apple wants positive integers
+    assert F.itunes_episode({"episode_type": "full", "episode_number": None}) is None
+    assert F.itunes_episode({"episode_type": "bonus", "episode_number": 1}) is None     # bonus items are unnumbered
+    assert F.itunes_episode({"episode_type": "trailer", "episode_number": 2}) is None
+    assert F.itunes_episode({"episode_number": 2}) == 2                                 # missing type = full
+
+
+def test_front_matter_episode_type():
+    from frontmatter import episode_number, episode_type
+    assert episode_type({}) == "full" and episode_type({"episode_type": "Bonus"}) == "bonus"
+    assert episode_number({"episode": "2"}) == 2 and episode_number({"episode": "2", "episode_type": "bonus"}) is None
+    with pytest.raises(ValueError):
+        episode_type({"episode_type": "special"})

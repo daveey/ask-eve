@@ -18,3 +18,22 @@ def parse_front_matter_block(block: str) -> dict:
             last = k.strip()
             fm[last] = v.strip()
     return fm
+
+
+EPISODE_TYPES = ("full", "bonus")
+
+
+def episode_type(fm: dict) -> str:
+    """`episode_type: full|bonus` (default full). Bonus episodes are never featured and carry no episode number."""
+    t = str(fm.get("episode_type") or "full").strip().lower()
+    if t not in EPISODE_TYPES:
+        raise ValueError(f"episode_type must be one of {EPISODE_TYPES}, not {t!r}")
+    return t
+
+
+def episode_number(fm: dict) -> int | None:
+    """Front-matter `episode: N` for full episodes; bonus episodes have none."""
+    if episode_type(fm) == "bonus":
+        return None
+    v = str(fm.get("episode", "")).strip()
+    return int(v) if v.isdigit() else None
