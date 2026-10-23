@@ -124,3 +124,39 @@ Deploy token: broker-held `user/cf-askeve` (Ask Eve account b4d4a3f8b5b4d5ba074f
 4. **Test slugs.** Yes: skip the Drive copy and the notify email for `e2e-test` and `smoke-*` slugs. Hermes trashed the leftover `Ask Eve/2026-10-23_e2e-test/` folder in David's Drive.
 
 Also done: episode 0 (PR #4) was merged by David, and publish.yml was dispatched for `2026-10-23_eve-david-podcast-planning`.
+
+### D-011 done 2026-10-23T21:07Z
+- commands run:
+  ```
+  git fetch origin && git show origin/main:site/static/art/cover-3000.jpg > cover-3000.jpg
+  printf '%s  %s\n' 5279b440c4d5e72fc0b7861cdc40d5f5a3ffd0659a58d8b91188401dc4938cc3 cover-3000.jpg | sha256sum -c -
+  npx wrangler@4 r2 object put "ask-eve-public/art/cover-3000.v1.jpg" --file cover-3000.jpg --content-type image/jpeg --remote
+  curl -sI https://audio.askevepodcast.com/art/cover-3000.v1.jpg
+  curl -s https://audio.askevepodcast.com/art/cover-3000.v1.jpg -o cover.jpg && sha256sum cover.jpg   # + the guide's python dimension snippet
+  ```
+  (Cloudflare credentials from the broker scope `user/cf-askeve` as $CLOUDFLARE_API_TOKEN / $CLOUDFLARE_ACCOUNT_ID.)
+- outputs / success-check results:
+  ```
+  cover-3000.jpg: OK            (331005 bytes; guide sha256 50252549… confirmed before starting)
+  before upload: curl -sI …/art/cover-3000.v1.jpg -> HTTP/2 404
+  ⛅️ wrangler 4.152.0
+  Resource location: remote
+  Creating object "art/cover-3000.v1.jpg" in bucket "ask-eve-public".
+  Upload complete.
+  $ curl -sI https://audio.askevepodcast.com/art/cover-3000.v1.jpg
+  HTTP/2 200
+  content-type: image/jpeg
+  content-length: 331005
+  etag: "7e562e149fe2f5ab55a202f372bdaa21"
+  last-modified: Fri, 23 Oct 2026 21:07:39 GMT
+  $ sha256sum (downloaded)
+  5279b440c4d5e72fc0b7861cdc40d5f5a3ffd0659a58d8b91188401dc4938cc3
+  dimensions (guide snippet): 3000x3000   (file(1): JPEG baseline, 3000x3000, 3 components)
+  ```
+- resource ids and URLs: R2 bucket `ask-eve-public`, key `art/cover-3000.v1.jpg`,
+  https://audio.askevepodcast.com/art/cover-3000.v1.jpg (the feed's `<itunes:image href>`, unchanged).
+- §11 rows touched by this task, re-run: #3 both buckets listed; #4 masters r2.dev disabled, no custom domains;
+  #5 `/does-not-exist` → 404 from Cloudflare/R2; #6 `access-control-allow-origin: https://askevepodcast.com` on the cover;
+  #12 feed.xml 200 `application/rss+xml; charset=utf-8`, `<itunes:image href="https://audio.askevepodcast.com/art/cover-3000.v1.jpg"/>`,
+  2 `<item>`s. All PASS.
+- notes: only that one object was written; nothing else created, overwritten or deleted. No site/feed rebuild.
