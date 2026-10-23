@@ -55,13 +55,13 @@ def make_chapters(md: str, timeline: dict, min_gap: float = 120.0) -> list[dict]
         tmap = {t.index: t for t in turns}
         for x in timeline["turns"]:
             src = x.get("source")
-            if src not in ("real", "narrator", "gap") or (src == "gap" and chapters[-1]["title"].startswith("Transcript gap")):
+            if src not in ("real", "narrator", "gap", "missing") or (src == "gap" and chapters[-1]["title"].startswith("Transcript gap")):
                 continue
             tr = tmap[x["i"]]
             clock = (tr.created_at or "")[11:16]
-            words = " ".join(re.sub(r"[\[\]()*_`#>]", "", tr.text).split()[:7])
+            words = " ".join(re.sub(r"[\[\]()*_`#>]", "", re.sub(r"https?://\S+", "a pasted link", tr.text)).split()[:7])
             title = (f"Transcript gap {clock}: Eve's reply not recovered (not voiced)" if src == "gap" else
-                     f"{clock} David ({'his recorded voice' if src == 'real' else 'AI-reconstructed, narrator voice'}): {words}")
+                     f"{clock} David ({'his recorded voice' if src == 'real' else 'MISSING AUDIO: not recorded, not voiced' if src == 'missing' else 'AI-reconstructed, narrator voice'}): {words}")
             st = round(float(x["edited_start"]), 3)
             if st <= chapters[-1]["startTime"]:
                 st = round(chapters[-1]["startTime"] + 0.001, 3)

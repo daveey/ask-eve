@@ -201,6 +201,7 @@ class Params:
     eve_lead: float = 0.3       # silence after David stops before Eve's placement starts
     eve_tail: float = 0.3       # silence kept before the next David turn
     min_gap: float = 0.2
+    pause_split: float = 0.8    # a short David turn's span never extends across a pause longer than this
 
 
 def align(turns: list[Turn], words: list[Word], params: Params = Params(), sync_phrase: str | None = SYNC_PHRASE,
@@ -267,7 +268,15 @@ def align(turns: list[Turn], words: list[Word], params: Params = Params(), sync_
             continue
         first = head[0]
         tail = find_phrase(tw[-params.query_words:], W, first, first + int(1.5 * n) + 30, params.min_score) if n > params.query_words else None
-        last = tail[1] if tail else min(len(W) - 1, max(head[1], first + n - 1))
+        if tail:
+            last = tail[1]
+        else:
+            # short turn: extend past the fuzzy match end toward n words, but never across a pause (> pause_split s):
+            # with David-only audio the next words after a pause are his NEXT turn, and swallowing them would
+            # make that turn start late and squeeze Eve's slot to zero (seen on episode 2, where ASR dropped fillers)
+            last = head[1]
+            while last < min(len(W) - 1, first + n - 1) and words[last + 1].start - words[last].end <= params.pause_split:
+                last += 1
         res[t.index] = {"raw_start": words[first].start, "raw_end": words[last].end, "method": "asr-match",
                         "score": round(head[2], 1)}
         cursor, words_since = last + 1, 0

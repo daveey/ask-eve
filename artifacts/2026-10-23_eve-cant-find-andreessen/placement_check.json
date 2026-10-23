@@ -1,0 +1,11 @@
+{
+ "alignment_coverage": 0.9286,
+ "matchable": 28,
+ "matched": 26,
+ "asr_model": "faster-whisper small int8",
+ "median_abs_error_s": 0.13,
+ "p95_abs_error_s": 0.84,
+ "max_abs_error_s": 1.51,
+ "tolerance_s": 2.0,
+ "outside_tolerance": []
+}

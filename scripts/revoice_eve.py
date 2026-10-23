@@ -95,6 +95,11 @@ HYBRID_DISCLAIMER = ("Eve's voice, and David's lines wherever his recording is m
 HYBRID_DISCLOSURE = ("AI-reconstructed audio: Eve's lines are xAI text-to-speech ('eve' voice) from the verbatim chat transcript; "
                      "David's lines are his own recorded voice only where the recording matches the transcript, and an AI narrator "
                      "voice ('rex') everywhere else. Transcript gaps are marked, not invented.")
+FLAG_DISCLAIMER = ("Eve's voice in this episode is AI-reconstructed from the text transcript. David's voice is his own recording. "
+                   "Where his recording is missing, his line is flagged in the transcript and chapters and is not voiced.")
+FLAG_DISCLOSURE = ("AI-reconstructed audio: Eve's lines are xAI text-to-speech ('eve' voice) from the verbatim transcript; "
+                   "David's lines are his own recorded voice where the recording matches the transcript. David's lines with no "
+                   "matching recording are flagged as missing audio and are not voiced (no narrator fill). Transcript gaps are marked, not invented.")
 GAP_RE = re.compile(r"^\[transcript gap\b", re.I)   # marker turns: never voiced
 
 
@@ -413,13 +418,19 @@ def cut_clip(src: Path, start: float, end: float, dst: Path) -> Path:
 def synthesize_episode(turns, eve: TTSClient, narrator: TTSClient, out_dir: Path, cache: Path,
                        pause: float = 0.6, disclaimer: str | None = DISCLAIMER, lead_in: float = 0.5, workers: int = 4,
                        real_clips: dict[int, dict] | None = None, real_audio: Path | None = None,
-                       ai_disclosure: str | None = None) -> dict:
+                       ai_disclosure: str | None = None, missing_david: str = "narrator", missing_beat: float = 0.8) -> dict:
     """Fully synthetic ('tts-reconstructed') episode: disclaimer (narrator voice) + every turn in order,
     Eve's lines in Eve's voice, David's lines in the narrator voice, `pause` seconds between turns.
 
     Hybrid mode (real_clips given): David turns listed in real_clips ({turn: {"start", "end", "score"}} in
     seconds of `real_audio`) use his recorded voice; every other David turn is the narrator (AI-reconstructed);
-    Eve is always TTS. Turns whose text is a "[transcript gap ...]" marker are never voiced."""
+    Eve is always TTS. Turns whose text is a "[transcript gap ...]" marker are never voiced.
+
+    missing_david: 'narrator' (episodes 0-1: unrecorded David turns are read by the narrator) or 'flag' (normal
+    episodes: unrecorded David turns are NOT voiced; they get source 'missing', a `missing_beat` of silence, and
+    are listed in coverage.david_missing_turns so chapters, D1 and the PR can flag them)."""
+    if missing_david not in ("narrator", "flag"):
+        raise ValueError(f"missing_david must be 'narrator' or 'flag', not {missing_david!r}")
     real_clips = real_clips or {}
     hybrid = bool(real_clips) or real_audio is not None
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -438,15 +449,24 @@ def synthesize_episode(turns, eve: TTSClient, narrator: TTSClient, out_dir: Path
     for i in real:
         if real_audio is None:
             raise ValueError("real_clips need real_audio")
+    flagged = ({tr.index for tr in turns if tr.speaker != "Eve" and tr.index not in real and tr.index not in gaps
+                and tts_text(tr.text)} if missing_david == "flag" else set())
     jobs = {tr.index: (eve if tr.speaker == "Eve" else narrator, tr.text) for tr in turns
-            if tts_text(tr.text) and tr.index not in gaps and tr.index not in real}
+            if tts_text(tr.text) and tr.index not in gaps and tr.index not in real and tr.index not in flagged}
     clips, failed = prefetch(jobs, cache, workers)
     rdir = out_dir / "real-clips"
     for i, v in real.items():
         rdir.mkdir(parents=True, exist_ok=True)
         clips[i] = cut_clip(real_audio, float(v["start"]), float(v["end"]), rdir / f"turn{i:04d}.wav")
-    out_turns, missing = [], [tr.index for tr in turns if tr.index not in jobs and tr.index not in real and tr.index not in gaps]
+    out_turns, missing = [], [tr.index for tr in turns if tr.index not in jobs and tr.index not in real and tr.index not in gaps
+                              and tr.index not in flagged]
     for tr in turns:
+        if tr.index in flagged:
+            out_turns.append({"i": tr.index, "speaker": tr.speaker, "created_at": tr.created_at, "raw_start": None, "raw_end": None,
+                              "edited_start": round(t, 3), "edited_end": round(t, 3), "method": "interpolated",
+                              "edited_method": "interpolated", "score": None, "source": "missing"})
+            t += missing_beat
+            continue
         if tr.index in real:
             c = clips[tr.index]; d = wav_seconds(c); v = real[tr.index]
             parts.append((t, c))
@@ -483,7 +503,7 @@ def synthesize_episode(turns, eve: TTSClient, narrator: TTSClient, out_dir: Path
                 n = c.getnframes(); o.writeframes(c.readframes(n)); written += n
         o.writeframes(b"\x00\x00" * _frames(1.0)); written += _frames(1.0)
     placeholder = bool(getattr(eve, "placeholder", True) or getattr(narrator, "placeholder", True) or failed)
-    david_lines = [x for x in out_turns if x["speaker"] == "David" and x["source"] in ("real", "narrator")]
+    david_lines = [x for x in out_turns if x["speaker"] == "David" and x["source"] in ("real", "narrator", "missing")]
     n_real = sum(x["source"] == "real" for x in david_lines)
     dur = lambda xs: round(sum(x["edited_end"] - x["edited_start"] for x in xs), 3)  # noqa: E731
     coverage = {"david_lines": len(david_lines), "david_real": n_real, "david_narrator": len(david_lines) - n_real,
@@ -491,7 +511,10 @@ def synthesize_episode(turns, eve: TTSClient, narrator: TTSClient, out_dir: Path
                 "david_real_seconds": dur([x for x in david_lines if x["source"] == "real"]),
                 "david_narrator_seconds": dur([x for x in david_lines if x["source"] == "narrator"]),
                 "eve_seconds": dur([x for x in out_turns if x.get("source") == "eve-tts"]),
-                "gap_turns": sorted(gaps)}
+                "gap_turns": sorted(gaps),
+                **({"david_missing": len(flagged), "david_missing_turns": sorted(flagged), "missing_david": "flag"}
+                   if missing_david == "flag" else {})}
+    coverage["david_narrator"] = sum(x["source"] == "narrator" for x in david_lines)
     result = {"recording_method": "mic-plus-tts" if hybrid else "tts-reconstructed", "tts": eve.name,
               "ai_reconstructed": True, "ai_disclosure": (ai_disclosure or HYBRID_DISCLOSURE) if hybrid else ai_disclosure, "mode": "hybrid" if hybrid else "synthetic",
               "coverage": coverage,
@@ -521,6 +544,8 @@ def main(argv: list[str] | None = None, client: TTSClient | None = None, narrato
     ap.add_argument("--language", default="en")
     ap.add_argument("--disclaimer", help="spoken opening disclaimer (narrator voice); default depends on mode")
     ap.add_argument("--disclosure", help="written AI disclosure for D1/feed/show notes (hybrid default: HYBRID_DISCLOSURE)")
+    ap.add_argument("--missing-david", choices=["narrator", "flag"], default="narrator",
+                    help="hybrid: unrecorded David turns read by the narrator (episodes 0-1) or flagged as missing audio and not voiced")
     ap.add_argument("--pause-after", type=float, default=0.35)
     ap.add_argument("--max-pause", type=float, default=None)
     a = ap.parse_args(argv)
@@ -532,9 +557,12 @@ def main(argv: list[str] | None = None, client: TTSClient | None = None, narrato
         rc = {int(k): v for k, v in json.loads(a.real_clips.read_text()).items()} if a.real_clips else None
         if rc is not None and not a.audio:
             ap.error("--real-clips needs --audio (David's cleaned 48 kHz track)")
-        r = synthesize_episode(turns, eve, narr, a.out, a.cache, disclaimer=a.disclaimer or (HYBRID_DISCLAIMER if rc is not None else DISCLAIMER),
+        flag = a.missing_david == "flag"
+        default_disc = (FLAG_DISCLAIMER if flag else HYBRID_DISCLAIMER) if rc is not None else DISCLAIMER
+        r = synthesize_episode(turns, eve, narr, a.out, a.cache, disclaimer=a.disclaimer or default_disc,
                                workers=a.workers, real_clips=rc, real_audio=a.audio if rc is not None else None,
-                               ai_disclosure=a.disclosure)
+                               ai_disclosure=a.disclosure or (FLAG_DISCLOSURE if flag and rc is not None else None),
+                               missing_david=a.missing_david)
         print(json.dumps({k: r[k] for k in ("mode", "tts", "narrator", "placeholder_audio", "edited_duration", "missing_turns", "coverage")}))
         return 0
     if not (a.alignment and a.audio):

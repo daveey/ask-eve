@@ -163,3 +163,23 @@ def test_parse_transcript_keeps_relayed_as_metadata_out_of_spoken_text():
     assert "Two jobs" not in turns[0].text and "relayed as" not in turns[0].text
     assert turns[0].meta.startswith("relayed as") and "(1) Update the doc." in turns[0].meta
     assert turns[1].text == "On it." and turns[1].meta == ""
+
+
+def test_short_turn_span_does_not_swallow_next_turn_after_pause():
+    # episode 2 regression: ASR dropped fillers ("uh", "all, all"), so n-word extension ran into David's NEXT turn
+    md = ("---\ndate: 2026-11-01\ntitle: t\npeople: []\n---\n\n"
+          "[10:00:00] David: Well, uh, what were we talking about on our last podcast?\n\n[10:00:05] Eve: Setup notes.\n\n"
+          "[10:00:30] David: Do you not have it?\n\n[10:00:35] Eve: No.\n\n"
+          "[10:01:00] David: Do you have access to my list of sessions?\n")
+    def seq(text, t0):
+        out = []
+        for k, w in enumerate(text.split()):
+            out.append(A.Word(w, t0 + 0.3 * k, t0 + 0.3 * k + 0.25))
+        return out
+    words = (seq("Well, what were we talking about on our last podcast?", 2.0) + seq("Do you not have it?", 30.0)
+             + seq("Do you have access to my list of sections?", 60.0))
+    r = A.align(A.parse_transcript(md), words)
+    by = {t["i"]: t for t in r["turns"]}
+    assert by[0]["raw_end"] < 10 and by[1]["raw_end"] > by[1]["raw_start"]     # Eve's slot is real, not zero-length
+    assert by[2]["method"] == "asr-match" and by[2]["raw_start"] == pytest.approx(30.0)
+    assert by[4]["method"] == "asr-match" and by[4]["raw_start"] == pytest.approx(60.0)

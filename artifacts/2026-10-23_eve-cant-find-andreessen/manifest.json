@@ -1,0 +1,108 @@
+{
+ "stem": "2026-10-23_eve-cant-find-andreessen",
+ "version": 1,
+ "audio_key": "audio/en/2026-10-23_eve-cant-find-andreessen.v1.mp3",
+ "audio_url": "https://audio.askevepodcast.com/audio/en/2026-10-23_eve-cant-find-andreessen.v1.mp3",
+ "audio_bytes": 7864270,
+ "audio_sha256": "7f413ff45050b7544d44449a850d7947a504f5323011126deb2f9c5f20396803",
+ "audio_mime": "audio/mpeg",
+ "duration_seconds": 491,
+ "loudness_lufs": -16.9,
+ "true_peak_dbfs": -4.7,
+ "id3_chapters": 17,
+ "chapters": [
+  {
+   "startTime": 0.0,
+   "title": "AI-reconstructed audio notice"
+  },
+  {
+   "startTime": 13.65,
+   "title": "18:20 David (his recorded voice): Hi Eve, can you hear me?"
+  },
+  {
+   "startTime": 21.11,
+   "title": "18:20 David (his recorded voice): Yeah, this is episode one of our"
+  },
+  {
+   "startTime": 32.29,
+   "title": "18:21 David (his recorded voice): Cool. Well, uh, what were we talking"
+  },
+  {
+   "startTime": 67.89,
+   "title": "18:21 David (his recorded voice): Wait, what are you talking about? We"
+  },
+  {
+   "startTime": 81.69,
+   "title": "18:21 David (his recorded voice): Do you not have it?"
+  },
+  {
+   "startTime": 96.89,
+   "title": "18:22 David (his recorded voice): Do you have access to my list"
+  },
+  {
+   "startTime": 111.97,
+   "title": "18:22 David (his recorded voice): There is a conversation called Andreessen and"
+  },
+  {
+   "startTime": 131.01,
+   "title": "18:22 David (his recorded voice): I'm so confused. Read the first transcript"
+  },
+  {
+   "startTime": 283.05,
+   "title": "18:23 David (his recorded voice): Okay, wait. So then why, why couldn't"
+  },
+  {
+   "startTime": 299.47,
+   "title": "18:23 David (his recorded voice): But it's also right there in my"
+  },
+  {
+   "startTime": 313.57,
+   "title": "18:23 David (his recorded voice): Can you figure out what's going on"
+  },
+  {
+   "startTime": 376.25,
+   "title": "18:24 David (his recorded voice): Okay, but this conversation, no, the Andreessen"
+  },
+  {
+   "startTime": 406.87,
+   "title": "18:25 David (MISSING AUDIO: not recorded, not voiced): a pasted link"
+  },
+  {
+   "startTime": 455.94,
+   "title": "18:25 David (his recorded voice): Okay so why can't, why couldn't you"
+  },
+  {
+   "startTime": 486.22,
+   "title": "18:27 David (MISSING AUDIO: not recorded, not voiced): S"
+  },
+  {
+   "startTime": 488.57,
+   "title": "18:28 David (MISSING AUDIO: not recorded, not voiced): S"
+  }
+ ],
+ "recording_method": "mic-plus-tts",
+ "ai_reconstructed": true,
+ "mode": "hybrid",
+ "coverage": {
+  "david_lines": 16,
+  "david_real": 13,
+  "david_narrator": 0,
+  "david_real_share": 0.8125,
+  "david_real_seconds": 54.11,
+  "david_narrator_seconds": 0,
+  "eve_seconds": 403.36,
+  "gap_turns": [],
+  "david_missing": 3,
+  "david_missing_turns": [
+   24,
+   28,
+   30
+  ],
+  "missing_david": "flag"
+ },
+ "placeholder_audio": false,
+ "tts": "xai_tts voice=eve",
+ "narrator": "xai_tts voice=rex",
+ "missing_turns": [],
+ "transcript_sha256": "11d44b4b7fe3e960a63a39fa460d6844644bc38b2c2ef7a723c8d60443d0d356"
+}

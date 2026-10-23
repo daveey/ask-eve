@@ -214,3 +214,28 @@ def test_hybrid_chapters_and_d1_labels(tmp_path, david):
     tr = tmp_path / "2026-11-01_x.md"; tr.write_text(md)
     sql = D.build_sql(tr, tmp_path, "x", revoice=r)
     assert "'mic-plus-tts'" in sql and R.HYBRID_DISCLOSURE.replace("'", "''") in sql and "'asr-fuzzy'" in sql
+
+
+def test_hybrid_flag_mode_missing_david_not_voiced(tmp_path, david):
+    import produce_audio as P
+    import d1_upsert as D
+    md = ("---\ndate: 2026-11-01\ntitle: t\npeople: []\n---\n\n"
+          "[10:00:00] David: spoken line\n\n[10:00:00] Eve: Answer one.\n\n"
+          "[10:01:00] David: https://example.com/share/abc\n\n[10:01:00] Eve: Got it.\n")
+    eve, nar = FakeTTS({}, default=0.5), FakeTTS({}, default=0.5)
+    r = R.synthesize_episode(A.parse_transcript(md), eve, nar, tmp_path / "f", tmp_path / "c", disclaimer=R.FLAG_DISCLAIMER,
+                             ai_disclosure=R.FLAG_DISCLOSURE, real_clips={0: {"start": 1.0, "end": 3.0, "score": 95.0}},
+                             real_audio=david, missing_david="flag")
+    assert nar.calls == [R.FLAG_DISCLAIMER]                     # the missing David line is never synthesized
+    assert [t["source"] for t in r["turns"]] == ["real", "eve-tts", "missing", "eve-tts"]
+    cov = r["coverage"]
+    assert cov["david_real"] == 1 and cov["david_missing"] == 1 and cov["david_missing_turns"] == [2] and cov["david_narrator"] == 0
+    m = r["turns"][2]
+    assert m["edited_start"] == m["edited_end"] and r["turns"][3]["edited_start"] >= m["edited_end"] + 0.79
+    ch = P.make_chapters(md, r)
+    miss = [c["title"] for c in ch if "MISSING AUDIO" in c["title"]]
+    assert len(miss) == 1 and miss[0].endswith("a pasted link") and "example.com" not in miss[0]
+    tr = tmp_path / "2026-11-01_x.md"; tr.write_text(md)
+    assert R.FLAG_DISCLOSURE.replace("'", "''") in D.build_sql(tr, tmp_path, "x", revoice=r)
+    with pytest.raises(ValueError):
+        R.synthesize_episode(A.parse_transcript(md), eve, nar, tmp_path / "g", tmp_path / "c", missing_david="bogus")
