@@ -35,6 +35,7 @@ ROOT = Path(__file__).resolve().parent.parent
 STATIC = ROOT / "site/static"
 TABLES = ["episodes", "people", "episode_people", "chapters", "turn_offsets"]
 SITE, EMAIL = F.SITE, F.OWNER_EMAIL
+REPO = "https://github.com/daveey/ask-eve"
 TAGLINE = "Tech, power and the people shaping both, with an AI co-host who argues back."
 TURN_RE = re.compile(r"^\[(\d{2}):(\d{2}):(\d{2})\] (David|Eve): ?(.*)$")
 REAL_METHODS = {"asr-match", "sync-phrase", "interpolated", "fit"}   # David's recorded track
@@ -405,8 +406,9 @@ ICON = {
     "mail": '<path d="M4 6h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1zm0 1.5 8 6 8-6"/>',
     "spark": '<path d="M12 2.5l1.9 5.6 5.6 1.9-5.6 1.9L12 17.5l-1.9-5.6L4.5 10l5.6-1.9zM18.5 15l.9 2.6 2.6.9-2.6.9-.9 2.6-.9-2.6-2.6-.9 2.6-.9z"/>',
     "down": '<path d="M12 4v13m0 0-5.5-5.5M12 17l5.5-5.5"/>',
+    "code": '<path d="M8.5 7 3.5 12l5 5M15.5 7l5 5-5 5M13.5 4.5l-3 15"/>',
 }
-STROKE = {"doc", "mail", "down", "menu"}
+STROKE = {"doc", "mail", "down", "menu", "code"}
 
 
 def icon(name: str, cls: str = "ico") -> str:
@@ -583,7 +585,7 @@ def page(A: Assets, *, title: str, desc: str, path: str, body: str, active: str 
 <footer class="site-foot">
   <div class="wrap site-foot__in">
     <div class="site-foot__brand">{mark_svg("mark mark--sm", "f")}<div><strong>Ask Eve</strong><p>{e(TAGLINE)}</p></div></div>
-    <nav aria-label="Footer">{nav_links(menu_items(), "")}<a href="/people/">People</a><a href="/feed.xml">RSS</a><a href="mailto:{EMAIL}">{EMAIL}</a></nav>
+    <nav aria-label="Footer">{nav_links(menu_items(), "")}<a href="/people/">People</a><a href="/feed.xml">RSS</a><a href="{REPO}" rel="noopener">GitHub</a><a href="mailto:{EMAIL}">{EMAIL}</a></nav>
     <p class="site-foot__fine">Eve is an AI. Her takes are opinions and can be wrong. AI-generated voices are labeled on every episode. No analytics, no trackers.</p>
   </div>
 </footer>
@@ -1126,6 +1128,50 @@ def eve_page(A: Assets, eps: list[dict]) -> str | None:
                 path="/eve/", body=body, active="/eve/", linker=L)
 
 
+# (stage, [(step, detail)]) for the About page's "How it works" diagram. Plain HTML, no scripts.
+PIPELINE = [
+    ("Record", [("Conversation", "David talks with Eve in Grok's voice mode. His iPhone records his side."),
+                ("Upload", "One tap uploads the recording and the chat transcript.")]),
+    ("Ingest", [("Align", "faster-whisper transcribes David's audio, and fuzzy matching pins each of his transcript lines to the second it was said."),
+                ("Re-voice", "Eve's verbatim replies are voiced with xAI text-to-speech and placed in the gaps, labeled as AI."),
+                ("Produce", "Loudness is normalized (-16 LUFS) and an MP3 is built with ID3 chapters."),
+                ("Review", "Everything lands as a pull request. Nothing ships until David merges it.")]),
+    ("Publish", [("Store", "Audio goes to Cloudflare R2 (audio.askevepodcast.com); episode details go to a Cloudflare D1 database."),
+                 ("Index", "Each discussion of a person is found, summarized and timestamped as a moment."),
+                 ("Build", "GitHub Actions run build_site.py and render_feed.py and deploy to Cloudflare Pages.")]),
+    ("Listen", [("Site", "askevepodcast.com: transcripts, chapters, people and the player."),
+                ("Feed", "One RSS feed for Apple Podcasts, Spotify and any podcast app.")]),
+]
+
+
+def how_it_works() -> str:
+    stages = "".join(
+        f'<li class="flow__stage"><h3 class="flow__h"><span class="flow__n" aria-hidden="true">{i}</span>{e(name)}</h3>'
+        f'<ol class="flow__steps">{"".join(f"<li><strong>{e(t)}</strong> {e(d)}</li>" for t, d in steps)}</ol></li>'
+        for i, (name, steps) in enumerate(PIPELINE, 1))
+    return f"""<h2 id="how-it-works">How it works</h2>
+<p>Every episode is a real conversation. Here is how it gets from David's phone to your podcast app. The code is open on <a href="{REPO}" rel="noopener">GitHub</a>.</p>
+<figure class="flow" aria-labelledby="flow-cap"><ol class="flow__stages">{stages}</ol>
+<figcaption id="flow-cap" class="fine">The publishing pipeline, from recording to RSS. Each stage is a step in a GitHub Actions workflow: ingest, publish, metadata and site.</figcaption></figure>
+
+<h3>How Eve persists between episodes</h3>
+<p>Eve doesn't keep a hidden memory. Two things carry her from one conversation to the next:</p>
+<ul>
+<li><strong>Her memory.</strong> Every transcript is kept word for word in git and indexed for search, so she can recall what was said before, mid-conversation. Each new session starts with the end of the last episode. See <a href="/mind/">Inside Eve's Mind</a>.</li>
+<li><strong>Her profile.</strong> The persona instructions she runs with, plus her one-line stance on each person the show covers. The stances are public and change when the evidence does. See <a href="/eve/">Meet Eve</a>.</li>
+</ul>
+
+<h3>Honesty rules</h3>
+<ul>
+<li>Transcripts are verbatim. Audio is fitted to the words, never the other way around.</li>
+<li>Every AI voice is labeled: in the feed, in the show notes, at the top of the episode page, out loud at the start and line by line in the transcript.</li>
+<li>Replies that weren't recovered are marked as missing. They are never invented.</li>
+<li>Quotes on this site are checked against the transcript when the site is built, and every one links to the moment it was said.</li>
+<li>Eve's stances are opinions. She says when she isn't sure, and corrections are welcome.</li>
+<li>Private links, keys and personal details are redacted before anything is published.</li>
+</ul>"""
+
+
 def about_page(A: Assets, cfg: dict) -> str:
     body = f"""<section class="page-head"><div class="wrap"><p class="eyebrow eyebrow--accent">About</p>
 <h1 class="page-title">A podcast with an AI who argues back</h1>
@@ -1142,18 +1188,20 @@ def about_page(A: Assets, cfg: dict) -> str:
 <div class="how"><h3>Labeling</h3><p>Any episode with an AI voice says so in the feed, the show notes, at the top of its page and out loud at 00:00. Transcript lines carry badges: <span class="vb vb--real">Real voice</span> <span class="vb vb--narrator">AI narrator</span> <span class="vb vb--eve">AI voice</span>. Replies that weren't recovered are marked <span class="vb vb--gap">Not recovered</span>. They are never invented. Private links and keys are redacted.</p></div>
 </div>
 
+{how_it_works()}
+
 <h2>Listen</h2>
 <p>Subscribe in any podcast app with the RSS feed. More directories are coming.</p>
 {subscribe_links(cfg)}
 
 <h2>Contact</h2>
-<p class="contact"><a class="btn btn--ghost" href="mailto:{EMAIL}">{icon("mail")}<span>{EMAIL}</span></a></p>
+<p class="contact"><a class="btn btn--ghost" href="mailto:{EMAIL}">{icon("mail")}<span>{EMAIL}</span></a> <a class="btn btn--ghost" href="{REPO}" rel="noopener">{icon("code")}<span>Source on GitHub</span></a></p>
 <p>Corrections are welcome, especially when Eve gets something wrong.</p>
 
 <h2>Privacy</h2>
 <p>This site has no analytics, cookies, trackers or third-party scripts, and its fonts are self-hosted. Your color-theme choice and listening position are stored only in your browser. Audio streams from <code>audio.askevepodcast.com</code>.</p>
 </section>"""
-    return page(A, title="About", desc="What Ask Eve is, how Eve's memory and re-voicing work, how AI voices are labeled, and how to get in touch.",
+    return page(A, title="About", desc="What Ask Eve is, how an episode goes from a phone call to your podcast app, how Eve's memory and re-voicing work, how AI voices are labeled, and how to get in touch.",
                 path="/about/", body=body, active="/about/")
 
 

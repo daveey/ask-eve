@@ -456,3 +456,16 @@ def test_mind_hub(site):
     assert "https://askevepodcast.com/mind/" in read(site, "sitemap.xml")
     foot = h[h.index('<footer'):]
     assert 'href="/about/"' in foot and 'href="/mind/"' in foot and 'href="/people/"' in foot
+
+
+def test_about_how_it_works(site):
+    h = read(site, "about/index.html")
+    assert 'id="how-it-works"' in h and '<figure class="flow"' in h and "mermaid" not in h
+    for w in ("faster-whisper", "xAI text-to-speech", "ID3 chapters", "Cloudflare R2", "D1", "build_site.py",
+              "render_feed.py", "Cloudflare Pages", "Apple Podcasts", "Spotify", "Honesty rules", "Her profile"):
+        assert w in h, w
+    assert 'href="https://github.com/daveey/ask-eve"' in h
+    for rel in ("index.html", "mind/index.html", "eve/index.html"):          # GitHub in the footer sitewide
+        foot = read(site, rel).split("<footer", 1)[1]
+        assert 'href="https://github.com/daveey/ask-eve" rel="noopener">GitHub</a>' in foot, rel
+    assert "gmail" not in h.lower()
