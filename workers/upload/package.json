@@ -5,7 +5,7 @@
   "type": "module",
   "description": "Presigned R2 uploads + ingest dispatch for Ask Eve (upload.askevepodcast.com)",
   "scripts": {
-    "test": "node --test test/",
+    "test": "node --test test/*.test.mjs",
     "deploy": "npx wrangler@4 deploy",
     "dev": "npx wrangler@4 dev"
   },
