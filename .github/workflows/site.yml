@@ -1,0 +1,46 @@
+# Build askevepodcast.com from D1 and deploy it to Cloudflare Pages (project ask-eve, Ask Eve CF account).
+# Replaces the Netlify build + build hook (docs/deploy-guide.md §7, deviation D-006). publish.yml dispatches this workflow.
+name: site
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - scripts/build_site.py
+      - scripts/render_feed.py
+      - site/_headers
+      - .github/workflows/site.yml
+
+permissions:
+  contents: read
+
+concurrency:
+  group: site
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: main
+          persist-credentials: false
+
+      - name: Build site from D1 (read-only token)
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          D1_DATABASE_ID: ***REDACTED***   # ask-eve-meta; not a secret
+          D1_READ_TOKEN: ${{ secrets.D1_READ_TOKEN }}
+        run: |
+          set -euo pipefail
+          python3 scripts/build_site.py
+          cp site/_headers site/dist/_headers
+
+      - name: Deploy to Cloudflare Pages
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_PAGES_TOKEN }}   # Account Pages Write only
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: npx --yes wrangler@4 pages deploy site/dist --project-name ask-eve --branch main --commit-hash "$GITHUB_SHA"

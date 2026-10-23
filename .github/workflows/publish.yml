@@ -10,6 +10,7 @@ on:
 
 permissions:
   contents: read
+  actions: write   # dispatch site.yml after publishing
 
 concurrency:
   group: publish
@@ -78,8 +79,7 @@ jobs:
           } > publish.sql
           npx --yes wrangler@4 d1 execute "$D1_NAME" --remote --file publish.sql --config workers/upload/wrangler.toml
 
-      - name: Rebuild the site (Netlify build hook)
+      - name: Rebuild the site (dispatch site.yml -> Cloudflare Pages)
         env:
-          HOOK: ${{ secrets.NETLIFY_BUILD_HOOK }}
-        run: |
-          [[ -n "$HOOK" ]] && curl -fsS -X POST -d '{}' "$HOOK" >/dev/null && echo "build triggered" || echo "::warning::NETLIFY_BUILD_HOOK not set"
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run site.yml -R "$GITHUB_REPOSITORY" --ref main && echo "site build triggered"
