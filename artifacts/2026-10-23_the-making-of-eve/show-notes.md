@@ -3,7 +3,7 @@
 > **AI-reconstructed audio.** David's voice is real in the recorded segments; Eve's voice and David's unrecorded lines are AI-reconstructed; in the recorded segments Eve's lines are her text replies from that session, re-voiced, not the exact words spoken live.
 
 - Date: 2026-10-23
-- Duration: 00:41:30
+- Duration: 00:41:25
 - Transcript: https://askevepodcast.com/episodes/the-making-of-eve/
 - Source: grokbot-chat
 
@@ -44,8 +44,8 @@
 - 00:38:11 10:52 David (AI-reconstructed, narrator voice): How do I share the transcript
 - 00:38:13 Transcript gap 10:52: Eve's reply not recovered (not voiced)
 - 00:38:13 10:55 David (AI-reconstructed, narrator voice): I put audio on gdrive in AskEve
-- 00:39:16 10:56 David (AI-reconstructed, narrator voice): Where do I get it? Can’t you
-- 00:39:48 10:58 David (AI-reconstructed, narrator voice): Hello?
-- 00:40:08 10:58 David (AI-reconstructed, narrator voice): But I’m talking to a grokbot now
-- 00:41:05 10:59 David (AI-reconstructed, narrator voice): Start from the beginning, when I first
-- 00:41:26 11:00 David (AI-reconstructed, narrator voice): Which you will fill in with narrator
+- 00:39:11 10:56 David (AI-reconstructed, narrator voice): Where do I get it? Can’t you
+- 00:39:43 10:58 David (AI-reconstructed, narrator voice): Hello?
+- 00:40:03 10:58 David (AI-reconstructed, narrator voice): But I’m talking to a grokbot now
+- 00:41:00 10:59 David (AI-reconstructed, narrator voice): Start from the beginning, when I first
+- 00:41:21 11:00 David (AI-reconstructed, narrator voice): Which you will fill in with narrator

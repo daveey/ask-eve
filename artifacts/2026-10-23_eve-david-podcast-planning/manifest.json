@@ -3,12 +3,12 @@
  "version": 1,
  "audio_key": "audio/en/2026-10-23_eve-david-podcast-planning.v1.mp3",
  "audio_url": "https://audio.askevepodcast.com/audio/en/2026-10-23_eve-david-podcast-planning.v1.mp3",
- "audio_bytes": 138609702,
- "audio_sha256": "e37afa1f92cd4d30745b21fb78cf4245970e68ff2cbf8ac84c4c0141511091ce",
+ "audio_bytes": 137334508,
+ "audio_sha256": "6cf5a294685aad400ae46bfde38622894b77ceb3b37ef2e5c37a84d0ea8ddbd1",
  "audio_mime": "audio/mpeg",
- "duration_seconds": 8663,
+ "duration_seconds": 8583,
  "loudness_lufs": -16.8,
- "true_peak_dbfs": -4.3,
+ "true_peak_dbfs": -4.4,
  "id3_chapters": 8,
  "chapters": [
   {
@@ -32,25 +32,36 @@
    "title": "Jason Calacanis"
   },
   {
-   "startTime": 5103.88,
+   "startTime": 5024.2,
    "title": "Chan & Nancy Pelosi & Scott Wiener"
   },
   {
-   "startTime": 5760.48,
+   "startTime": 5680.8,
    "title": "Bari Weiss"
   },
   {
-   "startTime": 6042.2,
+   "startTime": 5962.52,
    "title": "Zohran Mamdani"
   }
  ],
  "recording_method": "tts-reconstructed",
  "ai_reconstructed": true,
+ "mode": "synthetic",
+ "coverage": {
+  "david_lines": 152,
+  "david_real": 0,
+  "david_narrator": 152,
+  "david_real_share": 0.0,
+  "david_real_seconds": 0,
+  "david_narrator_seconds": 959.85,
+  "eve_seconds": 7435.61,
+  "gap_turns": []
+ },
  "placeholder_audio": false,
  "tts": "xai_tts voice=eve",
  "narrator": "xai_tts voice=rex",
  "missing_turns": [
   79
  ],
- "transcript_sha256": "15d413f1fc34283cc1bb50f31d694395979201996d803a5871ee1020b3adcea4"
+ "transcript_sha256": "5f95a616883b1f5c6cecf3f0fbf7daf6b22f1e1a1f5392f16f0f22701761d13c"
 }

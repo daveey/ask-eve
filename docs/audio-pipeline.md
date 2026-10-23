@@ -425,7 +425,7 @@ The Worker holds **no Cloudflare API token** (10:45). `wrangler.toml` lists the 
 ### 9.1 Episode zero: `2026-10-23_eve-david-podcast-planning` (`tts-reconstructed`)
 - The 304-turn Grok voice session (07:29:52–09:49:22 UTC), sha256 `15d413f1…adcea4`, 151,711 bytes. No audio of it exists.
 - Produced fully synthetic: Eve in the `eve` voice, David's lines in the `rex` narrator voice, a spoken disclaimer first ("Voices in this episode are AI-reconstructed from the text transcript."), the AI label in D1, feed, chapters, and show notes. It enters `main` via its ingest PR; `publish.yml` refuses it if any clip was a placeholder.
-- It contains profanity (`explicit = true`), an internal canvas URL, and a reference to a private facts file; David decides whether a curated edit is better before publishing.
+- It contains profanity (`explicit = true`), an internal canvas URL (since redacted from the text and audio; see the transcript's `redactions:` front matter), and a reference to a private facts file; David decides whether a curated edit is better before publishing.
 
 ### 9.2 Episode one: `2026-10-23_the-making-of-eve` (hybrid `mic-plus-tts`)
 - Source: this whole Grok Bot chat (`--source-type grokbot-chat`), 09:33–11:00 UTC, with the pasted xAI key redacted. David's side exists only for 10:31–10:49 (two Voice Memos, stitched with a 2 min 39 s gap). Turns whose reply wasn't recovered are `[transcript gap: …]` markers.

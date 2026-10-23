@@ -1,6 +1,19 @@
 {
  "recording_method": "tts-reconstructed",
  "tts": "xai_tts voice=eve",
+ "ai_reconstructed": true,
+ "ai_disclosure": null,
+ "mode": "synthetic",
+ "coverage": {
+  "david_lines": 152,
+  "david_real": 0,
+  "david_narrator": 152,
+  "david_real_share": 0.0,
+  "david_real_seconds": 0,
+  "david_narrator_seconds": 959.85,
+  "eve_seconds": 7435.61,
+  "gap_turns": []
+ },
  "narrator": "xai_tts voice=rex",
  "placeholder_audio": false,
  "placeholder_turns": [],
@@ -15,7 +28,7 @@
  "missing_turns": [
   79
  ],
- "edited_duration": 8662.99,
+ "edited_duration": 8583.31,
  "time_map": [],
  "turns": [
   {
@@ -29,7 +42,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 1,
@@ -42,7 +56,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 2,
@@ -55,7 +70,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 3,
@@ -68,7 +84,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 4,
@@ -81,7 +98,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 5,
@@ -94,7 +112,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 6,
@@ -107,7 +126,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 7,
@@ -120,7 +140,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 8,
@@ -133,7 +154,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 9,
@@ -146,7 +168,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 10,
@@ -159,7 +182,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 11,
@@ -172,7 +196,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 12,
@@ -185,7 +210,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 13,
@@ -198,7 +224,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 14,
@@ -211,7 +238,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 15,
@@ -224,7 +252,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 16,
@@ -237,7 +266,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 17,
@@ -250,7 +280,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 18,
@@ -263,7 +294,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 19,
@@ -276,7 +308,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 20,
@@ -289,7 +322,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 21,
@@ -302,7 +336,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 22,
@@ -315,7 +350,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 23,
@@ -328,7 +364,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 24,
@@ -341,7 +378,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 25,
@@ -354,7 +392,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 26,
@@ -367,7 +406,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 27,
@@ -380,7 +420,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 28,
@@ -393,7 +434,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 29,
@@ -406,7 +448,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 30,
@@ -419,7 +462,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 31,
@@ -432,7 +476,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 32,
@@ -445,7 +490,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 33,
@@ -458,7 +504,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 34,
@@ -471,7 +518,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 35,
@@ -484,7 +532,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 36,
@@ -497,7 +546,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 37,
@@ -510,7 +560,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 38,
@@ -523,7 +574,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 39,
@@ -536,7 +588,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 40,
@@ -549,7 +602,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 41,
@@ -562,7 +616,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 42,
@@ -575,7 +630,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 43,
@@ -588,7 +644,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 44,
@@ -601,7 +658,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 45,
@@ -614,7 +672,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 46,
@@ -627,7 +686,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 47,
@@ -640,7 +700,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 48,
@@ -653,7 +714,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 49,
@@ -666,7 +728,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 50,
@@ -679,7 +742,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 51,
@@ -692,7 +756,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 52,
@@ -705,7 +770,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 53,
@@ -718,7 +784,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 54,
@@ -731,7 +798,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 55,
@@ -744,7 +812,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 56,
@@ -757,7 +826,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 57,
@@ -770,7 +840,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 58,
@@ -783,7 +854,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 59,
@@ -796,7 +868,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 60,
@@ -809,7 +882,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 61,
@@ -822,7 +896,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 62,
@@ -835,7 +910,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 63,
@@ -848,7 +924,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 64,
@@ -861,7 +938,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 65,
@@ -874,7 +952,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 66,
@@ -887,7 +966,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 67,
@@ -900,7 +980,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 68,
@@ -913,7 +994,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 69,
@@ -926,7 +1008,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 70,
@@ -939,7 +1022,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 71,
@@ -952,7 +1036,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 72,
@@ -965,7 +1050,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 73,
@@ -978,7 +1064,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 74,
@@ -991,7 +1078,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 75,
@@ -1004,7 +1092,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 76,
@@ -1017,7 +1106,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 77,
@@ -1030,7 +1120,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 78,
@@ -1043,7 +1134,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 79,
@@ -1055,7 +1147,8 @@
    "edited_end": 3495.16,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
-   "score": null
+   "score": null,
+   "source": "empty"
   },
   {
    "i": 80,
@@ -1068,7 +1161,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 81,
@@ -1081,7 +1175,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 82,
@@ -1094,7 +1189,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 83,
@@ -1107,7 +1203,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 84,
@@ -1120,7 +1217,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 85,
@@ -1133,7 +1231,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 86,
@@ -1146,7 +1245,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 87,
@@ -1159,7 +1259,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 88,
@@ -1172,7 +1273,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 89,
@@ -1185,7 +1287,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 90,
@@ -1198,7 +1301,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 91,
@@ -1211,7 +1315,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 92,
@@ -1224,7 +1329,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 93,
@@ -1237,7 +1343,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 94,
@@ -1250,7 +1357,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 95,
@@ -1263,7 +1371,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 96,
@@ -1276,7 +1385,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 97,
@@ -1289,7 +1399,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 98,
@@ -1302,7 +1413,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 99,
@@ -1315,7 +1427,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 100,
@@ -1328,7 +1441,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 101,
@@ -1341,7 +1455,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 102,
@@ -1354,7 +1469,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 103,
@@ -1367,7 +1483,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 104,
@@ -1380,7 +1497,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 105,
@@ -1393,7 +1511,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 106,
@@ -1406,7 +1525,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 107,
@@ -1419,7 +1539,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 108,
@@ -1432,7 +1553,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 109,
@@ -1445,7 +1567,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 110,
@@ -1458,7 +1581,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 111,
@@ -1471,7 +1595,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 112,
@@ -1484,7 +1609,8 @@
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 113,
@@ -1493,11 +1619,12 @@
    "raw_start": null,
    "raw_end": null,
    "edited_start": 4224.07,
-   "edited_end": 4296.38,
+   "edited_end": 4275.58,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 114,
@@ -1505,12 +1632,13 @@
    "created_at": "2026-10-23T08:33:00.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 4296.98,
-   "edited_end": 4302.41,
+   "edited_start": 4276.18,
+   "edited_end": 4281.61,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 115,
@@ -1518,12 +1646,13 @@
    "created_at": "2026-10-23T08:33:03.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 4303.01,
-   "edited_end": 4337.56,
+   "edited_start": 4282.21,
+   "edited_end": 4287.0,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 116,
@@ -1531,12 +1660,13 @@
    "created_at": "2026-10-23T08:33:06.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 4338.16,
-   "edited_end": 4340.39,
+   "edited_start": 4287.6,
+   "edited_end": 4289.83,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 117,
@@ -1544,12 +1674,13 @@
    "created_at": "2026-10-23T08:33:07.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 4340.99,
-   "edited_end": 4372.66,
+   "edited_start": 4290.43,
+   "edited_end": 4292.98,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 118,
@@ -1557,12 +1688,13 @@
    "created_at": "2026-10-23T08:33:08.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 4373.26,
-   "edited_end": 4374.21,
+   "edited_start": 4293.58,
+   "edited_end": 4294.53,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 119,
@@ -1570,12 +1702,13 @@
    "created_at": "2026-10-23T08:33:08.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 4374.81,
-   "edited_end": 4375.44,
+   "edited_start": 4295.13,
+   "edited_end": 4295.76,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 120,
@@ -1583,12 +1716,13 @@
    "created_at": "2026-10-23T08:33:14.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 4376.04,
-   "edited_end": 4378.27,
+   "edited_start": 4296.36,
+   "edited_end": 4298.59,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 121,
@@ -1596,12 +1730,13 @@
    "created_at": "2026-10-23T08:33:19.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 4378.87,
-   "edited_end": 4415.98,
+   "edited_start": 4299.19,
+   "edited_end": 4336.3,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 122,
@@ -1609,12 +1744,13 @@
    "created_at": "2026-10-23T08:34:18.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 4416.58,
-   "edited_end": 4418.81,
+   "edited_start": 4336.9,
+   "edited_end": 4339.13,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 123,
@@ -1622,12 +1758,13 @@
    "created_at": "2026-10-23T08:34:22.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 4419.41,
-   "edited_end": 4444.04,
+   "edited_start": 4339.73,
+   "edited_end": 4364.36,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 124,
@@ -1635,12 +1772,13 @@
    "created_at": "2026-10-23T08:34:43.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 4444.64,
-   "edited_end": 4446.55,
+   "edited_start": 4364.96,
+   "edited_end": 4366.87,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 125,
@@ -1648,12 +1786,13 @@
    "created_at": "2026-10-23T08:35:17.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 4447.15,
-   "edited_end": 4663.14,
+   "edited_start": 4367.47,
+   "edited_end": 4583.46,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 126,
@@ -1661,12 +1800,13 @@
    "created_at": "2026-10-23T08:37:38.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 4663.74,
-   "edited_end": 4666.29,
+   "edited_start": 4584.06,
+   "edited_end": 4586.61,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 127,
@@ -1674,12 +1814,13 @@
    "created_at": "2026-10-23T08:37:55.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 4666.89,
-   "edited_end": 4766.72,
+   "edited_start": 4587.21,
+   "edited_end": 4687.04,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 128,
@@ -1687,12 +1828,13 @@
    "created_at": "2026-10-23T08:39:08.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 4767.32,
-   "edited_end": 4768.59,
+   "edited_start": 4687.64,
+   "edited_end": 4688.91,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 129,
@@ -1700,12 +1842,13 @@
    "created_at": "2026-10-23T08:39:14.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 4769.19,
-   "edited_end": 4791.58,
+   "edited_start": 4689.51,
+   "edited_end": 4711.9,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 130,
@@ -1713,12 +1856,13 @@
    "created_at": "2026-10-23T08:39:39.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 4792.18,
-   "edited_end": 4799.85,
+   "edited_start": 4712.5,
+   "edited_end": 4720.17,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 131,
@@ -1726,12 +1870,13 @@
    "created_at": "2026-10-23T08:39:53.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 4800.45,
-   "edited_end": 4894.84,
+   "edited_start": 4720.77,
+   "edited_end": 4815.16,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 132,
@@ -1739,12 +1884,13 @@
    "created_at": "2026-10-23T08:41:38.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 4895.44,
-   "edited_end": 4896.71,
+   "edited_start": 4815.76,
+   "edited_end": 4817.03,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 133,
@@ -1752,12 +1898,13 @@
    "created_at": "2026-10-23T08:41:58.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 4897.31,
-   "edited_end": 5030.74,
+   "edited_start": 4817.63,
+   "edited_end": 4951.06,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 134,
@@ -1765,12 +1912,13 @@
    "created_at": "2026-10-23T08:43:38.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 5031.34,
-   "edited_end": 5033.57,
+   "edited_start": 4951.66,
+   "edited_end": 4953.89,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 135,
@@ -1778,12 +1926,13 @@
    "created_at": "2026-10-23T08:43:52.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 5034.17,
-   "edited_end": 5103.28,
+   "edited_start": 4954.49,
+   "edited_end": 5023.6,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 136,
@@ -1791,12 +1940,13 @@
    "created_at": "2026-10-23T08:44:52.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 5103.88,
-   "edited_end": 5107.07,
+   "edited_start": 5024.2,
+   "edited_end": 5027.39,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 137,
@@ -1804,12 +1954,13 @@
    "created_at": "2026-10-23T08:45:12.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 5107.67,
-   "edited_end": 5239.5,
+   "edited_start": 5027.99,
+   "edited_end": 5159.82,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 138,
@@ -1817,12 +1968,13 @@
    "created_at": "2026-10-23T08:46:58.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 5240.1,
-   "edited_end": 5253.21,
+   "edited_start": 5160.42,
+   "edited_end": 5173.53,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 139,
@@ -1830,12 +1982,13 @@
    "created_at": "2026-10-23T08:47:16.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 5253.81,
-   "edited_end": 5383.4,
+   "edited_start": 5174.13,
+   "edited_end": 5303.72,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 140,
@@ -1843,12 +1996,13 @@
    "created_at": "2026-10-23T08:48:54.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 5384.0,
-   "edited_end": 5386.55,
+   "edited_start": 5304.32,
+   "edited_end": 5306.87,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 141,
@@ -1856,12 +2010,13 @@
    "created_at": "2026-10-23T08:48:57.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 5387.15,
-   "edited_end": 5410.5,
+   "edited_start": 5307.47,
+   "edited_end": 5330.82,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 142,
@@ -1869,12 +2024,13 @@
    "created_at": "2026-10-23T08:49:14.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 5411.1,
-   "edited_end": 5414.93,
+   "edited_start": 5331.42,
+   "edited_end": 5335.25,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 143,
@@ -1882,12 +2038,13 @@
    "created_at": "2026-10-23T08:49:20.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 5415.53,
-   "edited_end": 5433.44,
+   "edited_start": 5335.85,
+   "edited_end": 5353.76,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 144,
@@ -1895,12 +2052,13 @@
    "created_at": "2026-10-23T08:49:56.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 5434.04,
-   "edited_end": 5442.35,
+   "edited_start": 5354.36,
+   "edited_end": 5362.67,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 145,
@@ -1908,12 +2066,13 @@
    "created_at": "2026-10-23T08:49:59.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 5442.95,
-   "edited_end": 5465.66,
+   "edited_start": 5363.27,
+   "edited_end": 5385.98,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 146,
@@ -1921,12 +2080,13 @@
    "created_at": "2026-10-23T08:50:24.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 5466.26,
-   "edited_end": 5469.77,
+   "edited_start": 5386.58,
+   "edited_end": 5390.09,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 147,
@@ -1934,12 +2094,13 @@
    "created_at": "2026-10-23T08:50:37.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 5470.37,
-   "edited_end": 5549.08,
+   "edited_start": 5390.69,
+   "edited_end": 5469.4,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 148,
@@ -1947,12 +2108,13 @@
    "created_at": "2026-10-23T08:51:35.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 5549.68,
-   "edited_end": 5552.23,
+   "edited_start": 5470.0,
+   "edited_end": 5472.55,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 149,
@@ -1960,12 +2122,13 @@
    "created_at": "2026-10-23T08:51:40.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 5552.83,
-   "edited_end": 5586.1,
+   "edited_start": 5473.15,
+   "edited_end": 5506.42,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 150,
@@ -1973,12 +2136,13 @@
    "created_at": "2026-10-23T08:52:10.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 5586.7,
-   "edited_end": 5588.93,
+   "edited_start": 5507.02,
+   "edited_end": 5509.25,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 151,
@@ -1986,12 +2150,13 @@
    "created_at": "2026-10-23T08:52:19.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 5589.53,
-   "edited_end": 5672.72,
+   "edited_start": 5509.85,
+   "edited_end": 5593.04,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 152,
@@ -1999,12 +2164,13 @@
    "created_at": "2026-10-23T08:53:23.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 5673.32,
-   "edited_end": 5675.87,
+   "edited_start": 5593.64,
+   "edited_end": 5596.19,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 153,
@@ -2012,12 +2178,13 @@
    "created_at": "2026-10-23T08:53:26.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 5676.47,
-   "edited_end": 5695.98,
+   "edited_start": 5596.79,
+   "edited_end": 5616.3,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 154,
@@ -2025,12 +2192,13 @@
    "created_at": "2026-10-23T08:54:07.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 5696.58,
-   "edited_end": 5708.09,
+   "edited_start": 5616.9,
+   "edited_end": 5628.41,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 155,
@@ -2038,12 +2206,13 @@
    "created_at": "2026-10-23T08:54:16.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 5708.69,
-   "edited_end": 5759.88,
+   "edited_start": 5629.01,
+   "edited_end": 5680.2,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 156,
@@ -2051,12 +2220,13 @@
    "created_at": "2026-10-23T08:55:10.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 5760.48,
-   "edited_end": 5762.39,
+   "edited_start": 5680.8,
+   "edited_end": 5682.71,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 157,
@@ -2064,12 +2234,13 @@
    "created_at": "2026-10-23T08:55:15.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 5762.99,
-   "edited_end": 5786.66,
+   "edited_start": 5683.31,
+   "edited_end": 5706.98,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 158,
@@ -2077,12 +2248,13 @@
    "created_at": "2026-10-23T08:55:38.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 5787.26,
-   "edited_end": 5790.77,
+   "edited_start": 5707.58,
+   "edited_end": 5711.09,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 159,
@@ -2090,12 +2262,13 @@
    "created_at": "2026-10-23T08:56:14.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 5791.37,
-   "edited_end": 6041.6,
+   "edited_start": 5711.69,
+   "edited_end": 5961.92,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 160,
@@ -2103,12 +2276,13 @@
    "created_at": "2026-10-23T08:59:15.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 6042.2,
-   "edited_end": 6044.43,
+   "edited_start": 5962.52,
+   "edited_end": 5964.75,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 161,
@@ -2116,12 +2290,13 @@
    "created_at": "2026-10-23T08:59:39.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 6045.03,
-   "edited_end": 6177.18,
+   "edited_start": 5965.35,
+   "edited_end": 6097.5,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 162,
@@ -2129,12 +2304,13 @@
    "created_at": "2026-10-23T09:01:27.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 6177.78,
-   "edited_end": 6190.89,
+   "edited_start": 6098.1,
+   "edited_end": 6111.21,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 163,
@@ -2142,12 +2318,13 @@
    "created_at": "2026-10-23T09:01:40.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 6191.49,
-   "edited_end": 6285.88,
+   "edited_start": 6111.81,
+   "edited_end": 6206.2,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 164,
@@ -2155,12 +2332,13 @@
    "created_at": "2026-10-23T09:02:53.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 6286.48,
-   "edited_end": 6288.71,
+   "edited_start": 6206.8,
+   "edited_end": 6209.03,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 165,
@@ -2168,12 +2346,13 @@
    "created_at": "2026-10-23T09:03:13.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 6289.31,
-   "edited_end": 6404.18,
+   "edited_start": 6209.63,
+   "edited_end": 6324.5,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 166,
@@ -2181,12 +2360,13 @@
    "created_at": "2026-10-23T09:05:26.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 6404.78,
-   "edited_end": 6429.09,
+   "edited_start": 6325.1,
+   "edited_end": 6349.41,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 167,
@@ -2194,12 +2374,13 @@
    "created_at": "2026-10-23T09:05:27.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 6429.69,
-   "edited_end": 6431.92,
+   "edited_start": 6350.01,
+   "edited_end": 6352.24,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 168,
@@ -2207,12 +2388,13 @@
    "created_at": "2026-10-23T09:05:28.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 6432.52,
-   "edited_end": 6433.79,
+   "edited_start": 6352.84,
+   "edited_end": 6354.11,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 169,
@@ -2220,12 +2402,13 @@
    "created_at": "2026-10-23T09:05:32.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 6434.39,
-   "edited_end": 6437.26,
+   "edited_start": 6354.71,
+   "edited_end": 6357.58,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 170,
@@ -2233,12 +2416,13 @@
    "created_at": "2026-10-23T09:05:39.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 6437.86,
-   "edited_end": 6444.25,
+   "edited_start": 6358.18,
+   "edited_end": 6364.57,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 171,
@@ -2246,12 +2430,13 @@
    "created_at": "2026-10-23T09:05:44.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 6444.85,
-   "edited_end": 6471.72,
+   "edited_start": 6365.17,
+   "edited_end": 6392.04,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 172,
@@ -2259,12 +2444,13 @@
    "created_at": "2026-10-23T09:06:18.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 6472.32,
-   "edited_end": 6478.71,
+   "edited_start": 6392.64,
+   "edited_end": 6399.03,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 173,
@@ -2272,12 +2458,13 @@
    "created_at": "2026-10-23T09:06:23.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 6479.31,
-   "edited_end": 6509.38,
+   "edited_start": 6399.63,
+   "edited_end": 6429.7,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 174,
@@ -2285,12 +2472,13 @@
    "created_at": "2026-10-23T09:08:04.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 6509.98,
-   "edited_end": 6528.85,
+   "edited_start": 6430.3,
+   "edited_end": 6449.17,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 175,
@@ -2298,12 +2486,13 @@
    "created_at": "2026-10-23T09:08:12.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 6529.45,
-   "edited_end": 6573.92,
+   "edited_start": 6449.77,
+   "edited_end": 6494.24,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 176,
@@ -2311,12 +2500,13 @@
    "created_at": "2026-10-23T09:09:04.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 6574.52,
-   "edited_end": 6576.11,
+   "edited_start": 6494.84,
+   "edited_end": 6496.43,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 177,
@@ -2324,12 +2514,13 @@
    "created_at": "2026-10-23T09:09:10.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 6576.71,
-   "edited_end": 6621.18,
+   "edited_start": 6497.03,
+   "edited_end": 6541.5,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 178,
@@ -2337,12 +2528,13 @@
    "created_at": "2026-10-23T09:10:19.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 6621.78,
-   "edited_end": 6630.73,
+   "edited_start": 6542.1,
+   "edited_end": 6551.05,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 179,
@@ -2350,12 +2542,13 @@
    "created_at": "2026-10-23T09:10:20.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 6631.33,
-   "edited_end": 6639.0,
+   "edited_start": 6551.65,
+   "edited_end": 6559.32,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 180,
@@ -2363,12 +2556,13 @@
    "created_at": "2026-10-23T09:10:24.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 6639.6,
-   "edited_end": 6641.51,
+   "edited_start": 6559.92,
+   "edited_end": 6561.83,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 181,
@@ -2376,12 +2570,13 @@
    "created_at": "2026-10-23T09:10:24.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 6642.11,
-   "edited_end": 6645.3,
+   "edited_start": 6562.43,
+   "edited_end": 6565.62,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 182,
@@ -2389,12 +2584,13 @@
    "created_at": "2026-10-23T09:10:31.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 6645.9,
-   "edited_end": 6647.81,
+   "edited_start": 6566.22,
+   "edited_end": 6568.13,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 183,
@@ -2402,12 +2598,13 @@
    "created_at": "2026-10-23T09:10:35.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 6648.41,
-   "edited_end": 6676.88,
+   "edited_start": 6568.73,
+   "edited_end": 6597.2,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 184,
@@ -2415,12 +2612,13 @@
    "created_at": "2026-10-23T09:11:19.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 6677.48,
-   "edited_end": 6686.75,
+   "edited_start": 6597.8,
+   "edited_end": 6607.07,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 185,
@@ -2428,12 +2626,13 @@
    "created_at": "2026-10-23T09:11:27.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 6687.35,
-   "edited_end": 6725.42,
+   "edited_start": 6607.67,
+   "edited_end": 6645.74,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 186,
@@ -2441,12 +2640,13 @@
    "created_at": "2026-10-23T09:12:41.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 6726.02,
-   "edited_end": 6729.85,
+   "edited_start": 6646.34,
+   "edited_end": 6650.17,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 187,
@@ -2454,12 +2654,13 @@
    "created_at": "2026-10-23T09:12:49.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 6730.45,
-   "edited_end": 6779.4,
+   "edited_start": 6650.77,
+   "edited_end": 6699.72,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 188,
@@ -2467,12 +2668,13 @@
    "created_at": "2026-10-23T09:14:02.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 6780.0,
-   "edited_end": 6793.43,
+   "edited_start": 6700.32,
+   "edited_end": 6713.75,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 189,
@@ -2480,12 +2682,13 @@
    "created_at": "2026-10-23T09:14:08.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 6794.03,
-   "edited_end": 6828.26,
+   "edited_start": 6714.35,
+   "edited_end": 6748.58,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 190,
@@ -2493,12 +2696,13 @@
    "created_at": "2026-10-23T09:14:41.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 6828.86,
-   "edited_end": 6835.57,
+   "edited_start": 6749.18,
+   "edited_end": 6755.89,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 191,
@@ -2506,12 +2710,13 @@
    "created_at": "2026-10-23T09:14:53.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 6836.17,
-   "edited_end": 6923.2,
+   "edited_start": 6756.49,
+   "edited_end": 6843.52,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 192,
@@ -2519,12 +2724,13 @@
    "created_at": "2026-10-23T09:16:15.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 6923.8,
-   "edited_end": 6935.31,
+   "edited_start": 6844.12,
+   "edited_end": 6855.63,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 193,
@@ -2532,12 +2738,13 @@
    "created_at": "2026-10-23T09:16:15.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 6935.91,
-   "edited_end": 6937.82,
+   "edited_start": 6856.23,
+   "edited_end": 6858.14,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 194,
@@ -2545,12 +2752,13 @@
    "created_at": "2026-10-23T09:16:59.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 6938.42,
-   "edited_end": 6959.85,
+   "edited_start": 6858.74,
+   "edited_end": 6880.17,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 195,
@@ -2558,12 +2766,13 @@
    "created_at": "2026-10-23T09:17:15.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 6960.45,
-   "edited_end": 7055.48,
+   "edited_start": 6880.77,
+   "edited_end": 6975.8,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 196,
@@ -2571,12 +2780,13 @@
    "created_at": "2026-10-23T09:18:44.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7056.08,
-   "edited_end": 7073.35,
+   "edited_start": 6976.4,
+   "edited_end": 6993.67,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 197,
@@ -2584,12 +2794,13 @@
    "created_at": "2026-10-23T09:18:49.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7073.95,
-   "edited_end": 7116.82,
+   "edited_start": 6994.27,
+   "edited_end": 7037.14,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 198,
@@ -2597,12 +2808,13 @@
    "created_at": "2026-10-23T09:19:25.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7117.42,
-   "edited_end": 7119.01,
+   "edited_start": 7037.74,
+   "edited_end": 7039.33,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 199,
@@ -2610,12 +2822,13 @@
    "created_at": "2026-10-23T09:19:27.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7119.61,
-   "edited_end": 7142.96,
+   "edited_start": 7039.93,
+   "edited_end": 7063.28,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 200,
@@ -2623,12 +2836,13 @@
    "created_at": "2026-10-23T09:20:13.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7143.56,
-   "edited_end": 7149.63,
+   "edited_start": 7063.88,
+   "edited_end": 7069.95,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 201,
@@ -2636,12 +2850,13 @@
    "created_at": "2026-10-23T09:20:14.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7150.23,
-   "edited_end": 7156.3,
+   "edited_start": 7070.55,
+   "edited_end": 7076.62,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 202,
@@ -2649,12 +2864,13 @@
    "created_at": "2026-10-23T09:20:39.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7156.9,
-   "edited_end": 7163.29,
+   "edited_start": 7077.22,
+   "edited_end": 7083.61,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 203,
@@ -2662,12 +2878,13 @@
    "created_at": "2026-10-23T09:20:45.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7163.89,
-   "edited_end": 7201.96,
+   "edited_start": 7084.21,
+   "edited_end": 7122.28,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 204,
@@ -2675,12 +2892,13 @@
    "created_at": "2026-10-23T09:21:23.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7202.56,
-   "edited_end": 7210.87,
+   "edited_start": 7122.88,
+   "edited_end": 7131.19,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 205,
@@ -2688,12 +2906,13 @@
    "created_at": "2026-10-23T09:21:26.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7211.47,
-   "edited_end": 7224.9,
+   "edited_start": 7131.79,
+   "edited_end": 7145.22,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 206,
@@ -2701,12 +2920,13 @@
    "created_at": "2026-10-23T09:21:59.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7225.5,
-   "edited_end": 7240.85,
+   "edited_start": 7145.82,
+   "edited_end": 7161.17,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 207,
@@ -2714,12 +2934,13 @@
    "created_at": "2026-10-23T09:22:05.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7241.45,
-   "edited_end": 7274.08,
+   "edited_start": 7161.77,
+   "edited_end": 7194.4,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 208,
@@ -2727,12 +2948,13 @@
    "created_at": "2026-10-23T09:22:35.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7274.68,
-   "edited_end": 7280.75,
+   "edited_start": 7195.0,
+   "edited_end": 7201.07,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 209,
@@ -2740,12 +2962,13 @@
    "created_at": "2026-10-23T09:22:36.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7281.35,
-   "edited_end": 7283.9,
+   "edited_start": 7201.67,
+   "edited_end": 7204.22,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 210,
@@ -2753,12 +2976,13 @@
    "created_at": "2026-10-23T09:23:22.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7284.5,
-   "edited_end": 7302.09,
+   "edited_start": 7204.82,
+   "edited_end": 7222.41,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 211,
@@ -2766,12 +2990,13 @@
    "created_at": "2026-10-23T09:23:27.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7302.69,
-   "edited_end": 7337.88,
+   "edited_start": 7223.01,
+   "edited_end": 7258.2,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 212,
@@ -2779,12 +3004,13 @@
    "created_at": "2026-10-23T09:24:15.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7338.48,
-   "edited_end": 7348.39,
+   "edited_start": 7258.8,
+   "edited_end": 7268.71,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 213,
@@ -2792,12 +3018,13 @@
    "created_at": "2026-10-23T09:24:20.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7348.99,
-   "edited_end": 7380.66,
+   "edited_start": 7269.31,
+   "edited_end": 7300.98,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 214,
@@ -2805,12 +3032,13 @@
    "created_at": "2026-10-23T09:24:59.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7381.26,
-   "edited_end": 7389.57,
+   "edited_start": 7301.58,
+   "edited_end": 7309.89,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 215,
@@ -2818,12 +3046,13 @@
    "created_at": "2026-10-23T09:25:03.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7390.17,
-   "edited_end": 7420.24,
+   "edited_start": 7310.49,
+   "edited_end": 7340.56,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 216,
@@ -2831,12 +3060,13 @@
    "created_at": "2026-10-23T09:25:44.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7420.84,
-   "edited_end": 7434.91,
+   "edited_start": 7341.16,
+   "edited_end": 7355.23,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 217,
@@ -2844,12 +3074,13 @@
    "created_at": "2026-10-23T09:25:50.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7435.51,
-   "edited_end": 7472.3,
+   "edited_start": 7355.83,
+   "edited_end": 7392.62,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 218,
@@ -2857,12 +3088,13 @@
    "created_at": "2026-10-23T09:27:09.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7472.9,
-   "edited_end": 7502.65,
+   "edited_start": 7393.22,
+   "edited_end": 7422.97,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 219,
@@ -2870,12 +3102,13 @@
    "created_at": "2026-10-23T09:27:15.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7503.25,
-   "edited_end": 7531.4,
+   "edited_start": 7423.57,
+   "edited_end": 7451.72,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 220,
@@ -2883,12 +3116,13 @@
    "created_at": "2026-10-23T09:27:39.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7532.0,
-   "edited_end": 7534.87,
+   "edited_start": 7452.32,
+   "edited_end": 7455.19,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 221,
@@ -2896,12 +3130,13 @@
    "created_at": "2026-10-23T09:27:45.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7535.47,
-   "edited_end": 7564.58,
+   "edited_start": 7455.79,
+   "edited_end": 7484.9,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 222,
@@ -2909,12 +3144,13 @@
    "created_at": "2026-10-23T09:28:20.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7565.18,
-   "edited_end": 7573.49,
+   "edited_start": 7485.5,
+   "edited_end": 7493.81,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 223,
@@ -2922,12 +3158,13 @@
    "created_at": "2026-10-23T09:28:24.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7574.09,
-   "edited_end": 7596.48,
+   "edited_start": 7494.41,
+   "edited_end": 7516.8,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 224,
@@ -2935,12 +3172,13 @@
    "created_at": "2026-10-23T09:28:57.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7597.08,
-   "edited_end": 7606.03,
+   "edited_start": 7517.4,
+   "edited_end": 7526.35,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 225,
@@ -2948,12 +3186,13 @@
    "created_at": "2026-10-23T09:29:01.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7606.63,
-   "edited_end": 7633.82,
+   "edited_start": 7526.95,
+   "edited_end": 7554.14,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 226,
@@ -2961,12 +3200,13 @@
    "created_at": "2026-10-23T09:29:41.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7634.42,
-   "edited_end": 7650.73,
+   "edited_start": 7554.74,
+   "edited_end": 7571.05,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 227,
@@ -2974,12 +3214,13 @@
    "created_at": "2026-10-23T09:29:45.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7651.33,
-   "edited_end": 7673.4,
+   "edited_start": 7571.65,
+   "edited_end": 7593.72,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 228,
@@ -2987,12 +3228,13 @@
    "created_at": "2026-10-23T09:30:15.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7674.0,
-   "edited_end": 7675.91,
+   "edited_start": 7594.32,
+   "edited_end": 7596.23,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 229,
@@ -3000,12 +3242,13 @@
    "created_at": "2026-10-23T09:30:19.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7676.51,
-   "edited_end": 7705.94,
+   "edited_start": 7596.83,
+   "edited_end": 7626.26,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 230,
@@ -3013,12 +3256,13 @@
    "created_at": "2026-10-23T09:30:26.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7706.54,
-   "edited_end": 7708.77,
+   "edited_start": 7626.86,
+   "edited_end": 7629.09,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 231,
@@ -3026,12 +3270,13 @@
    "created_at": "2026-10-23T09:30:27.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7709.37,
-   "edited_end": 7711.6,
+   "edited_start": 7629.69,
+   "edited_end": 7631.92,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 232,
@@ -3039,12 +3284,13 @@
    "created_at": "2026-10-23T09:30:33.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7712.2,
-   "edited_end": 7718.27,
+   "edited_start": 7632.52,
+   "edited_end": 7638.59,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 233,
@@ -3052,12 +3298,13 @@
    "created_at": "2026-10-23T09:30:34.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7718.87,
-   "edited_end": 7722.7,
+   "edited_start": 7639.19,
+   "edited_end": 7643.02,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 234,
@@ -3065,12 +3312,13 @@
    "created_at": "2026-10-23T09:30:56.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7723.3,
-   "edited_end": 7729.05,
+   "edited_start": 7643.62,
+   "edited_end": 7649.37,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 235,
@@ -3078,12 +3326,13 @@
    "created_at": "2026-10-23T09:30:58.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7729.65,
-   "edited_end": 7744.36,
+   "edited_start": 7649.97,
+   "edited_end": 7664.68,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 236,
@@ -3091,12 +3340,13 @@
    "created_at": "2026-10-23T09:31:40.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7744.96,
-   "edited_end": 7757.75,
+   "edited_start": 7665.28,
+   "edited_end": 7678.07,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 237,
@@ -3104,12 +3354,13 @@
    "created_at": "2026-10-23T09:31:45.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7758.35,
-   "edited_end": 7787.14,
+   "edited_start": 7678.67,
+   "edited_end": 7707.46,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 238,
@@ -3117,12 +3368,13 @@
    "created_at": "2026-10-23T09:32:28.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7787.74,
-   "edited_end": 7797.65,
+   "edited_start": 7708.06,
+   "edited_end": 7717.97,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 239,
@@ -3130,12 +3382,13 @@
    "created_at": "2026-10-23T09:32:31.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7798.25,
-   "edited_end": 7816.48,
+   "edited_start": 7718.57,
+   "edited_end": 7736.8,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 240,
@@ -3143,12 +3396,13 @@
    "created_at": "2026-10-23T09:33:18.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7817.08,
-   "edited_end": 7828.91,
+   "edited_start": 7737.4,
+   "edited_end": 7749.23,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 241,
@@ -3156,12 +3410,13 @@
    "created_at": "2026-10-23T09:33:24.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7829.51,
-   "edited_end": 7852.86,
+   "edited_start": 7749.83,
+   "edited_end": 7773.18,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 242,
@@ -3169,12 +3424,13 @@
    "created_at": "2026-10-23T09:33:59.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7853.46,
-   "edited_end": 7860.81,
+   "edited_start": 7773.78,
+   "edited_end": 7781.13,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 243,
@@ -3182,12 +3438,13 @@
    "created_at": "2026-10-23T09:34:01.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7861.41,
-   "edited_end": 7875.8,
+   "edited_start": 7781.73,
+   "edited_end": 7796.12,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 244,
@@ -3195,12 +3452,13 @@
    "created_at": "2026-10-23T09:34:18.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7876.4,
-   "edited_end": 7878.31,
+   "edited_start": 7796.72,
+   "edited_end": 7798.63,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 245,
@@ -3208,12 +3466,13 @@
    "created_at": "2026-10-23T09:34:25.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7878.91,
-   "edited_end": 7895.54,
+   "edited_start": 7799.23,
+   "edited_end": 7815.86,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 246,
@@ -3221,12 +3480,13 @@
    "created_at": "2026-10-23T09:34:49.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7896.14,
-   "edited_end": 7903.49,
+   "edited_start": 7816.46,
+   "edited_end": 7823.81,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 247,
@@ -3234,12 +3494,13 @@
    "created_at": "2026-10-23T09:34:54.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7904.09,
-   "edited_end": 7929.04,
+   "edited_start": 7824.41,
+   "edited_end": 7849.36,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 248,
@@ -3247,12 +3508,13 @@
    "created_at": "2026-10-23T09:35:21.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7929.64,
-   "edited_end": 7934.11,
+   "edited_start": 7849.96,
+   "edited_end": 7854.43,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 249,
@@ -3260,12 +3522,13 @@
    "created_at": "2026-10-23T09:35:30.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7934.71,
-   "edited_end": 7980.78,
+   "edited_start": 7855.03,
+   "edited_end": 7901.1,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 250,
@@ -3273,12 +3536,13 @@
    "created_at": "2026-10-23T09:36:11.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7981.38,
-   "edited_end": 7984.25,
+   "edited_start": 7901.7,
+   "edited_end": 7904.57,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 251,
@@ -3286,12 +3550,13 @@
    "created_at": "2026-10-23T09:36:14.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7984.85,
-   "edited_end": 7991.24,
+   "edited_start": 7905.17,
+   "edited_end": 7911.56,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 252,
@@ -3299,12 +3564,13 @@
    "created_at": "2026-10-23T09:36:26.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7991.84,
-   "edited_end": 7995.99,
+   "edited_start": 7912.16,
+   "edited_end": 7916.31,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 253,
@@ -3312,12 +3578,13 @@
    "created_at": "2026-10-23T09:36:30.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 7996.59,
-   "edited_end": 8025.7,
+   "edited_start": 7916.91,
+   "edited_end": 7946.02,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 254,
@@ -3325,12 +3592,13 @@
    "created_at": "2026-10-23T09:37:04.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 8026.3,
-   "edited_end": 8032.69,
+   "edited_start": 7946.62,
+   "edited_end": 7953.01,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 255,
@@ -3338,12 +3606,13 @@
    "created_at": "2026-10-23T09:37:10.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 8033.29,
-   "edited_end": 8077.76,
+   "edited_start": 7953.61,
+   "edited_end": 7998.08,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 256,
@@ -3351,12 +3620,13 @@
    "created_at": "2026-10-23T09:37:45.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 8078.36,
-   "edited_end": 8082.51,
+   "edited_start": 7998.68,
+   "edited_end": 8002.83,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 257,
@@ -3364,12 +3634,13 @@
    "created_at": "2026-10-23T09:37:48.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 8083.11,
-   "edited_end": 8102.94,
+   "edited_start": 8003.43,
+   "edited_end": 8023.26,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 258,
@@ -3377,12 +3648,13 @@
    "created_at": "2026-10-23T09:38:40.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 8103.54,
-   "edited_end": 8121.13,
+   "edited_start": 8023.86,
+   "edited_end": 8041.45,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 259,
@@ -3390,12 +3662,13 @@
    "created_at": "2026-10-23T09:38:48.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 8121.73,
-   "edited_end": 8170.68,
+   "edited_start": 8042.05,
+   "edited_end": 8091.0,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 260,
@@ -3403,12 +3676,13 @@
    "created_at": "2026-10-23T09:39:35.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 8171.28,
-   "edited_end": 8171.28,
+   "edited_start": 8091.6,
+   "edited_end": 8091.6,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 261,
@@ -3416,12 +3690,13 @@
    "created_at": "2026-10-23T09:39:35.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 8171.88,
-   "edited_end": 8218.59,
+   "edited_start": 8092.2,
+   "edited_end": 8138.91,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 262,
@@ -3429,12 +3704,13 @@
    "created_at": "2026-10-23T09:40:28.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 8219.19,
-   "edited_end": 8229.1,
+   "edited_start": 8139.51,
+   "edited_end": 8149.42,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 263,
@@ -3442,12 +3718,13 @@
    "created_at": "2026-10-23T09:40:30.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 8229.7,
-   "edited_end": 8232.57,
+   "edited_start": 8150.02,
+   "edited_end": 8152.89,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 264,
@@ -3455,12 +3732,13 @@
    "created_at": "2026-10-23T09:40:31.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 8233.17,
-   "edited_end": 8234.76,
+   "edited_start": 8153.49,
+   "edited_end": 8155.08,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 265,
@@ -3468,12 +3746,13 @@
    "created_at": "2026-10-23T09:40:38.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 8235.36,
-   "edited_end": 8257.75,
+   "edited_start": 8155.68,
+   "edited_end": 8178.07,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 266,
@@ -3481,12 +3760,13 @@
    "created_at": "2026-10-23T09:40:59.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 8258.35,
-   "edited_end": 8258.35,
+   "edited_start": 8178.67,
+   "edited_end": 8178.67,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 267,
@@ -3494,12 +3774,13 @@
    "created_at": "2026-10-23T09:40:59.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 8258.95,
-   "edited_end": 8270.78,
+   "edited_start": 8179.27,
+   "edited_end": 8191.1,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 268,
@@ -3507,12 +3788,13 @@
    "created_at": "2026-10-23T09:41:08.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 8271.38,
-   "edited_end": 8271.38,
+   "edited_start": 8191.7,
+   "edited_end": 8191.7,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 269,
@@ -3520,12 +3802,13 @@
    "created_at": "2026-10-23T09:41:08.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 8271.98,
-   "edited_end": 8275.17,
+   "edited_start": 8192.3,
+   "edited_end": 8195.49,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 270,
@@ -3533,12 +3816,13 @@
    "created_at": "2026-10-23T09:41:38.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 8275.77,
-   "edited_end": 8288.88,
+   "edited_start": 8196.09,
+   "edited_end": 8209.2,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 271,
@@ -3546,12 +3830,13 @@
    "created_at": "2026-10-23T09:41:48.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 8289.48,
-   "edited_end": 8344.83,
+   "edited_start": 8209.8,
+   "edited_end": 8265.15,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 272,
@@ -3559,12 +3844,13 @@
    "created_at": "2026-10-23T09:42:02.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 8345.43,
-   "edited_end": 8352.46,
+   "edited_start": 8265.75,
+   "edited_end": 8272.78,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 273,
@@ -3572,12 +3858,13 @@
    "created_at": "2026-10-23T09:42:06.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 8353.06,
-   "edited_end": 8372.25,
+   "edited_start": 8273.38,
+   "edited_end": 8292.57,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 274,
@@ -3585,12 +3872,13 @@
    "created_at": "2026-10-23T09:42:47.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 8372.85,
-   "edited_end": 8384.04,
+   "edited_start": 8293.17,
+   "edited_end": 8304.36,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 275,
@@ -3598,12 +3886,13 @@
    "created_at": "2026-10-23T09:42:53.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 8384.64,
-   "edited_end": 8410.55,
+   "edited_start": 8304.96,
+   "edited_end": 8330.87,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 276,
@@ -3611,12 +3900,13 @@
    "created_at": "2026-10-23T09:43:37.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 8411.15,
-   "edited_end": 8424.9,
+   "edited_start": 8331.47,
+   "edited_end": 8345.22,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 277,
@@ -3624,12 +3914,13 @@
    "created_at": "2026-10-23T09:43:40.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 8425.5,
-   "edited_end": 8444.69,
+   "edited_start": 8345.82,
+   "edited_end": 8365.01,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 278,
@@ -3637,12 +3928,13 @@
    "created_at": "2026-10-23T09:44:00.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 8445.29,
-   "edited_end": 8447.2,
+   "edited_start": 8365.61,
+   "edited_end": 8367.52,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 279,
@@ -3650,12 +3942,13 @@
    "created_at": "2026-10-23T09:44:05.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 8447.8,
-   "edited_end": 8463.47,
+   "edited_start": 8368.12,
+   "edited_end": 8383.79,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 280,
@@ -3663,12 +3956,13 @@
    "created_at": "2026-10-23T09:44:22.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 8464.07,
-   "edited_end": 8464.07,
+   "edited_start": 8384.39,
+   "edited_end": 8384.39,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 281,
@@ -3676,12 +3970,13 @@
    "created_at": "2026-10-23T09:44:22.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 8464.67,
-   "edited_end": 8489.62,
+   "edited_start": 8384.99,
+   "edited_end": 8409.94,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 282,
@@ -3689,12 +3984,13 @@
    "created_at": "2026-10-23T09:44:47.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 8490.22,
-   "edited_end": 8493.41,
+   "edited_start": 8410.54,
+   "edited_end": 8413.73,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 283,
@@ -3702,12 +3998,13 @@
    "created_at": "2026-10-23T09:44:50.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 8494.01,
-   "edited_end": 8512.56,
+   "edited_start": 8414.33,
+   "edited_end": 8432.88,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 284,
@@ -3715,12 +4012,13 @@
    "created_at": "2026-10-23T09:45:10.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 8513.16,
-   "edited_end": 8517.63,
+   "edited_start": 8433.48,
+   "edited_end": 8437.95,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 285,
@@ -3728,12 +4026,13 @@
    "created_at": "2026-10-23T09:45:39.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 8518.23,
-   "edited_end": 8519.82,
+   "edited_start": 8438.55,
+   "edited_end": 8440.14,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 286,
@@ -3741,12 +4040,13 @@
    "created_at": "2026-10-23T09:45:41.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 8520.42,
-   "edited_end": 8521.69,
+   "edited_start": 8440.74,
+   "edited_end": 8442.01,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 287,
@@ -3754,12 +4054,13 @@
    "created_at": "2026-10-23T09:45:44.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 8522.29,
-   "edited_end": 8536.04,
+   "edited_start": 8442.61,
+   "edited_end": 8456.36,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 288,
@@ -3767,12 +4068,13 @@
    "created_at": "2026-10-23T09:45:58.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 8536.64,
-   "edited_end": 8539.51,
+   "edited_start": 8456.96,
+   "edited_end": 8459.83,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 289,
@@ -3780,12 +4082,13 @@
    "created_at": "2026-10-23T09:45:59.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 8540.11,
-   "edited_end": 8550.98,
+   "edited_start": 8460.43,
+   "edited_end": 8471.3,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 290,
@@ -3793,12 +4096,13 @@
    "created_at": "2026-10-23T09:46:44.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 8551.58,
-   "edited_end": 8551.58,
+   "edited_start": 8471.9,
+   "edited_end": 8471.9,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 291,
@@ -3806,12 +4110,13 @@
    "created_at": "2026-10-23T09:46:44.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 8552.18,
-   "edited_end": 8570.09,
+   "edited_start": 8472.5,
+   "edited_end": 8490.41,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 292,
@@ -3819,12 +4124,13 @@
    "created_at": "2026-10-23T09:47:08.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 8570.69,
-   "edited_end": 8575.8,
+   "edited_start": 8491.01,
+   "edited_end": 8496.12,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 293,
@@ -3832,12 +4138,13 @@
    "created_at": "2026-10-23T09:47:16.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 8576.4,
-   "edited_end": 8608.71,
+   "edited_start": 8496.72,
+   "edited_end": 8529.03,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 294,
@@ -3845,12 +4152,13 @@
    "created_at": "2026-10-23T09:47:53.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 8609.31,
-   "edited_end": 8612.82,
+   "edited_start": 8529.63,
+   "edited_end": 8533.14,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 295,
@@ -3858,12 +4166,13 @@
    "created_at": "2026-10-23T09:48:49.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 8613.42,
-   "edited_end": 8615.33,
+   "edited_start": 8533.74,
+   "edited_end": 8535.65,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 296,
@@ -3871,12 +4180,13 @@
    "created_at": "2026-10-23T09:48:50.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 8615.93,
-   "edited_end": 8616.88,
+   "edited_start": 8536.25,
+   "edited_end": 8537.2,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 297,
@@ -3884,12 +4194,13 @@
    "created_at": "2026-10-23T09:48:52.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 8617.48,
-   "edited_end": 8625.15,
+   "edited_start": 8537.8,
+   "edited_end": 8545.47,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 298,
@@ -3897,12 +4208,13 @@
    "created_at": "2026-10-23T09:49:01.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 8625.75,
-   "edited_end": 8627.34,
+   "edited_start": 8546.07,
+   "edited_end": 8547.66,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 299,
@@ -3910,12 +4222,13 @@
    "created_at": "2026-10-23T09:49:03.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 8627.94,
-   "edited_end": 8633.05,
+   "edited_start": 8548.26,
+   "edited_end": 8553.37,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 300,
@@ -3923,12 +4236,13 @@
    "created_at": "2026-10-23T09:49:12.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 8633.65,
-   "edited_end": 8633.65,
+   "edited_start": 8553.97,
+   "edited_end": 8553.97,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 301,
@@ -3936,12 +4250,13 @@
    "created_at": "2026-10-23T09:49:12.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 8634.25,
-   "edited_end": 8638.4,
+   "edited_start": 8554.57,
+   "edited_end": 8558.72,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   },
   {
    "i": 302,
@@ -3949,12 +4264,13 @@
    "created_at": "2026-10-23T09:49:22.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 8639.0,
-   "edited_end": 8639.0,
+   "edited_start": 8559.32,
+   "edited_end": 8559.32,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=rex"
+   "voice": "xai_tts voice=rex",
+   "source": "narrator"
   },
   {
    "i": 303,
@@ -3962,12 +4278,13 @@
    "created_at": "2026-10-23T09:49:22.000Z",
    "raw_start": null,
    "raw_end": null,
-   "edited_start": 8639.6,
-   "edited_end": 8661.99,
+   "edited_start": 8559.92,
+   "edited_end": 8582.31,
    "method": "tts-synthetic",
    "edited_method": "tts-synthetic",
    "score": null,
-   "voice": "xai_tts voice=eve"
+   "voice": "xai_tts voice=eve",
+   "source": "eve-tts"
   }
  ],
  "files": {
