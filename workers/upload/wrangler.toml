@@ -1,0 +1,24 @@
+# Ask Eve upload Worker. Deploy: see docs/deploy-guide.md §4.
+name = "ask-eve-upload"
+main = "src/index.mjs"
+compatibility_date = "2026-10-01"
+workers_dev = false
+
+# Custom domain (the zone askevepodcast.com is on Cloudflare); wrangler creates the DNS record + certificate.
+routes = [{ pattern = "upload.askevepodcast.com", custom_domain = true }]
+
+[vars]
+CF_ACCOUNT_ID = "REPLACE_WITH_CLOUDFLARE_ACCOUNT_ID"   # not a secret; `npx wrangler@4 whoami`
+MASTERS_BUCKET = "ask-eve-masters"
+GH_REPO = "daveey/ask-eve"
+GH_WORKFLOW = "ingest.yml"
+GH_REF = "main"
+
+[[r2_buckets]]
+binding = "MASTERS"
+bucket_name = "ask-eve-masters"
+
+# Secrets (never in this file): npx wrangler@4 secret put UPLOAD_TOKEN | R2_ACCESS_KEY_ID | R2_SECRET_ACCESS_KEY | GITHUB_TOKEN
+
+[observability]
+enabled = true
