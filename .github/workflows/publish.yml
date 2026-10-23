@@ -1,0 +1,85 @@
+# Publish one ingested episode (after its ingest/<date>_<slug> PR is merged):
+#   gh workflow run publish.yml -f stem=2026-10-23_eve-david-podcast-planning
+# Refuses PLACEHOLDER audio (artifacts/<stem>/manifest.json placeholder_audio=true) and any sha256 mismatch.
+name: publish
+
+on:
+  workflow_dispatch:
+    inputs:
+      stem: { description: "<date>_<slug> (artifacts/<stem>/ must exist on main)", required: true, type: string }
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      STEM: ${{ inputs.stem }}
+      MASTERS_BUCKET: ask-eve-masters
+      PUBLIC_BUCKET: ask-eve-public
+      D1_NAME: ask-eve-meta
+    steps:
+      - name: Validate input
+        run: |
+          [[ "$STEM" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}_[a-z0-9-]{1,60}$ ]] || { echo "::error::bad stem"; exit 1; }
+
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: main
+          persist-credentials: false
+
+      - name: Guard - refuse placeholder audio
+        run: |
+          set -euo pipefail
+          m="artifacts/$STEM/manifest.json"
+          test -f "$m" || { echo "::error::$m not on main (merge the ingest PR first)"; exit 1; }
+          python3 - "$m" <<'PY'
+          import json, sys
+          m = json.load(open(sys.argv[1]))
+          if m.get("placeholder_audio", True):
+              sys.exit("::error::PLACEHOLDER audio (no real TTS); refusing to publish. Re-run ingest with XAI_API_KEY set.")
+          if m.get("recording_method") == "tts-reconstructed" and not m.get("ai_reconstructed"):
+              sys.exit("::error::tts-reconstructed episode without the AI-reconstructed label")
+          print("ok:", m["audio_key"], m["audio_bytes"], m["audio_sha256"])
+          PY
+          python3 -c "import json,sys;m=json.load(open(sys.argv[1]));print(f'AUDIO_KEY={m[\"audio_key\"]}\nAUDIO_SHA={m[\"audio_sha256\"]}')" "$m" >> "$GITHUB_ENV"
+
+      - name: Copy MP3 + chapters to the public bucket (sha256-verified)
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: auto
+          CF_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          set -euo pipefail
+          ep="https://$CF_ACCOUNT_ID.r2.cloudflarestorage.com"
+          aws s3 cp "s3://$MASTERS_BUCKET/staging/$STEM/$(basename "$AUDIO_KEY")" ep.mp3 --endpoint-url "$ep" --only-show-errors
+          echo "$AUDIO_SHA  ep.mp3" | sha256sum -c -
+          aws s3 cp ep.mp3 "s3://$PUBLIC_BUCKET/$AUDIO_KEY" --content-type audio/mpeg \
+            --cache-control "public, max-age=31536000, immutable" --endpoint-url "$ep" --only-show-errors
+          aws s3 cp "artifacts/$STEM/chapters.json" "s3://$PUBLIC_BUCKET/chapters/en/$(basename "$AUDIO_KEY" .mp3).json" \
+            --content-type application/json+chapters --cache-control "public, max-age=300" --endpoint-url "$ep" --only-show-errors
+
+      - name: Upsert D1 and mark published
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_D1_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          set -euo pipefail
+          slug="${STEM#*_}"
+          { cat "artifacts/$STEM/d1_upsert.sql"
+            echo "UPDATE episodes SET status='published', published_at=COALESCE(published_at, strftime('%Y-%m-%dT%H:%M:%SZ','now')) WHERE slug='$slug';"
+          } > publish.sql
+          npx --yes wrangler@4 d1 execute "$D1_NAME" --remote --file publish.sql
+
+      - name: Rebuild the site (Netlify build hook)
+        env:
+          HOOK: ${{ secrets.NETLIFY_BUILD_HOOK }}
+        run: |
+          [[ -n "$HOOK" ]] && curl -fsS -X POST -d '{}' "$HOOK" >/dev/null && echo "build triggered" || echo "::warning::NETLIFY_BUILD_HOOK not set"
