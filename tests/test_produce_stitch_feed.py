@@ -126,6 +126,6 @@ def test_build_site_from_local_db(tmp_path):
     out = tmp_path / "dist"
     assert build_site.main(["--db", str(db), "--out", str(out), "--include-drafts"]) == 0
     page = (out / "episodes/eve-david-podcast-planning/index.html").read_text()
-    assert "AI-reconstructed audio." in page and "audio.askevepodcast.com" in page
+    assert 'class="disclosure' in page and "Fully AI-reconstructed audio" in page and "audio.askevepodcast.com" in page
     assert (out / "episodes/eve-david-podcast-planning/transcript.txt").read_text().startswith("[07:29:52] David:")
     ET.parse(out / "feed.xml")

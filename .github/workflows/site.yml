@@ -10,6 +10,9 @@ on:
       - scripts/build_site.py
       - scripts/render_feed.py
       - site/_headers
+      - site/site.json
+      - site/static/**
+      - index/people.md
       - .github/workflows/site.yml
 
 permissions:
