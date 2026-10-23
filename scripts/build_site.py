@@ -310,13 +310,14 @@ ICON = {
     "rss": '<circle cx="6" cy="18" r="2.2"/><path d="M4 10.5a9.5 9.5 0 0 1 9.5 9.5h-2.6A6.9 6.9 0 0 0 4 13.1zM4 4.5A15.5 15.5 0 0 1 19.5 20h-2.6A12.9 12.9 0 0 0 4 7.1z"/>',
     "spotify": '<path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm4.6 14.4a.75.75 0 0 1-1 .25c-2.8-1.7-6.3-2.1-10.4-1.1a.75.75 0 1 1-.34-1.46c4.5-1 8.4-.6 11.5 1.3.36.22.47.69.25 1.01zm1.3-2.9a.9.9 0 0 1-1.25.3c-3.2-2-8.1-2.5-11.9-1.4a.9.9 0 1 1-.5-1.73c4.3-1.3 9.7-.7 13.4 1.6.43.26.56.82.29 1.24zm.1-3c-3.9-2.3-10.2-2.5-13.9-1.4a1.1 1.1 0 1 1-.63-2.1c4.2-1.3 11.2-1 15.6 1.6a1.1 1.1 0 0 1-1.1 1.9z"/>',
     "apple": '<path d="M12 2.2a7.8 7.8 0 0 0-3 15l.3-1.7a6.1 6.1 0 1 1 5.4 0l.3 1.7a7.8 7.8 0 0 0-3-15zm0 3.6a4.2 4.2 0 0 0-2.1 7.8l.3-1.8a2.6 2.6 0 1 1 3.6 0l.3 1.8A4.2 4.2 0 0 0 12 5.8zm0 4.4a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2zm-1.2 4.4-.8 6.2c-.06.5.33.9.82.9h2.36c.5 0 .88-.4.82-.9l-.8-6.2z"/>',
+    "menu": '<path d="M4 7h16M4 12h16M4 17h16"/>',
     "theme": '<path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zm0 2v14a7 7 0 0 1 0-14z"/>',
     "doc": '<path d="M7 3h7l5 5v12a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm6 1.5V9h4.5M9 13h6M9 16.5h6"/>',
     "mail": '<path d="M4 6h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1zm0 1.5 8 6 8-6"/>',
     "spark": '<path d="M12 2.5l1.9 5.6 5.6 1.9-5.6 1.9L12 17.5l-1.9-5.6L4.5 10l5.6-1.9zM18.5 15l.9 2.6 2.6.9-2.6.9-.9 2.6-.9-2.6-2.6-.9 2.6-.9z"/>',
     "down": '<path d="M12 4v13m0 0-5.5-5.5M12 17l5.5-5.5"/>',
 }
-STROKE = {"doc", "mail", "down"}
+STROKE = {"doc", "mail", "down", "menu"}
 
 
 def icon(name: str, cls: str = "ico") -> str:
@@ -395,13 +396,40 @@ def og_image(slug: str | None) -> str:
 
 
 NAV = [("/", "Episodes"), ("/people/", "People"), ("/about/", "About")]
+# The "Meet Eve" page (/eve/) is planned; set SHOW_EVE_NAV once it is built. The header and the
+# mobile menu are sized for four items so adding it needs no layout work.
+EVE_NAV = ("/eve/", "Eve")
+SHOW_EVE_NAV = False
+
+
+def nav_items() -> list[tuple[str, str]]:
+    return NAV[:2] + [EVE_NAV] + NAV[2:] if SHOW_EVE_NAV else list(NAV)
+
+
+def site_cfg() -> dict:
+    f = ROOT / "site/site.json"
+    return json.loads(f.read_text()) if f.exists() else {}
+
+
+def head_subscribe(cfg: dict) -> str:
+    """Icon-only subscribe links for the site header (every page). Hidden services stay hidden."""
+    sub = cfg.get("subscribe", {})
+    items = [("rss", F.FEED, "Subscribe with RSS", "")]
+    if sub.get("apple_podcasts"):
+        items.append(("apple", sub["apple_podcasts"], "Subscribe on Apple Podcasts", ""))
+    if sub.get("spotify"):
+        items.append(("spotify", sub["spotify"], "Follow on Spotify", " hsub--extra"))
+    return '<div class="head-subs" role="group" aria-label="Subscribe">' + "".join(
+        f'<a class="hsub hsub--{k}{cls}" href="{e(u)}" aria-label="{e(lab)}" title="{e(lab)}"'
+        f'{"" if k == "rss" else " rel=noopener"}>{icon(k)}</a>' for k, u, lab, cls in items) + "</div>"
 
 
 def page(A: Assets, *, title: str, desc: str, path: str, body: str, active: str = "", og_type: str = "website",
          og_slug: str | None = None, ld: dict | None = None, player: str = "", body_cls: str = "") -> str:
     url = SITE + path
     full = title if title == "Ask Eve" or title.startswith("Ask Eve") else f"{title} · Ask Eve"
-    nav = "".join(f'<a href="{h}"{" aria-current=page" if h == active else ""}>{n}</a>' for h, n in NAV)
+    nav = "".join(f'<a href="{h}"{" aria-current=page" if h == active else ""}>{n}</a>' for h, n in nav_items())
+    subs = head_subscribe(site_cfg())
     ldj = ('<script type="application/ld+json">' + json.dumps(ld).replace("</", "<\\/") + "</script>") if ld else ""
     return f"""<!doctype html>
 <html lang="en">
@@ -440,7 +468,12 @@ def page(A: Assets, *, title: str, desc: str, path: str, body: str, active: str 
   <div class="wrap site-head__in">
     <a class="brand" href="/" aria-label="Ask Eve home">{mark_svg("mark", "h")}<span>Ask Eve</span></a>
     <nav class="site-nav" aria-label="Primary">{nav}</nav>
+    {subs}
     <button class="theme-btn" type="button" data-theme-toggle aria-label="Color theme: system">{icon("theme")}<span class="theme-btn__label">Auto</span></button>
+    <details class="menu" data-menu>
+      <summary class="menu__btn" aria-label="Menu">{icon("menu")}</summary>
+      <nav class="menu__panel" aria-label="Primary (menu)">{nav}</nav>
+    </details>
   </div>
 </header>
 <main id="main">
@@ -461,11 +494,11 @@ def page(A: Assets, *, title: str, desc: str, path: str, body: str, active: str 
 
 def subscribe_links(cfg: dict) -> str:
     sub = cfg.get("subscribe", {})
-    links = [f'<a class="sub sub--rss" href="/feed.xml" data-copy="{F.FEED}">{icon("rss")}<span>RSS feed</span></a>']
+    links = [f'<a class="sub sub--rss" href="{F.FEED}" title="Subscribe with RSS" data-copy="{F.FEED}">{icon("rss")}<span>RSS feed</span></a>']
     if sub.get("spotify"):
-        links.append(f'<a class="sub sub--spotify" href="{e(sub["spotify"])}" rel="noopener">{icon("spotify")}<span>Spotify</span></a>')
+        links.append(f'<a class="sub sub--spotify" href="{e(sub["spotify"])}" rel="noopener" title="Follow on Spotify">{icon("spotify")}<span>Spotify</span></a>')
     if sub.get("apple_podcasts"):
-        links.append(f'<a class="sub sub--apple" href="{e(sub["apple_podcasts"])}" rel="noopener">{icon("apple")}<span>Apple Podcasts</span></a>')
+        links.append(f'<a class="sub sub--apple" href="{e(sub["apple_podcasts"])}" rel="noopener" title="Subscribe on Apple Podcasts">{icon("apple")}<span>Apple Podcasts</span></a>')
     return f'<div class="subs" aria-label="Subscribe">{"".join(links)}<button class="sub sub--copy" type="button" data-copy-feed="{F.FEED}">Copy feed URL</button></div>'
 
 
