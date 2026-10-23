@@ -484,15 +484,25 @@ def og_image(slug: str | None) -> str:
     return f"{SITE}/favicon.svg"
 
 
-NAV = [("/", "Episodes"), ("/people/", "People"), ("/about/", "About")]
-# The "Meet Eve" page (/eve/) is planned; set SHOW_EVE_NAV once it is built. The header and the
-# mobile menu are sized for four items so adding it needs no layout work.
+# Header nav. About lives in the compact (mobile) menu and the footer only.
+NAV = [("/", "Episodes"), ("/mind/", "Mind"), ("/eve/", "Eve")]
+MENU_EXTRA = [("/about/", "About")]
 EVE_NAV = ("/eve/", "Eve")
 SHOW_EVE_NAV = True
+# The Mind hub's Topics section and Eve's takes stay hidden until David approves them.
+SHOW_TOPICS = False
 
 
 def nav_items() -> list[tuple[str, str]]:
-    return NAV[:2] + [EVE_NAV] + NAV[2:] if SHOW_EVE_NAV else list(NAV)
+    return [x for x in NAV if SHOW_EVE_NAV or x != EVE_NAV]
+
+
+def menu_items() -> list[tuple[str, str]]:
+    return nav_items() + MENU_EXTRA
+
+
+def nav_links(items: list[tuple[str, str]], active: str) -> str:
+    return "".join(f'<a href="{h}"{" aria-current=page" if h == active else ""}>{n}</a>' for h, n in items)
 
 
 def site_cfg() -> dict:
@@ -518,7 +528,7 @@ def page(A: Assets, *, title: str, desc: str, path: str, body: str, active: str 
          linker: "Linker | None" = None) -> str:
     url = SITE + path
     full = title if title == "Ask Eve" or title.startswith("Ask Eve") else f"{title} · Ask Eve"
-    nav = "".join(f'<a href="{h}"{" aria-current=page" if h == active else ""}>{n}</a>' for h, n in nav_items())
+    nav, menu = nav_links(nav_items(), active), nav_links(menu_items(), active)
     subs = head_subscribe(site_cfg())
     ldj = ('<script type="application/ld+json">' + json.dumps(ld).replace("</", "<\\/") + "</script>") if ld else ""
     return f"""<!doctype html>
@@ -563,7 +573,7 @@ def page(A: Assets, *, title: str, desc: str, path: str, body: str, active: str 
     <button class="theme-btn" type="button" data-theme-toggle aria-label="Color theme: system">{icon("theme")}<span class="theme-btn__label">Auto</span></button>
     <details class="menu" data-menu>
       <summary class="menu__btn" aria-label="Menu">{icon("menu")}</summary>
-      <nav class="menu__panel" aria-label="Primary (menu)">{nav}</nav>
+      <nav class="menu__panel" aria-label="Primary (menu)">{menu}</nav>
     </details>
   </div>
 </header>
@@ -573,7 +583,7 @@ def page(A: Assets, *, title: str, desc: str, path: str, body: str, active: str 
 <footer class="site-foot">
   <div class="wrap site-foot__in">
     <div class="site-foot__brand">{mark_svg("mark mark--sm", "f")}<div><strong>Ask Eve</strong><p>{e(TAGLINE)}</p></div></div>
-    <nav aria-label="Footer"><a href="/">Episodes</a><a href="/people/">People</a><a href="/about/">About</a><a href="/feed.xml">RSS</a><a href="mailto:{EMAIL}">{EMAIL}</a></nav>
+    <nav aria-label="Footer">{nav_links(menu_items(), "")}<a href="/people/">People</a><a href="/feed.xml">RSS</a><a href="mailto:{EMAIL}">{EMAIL}</a></nav>
     <p class="site-foot__fine">Eve is an AI. Her takes are opinions and can be wrong. AI-generated voices are labeled on every episode. No analytics, no trackers.</p>
   </div>
 </footer>
@@ -864,7 +874,7 @@ def episode_page(A: Assets, ep: dict, eps: list[dict]) -> str:
                 og_type="article", og_slug=ep["slug"], ld=ld, player=player_html(ep), body_cls="has-player", linker=L)
 
 
-def people_index(A: Assets, people: list[dict]) -> str:
+def pcards(people: list[dict]) -> str:
     cards = []
     for p in people:
         n = sum(len(x["moments"]) for x in p["episodes"])
@@ -875,13 +885,60 @@ def people_index(A: Assets, people: list[dict]) -> str:
 <span class="pcard__name">{e(p['name'])}</span>
 <span class="pcard__stance">{e(p['stance'])}</span>
 <span class="pcard__stat">{stat}</span></a></li>""")
-    body = f"""<section class="page-head"><div class="wrap"><p class="eyebrow eyebrow--accent">People index</p>
+    return f'<ul class="pgrid">{"".join(cards)}</ul>'
+
+
+def people_index(A: Assets, people: list[dict]) -> str:
+    body = f"""<section class="page-head"><div class="wrap"><p class="eyebrow eyebrow--accent"><a href="/mind/">Inside Eve's Mind</a> · People</p>
 <h1 class="page-title">Who comes up on Ask Eve</h1>
 <p class="lede">Every person the show covers, Eve's current one-line take on them, and every real discussion about them, summarized and linked to the second it starts.</p>
 <p class="fine">Stances are Eve's opinions, an AI's read, and she updates them as the evidence changes.</p></div></section>
-<section class="wrap"><ul class="pgrid">{''.join(cards)}</ul></section>"""
+<section class="wrap">{pcards(people)}</section>"""
     return page(A, title="People", desc="Everyone discussed on Ask Eve, with Eve's stance and every discussion, summarized and timestamped.",
-                path="/people/", body=body, active="/people/")
+                path="/people/", body=body, active="/mind/")
+
+
+def first_sentence(t: str, limit: int = 220) -> str:
+    t = (t or "").strip()
+    m = re.match(r"(.+?[.!?])(\s|$)", t)
+    if m and len(m.group(1)) < 60:              # a very short opener reads better with the next sentence
+        m = re.match(r"(.+?[.!?]\s+.+?[.!?])(\s|$)", t) or m
+    t = m.group(1) if m else t
+    return t if len(t) <= limit else t[:limit].rsplit(" ", 1)[0] + "…"
+
+
+def mind_page(A: Assets, eps: list[dict], people: list[dict]) -> str:
+    """/mind/: the hub for what Eve carries between episodes: her memories (episodes), the people
+    she has stances on, and (once approved) topics."""
+    mems = []
+    for ep in eps:
+        n = len(ep.get("moments") or [])
+        who = ep.get("people_full") or []
+        stat = " · ".join(x for x in [human_date(ep["date"]), human_duration(ep["duration_seconds"]),
+                                      f"{n} discussion{'s' * (n != 1)} indexed" if n else ""] if x)
+        names = "".join(f'<li><a class="chip" href="/people/{p["slug"]}/">{e(p["name"])}</a></li>' for p in who[:6])
+        mems.append(f"""<li class="mem{' mem--bonus' if is_bonus(ep) else ''}">
+<p class="eyebrow">{bonus_badge(ep) if is_bonus(ep) else f'<span class="card__num">{e(ep_label(ep))}</span>'}</p>
+<h3 class="mem__t"><a href="/episodes/{e(ep['slug'])}/">{e(ep['title'])}</a></h3>
+<p class="mem__meta">{stat}</p>
+{f'<p class="mem__b">{e(first_sentence(ep["blurb"]))}</p>' if ep.get("blurb") else ""}
+{f'<ul class="chips">{names}</ul>' if names else ""}</li>""")
+    discussed = [p for p in people if p["episodes"]]
+    topics = ""   # SHOW_TOPICS: topic pages and Eve's takes are gated until David approves them
+    body = f"""<section class="page-head"><div class="wrap"><p class="eyebrow eyebrow--accent">Mind</p>
+<h1 class="page-title">Inside Eve's Mind</h1>
+<p class="lede">What Eve carries from one conversation to the next: her memories of every episode, and the people she keeps a running stance on.</p>
+<p class="fine">Eve is an AI. Her stances are opinions and change as the evidence does. Meet her on the <a href="/eve/">Eve page</a>.</p>
+<nav class="eve-toc" aria-label="On this page"><ul class="chips"><li><a class="chip" href="#memories">Memories</a></li><li><a class="chip" href="#people">People</a></li></ul></nav></div></section>
+<section class="wrap mind-sec" id="memories" aria-labelledby="mem-h"><h2 class="h2" id="mem-h">Memories</h2>
+<p class="hint">Every episode is a memory Eve can search mid-conversation: the full transcript, plus each discussion of a person, summarized and timestamped.</p>
+<ul class="mems">{''.join(mems) or '<li class="empty">The first episode is on its way.</li>'}</ul></section>
+<section class="wrap mind-sec" id="people" aria-labelledby="ppl-h"><h2 class="h2" id="ppl-h">People</h2>
+<p class="hint">Who Eve has discussed, and her current one-line take on each.</p>
+{pcards(discussed)}
+<p><a class="btn btn--ghost" href="/people/">All {len(people)} people</a></p></section>{topics}"""
+    return page(A, title="Inside Eve's Mind", desc="Eve's memories of every Ask Eve episode and her running stances on the people the show covers.",
+                path="/mind/", body=body, active="/mind/")
 
 
 def moment_html(ep: dict, m: dict, L: Linker = NO_LINKS) -> str:
@@ -915,11 +972,11 @@ def person_page(A: Assets, p: dict) -> str:
         sections.append('<p class="empty">No episode discusses this person yet.</p>')
     stance = (f'<figure class="stance"><blockquote>{L.text(p["stance"])}</blockquote><figcaption>Eve\'s current take. '
               f'An AI\'s opinion, not a fact.</figcaption></figure>') if p["stance"] else ""
-    body = f"""<section class="page-head"><div class="wrap"><p class="eyebrow eyebrow--accent"><a href="/people/">People</a></p>
+    body = f"""<section class="page-head"><div class="wrap"><p class="eyebrow eyebrow--accent"><a href="/mind/">Mind</a> · <a href="/people/">People</a></p>
 <h1 class="page-title">{e(p['name'])}</h1>{stance}</div></section>
 <section class="wrap person">{''.join(sections)}</section>"""
     desc = f"{p['name']} on Ask Eve: Eve's take and every discussion about them, summarized with timestamps."
-    return page(A, title=p["name"], desc=desc, path=f"/people/{p['slug']}/", body=body, active="/people/", linker=L)
+    return page(A, title=p["name"], desc=desc, path=f"/people/{p['slug']}/", body=body, active="/mind/", linker=L)
 
 
 # ---------------------------------------------------------------- Meet Eve (/eve/)
@@ -1102,7 +1159,7 @@ def about_page(A: Assets, cfg: dict) -> str:
 
 def not_found(A: Assets) -> str:
     body = """<section class="page-head nf"><div class="wrap"><p class="eyebrow eyebrow--accent">404</p>
-<h1 class="page-title">Eve couldn't find that page</h1><p class="lede">She checked her memory twice. Try the <a href="/">episodes</a> or the <a href="/people/">people index</a>.</p></div></section>"""
+<h1 class="page-title">Eve couldn't find that page</h1><p class="lede">She checked her memory twice. Try the <a href="/">episodes</a> or <a href="/mind/">Inside Eve's Mind</a>.</p></div></section>"""
     return page(A, title="Page not found", desc="Page not found.", path="/404", body=body)
 
 
@@ -1130,12 +1187,13 @@ def build(db: Path, out: Path, include_drafts: bool) -> int:
     if (ROOT / "site/_headers").exists():
         shutil.copyfile(ROOT / "site/_headers", out / "_headers")
     cfg = eps[0]["cfg"] if eps else (json.loads((ROOT / "site/site.json").read_text()) if (ROOT / "site/site.json").exists() else {})
-    urls = ["/", "/people/", "/about/"]
+    urls = ["/", "/mind/", "/people/", "/about/"]
     for ep in eps:
         write(out, f"episodes/{ep['slug']}/transcript.txt", ep["body_md"] + "\n")
         write(out, f"episodes/{ep['slug']}/index.html", episode_page(A, ep, eps))
         urls.append(f"/episodes/{ep['slug']}/")
     write(out, "index.html", home(A, eps, people))
+    write(out, "mind/index.html", mind_page(A, eps, people))
     write(out, "people/index.html", people_index(A, people))
     for p in people:
         write(out, f"people/{p['slug']}/index.html", person_page(A, p))
