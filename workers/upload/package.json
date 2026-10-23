@@ -1,0 +1,18 @@
+{
+  "name": "ask-eve-upload-worker",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Presigned R2 uploads + ingest dispatch for Ask Eve (upload.askevepodcast.com)",
+  "scripts": {
+    "test": "node --test test/",
+    "deploy": "npx wrangler@4 deploy",
+    "dev": "npx wrangler@4 dev"
+  },
+  "dependencies": {
+    "aws4fetch": "1.0.20"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
