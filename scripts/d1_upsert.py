@@ -16,6 +16,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from align_audio import parse_transcript  # noqa: E402
+from frontmatter import parse_front_matter_block  # noqa: E402
 
 AUDIO_BASE = "https://audio.askevepodcast.com/"
 AI_DISCLOSURE = ("AI-reconstructed audio: the voices in this episode were generated with xAI text-to-speech from the "
@@ -36,14 +37,12 @@ def slugify(name: str) -> str:
     return re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
 
 
+
 def front_matter(md: str) -> dict:
     m = re.match(r"^---\n(.*?)\n---\n", md, re.S)
     if not m:
         raise ValueError("transcript has no front matter")
-    fm = {}
-    for line in m.group(1).splitlines():
-        k, _, v = line.partition(": ")
-        fm[k.strip()] = v.strip()
+    fm = parse_front_matter_block(m.group(1))
     p = fm.get("people", "[]").strip()
     fm["people"] = [x.strip() for x in p.strip("[]").split(",") if x.strip()]
     return fm
@@ -68,6 +67,8 @@ def build_sql(transcript: Path, repo_root: Path, slug: str, alignment: dict | No
         "session_ended_at": turns[-1].created_at if turns else None, "turn_count": len(turns),
         "transcript_path": rel, "transcript_sha256": hashlib.sha256(data).hexdigest(), "transcript_bytes": len(data),
     }
+    if fm.get("context") or fm.get("summary"):   # episode context note: card blurb + feed description
+        ep["summary"] = fm.get("context") or fm["summary"]
     if alignment:
         ep.update({k: alignment.get(k) for k in ("sync_offset_seconds", "alignment_method", "alignment_coverage", "asr_model",
                                                  "recording_started_at", "raw_audio_sha256")})

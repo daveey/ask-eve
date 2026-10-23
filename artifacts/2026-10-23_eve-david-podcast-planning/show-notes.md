@@ -1,4 +1,4 @@
-# Eve-David podcast planning session
+# First Encounter
 
 > **AI-reconstructed audio.** The voices in this episode were generated with xAI text-to-speech from the verbatim text transcript (Eve in the 'eve' voice, David's lines in a narrator voice). No original audio was used.
 

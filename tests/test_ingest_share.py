@@ -27,6 +27,16 @@ def test_reproduces_episode1_byte_for_byte(tmp_path, capsys):
     # The committed transcript is the export minus a documented redaction (front-matter `redactions:`):
     # three Eve lines that carried a private notes-page URL. Every other line is byte-identical.
     exported, committed = out.read_text().split("\n"), EP1.read_text().split("\n")
+    # The display title was renamed after publishing (front matter only); the export keeps the original title.
+    assert "title: Eve-David podcast planning session" in exported and "title: First Encounter" in committed
+    exported = ["title: First Encounter" if l == "title: Eve-David podcast planning session" else l for l in exported]
+    # Context note + Topics list were added to the front matter after publishing.
+    i = committed.index("topics:")
+    assert committed[i - 1].startswith("context: ") and committed[i + 1].startswith("  - ")
+    j = i + 1
+    while committed[j].startswith("  - "):
+        j += 1
+    committed = committed[:i - 1] + committed[j:]
     assert [l for l in committed if l.startswith("redactions: ")] and len(committed) == len(exported) + 1
     committed = [l for l in committed if not l.startswith("redactions: ")]
     changed = [(a, b) for a, b in zip(exported, committed) if a != b]

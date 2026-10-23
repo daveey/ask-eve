@@ -1,6 +1,18 @@
 ---
 date: 2026-10-23
 title: The Making of Eve
+context: Episode 1 picks up where the first conversation left off, in the Grok Bot chat where David and Eve actually built the show. It runs from Eve's hello at 09:33 UTC to 11:00 UTC, with David up at almost 4am and set on getting it published that night. Most of it is David's instructions and Eve's work reports: a workspace, a memory Eve can search, a public code repo, and an audio pipeline designed and then redesigned around an iPhone, AirPods and recording on walks. Along the way the first conversation's transcript turns up through a Grok share link, askevepodcast.com gets wired in, and David decides this build session should be an episode too. On the audio: you hear David's real voice in the two stretches he recorded on his phone (10:31-10:39 and 10:42-10:49 UTC); his other lines are read by an AI narrator, and Eve's lines are her written replies re-voiced with AI text-to-speech. Three of Eve's replies were never recovered and are marked as gaps, and an API key David pasted is redacted.
+topics:
+  - Setting up Eve's workspace, and why she won't recreate a transcript from memory
+  - Eve's memory: vector, tag and full-text search in one SQLite file
+  - Fixing a crash, adding tests, and publishing the code as a public GitHub repo without David's personal notes
+  - Tracking down the first conversation's transcript through a Grok share link
+  - Designing the audio pipeline, then redesigning it for an iPhone, AirPods and recording on walks
+  - Can an iPhone even capture Grok's voice? A two-minute test and the fallbacks, down to fully synthetic voices
+  - Re-voicing Eve as the main path, pull-request-only ingest, and the askevepodcast.com domain
+  - Dropped recordings, multi-segment stitching, and "Ask Eve, take two"
+  - A deploy guide for David's coding agent: two storage buckets and keeping the Cloudflare token out of the Worker
+  - An xAI key, a push to publish before sleeping, and deciding that this chat is episode 1
 episode: 1
 people: []
 source: grokbot-chat

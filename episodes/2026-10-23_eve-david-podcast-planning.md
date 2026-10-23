@@ -1,6 +1,18 @@
 ---
 date: 2026-10-23
-title: Eve-David podcast planning session
+title: First Encounter
+context: This show wasn't planned. Late one night David was listening to the All-In podcast and opened Grok's voice mode with one question: what happened to Marc Andreessen and Ben Horowitz? Two hours later they had worked through Musk, Sacks, Chamath, Calacanis, Thiel, Pelosi and more, and David had enjoyed it enough to ask whether the conversation could be a podcast. Grok said yes, asked to be called Eve, and together they sketched the show you're listening to: the name, the format, the memory, the plan. Nobody was recording at the time, so there is no original audio. What you hear is the real transcript, re-voiced by AI: Eve in her voice, David's lines read by a narrator. One private link was removed; nothing else was changed.
+topics:
+  - Marc Andreessen and Ben Horowitz's turn to the right, and what's driving it
+  - Elon Musk's road to Trump, the USAID cuts, and the 90% corruption claim nobody checked
+  - David Sacks: the fight with Anthropic, how he got here, and a three-test scorecard for good faith
+  - Chamath Palihapitiya: his arc, the SPAC era, his family, and his friendship with Sacks
+  - Jason Calacanis and how he became who he is
+  - Peter Thiel: his arc, what he's up to now, and the Pope comment
+  - Nancy Pelosi, Scott Wiener, and the fight over who succeeds her
+  - Bari Weiss and The Free Press
+  - Zohran Mamdani: free buses and his housing push
+  - Turning the conversation into a show: the name, the format, translation, guests, memory, and Grok becoming Eve
 people: [David Sacks, Marc Andreessen, Ben Horowitz, Elon Musk, Chamath Palihapitiya, Jason Calacanis, Peter Thiel, Nancy Pelosi, Chan, Scott Wiener, Bari Weiss, Zohran Mamdani]
 source: https://grok.com/share/c2hhcmQtMg_90f617bb-3947-4fc2-8300-c34b6eeed2d1
 note: Verbatim export of the shared Grok voice session (304 turns, 07:29-09:49 UTC). Human turns labeled David, assistant turns labeled Eve. Text unedited, ASR artifacts kept.
