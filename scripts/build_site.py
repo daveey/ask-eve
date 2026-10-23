@@ -252,6 +252,93 @@ def inline(s: str) -> str:
     return "".join(out)
 
 
+# ---------------------------------------------------------------- auto-linking
+# Names and things mentioned in the show become silent links (they look like plain text) that open a small
+# menu of destinations: Eve's page on them, their own site or X account, Wikipedia, Grokipedia. Data comes
+# from index/links.json (verified by scripts/build_links.py). Topic pages join once published: add
+# "term": "/topic/<slug>/" to TOPIC_PAGES (none are published yet, so nothing links to /topic/).
+LINKS_FILE = ROOT / "index/links.json"
+TOPIC_PAGES: dict[str, str] = {}
+_SKIP_TAGS = {"a", "code", "pre", "h1", "h2", "h3", "h4", "h5", "h6", "script", "style", "button", "summary"}
+
+
+def load_links() -> dict:
+    ents = json.loads(LINKS_FILE.read_text())["entities"] if LINKS_FILE.exists() else {}
+    for term, url in TOPIC_PAGES.items():
+        ents.setdefault("topic:" + term, {"name": term, "type": "topic", "terms": [term],
+                                          "items": [{"label": f"Eve on {term}", "url": url, "kind": "site"}]})
+    return ents
+
+
+class Linker:
+    """Per-page linker. `seen` sets implement first-mention-per-block; `used` collects the menus to embed."""
+
+    def __init__(self, ents: dict, path: str = "", exclude: set[str] | None = None):
+        self.ents, self.path, self.used = ents, path, {}
+        self.term2key = {}
+        for k, ent in ents.items():
+            if exclude and k in exclude:
+                continue
+            for t in ent["terms"]:
+                self.term2key.setdefault(t, k)
+        terms = sorted(self.term2key, key=len, reverse=True)
+        # case-sensitive whole-word match; letters/digits/hyphen-joined words count as word characters
+        self.rx = re.compile(r"(?<![\w-])(" + "|".join(re.escape(t) for t in terms) + r")(?![\w-])") if terms else None
+
+    def _menu(self, key: str) -> dict:
+        ent = self.ents[key]
+        items = [i for i in ent["items"] if i["url"] != self.path]
+        return {"name": ent["name"], "items": items}
+
+    def _sub(self, text_html: str, seen: set) -> str:
+        if not self.rx:
+            return text_html
+
+        def rep(m):
+            key = self.term2key[m.group(1)]
+            if key in seen:
+                return m.group(0)
+            menu = self._menu(key)
+            if not menu["items"]:
+                return m.group(0)
+            seen.add(key)
+            self.used[key] = menu
+            first = menu["items"][0]["url"]
+            ext = "" if first.startswith("/") else ' target="_blank" rel="noopener"'
+            return (f'<a class="xl" href="{e(first)}"{ext} data-xl="{e(key)}" aria-haspopup="menu" '
+                    f'aria-expanded="false">{m.group(1)}</a>')
+        return self.rx.sub(rep, text_html)
+
+    def text(self, s: str, seen: set | None = None) -> str:
+        """Escape plain text and link it."""
+        return self._sub(e(s), set() if seen is None else seen)
+
+    def html(self, h: str, seen: set | None = None) -> str:
+        """Link the text nodes of trusted HTML, never inside links, code, headings or buttons."""
+        seen = set() if seen is None else seen
+        out, depth = [], 0
+        for part in re.split(r"(<[^>]+>)", h):
+            if part.startswith("<"):
+                m = re.match(r"<(/?)([a-zA-Z0-9]+)", part)
+                if m and m.group(2).lower() in _SKIP_TAGS and not part.endswith("/>"):
+                    depth += -1 if m.group(1) else 1
+                out.append(part)
+            elif part and depth == 0:
+                out.append(self._sub(part, seen))
+            else:
+                out.append(part)
+        return "".join(out)
+
+    def data_script(self) -> str:
+        if not self.used:
+            return ""
+        return ('<script type="application/json" id="xl-data">'
+                + json.dumps(self.used, ensure_ascii=False).replace("</", "<\\/") + "</script>")
+
+
+NO_LINKS = Linker({})
+
+
 def blocks(text: str) -> str:
     out, para, items, kind, code, in_code = [], [], [], None, [], False
 
@@ -425,7 +512,8 @@ def head_subscribe(cfg: dict) -> str:
 
 
 def page(A: Assets, *, title: str, desc: str, path: str, body: str, active: str = "", og_type: str = "website",
-         og_slug: str | None = None, ld: dict | None = None, player: str = "", body_cls: str = "") -> str:
+         og_slug: str | None = None, ld: dict | None = None, player: str = "", body_cls: str = "",
+         linker: "Linker | None" = None) -> str:
     url = SITE + path
     full = title if title == "Ask Eve" or title.startswith("Ask Eve") else f"{title} · Ask Eve"
     nav = "".join(f'<a href="{h}"{" aria-current=page" if h == active else ""}>{n}</a>' for h, n in nav_items())
@@ -460,6 +548,7 @@ def page(A: Assets, *, title: str, desc: str, path: str, body: str, active: str 
 <link rel="stylesheet" href="{A('assets/site.css')}">
 <script src="{A('assets/theme.js')}"></script>
 <script src="{A('assets/player.js')}" defer></script>
+<script src="{A('assets/links.js')}" defer></script>
 {ldj}
 </head>
 <body class="{body_cls}">
@@ -487,6 +576,7 @@ def page(A: Assets, *, title: str, desc: str, path: str, body: str, active: str 
   </div>
 </footer>
 {player}
+{linker.data_script() if linker else ""}
 </body>
 </html>
 """
@@ -653,7 +743,7 @@ VOICE_BADGE = {"real": ("Real voice", "David's recorded voice"),
                "gap": ("Not recovered", "This reply was not recovered; nothing was invented or voiced")}
 
 
-def turn_html(t: dict) -> str:
+def turn_html(t: dict, L: Linker = NO_LINKS) -> str:
     who = t["speaker"].lower()
     v = t["voice"]
     badge = f'<span class="vb vb--{v}" title="{e(VOICE_BADGE[v][1])}">{VOICE_BADGE[v][0]}</span>' if v else ""
@@ -662,7 +752,7 @@ def turn_html(t: dict) -> str:
     tbtn = (f'<a class="turn__time tnum" href="#t={int(t["start"])}" data-seek="{t["start"]:.2f}" '
             f'aria-label="Play from {clock(t["start"])}">{clock(t["start"])}</a>') if attrs else ""
     body = ('<p class="turn__gap">Eve\'s reply was not recovered. It is marked as a gap, not invented, and not voiced.</p>'
-            if t["gap"] else blocks(t["text"]))
+            if t["gap"] else L.html(blocks(t["text"])))   # first mention per turn
     meta = ""
     if t["meta"]:
         head, rest = t["meta"][0], t["meta"][1:]
@@ -675,18 +765,20 @@ def turn_html(t: dict) -> str:
             f'<div class="turn__body">{body}</div>{meta}</li>')
 
 
-def context_html(ep: dict) -> str:
+def context_html(ep: dict, L: Linker = NO_LINKS) -> str:
     """The episode's front-matter Context note and Topics list, shown under the title and above the transcript."""
     if not ep.get("context") and not ep.get("topics"):
         return ""
-    ctx = (f'<h2 class="ep-context__h" id="ctx-h">Context</h2><p class="ep-context__p">{e(ep["context"])}</p>'
+    seen: set = set()   # the topics list is one section: first mention only
+    ctx = (f'<h2 class="ep-context__h" id="ctx-h">Context</h2><p class="ep-context__p">{L.text(ep["context"])}</p>'
            if ep.get("context") else "")
     tops = (f'<h2 class="ep-context__h" id="topics-h">Topics</h2><ul class="ep-topics">'
-            + "".join(f"<li>{e(t)}</li>" for t in ep["topics"]) + "</ul>") if ep.get("topics") else ""
+            + "".join(f"<li>{L.text(t, seen)}</li>" for t in ep["topics"]) + "</ul>") if ep.get("topics") else ""
     return f'<section class="wrap ep-context" aria-labelledby="ctx-h">{ctx}{tops}</section>\n'
 
 
 def episode_page(A: Assets, ep: dict, eps: list[dict]) -> str:
+    L = Linker(load_links(), f"/episodes/{ep['slug']}/")
     kind, label = ai_kind(ep)
     disclosure = ""
     if ep["ai_reconstructed"]:
@@ -748,12 +840,12 @@ def episode_page(A: Assets, ep: dict, eps: list[dict]) -> str:
     </div>
   </div>
 </header>
-{context_html(ep)}<div class="wrap">{disclosure}</div>
+{context_html(ep, L)}<div class="wrap">{disclosure}</div>
 <div class="wrap ep-layout">
   <aside class="ep-side" aria-label="Episode navigation">{chapters}{ppl}{details}</aside>
   <section class="transcript" aria-labelledby="tr-h">
     <div class="transcript__head"><h2 class="h2" id="tr-h">Transcript</h2><p class="hint">Tap any line to play from there. The current line follows along as you listen.</p></div>
-    <ol class="turns" data-turns>{''.join(turn_html(t) for t in ep['turns'])}</ol>
+    <ol class="turns" data-turns>{''.join(turn_html(t, L) for t in ep['turns'])}</ol>
   </section>
 </div>
 <button class="follow" type="button" data-follow hidden>{icon("down")}<span>Back to the current line</span></button>
@@ -767,7 +859,7 @@ def episode_page(A: Assets, ep: dict, eps: list[dict]) -> str:
     if ep["audio_url"]:
         ld["associatedMedia"] = {"@type": "MediaObject", "contentUrl": ep["audio_url"]}
     return page(A, title=ep["title"], desc=desc, path=f"/episodes/{ep['slug']}/", body=body, active="/",
-                og_type="article", og_slug=ep["slug"], ld=ld, player=player_html(ep), body_cls="has-player")
+                og_type="article", og_slug=ep["slug"], ld=ld, player=player_html(ep), body_cls="has-player", linker=L)
 
 
 def people_index(A: Assets, people: list[dict]) -> str:
@@ -790,7 +882,7 @@ def people_index(A: Assets, people: list[dict]) -> str:
                 path="/people/", body=body, active="/people/")
 
 
-def moment_html(ep: dict, m: dict) -> str:
+def moment_html(ep: dict, m: dict, L: Linker = NO_LINKS) -> str:
     """One discussion block: episode, time range, summary, and a deep link that starts the audio there."""
     t = m["first_turn"]
     if m["start"] is not None:
@@ -802,12 +894,13 @@ def moment_html(ep: dict, m: dict) -> str:
     tags = "".join(f'<li class="pm__tag">{e(x)}</li>' for x in m.get("topics", []))
     return (f'<li class="pm"><p class="pm__meta"><span class="pm__ep">{e(ep["title"])}</span>'
             f'<span class="pm__t tnum">{rng}</span></p>'
-            f'<p class="pm__sum">{e(m["summary"])}</p>'
+            f'<p class="pm__sum">{L.text(m["summary"])}</p>'
             f'<div class="pm__foot"><a class="pm__listen" href="{e(href)}">{icon("play")}<span>{cta}</span></a>'
             f'{f"<ul class=pm__tags>{tags}</ul>" if tags else ""}</div></li>')
 
 
 def person_page(A: Assets, p: dict) -> str:
+    L = Linker(load_links(), f"/people/{p['slug']}/", exclude={p["slug"]})   # don't link the page's own subject
     sections = []
     for x in p["episodes"]:
         ep, ms = x["ep"], x["moments"]
@@ -815,16 +908,16 @@ def person_page(A: Assets, p: dict) -> str:
         sections.append(f"""<section class="pep">
 <div class="pep__head">{cover_svg(ep['slug'], cover_mark(ep), "cover cover--thumb")}
 <div><p class="eyebrow">{e(ep_label(ep))} · {human_date(ep['date'])} · {cnt}</p><h2 class="pep__title"><a href="/episodes/{e(ep['slug'])}/">{e(ep['title'])}</a></h2></div></div>
-<ol class="pms">{''.join(moment_html(ep, m) for m in ms)}</ol></section>""")
+<ol class="pms">{''.join(moment_html(ep, m, L) for m in ms)}</ol></section>""")
     if not sections:
         sections.append('<p class="empty">No episode discusses this person yet.</p>')
-    stance = (f'<figure class="stance"><blockquote>{e(p["stance"])}</blockquote><figcaption>Eve\'s current take. '
+    stance = (f'<figure class="stance"><blockquote>{L.text(p["stance"])}</blockquote><figcaption>Eve\'s current take. '
               f'An AI\'s opinion, not a fact.</figcaption></figure>') if p["stance"] else ""
     body = f"""<section class="page-head"><div class="wrap"><p class="eyebrow eyebrow--accent"><a href="/people/">People</a></p>
 <h1 class="page-title">{e(p['name'])}</h1>{stance}</div></section>
 <section class="wrap person">{''.join(sections)}</section>"""
     desc = f"{p['name']} on Ask Eve: Eve's take and every discussion about them, summarized with timestamps."
-    return page(A, title=p["name"], desc=desc, path=f"/people/{p['slug']}/", body=body, active="/people/")
+    return page(A, title=p["name"], desc=desc, path=f"/people/{p['slug']}/", body=body, active="/people/", linker=L)
 
 
 def about_page(A: Assets, cfg: dict) -> str:
