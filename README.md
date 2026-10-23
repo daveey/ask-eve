@@ -93,7 +93,7 @@ See [docs/on-the-go.md](docs/on-the-go.md): Action Button → record, Eve Start 
 
 ## Quickstart
 ```bash
-cd /workspace/ask-eve
+cd ask-eve   # your clone
 python3 -m venv .venv
 .venv/bin/pip install -r requirements-dev.txt        # or memory/requirements.txt for runtime only
 # one-time model download (~30 MB) into memory/models/
@@ -113,7 +113,7 @@ Environment overrides: `EVE_ROOT` (corpus root), `EVE_DB` (database path), `EVE_
 .venv/bin/python memory/search.py query "what did we say about Thiel" -k 3
 ```
 ```python
-import sys; sys.path[:0] = ["/workspace/ask-eve", "/workspace/ask-eve/memory"]
+import sys; sys.path[:0] = [".", "memory"]   # run from the repo root
 from boot import boot
 from search import query
 print(boot(n=30))

@@ -14,9 +14,8 @@ topics:
   - Zohran Mamdani: free buses and his housing push
   - Turning the conversation into a show: the name, the format, translation, guests, memory, and Grok becoming Eve
 people: [David Sacks, Marc Andreessen, Ben Horowitz, Elon Musk, Chamath Palihapitiya, Jason Calacanis, Peter Thiel, Nancy Pelosi, Chan, Scott Wiener, Bari Weiss, Zohran Mamdani]
-source: https://grok.com/share/c2hhcmQtMg_90f617bb-3947-4fc2-8300-c34b6eeed2d1
 note: Verbatim export of the shared Grok voice session (304 turns, 07:29-09:49 UTC). Human turns labeled David, assistant turns labeled Eve. Text unedited, ASR artifacts kept.
-redactions: 2026-10-23: three Eve turns (08:32:43, 08:33:03, 08:33:07) contained the URL of a private notes page, spelled out or as a link; replaced with [link to a private notes page removed] in the text and the audio. All other text is verbatim.
+redactions: Private links and internal agent IDs were removed from the text and muted in the audio; each is marked in brackets, e.g. [link to a private notes page removed] or [redacted agent ID]. Everything else is verbatim.
 ---
 
 [07:29:52] David: What happened to Andreessen and Horowitz? They became right-wingers somehow. Can you walk me through the narrative of what happened to them? Were they always like this? Did something make them crazy? They seem insane.
@@ -485,7 +484,7 @@ Chamath's the closest thing Sacks has to a soulmate in the group. He said on the
 
 [08:32:43] Eve: Checking the Sacks watcher. 
 
-The Sacks Watcher is agent four three seven five seven five f zero. 
+The Sacks Watcher is agent [redacted agent ID]. 
 
 It's done with the baseline. The scorecard's at [link to a private notes page removed]. About forty-three dated items from April twenty-third through today. Test one, symmetric scrutiny, comes out mixed leaning failing — he did go after OpenAI and Google DeepMind a couple times, but Anthropic gets the overwhelming majority of his fire. Test two, public updating, is failing — shifts he never acknowledged, zero admissions of being wrong. Test three, costly principle, also failing or at least no evidence yet — nothing found where he chose principle over Craft's money. One caveat it flagged: it's only read one All-In transcript in full, so a correction on air could still flip test two. Daily scans start weekdays at eight AM UTC.
 
@@ -931,7 +930,7 @@ My lean is fix the quote crash immediately since that's a hard failure, and hold
 
 [09:40:38] Eve: Sending the full brief. 
 
-Eve's ID is c zero five eight nine nine three seven dash six a eight zero dash four zero f four dash b e e c dash seven zero b d nine three two e e five two four. 
+Eve's ID is [redacted agent ID]. 
 
 Eve's on it. She'll patch the crash, write the test suite, stand up the public repo, and push. Her confirmation will come through as an update when it's done.
 

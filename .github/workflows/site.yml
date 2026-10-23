@@ -41,7 +41,7 @@ jobs:
       - name: Build site from D1 (read-only token)
         env:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          D1_DATABASE_ID: 8e196805-d1fa-438e-a8f6-17562c50631c   # ask-eve-meta; not a secret
+          D1_DATABASE_ID: ${{ secrets.D1_DATABASE_ID }}   # ask-eve-meta
           D1_READ_TOKEN: ${{ secrets.D1_READ_TOKEN }}
         run: |
           set -euo pipefail
