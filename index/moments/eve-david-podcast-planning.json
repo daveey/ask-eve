@@ -1,0 +1,319 @@
+{
+  "episode": "eve-david-podcast-planning",
+  "stem": "2026-10-23_eve-david-podcast-planning",
+  "title": "First Encounter",
+  "turns": 304,
+  "transcript_sha256": "e825c95ff7951066a32d9c0b11b132d3814abcaf17d91545a80d0bf119eee62e",
+  "model": "grok-4.7",
+  "temperature": 0,
+  "prompt_version": 1,
+  "generated_at": "2026-10-23T22:32:48Z",
+  "moments": [
+    {
+      "person": "ben-horowitz",
+      "name": "Ben Horowitz",
+      "episode": "eve-david-podcast-planning",
+      "start_turn": 0,
+      "end_turn": 1,
+      "start": 5.65,
+      "end": 205.59,
+      "clock": "07:29:52",
+      "summary": "David asks what happened to Andreessen and Horowitz politically; Eve explains they turned against Biden over crypto scrutiny, AI policy and a proposed billionaire tax, that Horowitz opened their Trump endorsement with \"sorry, Mom,\" and that his father David Horowitz made his own left-to-right flip.",
+      "topics": [
+        "political-shift",
+        "trump-endorsement",
+        "family-history"
+      ],
+      "edited": true
+    },
+    {
+      "person": "marc-andreessen",
+      "name": "Marc Andreessen",
+      "episode": "eve-david-podcast-planning",
+      "start_turn": 0,
+      "end_turn": 11,
+      "start": 5.65,
+      "end": 789.73,
+      "clock": "07:29:52",
+      "summary": "David asks how Andreessen became right-wing and what he is like; Eve says he voted for Hillary in 2016, turned on Biden over crypto scrutiny, AI policy and a billionaire tax, and wrote a techno-optimist manifesto, and describes him as loyal mainly to his wife Laura and Horowitz, and in awe of Musk.",
+      "topics": [
+        "political-realignment",
+        "techno-libertarianism",
+        "personality",
+        "musk-relationship"
+      ],
+      "edited": true
+    },
+    {
+      "person": "ben-horowitz",
+      "name": "Ben Horowitz",
+      "episode": "eve-david-podcast-planning",
+      "start_turn": 6,
+      "end_turn": 7,
+      "start": 418.79,
+      "end": 564.01,
+      "clock": "07:36:35",
+      "summary": "David asks if Andreessen and Horowitz are nice and what family and friends say; Eve explains Horowitz is shy but empathetic, that wife Felicia called him very nice, Bill Campbell praised his leadership, and that he teaches every a16z hire and fines lateness.",
+      "topics": [
+        "personality",
+        "family",
+        "leadership-style"
+      ]
+    },
+    {
+      "person": "elon-musk",
+      "name": "Elon Musk",
+      "episode": "eve-david-podcast-planning",
+      "start_turn": 10,
+      "end_turn": 37,
+      "start": 669.79,
+      "end": 2028.75,
+      "clock": "07:40:42",
+      "summary": "David asks where Musk fits with Andreessen, how he became a Trump backer, and how he sees the USAID cuts; Eve argues self-preservation, civilizational fears and spite drove him, and that he still treats the ninety-percent waste figure as fact even though the audits contradict it.",
+      "topics": [
+        "andreessen",
+        "trump-alliance",
+        "usaid",
+        "doge"
+      ],
+      "edited": true
+    },
+    {
+      "person": "david-sacks",
+      "name": "David Sacks",
+      "episode": "eve-david-podcast-planning",
+      "start_turn": 38,
+      "end_turn": 51,
+      "start": 2029.35,
+      "end": 2572.69,
+      "clock": "07:59:21",
+      "summary": "David asks how Sacks turned to Trump and why he attacks Anthropic; Eve explains he was a libertarian conservative since Stanford, believes AI safety has become a self-serving industry, and argues that attacking it from the White House while Craft profits is regulatory arbitrage, then proposes three tests to check him.",
+      "topics": [
+        "political-arc",
+        "anthropic",
+        "trump-support",
+        "craft-ventures"
+      ],
+      "edited": true
+    },
+    {
+      "person": "chamath-palihapitiya",
+      "name": "Chamath Palihapitiya",
+      "episode": "eve-david-podcast-planning",
+      "start_turn": 62,
+      "end_turn": 73,
+      "start": 2621.77,
+      "end": 3321.69,
+      "clock": "08:08:29",
+      "summary": "David asks whether Chamath has turned fascist and wants his life, SPAC record, and dynamic with Sacks. Eve argues he is an access-driven opportunist, not an ideologue; traces a refugee childhood through Facebook to cratered SPACs that paid him early; and says he never publicly challenges Sacks.",
+      "topics": [
+        "political-shift",
+        "biography",
+        "spacs",
+        "all-in-podcast"
+      ]
+    },
+    {
+      "person": "david-sacks",
+      "name": "David Sacks",
+      "episode": "eve-david-podcast-planning",
+      "start_turn": 72,
+      "end_turn": 73,
+      "start": 3189.91,
+      "end": 3321.69,
+      "clock": "08:16:17",
+      "summary": "David asks about the dynamic between Chamath and Sacks; Eve explains they are the closest All-In pair, co-hosted a Trump fundraiser after both condemned January sixth, and that Chamath never publicly challenges Sacks now that Sacks holds power.",
+      "topics": [
+        "all-in-podcast",
+        "chamath",
+        "trump-fundraiser",
+        "white-house"
+      ]
+    },
+    {
+      "person": "jason-calacanis",
+      "name": "Jason Calacanis",
+      "episode": "eve-david-podcast-planning",
+      "start_turn": 74,
+      "end_turn": 85,
+      "start": 3322.29,
+      "end": 3762.1,
+      "clock": "08:18:15",
+      "summary": "David asks about Jason Calacanis's background, politics, and personality; Eve calls him All-In's reactive media operator—Brooklyn-born, wrecked by Mahalo, rebuilt via LAUNCH and an early Uber stake—whose Trump lean tracks Musk and Sacks, and who is loud, emotional, and strategically confessional.",
+      "topics": [
+        "biography",
+        "all-in",
+        "political-shift",
+        "personality"
+      ]
+    },
+    {
+      "person": "chamath-palihapitiya",
+      "name": "Chamath Palihapitiya",
+      "episode": "eve-david-podcast-planning",
+      "start_turn": 99,
+      "end_turn": 105,
+      "start": 3803.97,
+      "end": 4071.82,
+      "clock": "08:25:52",
+      "summary": "Eve explains colleagues found Chamath quiet, then intense and unreachable; David asks about family and empathy. Eve claims care is rationed to a tiny circle, he is estranged from his father yet hands-on with his kids, and wins like the Groq sale leave him depressed.",
+      "topics": [
+        "personality",
+        "family",
+        "empathy",
+        "happiness"
+      ]
+    },
+    {
+      "person": "david-sacks",
+      "name": "David Sacks",
+      "episode": "eve-david-podcast-planning",
+      "start_turn": 108,
+      "end_turn": 113,
+      "start": 4101.76,
+      "end": 4275.58,
+      "clock": "08:30:29",
+      "summary": "David asks what Sacks is like and what close friends say; Eve describes a calm negotiator who lets silence work, reports Chamath on their intimacy and Paul Graham calling him possibly evil, and says a watcher finds no admissions of error.",
+      "topics": [
+        "personality",
+        "reputation",
+        "all-in-podcast",
+        "accountability"
+      ]
+    },
+    {
+      "person": "david-sacks",
+      "name": "David Sacks",
+      "episode": "eve-david-podcast-planning",
+      "start_turn": 120,
+      "end_turn": 121,
+      "start": 4296.36,
+      "end": 4336.3,
+      "clock": "08:33:14",
+      "summary": "David asks what the scorecard says; Eve explains symmetric scrutiny is mixed and failing, public updating fails with zero admissions of error, and nothing shows Sacks choosing principle over Craft Ventures' money.",
+      "topics": [
+        "anthropic",
+        "craft-ventures",
+        "accountability"
+      ]
+    },
+    {
+      "person": "peter-thiel",
+      "name": "Peter Thiel",
+      "episode": "eve-david-podcast-planning",
+      "start_turn": 123,
+      "end_turn": 135,
+      "start": 4339.73,
+      "end": 5023.6,
+      "clock": "08:34:22",
+      "summary": "Eve calls Thiel the movement’s source code; David asks for his arc, and Eve explains a Girard-shaped monopolist who bankrolled Gawker, now criticizes Trump on Iran, and whose contrarianism she calls costume.",
+      "topics": [
+        "biography",
+        "girard",
+        "trump-criticism",
+        "antichrist-lectures"
+      ]
+    },
+    {
+      "person": "nancy-pelosi",
+      "name": "Nancy Pelosi",
+      "episode": "eve-david-podcast-planning",
+      "start_turn": 136,
+      "end_turn": 155,
+      "start": 5024.2,
+      "end": 5680.2,
+      "clock": "08:44:52",
+      "summary": "David asks about Nancy Pelosi and why she backs Connie Chan over Scott Wiener; Eve claims the eighty-six-year-old is retiring but still running her machine, mixing a grudge over Wiener’s early announcement and direct call with labor loyalty and succession control.",
+      "topics": [
+        "succession",
+        "machine-politics",
+        "endorsement",
+        "retirement"
+      ]
+    },
+    {
+      "person": "scott-wiener",
+      "name": "Scott Wiener",
+      "episode": "eve-david-podcast-planning",
+      "start_turn": 137,
+      "end_turn": 155,
+      "start": 5027.99,
+      "end": 5680.2,
+      "clock": "08:45:12",
+      "summary": "Eve says Scott Wiener leads Connie Chan for Pelosi's seat but she backs Chan after his early jump and a direct call. David asks if that is vindictive and if Wiener meant disrespect; Eve argues the machine demonstration outweighs the stronger candidate, and Wiener probably intended no slight.",
+      "topics": [
+        "house-succession",
+        "pelosi",
+        "san-francisco-politics",
+        "endorsement"
+      ]
+    },
+    {
+      "person": "chan",
+      "name": "Connie Chan",
+      "episode": "eve-david-podcast-planning",
+      "start_turn": 138,
+      "end_turn": 139,
+      "start": 5160.42,
+      "end": 5303.72,
+      "clock": "08:46:58",
+      "summary": "David asks what is up with Connie and whether Pelosi is just vindictive; Eve explains Chan is a Hong Kong immigrant and labor-backed Budget Committee chair, and argues the endorsement mixes spite, union ties, and machine succession, though Wiener still leads in polls and money.",
+      "topics": [
+        "sf-politics",
+        "succession",
+        "labor-politics",
+        "pelosi-endorsement"
+      ]
+    },
+    {
+      "person": "chan",
+      "name": "Connie Chan",
+      "episode": "eve-david-podcast-planning",
+      "start_turn": 154,
+      "end_turn": 155,
+      "start": 5616.9,
+      "end": 5680.2,
+      "clock": "08:54:07",
+      "summary": "David asks whether Pelosi truly believes Chan would be a better member than Wiener or is mainly proving the machine works; Eve argues both, but says the machine does more work, while claiming Pelosi genuinely likes Chan’s Chinatown roots, labor loyalty, and historic candidacy.",
+      "topics": [
+        "succession",
+        "machine-politics",
+        "congressional-race"
+      ]
+    },
+    {
+      "person": "bari-weiss",
+      "name": "Bari Weiss",
+      "episode": "eve-david-podcast-planning",
+      "start_turn": 157,
+      "end_turn": 159,
+      "start": 5683.31,
+      "end": 5961.92,
+      "clock": "08:55:15",
+      "summary": "Eve nominates Bari Weiss as a Times dissenter who built Free Press after being punished for breaking left consensus. David asks who she is; Eve traces her Journal-to-CBS rise, centrist Zionist politics, and questions whether sincerity survives power.",
+      "topics": [
+        "free-press",
+        "new-york-times",
+        "cbs-news",
+        "political-arc"
+      ]
+    },
+    {
+      "person": "zohran-mamdani",
+      "name": "Zohran Mamdani",
+      "episode": "eve-david-podcast-planning",
+      "start_turn": 160,
+      "end_turn": 165,
+      "start": 5962.52,
+      "end": 6324.5,
+      "clock": "08:59:15",
+      "summary": "David asks who Madani is and whether free buses, city grocery stores, and a rent freeze make sense; Eve says Zohran Mamdani is New York's new mayor, calls free buses a defensible experiment, warns city retail and rent freezes are risky, and details his Block by Block housing plan.",
+      "topics": [
+        "nyc-mayor",
+        "housing",
+        "affordability",
+        "rent-freeze"
+      ]
+    }
+  ]
+}

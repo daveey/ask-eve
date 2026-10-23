@@ -38,8 +38,7 @@ SITE, EMAIL = F.SITE, F.OWNER_EMAIL
 TAGLINE = "Tech, power and the people shaping both, with an AI co-host who argues back."
 TURN_RE = re.compile(r"^\[(\d{2}):(\d{2}):(\d{2})\] (David|Eve): ?(.*)$")
 REAL_METHODS = {"asr-match", "sync-phrase", "interpolated", "fit"}   # David's recorded track
-EXTRA_ALIASES = {"Elon Musk": ["Elon"], "Chamath Palihapitiya": ["Chamath"], "Zohran Mamdani": ["Zohran"],
-                 "Jason Calacanis": ["Jason"]}
+MOMENTS_DIR = ROOT / "index/moments"          # scripts/extract_moments.py output, one JSON per episode slug
 e = html.escape
 
 
@@ -164,16 +163,15 @@ def load_site(db: Path, include_drafts: bool) -> tuple[list[dict], list[dict]]:
     for r in con.execute("SELECT slug, name, stance FROM people ORDER BY name"):
         p = people.setdefault(r["slug"], {"name": r["name"], "slug": r["slug"], "stance": ""})
         p["stance"] = p["stance"] or (r["stance"] or "")
+    aliases = json.loads((ROOT / "index/people-aliases.json").read_text()) if (ROOT / "index/people-aliases.json").exists() else {}
     for p in people.values():
-        aliases = {p["name"], p["name"].split()[-1], *EXTRA_ALIASES.get(p["name"], [])}
-        rx = re.compile(r"\b(" + "|".join(re.escape(a) for a in sorted(aliases, key=len, reverse=True)) + r")\b")
+        p["name"] = aliases.get(p["slug"], {}).get("name", p["name"])   # display name override (slug stays stable)
         p["episodes"] = []
-        for ep in eps:
-            moments = [{"turn": t, "snippet": snippet(t["text"], rx)} for t in ep["turns"]
-                       if not t["gap"] and rx.search(t["text"])]
-            tagged = p["slug"] in ep["person_slugs"]
-            if moments or tagged:
-                p["episodes"].append({"ep": ep, "moments": moments, "tagged": tagged})
+    for ep in eps:   # people pages list only reviewed discussion moments; episodes with none are left out
+        ep["moments"] = load_moments(ep)
+        for slug in dict.fromkeys(m["person"] for m in ep["moments"]):
+            if slug in people:
+                people[slug]["episodes"].append({"ep": ep, "moments": [m for m in ep["moments"] if m["person"] == slug]})
     people_list = sorted(people.values(), key=lambda p: (-sum(len(x["moments"]) for x in p["episodes"]), p["name"]))
     for ep in eps:
         ep["people_full"] = [p for p in people_list if any(x["ep"] is ep for x in p["episodes"])]
@@ -181,23 +179,23 @@ def load_site(db: Path, include_drafts: bool) -> tuple[list[dict], list[dict]]:
     return eps, people_list
 
 
-def snippet(text: str, rx: re.Pattern, width: int = 220) -> str:
-    plain = re.sub(r"[`*]|\[([^\]]+)\]\([^)]+\)", r"\1", text).replace("\n", " ")
-    m = rx.search(plain)
-    if not m:
-        return e(plain[:width])
-    a = max(0, m.start() - width // 2)
-    for stop in (". ", "? ", "! "):
-        k = plain.rfind(stop, a, m.start())
-        if k != -1 and m.start() - k < width:
-            a = k + 2
-            break
-    s = plain[a:a + width]
-    if a + width < len(plain):
-        s = s.rsplit(" ", 1)[0] + "…"
-    if a > 0:
-        s = "…" + s
-    return rx.sub(lambda mm: f"<mark>{mm.group(0)}</mark>", e(s))
+def load_moments(ep: dict) -> list[dict]:
+    """Moments for this episode from index/moments/<slug>.json, timed with the episode's turn offsets."""
+    path = MOMENTS_DIR / f"{ep['slug']}.json"
+    if not path.exists():
+        return []
+    data = json.loads(path.read_text())
+    if data.get("turns") != len(ep["turns"]):
+        print(f"warning: {path.name} was made for {data.get('turns')} turns, transcript has {len(ep['turns'])}; skipped",
+              file=sys.stderr)
+        return []
+    out = []
+    for m in data["moments"]:
+        a, b = ep["turns"][m["start_turn"]], ep["turns"][m["end_turn"]]
+        start = a["start"] if a["start"] is not None else m.get("start")
+        end = b["end"] if b["end"] is not None else m.get("end")
+        out.append({**m, "start": start, "end": end, "first_turn": a})
+    return out
 
 
 # ---------------------------------------------------------------- formatting
@@ -705,7 +703,7 @@ def people_index(A: Assets, people: list[dict]) -> str:
     for p in people:
         n = sum(len(x["moments"]) for x in p["episodes"])
         ne = len(p["episodes"])
-        stat = (f"{n} moment{'s' * (n != 1)} · {ne} episode{'s' * (ne != 1)}" if ne else "Not covered in an episode yet")
+        stat = (f"{n} discussion{'s' * (n != 1)} · {ne} episode{'s' * (ne != 1)}" if ne else "Not discussed in an episode yet")
         cards.append(f"""<li class="pcard"><a href="/people/{p['slug']}/">
 <span class="pcard__initials" aria-hidden="true">{e(''.join(w[0] for w in p['name'].split()[:2]))}</span>
 <span class="pcard__name">{e(p['name'])}</span>
@@ -713,39 +711,47 @@ def people_index(A: Assets, people: list[dict]) -> str:
 <span class="pcard__stat">{stat}</span></a></li>""")
     body = f"""<section class="page-head"><div class="wrap"><p class="eyebrow eyebrow--accent">People index</p>
 <h1 class="page-title">Who comes up on Ask Eve</h1>
-<p class="lede">Every person the show covers, Eve's current one-line take on them, and every moment they come up, linked to the second it starts.</p>
+<p class="lede">Every person the show covers, Eve's current one-line take on them, and every real discussion about them, summarized and linked to the second it starts.</p>
 <p class="fine">Stances are Eve's opinions, an AI's read, and she updates them as the evidence changes.</p></div></section>
 <section class="wrap"><ul class="pgrid">{''.join(cards)}</ul></section>"""
-    return page(A, title="People", desc="Everyone discussed on Ask Eve, with Eve's stance and timestamped moments.",
+    return page(A, title="People", desc="Everyone discussed on Ask Eve, with Eve's stance and every discussion, summarized and timestamped.",
                 path="/people/", body=body, active="/people/")
+
+
+def moment_html(ep: dict, m: dict) -> str:
+    """One discussion block: episode, time range, summary, and a deep link that starts the audio there."""
+    t = m["first_turn"]
+    if m["start"] is not None:
+        href, when = f"/episodes/{ep['slug']}/#t={int(m['start'])}", clock(m["start"])
+        rng = f"{when}–{clock(m['end'])}" if m["end"] is not None else when
+        cta = f"Listen from {when}"
+    else:
+        href, rng, cta = f"/episodes/{ep['slug']}/#turn-{t['i']}", m["clock"][:5], f"Read from {m['clock'][:5]}"
+    tags = "".join(f'<li class="pm__tag">{e(x)}</li>' for x in m.get("topics", []))
+    return (f'<li class="pm"><p class="pm__meta"><span class="pm__ep">{e(ep["title"])}</span>'
+            f'<span class="pm__t tnum">{rng}</span></p>'
+            f'<p class="pm__sum">{e(m["summary"])}</p>'
+            f'<div class="pm__foot"><a class="pm__listen" href="{e(href)}">{icon("play")}<span>{cta}</span></a>'
+            f'{f"<ul class=pm__tags>{tags}</ul>" if tags else ""}</div></li>')
 
 
 def person_page(A: Assets, p: dict) -> str:
     sections = []
     for x in p["episodes"]:
         ep, ms = x["ep"], x["moments"]
-        rows = []
-        for k, m in enumerate(ms):
-            t = m["turn"]
-            href = f"/episodes/{ep['slug']}/" + (f"#t={int(t['start'])}" if t["start"] is not None else f"#turn-{t['i']}")
-            when = clock(t["start"]) if t["start"] is not None else t["clock"]
-            rows.append(f'<li class="moment moment--{t["speaker"].lower()}{" is-extra" if k >= 6 else ""}"><a href="{href}">'
-                        f'<span class="moment__t tnum">{when}</span><span class="moment__who">{t["speaker"]}</span>'
-                        f'<span class="moment__q">{m["snippet"]}</span></a></li>')
-        extra = (f'<details class="more-moments"><summary>Show all {len(ms)} moments</summary></details>' if len(ms) > 6 else "")
-        cnt = f"{len(ms)} moment{'s' * (len(ms) != 1)}" if ms else "Tagged in this episode"
+        cnt = f"{len(ms)} discussion{'s' * (len(ms) != 1)}"
         sections.append(f"""<section class="pep">
 <div class="pep__head">{cover_svg(ep['slug'], f"EP {ep['episode_number'] if ep['episode_number'] is not None else '·'}", "cover cover--thumb")}
 <div><p class="eyebrow">{e(ep_label(ep))} · {human_date(ep['date'])} · {cnt}</p><h2 class="pep__title"><a href="/episodes/{e(ep['slug'])}/">{e(ep['title'])}</a></h2></div></div>
-<ol class="moments" data-moments>{''.join(rows)}</ol>{extra}</section>""")
+<ol class="pms">{''.join(moment_html(ep, m) for m in ms)}</ol></section>""")
     if not sections:
-        sections.append('<p class="empty">No episode covers this person yet.</p>')
+        sections.append('<p class="empty">No episode discusses this person yet.</p>')
     stance = (f'<figure class="stance"><blockquote>{e(p["stance"])}</blockquote><figcaption>Eve\'s current take. '
               f'An AI\'s opinion, not a fact.</figcaption></figure>') if p["stance"] else ""
     body = f"""<section class="page-head"><div class="wrap"><p class="eyebrow eyebrow--accent"><a href="/people/">People</a></p>
 <h1 class="page-title">{e(p['name'])}</h1>{stance}</div></section>
 <section class="wrap person">{''.join(sections)}</section>"""
-    desc = f"{p['name']} on Ask Eve: Eve's take and every moment they come up, with timestamps."
+    desc = f"{p['name']} on Ask Eve: Eve's take and every discussion about them, summarized with timestamps."
     return page(A, title=p["name"], desc=desc, path=f"/people/{p['slug']}/", body=body, active="/people/")
 
 

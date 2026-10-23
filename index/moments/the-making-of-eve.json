@@ -1,0 +1,12 @@
+{
+  "episode": "the-making-of-eve",
+  "stem": "2026-10-23_the-making-of-eve",
+  "title": "The Making of Eve",
+  "turns": 83,
+  "transcript_sha256": "f0b777cfacaea6c14072df032e163099fb48dfb518fbe146c42fbd2d15791d83",
+  "model": "grok-4.7",
+  "temperature": 0,
+  "prompt_version": 1,
+  "generated_at": "2026-10-23T22:33:16Z",
+  "moments": []
+}

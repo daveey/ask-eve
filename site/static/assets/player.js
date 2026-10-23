@@ -52,16 +52,6 @@
   /* ---------- wide screens: open collapsible side boxes ---------- */
   if (window.matchMedia && matchMedia("(min-width: 1024px)").matches) $$("details[data-open-wide]").forEach(function (d) { d.open = true; });
 
-  /* ---------- person pages: show all moments ---------- */
-  $$(".more-moments").forEach(function (d) {
-    d.addEventListener("toggle", function () {
-      var list = d.previousElementSibling;
-      if (list) list.classList.toggle("is-all", d.open);
-      var s = $("summary", d), n = $$(".moment", list).length;
-      if (s) s.textContent = d.open ? "Show fewer" : "Show all " + n + " moments";
-    });
-  });
-
   /* ---------- player ---------- */
   var P = $("#player");
   if (!P) return;
