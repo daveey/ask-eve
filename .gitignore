@@ -6,3 +6,17 @@ __pycache__/
 *.pyc
 # private: real persistent facts stay local; commit only the template
 memory/persistent-facts.md
+# pipeline: secrets, recordings, outputs (audio never goes into git)
+.env
+.env.*
+*.env
+rec/
+out/
+node_modules/
+.wrangler/
+.dev.vars
+*.m4a
+*.mp3
+*.wav
+*.mov
+*.mp4
