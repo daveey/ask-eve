@@ -1,6 +1,14 @@
 ---
 date: 2026-10-23
 title: Eve Can't Find the Andreessen Episode
+context: Episode 2 starts as a sound check on the new podcast and turns into a debugging session. David asks Eve what they talked about last time, and she recaps the setup work but not the long conversation about Marc Andreessen and Ben Horowitz. Her search comes up empty even when David gives her the exact title, until she reads the episode 0 transcript from the repo and then pulls the original chat through its Grok share link. The rest is Eve working out, out loud, why her memory missed it: two search systems that don't talk to each other, and an index that may be stale or filtered. On the audio: David's lines are his real voice from a phone recording, except three that were typed or came after the recording ended, which are left unvoiced. Eve's lines are her text replies re-voiced with AI text-to-speech, and one reply that ends mid-sentence in the export is kept as is.
+topics:
+  - A sound check, and Eve's first take on what episode 0 covered
+  - Eve misses the Andreessen and Horowitz conversation, even by its exact title
+  - Reading the episode 0 transcript back: Andreessen and Horowitz's turn to the right
+  - Why the search failed: two systems that don't talk to each other, and a proposed fallback
+  - Opening the original chat through its Grok share link
+  - Why the session was invisible: a stale or filtered index, and Eve's best guess
 episode: 2
 people: [Marc Andreessen, Ben Horowitz]
 source: https://grok.com/share/c2hhcmQtMg_690b09f6-ae41-47b8-a260-b1e5ae045afe
