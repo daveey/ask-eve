@@ -79,6 +79,10 @@ def build_sql(transcript: Path, repo_root: Path, slug: str, alignment: dict | No
         ep["recording_method"] = revoice.get("recording_method", "mic-plus-tts")
         if revoice.get("narrator"):
             ep["narrator_voice"] = revoice["narrator"]
+        if revoice.get("ai_disclosure"):
+            ep["ai_reconstructed"], ep["ai_disclosure"] = 1, revoice["ai_disclosure"]
+        if alignment is None and revoice.get("alignment_method"):
+            ep["alignment_method"], ep["alignment_coverage"] = revoice["alignment_method"], revoice["alignment_coverage"]
     if manifest:
         for k in ("audio_key", "audio_url", "audio_bytes", "audio_sha256", "audio_mime", "duration_seconds", "loudness_lufs"):
             if manifest.get(k) is not None:
@@ -86,7 +90,7 @@ def build_sql(transcript: Path, repo_root: Path, slug: str, alignment: dict | No
         ep["recording_method"] = manifest.get("recording_method", ep.get("recording_method"))
     if ep.get("recording_method") == "tts-reconstructed":
         ep["ai_reconstructed"] = 1
-        ep["ai_disclosure"] = AI_DISCLOSURE
+        ep.setdefault("ai_disclosure", AI_DISCLOSURE)
         if alignment is None:      # every turn was placed by the synthesizer: offsets are exact
             ep["alignment_method"], ep["alignment_coverage"] = "tts-exact", 1.0
     for k, v in rec.items():

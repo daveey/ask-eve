@@ -154,3 +154,44 @@ def test_xai_client_retries_then_raises(monkeypatch):
     with pytest.raises(RuntimeError, match="HTTP 400: bad text"):
         c.synthesize("x")
     assert calls == ["Bearer test-key"] * 3
+
+
+def test_hybrid_real_david_narrator_fill_and_gap_markers(tmp_path, david):
+    md = ("---\ndate: 2026-11-01\ntitle: t\npeople: []\n---\n\n"
+          "[10:00:00] David: typed spec line\n\n[10:00:00] Eve: Answer one.\n\n"
+          "[10:01:00] David: spoken line\n\n[10:01:00] Eve: [transcript gap: Eve's reply was not recovered]\n\n"
+          "[10:02:00] David: late line\n")
+    turns = A.parse_transcript(md)
+    eve, nar = FakeTTS({}, default=0.8), FakeTTS({}, default=0.6)
+    eve.name, nar.name = "fake eve", "fake narrator"
+    r = R.synthesize_episode(turns, eve, nar, tmp_path / "h", tmp_path / "c", pause=0.5, disclaimer=R.HYBRID_DISCLAIMER,
+                             real_clips={2: {"start": 6.0, "end": 8.0, "score": 91.0}}, real_audio=david)
+    assert sorted(nar.calls) == sorted([R.HYBRID_DISCLAIMER, "typed spec line", "late line"])   # real turn + gap never synthesized (order varies with workers)
+    assert eve.calls == ["Answer one."]                                             # gap marker not voiced
+    src = [t["source"] for t in r["turns"]]
+    assert src == ["narrator", "eve-tts", "real", "gap", "narrator"]
+    real = r["turns"][2]
+    assert real["method"] == "asr-match" and real["score"] == 91.0 and real["raw_start"] == 6.0
+    assert real["edited_end"] - real["edited_start"] == pytest.approx(2.0, abs=0.01)
+    assert rms(tmp_path / "h/mix.wav", real["edited_start"] + 0.2, real["edited_end"] - 0.2) > 0.1   # the 1 kHz tone (David)
+    assert r["turns"][3]["edited_start"] == r["turns"][3]["edited_end"]
+    assert r["recording_method"] == "mic-plus-tts" and r["mode"] == "hybrid" and r["ai_reconstructed"] is True
+    assert r["coverage"]["david_lines"] == 3 and r["coverage"]["david_real"] == 1 and r["coverage"]["gap_turns"] == [3]
+    assert r["alignment_coverage"] == pytest.approx(0.3333, abs=1e-3)
+    assert r["missing_turns"] == []
+
+
+def test_hybrid_chapters_and_d1_labels(tmp_path, david):
+    import produce_audio as P
+    import d1_upsert as D
+    md = ("---\ndate: 2026-11-01\ntitle: t\npeople: []\n---\n\n"
+          "[10:00:00] David: typed spec line\n\n[10:00:00] Eve: Answer one.\n\n[10:01:00] David: spoken line\n")
+    eve, nar = FakeTTS({}, default=0.5), FakeTTS({}, default=0.5)
+    r = R.synthesize_episode(A.parse_transcript(md), eve, nar, tmp_path / "h", tmp_path / "c", disclaimer=R.HYBRID_DISCLAIMER,
+                             real_clips={2: {"start": 1.0, "end": 3.0, "score": 88.0}}, real_audio=david)
+    ch = P.make_chapters(md, r)
+    assert ch[0]["title"] == "AI-reconstructed audio notice"
+    assert "AI-reconstructed, narrator voice" in ch[1]["title"] and "his recorded voice" in ch[2]["title"]
+    tr = tmp_path / "2026-11-01_x.md"; tr.write_text(md)
+    sql = D.build_sql(tr, tmp_path, "x", revoice=r)
+    assert "'mic-plus-tts'" in sql and R.HYBRID_DISCLOSURE.replace("'", "''") in sql and "'asr-fuzzy'" in sql

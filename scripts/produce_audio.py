@@ -51,6 +51,22 @@ def make_chapters(md: str, timeline: dict, min_gap: float = 120.0) -> list[dict]
         chapters.append({"startTime": 0.0, "title": "AI-reconstructed audio notice"})
     else:
         chapters.append({"startTime": 0.0, "title": "Start"})
+    if timeline.get("mode") == "hybrid":   # one chapter per David turn, labeled real vs AI narrator; gap markers labeled
+        tmap = {t.index: t for t in turns}
+        for x in timeline["turns"]:
+            src = x.get("source")
+            if src not in ("real", "narrator", "gap") or (src == "gap" and chapters[-1]["title"].startswith("Transcript gap")):
+                continue
+            tr = tmap[x["i"]]
+            clock = (tr.created_at or "")[11:16]
+            words = " ".join(re.sub(r"[\[\]()*_`#>]", "", tr.text).split()[:7])
+            title = (f"Transcript gap {clock}: Eve's reply not recovered (not voiced)" if src == "gap" else
+                     f"{clock} David ({'his recorded voice' if src == 'real' else 'AI-reconstructed, narrator voice'}): {words}")
+            st = round(float(x["edited_start"]), 3)
+            if st <= chapters[-1]["startTime"]:
+                st = round(chapters[-1]["startTime"] + 0.001, 3)
+            chapters.append({"startTime": st, "title": title})
+        return chapters
     hits = []
     for name in fm["people"]:
         rx = re.compile(rf"\b{re.escape(name)}\b") if " " in name else re.compile(rf"\b{re.escape(name)}\b")
@@ -115,7 +131,8 @@ def produce(mix: Path, transcript: Path, timeline: dict, out_dir: Path, version:
         "audio_bytes": int(probe["format"]["size"]), "audio_sha256": data_sha.hexdigest(), "audio_mime": "audio/mpeg",
         "duration_seconds": round(float(probe["format"]["duration"])), "loudness_lufs": loud["integrated_lufs"],
         "true_peak_dbfs": loud["true_peak_dbfs"], "id3_chapters": len(probe.get("chapters", [])), "chapters": chapters,
-        "recording_method": method, "ai_reconstructed": method == "tts-reconstructed",
+        "recording_method": method, "ai_reconstructed": method == "tts-reconstructed" or bool(timeline.get("ai_reconstructed")),
+        "mode": timeline.get("mode"), "coverage": timeline.get("coverage"),
         "placeholder_audio": bool(timeline.get("placeholder_audio", True)),
         "tts": timeline.get("tts"), "narrator": timeline.get("narrator"),
         "missing_turns": timeline.get("missing_turns", []), "transcript_sha256": hashlib.sha256(md.encode()).hexdigest(),

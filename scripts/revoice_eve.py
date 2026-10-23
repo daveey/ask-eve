@@ -90,6 +90,12 @@ class XAITTS:
 DEFAULT_EVE_VOICE = "eve"      # xAI built-in: "Energetic and upbeat, British accent" (docs.x.ai voices table, 2026-10-23)
 DEFAULT_NARRATOR_VOICE = "rex" # xAI built-in: "Confident and clear"; a different speaker from Eve, for David's lines
 DISCLAIMER = "Voices in this episode are AI-reconstructed from the text transcript."
+HYBRID_DISCLAIMER = ("Eve's voice, and David's lines wherever his recording is missing, are AI-reconstructed "
+                     "from the text transcript. David's real voice is used only where his recording matches the transcript.")
+HYBRID_DISCLOSURE = ("AI-reconstructed audio: Eve's lines are xAI text-to-speech ('eve' voice) from the verbatim chat transcript; "
+                     "David's lines are his own recorded voice only where the recording matches the transcript, and an AI narrator "
+                     "voice ('rex') everywhere else. Transcript gaps are marked, not invented.")
+GAP_RE = re.compile(r"^\[transcript gap\b", re.I)   # marker turns: never voiced
 
 
 class SilentTTS:
@@ -385,10 +391,29 @@ def prefetch(jobs: dict[int, tuple], cache: Path, workers: int = 4) -> tuple[dic
     return clips, failed
 
 
+def cut_clip(src: Path, start: float, end: float, dst: Path) -> Path:
+    """Cut [start, end] seconds of a 48 kHz mono WAV (David's cleaned track) into dst."""
+    with wave.open(str(src), "rb") as w:
+        sr = w.getframerate()
+        w.setpos(max(0, int(start * sr)))
+        frames = w.readframes(max(0, int((end - start) * sr)))
+    with wave.open(str(dst), "wb") as o:
+        o.setnchannels(1); o.setsampwidth(2); o.setframerate(SR)
+        o.writeframes(frames)
+    return dst
+
+
 def synthesize_episode(turns, eve: TTSClient, narrator: TTSClient, out_dir: Path, cache: Path,
-                       pause: float = 0.6, disclaimer: str | None = DISCLAIMER, lead_in: float = 0.5, workers: int = 4) -> dict:
+                       pause: float = 0.6, disclaimer: str | None = DISCLAIMER, lead_in: float = 0.5, workers: int = 4,
+                       real_clips: dict[int, dict] | None = None, real_audio: Path | None = None) -> dict:
     """Fully synthetic ('tts-reconstructed') episode: disclaimer (narrator voice) + every turn in order,
-    Eve's lines in Eve's voice, David's lines in the narrator voice, `pause` seconds between turns."""
+    Eve's lines in Eve's voice, David's lines in the narrator voice, `pause` seconds between turns.
+
+    Hybrid mode (real_clips given): David turns listed in real_clips ({turn: {"start", "end", "score"}} in
+    seconds of `real_audio`) use his recorded voice; every other David turn is the narrator (AI-reconstructed);
+    Eve is always TTS. Turns whose text is a "[transcript gap ...]" marker are never voiced."""
+    real_clips = real_clips or {}
+    hybrid = bool(real_clips) or real_audio is not None
     out_dir.mkdir(parents=True, exist_ok=True)
     parts: list[tuple[float, Path]] = []
     t = lead_in
@@ -400,13 +425,33 @@ def synthesize_episode(turns, eve: TTSClient, narrator: TTSClient, out_dir: Path
         t += d + 1.0
     # prefetch every clip (bounded concurrency; the cache makes reruns free). A failed real-TTS turn is
     # filled with a PLACEHOLDER silent clip and reported in placeholder_turns.
-    jobs = {tr.index: (eve if tr.speaker == "Eve" else narrator, tr.text) for tr in turns if tts_text(tr.text)}
+    gaps = {tr.index for tr in turns if GAP_RE.match(tr.text.strip())}
+    real = {i: v for i, v in real_clips.items() if i not in gaps}
+    for i in real:
+        if real_audio is None:
+            raise ValueError("real_clips need real_audio")
+    jobs = {tr.index: (eve if tr.speaker == "Eve" else narrator, tr.text) for tr in turns
+            if tts_text(tr.text) and tr.index not in gaps and tr.index not in real}
     clips, failed = prefetch(jobs, cache, workers)
-    out_turns, missing = [], [tr.index for tr in turns if tr.index not in jobs]
+    rdir = out_dir / "real-clips"
+    for i, v in real.items():
+        rdir.mkdir(parents=True, exist_ok=True)
+        clips[i] = cut_clip(real_audio, float(v["start"]), float(v["end"]), rdir / f"turn{i:04d}.wav")
+    out_turns, missing = [], [tr.index for tr in turns if tr.index not in jobs and tr.index not in real and tr.index not in gaps]
     for tr in turns:
+        if tr.index in real:
+            c = clips[tr.index]; d = wav_seconds(c); v = real[tr.index]
+            parts.append((t, c))
+            out_turns.append({"i": tr.index, "speaker": tr.speaker, "created_at": tr.created_at,
+                              "raw_start": round(float(v["start"]), 3), "raw_end": round(float(v["end"]), 3),
+                              "edited_start": round(t, 3), "edited_end": round(t + d, 3), "method": "asr-match",
+                              "edited_method": "asr-match", "score": v.get("score"), "voice": "david-recorded", "source": "real"})
+            t += d + pause
+            continue
         if tr.index not in jobs:
             out_turns.append({"i": tr.index, "speaker": tr.speaker, "created_at": tr.created_at, "raw_start": None, "raw_end": None,
-                              "edited_start": round(t, 3), "edited_end": round(t, 3), "method": "tts-synthetic", "edited_method": "tts-synthetic", "score": None})
+                              "edited_start": round(t, 3), "edited_end": round(t, 3), "method": "tts-synthetic", "edited_method": "tts-synthetic",
+                              "score": None, "source": "gap" if tr.index in gaps else "empty"})
             continue
         client = jobs[tr.index][0]
         c = clips[tr.index]
@@ -415,7 +460,9 @@ def synthesize_episode(turns, eve: TTSClient, narrator: TTSClient, out_dir: Path
         out_turns.append({"i": tr.index, "speaker": tr.speaker, "created_at": tr.created_at, "raw_start": None, "raw_end": None,
                           "edited_start": round(t, 3), "edited_end": round(t + d, 3), "method": "tts-synthetic",
                           "edited_method": "tts-synthetic", "score": None,
-                          "voice": client.name if tr.index not in failed else "placeholder-silent", **({"tts_error": failed[tr.index]} if tr.index in failed else {})})
+                          "voice": client.name if tr.index not in failed else "placeholder-silent",
+                          "source": "eve-tts" if tr.speaker == "Eve" else "narrator",
+                          **({"tts_error": failed[tr.index]} if tr.index in failed else {})})
         t += d + pause
     mixp = out_dir / "mix.wav"
     with wave.open(str(mixp), "wb") as o:
@@ -428,7 +475,19 @@ def synthesize_episode(turns, eve: TTSClient, narrator: TTSClient, out_dir: Path
                 n = c.getnframes(); o.writeframes(c.readframes(n)); written += n
         o.writeframes(b"\x00\x00" * _frames(1.0)); written += _frames(1.0)
     placeholder = bool(getattr(eve, "placeholder", True) or getattr(narrator, "placeholder", True) or failed)
-    result = {"recording_method": "tts-reconstructed", "tts": eve.name, "narrator": narrator.name, "placeholder_audio": placeholder,
+    david_lines = [x for x in out_turns if x["speaker"] == "David" and x["source"] in ("real", "narrator")]
+    n_real = sum(x["source"] == "real" for x in david_lines)
+    dur = lambda xs: round(sum(x["edited_end"] - x["edited_start"] for x in xs), 3)  # noqa: E731
+    coverage = {"david_lines": len(david_lines), "david_real": n_real, "david_narrator": len(david_lines) - n_real,
+                "david_real_share": round(n_real / len(david_lines), 4) if david_lines else 0.0,
+                "david_real_seconds": dur([x for x in david_lines if x["source"] == "real"]),
+                "david_narrator_seconds": dur([x for x in david_lines if x["source"] == "narrator"]),
+                "eve_seconds": dur([x for x in out_turns if x.get("source") == "eve-tts"]),
+                "gap_turns": sorted(gaps)}
+    result = {"recording_method": "mic-plus-tts" if hybrid else "tts-reconstructed", "tts": eve.name,
+              "ai_reconstructed": True, "ai_disclosure": HYBRID_DISCLOSURE if hybrid else None, "mode": "hybrid" if hybrid else "synthetic",
+              "coverage": coverage,
+              **({"alignment_method": "asr-fuzzy", "alignment_coverage": coverage["david_real_share"]} if hybrid else {}), "narrator": narrator.name, "placeholder_audio": placeholder,
               "placeholder_turns": sorted(failed) if not (getattr(eve, "placeholder", True) or getattr(narrator, "placeholder", True)) else "all",
               "tts_failures": {str(k): v for k, v in sorted(failed.items())},
               "pause": pause, "disclaimer": disc, "missing_turns": missing, "edited_duration": round(written / SR, 3),
@@ -445,6 +504,8 @@ def main(argv: list[str] | None = None, client: TTSClient | None = None, narrato
     ap.add_argument("--transcript", required=True, type=Path)
     ap.add_argument("--audio", type=Path, help="David track (any format ffmpeg reads); not used with --synthetic")
     ap.add_argument("--synthetic", action="store_true", help="tts-reconstructed: voice every turn (Eve + narrator), with disclaimer")
+    ap.add_argument("--real-clips", type=Path, help="hybrid (with --synthetic): JSON {turn_index: {start, end, score}} of David turns "
+                                                     "whose recording matches; cut from --audio; other David turns use the narrator")
     ap.add_argument("--backend", choices=["xai", "piper", "silent"], help="default: xai if XAI_API_KEY is set, else $TTS_BACKEND or silent")
     ap.add_argument("--workers", type=int, default=4, help="concurrent TTS requests")
     ap.add_argument("--cache", type=Path, default=Path("out/tts-cache"), help="clip cache (content-hash keyed)")
@@ -458,8 +519,12 @@ def main(argv: list[str] | None = None, client: TTSClient | None = None, narrato
     if a.synthetic:
         eve = client or make_client("eve", a.backend)
         narr = narrator or make_client("narrator", a.backend)
-        r = synthesize_episode(turns, eve, narr, a.out, a.cache, disclaimer=DISCLAIMER, workers=a.workers)
-        print(json.dumps({k: r[k] for k in ("tts", "narrator", "placeholder_audio", "edited_duration", "missing_turns")}))
+        rc = {int(k): v for k, v in json.loads(a.real_clips.read_text()).items()} if a.real_clips else None
+        if rc is not None and not a.audio:
+            ap.error("--real-clips needs --audio (David's cleaned 48 kHz track)")
+        r = synthesize_episode(turns, eve, narr, a.out, a.cache, disclaimer=HYBRID_DISCLAIMER if rc is not None else DISCLAIMER,
+                               workers=a.workers, real_clips=rc, real_audio=a.audio if rc is not None else None)
+        print(json.dumps({k: r[k] for k in ("mode", "tts", "narrator", "placeholder_audio", "edited_duration", "missing_turns", "coverage")}))
         return 0
     if not (a.alignment and a.audio):
         ap.error("--alignment and --audio are required unless --synthetic")
