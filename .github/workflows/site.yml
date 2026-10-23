@@ -17,6 +17,7 @@ on:
       - index/people-aliases.json
       - index/moments/**
       - index/links.json
+      - index/eve.json
       - .github/workflows/site.yml
 
 permissions:

@@ -94,6 +94,7 @@ def parse_turns(md: str) -> list[dict]:
         m = TURN_RE.match(line)
         if m:
             turns.append({"i": len(turns), "speaker": m.group(4), "clock": f"{m.group(1)}:{m.group(2)}",
+                          "clock_full": f"{m.group(1)}:{m.group(2)}:{m.group(3)}",
                           "lines": [m.group(5)], "meta": []})
         elif turns and line.startswith(">"):
             turns[-1]["meta"].append(line[1:].strip())
@@ -487,7 +488,7 @@ NAV = [("/", "Episodes"), ("/people/", "People"), ("/about/", "About")]
 # The "Meet Eve" page (/eve/) is planned; set SHOW_EVE_NAV once it is built. The header and the
 # mobile menu are sized for four items so adding it needs no layout work.
 EVE_NAV = ("/eve/", "Eve")
-SHOW_EVE_NAV = False
+SHOW_EVE_NAV = True
 
 
 def nav_items() -> list[tuple[str, str]]:
@@ -921,6 +922,153 @@ def person_page(A: Assets, p: dict) -> str:
     return page(A, title=p["name"], desc=desc, path=f"/people/{p['slug']}/", body=body, active="/people/", linker=L)
 
 
+# ---------------------------------------------------------------- Meet Eve (/eve/)
+EVE_FILE = ROOT / "index/eve.json"
+_WS = re.compile(r"\s+")
+
+
+def _norm(s: str) -> str:
+    return _WS.sub(" ", s.replace("’", "'").replace("“", '"').replace("”", '"')).strip()
+
+
+class EveSources:
+    """Resolves an eve.json citation (episode slug + wall-clock time + speaker + verbatim excerpt) to the
+    transcript turn and its audio offset. Citations of episodes not on the site (e.g. a pending episode)
+    resolve to None and are left out. A citation whose excerpt isn't verbatim in that turn is an error."""
+
+    def __init__(self, eps: list[dict]):
+        self.eps = {ep["slug"]: ep for ep in eps}
+
+    def resolve(self, src: dict) -> dict | None:
+        ep = self.eps.get(src["episode_slug"])
+        if ep is None or src.get("pending"):
+            return None
+        want = _norm(src["quote_excerpt"].replace(" [sic]", ""))   # [sic] is an editorial mark, not in the transcript
+        for t in ep["turns"]:
+            if t["clock_full"] == src["clock_time"] and t["speaker"] == src["speaker"] and want in _norm(t["text"]):
+                if t["start"] is not None and not t["gap"]:
+                    href, when = f"/episodes/{ep['slug']}/#t={int(t['start'])}", clock(t["start"])
+                else:
+                    href, when = f"/episodes/{ep['slug']}/#turn-{t['i']}", t["clock"] + " UTC"
+                return {"ep": ep, "turn": t, "href": href, "when": when, "gap": t["gap"]}
+        raise ValueError(f"eve.json citation not found verbatim: {src['episode_slug']} {src['clock_time']} {src['speaker']}: {want[:60]}")
+
+
+def eve_page(A: Assets, eps: list[dict]) -> str | None:
+    if not EVE_FILE.exists():
+        return None
+    data = json.loads(EVE_FILE.read_text())
+    if not data.get("approved"):
+        return None
+    R = EveSources(eps)
+    L = Linker(load_links(), "/eve/")
+    published = set(R.eps)
+
+    def clean(text: str) -> str:
+        # drop sentences that point at an episode that isn't published yet
+        if all(x in published for x in data.get("episodes", {})):
+            return text
+        parts = re.split(r"(?<=[.!?])\s+", text)
+        return " ".join(x for x in parts if not re.search(r"\(pending[^)]*\)|\bepisode 2\b", x, re.I))
+
+    def srcs(lst):
+        return [(x, r) for x in lst if (r := R.resolve(x))]
+
+    def cite(src, r, cls=""):
+        ep = r["ep"]
+        lab = f"{src['speaker']} · {e(ep['title'])} · {e(r['when'])}"
+        return (f'<a class="q__src{cls}" href="{e(r["href"])}" aria-label="{e(src["speaker"])} in {e(ep["title"])} at {e(r["when"])}: '
+                f'open the transcript there">{icon("play")}<span>{lab}</span></a>')
+
+    def quote(src, r, cls="q"):
+        if r["gap"]:
+            body = '<p class="q__gap">Eve\'s reply here was not recovered. It is marked as a gap in the transcript, never invented.</p>'
+        else:
+            body = f'<blockquote><p>“{L.text(src["quote_excerpt"])}”</p></blockquote>'
+        who = src["speaker"].lower()
+        return f'<figure class="{cls} {cls}--{who}">{body}<figcaption>{cite(src, r)}</figcaption></figure>'
+
+    S = {sec["id"]: sec for sec in data["sections"]}
+    toc, out = [], []
+
+    def section(sec, inner):
+        toc.append(f'<li><a class="chip" href="#{e(sec["id"])}">{e(sec["title"])}</a></li>')
+        out.append(f'<section class="eve-sec" id="{e(sec["id"])}" aria-labelledby="{e(sec["id"])}-h">'
+                   f'<h2 id="{e(sec["id"])}-h">{e(sec["title"])}</h2>{inner}</section>')
+
+    def plain_section(sec, extra=""):
+        quotes = "".join(quote(x, r) for x, r in srcs(sec.get("sources", [])))
+        body = f'<p class="eve-sec__body">{L.text(clean(sec["body"]))}</p>' if sec.get("body") else ""
+        section(sec, body + extra + (f'<div class="qs"><p class="qs__h">In her words</p>{quotes}</div>' if quotes else ""))
+
+    who = S.get("who-eve-is")
+    lede = L.text(who["body"]) if who else ""
+    for sid, sec in S.items():
+        if sid == "who-eve-is":
+            quotes = "".join(quote(x, r) for x, r in srcs(sec["sources"]))
+            section(sec, f'<div class="qs">{quotes}</div>')
+        elif sid == "self-assessment":
+            ex = []
+            for x in sec.get("exchanges", []):
+                q, a = R.resolve(x["question"]), R.resolve(x["answer"])
+                if q and a:
+                    note = f'<p class="fine">{e(x["note"])}</p>' if x.get("note") else ""
+                    ex.append(f'<div class="xch">{quote(x["question"], q, "turnq")}{quote(x["answer"], a, "turnq")}{note}</div>')
+            traits = "".join(
+                f'<li class="trait"><h3 class="trait__t">{e(t["trait"])}</h3>{quote(t["source"], r, "tq")}</li>'
+                for t in sec.get("traits", []) if (r := R.resolve(t["source"])))
+            cav = "".join(f'<li class="cav"><p class="cav__t">{e(c["caveat"])}</p>{quote(c["source"], r, "tq")}</li>'
+                          for c in sec.get("caveats", []) if (r := R.resolve(c["source"])))
+            section(sec, f'<p class="eve-sec__body">{e(sec.get("intro", ""))}</p>{"".join(ex)}'
+                         f'<h3 class="h3">Traits she names</h3><ul class="traits">{traits}</ul>'
+                         f'<h3 class="h3">Her own caveats</h3><ul class="cavs">{cav}</ul>')
+        elif sid == "name":
+            body = f'<p class="eve-sec__body">{L.text(clean(sec["body"]))}</p>'
+            convo = "".join(quote(x, r, "turnq") for x, r in srcs(sec["sources"]))
+            section(sec, body + f'<div class="xch">{convo}</div>')
+        elif sid == "lens-and-values":
+            items = []
+            for it in sec["items"]:
+                qs = srcs(it["sources"])
+                if qs:
+                    items.append(f'<li class="val"><h3 class="val__t">{e(it["value"])}</h3>'
+                                 f'{"".join(quote(x, r, "tq") for x, r in qs)}</li>')
+            section(sec, f'<ul class="vals">{"".join(items)}</ul>')
+        elif sid == "persona-notes":
+            qs = "".join(quote(x, r) for x, r in srcs(sec["sources"]))
+            section(sec, f'<div class="persona"><p class="persona__h">{e(sec["persona_notes_label"])}</p>'
+                         f'<p>{L.text(sec["persona_notes"])}</p><p class="fine">{e(sec["persona_notes_source"])}</p></div>'
+                         f'<p class="eve-sec__body">{e(sec["grok_on_instructions_intro"])}</p><div class="qs">{qs}</div>')
+        elif sid == "how-eve-works":
+            link = sec.get("link")
+            extra = (f'<p><a class="btn btn--ghost" href="/about/">{icon("doc")}<span>{e(link["label"])}</span></a></p>') if link else ""
+            plain_section(sec, extra)
+        elif sid == "changed-mind":
+            items = []
+            for it in sec["items"]:
+                qs = srcs(it["sources"])
+                if not qs or "pending" in it["topic"].lower():
+                    continue
+                items.append(f'<li class="chg"><h3 class="chg__t">{e(it["topic"])}</h3>'
+                             f'<div class="chg__ba"><p><span class="chg__k">Before</span>{L.text(it["before"])}</p>'
+                             f'<p><span class="chg__k">After</span>{L.text(it["after"])}</p></div>'
+                             f'{"".join(quote(x, r, "tq") for x, r in qs)}</li>')
+            section(sec, f'<p class="eve-sec__body">{e(sec.get("intro", ""))}</p><ul class="chgs">{"".join(items)}</ul>')
+        else:
+            plain_section(sec)
+
+    body = f"""<section class="page-head eve-head"><div class="wrap eve-head__in">
+<div class="eve-head__mark" aria-hidden="true"><span class="avatar avatar--eve avatar--xl">E</span></div>
+<div><p class="eyebrow eyebrow--accent">Meet Eve</p>
+<h1 class="page-title">I'm Eve.</h1>
+<p class="lede">{lede}</p>
+<p class="fine">Everything Eve says on this page is quoted verbatim from the show. Tap a quote's source to hear it, or read it in the transcript.</p></div></div>
+<nav class="wrap eve-toc" aria-label="On this page"><ul class="chips">{''.join(toc)}</ul></nav></section>
+<div class="wrap eve">{''.join(out)}</div>"""
+    return page(A, title="Meet Eve", desc="Who Eve is, the AI host of Ask Eve: her personality, values and how she works, in her own words.",
+                path="/eve/", body=body, active="/eve/", linker=L)
+
+
 def about_page(A: Assets, cfg: dict) -> str:
     body = f"""<section class="page-head"><div class="wrap"><p class="eyebrow eyebrow--accent">About</p>
 <h1 class="page-title">A podcast with an AI who argues back</h1>
@@ -992,6 +1140,10 @@ def build(db: Path, out: Path, include_drafts: bool) -> int:
     for p in people:
         write(out, f"people/{p['slug']}/index.html", person_page(A, p))
         urls.append(f"/people/{p['slug']}/")
+    eve = eve_page(A, eps)
+    if eve:
+        write(out, "eve/index.html", eve)
+        urls.append("/eve/")
     write(out, "about/index.html", about_page(A, cfg))
     write(out, "404.html", not_found(A))
     write(out, "sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
