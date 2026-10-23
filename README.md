@@ -58,6 +58,9 @@ speaker turn, table row, or paragraph):
 `sum(1/(60 + rank))` over the layers that returned it. Ranks are used, never raw scores, so the
 layers need no normalization. `--tag X` filters results to chunks with a tag containing X.
 
+## Recording on the phone
+See [docs/on-the-go.md](docs/on-the-go.md): Action Button → record, Eve Start → Grok, stop → Eve Done uploads; Drive copy + email when the episode is ready.
+
 ## Quickstart
 ```bash
 cd /workspace/ask-eve
