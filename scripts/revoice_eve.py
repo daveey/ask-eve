@@ -253,8 +253,13 @@ class TimeMap:
 
 
 def build_ops(turns: list[dict], clip_secs: dict[int, float], pause_after: float, max_pause: float | None):
-    """Return ops [(raw_point, 'insert', seconds) | (raw_a, 'cut', raw_b)] and Eve placements."""
+    """Return ops [(raw_point, 'insert', seconds) | (raw_a, 'cut', raw_b)] and Eve placements.
+
+    Placements are (raw_point, offset): several Eve turns can share one raw point (zero-length slots around an
+    interpolated David turn), and each one then starts `offset` seconds into the silence inserted there, after
+    the clips queued before it at the same point, so they never overlap."""
     ops, place = [], {}
+    queued: dict[float, float] = {}
     by_i = {t["i"]: t for t in turns}
     for t in turns:
         if t["speaker"] != "Eve" or t["i"] not in clip_secs:
@@ -262,9 +267,10 @@ def build_ops(turns: list[dict], clip_secs: dict[int, float], pause_after: float
         s, e = t["raw_start"], t["raw_end"]
         slot = max(0.0, e - s)
         need = clip_secs[t["i"]] + pause_after
-        place[t["i"]] = s
+        place[t["i"]] = (s, queued.get(s, 0.0))
         if need > slot:
             ops.append((s, "insert", need - slot))
+            queued[s] = queued.get(s, 0.0) + need - slot
         elif max_pause is not None and slot - clip_secs[t["i"]] > max_pause:
             prev_d, next_d = by_i.get(t["i"] - 1), by_i.get(t["i"] + 1)
             safe = all(x is None or x["speaker"] == "Eve" or x["method"] in ("asr-match", "sync-phrase") for x in (prev_d, next_d))
@@ -345,14 +351,15 @@ def revoice(alignment: dict, transcript_turns: dict[int, str], david_wav: Path, 
             secs[t["i"]] = wav_seconds(clips[t["i"]])
     ops, place = build_ops(turns, secs, pause_after, max_pause)
     tm = build_timemap(ops, wav_seconds(david_wav))
-    eve_at = [(tm.to_edited(place[i], side="left"), clips[i]) for i in clips]
+    at = {i: tm.to_edited(p, side="left") + off for i, (p, off) in place.items()}
+    eve_at = [(at[i], clips[i]) for i in clips]
     d_out, e_out, m_out = out_dir / "david_edit.wav", out_dir / "eve_track.wav", out_dir / "mix.wav"
     total = render_tracks(david_wav, tm, eve_at, d_out, e_out)
     mix(d_out, e_out, m_out)
     out_turns = []
     for t in turns:
         if t["i"] in clips:
-            es = tm.to_edited(place[t["i"]], side="left")
+            es = at[t["i"]]
             ee = es + secs[t["i"]]
             method = "tts-placed"
         else:

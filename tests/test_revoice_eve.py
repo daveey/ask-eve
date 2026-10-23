@@ -85,6 +85,25 @@ def test_shorter_clip_pads_and_max_pause_cuts(tmp_path, david):
     assert r["inserted_seconds"] == pytest.approx(0.65, abs=0.01)
 
 
+def test_eve_turns_sharing_one_raw_point_do_not_overlap(tmp_path, david):
+    # Eve 1, (interpolated, unheard) David 2 and Eve 3 all collapse onto raw 8.3 with zero-length slots, as the
+    # aligner produces around a short unmatched David turn. Both Eve clips must play back to back, not on top of each other.
+    al = {"turns": [
+        {"i": 0, "speaker": "David", "raw_start": 1.0, "raw_end": 3.0, "method": "asr-match", "score": 99.0},
+        {"i": 1, "speaker": "Eve", "raw_start": 8.3, "raw_end": 8.3, "method": "gap-placed", "score": None},
+        {"i": 2, "speaker": "David", "raw_start": 8.3, "raw_end": 8.3, "method": "interpolated", "score": None},
+        {"i": 3, "speaker": "Eve", "raw_start": 8.3, "raw_end": 8.3, "method": "gap-placed", "score": None},
+        {"i": 4, "speaker": "David", "raw_start": 8.8, "raw_end": 10.0, "method": "asr-match", "score": 95.0},
+    ]}
+    tts = FakeTTS({"first": 1.0, "second": 0.5})
+    r = R.revoice(al, {1: "Eve first.", 3: "Eve second."}, david, tmp_path / "o", tts, pause_after=0.35)
+    by = {t["i"]: t for t in r["turns"]}
+    assert by[1]["edited_start"] == pytest.approx(8.3)
+    assert by[3]["edited_start"] == pytest.approx(8.3 + 1.0 + 0.35, abs=0.01)
+    assert by[4]["edited_start"] == pytest.approx(8.8 + 1.35 + 0.85, abs=0.01)
+    assert r["inserted_seconds"] == pytest.approx(2.2, abs=0.01)
+
+
 def test_clip_cache_avoids_rebilling(tmp_path):
     tts = FakeTTS({}, default=0.3)
     a = R.make_clip(tts, "Hello there.", tmp_path)
