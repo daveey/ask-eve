@@ -16,7 +16,7 @@ def unlink(h: str) -> str:
 
 import sqlite_apply  # noqa: E402
 
-EP0, EP1 = "eve-david-podcast-planning", "the-making-of-eve"
+EP0, EP1 = "first-encounter", "the-making-of-eve"
 
 
 @pytest.fixture(scope="module")
@@ -71,7 +71,7 @@ def test_episode_page(site):
     assert 'data-act="speed"' in h and 'class="range"' in h and "audio.askevepodcast.com" in h
     turns = re.findall(r'<li class="turn turn--(david|eve)[^"]*" id="turn-\d+" data-start="[\d.]+" data-end="[\d.]+"', h)
     from align_audio import parse_transcript
-    assert len(turns) == len(parse_transcript((ROOT / f"episodes/2026-10-23_{EP0}.md").read_text()))
+    assert len(turns) == len(parse_transcript((ROOT / "episodes/2026-10-23_eve-david-podcast-planning.md").read_text()))
     assert {"david", "eve"} <= set(turns)
     assert 'class="disclosure' in h and "Fully AI-reconstructed audio" in h
     assert "vb--narrator" in h and "vb--eve" in h and "vb--real" not in h
@@ -449,7 +449,7 @@ def test_eve_hub_holds_mind(site):
     ids = re.findall(r'<section class="eve-sec" id="([\w-]+)"', h)
     assert ids[:3] == ["who-eve-is", "mind", "self-assessment"] and ids[-1] == "persona-notes"
     assert 'id="memories"' in h and 'id="people"' in h and 'id="topics"' not in h   # topics gated
-    assert 'href="/episodes/eve-david-podcast-planning/"' in h and 'href="/episodes/the-making-of-eve/"' in h
+    assert 'href="/episodes/first-encounter/"' in h and 'href="/episodes/the-making-of-eve/"' in h
     assert 'href="/people/david-sacks/"' in h and 'href="/people/"' in h
     assert '<nav class="eve-nav" aria-label="On this page">' in h and 'href="#mind"' in h
     assert '<details class="fold' in h and "<script" not in h.split("<footer")[0].split("</header>")[1]
@@ -463,7 +463,7 @@ def test_eve_hub_holds_mind(site):
 
 
 def test_mind_redirects_to_eve(site):
-    assert read(site, "_redirects") == "/mind/ /eve/#mind 301\n/mind /eve/#mind 301\n"
+    assert read(site, "_redirects").startswith("/mind/ /eve/#mind 301\n/mind /eve/#mind 301\n")
     stub = read(site, "mind/index.html")                       # fallback if _redirects isn't honoured
     assert '<meta http-equiv="refresh" content="0; url=/eve/#mind">' in stub and "<script" not in stub
     assert 'rel="canonical" href="https://askevepodcast.com/eve/"' in stub and 'name="robots" content="noindex"' in stub
@@ -480,3 +480,26 @@ def test_about_how_it_works(site):
         foot = read(site, rel).split("<footer", 1)[1]
         assert 'href="https://github.com/daveey/ask-eve" rel="noopener">GitHub</a>' in foot, rel
     assert "gmail" not in h.lower()
+
+
+def test_renamed_episode_slug_and_redirects(site, tmp_path):
+    """index/slugs.json renames ep 0 to first-encounter: the same build from a D1 still holding the old slug gives the
+    same public URL; the old URL 301s (fragment-free dest so #t= survives); guid and enclosure keep the stem."""
+    red = read(site, "_redirects")
+    for line in ["/episodes/eve-david-podcast-planning/ /episodes/first-encounter/ 301",
+                 "/episodes/eve-david-podcast-planning /episodes/first-encounter/ 301",
+                 "/episodes/eve-david-podcast-planning/* /episodes/first-encounter/:splat 301"]:
+        assert line in red.splitlines()
+    feed = read(site, "feed.xml")
+    assert "<link>https://askevepodcast.com/episodes/first-encounter/</link>" in feed
+    assert "/episodes/eve-david-podcast-planning" not in feed
+    assert "<guid isPermaLink=\"false\">ask-eve:2026-10-23_eve-david-podcast-planning</guid>" in feed
+    db, out = tmp_path / "old.sqlite", tmp_path / "dist"
+    for sql in sorted(ROOT.glob("artifacts/*/d1_upsert.sql")):
+        txt = sql.read_text().replace("'first-encounter'", "'eve-david-podcast-planning'")
+        (tmp_path / sql.parent.name).with_suffix(".sql").write_text(txt)
+        sqlite_apply.apply(db, ROOT / "migrations", (tmp_path / sql.parent.name).with_suffix(".sql"))
+    assert B.main(["--db", str(db), "--out", str(out), "--include-drafts"]) == 0
+    assert (out / "episodes/first-encounter/index.html").is_file()
+    assert read(out, "feed.xml") == feed or "<link>https://askevepodcast.com/episodes/first-encounter/</link>" in read(out, "feed.xml")
+    assert read(out, "_redirects") == red

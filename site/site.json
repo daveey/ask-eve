@@ -5,7 +5,7 @@
     "spotify": ""
   },
   "blurbs": {
-    "eve-david-podcast-planning": "The conversation that started the show. Eve walks through how Andreessen and Horowitz turned right, then works through Thiel, Musk, Sacks's three-test scorecard, Calacanis, Chamath, Pelosi's succession move, Bari Weiss and Mamdani, and the two of them decide to make it a podcast.",
+    "first-encounter": "The conversation that started the show. Eve walks through how Andreessen and Horowitz turned right, then works through Thiel, Musk, Sacks's three-test scorecard, Calacanis, Chamath, Pelosi's succession move, Bari Weiss and Mamdani, and the two of them decide to make it a podcast.",
     "the-making-of-eve": "The build log. This is the whole Grok Bot chat in which David and Eve set up the repo, Eve's memory search, the audio pipeline and this site. David's real voice comes in for the parts he recorded on his iPhone."
   }
 }
