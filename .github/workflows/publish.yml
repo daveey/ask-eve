@@ -76,7 +76,7 @@ jobs:
           { cat "artifacts/$STEM/d1_upsert.sql"
             echo "UPDATE episodes SET status='published', published_at=COALESCE(published_at, strftime('%Y-%m-%dT%H:%M:%SZ','now')) WHERE slug='$slug';"
           } > publish.sql
-          npx --yes wrangler@4 d1 execute "$D1_NAME" --remote --file publish.sql
+          npx --yes wrangler@4 d1 execute "$D1_NAME" --remote --file publish.sql --config workers/upload/wrangler.toml
 
       - name: Rebuild the site (Netlify build hook)
         env:

@@ -20,3 +20,5 @@ node_modules/
 *.wav
 *.mov
 *.mp4
+site/dist/
+site/.d1.sqlite
