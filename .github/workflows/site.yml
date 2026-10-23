@@ -18,6 +18,7 @@ on:
       - index/moments/**
       - index/links.json
       - index/eve.json
+      - index/slugs.json
       - .github/workflows/site.yml
 
 permissions:

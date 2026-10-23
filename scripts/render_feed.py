@@ -17,6 +17,9 @@ import sqlite3
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from frontmatter import public_slug  # noqa: E402
+
 SITE = "https://askevepodcast.com"
 FEED = f"{SITE}/feed.xml"
 OWNER_EMAIL = "podcast@askevepodcast.com"
@@ -90,6 +93,9 @@ def load(db: Path, include_drafts: bool) -> list[dict]:
     where = "" if include_drafts else "WHERE status = 'published'"
     eps = [dict(r) for r in con.execute(f"SELECT * FROM episodes {where} ORDER BY COALESCE(published_at, date) DESC")]
     for ep in eps:
+        stem = Path(ep["transcript_path"]).stem
+        ep["key"] = stem.split("_", 1)[1]        # filename slug: stable cover-art seed
+        ep["slug"] = public_slug(stem)           # public URL slug (index/slugs.json); D1 may still hold the old one
         ep["people"] = [r[0] for r in con.execute(
             "SELECT p.name FROM episode_people ep JOIN people p ON p.id = ep.person_id WHERE ep.episode_id = ? ORDER BY p.name", (ep["id"],))]
         ep["chapters"] = [dict(r) for r in con.execute(

@@ -651,7 +651,7 @@ def ep_card(ep: dict) -> str:
     kind, label = ai_kind(ep)
     badge = f'<span class="badge badge--{kind}">{icon("spark")}{e(label)}</span>' if kind else ""
     return f"""<article class="card{' card--bonus' if is_bonus(ep) else ''}">
-  <div class="card__art">{cover_svg(ep['slug'], cover_mark(ep), "cover cover--card")}</div>
+  <div class="card__art">{cover_svg(ep['key'], cover_mark(ep), "cover cover--card")}</div>
   <div class="card__body">
     <p class="eyebrow"><span class="card__num">{e(ep_label(ep))}</span> · <time datetime="{e(ep['date'])}">{human_date(ep['date'])}</time> · {human_duration(ep['duration_seconds'])}</p>
     <h3 class="card__title"><a href="/episodes/{e(ep['slug'])}/">{e(ep['title'])}</a></h3>
@@ -704,7 +704,7 @@ def home(A: Assets, eps: list[dict], people: list[dict]) -> str:
       <div class="hero__actions">{play}<a class="btn btn--ghost" href="/episodes/{e(latest['slug'])}/">{icon("doc")}<span>Transcript &amp; chapters</span></a></div>
       {f'<p class="hero__ai">{icon("spark")}<span>{e(label)}. Every AI voice is labeled, line by line.</span></p>' if kind else ''}
     </div>
-    <div class="hero__art">{cover_svg(latest['slug'], cover_mark(latest), "cover cover--hero", f"Cover art for {latest['title']}")}</div>
+    <div class="hero__art">{cover_svg(latest['key'], cover_mark(latest), "cover cover--hero", f"Cover art for {latest['title']}")}</div>
   </div>
 </section>"""
     cards = "".join(ep_card(x) for x in full) or '<p class="empty">The first episode is on its way.</p>'
@@ -845,7 +845,7 @@ def episode_page(A: Assets, ep: dict, eps: list[dict]) -> str:
     body = f"""<article class="ep">
 <header class="ep-hero">
   <div class="wrap ep-hero__in">
-    <div class="ep-hero__art">{cover_svg(ep['slug'], cover_mark(ep), "cover cover--ep", f"Cover art for {ep['title']}")}</div>
+    <div class="ep-hero__art">{cover_svg(ep['key'], cover_mark(ep), "cover cover--ep", f"Cover art for {ep['title']}")}</div>
     <div class="ep-hero__text">
       <p class="eyebrow eyebrow--accent">{e(ep_label(ep))} · <time datetime="{e(ep['date'])}">{human_date(ep['date'])}</time> · {human_duration(ep['duration_seconds'])}</p>
       {f'<p class="ep-badges">{bonus_badge(ep)}</p>' if is_bonus(ep) else ''}
@@ -978,7 +978,7 @@ def person_page(A: Assets, p: dict) -> str:
         ep, ms = x["ep"], x["moments"]
         cnt = f"{len(ms)} discussion{'s' * (len(ms) != 1)}"
         sections.append(f"""<section class="pep">
-<div class="pep__head">{cover_svg(ep['slug'], cover_mark(ep), "cover cover--thumb")}
+<div class="pep__head">{cover_svg(ep['key'], cover_mark(ep), "cover cover--thumb")}
 <div><p class="eyebrow">{e(ep_label(ep))} · {human_date(ep['date'])} · {cnt}</p><h2 class="pep__title"><a href="/episodes/{e(ep['slug'])}/">{e(ep['title'])}</a></h2></div></div>
 <ol class="pms">{''.join(moment_html(ep, m, L) for m in ms)}</ol></section>""")
     if not sections:
@@ -1285,9 +1285,12 @@ def build(db: Path, out: Path, include_drafts: bool) -> int:
         write(out, f"episodes/{ep['slug']}/index.html", episode_page(A, ep, eps))
         urls.append(f"/episodes/{ep['slug']}/")
     write(out, "index.html", home(A, eps, people))
-    for rel, dest in REDIRECTS.items():          # meta-refresh fallback; Cloudflare Pages serves _redirects first
+    moved = dict(REDIRECTS) | {f"/episodes/{ep['key']}/": f"/episodes/{ep['slug']}/" for ep in eps if ep["key"] != ep["slug"]}
+    for rel, dest in moved.items():              # meta-refresh fallback; Cloudflare Pages serves _redirects first
         write(out, rel.strip("/") + "/index.html", redirect_page(dest))
-    write(out, "_redirects", "".join(f"{src} {dest} 301\n{src.rstrip('/')} {dest} 301\n" for src, dest in REDIRECTS.items()))
+    write(out, "_redirects", "".join(
+        f"{src} {dest} 301\n{src.rstrip('/')} {dest} 301\n" + (f"{src}* {dest}:splat 301\n" if src.startswith("/episodes/") else "")
+        for src, dest in moved.items()))
     write(out, "people/index.html", people_index(A, people))
     for p in people:
         write(out, f"people/{p['slug']}/index.html", person_page(A, p))

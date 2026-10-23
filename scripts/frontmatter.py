@@ -1,7 +1,11 @@
 """Transcript front-matter parsing shared by the pipeline and the site build (stdlib only)."""
 from __future__ import annotations
 
+import json
 import re
+from pathlib import Path
+
+SLUGS_FILE = Path(__file__).resolve().parent.parent / "index/slugs.json"
 
 
 def parse_front_matter_block(block: str) -> dict:
@@ -47,3 +51,10 @@ def episode_number(fm: dict) -> int | None:
         return None
     v = str(fm.get("episode", "")).strip()
     return int(v) if v.isdigit() else None
+
+
+def public_slug(stem: str) -> str:
+    """Public URL slug for an episode stem (<date>_<slug>): a rename in index/slugs.json wins over the filename
+    (guid, audio and artifacts keep the stem)."""
+    m = json.loads(SLUGS_FILE.read_text()) if SLUGS_FILE.exists() else {}
+    return m.get(stem) or stem.split("_", 1)[1]
