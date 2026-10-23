@@ -18,6 +18,14 @@ GH_REF = "main"
 binding = "MASTERS"
 bucket_name = "ask-eve-masters"
 
+# D1 metadata DB. The Worker code does not use it yet; the block lets `wrangler d1 migrations apply` and
+# publish.yml (`wrangler d1 execute --config workers/upload/wrangler.toml`) find the database. IDs are not secrets.
+[[d1_databases]]
+binding = "DB"
+database_name = "ask-eve-meta"
+database_id = "REPLACE_WITH_D1_DATABASE_ID"   # from `npx wrangler@4 d1 create ask-eve-meta`
+migrations_dir = "../../migrations"
+
 # Secrets (never in this file): npx wrangler@4 secret put UPLOAD_TOKEN | R2_ACCESS_KEY_ID | R2_SECRET_ACCESS_KEY | GITHUB_TOKEN
 
 [observability]

@@ -107,3 +107,25 @@ def test_feed_refuses_placeholder_manifest(tmp_path):
     m.write_text(json.dumps({"placeholder_audio": True}))
     assert F.main(["--db", str(db), "--out", str(tmp_path / "f.xml"), "--manifests", str(m)]) == 4
     assert F.main(["--db", str(db), "--out", str(tmp_path / "f.xml"), "--manifests", str(m), "--allow-placeholder"]) == 0
+
+
+def test_build_site_from_local_db(tmp_path):
+    import build_site
+    tr = ROOT / "episodes/2026-10-23_eve-david-podcast-planning.md"
+    from align_audio import parse_transcript
+    turns = parse_transcript(tr.read_text())
+    rv = {"recording_method": "tts-reconstructed", "tts": "xai_tts voice=eve", "narrator": "xai_tts voice=rex",
+          "turns": [{"i": t.index, "speaker": t.speaker, "edited_start": float(t.index), "edited_end": t.index + 0.5,
+                     "method": "tts-synthetic"} for t in turns]}
+    man = {"audio_key": "audio/en/x.v1.mp3", "audio_bytes": 10, "audio_sha256": "b" * 64, "duration_seconds": 9,
+           "recording_method": "tts-reconstructed", "chapters": [{"startTime": 0, "title": "AI-reconstructed audio notice"}]}
+    sql = tmp_path / "u.sql"
+    sql.write_text(D.build_sql(tr, ROOT, "eve-david-podcast-planning", revoice=rv, manifest=man, episode_number=0))
+    db = tmp_path / "d.sqlite"
+    sqlite_apply.apply(db, ROOT / "migrations", sql)
+    out = tmp_path / "dist"
+    assert build_site.main(["--db", str(db), "--out", str(out), "--include-drafts"]) == 0
+    page = (out / "episodes/eve-david-podcast-planning/index.html").read_text()
+    assert "AI-reconstructed audio." in page and "audio.askevepodcast.com" in page
+    assert (out / "episodes/eve-david-podcast-planning/transcript.txt").read_text().startswith("[07:29:52] David:")
+    ET.parse(out / "feed.xml")

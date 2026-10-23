@@ -1,0 +1,18 @@
+# askevepodcast.com (Netlify). Build pulls D1 with a READ-ONLY token; see docs/deploy-guide.md §7.
+[build]
+  command = "python3 scripts/build_site.py"
+  publish = "site/dist"
+
+[build.environment]
+  PYTHON_VERSION = "3.12"
+
+[[headers]]
+  for = "/feed.xml"
+  [headers.values]
+    Content-Type = "application/rss+xml; charset=utf-8"
+    Cache-Control = "public, max-age=300"
+
+[[headers]]
+  for = "/episodes/*/transcript.txt"
+  [headers.values]
+    Content-Type = "text/plain; charset=utf-8"
