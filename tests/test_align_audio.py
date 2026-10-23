@@ -145,3 +145,21 @@ def test_episode1_scale_synthetic_words():
     r = A.align(turns, words)
     assert r["alignment_coverage"] > 0.9
     assert all(a["raw_start"] <= b["raw_start"] for a, b in zip(r["turns"], r["turns"][1:]))
+
+
+def test_parse_transcript_keeps_relayed_as_metadata_out_of_spoken_text():
+    from align_audio import parse_transcript
+    md = ("---\ndate: 2026-10-23\ntitle: x\n---\n\n"
+          "[10:34:40] David: Okay, well do that.\n"
+          "> relayed as (written prompt, 10:34, not spoken audio):\n"
+          "> Two jobs, in order.\n"
+          ">\n"
+          "> (1) Update the doc.\n"
+          "and then build it.\n\n"
+          "[10:34:41] Eve: On it.\n")
+    turns = parse_transcript(md)
+    assert [t.speaker for t in turns] == ["David", "Eve"]
+    assert turns[0].text == "Okay, well do that.\nand then build it."
+    assert "Two jobs" not in turns[0].text and "relayed as" not in turns[0].text
+    assert turns[0].meta.startswith("relayed as") and "(1) Update the doc." in turns[0].meta
+    assert turns[1].text == "On it." and turns[1].meta == ""
