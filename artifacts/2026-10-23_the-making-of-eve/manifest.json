@@ -193,5 +193,5 @@
  "tts": "xai_tts voice=eve",
  "narrator": "xai_tts voice=rex",
  "missing_turns": [],
- "transcript_sha256": "95e3fd8a63e7be76bf38f1f6e0b7250145ea30967427d18c1311c153590541e7"
+ "transcript_sha256": "f0b777cfacaea6c14072df032e163099fb48dfb518fbe146c42fbd2d15791d83"
 }
