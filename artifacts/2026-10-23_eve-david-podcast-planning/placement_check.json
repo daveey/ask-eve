@@ -1,0 +1,90 @@
+{
+ "alignment_coverage": 0.4437,
+ "matchable": 284,
+ "matched": 126,
+ "asr_model": "faster-whisper small int8",
+ "median_abs_error_s": 0.905,
+ "p95_abs_error_s": 6.47,
+ "max_abs_error_s": 35.929,
+ "tolerance_s": 2.0,
+ "outside_tolerance": [
+  {
+   "i": 25,
+   "speaker": "Eve",
+   "placed": 1406.64,
+   "found": 1424.397
+  },
+  {
+   "i": 27,
+   "speaker": "Eve",
+   "placed": 1551.18,
+   "found": 1556.854
+  },
+  {
+   "i": 29,
+   "speaker": "Eve",
+   "placed": 1648.04,
+   "found": 1654.51
+  },
+  {
+   "i": 31,
+   "speaker": "Eve",
+   "placed": 1737.22,
+   "found": 1741.137
+  },
+  {
+   "i": 33,
+   "speaker": "Eve",
+   "placed": 1836.64,
+   "found": 1840.944
+  },
+  {
+   "i": 37,
+   "speaker": "Eve",
+   "placed": 1990.68,
+   "found": 1995.411
+  },
+  {
+   "i": 49,
+   "speaker": "Eve",
+   "placed": 2519.36,
+   "found": 2535.894
+  },
+  {
+   "i": 64,
+   "speaker": "David",
+   "placed": 2760.87,
+   "found": 2781.158
+  },
+  {
+   "i": 66,
+   "speaker": "David",
+   "placed": 2770.37,
+   "found": 2781.158
+  },
+  {
+   "i": 68,
+   "speaker": "David",
+   "placed": 2947.23,
+   "found": 2983.159
+  },
+  {
+   "i": 69,
+   "speaker": "Eve",
+   "placed": 2957.42,
+   "found": 2983.159
+  },
+  {
+   "i": 86,
+   "speaker": "David",
+   "placed": 3762.7,
+   "found": 3767.044
+  },
+  {
+   "i": 267,
+   "speaker": "Eve",
+   "placed": 8258.95,
+   "found": 8266.152
+  }
+ ]
+}
