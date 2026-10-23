@@ -1,5 +1,5 @@
 {
-  "episode": "eve-david-podcast-planning",
+  "episode": "first-encounter",
   "stem": "2026-10-23_eve-david-podcast-planning",
   "title": "First Encounter",
   "turns": 304,
@@ -12,7 +12,7 @@
     {
       "person": "ben-horowitz",
       "name": "Ben Horowitz",
-      "episode": "eve-david-podcast-planning",
+      "episode": "first-encounter",
       "start_turn": 0,
       "end_turn": 1,
       "start": 5.65,
@@ -29,7 +29,7 @@
     {
       "person": "marc-andreessen",
       "name": "Marc Andreessen",
-      "episode": "eve-david-podcast-planning",
+      "episode": "first-encounter",
       "start_turn": 0,
       "end_turn": 11,
       "start": 5.65,
@@ -47,7 +47,7 @@
     {
       "person": "ben-horowitz",
       "name": "Ben Horowitz",
-      "episode": "eve-david-podcast-planning",
+      "episode": "first-encounter",
       "start_turn": 6,
       "end_turn": 7,
       "start": 418.79,
@@ -63,7 +63,7 @@
     {
       "person": "elon-musk",
       "name": "Elon Musk",
-      "episode": "eve-david-podcast-planning",
+      "episode": "first-encounter",
       "start_turn": 10,
       "end_turn": 37,
       "start": 669.79,
@@ -81,7 +81,7 @@
     {
       "person": "david-sacks",
       "name": "David Sacks",
-      "episode": "eve-david-podcast-planning",
+      "episode": "first-encounter",
       "start_turn": 38,
       "end_turn": 51,
       "start": 2029.35,
@@ -99,7 +99,7 @@
     {
       "person": "chamath-palihapitiya",
       "name": "Chamath Palihapitiya",
-      "episode": "eve-david-podcast-planning",
+      "episode": "first-encounter",
       "start_turn": 62,
       "end_turn": 73,
       "start": 2621.77,
@@ -116,7 +116,7 @@
     {
       "person": "david-sacks",
       "name": "David Sacks",
-      "episode": "eve-david-podcast-planning",
+      "episode": "first-encounter",
       "start_turn": 72,
       "end_turn": 73,
       "start": 3189.91,
@@ -133,7 +133,7 @@
     {
       "person": "jason-calacanis",
       "name": "Jason Calacanis",
-      "episode": "eve-david-podcast-planning",
+      "episode": "first-encounter",
       "start_turn": 74,
       "end_turn": 85,
       "start": 3322.29,
@@ -150,7 +150,7 @@
     {
       "person": "chamath-palihapitiya",
       "name": "Chamath Palihapitiya",
-      "episode": "eve-david-podcast-planning",
+      "episode": "first-encounter",
       "start_turn": 99,
       "end_turn": 105,
       "start": 3803.97,
@@ -167,7 +167,7 @@
     {
       "person": "david-sacks",
       "name": "David Sacks",
-      "episode": "eve-david-podcast-planning",
+      "episode": "first-encounter",
       "start_turn": 108,
       "end_turn": 113,
       "start": 4101.76,
@@ -184,7 +184,7 @@
     {
       "person": "david-sacks",
       "name": "David Sacks",
-      "episode": "eve-david-podcast-planning",
+      "episode": "first-encounter",
       "start_turn": 120,
       "end_turn": 121,
       "start": 4296.36,
@@ -200,7 +200,7 @@
     {
       "person": "peter-thiel",
       "name": "Peter Thiel",
-      "episode": "eve-david-podcast-planning",
+      "episode": "first-encounter",
       "start_turn": 123,
       "end_turn": 135,
       "start": 4339.73,
@@ -217,7 +217,7 @@
     {
       "person": "nancy-pelosi",
       "name": "Nancy Pelosi",
-      "episode": "eve-david-podcast-planning",
+      "episode": "first-encounter",
       "start_turn": 136,
       "end_turn": 155,
       "start": 5024.2,
@@ -234,7 +234,7 @@
     {
       "person": "scott-wiener",
       "name": "Scott Wiener",
-      "episode": "eve-david-podcast-planning",
+      "episode": "first-encounter",
       "start_turn": 137,
       "end_turn": 155,
       "start": 5027.99,
@@ -251,7 +251,7 @@
     {
       "person": "chan",
       "name": "Connie Chan",
-      "episode": "eve-david-podcast-planning",
+      "episode": "first-encounter",
       "start_turn": 138,
       "end_turn": 139,
       "start": 5160.42,
@@ -268,7 +268,7 @@
     {
       "person": "chan",
       "name": "Connie Chan",
-      "episode": "eve-david-podcast-planning",
+      "episode": "first-encounter",
       "start_turn": 154,
       "end_turn": 155,
       "start": 5616.9,
@@ -284,7 +284,7 @@
     {
       "person": "bari-weiss",
       "name": "Bari Weiss",
-      "episode": "eve-david-podcast-planning",
+      "episode": "first-encounter",
       "start_turn": 157,
       "end_turn": 159,
       "start": 5683.31,
@@ -301,7 +301,7 @@
     {
       "person": "zohran-mamdani",
       "name": "Zohran Mamdani",
-      "episode": "eve-david-podcast-planning",
+      "episode": "first-encounter",
       "start_turn": 160,
       "end_turn": 165,
       "start": 5962.52,

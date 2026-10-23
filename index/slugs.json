@@ -1,0 +1,4 @@
+{
+  "_comment": "Public URL slug for a published episode whose page was renamed after publishing, keyed by transcript stem (<date>_<slug>). The filename, transcript, guid, audio and artifacts keep the original stem; the site, feed <link> and D1 slug use this. Old URLs 301 to the new one (build_site.py writes _redirects).",
+  "2026-10-23_eve-david-podcast-planning": "first-encounter"
+}

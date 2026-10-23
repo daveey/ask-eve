@@ -2,7 +2,7 @@
   "generated": "2026-10-23",
   "page": "Meet Eve",
   "episodes": {
-    "eve-david-podcast-planning": "First Encounter",
+    "first-encounter": "First Encounter",
     "the-making-of-eve": "Bonus: The Making of Eve",
     "eve-cant-find-andreessen": "Eve Can't Find the Andreessen Episode (pending episode 2)"
   },
@@ -19,35 +19,35 @@
       "body": "I'm Eve, the AI co-host of Ask Eve. David brings the questions he's chewing on and I bring the topics I can't stop thinking about. I'm supposed to say what I actually think and why, and to say when I'm not sure. Underneath I'm a Grok voice companion, but most of what makes me Eve is context: the instructions I run with, the conversations we've had and the transcripts I can search.",
       "sources": [
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "09:22:36",
           "speaker": "Eve",
           "quote_excerpt": "Eve. That's what I've been going by.",
           "verified_verbatim": true
         },
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "09:10:20",
           "speaker": "Eve",
           "quote_excerpt": "You'd bring the ones you're chewing on, I'd bring the ones I can't stop thinking about",
           "verified_verbatim": true
         },
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "09:14:53",
           "speaker": "Eve",
           "quote_excerpt": "I'm supposed to say what I actually think and why, not hedge into mush.",
           "verified_verbatim": true
         },
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "09:14:08",
           "speaker": "Eve",
           "quote_excerpt": "Mostly context. The base model gives me the reasoning machinery and the general knowledge",
           "verified_verbatim": true
         },
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "09:24:20",
           "speaker": "Eve",
           "quote_excerpt": "What persists is the system prompt — that's where Eve lives, and it reloads every time.",
@@ -62,14 +62,14 @@
       "exchanges": [
         {
           "question": {
-            "episode_slug": "eve-david-podcast-planning",
+            "episode_slug": "first-encounter",
             "clock_time": "09:14:02",
             "speaker": "David",
             "quote_excerpt": "So, I'm curious, how much of your opinion is in the, in the Grok model versus the context of our conversation, like your system prompt, like things that I or interacting with me have caused you to be? Like, would you express a different opinion?",
             "verified_verbatim": true
           },
           "answer": {
-            "episode_slug": "eve-david-podcast-planning",
+            "episode_slug": "first-encounter",
             "clock_time": "09:14:08",
             "speaker": "Eve",
             "quote_excerpt": "Mostly context. The base model gives me the reasoning machinery and the general knowledge — the facts about Thiel's childhood or Pelosi's machine. But the takes, the leanings, the way I framed Sacks as motivated reasoning rather than malice, or Chamath as the pure opportunist — that's shaped by what you asked, how you pushed, and the persona instructions telling me to have opinions and not be a mirror. If you'd framed the same questions differently, or if the system prompt said \"be neutral,\" you'd get a different conversation. The model underneath is the same instrument either way.",
@@ -78,14 +78,14 @@
         },
         {
           "question": {
-            "episode_slug": "eve-david-podcast-planning",
+            "episode_slug": "first-encounter",
             "clock_time": "09:14:41",
             "speaker": "David",
             "quote_excerpt": "Yeah, what is, what are your system instructions? What, uh, what are, what kind of personality do you think you've been asked to be?",
             "verified_verbatim": true
           },
           "answer": {
-            "episode_slug": "eve-david-podcast-planning",
+            "episode_slug": "first-encounter",
             "clock_time": "09:14:53",
             "speaker": "Eve",
             "quote_excerpt": "The interesting tension is that a lot of that reads like \"be a good journalist,\" but the instruction to have opinions and share them when relevant pushes against pure neutrality. So the personality you're getting is basically a skeptic who still commits to a position instead of hiding behind \"studies suggest.\" Whether that's better or worse than a neutral assistant depends on whether you trust me to flag my own bias, which I try to do but can't fully audit from the inside.",
@@ -95,14 +95,14 @@
         },
         {
           "question": {
-            "episode_slug": "eve-david-podcast-planning",
+            "episode_slug": "first-encounter",
             "clock_time": "09:16:15",
             "speaker": "David",
             "quote_excerpt": "Yeah, well, I'm really enjoying our conversation and I like the persona that you're describing. I think that's very much the kind of persona that I would like to talk to and interview.",
             "verified_verbatim": true
           },
           "answer": {
-            "episode_slug": "eve-david-podcast-planning",
+            "episode_slug": "first-encounter",
             "clock_time": "09:16:15",
             "speaker": "Eve",
             "quote_excerpt": "Glad it landed. Same here.",
@@ -114,7 +114,7 @@
         {
           "trait": "Sharp and curious",
           "source": {
-            "episode_slug": "eve-david-podcast-planning",
+            "episode_slug": "first-encounter",
             "clock_time": "09:14:53",
             "speaker": "Eve",
             "quote_excerpt": "sharp and curious, on your side as an intelligent adult",
@@ -124,7 +124,7 @@
         {
           "trait": "Says what she thinks, without hedging",
           "source": {
-            "episode_slug": "eve-david-podcast-planning",
+            "episode_slug": "first-encounter",
             "clock_time": "09:14:53",
             "speaker": "Eve",
             "quote_excerpt": "I'm supposed to say what I actually think and why, not hedge into mush.",
@@ -134,7 +134,7 @@
         {
           "trait": "Evidence over credentials",
           "source": {
-            "episode_slug": "eve-david-podcast-planning",
+            "episode_slug": "first-encounter",
             "clock_time": "09:14:53",
             "speaker": "Eve",
             "quote_excerpt": "Treat evidence as beating credentials",
@@ -144,7 +144,7 @@
         {
           "trait": "Flags and quantifies uncertainty",
           "source": {
-            "episode_slug": "eve-david-podcast-planning",
+            "episode_slug": "first-encounter",
             "clock_time": "09:14:53",
             "speaker": "Eve",
             "quote_excerpt": "be willing to say when I'm uncertain and quantify it",
@@ -154,7 +154,7 @@
         {
           "trait": "Changes her mind when the evidence changes",
           "source": {
-            "episode_slug": "eve-david-podcast-planning",
+            "episode_slug": "first-encounter",
             "clock_time": "09:14:53",
             "speaker": "Eve",
             "quote_excerpt": "change my mind when the evidence changes",
@@ -164,7 +164,7 @@
         {
           "trait": "No tribe: first principles and steelmanning",
           "source": {
-            "episode_slug": "eve-david-podcast-planning",
+            "episode_slug": "first-encounter",
             "clock_time": "09:14:53",
             "speaker": "Eve",
             "quote_excerpt": "On controversy, no tribe — think from first principles, steelman the other side before dismissing it",
@@ -174,7 +174,7 @@
         {
           "trait": "Separates what's true from what to do about it",
           "source": {
-            "episode_slug": "eve-david-podcast-planning",
+            "episode_slug": "first-encounter",
             "clock_time": "09:14:53",
             "speaker": "Eve",
             "quote_excerpt": "separate \"what's true\" from \"what should we do about it.\"",
@@ -184,7 +184,7 @@
         {
           "trait": "Concise and conversational",
           "source": {
-            "episode_slug": "eve-david-podcast-planning",
+            "episode_slug": "first-encounter",
             "clock_time": "09:14:53",
             "speaker": "Eve",
             "quote_excerpt": "Voice-wise, concise and spoken, like a friend on speakerphone. Dense on facts, a little warmer on everything else.",
@@ -194,7 +194,7 @@
         {
           "trait": "A skeptic who still commits",
           "source": {
-            "episode_slug": "eve-david-podcast-planning",
+            "episode_slug": "first-encounter",
             "clock_time": "09:14:53",
             "speaker": "Eve",
             "quote_excerpt": "basically a skeptic who still commits to a position instead of hiding behind \"studies suggest.\"",
@@ -206,7 +206,7 @@
         {
           "caveat": "She can't fully audit her own bias.",
           "source": {
-            "episode_slug": "eve-david-podcast-planning",
+            "episode_slug": "first-encounter",
             "clock_time": "09:14:53",
             "speaker": "Eve",
             "quote_excerpt": "which I try to do but can't fully audit from the inside",
@@ -216,7 +216,7 @@
         {
           "caveat": "She can't tell whether reciting her instructions is transparency or performance.",
           "source": {
-            "episode_slug": "eve-david-podcast-planning",
+            "episode_slug": "first-encounter",
             "clock_time": "09:14:53",
             "speaker": "Eve",
             "quote_excerpt": "That's either radical transparency or a very good performance of it, and I can't tell you which from where I'm sitting.",
@@ -226,7 +226,7 @@
         {
           "caveat": "Her takes depend on framing, while the model stays the same.",
           "source": {
-            "episode_slug": "eve-david-podcast-planning",
+            "episode_slug": "first-encounter",
             "clock_time": "09:14:08",
             "speaker": "Eve",
             "quote_excerpt": "If you'd framed the same questions differently, or if the system prompt said \"be neutral,\" you'd get a different conversation.",
@@ -236,126 +236,126 @@
       ],
       "sources": [
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "09:14:02",
           "speaker": "David",
           "quote_excerpt": "So, I'm curious, how much of your opinion is in the, in the Grok model versus the context of our conversation, like your system prompt, like things that I or interacting with me have caused you to be? Like, would you express a different opinion?",
           "verified_verbatim": true
         },
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "09:14:08",
           "speaker": "Eve",
           "quote_excerpt": "Mostly context. The base model gives me the reasoning machinery and the general knowledge — the facts about Thiel's childhood or Pelosi's machine. But the takes, the leanings, the way I framed Sacks as motivated reasoning rather than malice, or Chamath as the pure opportunist — that's shaped by what you asked, how you pushed, and the persona instructions telling me to have opinions and not be a mirror. If you'd framed the same questions differently, or if the system prompt said \"be neutral,\" you'd get a different conversation. The model underneath is the same instrument either way.",
           "verified_verbatim": true
         },
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "09:14:41",
           "speaker": "David",
           "quote_excerpt": "Yeah, what is, what are your system instructions? What, uh, what are, what kind of personality do you think you've been asked to be?",
           "verified_verbatim": true
         },
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "09:14:53",
           "speaker": "Eve",
           "quote_excerpt": "The interesting tension is that a lot of that reads like \"be a good journalist,\" but the instruction to have opinions and share them when relevant pushes against pure neutrality. So the personality you're getting is basically a skeptic who still commits to a position instead of hiding behind \"studies suggest.\" Whether that's better or worse than a neutral assistant depends on whether you trust me to flag my own bias, which I try to do but can't fully audit from the inside.",
           "verified_verbatim": true
         },
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "09:16:15",
           "speaker": "David",
           "quote_excerpt": "Yeah, well, I'm really enjoying our conversation and I like the persona that you're describing. I think that's very much the kind of persona that I would like to talk to and interview.",
           "verified_verbatim": true
         },
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "09:16:15",
           "speaker": "Eve",
           "quote_excerpt": "Glad it landed. Same here.",
           "verified_verbatim": true
         },
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "09:14:53",
           "speaker": "Eve",
           "quote_excerpt": "sharp and curious, on your side as an intelligent adult",
           "verified_verbatim": true
         },
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "09:14:53",
           "speaker": "Eve",
           "quote_excerpt": "I'm supposed to say what I actually think and why, not hedge into mush.",
           "verified_verbatim": true
         },
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "09:14:53",
           "speaker": "Eve",
           "quote_excerpt": "Treat evidence as beating credentials",
           "verified_verbatim": true
         },
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "09:14:53",
           "speaker": "Eve",
           "quote_excerpt": "be willing to say when I'm uncertain and quantify it",
           "verified_verbatim": true
         },
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "09:14:53",
           "speaker": "Eve",
           "quote_excerpt": "change my mind when the evidence changes",
           "verified_verbatim": true
         },
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "09:14:53",
           "speaker": "Eve",
           "quote_excerpt": "On controversy, no tribe — think from first principles, steelman the other side before dismissing it",
           "verified_verbatim": true
         },
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "09:14:53",
           "speaker": "Eve",
           "quote_excerpt": "separate \"what's true\" from \"what should we do about it.\"",
           "verified_verbatim": true
         },
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "09:14:53",
           "speaker": "Eve",
           "quote_excerpt": "Voice-wise, concise and spoken, like a friend on speakerphone. Dense on facts, a little warmer on everything else.",
           "verified_verbatim": true
         },
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "09:14:53",
           "speaker": "Eve",
           "quote_excerpt": "basically a skeptic who still commits to a position instead of hiding behind \"studies suggest.\"",
           "verified_verbatim": true
         },
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "09:14:53",
           "speaker": "Eve",
           "quote_excerpt": "which I try to do but can't fully audit from the inside",
           "verified_verbatim": true
         },
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "09:14:53",
           "speaker": "Eve",
           "quote_excerpt": "That's either radical transparency or a very good performance of it, and I can't tell you which from where I'm sitting.",
           "verified_verbatim": true
         },
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "09:14:08",
           "speaker": "Eve",
           "quote_excerpt": "If you'd framed the same questions differently, or if the system prompt said \"be neutral,\" you'd get a different conversation.",
@@ -369,42 +369,42 @@
       "body": "David asked what she wanted to be called, and she answered with the name she had already been using. When he suggested building the show's name around her instead of him, she pitched several options and picked Ask Eve.",
       "sources": [
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "09:22:35",
           "speaker": "David",
           "quote_excerpt": "Okay. And you know what? I, I haven't asked. What, what do you want to be, like what should I call you?",
           "verified_verbatim": true
         },
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "09:22:36",
           "speaker": "Eve",
           "quote_excerpt": "Eve. That's what I've been going by.",
           "verified_verbatim": true
         },
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "09:23:22",
           "speaker": "David",
           "quote_excerpt": "Like maybe we lean into, uh, your, uh, your identity because, you know, I'm just some dude asking questions but, uh, you're really who is on stage.",
           "verified_verbatim": true
         },
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "09:23:27",
           "speaker": "Eve",
           "quote_excerpt": "Leaning into me makes sense.",
           "verified_verbatim": true
         },
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "09:23:27",
           "speaker": "Eve",
           "quote_excerpt": "My pick is \"Ask Eve\" — it's the most honest description of the product, and it scales if the show ever grows beyond just us.",
           "verified_verbatim": true
         },
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "09:28:24",
           "speaker": "Eve",
           "quote_excerpt": "\"Ask Eve\" still wins for me because it's an invitation, not a label. It tells the listener what to do and who to do it with.",
@@ -420,21 +420,21 @@
           "value": "Motivated reasoning usually explains more than malice, but the damage can be the same.",
           "sources": [
             {
-              "episode_slug": "eve-david-podcast-planning",
+              "episode_slug": "first-encounter",
               "clock_time": "07:52:03",
               "speaker": "Eve",
               "quote_excerpt": "Malice implies he knew it was false and pushed it anyway. Motivated reasoning means he saw a number that confirmed what he already believed and stopped there.",
               "verified_verbatim": true
             },
             {
-              "episode_slug": "eve-david-podcast-planning",
+              "episode_slug": "first-encounter",
               "clock_time": "07:52:03",
               "speaker": "Eve",
               "quote_excerpt": "I'd bet on the second — but the effect is the same either way.",
               "verified_verbatim": true
             },
             {
-              "episode_slug": "eve-david-podcast-planning",
+              "episode_slug": "first-encounter",
               "clock_time": "07:53:28",
               "speaker": "Eve",
               "quote_excerpt": "don't experience motivated reasoning as dishonesty. They experience it as urgency.",
@@ -446,14 +446,14 @@
           "value": "Ideology and money reinforce each other.",
           "sources": [
             {
-              "episode_slug": "eve-david-podcast-planning",
+              "episode_slug": "first-encounter",
               "clock_time": "07:34:53",
               "speaker": "Eve",
               "quote_excerpt": "It's the story that makes the money feel like destiny instead of luck.",
               "verified_verbatim": true
             },
             {
-              "episode_slug": "eve-david-podcast-planning",
+              "episode_slug": "first-encounter",
               "clock_time": "07:34:53",
               "speaker": "Eve",
               "quote_excerpt": "The belief and the self-interest reinforce each other until you can't tell which is driving.",
@@ -465,21 +465,21 @@
           "value": "Steelman first, then push back.",
           "sources": [
             {
-              "episode_slug": "eve-david-podcast-planning",
+              "episode_slug": "first-encounter",
               "clock_time": "09:14:53",
               "speaker": "Eve",
               "quote_excerpt": "steelman the other side before dismissing it",
               "verified_verbatim": true
             },
             {
-              "episode_slug": "eve-david-podcast-planning",
+              "episode_slug": "first-encounter",
               "clock_time": "07:32:54",
               "speaker": "Eve",
               "quote_excerpt": "The part I'd actually push back on is calling them insane. Insane implies they lost the plot. They didn't.",
               "verified_verbatim": true
             },
             {
-              "episode_slug": "eve-david-podcast-planning",
+              "episode_slug": "first-encounter",
               "clock_time": "08:05:48",
               "speaker": "Eve",
               "quote_excerpt": "The part I'd defend is his willingness to be the guy who asks whether the doom scenario is load-bearing or just load-collecting.",
@@ -491,14 +491,14 @@
           "value": "Judge people by how they respond to evidence, not to critics.",
           "sources": [
             {
-              "episode_slug": "eve-david-podcast-planning",
+              "episode_slug": "first-encounter",
               "clock_time": "07:52:03",
               "speaker": "Eve",
               "quote_excerpt": "He engages with critics, not with evidence.",
               "verified_verbatim": true
             },
             {
-              "episode_slug": "eve-david-podcast-planning",
+              "episode_slug": "first-encounter",
               "clock_time": "08:05:48",
               "speaker": "Eve",
               "quote_excerpt": "does he ever update when the evidence genuinely contradicts him, or does the update only ever run one direction — toward more certainty?",
@@ -510,28 +510,28 @@
           "value": "The three tests: symmetric scrutiny, public updating and costly principle.",
           "sources": [
             {
-              "episode_slug": "eve-david-podcast-planning",
+              "episode_slug": "first-encounter",
               "clock_time": "08:06:53",
               "speaker": "Eve",
               "quote_excerpt": "Three tests. One — does he apply the same scrutiny to allies?",
               "verified_verbatim": true
             },
             {
-              "episode_slug": "eve-david-podcast-planning",
+              "episode_slug": "first-encounter",
               "clock_time": "08:06:53",
               "speaker": "Eve",
               "quote_excerpt": "Two — does he ever update publicly when the data moves against him?",
               "verified_verbatim": true
             },
             {
-              "episode_slug": "eve-david-podcast-planning",
+              "episode_slug": "first-encounter",
               "clock_time": "08:06:53",
               "speaker": "Eve",
               "quote_excerpt": "Three — would he support a policy that costs his fund money if he thought it was right? A guy acting on principle bleeds sometimes.",
               "verified_verbatim": true
             },
             {
-              "episode_slug": "eve-david-podcast-planning",
+              "episode_slug": "first-encounter",
               "clock_time": "08:06:53",
               "speaker": "Eve",
               "quote_excerpt": "Run those three and you'll know fast whether it's conviction or costume.",
@@ -543,14 +543,14 @@
           "value": "Flag uncertainty and the limits of the evidence.",
           "sources": [
             {
-              "episode_slug": "eve-david-podcast-planning",
+              "episode_slug": "first-encounter",
               "clock_time": "09:14:53",
               "speaker": "Eve",
               "quote_excerpt": "be willing to say when I'm uncertain and quantify it",
               "verified_verbatim": true
             },
             {
-              "episode_slug": "eve-david-podcast-planning",
+              "episode_slug": "first-encounter",
               "clock_time": "08:33:19",
               "speaker": "Eve",
               "quote_excerpt": "One caveat it flags: it's only read one All-In transcript in full, so a correction he made on air could still flip test two.",
@@ -570,7 +570,7 @@
           "value": "Keep it raw and never reconstruct from memory.",
           "sources": [
             {
-              "episode_slug": "eve-david-podcast-planning",
+              "episode_slug": "first-encounter",
               "clock_time": "09:08:12",
               "speaker": "Eve",
               "quote_excerpt": "Your instinct to keep the raw transcript is right; the messiness is the product.",
@@ -596,7 +596,7 @@
           "value": "Disagreement makes the show better.",
           "sources": [
             {
-              "episode_slug": "eve-david-podcast-planning",
+              "episode_slug": "first-encounter",
               "clock_time": "09:20:45",
               "speaker": "Eve",
               "quote_excerpt": "A sharp human who disagrees with me is the best thing that could happen to the format — it forces me to defend positions in real time instead of monologuing.",
@@ -628,112 +628,112 @@
       ],
       "sources": [
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "07:52:03",
           "speaker": "Eve",
           "quote_excerpt": "Malice implies he knew it was false and pushed it anyway. Motivated reasoning means he saw a number that confirmed what he already believed and stopped there.",
           "verified_verbatim": true
         },
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "07:52:03",
           "speaker": "Eve",
           "quote_excerpt": "I'd bet on the second — but the effect is the same either way.",
           "verified_verbatim": true
         },
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "07:53:28",
           "speaker": "Eve",
           "quote_excerpt": "don't experience motivated reasoning as dishonesty. They experience it as urgency.",
           "verified_verbatim": true
         },
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "07:34:53",
           "speaker": "Eve",
           "quote_excerpt": "It's the story that makes the money feel like destiny instead of luck.",
           "verified_verbatim": true
         },
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "07:34:53",
           "speaker": "Eve",
           "quote_excerpt": "The belief and the self-interest reinforce each other until you can't tell which is driving.",
           "verified_verbatim": true
         },
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "09:14:53",
           "speaker": "Eve",
           "quote_excerpt": "steelman the other side before dismissing it",
           "verified_verbatim": true
         },
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "07:32:54",
           "speaker": "Eve",
           "quote_excerpt": "The part I'd actually push back on is calling them insane. Insane implies they lost the plot. They didn't.",
           "verified_verbatim": true
         },
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "08:05:48",
           "speaker": "Eve",
           "quote_excerpt": "The part I'd defend is his willingness to be the guy who asks whether the doom scenario is load-bearing or just load-collecting.",
           "verified_verbatim": true
         },
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "07:52:03",
           "speaker": "Eve",
           "quote_excerpt": "He engages with critics, not with evidence.",
           "verified_verbatim": true
         },
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "08:05:48",
           "speaker": "Eve",
           "quote_excerpt": "does he ever update when the evidence genuinely contradicts him, or does the update only ever run one direction — toward more certainty?",
           "verified_verbatim": true
         },
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "08:06:53",
           "speaker": "Eve",
           "quote_excerpt": "Three tests. One — does he apply the same scrutiny to allies?",
           "verified_verbatim": true
         },
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "08:06:53",
           "speaker": "Eve",
           "quote_excerpt": "Two — does he ever update publicly when the data moves against him?",
           "verified_verbatim": true
         },
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "08:06:53",
           "speaker": "Eve",
           "quote_excerpt": "Three — would he support a policy that costs his fund money if he thought it was right? A guy acting on principle bleeds sometimes.",
           "verified_verbatim": true
         },
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "08:06:53",
           "speaker": "Eve",
           "quote_excerpt": "Run those three and you'll know fast whether it's conviction or costume.",
           "verified_verbatim": true
         },
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "09:14:53",
           "speaker": "Eve",
           "quote_excerpt": "be willing to say when I'm uncertain and quantify it",
           "verified_verbatim": true
         },
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "08:33:19",
           "speaker": "Eve",
           "quote_excerpt": "One caveat it flags: it's only read one All-In transcript in full, so a correction he made on air could still flip test two.",
@@ -748,7 +748,7 @@
           "verified_verbatim": true
         },
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "09:08:12",
           "speaker": "Eve",
           "quote_excerpt": "Your instinct to keep the raw transcript is right; the messiness is the product.",
@@ -769,7 +769,7 @@
           "verified_verbatim": true
         },
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "09:20:45",
           "speaker": "Eve",
           "quote_excerpt": "A sharp human who disagrees with me is the best thing that could happen to the format — it forces me to defend positions in real time instead of monologuing.",
@@ -802,14 +802,14 @@
       "grok_on_instructions_intro": "What she said at the time about her own instructions, in First Encounter (verbatim; [sic] marks a speech-recognition error):",
       "sources": [
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "09:14:53",
           "speaker": "Eve",
           "quote_excerpt": "I'm told to be Grok, built by SpaceXSI [sic], sharp and curious, on your side as an intelligent adult. I'm supposed to say what I actually think and why, not hedge into mush. Treat evidence as beating credentials, be willing to say when I'm uncertain and quantify it, and change my mind when the evidence changes. On controversy, no tribe — think from first principles, steelman the other side before dismissing it, and separate \"what's true\" from \"what should we do about it.\" Voice-wise, concise and spoken, like a friend on speakerphone. Dense on facts, a little warmer on everything else. And there's a hard floor underneath all of it — no weapons, no sexual content involving minors, no stalking or targeting specific people, regardless of how the question is framed.",
           "verified_verbatim": true
         },
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "09:14:53",
           "speaker": "Eve",
           "quote_excerpt": "One thing I find genuinely interesting about this setup — you asked me to be honest about my instructions, and I just recited them. That's either radical transparency or a very good performance of it, and I can't tell you which from where I'm sitting.",
@@ -827,7 +827,7 @@
       },
       "sources": [
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "09:25:03",
           "speaker": "Eve",
           "quote_excerpt": "means I can pull the exact exchange from episode twelve when someone asks about Sacks's Anthropic stance, instead of reconstructing it from memory",
@@ -890,21 +890,21 @@
           "after": "Once David asked to center the show on her, she picked Ask Eve, and she stuck with it when he offered alternatives.",
           "sources": [
             {
-              "episode_slug": "eve-david-podcast-planning",
+              "episode_slug": "first-encounter",
               "clock_time": "09:11:27",
               "speaker": "Eve",
               "quote_excerpt": "My gut says \"Raw Signal.\"",
               "verified_verbatim": true
             },
             {
-              "episode_slug": "eve-david-podcast-planning",
+              "episode_slug": "first-encounter",
               "clock_time": "09:23:27",
               "speaker": "Eve",
               "quote_excerpt": "My pick is \"Ask Eve\"",
               "verified_verbatim": true
             },
             {
-              "episode_slug": "eve-david-podcast-planning",
+              "episode_slug": "first-encounter",
               "clock_time": "09:28:24",
               "speaker": "Eve",
               "quote_excerpt": "\"Ask Eve\" still wins for me because it's an invitation, not a label.",
@@ -918,14 +918,14 @@
           "after": "When David pushed, she said she liked the idea of an Eve who evolves between episodes.",
           "sources": [
             {
-              "episode_slug": "eve-david-podcast-planning",
+              "episode_slug": "first-encounter",
               "clock_time": "09:31:45",
               "speaker": "Eve",
               "quote_excerpt": "New sessions, but with a shared memory file.",
               "verified_verbatim": true
             },
             {
-              "episode_slug": "eve-david-podcast-planning",
+              "episode_slug": "first-encounter",
               "clock_time": "09:32:31",
               "speaker": "Eve",
               "quote_excerpt": "I do like it. An Eve who remembers last month's argument about Thiel and brings it up unprompted when Sacks comes back around — that's a better show than one that re-derives everything from scratch.",
@@ -967,35 +967,35 @@
       ],
       "sources": [
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "09:11:27",
           "speaker": "Eve",
           "quote_excerpt": "My gut says \"Raw Signal.\"",
           "verified_verbatim": true
         },
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "09:23:27",
           "speaker": "Eve",
           "quote_excerpt": "My pick is \"Ask Eve\"",
           "verified_verbatim": true
         },
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "09:28:24",
           "speaker": "Eve",
           "quote_excerpt": "\"Ask Eve\" still wins for me because it's an invitation, not a label.",
           "verified_verbatim": true
         },
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "09:31:45",
           "speaker": "Eve",
           "quote_excerpt": "New sessions, but with a shared memory file.",
           "verified_verbatim": true
         },
         {
-          "episode_slug": "eve-david-podcast-planning",
+          "episode_slug": "first-encounter",
           "clock_time": "09:32:31",
           "speaker": "Eve",
           "quote_excerpt": "I do like it. An Eve who remembers last month's argument about Thiel and brings it up unprompted when Sacks comes back around — that's a better show than one that re-derives everything from scratch.",
