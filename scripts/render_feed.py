@@ -36,15 +36,35 @@ def hhmmss(sec: int) -> str:
 
 
 def description(ep: dict, people: list[str]) -> str:
+    """Plain text: AI label (required for reconstructed audio), the Context note, the Topics list, people, transcript."""
     parts = []
     if ep["ai_reconstructed"]:
         parts.append(ep["ai_disclosure"])
-    if ep["summary"]:
-        parts.append(ep["summary"])
+    if ep.get("context") or ep["summary"]:
+        parts.append(ep.get("context") or ep["summary"])
+    if ep.get("topics"):
+        parts.append("Topics:\n" + "\n".join(f"- {t}" for t in ep["topics"]))
     if people:
         parts.append("People discussed: " + ", ".join(people) + ".")
     parts.append(f"Full verbatim transcript: {SITE}/episodes/{ep['slug']}/")
     return "\n\n".join(parts)
+
+
+def content_html(ep: dict, people: list[str]) -> str:
+    """<content:encoded> body: the same information as description(), as HTML."""
+    e = html.escape
+    out = []
+    if ep["ai_reconstructed"]:
+        out.append(f"<p><em>{e(ep['ai_disclosure'])}</em></p>")
+    if ep.get("context") or ep["summary"]:
+        out.append(f"<p>{e(ep.get('context') or ep['summary'])}</p>")
+    if ep.get("topics"):
+        out.append("<p><strong>Topics</strong></p><ul>" + "".join(f"<li>{e(t)}</li>" for t in ep["topics"]) + "</ul>")
+    if people:
+        out.append(f"<p>People discussed: {e(', '.join(people))}.</p>")
+    url = f"{SITE}/episodes/{ep['slug']}/"
+    out.append(f'<p>Full verbatim transcript: <a href="{e(url)}">{e(url)}</a></p>')
+    return "".join(out).replace("]]>", "]]&gt;")
 
 
 def show_notes(ep: dict, people: list[str], chapters: list[dict]) -> str:
@@ -92,6 +112,7 @@ def render(eps: list[dict], now: str | None = None) -> str:
     <pubDate>{rfc2822(pub)}</pubDate>
     <description>{e(desc)}</description>
     <itunes:summary>{e(desc)}</itunes:summary>
+    <content:encoded><![CDATA[{content_html(ep, ep["people"])}]]></content:encoded>
     <enclosure url="{e(ep['audio_url'])}" length="{ep['audio_bytes']}" type="{e(ep['audio_mime'] or 'audio/mpeg')}"/>
     <itunes:duration>{ep['duration_seconds']}</itunes:duration>
     <itunes:explicit>{'true' if ep['explicit'] else 'false'}</itunes:explicit>
@@ -102,7 +123,7 @@ def render(eps: list[dict], now: str | None = None) -> str:
   </item>""")
     built = rfc2822(now or dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"))
     return f"""<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:podcast="https://podcastindex.org/namespace/1.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:podcast="https://podcastindex.org/namespace/1.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
   <title>{SHOW['title']}</title>
   <link>{SITE}</link>
