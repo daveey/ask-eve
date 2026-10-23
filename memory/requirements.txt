@@ -1,0 +1,5 @@
+# Ask Eve hybrid search (Python 3.13). Direct deps pinned; transitive deps resolved by pip.
+model2vec==0.10.0
+sqlite-vec==0.1.9
+PyYAML==6.0.3
+numpy==2.5.4

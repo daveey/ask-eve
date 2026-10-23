@@ -1,0 +1,8 @@
+.venv/
+memory/eve.db*
+memory/models/
+__pycache__/
+.pytest_cache/
+*.pyc
+# private: real persistent facts stay local; commit only the template
+memory/persistent-facts.md
