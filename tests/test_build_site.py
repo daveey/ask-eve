@@ -305,7 +305,7 @@ def test_header_subscribe_icons_on_every_page(site):
                 'aria-label="Subscribe on Apple Podcasts" title="Subscribe on Apple Podcasts" rel=noopener>') in head, rel
         assert "spotify" not in head.lower(), rel                 # hidden until site.json has a URL
         assert '<details class="menu" data-menu>' in head and 'aria-label="Menu"' in head
-        assert head.count('href="/mind/"') == 2                    # inline nav + compact menu
+        assert head.count('href="/eve/"') == 2 and "/mind/" not in head   # inline nav + compact menu
         nav = head[head.index('class="site-nav"'):head.index("</nav>", head.index('class="site-nav"'))]
         assert "/about/" not in nav and head.count('href="/about/"') == 1   # About: compact menu only (and footer)
     home = read(site, "index.html")
@@ -317,8 +317,8 @@ def test_head_subscribe_spotify_when_configured():
     import build_site as B
     h = B.head_subscribe({"subscribe": {"spotify": "https://open.spotify.com/show/x", "apple_podcasts": ""}})
     assert 'aria-label="Follow on Spotify"' in h and "hsub--apple" not in h and "hsub--rss" in h
-    assert [x for x, _ in B.nav_items()] == ["/", "/mind/", "/eve/"]
-    assert [x for x, _ in B.menu_items()] == ["/", "/mind/", "/eve/", "/about/"]
+    assert [x for x, _ in B.nav_items()] == ["/", "/eve/"]
+    assert [x for x, _ in B.menu_items()] == ["/", "/eve/", "/about/"]
 
 
 # ---------------------------------------------------------------- auto-linking (silent links + menus)
@@ -444,18 +444,29 @@ def test_eve_citations_are_verbatim(site):
     assert n > 50
 
 
-def test_mind_hub(site):
-    h = read(site, "mind/index.html")
-    assert "<h1 class=\"page-title\">Inside Eve's Mind</h1>" in h
+def test_eve_hub_holds_mind(site):
+    h = read(site, "eve/index.html")
+    ids = re.findall(r'<section class="eve-sec" id="([\w-]+)"', h)
+    assert ids[:3] == ["who-eve-is", "mind", "self-assessment"] and ids[-1] == "persona-notes"
     assert 'id="memories"' in h and 'id="people"' in h and 'id="topics"' not in h   # topics gated
     assert 'href="/episodes/eve-david-podcast-planning/"' in h and 'href="/episodes/the-making-of-eve/"' in h
     assert 'href="/people/david-sacks/"' in h and 'href="/people/"' in h
-    assert '<a href="/mind/" aria-current=page>Mind</a>' in h
-    for rel in ("people/index.html", "people/david-sacks/index.html"):        # /people/ still works, under Mind
-        assert '<a href="/mind/" aria-current=page>Mind</a>' in read(site, rel)
-    assert "https://askevepodcast.com/mind/" in read(site, "sitemap.xml")
+    assert '<nav class="eve-nav" aria-label="On this page">' in h and 'href="#mind"' in h
+    assert '<details class="fold' in h and "<script" not in h.split("<footer")[0].split("</header>")[1]
+    assert '<a href="/eve/" aria-current=page>Eve</a>' in h
+    for rel in ("people/index.html", "people/david-sacks/index.html"):        # /people/ still works, under Eve
+        p = read(site, rel)
+        assert '<a href="/eve/" aria-current=page>Eve</a>' in p and 'href="/eve/#mind"' in p and "/mind/" not in p
+    assert "/mind/" not in read(site, "sitemap.xml")
     foot = h[h.index('<footer'):]
-    assert 'href="/about/"' in foot and 'href="/mind/"' in foot and 'href="/people/"' in foot
+    assert 'href="/about/"' in foot and 'href="/people/"' in foot and "/mind/" not in foot
+
+
+def test_mind_redirects_to_eve(site):
+    assert read(site, "_redirects") == "/mind/ /eve/#mind 301\n/mind /eve/#mind 301\n"
+    stub = read(site, "mind/index.html")                       # fallback if _redirects isn't honoured
+    assert '<meta http-equiv="refresh" content="0; url=/eve/#mind">' in stub and "<script" not in stub
+    assert 'rel="canonical" href="https://askevepodcast.com/eve/"' in stub and 'name="robots" content="noindex"' in stub
 
 
 def test_about_how_it_works(site):
@@ -465,7 +476,7 @@ def test_about_how_it_works(site):
               "render_feed.py", "Cloudflare Pages", "Apple Podcasts", "Spotify", "Honesty rules", "Her profile"):
         assert w in h, w
     assert 'href="https://github.com/daveey/ask-eve"' in h
-    for rel in ("index.html", "mind/index.html", "eve/index.html"):          # GitHub in the footer sitewide
+    for rel in ("index.html", "people/index.html", "eve/index.html"):          # GitHub in the footer sitewide
         foot = read(site, rel).split("<footer", 1)[1]
         assert 'href="https://github.com/daveey/ask-eve" rel="noopener">GitHub</a>' in foot, rel
     assert "gmail" not in h.lower()

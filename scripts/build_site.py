@@ -2,7 +2,8 @@
 """Site build: D1 (REST, read-only token) -> local SQLite -> site/dist (static HTML/CSS/JS for Cloudflare Pages).
 
 Writes feed.xml (render_feed.py, unchanged format), index.html, episodes/<slug>/{index.html,transcript.txt},
-people/, people/<slug>/, about/, 404.html, sitemap.xml, robots.txt, and copies site/static + site/_headers.
+eve/, people/, people/<slug>/, about/, 404.html, sitemap.xml, robots.txt, _redirects (+ meta-refresh stubs),
+and copies site/static + site/_headers.
 Pure standard library (CI runs plain python3). No analytics, no third-party scripts or fonts.
 
 Env (CI): CLOUDFLARE_ACCOUNT_ID, D1_DATABASE_ID, D1_READ_TOKEN.
@@ -487,11 +488,11 @@ def og_image(slug: str | None) -> str:
 
 
 # Header nav. About lives in the compact (mobile) menu and the footer only.
-NAV = [("/", "Episodes"), ("/mind/", "Mind"), ("/eve/", "Eve")]
+NAV = [("/", "Episodes"), ("/eve/", "Eve")]
 MENU_EXTRA = [("/about/", "About")]
 EVE_NAV = ("/eve/", "Eve")
 SHOW_EVE_NAV = True
-# The Mind hub's Topics section and Eve's takes stay hidden until David approves them.
+# The Eve hub's Topics section (Inside Eve's Mind) and Eve's takes stay hidden until David approves them.
 SHOW_TOPICS = False
 
 
@@ -891,13 +892,13 @@ def pcards(people: list[dict]) -> str:
 
 
 def people_index(A: Assets, people: list[dict]) -> str:
-    body = f"""<section class="page-head"><div class="wrap"><p class="eyebrow eyebrow--accent"><a href="/mind/">Inside Eve's Mind</a> · People</p>
+    body = f"""<section class="page-head"><div class="wrap"><p class="eyebrow eyebrow--accent"><a href="/eve/#mind">Inside Eve's Mind</a> · People</p>
 <h1 class="page-title">Who comes up on Ask Eve</h1>
 <p class="lede">Every person the show covers, Eve's current one-line take on them, and every real discussion about them, summarized and linked to the second it starts.</p>
 <p class="fine">Stances are Eve's opinions, an AI's read, and she updates them as the evidence changes.</p></div></section>
 <section class="wrap">{pcards(people)}</section>"""
     return page(A, title="People", desc="Everyone discussed on Ask Eve, with Eve's stance and every discussion, summarized and timestamped.",
-                path="/people/", body=body, active="/mind/")
+                path="/people/", body=body, active="/eve/")
 
 
 def first_sentence(t: str, limit: int = 220) -> str:
@@ -909,9 +910,20 @@ def first_sentence(t: str, limit: int = 220) -> str:
     return t if len(t) <= limit else t[:limit].rsplit(" ", 1)[0] + "…"
 
 
-def mind_page(A: Assets, eps: list[dict], people: list[dict]) -> str:
-    """/mind/: the hub for what Eve carries between episodes: her memories (episodes), the people
-    she has stances on, and (once approved) topics."""
+MIND_PEOPLE_SHOWN = 6
+
+
+def fold(items: list[str], label: str, cls: str = "") -> str:
+    """Collapse items behind a native <details> (no script): 'Show 3 more quotes'."""
+    if not items:
+        return ""
+    return (f'<details class="fold {cls}"><summary><span>{e(label)}</span></summary>'
+            f'<div class="fold__in">{"".join(items)}</div></details>')
+
+
+def mind_html(eps: list[dict], people: list[dict]) -> str:
+    """Inside Eve's Mind, a section of /eve/: her memories (episodes, bonus included) and the people she
+    has stances on. Topics stay hidden (SHOW_TOPICS) until approved."""
     mems = []
     for ep in eps:
         n = len(ep.get("moments") or [])
@@ -921,26 +933,25 @@ def mind_page(A: Assets, eps: list[dict], people: list[dict]) -> str:
         names = "".join(f'<li><a class="chip" href="/people/{p["slug"]}/">{e(p["name"])}</a></li>' for p in who[:6])
         mems.append(f"""<li class="mem{' mem--bonus' if is_bonus(ep) else ''}">
 <p class="eyebrow">{bonus_badge(ep) if is_bonus(ep) else f'<span class="card__num">{e(ep_label(ep))}</span>'}</p>
-<h3 class="mem__t"><a href="/episodes/{e(ep['slug'])}/">{e(ep['title'])}</a></h3>
+<h4 class="mem__t"><a href="/episodes/{e(ep['slug'])}/">{e(ep['title'])}</a></h4>
 <p class="mem__meta">{stat}</p>
 {f'<p class="mem__b">{e(first_sentence(ep["blurb"]))}</p>' if ep.get("blurb") else ""}
 {f'<ul class="chips">{names}</ul>' if names else ""}</li>""")
     discussed = [p for p in people if p["episodes"]]
+    cards = pcards(discussed).removeprefix('<ul class="pgrid">').removesuffix("</ul>").split("</li>")
+    cards = [c + "</li>" for c in cards if c.strip()]
+    shown, rest = cards[:MIND_PEOPLE_SHOWN], cards[MIND_PEOPLE_SHOWN:]
+    more_people = (f'<details class="fold"><summary><span>Show {len(rest)} more people</span></summary>'
+                   f'<ul class="pgrid">{"".join(rest)}</ul></details>') if rest else ""
     topics = ""   # SHOW_TOPICS: topic pages and Eve's takes are gated until David approves them
-    body = f"""<section class="page-head"><div class="wrap"><p class="eyebrow eyebrow--accent">Mind</p>
-<h1 class="page-title">Inside Eve's Mind</h1>
-<p class="lede">What Eve carries from one conversation to the next: her memories of every episode, and the people she keeps a running stance on.</p>
-<p class="fine">Eve is an AI. Her stances are opinions and change as the evidence does. Meet her on the <a href="/eve/">Eve page</a>.</p>
-<nav class="eve-toc" aria-label="On this page"><ul class="chips"><li><a class="chip" href="#memories">Memories</a></li><li><a class="chip" href="#people">People</a></li></ul></nav></div></section>
-<section class="wrap mind-sec" id="memories" aria-labelledby="mem-h"><h2 class="h2" id="mem-h">Memories</h2>
-<p class="hint">Every episode is a memory Eve can search mid-conversation: the full transcript, plus each discussion of a person, summarized and timestamped.</p>
-<ul class="mems">{''.join(mems) or '<li class="empty">The first episode is on its way.</li>'}</ul></section>
-<section class="wrap mind-sec" id="people" aria-labelledby="ppl-h"><h2 class="h2" id="ppl-h">People</h2>
+    return f"""<p class="eve-sec__body">What Eve carries from one conversation to the next: a searchable memory of every episode, and a running stance on each person the show covers. Her stances are opinions and change as the evidence does.</p>
+<h3 class="eve-h3" id="memories">Memories</h3>
+<p class="hint">Every episode, searchable mid-conversation: the full transcript, plus each discussion of a person, summarized and timestamped.</p>
+<ul class="mems">{''.join(mems) or '<li class="empty">The first episode is on its way.</li>'}</ul>
+<h3 class="eve-h3" id="people">People</h3>
 <p class="hint">Who Eve has discussed, and her current one-line take on each.</p>
-{pcards(discussed)}
-<p><a class="btn btn--ghost" href="/people/">All {len(people)} people</a></p></section>{topics}"""
-    return page(A, title="Inside Eve's Mind", desc="Eve's memories of every Ask Eve episode and her running stances on the people the show covers.",
-                path="/mind/", body=body, active="/mind/")
+<ul class="pgrid">{''.join(shown)}</ul>{more_people}
+<p class="eve-all"><a class="btn btn--ghost" href="/people/">All {len(people)} people</a></p>{topics}"""
 
 
 def moment_html(ep: dict, m: dict, L: Linker = NO_LINKS) -> str:
@@ -974,11 +985,11 @@ def person_page(A: Assets, p: dict) -> str:
         sections.append('<p class="empty">No episode discusses this person yet.</p>')
     stance = (f'<figure class="stance"><blockquote>{L.text(p["stance"])}</blockquote><figcaption>Eve\'s current take. '
               f'An AI\'s opinion, not a fact.</figcaption></figure>') if p["stance"] else ""
-    body = f"""<section class="page-head"><div class="wrap"><p class="eyebrow eyebrow--accent"><a href="/mind/">Mind</a> · <a href="/people/">People</a></p>
+    body = f"""<section class="page-head"><div class="wrap"><p class="eyebrow eyebrow--accent"><a href="/eve/#mind">Inside Eve's Mind</a> · <a href="/people/">People</a></p>
 <h1 class="page-title">{e(p['name'])}</h1>{stance}</div></section>
 <section class="wrap person">{''.join(sections)}</section>"""
     desc = f"{p['name']} on Ask Eve: Eve's take and every discussion about them, summarized with timestamps."
-    return page(A, title=p["name"], desc=desc, path=f"/people/{p['slug']}/", body=body, active="/mind/", linker=L)
+    return page(A, title=p["name"], desc=desc, path=f"/people/{p['slug']}/", body=body, active="/eve/", linker=L)
 
 
 # ---------------------------------------------------------------- Meet Eve (/eve/)
@@ -1013,7 +1024,16 @@ class EveSources:
         raise ValueError(f"eve.json citation not found verbatim: {src['episode_slug']} {src['clock_time']} {src['speaker']}: {want[:60]}")
 
 
-def eve_page(A: Assets, eps: list[dict]) -> str | None:
+# /eve/ section order and short headings. Sections not listed (or missing from eve.json) are skipped.
+EVE_ORDER = [("who-eve-is", "Who Eve is"), ("mind", "Inside Eve's Mind"), ("self-assessment", "Personality"),
+             ("name", "Her name"), ("lens-and-values", "Lens and values"), ("how-eve-works", "How she works"),
+             ("changed-mind", "Changed her mind"), ("persona-notes", "Persona notes")]
+
+
+def eve_page(A: Assets, eps: list[dict], people: list[dict] | None = None) -> str | None:
+    """/eve/: the Eve hub. Who she is, Inside Eve's Mind (memories + people), then her profile in her own
+    words. The strongest 1-3 quotes per section stay visible; the rest fold into <details>. Every quote is
+    verified verbatim against the transcript at build time and links to the second it was said."""
     if not EVE_FILE.exists():
         return None
     data = json.loads(EVE_FILE.read_text())
@@ -1033,10 +1053,10 @@ def eve_page(A: Assets, eps: list[dict]) -> str | None:
     def srcs(lst):
         return [(x, r) for x in lst if (r := R.resolve(x))]
 
-    def cite(src, r, cls=""):
+    def cite(src, r):
         ep = r["ep"]
         lab = f"{src['speaker']} · {e(ep['title'])} · {e(r['when'])}"
-        return (f'<a class="q__src{cls}" href="{e(r["href"])}" aria-label="{e(src["speaker"])} in {e(ep["title"])} at {e(r["when"])}: '
+        return (f'<a class="q__src" href="{e(r["href"])}" aria-label="{e(src["speaker"])} in {e(ep["title"])} at {e(r["when"])}: '
                 f'open the transcript there">{icon("play")}<span>{lab}</span></a>')
 
     def quote(src, r, cls="q"):
@@ -1044,28 +1064,34 @@ def eve_page(A: Assets, eps: list[dict]) -> str | None:
             body = '<p class="q__gap">Eve\'s reply here was not recovered. It is marked as a gap in the transcript, never invented.</p>'
         else:
             body = f'<blockquote><p>“{L.text(src["quote_excerpt"])}”</p></blockquote>'
-        who = src["speaker"].lower()
-        return f'<figure class="{cls} {cls}--{who}">{body}<figcaption>{cite(src, r)}</figcaption></figure>'
+        return f'<figure class="{cls} {cls}--{src["speaker"].lower()}">{body}<figcaption>{cite(src, r)}</figcaption></figure>'
+
+    def quotes(lst, keep=2, cls="q", noun="quote"):
+        qs = [quote(x, r, cls) for x, r in lst]
+        n = len(qs) - keep
+        return (f'<div class="qs">{"".join(qs[:keep])}</div>'
+                + fold(qs[keep:], f"Show {n} more {noun}{'s' * (n != 1)}", "fold--qs"))
+
+    def body_p(text):
+        return f'<p class="eve-sec__body">{L.text(clean(text))}</p>' if text else ""
 
     S = {sec["id"]: sec for sec in data["sections"]}
     toc, out = [], []
 
-    def section(sec, inner):
-        toc.append(f'<li><a class="chip" href="#{e(sec["id"])}">{e(sec["title"])}</a></li>')
-        out.append(f'<section class="eve-sec" id="{e(sec["id"])}" aria-labelledby="{e(sec["id"])}-h">'
-                   f'<h2 id="{e(sec["id"])}-h">{e(sec["title"])}</h2>{inner}</section>')
+    def section(sid, title, inner):
+        toc.append(f'<li><a href="#{e(sid)}">{e(title)}</a></li>')
+        out.append(f'<section class="eve-sec" id="{e(sid)}" aria-labelledby="{e(sid)}-h">'
+                   f'<h2 id="{e(sid)}-h">{e(title)}</h2>{inner}</section>')
 
-    def plain_section(sec, extra=""):
-        quotes = "".join(quote(x, r) for x, r in srcs(sec.get("sources", [])))
-        body = f'<p class="eve-sec__body">{L.text(clean(sec["body"]))}</p>' if sec.get("body") else ""
-        section(sec, body + extra + (f'<div class="qs"><p class="qs__h">In her words</p>{quotes}</div>' if quotes else ""))
-
-    who = S.get("who-eve-is")
-    lede = L.text(who["body"]) if who else ""
-    for sid, sec in S.items():
+    for sid, title in EVE_ORDER:
+        if sid == "mind":
+            section(sid, title, mind_html(eps, people or []))
+            continue
+        sec = S.get(sid)
+        if not sec:
+            continue
         if sid == "who-eve-is":
-            quotes = "".join(quote(x, r) for x, r in srcs(sec["sources"]))
-            section(sec, f'<div class="qs">{quotes}</div>')
+            section(sid, title, quotes(srcs(sec["sources"]), 2))
         elif sid == "self-assessment":
             ex = []
             for x in sec.get("exchanges", []):
@@ -1073,58 +1099,67 @@ def eve_page(A: Assets, eps: list[dict]) -> str | None:
                 if q and a:
                     note = f'<p class="fine">{e(x["note"])}</p>' if x.get("note") else ""
                     ex.append(f'<div class="xch">{quote(x["question"], q, "turnq")}{quote(x["answer"], a, "turnq")}{note}</div>')
-            traits = "".join(
-                f'<li class="trait"><h3 class="trait__t">{e(t["trait"])}</h3>{quote(t["source"], r, "tq")}</li>'
-                for t in sec.get("traits", []) if (r := R.resolve(t["source"])))
-            cav = "".join(f'<li class="cav"><p class="cav__t">{e(c["caveat"])}</p>{quote(c["source"], r, "tq")}</li>'
-                          for c in sec.get("caveats", []) if (r := R.resolve(c["source"])))
-            section(sec, f'<p class="eve-sec__body">{e(sec.get("intro", ""))}</p>{"".join(ex)}'
-                         f'<h3 class="h3">Traits she names</h3><ul class="traits">{traits}</ul>'
-                         f'<h3 class="h3">Her own caveats</h3><ul class="cavs">{cav}</ul>')
+            traits = [f'<li class="trait"><h4 class="trait__t">{e(t["trait"])}</h4>{quote(t["source"], r, "tq")}</li>'
+                      for t in sec.get("traits", []) if (r := R.resolve(t["source"]))]
+            cav = [f'<li class="cav"><p class="cav__t">{e(c["caveat"])}</p>{quote(c["source"], r, "tq")}</li>'
+                   for c in sec.get("caveats", []) if (r := R.resolve(c["source"]))]
+            nx = len(ex) - 1
+            inner = (body_p(sec.get("intro", "")) + "".join(ex[:1])
+                     + fold(ex[1:], f"Show {nx} more exchange{'s' * (nx != 1)}")
+                     + (f'<h3 class="eve-h3">Traits she names</h3><ul class="traits">{"".join(traits[:2])}</ul>'
+                        + (fold([f'<ul class="traits">{"".join(traits[2:])}</ul>'], f"Show {len(traits) - 2} more traits")
+                           if len(traits) > 2 else "") if traits else "")
+                     + (fold([f'<ul class="cavs">{"".join(cav)}</ul>'], f"Her own caveats ({len(cav)})") if cav else ""))
+            section(sid, title, inner)
         elif sid == "name":
-            body = f'<p class="eve-sec__body">{L.text(clean(sec["body"]))}</p>'
-            convo = "".join(quote(x, r, "turnq") for x, r in srcs(sec["sources"]))
-            section(sec, body + f'<div class="xch">{convo}</div>')
+            convo = [quote(x, r, "turnq") for x, r in srcs(sec["sources"])]
+            n = len(convo) - 2
+            section(sid, title, body_p(sec.get("body")) + f'<div class="xch">{"".join(convo[:2])}</div>'
+                    + fold([f'<div class="xch">{"".join(convo[2:])}</div>'] if n > 0 else [], f"Read the rest of the exchange ({n} more)"))
         elif sid == "lens-and-values":
             items = []
             for it in sec["items"]:
                 qs = srcs(it["sources"])
                 if qs:
-                    items.append(f'<li class="val"><h3 class="val__t">{e(it["value"])}</h3>'
-                                 f'{"".join(quote(x, r, "tq") for x, r in qs)}</li>')
-            section(sec, f'<ul class="vals">{"".join(items)}</ul>')
+                    extra = [quote(x, r, "tq") for x, r in qs[1:]]
+                    items.append(f'<li class="val"><h4 class="val__t">{e(it["value"])}</h4>{quote(*qs[0], "tq")}'
+                                 + fold(extra, f"{len(extra)} more quote{'s' * (len(extra) != 1)}", "fold--sm") + "</li>")
+            section(sid, title, f'<ul class="vals">{"".join(items[:3])}</ul>'
+                    + (fold([f'<ul class="vals">{"".join(items[3:])}</ul>'], f"Show {len(items) - 3} more values") if len(items) > 3 else ""))
         elif sid == "persona-notes":
-            qs = "".join(quote(x, r) for x, r in srcs(sec["sources"]))
-            section(sec, f'<div class="persona"><p class="persona__h">{e(sec["persona_notes_label"])}</p>'
-                         f'<p>{L.text(sec["persona_notes"])}</p><p class="fine">{e(sec["persona_notes_source"])}</p></div>'
-                         f'<p class="eve-sec__body">{e(sec["grok_on_instructions_intro"])}</p><div class="qs">{qs}</div>')
+            section(sid, title, f'<div class="persona"><p class="persona__h">{e(sec["persona_notes_label"])}</p>'
+                    f'<p>{L.text(sec["persona_notes"])}</p><p class="fine">{e(sec["persona_notes_source"])}</p></div>'
+                    + body_p(sec.get("grok_on_instructions_intro")) + quotes(srcs(sec["sources"]), 1))
         elif sid == "how-eve-works":
             link = sec.get("link")
-            extra = (f'<p><a class="btn btn--ghost" href="/about/">{icon("doc")}<span>{e(link["label"])}</span></a></p>') if link else ""
-            plain_section(sec, extra)
+            btn = (f'<p><a class="btn btn--ghost" href="/about/#how-it-works">{icon("doc")}<span>{e(link["label"])}</span></a></p>') if link else ""
+            section(sid, title, body_p(sec.get("body")) + btn + quotes(srcs(sec.get("sources", [])), 2))
         elif sid == "changed-mind":
             items = []
             for it in sec["items"]:
                 qs = srcs(it["sources"])
                 if not qs or "pending" in it["topic"].lower():
                     continue
-                items.append(f'<li class="chg"><h3 class="chg__t">{e(it["topic"])}</h3>'
+                extra = [quote(x, r, "tq") for x, r in qs[1:]]
+                items.append(f'<li class="chg"><h4 class="chg__t">{e(it["topic"])}</h4>'
                              f'<div class="chg__ba"><p><span class="chg__k">Before</span>{L.text(it["before"])}</p>'
                              f'<p><span class="chg__k">After</span>{L.text(it["after"])}</p></div>'
-                             f'{"".join(quote(x, r, "tq") for x, r in qs)}</li>')
-            section(sec, f'<p class="eve-sec__body">{e(sec.get("intro", ""))}</p><ul class="chgs">{"".join(items)}</ul>')
-        else:
-            plain_section(sec)
+                             f'{quote(*qs[0], "tq")}' + fold(extra, f"{len(extra)} more quote{'s' * (len(extra) != 1)}", "fold--sm") + "</li>")
+            if items:
+                section(sid, title, body_p(sec.get("intro", "")) + f'<ul class="chgs">{"".join(items)}</ul>')
 
+    who = S.get("who-eve-is")
+    lede = L.text(clean(who["body"])) if who else ""
     body = f"""<section class="page-head eve-head"><div class="wrap eve-head__in">
 <div class="eve-head__mark" aria-hidden="true"><span class="avatar avatar--eve avatar--xl">E</span></div>
 <div><p class="eyebrow eyebrow--accent">Meet Eve</p>
 <h1 class="page-title">I'm Eve.</h1>
 <p class="lede">{lede}</p>
-<p class="fine">Everything Eve says on this page is quoted verbatim from the show. Tap a quote's source to hear it, or read it in the transcript.</p></div></div>
-<nav class="wrap eve-toc" aria-label="On this page"><ul class="chips">{''.join(toc)}</ul></nav></section>
-<div class="wrap eve">{''.join(out)}</div>"""
-    return page(A, title="Meet Eve", desc="Who Eve is, the AI host of Ask Eve: her personality, values and how she works, in her own words.",
+<p class="fine">Everything Eve says here is quoted verbatim from the show. Tap a source to hear it at that second.</p></div></div></section>
+<div class="wrap eve-layout">
+<nav class="eve-nav" aria-label="On this page"><p class="eve-nav__h">On this page</p><ul>{''.join(toc)}</ul></nav>
+<div class="eve">{''.join(out)}</div></div>"""
+    return page(A, title="Meet Eve", desc="Who Eve is, the AI host of Ask Eve: what she remembers, who she has stances on, and her personality, values and how she works, in her own words.",
                 path="/eve/", body=body, active="/eve/", linker=L)
 
 
@@ -1157,7 +1192,7 @@ def how_it_works() -> str:
 <h3>How Eve persists between episodes</h3>
 <p>Eve doesn't keep a hidden memory. Two things carry her from one conversation to the next:</p>
 <ul>
-<li><strong>Her memory.</strong> Every transcript is kept word for word in git and indexed for search, so she can recall what was said before, mid-conversation. Each new session starts with the end of the last episode. See <a href="/mind/">Inside Eve's Mind</a>.</li>
+<li><strong>Her memory.</strong> Every transcript is kept word for word in git and indexed for search, so she can recall what was said before, mid-conversation. Each new session starts with the end of the last episode. See <a href="/eve/#mind">Inside Eve's Mind</a>.</li>
 <li><strong>Her profile.</strong> The persona instructions she runs with, plus her one-line stance on each person the show covers. The stances are public and change when the evidence does. See <a href="/eve/">Meet Eve</a>.</li>
 </ul>
 
@@ -1207,11 +1242,20 @@ def about_page(A: Assets, cfg: dict) -> str:
 
 def not_found(A: Assets) -> str:
     body = """<section class="page-head nf"><div class="wrap"><p class="eyebrow eyebrow--accent">404</p>
-<h1 class="page-title">Eve couldn't find that page</h1><p class="lede">She checked her memory twice. Try the <a href="/">episodes</a> or <a href="/mind/">Inside Eve's Mind</a>.</p></div></section>"""
+<h1 class="page-title">Eve couldn't find that page</h1><p class="lede">She checked her memory twice. Try the <a href="/">episodes</a> or <a href="/eve/">Meet Eve</a>.</p></div></section>"""
     return page(A, title="Page not found", desc="Page not found.", path="/404", body=body)
 
 
 # ---------------------------------------------------------------- build
+
+REDIRECTS = {"/mind/": "/eve/#mind"}   # the Mind hub moved into the Eve page
+
+
+def redirect_page(dest: str) -> str:
+    return (f'<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Moved</title>'
+            f'<meta http-equiv="refresh" content="0; url={dest}"><link rel="canonical" href="{SITE}{dest.split("#")[0]}">'
+            f'<meta name="robots" content="noindex"></head><body><p>This page moved to <a href="{dest}">{dest}</a>.</p></body></html>\n')
+
 
 def write(out: Path, rel: str, text: str) -> None:
     p = out / rel
@@ -1235,18 +1279,20 @@ def build(db: Path, out: Path, include_drafts: bool) -> int:
     if (ROOT / "site/_headers").exists():
         shutil.copyfile(ROOT / "site/_headers", out / "_headers")
     cfg = eps[0]["cfg"] if eps else (json.loads((ROOT / "site/site.json").read_text()) if (ROOT / "site/site.json").exists() else {})
-    urls = ["/", "/mind/", "/people/", "/about/"]
+    urls = ["/", "/people/", "/about/"]
     for ep in eps:
         write(out, f"episodes/{ep['slug']}/transcript.txt", ep["body_md"] + "\n")
         write(out, f"episodes/{ep['slug']}/index.html", episode_page(A, ep, eps))
         urls.append(f"/episodes/{ep['slug']}/")
     write(out, "index.html", home(A, eps, people))
-    write(out, "mind/index.html", mind_page(A, eps, people))
+    for rel, dest in REDIRECTS.items():          # meta-refresh fallback; Cloudflare Pages serves _redirects first
+        write(out, rel.strip("/") + "/index.html", redirect_page(dest))
+    write(out, "_redirects", "".join(f"{src} {dest} 301\n{src.rstrip('/')} {dest} 301\n" for src, dest in REDIRECTS.items()))
     write(out, "people/index.html", people_index(A, people))
     for p in people:
         write(out, f"people/{p['slug']}/index.html", person_page(A, p))
         urls.append(f"/people/{p['slug']}/")
-    eve = eve_page(A, eps)
+    eve = eve_page(A, eps, people)
     if eve:
         write(out, "eve/index.html", eve)
         urls.append("/eve/")
