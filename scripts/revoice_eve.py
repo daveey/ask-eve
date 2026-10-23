@@ -412,7 +412,8 @@ def cut_clip(src: Path, start: float, end: float, dst: Path) -> Path:
 
 def synthesize_episode(turns, eve: TTSClient, narrator: TTSClient, out_dir: Path, cache: Path,
                        pause: float = 0.6, disclaimer: str | None = DISCLAIMER, lead_in: float = 0.5, workers: int = 4,
-                       real_clips: dict[int, dict] | None = None, real_audio: Path | None = None) -> dict:
+                       real_clips: dict[int, dict] | None = None, real_audio: Path | None = None,
+                       ai_disclosure: str | None = None) -> dict:
     """Fully synthetic ('tts-reconstructed') episode: disclaimer (narrator voice) + every turn in order,
     Eve's lines in Eve's voice, David's lines in the narrator voice, `pause` seconds between turns.
 
@@ -492,7 +493,7 @@ def synthesize_episode(turns, eve: TTSClient, narrator: TTSClient, out_dir: Path
                 "eve_seconds": dur([x for x in out_turns if x.get("source") == "eve-tts"]),
                 "gap_turns": sorted(gaps)}
     result = {"recording_method": "mic-plus-tts" if hybrid else "tts-reconstructed", "tts": eve.name,
-              "ai_reconstructed": True, "ai_disclosure": HYBRID_DISCLOSURE if hybrid else None, "mode": "hybrid" if hybrid else "synthetic",
+              "ai_reconstructed": True, "ai_disclosure": (ai_disclosure or HYBRID_DISCLOSURE) if hybrid else ai_disclosure, "mode": "hybrid" if hybrid else "synthetic",
               "coverage": coverage,
               **({"alignment_method": "asr-fuzzy", "alignment_coverage": coverage["david_real_share"]} if hybrid else {}), "narrator": narrator.name, "placeholder_audio": placeholder,
               "placeholder_turns": sorted(failed) if not (getattr(eve, "placeholder", True) or getattr(narrator, "placeholder", True)) else "all",
@@ -518,6 +519,8 @@ def main(argv: list[str] | None = None, client: TTSClient | None = None, narrato
     ap.add_argument("--cache", type=Path, default=Path("out/tts-cache"), help="clip cache (content-hash keyed)")
     ap.add_argument("--out", required=True, type=Path)
     ap.add_argument("--language", default="en")
+    ap.add_argument("--disclaimer", help="spoken opening disclaimer (narrator voice); default depends on mode")
+    ap.add_argument("--disclosure", help="written AI disclosure for D1/feed/show notes (hybrid default: HYBRID_DISCLOSURE)")
     ap.add_argument("--pause-after", type=float, default=0.35)
     ap.add_argument("--max-pause", type=float, default=None)
     a = ap.parse_args(argv)
@@ -529,8 +532,9 @@ def main(argv: list[str] | None = None, client: TTSClient | None = None, narrato
         rc = {int(k): v for k, v in json.loads(a.real_clips.read_text()).items()} if a.real_clips else None
         if rc is not None and not a.audio:
             ap.error("--real-clips needs --audio (David's cleaned 48 kHz track)")
-        r = synthesize_episode(turns, eve, narr, a.out, a.cache, disclaimer=HYBRID_DISCLAIMER if rc is not None else DISCLAIMER,
-                               workers=a.workers, real_clips=rc, real_audio=a.audio if rc is not None else None)
+        r = synthesize_episode(turns, eve, narr, a.out, a.cache, disclaimer=a.disclaimer or (HYBRID_DISCLAIMER if rc is not None else DISCLAIMER),
+                               workers=a.workers, real_clips=rc, real_audio=a.audio if rc is not None else None,
+                               ai_disclosure=a.disclosure)
         print(json.dumps({k: r[k] for k in ("mode", "tts", "narrator", "placeholder_audio", "edited_duration", "missing_turns", "coverage")}))
         return 0
     if not (a.alignment and a.audio):
