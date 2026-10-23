@@ -28,7 +28,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import render_feed as F  # noqa: E402
-from frontmatter import parse_front_matter_block  # noqa: E402
+from frontmatter import episode_type, parse_front_matter_block  # noqa: E402
 import sqlite_apply  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -154,6 +154,9 @@ def load_site(db: Path, include_drafts: bool) -> tuple[list[dict], list[dict]]:
         ctx, topics = ep["fm"].get("context"), ep["fm"].get("topics")
         ep["context"] = ctx if isinstance(ctx, str) else ""
         ep["topics"] = topics if isinstance(topics, list) else []
+        ep["episode_type"] = episode_type(ep["fm"])   # front matter wins over D1 (default full)
+        if ep["episode_type"] == "bonus":
+            ep["episode_number"] = None
         if ep["context"]:
             ep["summary"] = ep["context"]
         ep["blurb"] = (ep.get("summary") or cfg.get("blurbs", {}).get(ep["slug"]) or "").strip()
@@ -215,8 +218,24 @@ def human_date(d: str) -> str:
     return f"{x.strftime('%b')} {x.day}, {x.year}"
 
 
+def is_bonus(ep: dict) -> bool:
+    return ep.get("episode_type") == "bonus"
+
+
 def ep_label(ep: dict) -> str:
+    if is_bonus(ep):
+        return "Bonus"
     return f"Episode {ep['episode_number']}" if ep["episode_number"] is not None else "Episode"
+
+
+def cover_mark(ep: dict) -> str:
+    if is_bonus(ep):
+        return "BONUS"
+    return f"EP {ep['episode_number'] if ep['episode_number'] is not None else '·'}"
+
+
+def bonus_badge(ep: dict) -> str:
+    return '<span class="badge badge--bonus">Bonus</span>' if is_bonus(ep) else ""
 
 
 def inline(s: str) -> str:
@@ -492,29 +511,49 @@ def player_html(ep: dict, idle: bool = False) -> str:
 
 def ep_card(ep: dict) -> str:
     kind, label = ai_kind(ep)
-    num = ep["episode_number"] if ep["episode_number"] is not None else "·"
     badge = f'<span class="badge badge--{kind}">{icon("spark")}{e(label)}</span>' if kind else ""
-    return f"""<article class="card">
-  <div class="card__art">{cover_svg(ep['slug'], f"EP {num}", "cover cover--card")}</div>
+    return f"""<article class="card{' card--bonus' if is_bonus(ep) else ''}">
+  <div class="card__art">{cover_svg(ep['slug'], cover_mark(ep), "cover cover--card")}</div>
   <div class="card__body">
     <p class="eyebrow"><span class="card__num">{e(ep_label(ep))}</span> · <time datetime="{e(ep['date'])}">{human_date(ep['date'])}</time> · {human_duration(ep['duration_seconds'])}</p>
     <h3 class="card__title"><a href="/episodes/{e(ep['slug'])}/">{e(ep['title'])}</a></h3>
     <p class="card__blurb">{e(ep['blurb'])}</p>
-    {badge}
+    <div class="card__badges">{bonus_badge(ep)}{badge}</div>
     {chips(ep['people_full'], 5)}
   </div>
 </article>"""
+
+
+def bonus_section(bonus: list[dict]) -> str:
+    """Lower-key list of bonus episodes (behind-the-scenes extras), below the main episode list."""
+    if not bonus:
+        return ""
+    rows = "".join(
+        f'<li class="bonus-row"><a href="/episodes/{e(x["slug"])}/">'
+        f'<span class="badge badge--bonus">Bonus</span><span class="bonus-row__title">{e(x["title"])}</span>'
+        f'<span class="bonus-row__meta">{human_date(x["date"])} · {human_duration(x["duration_seconds"])}</span></a></li>'
+        for x in bonus)
+    return f"""
+<section class="bonus" aria-labelledby="bonus-h">
+  <div class="wrap">
+    <h2 class="h3" id="bonus-h">Bonus</h2>
+    <p class="hint">Extras from behind the scenes. Not part of the main run of episodes.</p>
+    <ul class="bonus-list">{rows}</ul>
+  </div>
+</section>"""
 
 
 # ---------------------------------------------------------------- pages
 
 def home(A: Assets, eps: list[dict], people: list[dict]) -> str:
     cfg = eps[0]["cfg"] if eps else {}
-    latest = next((x for x in eps if x["audio_url"]), eps[0] if eps else None)
+    full = [x for x in eps if not is_bonus(x)]
+    bonus = [x for x in eps if is_bonus(x)]
+    # the featured slot is the latest FULL episode; bonus content is never featured
+    latest = next((x for x in full if x["audio_url"]), full[0] if full else None)
     hero = ""
     if latest:
         kind, label = ai_kind(latest)
-        num = latest["episode_number"] if latest["episode_number"] is not None else "·"
         play = (f'<button class="btn btn--primary" type="button" data-play aria-label="Play {e(latest["title"])}">'
                 f'{icon("play")}<span>Play episode</span><span class="btn__meta">{human_duration(latest["duration_seconds"])}</span></button>'
                 if latest["audio_url"] else "")
@@ -527,10 +566,10 @@ def home(A: Assets, eps: list[dict], people: list[dict]) -> str:
       <div class="hero__actions">{play}<a class="btn btn--ghost" href="/episodes/{e(latest['slug'])}/">{icon("doc")}<span>Transcript &amp; chapters</span></a></div>
       {f'<p class="hero__ai">{icon("spark")}<span>{e(label)}. Every AI voice is labeled, line by line.</span></p>' if kind else ''}
     </div>
-    <div class="hero__art">{cover_svg(latest['slug'], f"EP {num}", "cover cover--hero", f"Cover art for {latest['title']}")}</div>
+    <div class="hero__art">{cover_svg(latest['slug'], cover_mark(latest), "cover cover--hero", f"Cover art for {latest['title']}")}</div>
   </div>
 </section>"""
-    cards = "".join(ep_card(x) for x in eps) or '<p class="empty">The first episode is on its way.</p>'
+    cards = "".join(ep_card(x) for x in full) or '<p class="empty">The first episode is on its way.</p>'
     body = f"""{hero}
 <section class="show">
   <div class="wrap show__in">
@@ -551,7 +590,7 @@ def home(A: Assets, eps: list[dict], people: list[dict]) -> str:
     <h2 class="h2" id="eps-h">All episodes</h2>
     <div class="cards">{cards}</div>
   </div>
-</section>
+</section>{bonus_section(bonus)}
 <section class="whos" aria-labelledby="who-h">
   <div class="wrap">
     <h2 class="h2" id="who-h">Who comes up</h2>
@@ -616,7 +655,6 @@ def context_html(ep: dict) -> str:
 
 def episode_page(A: Assets, ep: dict, eps: list[dict]) -> str:
     kind, label = ai_kind(ep)
-    num = ep["episode_number"] if ep["episode_number"] is not None else "·"
     disclosure = ""
     if ep["ai_reconstructed"]:
         legend = []
@@ -667,9 +705,10 @@ def episode_page(A: Assets, ep: dict, eps: list[dict]) -> str:
     body = f"""<article class="ep">
 <header class="ep-hero">
   <div class="wrap ep-hero__in">
-    <div class="ep-hero__art">{cover_svg(ep['slug'], f"EP {num}", "cover cover--ep", f"Cover art for {ep['title']}")}</div>
+    <div class="ep-hero__art">{cover_svg(ep['slug'], cover_mark(ep), "cover cover--ep", f"Cover art for {ep['title']}")}</div>
     <div class="ep-hero__text">
       <p class="eyebrow eyebrow--accent">{e(ep_label(ep))} · <time datetime="{e(ep['date'])}">{human_date(ep['date'])}</time> · {human_duration(ep['duration_seconds'])}</p>
+      {f'<p class="ep-badges">{bonus_badge(ep)}</p>' if is_bonus(ep) else ''}
       <h1 class="ep-title">{e(ep['title'])}</h1>
       {'' if ep.get('context') else f'<p class="ep-blurb">{e(ep["blurb"])}</p>'}
       <div class="hero__actions">{play}</div>
@@ -689,7 +728,7 @@ def episode_page(A: Assets, ep: dict, eps: list[dict]) -> str:
 {more}"""
     desc = (ep["blurb"] or F.description(ep, ep["people"]))[:300]
     ld = {"@context": "https://schema.org", "@type": "PodcastEpisode", "name": ep["title"], "url": f"{SITE}/episodes/{ep['slug']}/",
-          "datePublished": ep["date"], "description": desc, "episodeNumber": ep["episode_number"],
+          "datePublished": ep["date"], "description": desc, "episodeNumber": ep["episode_number"] if not is_bonus(ep) else None,
           "partOfSeries": {"@type": "PodcastSeries", "name": "Ask Eve", "url": SITE},
           "timeRequired": f"PT{int(ep['duration_seconds'] or 0) // 60}M"}
     if ep["audio_url"]:
@@ -741,7 +780,7 @@ def person_page(A: Assets, p: dict) -> str:
         ep, ms = x["ep"], x["moments"]
         cnt = f"{len(ms)} discussion{'s' * (len(ms) != 1)}"
         sections.append(f"""<section class="pep">
-<div class="pep__head">{cover_svg(ep['slug'], f"EP {ep['episode_number'] if ep['episode_number'] is not None else '·'}", "cover cover--thumb")}
+<div class="pep__head">{cover_svg(ep['slug'], cover_mark(ep), "cover cover--thumb")}
 <div><p class="eyebrow">{e(ep_label(ep))} · {human_date(ep['date'])} · {cnt}</p><h2 class="pep__title"><a href="/episodes/{e(ep['slug'])}/">{e(ep['title'])}</a></h2></div></div>
 <ol class="pms">{''.join(moment_html(ep, m) for m in ms)}</ol></section>""")
     if not sections:
@@ -807,7 +846,9 @@ def build(db: Path, out: Path, include_drafts: bool) -> int:
     by_slug = {ep["slug"]: ep for ep in eps}
     for fe in feed_eps:
         if fe["slug"] in by_slug:
-            fe["context"], fe["topics"] = by_slug[fe["slug"]]["context"], by_slug[fe["slug"]]["topics"]
+            src = by_slug[fe["slug"]]
+            for k in ("context", "topics", "episode_type", "episode_number"):
+                fe[k] = src[k]
     (out / "feed.xml").write_text(F.render(feed_eps))
     shutil.rmtree(out / "assets", ignore_errors=True)   # drop stale hashed assets from earlier local builds
     A = Assets(out)

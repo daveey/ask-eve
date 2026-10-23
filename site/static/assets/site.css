@@ -368,3 +368,17 @@ body.has-player-idle.is-playing{padding-bottom:calc(8.2rem + env(safe-area-inset
 .pm__listen .ico{width:.9rem;height:.9rem;fill:currentColor}
 .pm__tags{display:flex;flex-wrap:wrap;gap:.3rem;list-style:none;margin:0;padding:0}
 .pm__tag{font:500 .7rem/1.4 var(--mono);color:var(--faint);padding:.05rem .45rem;border-radius:6px;background:var(--surface2)}
+
+/* bonus episodes: badge + a lower-key list below the main episodes */
+.badge--bonus{background:var(--surface2);color:var(--muted);border:1px solid var(--line2);font-weight:650;letter-spacing:.04em;text-transform:uppercase;font-size:.7rem}
+.card__badges{display:flex;flex-wrap:wrap;gap:.4rem}
+.card__badges:empty{display:none}
+.ep-badges{margin:0 0 .4rem}
+.bonus{padding:0 0 2.5rem}
+.h3{font:650 1.15rem/1.2 var(--display);margin:0 0 .25rem}
+.bonus .hint{margin-bottom:.75rem}
+.bonus-list{list-style:none;margin:0;padding:0;display:grid;gap:.5rem}
+.bonus-row a{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem .75rem;padding:.75rem 1rem;min-height:44px;border:1px solid var(--line);border-radius:14px;text-decoration:none;color:var(--text);background:var(--surface)}
+.bonus-row a:hover{background:var(--surface2)}
+.bonus-row__title{font-weight:650}
+.bonus-row__meta{color:var(--muted);font-size:.85rem;margin-left:auto}
