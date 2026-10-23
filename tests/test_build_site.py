@@ -7,7 +7,14 @@ import pytest
 
 from pipeline_helpers import ROOT
 import build_site as B
-import sqlite_apply
+
+
+def unlink(h: str) -> str:
+    """Page HTML with the silent auto-links removed (their text kept)."""
+    return re.sub(r'<a class="xl"[^>]*>(.*?)</a>', r"\1", h)
+
+
+import sqlite_apply  # noqa: E402
 
 EP0, EP1 = "eve-david-podcast-planning", "the-making-of-eve"
 
@@ -104,7 +111,7 @@ def test_person_page_one_block_per_moment(site):
         start = int(m["start"])
         assert f'href="/episodes/{EP0}/#t={start}"' in p
         assert f"Listen from {B.clock(m['start'])}" in p and f"{B.clock(m['start'])}–{B.clock(m['end'])}" in p
-        assert _h.escape(m["summary"]) in p
+        assert _h.escape(m["summary"]) in unlink(p)
     assert '<span class="pm__ep">First Encounter</span>' in p
 
 
@@ -140,7 +147,7 @@ def test_about_and_privacy(site):
         for src in re.findall(r'<script[^>]*\bsrc="([^"]+)"', h):
             assert src.startswith("/assets/"), (f, src)               # no third-party scripts
         assert not re.search(r'<link[^>]+href="https?://(?!askevepodcast\.com)', h), f
-        assert not re.search(r"<script(?![^>]*\b(src=|type=\"application/ld\+json\"))", h), f  # no inline JS
+        assert not re.search(r"<script(?![^>]*\b(src=|type=\"application/(ld\+json|json)\"))", h), f  # no inline JS
         assert ' style="' not in h, f                                # CSP: style-src 'self'
     hdr = read(site, "_headers")
     assert "Content-Security-Policy" in hdr and "/feed.xml" in hdr
@@ -182,6 +189,7 @@ def test_episode0_context_and_topics_on_page(site):
     h = read(site, f"episodes/{EP0}/index.html")
     import html as _h
     ctx, t1, t10 = _h.escape(CTX0), _h.escape(TOPIC0_FIRST), _h.escape(TOPIC0_LAST)
+    h = unlink(h)
     assert ctx in h and t1 in h and t10 in h
     pos, at = [], h.index('class="ep-title"')       # (the context is also the <meta> description in <head>)
     for needle in [">Context<", ctx, ">Topics<", t1, t10, 'class="transcript"']:
@@ -301,3 +309,74 @@ def test_head_subscribe_spotify_when_configured():
         assert [x for x, _ in B.nav_items()] == ["/", "/people/", "/eve/", "/about/"]
     finally:
         B.SHOW_EVE_NAV = False
+
+
+# ---------------------------------------------------------------- auto-linking (silent links + menus)
+def _xl_data(h):
+    m = re.search(r'<script type="application/json" id="xl-data">(.*?)</script>', h, re.S)
+    return json.loads(m.group(1)) if m else {}
+
+
+def test_context_links_all_in_out(site):
+    h = read(site, f"episodes/{EP0}/index.html")
+    ctx = h[h.index('class="ep-context__p"'):]
+    ctx = ctx[:ctx.index("</p>")]
+    assert re.search(r'<a class="xl" href="https://allin\.com" target="_blank" rel="noopener" data-xl="all-in" '
+                     r'aria-haspopup="menu" aria-expanded="false">All-In podcast</a>', ctx)
+    menu = _xl_data(h)["all-in"]["items"]
+    assert [i["kind"] for i in menu][:2] == ["web", "wikipedia"] and menu[0]["url"] == "https://allin.com"
+
+
+def test_transcript_sacks_links_to_person_page(site):
+    h = read(site, f"episodes/{EP0}/index.html")
+    turns = re.findall(r'<li class="turn[^"]*" id="turn-\d+".*?</li>', h, re.S)
+    hit = [t for t in turns if 'data-xl="david-sacks"' in t]
+    assert hit and re.search(r'<a class="xl" href="/people/david-sacks/" data-xl="david-sacks"[^>]*>(?:David )?Sa[ck]h?s</a>', hit[0])
+    items = _xl_data(h)["david-sacks"]["items"]
+    assert items[0] == {"label": "Eve on David Sacks", "url": "/people/david-sacks/", "kind": "site"}
+    kinds = [i["kind"] for i in items]
+    assert kinds.index("site") < kinds.index("x") < kinds.index("wikipedia") < kinds.index("grokipedia")
+    for t in turns:   # first mention per turn only
+        body = t[t.index('class="turn__body"'):]
+        for key in set(re.findall(r'data-xl="([^"]+)"', body)):
+            assert body.count(f'data-xl="{key}"') == 1
+
+
+def test_links_never_inside_code_links_headings_or_disclosure(site):
+    for rel in [f"episodes/{EP0}/index.html", f"episodes/{EP1}/index.html"]:
+        h = read(site, rel)
+        assert not re.search(r"<code>[^<]*<a class=\"xl\"", h)
+        assert not re.search(r"<h[1-6][^>]*>[^<]*<a class=\"xl\"", h)
+        assert not re.search(r'<a [^>]*href="[^"]*"[^>]*>[^<]*<a class="xl"', h)
+        disc = h[h.index('class="disclosure'):] if 'class="disclosure' in h else ""
+        assert 'class="xl"' not in disc[:disc.find("</aside>") if "</aside>" in disc else 2000]
+        assert '<script src="/assets/links' in h or "assets/links." in h
+
+
+def test_person_page_moment_links_skip_self(site):
+    h = read(site, "people/david-sacks/index.html")
+    assert 'data-xl="david-sacks"' not in h
+    assert "xl-data" in h and 'class="xl"' in h
+
+
+def test_no_topic_links_until_topic_pages_exist(site):
+    for rel in [f"episodes/{EP0}/index.html", f"episodes/{EP1}/index.html", "people/david-sacks/index.html"]:
+        assert "/topic/" not in read(site, rel)
+
+
+def test_linker_rules():
+    import build_site as B
+    ents = {"david-sacks": {"name": "David Sacks", "terms": ["David Sacks", "Sacks", "Sachs"],
+                            "items": [{"label": "Eve on David Sacks", "url": "/people/david-sacks/", "kind": "site"}]},
+            "a16z": {"name": "a16z", "terms": ["Andreessen Horowitz", "a16z"],
+                     "items": [{"label": "a16z.com", "url": "https://a16z.com", "kind": "web"}]},
+            "marc-andreessen": {"name": "Marc Andreessen", "terms": ["Andreessen"],
+                                "items": [{"label": "Eve on Marc Andreessen", "url": "/people/marc-andreessen/", "kind": "site"}]}}
+    L = B.Linker(ents, "/x/")
+    out = L.html("<p>Sachs met Sacks at Andreessen Horowitz; sacks of mail; Sacksville; <code>Sacks</code></p>")
+    assert out.count('data-xl="david-sacks"') == 1 and ">Sachs</a> met Sacks" in out          # first mention only
+    assert '>Andreessen Horowitz</a>' in out and 'data-xl="marc-andreessen"' not in out       # longest match wins
+    assert "sacks of mail" in out and "Sacksville" in out and "<code>Sacks</code>" in out      # case + whole word + code
+    assert B.Linker(ents, "/people/david-sacks/").text("Sacks") == "Sacks"                     # self link dropped -> plain
+    assert B.Linker(ents, "/", exclude={"david-sacks"}).text("Sacks") == "Sacks"
+    assert L.text("<b>Sacks</b>").startswith("&lt;b&gt;<a class=\"xl\"")
