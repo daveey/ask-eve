@@ -28,6 +28,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import render_feed as F  # noqa: E402
+from frontmatter import parse_front_matter_block  # noqa: E402
 import sqlite_apply  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -83,12 +84,7 @@ def front_matter(md: str) -> tuple[dict, str]:
     m = re.match(r"^---\n(.*?)\n---\n", md, re.S)
     if not m:
         return {}, md
-    fm = {}
-    for line in m.group(1).split("\n"):
-        k, sep, v = line.partition(":")
-        if sep and re.fullmatch(r"[a-z_]+", k):
-            fm[k] = v.strip()
-    return fm, md[m.end():]
+    return parse_front_matter_block(m.group(1)), md[m.end():]
 
 
 def parse_turns(md: str) -> list[dict]:
@@ -155,6 +151,12 @@ def load_site(db: Path, include_drafts: bool) -> tuple[list[dict], list[dict]]:
             t["voice"] = voice_of(t, o.get("method"))
         dv = [t["voice"] for t in ep["turns"] if t["speaker"] == "David"]
         ep["david_real"], ep["david_narrator"] = dv.count("real"), dv.count("narrator")
+        # Front-matter `context:` / `topics:` win over D1 and site.json, so a transcript edit is enough.
+        ctx, topics = ep["fm"].get("context"), ep["fm"].get("topics")
+        ep["context"] = ctx if isinstance(ctx, str) else ""
+        ep["topics"] = topics if isinstance(topics, list) else []
+        if ep["context"]:
+            ep["summary"] = ep["context"]
         ep["blurb"] = (ep.get("summary") or cfg.get("blurbs", {}).get(ep["slug"]) or "").strip()
         ep["person_slugs"] = [slugify(p) for p in ep["people"]]
     eps.sort(key=lambda x: (x["published_at"] or x["date"], x["episode_number"] or 0), reverse=True)
@@ -603,6 +605,17 @@ def turn_html(t: dict) -> str:
             f'<div class="turn__body">{body}</div>{meta}</li>')
 
 
+def context_html(ep: dict) -> str:
+    """The episode's front-matter Context note and Topics list, shown under the title and above the transcript."""
+    if not ep.get("context") and not ep.get("topics"):
+        return ""
+    ctx = (f'<h2 class="ep-context__h" id="ctx-h">Context</h2><p class="ep-context__p">{e(ep["context"])}</p>'
+           if ep.get("context") else "")
+    tops = (f'<h2 class="ep-context__h" id="topics-h">Topics</h2><ul class="ep-topics">'
+            + "".join(f"<li>{e(t)}</li>" for t in ep["topics"]) + "</ul>") if ep.get("topics") else ""
+    return f'<section class="wrap ep-context" aria-labelledby="ctx-h">{ctx}{tops}</section>\n'
+
+
 def episode_page(A: Assets, ep: dict, eps: list[dict]) -> str:
     kind, label = ai_kind(ep)
     num = ep["episode_number"] if ep["episode_number"] is not None else "·"
@@ -660,12 +673,12 @@ def episode_page(A: Assets, ep: dict, eps: list[dict]) -> str:
     <div class="ep-hero__text">
       <p class="eyebrow eyebrow--accent">{e(ep_label(ep))} · <time datetime="{e(ep['date'])}">{human_date(ep['date'])}</time> · {human_duration(ep['duration_seconds'])}</p>
       <h1 class="ep-title">{e(ep['title'])}</h1>
-      <p class="ep-blurb">{e(ep['blurb'])}</p>
+      {'' if ep.get('context') else f'<p class="ep-blurb">{e(ep["blurb"])}</p>'}
       <div class="hero__actions">{play}</div>
     </div>
   </div>
 </header>
-<div class="wrap">{disclosure}</div>
+{context_html(ep)}<div class="wrap">{disclosure}</div>
 <div class="wrap ep-layout">
   <aside class="ep-side" aria-label="Episode navigation">{chapters}{ppl}{details}</aside>
   <section class="transcript" aria-labelledby="tr-h">
@@ -784,7 +797,12 @@ def write(out: Path, rel: str, text: str) -> None:
 def build(db: Path, out: Path, include_drafts: bool) -> int:
     eps, people = load_site(db, include_drafts)
     out.mkdir(parents=True, exist_ok=True)
-    (out / "feed.xml").write_text(F.render(F.load(db, include_drafts)))
+    feed_eps = F.load(db, include_drafts)
+    by_slug = {ep["slug"]: ep for ep in eps}
+    for fe in feed_eps:
+        if fe["slug"] in by_slug:
+            fe["context"], fe["topics"] = by_slug[fe["slug"]]["context"], by_slug[fe["slug"]]["topics"]
+    (out / "feed.xml").write_text(F.render(feed_eps))
     shutil.rmtree(out / "assets", ignore_errors=True)   # drop stale hashed assets from earlier local builds
     A = Assets(out)
     if (ROOT / "site/_headers").exists():

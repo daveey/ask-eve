@@ -9,6 +9,7 @@ on:
     paths:
       - scripts/build_site.py
       - scripts/render_feed.py
+      - scripts/frontmatter.py
       - site/_headers
       - site/site.json
       - site/static/**

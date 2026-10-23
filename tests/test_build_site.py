@@ -117,3 +117,60 @@ def test_parse_turns_matches_align_audio():
         text = md.read_text()
         ours, theirs = B.parse_turns(text), parse_transcript(text)
         assert [(t["i"], t["speaker"]) for t in ours] == [(t.index, t.speaker) for t in theirs], md.name
+
+
+def test_episode0_title_first_encounter(site):
+    old = "Eve-David podcast planning session"
+    for rel in ["index.html", f"episodes/{EP0}/index.html", "people/david-sacks/index.html"]:
+        h = read(site, rel)
+        assert "First Encounter" in h and f">{old}<" not in h and f"\"{old}\"" not in h, rel   # verbatim quotes in transcripts may mention it
+    item = [i for i in ET.parse(site / "feed.xml").getroot().iter("item") if i.findtext("link").endswith(f"/{EP0}/")][0]
+    assert item.findtext("title") == "First Encounter"
+    assert item.findtext("guid") == "ask-eve:2026-10-23_eve-david-podcast-planning"
+    assert item.find("enclosure").get("url") == "https://audio.askevepodcast.com/audio/en/2026-10-23_eve-david-podcast-planning.v1.mp3"
+
+
+CTX0 = ("This show wasn't planned. Late one night David was listening to the All-In podcast and opened Grok's voice mode "
+        "with one question: what happened to Marc Andreessen and Ben Horowitz?")
+TOPIC0_FIRST = "Marc Andreessen and Ben Horowitz's turn to the right, and what's driving it"
+TOPIC0_LAST = "Turning the conversation into a show: the name, the format, translation, guests, memory, and Grok becoming Eve"
+
+
+def test_episode0_context_and_topics_on_page(site):
+    h = read(site, f"episodes/{EP0}/index.html")
+    import html as _h
+    ctx, t1, t10 = _h.escape(CTX0), _h.escape(TOPIC0_FIRST), _h.escape(TOPIC0_LAST)
+    assert ctx in h and t1 in h and t10 in h
+    pos, at = [], h.index('class="ep-title"')       # (the context is also the <meta> description in <head>)
+    for needle in [">Context<", ctx, ">Topics<", t1, t10, 'class="transcript"']:
+        at = h.index(needle, at)
+        pos.append(at)
+    assert pos == sorted(pos)
+    assert h.count("<li>", h.index('class="ep-topics"'), h.index("</ul>", h.index('class="ep-topics"'))) == 10
+    assert 'class="ep-blurb"' not in h      # the context replaces the hero blurb (no duplicate)
+
+
+def test_episode_context_is_home_blurb(site):
+    import html as _h
+    home = read(site, "index.html")
+    assert _h.escape(CTX0) in home and "The conversation that started the show." not in home   # beats site.json
+    assert "Episode 1 picks up where the first conversation left off" in home
+
+
+def test_feed_context_then_topics(site):
+    root = ET.parse(site / "feed.xml").getroot()
+    item = [i for i in root.iter("item") if i.findtext("link").endswith(f"/{EP0}/")][0]
+    ns = "{http://www.itunes.com/dtds/podcast-1.0.dtd}"
+    desc = item.findtext("description")
+    assert desc == item.findtext(f"{ns}summary")
+    assert desc.index("AI") < desc.index(CTX0) < desc.index("Topics:\n- " + TOPIC0_FIRST) < desc.index("- " + TOPIC0_LAST)
+    enc = item.findtext("{http://purl.org/rss/1.0/modules/content/}encoded")
+    assert enc and "<ul><li>Marc Andreessen and Ben Horowitz&#x27;s turn" in enc and enc.count("<li>") == 10
+    assert "This show wasn&#x27;t planned." in enc
+
+
+def test_episode_without_context_keeps_blurb():
+    ep = {"context": "", "topics": []}
+    assert B.context_html(ep) == ""
+    out = B.context_html({"context": "C & D", "topics": ["a<b"]})
+    assert "C &amp; D" in out and "<li>a&lt;b</li>" in out
