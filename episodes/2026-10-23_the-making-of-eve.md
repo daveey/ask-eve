@@ -342,15 +342,15 @@ Sleep well. Your summary will be waiting in the morning.
 
 [10:55:00] David: I put audio on gdrive in AskEve folder
 
-[10:55:00] Eve: I didn't find a folder named AskEve. What I found are three voice memos you uploaded a few minutes ago: two copies of "29th St 5" and one "29th St 6." I've pulled them to my computer and I'm checking their length and recording times.
+[10:55:00] Eve: I didn't find a folder named AskEve. What I found are three voice memos you uploaded a few minutes ago: two copies of segment 1 and one of segment 2. I've pulled them to my computer and I'm checking their length and recording times.
 > placement note: the chat stamps this reply 10:48, but it describes Segment 2 (recorded until 10:49:38 UTC) and answers the 10:55 Google Drive message, so it is placed after that message.
 
 [10:55:00] Eve: Got them. There are two separate recordings:
 
-- **Segment 1:** "29th St 5," 8 min 7 s, recorded starting at 10:31 UTC.
-- **Segment 2:** "29th St 6," 7 min 30 s, recorded starting at 10:42 UTC.
+- **Segment 1:** 8 min 7 s, recorded starting at 10:31 UTC.
+- **Segment 2:** 7 min 30 s, recorded starting at 10:42 UTC.
 
-The second "29th St 5" is a duplicate upload of the same memo, so I'm ignoring it. There's roughly a 2½-minute gap between the two segments that wasn't recorded, and any of your lines from that stretch will be flagged as missing audio.
+The second copy of segment 1 is a duplicate upload of the same memo, so I'm ignoring it. There's roughly a 2½-minute gap between the two segments that wasn't recorded, and any of your lines from that stretch will be flagged as missing audio.
 
 Speech-to-text and cleanup are starting on both now. The last piece I need is the Grok share link for this call. As soon as you paste it, episode one finishes and its PR opens.
 

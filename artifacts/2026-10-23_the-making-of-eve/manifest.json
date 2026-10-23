@@ -3,12 +3,12 @@
  "version": 1,
  "audio_key": "audio/en/2026-10-23_the-making-of-eve.v1.mp3",
  "audio_url": "https://audio.askevepodcast.com/audio/en/2026-10-23_the-making-of-eve.v1.mp3",
- "audio_bytes": 39839484,
- "audio_sha256": "663315021416448b878cfcff8a352138b98077f66ea0782117778899ddc6b5e9",
+ "audio_bytes": 39762998,
+ "audio_sha256": "4ace00410909d151b4615ae0eef7195f2f301eb18c7e67a9240379d76c218a83",
  "audio_mime": "audio/mpeg",
- "duration_seconds": 2490,
+ "duration_seconds": 2485,
  "loudness_lufs": -16.8,
- "true_peak_dbfs": -4.5,
+ "true_peak_dbfs": -4.6,
  "id3_chapters": 40,
  "chapters": [
   {
@@ -152,23 +152,23 @@
    "title": "10:55 David (AI-reconstructed, narrator voice): I put audio on gdrive in AskEve"
   },
   {
-   "startTime": 2356.58,
+   "startTime": 2351.78,
    "title": "10:56 David (AI-reconstructed, narrator voice): Where do I get it? Can\u2019t you"
   },
   {
-   "startTime": 2388.48,
+   "startTime": 2383.68,
    "title": "10:58 David (AI-reconstructed, narrator voice): Hello?"
   },
   {
-   "startTime": 2408.22,
+   "startTime": 2403.42,
    "title": "10:58 David (AI-reconstructed, narrator voice): But I\u2019m talking to a grokbot now"
   },
   {
-   "startTime": 2465.67,
+   "startTime": 2460.87,
    "title": "10:59 David (AI-reconstructed, narrator voice): Start from the beginning, when I first"
   },
   {
-   "startTime": 2486.05,
+   "startTime": 2481.25,
    "title": "11:00 David (AI-reconstructed, narrator voice): Which you will fill in with narrator"
   }
  ],
@@ -182,7 +182,7 @@
   "david_real_share": 0.4722,
   "david_real_seconds": 105.62,
   "david_narrator_seconds": 657.73,
-  "eve_seconds": 1661.64,
+  "eve_seconds": 1656.84,
   "gap_turns": [
    65,
    67,
@@ -193,5 +193,5 @@
  "tts": "xai_tts voice=eve",
  "narrator": "xai_tts voice=rex",
  "missing_turns": [],
- "transcript_sha256": "eefe41065596497272045de99c105a331c5c50dc144a2429f69e5386cb089f5d"
+ "transcript_sha256": "95e3fd8a63e7be76bf38f1f6e0b7250145ea30967427d18c1311c153590541e7"
 }
