@@ -1,0 +1,171 @@
+# Ingest one recorded episode. Dispatched by the upload Worker (workers/upload) or by hand:
+#   gh workflow run ingest.yml -f slug=the-making-of-eve -f date=2026-10-23 \
+#     -f share_url=https://grok.com/share/<id> -f raw_key=raw/2026-10-23_the-making-of-eve/phone.m4a
+# It ALWAYS opens a pull request on branch ingest/<date>_<slug>. It never commits to main (there is no option to).
+# Text artifacts only go into git; audio goes to the private bucket (staging/) and to the run's artifacts.
+name: ingest
+
+on:
+  workflow_dispatch:
+    inputs:
+      slug: { description: "episode slug [a-z0-9-]", required: true, type: string }
+      date: { description: "YYYY-MM-DD", required: true, type: string }
+      share_url: { description: "https://grok.com/share/<id>", required: true, type: string }
+      raw_key: { description: "raw/<date>_<slug>/phone.<ext> in ask-eve-masters (comma-separated for several segments)", required: true, type: string }
+      title: { description: "episode title (default: from slug)", required: false, type: string, default: "" }
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: ingest-${{ inputs.date }}-${{ inputs.slug }}
+  cancel-in-progress: false
+
+jobs:
+  ingest:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    env:
+      # inputs reach the shell ONLY through env (never ${{ }} inside run:), and are validated first
+      SLUG: ${{ inputs.slug }}
+      DATE: ${{ inputs.date }}
+      SHARE_URL: ${{ inputs.share_url }}
+      RAW_KEY: ${{ inputs.raw_key }}
+      TITLE_IN: ${{ inputs.title }}
+      MASTERS_BUCKET: ask-eve-masters
+      ASR_MODEL: small
+    steps:
+      - name: Validate inputs
+        run: |
+          set -euo pipefail
+          [[ "$SLUG" =~ ^[a-z0-9]([a-z0-9-]{0,58}[a-z0-9])?$ ]] || { echo "::error::bad slug"; exit 1; }
+          [[ "$DATE" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]] && date -d "$DATE" +%F | grep -qx "$DATE" || { echo "::error::bad date"; exit 1; }
+          [[ "$SHARE_URL" =~ ^https://grok\.com/share/[A-Za-z0-9_-]{1,200}$ ]] || { echo "::error::bad share_url"; exit 1; }
+          IFS=, read -ra keys <<< "$RAW_KEY"
+          for k in "${keys[@]}"; do
+            [[ "$k" =~ ^raw/${DATE}_${SLUG}/(phone|lav|export)(-[0-9]{2})?\.(mp4|mov|m4a|wav|mp3)$ ]] || { echo "::error::bad raw_key $k"; exit 1; }
+          done
+          [[ -z "$TITLE_IN" || "$TITLE_IN" =~ ^[^\`\$\"\\]{1,120}$ ]] || { echo "::error::bad title"; exit 1; }
+          echo "STEM=${DATE}_${SLUG}" >> "$GITHUB_ENV"
+
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: main
+          persist-credentials: true
+
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements-pipeline.txt
+
+      - name: Install ffmpeg + pinned Python deps
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+          python -m pip install -q -r requirements-pipeline.txt
+          ffmpeg -version | head -1
+
+      - name: Cache Whisper model
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ~/.cache/huggingface
+          key: faster-whisper-${{ env.ASR_MODEL }}-v1
+
+      - name: Download raw audio from R2 (private bucket)
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: auto
+          CF_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          set -euo pipefail
+          mkdir -p rec
+          IFS=, read -ra keys <<< "$RAW_KEY"
+          for k in "${keys[@]}"; do
+            aws s3 cp "s3://$MASTERS_BUCKET/$k" "rec/$(basename "$k")" --endpoint-url "https://$CF_ACCOUNT_ID.r2.cloudflarestorage.com" --only-show-errors
+          done
+          ls -la rec
+
+      - name: Run the episode pipeline (ingest_share, stitch, align, re-voice, produce, D1 SQL, feed preview)
+        env:
+          XAI_API_KEY: ${{ secrets.XAI_API_KEY }}   # empty -> PLACEHOLDER audio, flagged; publish.yml refuses it
+          PYTHON: python
+          ASR_PYTHON: python
+        run: |
+          set -euo pipefail
+          TITLE="${TITLE_IN:-$(echo "$SLUG" | tr '-' ' ' | sed 's/\b\(.\)/\u\1/g')}"
+          export TITLE
+          IFS=, read -ra keys <<< "$RAW_KEY"
+          segs=(); for k in "${keys[@]}"; do segs+=("rec/$(basename "$k")"); done
+          mkdir -p out
+          scripts/run_episode.sh "$SLUG" "$SHARE_URL" "${segs[@]}" 2>&1 | tee "out/run.log"
+          test -d "out/$STEM/artifacts" || { echo "::error::transcript stem differs from $STEM (share date vs input date?)"; exit 1; }
+
+      - name: Stage the MP3 in the private bucket (publish.yml copies it to the public bucket after merge)
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: auto
+          CF_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          set -euo pipefail
+          mp3=$(ls "out/$STEM/produce/"*.mp3)
+          aws s3 cp "$mp3" "s3://$MASTERS_BUCKET/staging/$STEM/$(basename "$mp3")" --content-type audio/mpeg \
+            --endpoint-url "https://$CF_ACCOUNT_ID.r2.cloudflarestorage.com" --only-show-errors
+
+      - name: Upload run artifacts (audio stays out of git)
+        id: art
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: ${{ env.STEM }}
+          retention-days: 30
+          path: |
+            out/${{ env.STEM }}/produce/*.mp3
+            out/${{ env.STEM }}/artifacts/
+            out/${{ env.STEM }}/feed.xml
+            out/run.log
+
+      - name: Open the ingest pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ART_URL: ${{ steps.art.outputs.artifact-url }}
+        run: |
+          set -euo pipefail
+          branch="ingest/$STEM"
+          git config user.name "ask-eve-ingest[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$branch"
+          mkdir -p "artifacts/$STEM"
+          cp out/$STEM/artifacts/* "artifacts/$STEM/"
+          git add "episodes/$STEM.md" "artifacts/$STEM"
+          # guard: text only, no secrets
+          if git diff --cached --name-only | grep -Eiv '\.(md|json|sql)$'; then echo "::error::non-text file staged"; exit 1; fi
+          if git diff --cached | grep -E 'xai-[A-Za-z0-9]{20,}|gh[pousr]_[A-Za-z0-9]{20,}|github_pat_'; then echo "::error::secret-like string"; exit 1; fi
+          git commit -q -m "ingest: $STEM"
+          git push -f origin "$branch"
+          python - > pr_body.md <<'PY'
+          import json, os
+          stem = os.environ["STEM"]; a = f"artifacts/{stem}"
+          m = json.load(open(f"{a}/manifest.json")); t = json.load(open(f"{a}/timeline.json"))
+          al = json.load(open(f"{a}/alignment.json")) if os.path.exists(f"{a}/alignment.json") else {}
+          tts = "PLACEHOLDER (no XAI_API_KEY; publish.yml will refuse)" if m["placeholder_audio"] else "real xAI TTS"
+          print(f"""Automated ingest of `{stem}` (slug `{os.environ['SLUG']}`).
+
+          | | |
+          |---|---|
+          | Turns | {len(t['turns'])} |
+          | Alignment coverage | {al.get('alignment_coverage', 'n/a')} ({al.get('alignment_method', t['recording_method'])}) |
+          | Recording method | {m['recording_method']} |
+          | Eve audio | {tts}; placeholder turns: {t.get('placeholder_turns', [])} |
+          | Duration | {m['duration_seconds']} s, {m['loudness_lufs']} LUFS |
+          | Inserted / cut time | {t.get('inserted_seconds', 0)} s / {t.get('cut_seconds', 0)} s |
+          | Artifacts (MP3, logs) | {os.environ.get('ART_URL', '')} |
+
+          Review the transcript diff and `{a}/`, listen to the MP3 from the run artifacts, then merge. Merging does not publish; run `publish.yml`.""")
+          PY
+          if gh pr view "$branch" --json url -q .url 2>/dev/null; then
+            gh pr edit "$branch" --body-file pr_body.md
+          else
+            gh pr create --base main --head "$branch" --title "Ingest: $STEM" --body-file pr_body.md
+          fi
