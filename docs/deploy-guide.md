@@ -43,7 +43,8 @@ Status in the table below is maintained by David's side; your log entry is the r
 | D-006 | done (deploy-log) | Site on Cloudflare Pages (site.yml), D1_READ_TOKEN + CLOUDFLARE_PAGES_TOKEN secrets, DNS apex/www, HTTPS, Email Routing (§7) | D-003 |
 | D-007 | done (deploy-log) | End-to-end PR-only ingest test (§9) | D-004, D-005 |
 | D-008 | superseded by D-010 | ~~Publish episode 0~~: its ingest PR merged, but the audio was redone in PR #13 (the private-URL redaction); don't run this, run D-010 | – |
-| D-010 | todo | **Stage the corrected MP3s and publish episodes 0 and 1** (details below the table). Both ingest PRs are merged (#4, #5) and so is the cleanup PR #13. TTS is real for both (`placeholder_audio: false`). publish.yml run 39999620775 (ep 0) failed with `sha256sum: ep.mp3: FAILED`, because the object in `staging/` is an old render. Run 39999631791 (ep 1) failed with `404 … staging/2026-10-23_the-making-of-eve/2026-10-23_the-making-of-eve.v1.mp3 does not exist`. These MP3s were rendered outside Actions, so nothing staged them. | D-006, PR #13 merged |
+| D-010 | done (deploy-log) | **Stage the corrected MP3s and publish episodes 0 and 1** (details below the table). Both ingest PRs are merged (#4, #5) and so is the cleanup PR #13. TTS is real for both (`placeholder_audio: false`). publish.yml run 39999620775 (ep 0) failed with `sha256sum: ep.mp3: FAILED`, because the object in `staging/` is an old render. Run 39999631791 (ep 1) failed with `404 … staging/2026-10-23_the-making-of-eve/2026-10-23_the-making-of-eve.v1.mp3 does not exist`. These MP3s were rendered outside Actions, so nothing staged them. | D-006, PR #13 merged |
+| D-011 | todo | **Upload the show cover to `ask-eve-public`** (details below the table). The feed's `<itunes:image>` is https://audio.askevepodcast.com/art/cover-3000.v1.jpg, which returns 404 because nothing uploaded it. The site redesign (PR #17, merged) added the 3000x3000 cover at `site/static/art/cover-3000.jpg`, now also live at https://askevepodcast.com/art/cover-3000.jpg. | D-002, PR #17 merged |
 
 **D-010 steps.** This task names the objects you write, which are the two staging keys below. Overwriting the old ep-0 staging object is allowed.
 Nothing else is created or deleted.
@@ -81,6 +82,31 @@ Nothing else is created or deleted.
    - `curl -sI` of …/audio/en/2026-10-23_the-making-of-eve.v1.mp3 gives `200`, `audio/mpeg`, `content-length: 39762998`.
    - `curl -s https://askevepodcast.com/feed.xml | grep -c '<item>'` gives `2`.
 6. Report back with the run URLs, the curl output and the feed count. After both runs succeed, the Drive handoff folder can be left for David to trash.
+
+**D-011 steps.** This task names the one object you write: `ask-eve-public/art/cover-3000.v1.jpg`. Nothing else is created, overwritten or deleted.
+1. Take the cover from `main` and verify it (the deployed copy at https://askevepodcast.com/art/cover-3000.jpg is byte-identical, so `curl -sfo` of that URL is fine too):
+   ```
+   git fetch origin && git show origin/main:site/static/art/cover-3000.jpg > cover-3000.jpg
+   printf '%s  %s\n' 5279b440c4d5e72fc0b7861cdc40d5f5a3ffd0659a58d8b91188401dc4938cc3 cover-3000.jpg | sha256sum -c -
+   ```
+   Expect: `cover-3000.jpg: OK` (331,005 bytes). If it fails, stop and report.
+2. Upload it to the public bucket (the key carries the `.v1`; the source file doesn't):
+   ```
+   npx wrangler@4 r2 object put "ask-eve-public/art/cover-3000.v1.jpg" --file cover-3000.jpg --content-type image/jpeg --remote
+   ```
+   The same S3 copy with the R2 key pair is fine too, as long as `Content-Type: image/jpeg` is set.
+3. Expect:
+   - `curl -sI https://audio.askevepodcast.com/art/cover-3000.v1.jpg` gives `200`, `content-type: image/jpeg`, `content-length: 331005`.
+   - `curl -s https://audio.askevepodcast.com/art/cover-3000.v1.jpg | sha256sum` gives 5279b440…938cc3 (same as step 1).
+   - The image is 3000x3000:
+     ```
+     curl -s https://audio.askevepodcast.com/art/cover-3000.v1.jpg -o /tmp/cover.jpg && python3 -c "
+     import struct; d=open('/tmp/cover.jpg','rb').read(); i=2
+     while d[i+1] not in (0xC0,0xC1,0xC2): i+=2+struct.unpack('>H',d[i+2:i+4])[0]
+     h,w=struct.unpack('>HH',d[i+5:i+9]); print(f'{w}x{h}')"
+     ```
+     prints `3000x3000` (or `identify /tmp/cover.jpg` shows `JPEG 3000x3000`).
+4. Report back with the upload output, the curl headers, the sha256 and the dimensions. No site or feed rebuild is needed; the feed already points at this URL.
 
 Per task, the exact commands, the success checks ("Expect:") and the rollback are in the matching Reference section. Report-back details
 per task (in addition to the general format):
