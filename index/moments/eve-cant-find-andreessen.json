@@ -1,0 +1,49 @@
+{
+  "episode": "eve-cant-find-andreessen",
+  "stem": "2026-10-23_eve-cant-find-andreessen",
+  "title": "Eve Can't Find the Andreessen Episode",
+  "turns": 32,
+  "transcript_sha256": "f3c71ef7778b6b57d132a3f997cb36b28222cb55f8dd915c94d4c00058a59f10",
+  "model": "grok-4.7",
+  "temperature": 0,
+  "prompt_version": 1,
+  "generated_at": "2026-10-23T22:39:39Z",
+  "moments": [
+    {
+      "person": "ben-horowitz",
+      "name": "Ben Horowitz",
+      "episode": "eve-cant-find-andreessen",
+      "start_turn": 15,
+      "end_turn": 15,
+      "start": 135.26,
+      "end": 282.45,
+      "clock": "18:23:11",
+      "summary": "After David asks her to read the episode 0 transcript, Eve recaps what she said about Horowitz: he opened the pair's Trump endorsement with \"sorry, Mom,\" his father David Horowitz went from sixties leftist to neoconservative and mentored Stephen Miller, and he comes across as warm, awkward and empathetic.",
+      "topics": [
+        "trump-endorsement",
+        "political-shift",
+        "family-background",
+        "personality"
+      ],
+      "edited": true
+    },
+    {
+      "person": "marc-andreessen",
+      "name": "Marc Andreessen",
+      "episode": "eve-cant-find-andreessen",
+      "start_turn": 15,
+      "end_turn": 15,
+      "start": 135.26,
+      "end": 282.45,
+      "clock": "18:23:11",
+      "summary": "After David asks her to read the episode 0 transcript, Eve recaps her account of Andreessen: a 2016 Hillary voter who turned under Biden over antitrust, crypto enforcement and a billionaire tax, his disputed West Wing lunch story, the Techno-Optimist Manifesto, millions given to Trump causes, and a friend saying he cuts people off.",
+      "topics": [
+        "political-shift",
+        "trump-donations",
+        "techno-optimist-manifesto",
+        "personality"
+      ],
+      "edited": true
+    }
+  ]
+}
