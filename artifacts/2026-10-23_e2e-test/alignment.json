@@ -1,0 +1,2914 @@
+{
+ "alignment_method": "asr-david-gaps",
+ "alignment_coverage": 0.9926,
+ "david_turns": 152,
+ "david_matchable": 135,
+ "david_matched": 134,
+ "eve_turns": 152,
+ "match_speakers": [
+  "David"
+ ],
+ "sync_offset_seconds": 0.18,
+ "sync_phrase": null,
+ "fit": {
+  "offset_seconds": -0.02,
+  "slope": 1.00009
+ },
+ "turns": [
+  {
+   "i": 0,
+   "speaker": "David",
+   "created_at": "2026-10-23T07:29:52.000Z",
+   "raw_start": 0.18,
+   "raw_end": 11.16,
+   "method": "asr-match",
+   "score": 98.6
+  },
+  {
+   "i": 1,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T07:30:24.000Z",
+   "raw_start": 11.46,
+   "raw_end": 169.74,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 158.28
+  },
+  {
+   "i": 2,
+   "speaker": "David",
+   "created_at": "2026-10-23T07:32:42.000Z",
+   "raw_start": 170.04,
+   "raw_end": 172.44,
+   "method": "asr-match",
+   "score": 98.1
+  },
+  {
+   "i": 3,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T07:32:54.000Z",
+   "raw_start": 172.74,
+   "raw_end": 283.68,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 110.94
+  },
+  {
+   "i": 4,
+   "speaker": "David",
+   "created_at": "2026-10-23T07:34:36.000Z",
+   "raw_start": 283.98,
+   "raw_end": 294.4,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 5,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T07:34:53.000Z",
+   "raw_start": 294.7,
+   "raw_end": 402.36,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 107.66
+  },
+  {
+   "i": 6,
+   "speaker": "David",
+   "created_at": "2026-10-23T07:36:35.000Z",
+   "raw_start": 402.66,
+   "raw_end": 413.54,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 7,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T07:36:56.000Z",
+   "raw_start": 413.84,
+   "raw_end": 553.41,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 139.57
+  },
+  {
+   "i": 8,
+   "speaker": "David",
+   "created_at": "2026-10-23T07:39:06.000Z",
+   "raw_start": 553.71,
+   "raw_end": 557.65,
+   "method": "asr-match",
+   "score": 97.2
+  },
+  {
+   "i": 9,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T07:39:22.000Z",
+   "raw_start": 557.95,
+   "raw_end": 649.59,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 91.64
+  },
+  {
+   "i": 10,
+   "speaker": "David",
+   "created_at": "2026-10-23T07:40:42.000Z",
+   "raw_start": 649.89,
+   "raw_end": 651.99,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 11,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T07:41:01.000Z",
+   "raw_start": 652.29,
+   "raw_end": 756.7,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 104.41
+  },
+  {
+   "i": 12,
+   "speaker": "David",
+   "created_at": "2026-10-23T07:42:29.000Z",
+   "raw_start": 757.0,
+   "raw_end": 758.88,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 13,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T07:42:55.000Z",
+   "raw_start": 759.18,
+   "raw_end": 842.86,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 83.68
+  },
+  {
+   "i": 14,
+   "speaker": "David",
+   "created_at": "2026-10-23T07:43:55.000Z",
+   "raw_start": 843.16,
+   "raw_end": 949.79,
+   "method": "asr-match",
+   "score": 95.2
+  },
+  {
+   "i": 15,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T07:44:06.000Z",
+   "raw_start": 949.79,
+   "raw_end": 949.79,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 0.0
+  },
+  {
+   "i": 16,
+   "speaker": "David",
+   "created_at": "2026-10-23T07:45:41.000Z",
+   "raw_start": 949.79,
+   "raw_end": 972.41,
+   "method": "asr-match",
+   "score": 94.5
+  },
+  {
+   "i": 17,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T07:45:58.000Z",
+   "raw_start": 972.71,
+   "raw_end": 1055.14,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 82.43
+  },
+  {
+   "i": 18,
+   "speaker": "David",
+   "created_at": "2026-10-23T07:47:27.000Z",
+   "raw_start": 1055.44,
+   "raw_end": 1139.38,
+   "method": "asr-match",
+   "score": 93.8
+  },
+  {
+   "i": 19,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T07:47:48.000Z",
+   "raw_start": 1139.38,
+   "raw_end": 1139.38,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 0.0
+  },
+  {
+   "i": 20,
+   "speaker": "David",
+   "created_at": "2026-10-23T07:48:51.000Z",
+   "raw_start": 1139.38,
+   "raw_end": 1151.84,
+   "method": "asr-match",
+   "score": 95.7
+  },
+  {
+   "i": 21,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T07:48:52.000Z",
+   "raw_start": 1152.08,
+   "raw_end": 1152.08,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 0.0
+  },
+  {
+   "i": 22,
+   "speaker": "David",
+   "created_at": "2026-10-23T07:48:53.000Z",
+   "raw_start": 1152.32,
+   "raw_end": 1153.58,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 23,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T07:49:04.000Z",
+   "raw_start": 1153.88,
+   "raw_end": 1184.43,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 30.55
+  },
+  {
+   "i": 24,
+   "speaker": "David",
+   "created_at": "2026-10-23T07:49:37.000Z",
+   "raw_start": 1184.73,
+   "raw_end": 1199.23,
+   "method": "asr-match",
+   "score": 98.8
+  },
+  {
+   "i": 25,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T07:49:59.000Z",
+   "raw_start": 1199.53,
+   "raw_end": 1315.95,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 116.42
+  },
+  {
+   "i": 26,
+   "speaker": "David",
+   "created_at": "2026-10-23T07:51:48.000Z",
+   "raw_start": 1316.25,
+   "raw_end": 1406.17,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 27,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T07:52:03.000Z",
+   "raw_start": 1406.17,
+   "raw_end": 1406.17,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 0.0
+  },
+  {
+   "i": 28,
+   "speaker": "David",
+   "created_at": "2026-10-23T07:53:18.000Z",
+   "raw_start": 1406.17,
+   "raw_end": 1490.24,
+   "method": "asr-match",
+   "score": 95.1
+  },
+  {
+   "i": 29,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T07:53:28.000Z",
+   "raw_start": 1490.24,
+   "raw_end": 1490.24,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 0.0
+  },
+  {
+   "i": 30,
+   "speaker": "David",
+   "created_at": "2026-10-23T07:54:42.000Z",
+   "raw_start": 1490.24,
+   "raw_end": 1504.9,
+   "method": "asr-match",
+   "score": 98.6
+  },
+  {
+   "i": 31,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T07:54:57.000Z",
+   "raw_start": 1505.2,
+   "raw_end": 1572.43,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 67.23
+  },
+  {
+   "i": 32,
+   "speaker": "David",
+   "created_at": "2026-10-23T07:56:05.000Z",
+   "raw_start": 1572.73,
+   "raw_end": 1584.45,
+   "method": "asr-match",
+   "score": 99.1
+  },
+  {
+   "i": 33,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T07:56:14.000Z",
+   "raw_start": 1584.75,
+   "raw_end": 1622.74,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 37.99
+  },
+  {
+   "i": 34,
+   "speaker": "David",
+   "created_at": "2026-10-23T07:56:55.000Z",
+   "raw_start": 1623.04,
+   "raw_end": 1637.9,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 35,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T07:57:06.000Z",
+   "raw_start": 1638.2,
+   "raw_end": 1707.44,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 69.24
+  },
+  {
+   "i": 36,
+   "speaker": "David",
+   "created_at": "2026-10-23T07:58:20.000Z",
+   "raw_start": 1707.74,
+   "raw_end": 1715.8,
+   "method": "asr-match",
+   "score": 99.6
+  },
+  {
+   "i": 37,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T07:58:26.000Z",
+   "raw_start": 1716.1,
+   "raw_end": 1768.58,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 52.48
+  },
+  {
+   "i": 38,
+   "speaker": "David",
+   "created_at": "2026-10-23T07:59:21.000Z",
+   "raw_start": 1768.88,
+   "raw_end": 1771.14,
+   "method": "asr-match",
+   "score": 97.7
+  },
+  {
+   "i": 39,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T07:59:41.000Z",
+   "raw_start": 1771.44,
+   "raw_end": 1878.97,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 107.53
+  },
+  {
+   "i": 40,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:01:11.000Z",
+   "raw_start": 1879.27,
+   "raw_end": 1893.95,
+   "method": "asr-match",
+   "score": 98.6
+  },
+  {
+   "i": 41,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:01:35.000Z",
+   "raw_start": 1894.25,
+   "raw_end": 2026.63,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 132.38
+  },
+  {
+   "i": 42,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:03:39.000Z",
+   "raw_start": 2026.93,
+   "raw_end": 2032.79,
+   "method": "asr-match",
+   "score": 98.6
+  },
+  {
+   "i": 43,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:03:46.000Z",
+   "raw_start": 2033.09,
+   "raw_end": 2072.62,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 39.53
+  },
+  {
+   "i": 44,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:04:25.000Z",
+   "raw_start": 2072.92,
+   "raw_end": 2075.64,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 45,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:04:33.000Z",
+   "raw_start": 2075.94,
+   "raw_end": 2145.91,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 69.97
+  },
+  {
+   "i": 46,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:05:38.000Z",
+   "raw_start": 2146.21,
+   "raw_end": 2215.18,
+   "method": "asr-match",
+   "score": 97.7
+  },
+  {
+   "i": 47,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:05:48.000Z",
+   "raw_start": 2215.19,
+   "raw_end": 2215.19,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 0.0
+  },
+  {
+   "i": 48,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:06:47.000Z",
+   "raw_start": 2215.2,
+   "raw_end": 2216.68,
+   "method": "asr-match",
+   "score": 87.2
+  },
+  {
+   "i": 49,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:06:53.000Z",
+   "raw_start": 2216.98,
+   "raw_end": 2250.9,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 33.92
+  },
+  {
+   "i": 50,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:07:23.000Z",
+   "raw_start": 2251.2,
+   "raw_end": 2275.22,
+   "method": "asr-match",
+   "score": 95.5
+  },
+  {
+   "i": 51,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:07:32.000Z",
+   "raw_start": 2275.22,
+   "raw_end": 2275.22,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 0.0
+  },
+  {
+   "i": 52,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:07:40.000Z",
+   "raw_start": 2275.22,
+   "raw_end": 2275.22,
+   "method": "interpolated",
+   "score": null
+  },
+  {
+   "i": 53,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:07:40.000Z",
+   "raw_start": 2275.22,
+   "raw_end": 2275.22,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 0.0
+  },
+  {
+   "i": 54,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:07:47.000Z",
+   "raw_start": 2275.22,
+   "raw_end": 2281.68,
+   "method": "asr-match",
+   "score": 98.3
+  },
+  {
+   "i": 55,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:07:49.000Z",
+   "raw_start": 2281.68,
+   "raw_end": 2281.68,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 0.0
+  },
+  {
+   "i": 56,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:07:50.000Z",
+   "raw_start": 2281.68,
+   "raw_end": 2281.68,
+   "method": "interpolated",
+   "score": null
+  },
+  {
+   "i": 57,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:07:51.000Z",
+   "raw_start": 2281.68,
+   "raw_end": 2281.68,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 0.0
+  },
+  {
+   "i": 58,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:07:53.000Z",
+   "raw_start": 2281.68,
+   "raw_end": 2282.334,
+   "method": "interpolated",
+   "score": null
+  },
+  {
+   "i": 59,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:07:53.000Z",
+   "raw_start": 2282.634,
+   "raw_end": 2284.853,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 2.219
+  },
+  {
+   "i": 60,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:07:57.000Z",
+   "raw_start": 2285.153,
+   "raw_end": 2285.653,
+   "method": "interpolated",
+   "score": null
+  },
+  {
+   "i": 61,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:07:57.000Z",
+   "raw_start": 2285.953,
+   "raw_end": 2316.64,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 30.687
+  },
+  {
+   "i": 62,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:08:29.000Z",
+   "raw_start": 2316.94,
+   "raw_end": 2331.68,
+   "method": "asr-match",
+   "score": 97.2
+  },
+  {
+   "i": 63,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:08:49.000Z",
+   "raw_start": 2331.98,
+   "raw_end": 2427.7,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 95.72
+  },
+  {
+   "i": 64,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:10:20.000Z",
+   "raw_start": 2428.0,
+   "raw_end": 2433.34,
+   "method": "asr-match",
+   "score": 94.8
+  },
+  {
+   "i": 65,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:10:22.000Z",
+   "raw_start": 2433.68,
+   "raw_end": 2433.68,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 0.0
+  },
+  {
+   "i": 66,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:10:23.000Z",
+   "raw_start": 2434.02,
+   "raw_end": 2435.2,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 67,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:10:47.000Z",
+   "raw_start": 2435.5,
+   "raw_end": 2600.3,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 164.8
+  },
+  {
+   "i": 68,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:13:12.000Z",
+   "raw_start": 2600.6,
+   "raw_end": 2621.18,
+   "method": "asr-match",
+   "score": 95.5
+  },
+  {
+   "i": 69,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:13:26.000Z",
+   "raw_start": 2621.18,
+   "raw_end": 2621.18,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 0.0
+  },
+  {
+   "i": 70,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:13:32.000Z",
+   "raw_start": 2621.18,
+   "raw_end": 2786.25,
+   "method": "asr-match",
+   "score": 93.3
+  },
+  {
+   "i": 71,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:13:59.000Z",
+   "raw_start": 2786.25,
+   "raw_end": 2786.25,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 0.0
+  },
+  {
+   "i": 72,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:16:17.000Z",
+   "raw_start": 2786.25,
+   "raw_end": 2903.86,
+   "method": "asr-match",
+   "score": 92.7
+  },
+  {
+   "i": 73,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:16:41.000Z",
+   "raw_start": 2903.87,
+   "raw_end": 2903.87,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 0.0
+  },
+  {
+   "i": 74,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:18:15.000Z",
+   "raw_start": 2903.88,
+   "raw_end": 2906.5,
+   "method": "asr-match",
+   "score": 77.2
+  },
+  {
+   "i": 75,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:18:17.000Z",
+   "raw_start": 2906.681,
+   "raw_end": 2906.681,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 0.0
+  },
+  {
+   "i": 76,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:18:18.000Z",
+   "raw_start": 2906.861,
+   "raw_end": 2908.015,
+   "method": "interpolated",
+   "score": null
+  },
+  {
+   "i": 77,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:18:43.000Z",
+   "raw_start": 2908.315,
+   "raw_end": 3051.65,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 143.335
+  },
+  {
+   "i": 78,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:20:44.000Z",
+   "raw_start": 3051.95,
+   "raw_end": 3055.01,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 79,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:21:13.000Z",
+   "raw_start": 3055.31,
+   "raw_end": 3080.73,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 25.42
+  },
+  {
+   "i": 80,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:21:13.000Z",
+   "raw_start": 3081.03,
+   "raw_end": 3082.31,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 81,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:21:34.000Z",
+   "raw_start": 3082.61,
+   "raw_end": 3224.52,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 141.91
+  },
+  {
+   "i": 82,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:23:37.000Z",
+   "raw_start": 3224.82,
+   "raw_end": 3227.66,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 83,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:23:46.000Z",
+   "raw_start": 3227.96,
+   "raw_end": 3282.6,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 54.64
+  },
+  {
+   "i": 84,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:24:35.000Z",
+   "raw_start": 3282.9,
+   "raw_end": 3285.06,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 85,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:24:43.000Z",
+   "raw_start": 3285.36,
+   "raw_end": 3333.65,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 48.29
+  },
+  {
+   "i": 86,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:25:26.000Z",
+   "raw_start": 3333.95,
+   "raw_end": 3341.31,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 87,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:25:28.000Z",
+   "raw_start": 3341.31,
+   "raw_end": 3341.31,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 0.0
+  },
+  {
+   "i": 88,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:25:31.000Z",
+   "raw_start": 3341.31,
+   "raw_end": 3341.31,
+   "method": "interpolated",
+   "score": null
+  },
+  {
+   "i": 89,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:25:32.000Z",
+   "raw_start": 3341.31,
+   "raw_end": 3341.31,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 0.0
+  },
+  {
+   "i": 90,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:25:33.000Z",
+   "raw_start": 3341.31,
+   "raw_end": 3341.465,
+   "method": "interpolated",
+   "score": null
+  },
+  {
+   "i": 91,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:25:34.000Z",
+   "raw_start": 3341.716,
+   "raw_end": 3341.716,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 0.0
+  },
+  {
+   "i": 92,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:25:34.000Z",
+   "raw_start": 3341.967,
+   "raw_end": 3342.467,
+   "method": "interpolated",
+   "score": null
+  },
+  {
+   "i": 93,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:25:38.000Z",
+   "raw_start": 3342.767,
+   "raw_end": 3347.68,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 4.913
+  },
+  {
+   "i": 94,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:25:40.000Z",
+   "raw_start": 3347.98,
+   "raw_end": 3350.36,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 95,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:25:40.000Z",
+   "raw_start": 3350.68,
+   "raw_end": 3350.68,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 0.0
+  },
+  {
+   "i": 96,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:25:43.000Z",
+   "raw_start": 3351.0,
+   "raw_end": 3352.38,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 97,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:25:45.000Z",
+   "raw_start": 3352.38,
+   "raw_end": 3352.38,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 0.0
+  },
+  {
+   "i": 98,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:25:45.000Z",
+   "raw_start": 3352.38,
+   "raw_end": 3352.38,
+   "method": "interpolated",
+   "score": null
+  },
+  {
+   "i": 99,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:25:52.000Z",
+   "raw_start": 3352.68,
+   "raw_end": 3353.78,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 1.1
+  },
+  {
+   "i": 100,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:26:40.000Z",
+   "raw_start": 3354.08,
+   "raw_end": 3410.73,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 101,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:26:45.000Z",
+   "raw_start": 3411.03,
+   "raw_end": 3459.62,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 48.59
+  },
+  {
+   "i": 102,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:27:32.000Z",
+   "raw_start": 3459.92,
+   "raw_end": 3474.56,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 103,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:27:37.000Z",
+   "raw_start": 3474.86,
+   "raw_end": 3510.4,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 35.54
+  },
+  {
+   "i": 104,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:28:23.000Z",
+   "raw_start": 3510.7,
+   "raw_end": 3517.5,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 105,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:28:49.000Z",
+   "raw_start": 3517.8,
+   "raw_end": 3626.27,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 108.47
+  },
+  {
+   "i": 106,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:30:18.000Z",
+   "raw_start": 3626.57,
+   "raw_end": 3637.25,
+   "method": "asr-match",
+   "score": 96.4
+  },
+  {
+   "i": 107,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:30:24.000Z",
+   "raw_start": 3637.35,
+   "raw_end": 3637.35,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 0.0
+  },
+  {
+   "i": 108,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:30:29.000Z",
+   "raw_start": 3637.45,
+   "raw_end": 3677.19,
+   "method": "asr-match",
+   "score": 95.8
+  },
+  {
+   "i": 109,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:30:36.000Z",
+   "raw_start": 3677.19,
+   "raw_end": 3677.19,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 0.0
+  },
+  {
+   "i": 110,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:31:09.000Z",
+   "raw_start": 3677.19,
+   "raw_end": 3758.16,
+   "method": "asr-match",
+   "score": 93.7
+  },
+  {
+   "i": 111,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:31:23.000Z",
+   "raw_start": 3758.16,
+   "raw_end": 3758.16,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 0.0
+  },
+  {
+   "i": 112,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:32:30.000Z",
+   "raw_start": 3758.16,
+   "raw_end": 3788.33,
+   "method": "asr-match",
+   "score": 97.1
+  },
+  {
+   "i": 113,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:32:43.000Z",
+   "raw_start": 3788.38,
+   "raw_end": 3788.38,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 0.0
+  },
+  {
+   "i": 114,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:33:00.000Z",
+   "raw_start": 3788.43,
+   "raw_end": 3794.57,
+   "method": "asr-match",
+   "score": 97.6
+  },
+  {
+   "i": 115,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:33:03.000Z",
+   "raw_start": 3794.59,
+   "raw_end": 3794.59,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 0.0
+  },
+  {
+   "i": 116,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:33:06.000Z",
+   "raw_start": 3794.61,
+   "raw_end": 3797.21,
+   "method": "asr-match",
+   "score": 95.2
+  },
+  {
+   "i": 117,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:33:07.000Z",
+   "raw_start": 3797.21,
+   "raw_end": 3797.21,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 0.0
+  },
+  {
+   "i": 118,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:33:08.000Z",
+   "raw_start": 3797.21,
+   "raw_end": 3797.237,
+   "method": "interpolated",
+   "score": null
+  },
+  {
+   "i": 119,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:33:08.000Z",
+   "raw_start": 3797.537,
+   "raw_end": 3801.74,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 4.203
+  },
+  {
+   "i": 120,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:33:14.000Z",
+   "raw_start": 3802.04,
+   "raw_end": 3803.64,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 121,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:33:19.000Z",
+   "raw_start": 3803.94,
+   "raw_end": 3865.66,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 61.72
+  },
+  {
+   "i": 122,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:34:18.000Z",
+   "raw_start": 3865.96,
+   "raw_end": 3867.94,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 123,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:34:22.000Z",
+   "raw_start": 3868.24,
+   "raw_end": 3891.33,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 23.09
+  },
+  {
+   "i": 124,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:34:43.000Z",
+   "raw_start": 3891.63,
+   "raw_end": 4066.34,
+   "method": "asr-match",
+   "score": 92.6
+  },
+  {
+   "i": 125,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:35:17.000Z",
+   "raw_start": 4066.47,
+   "raw_end": 4066.47,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 0.0
+  },
+  {
+   "i": 126,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:37:38.000Z",
+   "raw_start": 4066.6,
+   "raw_end": 4156.24,
+   "method": "asr-match",
+   "score": 90.6
+  },
+  {
+   "i": 127,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:37:55.000Z",
+   "raw_start": 4156.24,
+   "raw_end": 4156.24,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 0.0
+  },
+  {
+   "i": 128,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:39:08.000Z",
+   "raw_start": 4156.24,
+   "raw_end": 4187.24,
+   "method": "asr-match",
+   "score": 88.9
+  },
+  {
+   "i": 129,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:39:14.000Z",
+   "raw_start": 4187.24,
+   "raw_end": 4187.24,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 0.0
+  },
+  {
+   "i": 130,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:39:39.000Z",
+   "raw_start": 4187.24,
+   "raw_end": 4194.44,
+   "method": "asr-match",
+   "score": 97.5
+  },
+  {
+   "i": 131,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:39:53.000Z",
+   "raw_start": 4194.74,
+   "raw_end": 4305.48,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 110.74
+  },
+  {
+   "i": 132,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:41:38.000Z",
+   "raw_start": 4305.78,
+   "raw_end": 4307.06,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 133,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:41:58.000Z",
+   "raw_start": 4307.36,
+   "raw_end": 4425.67,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 118.31
+  },
+  {
+   "i": 134,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:43:38.000Z",
+   "raw_start": 4425.97,
+   "raw_end": 4428.03,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 135,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:43:52.000Z",
+   "raw_start": 4428.33,
+   "raw_end": 4499.65,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 71.32
+  },
+  {
+   "i": 136,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:44:52.000Z",
+   "raw_start": 4499.95,
+   "raw_end": 4502.99,
+   "method": "asr-match",
+   "score": 97.6
+  },
+  {
+   "i": 137,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:45:12.000Z",
+   "raw_start": 4503.29,
+   "raw_end": 4625.58,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 122.29
+  },
+  {
+   "i": 138,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:46:58.000Z",
+   "raw_start": 4625.88,
+   "raw_end": 4638.34,
+   "method": "asr-match",
+   "score": 99.1
+  },
+  {
+   "i": 139,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:47:16.000Z",
+   "raw_start": 4638.64,
+   "raw_end": 4741.57,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 102.93
+  },
+  {
+   "i": 140,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:48:54.000Z",
+   "raw_start": 4741.87,
+   "raw_end": 4744.15,
+   "method": "asr-match",
+   "score": 94.4
+  },
+  {
+   "i": 141,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:48:57.000Z",
+   "raw_start": 4744.45,
+   "raw_end": 4761.5,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 17.05
+  },
+  {
+   "i": 142,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:49:14.000Z",
+   "raw_start": 4761.8,
+   "raw_end": 4765.7,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 143,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:49:20.000Z",
+   "raw_start": 4766.0,
+   "raw_end": 4803.58,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 37.58
+  },
+  {
+   "i": 144,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:49:56.000Z",
+   "raw_start": 4803.88,
+   "raw_end": 4811.4,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 145,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:49:59.000Z",
+   "raw_start": 4811.7,
+   "raw_end": 4831.4,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 19.7
+  },
+  {
+   "i": 146,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:50:24.000Z",
+   "raw_start": 4831.7,
+   "raw_end": 4834.96,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 147,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:50:37.000Z",
+   "raw_start": 4835.26,
+   "raw_end": 4902.43,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 67.17
+  },
+  {
+   "i": 148,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:51:35.000Z",
+   "raw_start": 4902.73,
+   "raw_end": 4905.11,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 149,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:51:40.000Z",
+   "raw_start": 4905.41,
+   "raw_end": 4937.52,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 32.11
+  },
+  {
+   "i": 150,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:52:10.000Z",
+   "raw_start": 4937.82,
+   "raw_end": 4939.9,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 151,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:52:19.000Z",
+   "raw_start": 4940.2,
+   "raw_end": 5010.86,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 70.66
+  },
+  {
+   "i": 152,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:53:23.000Z",
+   "raw_start": 5011.16,
+   "raw_end": 5013.2,
+   "method": "asr-match",
+   "score": 97.8
+  },
+  {
+   "i": 153,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:53:26.000Z",
+   "raw_start": 5013.5,
+   "raw_end": 5054.85,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 41.35
+  },
+  {
+   "i": 154,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:54:07.000Z",
+   "raw_start": 5055.15,
+   "raw_end": 5066.05,
+   "method": "asr-match",
+   "score": 97.7
+  },
+  {
+   "i": 155,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:54:16.000Z",
+   "raw_start": 5066.35,
+   "raw_end": 5117.5,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 51.15
+  },
+  {
+   "i": 156,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:55:10.000Z",
+   "raw_start": 5117.8,
+   "raw_end": 5119.52,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 157,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:55:15.000Z",
+   "raw_start": 5119.82,
+   "raw_end": 5145.69,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 25.87
+  },
+  {
+   "i": 158,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:55:38.000Z",
+   "raw_start": 5145.99,
+   "raw_end": 5149.33,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 159,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:56:14.000Z",
+   "raw_start": 5149.63,
+   "raw_end": 5362.74,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 213.11
+  },
+  {
+   "i": 160,
+   "speaker": "David",
+   "created_at": "2026-10-23T08:59:15.000Z",
+   "raw_start": 5363.04,
+   "raw_end": 5364.72,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 161,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T08:59:39.000Z",
+   "raw_start": 5365.02,
+   "raw_end": 5494.52,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 129.5
+  },
+  {
+   "i": 162,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:01:27.000Z",
+   "raw_start": 5494.82,
+   "raw_end": 5507.9,
+   "method": "asr-match",
+   "score": 97.2
+  },
+  {
+   "i": 163,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:01:40.000Z",
+   "raw_start": 5508.2,
+   "raw_end": 5580.52,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 72.32
+  },
+  {
+   "i": 164,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:02:53.000Z",
+   "raw_start": 5580.82,
+   "raw_end": 5582.68,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 165,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:03:13.000Z",
+   "raw_start": 5582.98,
+   "raw_end": 5733.58,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 150.6
+  },
+  {
+   "i": 166,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:05:26.000Z",
+   "raw_start": 5733.88,
+   "raw_end": 5756.04,
+   "method": "asr-match",
+   "score": 94.5
+  },
+  {
+   "i": 167,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:05:27.000Z",
+   "raw_start": 5756.32,
+   "raw_end": 5756.32,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 0.0
+  },
+  {
+   "i": 168,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:05:28.000Z",
+   "raw_start": 5756.6,
+   "raw_end": 5757.56,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 169,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:05:32.000Z",
+   "raw_start": 5757.86,
+   "raw_end": 5758.12,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 0.26
+  },
+  {
+   "i": 170,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:05:39.000Z",
+   "raw_start": 5758.42,
+   "raw_end": 5764.66,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 171,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:05:44.000Z",
+   "raw_start": 5764.96,
+   "raw_end": 5785.6,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 20.64
+  },
+  {
+   "i": 172,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:06:18.000Z",
+   "raw_start": 5785.9,
+   "raw_end": 5791.78,
+   "method": "asr-match",
+   "score": 96.7
+  },
+  {
+   "i": 173,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:06:23.000Z",
+   "raw_start": 5792.08,
+   "raw_end": 5891.4,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 99.32
+  },
+  {
+   "i": 174,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:08:04.000Z",
+   "raw_start": 5891.7,
+   "raw_end": 5911.88,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 175,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:08:12.000Z",
+   "raw_start": 5912.18,
+   "raw_end": 5951.59,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 39.41
+  },
+  {
+   "i": 176,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:09:04.000Z",
+   "raw_start": 5951.89,
+   "raw_end": 5953.27,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 177,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:09:10.000Z",
+   "raw_start": 5953.57,
+   "raw_end": 6026.78,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 73.21
+  },
+  {
+   "i": 178,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:10:19.000Z",
+   "raw_start": 6027.08,
+   "raw_end": 6035.92,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 179,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:10:20.000Z",
+   "raw_start": 6036.19,
+   "raw_end": 6036.19,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 0.0
+  },
+  {
+   "i": 180,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:10:24.000Z",
+   "raw_start": 6036.46,
+   "raw_end": 6038.18,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 181,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:10:24.000Z",
+   "raw_start": 6038.51,
+   "raw_end": 6038.51,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 0.0
+  },
+  {
+   "i": 182,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:10:31.000Z",
+   "raw_start": 6038.84,
+   "raw_end": 6040.68,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 183,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:10:35.000Z",
+   "raw_start": 6040.98,
+   "raw_end": 6086.66,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 45.68
+  },
+  {
+   "i": 184,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:11:19.000Z",
+   "raw_start": 6086.96,
+   "raw_end": 6096.82,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 185,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:11:27.000Z",
+   "raw_start": 6097.12,
+   "raw_end": 6168.4,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 71.28
+  },
+  {
+   "i": 186,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:12:41.000Z",
+   "raw_start": 6168.7,
+   "raw_end": 6172.56,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 187,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:12:49.000Z",
+   "raw_start": 6172.86,
+   "raw_end": 6249.48,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 76.62
+  },
+  {
+   "i": 188,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:14:02.000Z",
+   "raw_start": 6249.78,
+   "raw_end": 6262.8,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 189,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:14:08.000Z",
+   "raw_start": 6263.1,
+   "raw_end": 6288.53,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 25.43
+  },
+  {
+   "i": 190,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:14:41.000Z",
+   "raw_start": 6288.83,
+   "raw_end": 6295.93,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 191,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:14:53.000Z",
+   "raw_start": 6296.23,
+   "raw_end": 6382.54,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 86.31
+  },
+  {
+   "i": 192,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:16:15.000Z",
+   "raw_start": 6382.84,
+   "raw_end": 6394.06,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 193,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:16:15.000Z",
+   "raw_start": 6394.36,
+   "raw_end": 6426.6,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 32.24
+  },
+  {
+   "i": 194,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:16:59.000Z",
+   "raw_start": 6426.9,
+   "raw_end": 6448.32,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 195,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:17:15.000Z",
+   "raw_start": 6448.62,
+   "raw_end": 6531.64,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 83.02
+  },
+  {
+   "i": 196,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:18:44.000Z",
+   "raw_start": 6531.94,
+   "raw_end": 6548.04,
+   "method": "asr-match",
+   "score": 98.7
+  },
+  {
+   "i": 197,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:18:49.000Z",
+   "raw_start": 6548.34,
+   "raw_end": 6572.62,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 24.28
+  },
+  {
+   "i": 198,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:19:25.000Z",
+   "raw_start": 6572.92,
+   "raw_end": 6574.26,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 199,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:19:27.000Z",
+   "raw_start": 6574.56,
+   "raw_end": 6620.59,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 46.03
+  },
+  {
+   "i": 200,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:20:13.000Z",
+   "raw_start": 6620.89,
+   "raw_end": 6626.55,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 201,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:20:14.000Z",
+   "raw_start": 6626.85,
+   "raw_end": 6646.63,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 19.78
+  },
+  {
+   "i": 202,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:20:39.000Z",
+   "raw_start": 6646.93,
+   "raw_end": 6653.23,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 203,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:20:45.000Z",
+   "raw_start": 6653.53,
+   "raw_end": 6690.33,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 36.8
+  },
+  {
+   "i": 204,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:21:23.000Z",
+   "raw_start": 6690.63,
+   "raw_end": 6698.67,
+   "method": "asr-match",
+   "score": 96.1
+  },
+  {
+   "i": 205,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:21:26.000Z",
+   "raw_start": 6698.97,
+   "raw_end": 6726.61,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 27.64
+  },
+  {
+   "i": 206,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:21:59.000Z",
+   "raw_start": 6726.91,
+   "raw_end": 6741.87,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 207,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:22:05.000Z",
+   "raw_start": 6742.17,
+   "raw_end": 6762.58,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 20.41
+  },
+  {
+   "i": 208,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:22:35.000Z",
+   "raw_start": 6762.88,
+   "raw_end": 6768.88,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 209,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:22:36.000Z",
+   "raw_start": 6769.18,
+   "raw_end": 6809.66,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 40.48
+  },
+  {
+   "i": 210,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:23:22.000Z",
+   "raw_start": 6809.96,
+   "raw_end": 6827.08,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 211,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:23:27.000Z",
+   "raw_start": 6827.38,
+   "raw_end": 6862.48,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 35.1
+  },
+  {
+   "i": 212,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:24:15.000Z",
+   "raw_start": 6862.78,
+   "raw_end": 6872.34,
+   "method": "asr-match",
+   "score": 95.9
+  },
+  {
+   "i": 213,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:24:20.000Z",
+   "raw_start": 6872.64,
+   "raw_end": 6906.81,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 34.17
+  },
+  {
+   "i": 214,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:24:59.000Z",
+   "raw_start": 6907.11,
+   "raw_end": 6915.21,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 215,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:25:03.000Z",
+   "raw_start": 6915.51,
+   "raw_end": 6951.42,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 35.91
+  },
+  {
+   "i": 216,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:25:44.000Z",
+   "raw_start": 6951.72,
+   "raw_end": 6964.64,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 217,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:25:50.000Z",
+   "raw_start": 6964.94,
+   "raw_end": 7036.63,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 71.69
+  },
+  {
+   "i": 218,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:27:09.000Z",
+   "raw_start": 7036.93,
+   "raw_end": 7067.29,
+   "method": "asr-match",
+   "score": 98.8
+  },
+  {
+   "i": 219,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:27:15.000Z",
+   "raw_start": 7067.61,
+   "raw_end": 7067.61,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 0.0
+  },
+  {
+   "i": 220,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:27:39.000Z",
+   "raw_start": 7067.93,
+   "raw_end": 7070.59,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 221,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:27:45.000Z",
+   "raw_start": 7070.89,
+   "raw_end": 7107.35,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 36.46
+  },
+  {
+   "i": 222,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:28:20.000Z",
+   "raw_start": 7107.65,
+   "raw_end": 7145.34,
+   "method": "asr-match",
+   "score": 98.1
+  },
+  {
+   "i": 223,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:28:24.000Z",
+   "raw_start": 7145.35,
+   "raw_end": 7145.35,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 0.0
+  },
+  {
+   "i": 224,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:28:57.000Z",
+   "raw_start": 7145.36,
+   "raw_end": 7189.24,
+   "method": "asr-match",
+   "score": 97.1
+  },
+  {
+   "i": 225,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:29:01.000Z",
+   "raw_start": 7189.24,
+   "raw_end": 7189.24,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 0.0
+  },
+  {
+   "i": 226,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:29:41.000Z",
+   "raw_start": 7189.24,
+   "raw_end": 7204.94,
+   "method": "asr-match",
+   "score": 96.2
+  },
+  {
+   "i": 227,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:29:45.000Z",
+   "raw_start": 7205.24,
+   "raw_end": 7222.83,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 17.59
+  },
+  {
+   "i": 228,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:30:15.000Z",
+   "raw_start": 7223.13,
+   "raw_end": 7234.26,
+   "method": "asr-match",
+   "score": 91.2
+  },
+  {
+   "i": 229,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:30:19.000Z",
+   "raw_start": 7234.31,
+   "raw_end": 7234.31,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 0.0
+  },
+  {
+   "i": 230,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:30:26.000Z",
+   "raw_start": 7234.36,
+   "raw_end": 7241.62,
+   "method": "asr-match",
+   "score": 88.9
+  },
+  {
+   "i": 231,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:30:27.000Z",
+   "raw_start": 7241.69,
+   "raw_end": 7241.69,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 0.0
+  },
+  {
+   "i": 232,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:30:33.000Z",
+   "raw_start": 7241.76,
+   "raw_end": 7264.2,
+   "method": "asr-match",
+   "score": 98.1
+  },
+  {
+   "i": 233,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:30:34.000Z",
+   "raw_start": 7264.2,
+   "raw_end": 7264.2,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 0.0
+  },
+  {
+   "i": 234,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:30:56.000Z",
+   "raw_start": 7264.2,
+   "raw_end": 7308.36,
+   "method": "asr-match",
+   "score": 97.7
+  },
+  {
+   "i": 235,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:30:58.000Z",
+   "raw_start": 7308.4,
+   "raw_end": 7308.4,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 0.0
+  },
+  {
+   "i": 236,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:31:40.000Z",
+   "raw_start": 7308.44,
+   "raw_end": 7321.38,
+   "method": "asr-match",
+   "score": 95.7
+  },
+  {
+   "i": 237,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:31:45.000Z",
+   "raw_start": 7321.68,
+   "raw_end": 7355.58,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 33.9
+  },
+  {
+   "i": 238,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:32:28.000Z",
+   "raw_start": 7355.88,
+   "raw_end": 7365.68,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 239,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:32:31.000Z",
+   "raw_start": 7365.98,
+   "raw_end": 7405.69,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 39.71
+  },
+  {
+   "i": 240,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:33:18.000Z",
+   "raw_start": 7405.99,
+   "raw_end": 7447.32,
+   "method": "asr-match",
+   "score": 97.0
+  },
+  {
+   "i": 241,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:33:24.000Z",
+   "raw_start": 7447.44,
+   "raw_end": 7447.44,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 0.0
+  },
+  {
+   "i": 242,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:33:59.000Z",
+   "raw_start": 7447.56,
+   "raw_end": 7466.2,
+   "method": "asr-match",
+   "score": 95.2
+  },
+  {
+   "i": 243,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:34:01.000Z",
+   "raw_start": 7466.2,
+   "raw_end": 7466.2,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 0.0
+  },
+  {
+   "i": 244,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:34:18.000Z",
+   "raw_start": 7466.2,
+   "raw_end": 7497.18,
+   "method": "asr-match",
+   "score": 91.7
+  },
+  {
+   "i": 245,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:34:25.000Z",
+   "raw_start": 7497.18,
+   "raw_end": 7497.18,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 0.0
+  },
+  {
+   "i": 246,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:34:49.000Z",
+   "raw_start": 7497.18,
+   "raw_end": 7529.27,
+   "method": "asr-match",
+   "score": 96.5
+  },
+  {
+   "i": 247,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:34:54.000Z",
+   "raw_start": 7529.27,
+   "raw_end": 7529.27,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 0.0
+  },
+  {
+   "i": 248,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:35:21.000Z",
+   "raw_start": 7529.27,
+   "raw_end": 7580.11,
+   "method": "asr-match",
+   "score": 96.0
+  },
+  {
+   "i": 249,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:35:30.000Z",
+   "raw_start": 7580.11,
+   "raw_end": 7580.11,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 0.0
+  },
+  {
+   "i": 250,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:36:11.000Z",
+   "raw_start": 7580.11,
+   "raw_end": 7594.33,
+   "method": "asr-match",
+   "score": 84.5
+  },
+  {
+   "i": 251,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:36:14.000Z",
+   "raw_start": 7594.33,
+   "raw_end": 7594.33,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 0.0
+  },
+  {
+   "i": 252,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:36:26.000Z",
+   "raw_start": 7594.33,
+   "raw_end": 7632.36,
+   "method": "asr-match",
+   "score": 95.5
+  },
+  {
+   "i": 253,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:36:30.000Z",
+   "raw_start": 7632.36,
+   "raw_end": 7632.36,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 0.0
+  },
+  {
+   "i": 254,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:37:04.000Z",
+   "raw_start": 7632.36,
+   "raw_end": 7637.9,
+   "method": "asr-match",
+   "score": 96.4
+  },
+  {
+   "i": 255,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:37:10.000Z",
+   "raw_start": 7638.2,
+   "raw_end": 7672.61,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 34.41
+  },
+  {
+   "i": 256,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:37:45.000Z",
+   "raw_start": 7672.91,
+   "raw_end": 7676.05,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 257,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:37:48.000Z",
+   "raw_start": 7676.35,
+   "raw_end": 7727.42,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 51.07
+  },
+  {
+   "i": 258,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:38:40.000Z",
+   "raw_start": 7727.72,
+   "raw_end": 7744.36,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 259,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:38:48.000Z",
+   "raw_start": 7744.66,
+   "raw_end": 7782.461,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 37.801
+  },
+  {
+   "i": 260,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:39:35.000Z",
+   "raw_start": 7782.761,
+   "raw_end": 7783.261,
+   "method": "interpolated",
+   "score": null
+  },
+  {
+   "i": 261,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:39:35.000Z",
+   "raw_start": 7783.561,
+   "raw_end": 7835.5,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 51.939
+  },
+  {
+   "i": 262,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:40:28.000Z",
+   "raw_start": 7835.8,
+   "raw_end": 7845.36,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 263,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:40:30.000Z",
+   "raw_start": 7845.64,
+   "raw_end": 7845.64,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 0.0
+  },
+  {
+   "i": 264,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:40:31.000Z",
+   "raw_start": 7845.92,
+   "raw_end": 7847.3,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 265,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:40:38.000Z",
+   "raw_start": 7847.6,
+   "raw_end": 7870.628,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 23.028
+  },
+  {
+   "i": 266,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:40:59.000Z",
+   "raw_start": 7870.928,
+   "raw_end": 7871.428,
+   "method": "interpolated",
+   "score": null
+  },
+  {
+   "i": 267,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:40:59.000Z",
+   "raw_start": 7871.728,
+   "raw_end": 7878.666,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 6.938
+  },
+  {
+   "i": 268,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:41:08.000Z",
+   "raw_start": 7878.966,
+   "raw_end": 7879.466,
+   "method": "interpolated",
+   "score": null
+  },
+  {
+   "i": 269,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:41:08.000Z",
+   "raw_start": 7879.766,
+   "raw_end": 7905.46,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 25.694
+  },
+  {
+   "i": 270,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:41:38.000Z",
+   "raw_start": 7905.76,
+   "raw_end": 7919.0,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 271,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:41:48.000Z",
+   "raw_start": 7919.3,
+   "raw_end": 7929.59,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 10.29
+  },
+  {
+   "i": 272,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:42:02.000Z",
+   "raw_start": 7929.89,
+   "raw_end": 7975.22,
+   "method": "asr-match",
+   "score": 97.8
+  },
+  {
+   "i": 273,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:42:06.000Z",
+   "raw_start": 7975.22,
+   "raw_end": 7975.22,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 0.0
+  },
+  {
+   "i": 274,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:42:47.000Z",
+   "raw_start": 7975.22,
+   "raw_end": 7985.28,
+   "method": "asr-match",
+   "score": 98.8
+  },
+  {
+   "i": 275,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:42:53.000Z",
+   "raw_start": 7985.58,
+   "raw_end": 8024.75,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 39.17
+  },
+  {
+   "i": 276,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:43:37.000Z",
+   "raw_start": 8025.05,
+   "raw_end": 8039.21,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 277,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:43:40.000Z",
+   "raw_start": 8039.51,
+   "raw_end": 8047.71,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 8.2
+  },
+  {
+   "i": 278,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:44:00.000Z",
+   "raw_start": 8048.01,
+   "raw_end": 8049.37,
+   "method": "asr-match",
+   "score": 94.7
+  },
+  {
+   "i": 279,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:44:05.000Z",
+   "raw_start": 8049.67,
+   "raw_end": 8069.682,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 20.012
+  },
+  {
+   "i": 280,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:44:22.000Z",
+   "raw_start": 8069.982,
+   "raw_end": 8070.482,
+   "method": "interpolated",
+   "score": null
+  },
+  {
+   "i": 281,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:44:22.000Z",
+   "raw_start": 8070.782,
+   "raw_end": 8094.65,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 23.868
+  },
+  {
+   "i": 282,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:44:47.000Z",
+   "raw_start": 8094.95,
+   "raw_end": 8097.41,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 283,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:44:50.000Z",
+   "raw_start": 8097.71,
+   "raw_end": 8117.46,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 19.75
+  },
+  {
+   "i": 284,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:45:10.000Z",
+   "raw_start": 8117.76,
+   "raw_end": 8122.36,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 285,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:45:39.000Z",
+   "raw_start": 8122.66,
+   "raw_end": 8148.44,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 25.78
+  },
+  {
+   "i": 286,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:45:41.000Z",
+   "raw_start": 8148.74,
+   "raw_end": 8150.0,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 287,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:45:44.000Z",
+   "raw_start": 8150.3,
+   "raw_end": 8165.6,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 15.3
+  },
+  {
+   "i": 288,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:45:58.000Z",
+   "raw_start": 8165.9,
+   "raw_end": 8168.82,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 289,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:45:59.000Z",
+   "raw_start": 8169.12,
+   "raw_end": 8211.574,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 42.454
+  },
+  {
+   "i": 290,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:46:44.000Z",
+   "raw_start": 8211.874,
+   "raw_end": 8212.374,
+   "method": "interpolated",
+   "score": null
+  },
+  {
+   "i": 291,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:46:44.000Z",
+   "raw_start": 8212.674,
+   "raw_end": 8235.56,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 22.886
+  },
+  {
+   "i": 292,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:47:08.000Z",
+   "raw_start": 8235.86,
+   "raw_end": 8240.6,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 293,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:47:16.000Z",
+   "raw_start": 8240.9,
+   "raw_end": 8280.48,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 39.58
+  },
+  {
+   "i": 294,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:47:53.000Z",
+   "raw_start": 8280.78,
+   "raw_end": 8283.98,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 295,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:48:49.000Z",
+   "raw_start": 8284.28,
+   "raw_end": 8337.614,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 53.334
+  },
+  {
+   "i": 296,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:48:50.000Z",
+   "raw_start": 8337.914,
+   "raw_end": 8339.068,
+   "method": "interpolated",
+   "score": null
+  },
+  {
+   "i": 297,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:48:52.000Z",
+   "raw_start": 8339.368,
+   "raw_end": 8348.64,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 9.272
+  },
+  {
+   "i": 298,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:49:01.000Z",
+   "raw_start": 8348.94,
+   "raw_end": 8350.28,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 299,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:49:03.000Z",
+   "raw_start": 8350.58,
+   "raw_end": 8359.64,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 9.06
+  },
+  {
+   "i": 300,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:49:12.000Z",
+   "raw_start": 8359.94,
+   "raw_end": 8360.44,
+   "method": "interpolated",
+   "score": null
+  },
+  {
+   "i": 301,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:49:12.000Z",
+   "raw_start": 8360.74,
+   "raw_end": 8369.64,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 8.9
+  },
+  {
+   "i": 302,
+   "speaker": "David",
+   "created_at": "2026-10-23T09:49:22.000Z",
+   "raw_start": 8369.94,
+   "raw_end": 8370.44,
+   "method": "interpolated",
+   "score": null
+  },
+  {
+   "i": 303,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T09:49:22.000Z",
+   "raw_start": 8370.74,
+   "raw_end": 8399.586,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 28.846
+  }
+ ],
+ "transcript": "episodes/2026-10-23_e2e-test.md",
+ "transcript_sha256": "cea12ececc926d93eb2a0a309254a1ebbe6bbf6b09c047f22492122b74eebae4",
+ "asr_model": "faster-whisper small int8",
+ "asr_words": 3188,
+ "recording_started_at": null,
+ "creationdate_prior_offset": null,
+ "raw_audio_sha256": null
+}
