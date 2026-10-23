@@ -118,11 +118,20 @@ def sign(name, actions, *, share_sheet, icon_color, glyph):
               "bytes", os.path.getsize(out) if os.path.exists(out) else 0)
 
 
+def voicememos(intent, params=None):
+    """A Voice Memos App Intent action (identifiers from VoiceMemos.app Metadata.appintents/extract.actionsdata)."""
+    p = {"AppIntentDescriptor": {"AppIntentIdentifier": intent, "BundleIdentifier": "com.apple.VoiceMemos",
+                                 "Name": "Voice Memos", "TeamIdentifier": "0000000000"}}
+    p.update(params or {})
+    return act(f"com.apple.VoiceMemos.{intent}", p, U())
+
+
 # ---------------- Eve Start ----------------
 s = Flow()
-s.comment("Ask Eve: start a capture. Start Screen Recording (Microphone on) FIRST, then run this. "
-          "It turns on Do Not Disturb (a call would stop the recording), marks a capture as running, and opens Grok.")
+s.comment("Ask Eve: start a capture. Starts a Voice Memos recording (your mic; Eve is re-voiced from the transcript), "
+          "turns on Do Not Disturb (a call would stop the recording), marks a capture as running, and opens Grok.")
 s.a.append(focus(True))
+s.a.append(voicememos("RecordVoiceMemoIntent", {"name": "Ask Eve"}))
 now, stamp, txt = U(), U(), U()
 s.add("date", {"WFDateActionMode": "Current Date"}, now)
 s.add("format.date", {"WFDateFormatStyle": "ISO 8601", "WFISO8601IncludeTime": True, "WFDate": text(out_ref(now, "Date"))}, stamp)
@@ -133,7 +142,7 @@ s.add("openapp", {"WFAppIdentifier": "ai.x.GrokApp", "WFSelectedApp": {"BundleId
 
 # ---------------- Eve Done ----------------
 d = Flow()
-d.comment("Ask Eve: end a capture. Takes the newest screen recording (or whatever you share to it), keeps only the audio, "
+d.comment("Ask Eve: end a capture. Run it with nothing shared: stops the Voice Memos recording and opens Voice Memos. Share the memo to it, keeps only the audio, "
           "uploads it to the Ask Eve pipeline with the Grok share link from the clipboard, and turns Do Not Disturb off. "
           "The pipeline copies everything to Google Drive and emails you when the episode is ready.")
 tok = d.get_file("Ask Eve/upload_token.txt", True)
@@ -148,21 +157,12 @@ g_act = d.if_(out_ref(active, "File"), 101)
 d.notify("Ask Eve", "No capture is running. Start one with Eve Start, or share a recording to Eve Done.")
 d.add("exit")
 d.end(g_act)
-found = U()
-d.add("filter.photos", {
-    "WFContentItemFilter": {"Value": {"WFActionParameterFilterPrefix": 1, "WFContentPredicateBoundedDate": False,
-                                      "WFActionParameterFilterTemplates": [
-                                          {"Operator": 4, "Property": "Is a Screen Recording", "Removable": True, "Values": {"Bool": True}},
-                                          {"Operator": 2, "Property": "Creation Date", "Removable": True,   # is after the Eve Start time
-                                           "Values": {"Date": attach(out_ref(active, "File", "WFDateContentItem"))}}]},
-                            "WFSerializationType": "WFContentPredicateTableTemplate"},
-    "WFContentItemSortProperty": "Creation Date", "WFContentItemSortOrder": "Latest First",
-    "WFContentItemLimitEnabled": True, "WFContentItemLimitNumber": 1.0}, found)
-g_f = d.if_(out_ref(found, "Photos"), 101)
-d.notify("Ask Eve", "No finished screen recording since Eve Start yet, so nothing was uploaded and the capture is still open. Stop the screen recording (red pill → Stop), then leave Grok or run Eve Done.")
+# Voice Memos exposes no "get the audio file" action, so: stop the memo, open Voice Memos, and ask for one share.
+d.a.append(voicememos("StopRecording"))
+d.add("openapp", {"WFAppIdentifier": "com.apple.VoiceMemos",
+                  "WFSelectedApp": {"BundleIdentifier": "com.apple.VoiceMemos", "Name": "Voice Memos"}})
+d.notify("Ask Eve: recording stopped", "Copy the Grok share link if you haven't, then tap the newest \"Ask Eve\" memo → ⋯ → Share → Eve Done.")
 d.add("exit")
-d.end(g_f)
-d.setvar("Recording", out_ref(found, "Photos"))
 d.end(g_in)
 
 audio = U()
