@@ -35,14 +35,52 @@ Status in the table below is maintained by David's side; your log entry is the r
 ## Current instructions
 | id | status | task | depends on |
 |---|---|---|---|
-| D-001 | todo | Preflight: tools, Cloudflare auth, zone active (§1) | – |
-| D-002 | todo | R2: create `ask-eve-masters` (private) and `ask-eve-public` (audio.askevepodcast.com), CORS, r2.dev off; R2 S3 token (§2) | D-001 |
-| D-003 | todo | D1: create `ask-eve-meta`, migrate, PR the database_id + account id into `workers/upload/wrangler.toml` (§3) | D-001 |
-| D-004 | todo | Worker `ask-eve-upload`: secrets, deploy to upload.askevepodcast.com, smoke tests (§4) | D-002, D-003 (PR merged) |
-| D-005 | todo | GitHub Actions secrets + "allow Actions to create PRs" (§6) | D-002, D-003 |
-| D-006 | todo | Site on Cloudflare Pages (site.yml), D1_READ_TOKEN + CLOUDFLARE_PAGES_TOKEN secrets, DNS apex/www, HTTPS, Email Routing (§7) | D-003 |
-| D-007 | todo | End-to-end PR-only ingest test (§9) | D-004, D-005 |
-| D-008 | blocked | Publish episode 0 `2026-10-23_eve-david-podcast-planning`: **waiting for David to merge its ingest PR**; then `gh workflow run publish.yml -R daveey/ask-eve -f stem=2026-10-23_eve-david-podcast-planning` | D-006, D-007, ingest PR merged |
+| D-001 | done (deploy-log) | Preflight: tools, Cloudflare auth, zone active (§1) | – |
+| D-002 | done (deploy-log) | R2: create `ask-eve-masters` (private) and `ask-eve-public` (audio.askevepodcast.com), CORS, r2.dev off; R2 S3 token (§2) | D-001 |
+| D-003 | done (deploy-log) | D1: create `ask-eve-meta`, migrate, PR the database_id + account id into `workers/upload/wrangler.toml` (§3) | D-001 |
+| D-004 | done (deploy-log) | Worker `ask-eve-upload`: secrets, deploy to upload.askevepodcast.com, smoke tests (§4) | D-002, D-003 (PR merged) |
+| D-005 | done (deploy-log) | GitHub Actions secrets + "allow Actions to create PRs" (§6) | D-002, D-003 |
+| D-006 | done (deploy-log) | Site on Cloudflare Pages (site.yml), D1_READ_TOKEN + CLOUDFLARE_PAGES_TOKEN secrets, DNS apex/www, HTTPS, Email Routing (§7) | D-003 |
+| D-007 | done (deploy-log) | End-to-end PR-only ingest test (§9) | D-004, D-005 |
+| D-008 | superseded by D-010 | ~~Publish episode 0~~: its ingest PR merged, but the audio was redone in PR #13 (the private-URL redaction); don't run this, run D-010 | – |
+| D-010 | todo | **Stage the corrected MP3s and publish episodes 0 and 1** (details below the table). Both ingest PRs are merged (#4, #5) and so is the cleanup PR #13. TTS is real for both (`placeholder_audio: false`). publish.yml run 39999620775 (ep 0) failed with `sha256sum: ep.mp3: FAILED`, because the object in `staging/` is an old render. Run 39999631791 (ep 1) failed with `404 … staging/2026-10-23_the-making-of-eve/2026-10-23_the-making-of-eve.v1.mp3 does not exist`. These MP3s were rendered outside Actions, so nothing staged them. | D-006, PR #13 merged |
+
+**D-010 steps.** This task names the objects you write, which are the two staging keys below. Overwriting the old ep-0 staging object is allowed.
+Nothing else is created or deleted.
+1. Download the 3 files from David's Google Drive folder `Ask Eve/_publish-handoff-2026-10-23`
+   (https://drive.google.com/drive/folders/***REDACTED***):
+   - `2026-10-23_eve-david-podcast-planning.v1.mp3.part00`: file id ***REDACTED***, 70,000,000 bytes
+   - `2026-10-23_eve-david-podcast-planning.v1.mp3.part01`: file id ***REDACTED***, 67,334,508 bytes
+   - `2026-10-23_the-making-of-eve.v1.mp3`: file id ***REDACTED***, 39,762,998 bytes
+
+   Episode 0 is split only because of an upload size limit; the parts are plain byte ranges. If you can't read the folder (for example, your Drive
+   token only has the `drive.file` scope), mark D-010 `blocked: can't read the Drive handoff` and stop.
+2. Rebuild episode 0 and verify both files against the manifests on main:
+   ```
+   cat 2026-10-23_eve-david-podcast-planning.v1.mp3.part00 2026-10-23_eve-david-podcast-planning.v1.mp3.part01 > 2026-10-23_eve-david-podcast-planning.v1.mp3
+   printf '%s  %s\n' 6cf5a294685aad400ae46bfde38622894b77ceb3b37ef2e5c37a84d0ea8ddbd1 2026-10-23_eve-david-podcast-planning.v1.mp3 \
+                     4ace00410909d151b4615ae0eef7195f2f301eb18c7e67a9240379d76c218a83 2026-10-23_the-making-of-eve.v1.mp3 | sha256sum -c -
+   ```
+   Expect: both `OK`. The values equal `audio_sha256` in `artifacts/<stem>/manifest.json`; if either fails, stop and report.
+3. Stage each file in `ask-eve-masters` (private) at `staging/<stem>/<stem>.v1.mp3`:
+   ```
+   for s in 2026-10-23_eve-david-podcast-planning 2026-10-23_the-making-of-eve; do
+     npx wrangler@4 r2 object put "ask-eve-masters/staging/$s/$s.v1.mp3" --file "$s.v1.mp3" --content-type audio/mpeg --remote
+   done
+   ```
+   The same S3 copy with the R2 key pair is fine too.
+4. Publish, one at a time, and wait for each run to succeed. ep 0 is episode_number 0 and ep 1 is episode_number 1; the D1 SQL already carries them.
+   ```
+   gh workflow run publish.yml -R daveey/ask-eve --ref main -f stem=2026-10-23_eve-david-podcast-planning
+   gh workflow run publish.yml -R daveey/ask-eve --ref main -f stem=2026-10-23_the-making-of-eve
+   ```
+5. Expect:
+   - Both runs succeed, and the site.yml runs they dispatch succeed.
+   - `curl -sI` of https://audio.askevepodcast.com/audio/en/2026-10-23_eve-david-podcast-planning.v1.mp3 gives `200`, `audio/mpeg`,
+     `content-length: 137334508`.
+   - `curl -sI` of …/audio/en/2026-10-23_the-making-of-eve.v1.mp3 gives `200`, `audio/mpeg`, `content-length: 39762998`.
+   - `curl -s https://askevepodcast.com/feed.xml | grep -c '<item>'` gives `2`.
+6. Report back with the run URLs, the curl output and the feed count. After both runs succeed, the Drive handoff folder can be left for David to trash.
 
 Per task, the exact commands, the success checks ("Expect:") and the rollback are in the matching Reference section. Report-back details
 per task (in addition to the general format):
