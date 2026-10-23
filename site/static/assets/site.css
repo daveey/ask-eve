@@ -77,7 +77,23 @@ mark{background:linear-gradient(transparent 45%,rgba(255,106,61,.32) 45%);color:
 .theme-btn{display:inline-flex;align-items:center;gap:.35rem;border:1px solid var(--line2);background:transparent;border-radius:999px;height:2.25rem;padding:0 .6rem;color:var(--muted);font-size:.8rem;font-weight:600}
 .theme-btn:hover{color:var(--text)}
 .theme-btn .ico{width:1.1rem;height:1.1rem}
-@media (max-width:420px){.theme-btn__label{display:none}.theme-btn{width:2.25rem;justify-content:center;padding:0}.site-nav a{padding:.45rem .45rem;font-size:.9rem}.brand span{font-size:1.1rem}}
+@media (max-width:420px){.theme-btn__label{display:none}.theme-btn{width:2.25rem;justify-content:center;padding:0}.brand span{font-size:1.1rem}}
+/* header subscribe icons (every page) + compact menu below 760px */
+.head-subs{display:flex;align-items:center;gap:.1rem}
+.hsub{display:inline-flex;align-items:center;justify-content:center;width:2.75rem;height:2.75rem;border-radius:999px;color:var(--muted)}
+.hsub:hover,.hsub:focus-visible{background:var(--surface2);color:var(--text)}
+.hsub .ico{width:1.2rem;height:1.2rem}
+.hsub--rss:hover .ico{color:#f26522}.hsub--spotify:hover .ico{color:#1db954}.hsub--apple:hover .ico{color:#9b3fe0}
+.menu{position:relative;display:none}
+.menu__btn{list-style:none;display:inline-flex;align-items:center;justify-content:center;width:2.75rem;height:2.75rem;border-radius:999px;border:1px solid var(--line2);color:var(--text);cursor:pointer}
+.menu__btn::-webkit-details-marker{display:none}
+.menu__btn .ico{width:1.25rem;height:1.25rem}
+.menu[open] .menu__btn{background:var(--surface2)}
+.menu__panel{position:absolute;right:0;top:calc(100% + .5rem);min-width:12rem;display:grid;padding:.4rem;border-radius:16px;border:1px solid var(--line2);background:var(--surface);box-shadow:var(--shadow);z-index:60}
+.menu__panel a{display:flex;align-items:center;min-height:2.75rem;padding:0 .9rem;border-radius:12px;text-decoration:none;font-weight:600;color:var(--text)}
+.menu__panel a[aria-current]{background:var(--surface2)}
+@media (max-width:759px){.site-nav{display:none}.menu{display:block}.brand{margin-right:auto}.theme-btn{width:2.75rem;height:2.75rem;justify-content:center;padding:0}.theme-btn__label{display:none}}
+@media (max-width:400px){.hsub--extra{display:none}.head-subs{gap:0}}
 
 /* buttons */
 .btn{display:inline-flex;align-items:center;gap:.55rem;min-height:3rem;padding:0 1.25rem;border-radius:999px;font-weight:650;font-size:1rem;text-decoration:none;border:1px solid transparent;transition:transform .15s ease,box-shadow .2s ease,background .2s}
@@ -344,7 +360,7 @@ body.has-player-idle.is-playing{padding-bottom:calc(8.2rem + env(safe-area-inset
 .cover--card .wm,.cover--thumb .wm,.player__mark .wm{display:none}
 .ep-side,.transcript,.turn,.turn__body{min-width:0}
 .brand{white-space:nowrap}
-@media (max-width:480px){.site-head__in{gap:.4rem}.site-nav a{padding:.4rem .5rem;font-size:.9rem}.brand{font-size:1.12rem;gap:.45rem}.mark{width:1.8rem;height:1.8rem}}
+@media (max-width:480px){.site-head__in{gap:.3rem}.brand{font-size:1.12rem;gap:.45rem}.mark{width:1.8rem;height:1.8rem}}
 @media (max-width:350px){.brand span{display:none}}
 @media (min-width:700px){.turn--david{margin-right:3rem}.turn--eve{margin-left:3rem}}
 .turn--david .turn__body{color:color-mix(in srgb,var(--text) 92%,var(--david))}
@@ -382,3 +398,41 @@ body.has-player-idle.is-playing{padding-bottom:calc(8.2rem + env(safe-area-inset
 .bonus-row a:hover{background:var(--surface2)}
 .bonus-row__title{font-weight:650}
 .bonus-row__meta{color:var(--muted);font-size:.85rem;margin-left:auto}
+
+/* ---- mobile quality pass ---- */
+/* readable body text: 16px floor for paragraphs people actually read */
+.card__blurb,.pm__sum,.disclosure__body p,.notes p,.turn__meta p{font-size:1rem}
+input,select,textarea{font-size:16px}               /* no iOS focus zoom */
+code{overflow-wrap:anywhere;word-break:break-word}
+.chap__title{min-width:0;overflow-wrap:anywhere}
+/* 44px tap targets on touch screens. Small-looking controls get an invisible hit area instead of a bigger look. */
+@media (pointer:coarse){
+  .chip,.turn__time,.pm__listen,.brand,.pbtn--speed,.site-foot nav a,.side-links a,.card__title a,.chap{position:relative}
+  .chip::before,.turn__time::before,.pm__listen::before,.pbtn--speed::before,.site-foot nav a::before,.side-links a::before{content:"";position:absolute;left:50%;top:50%;width:max(100%,44px);height:max(100%,44px);transform:translate(-50%,-50%)}
+  .chips{gap:.55rem .45rem}
+  .chap{min-height:2.75rem;align-items:center}
+  .brand{min-height:2.75rem}
+  .site-foot nav{gap:.35rem 1.3rem}
+  .site-foot nav a,.side-links a{display:inline-flex;align-items:center;min-height:2.75rem}
+  .side-links{gap:0}
+  details.side-box>summary,.notes summary,.turn__meta summary{min-height:2.75rem;display:flex;align-items:center}
+  .range{height:2.75rem}
+  .theme-btn{min-width:2.75rem;height:2.75rem}
+  .site-nav a{display:inline-flex;align-items:center;min-height:2.75rem}
+  .player__info{min-height:2.75rem}
+}
+/* home hero on phones: smaller art beside the eyebrow-free layout, blurb clamped (the full context is on the episode page) */
+@media (max-width:819px){
+  .hero__in{gap:1.1rem;padding-block:1.25rem 2rem}
+  .hero__art{max-width:8.5rem}
+  .hero__blurb{display:-webkit-box;-webkit-line-clamp:6;-webkit-box-orient:vertical;overflow:hidden}
+}
+@media (max-height:500px) and (orientation:landscape){
+  .hero__in{grid-template-columns:1fr;padding-block:1.25rem 1.75rem}
+  .hero__art{display:none}
+  .hero__blurb{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+}
+/* landscape phones: the sticky header and player eat vertical space; slim both */
+@media (max-height:480px) and (orientation:landscape){
+  :root{--head-h:3.4rem}
+}

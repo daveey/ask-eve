@@ -271,3 +271,33 @@ def test_front_matter_episode_type():
     assert episode_number({"episode": "2"}) == 2 and episode_number({"episode": "2", "episode_type": "bonus"}) is None
     with pytest.raises(ValueError):
         episode_type({"episode_type": "special"})
+
+
+def test_header_subscribe_icons_on_every_page(site):
+    pages = ["index.html", "about/index.html", "people/index.html", "people/david-sacks/index.html",
+             f"episodes/{EP0}/index.html", f"episodes/{EP1}/index.html", "404.html"]
+    for rel in pages:
+        h = read(site, rel)
+        head = h[h.index('<header class="site-head">'):h.index("</header>")]
+        assert ('<a class="hsub hsub--rss" href="https://askevepodcast.com/feed.xml" aria-label="Subscribe with RSS" '
+                'title="Subscribe with RSS">') in head, rel
+        assert ('<a class="hsub hsub--apple" href="podcast://askevepodcast.com/feed.xml" '
+                'aria-label="Subscribe on Apple Podcasts" title="Subscribe on Apple Podcasts" rel=noopener>') in head, rel
+        assert "spotify" not in head.lower(), rel                 # hidden until site.json has a URL
+        assert '<details class="menu" data-menu>' in head and 'aria-label="Menu"' in head
+        assert head.count('href="/people/"') == 2                  # inline nav + compact menu
+    home = read(site, "index.html")
+    subs = home[home.index('<div class="subs"'):]
+    assert 'href="podcast://askevepodcast.com/feed.xml"' in subs.split("</div>")[0]   # home subscribe area matches
+
+
+def test_head_subscribe_spotify_when_configured():
+    import build_site as B
+    h = B.head_subscribe({"subscribe": {"spotify": "https://open.spotify.com/show/x", "apple_podcasts": ""}})
+    assert 'aria-label="Follow on Spotify"' in h and "hsub--apple" not in h and "hsub--rss" in h
+    assert [x for x, _ in B.nav_items()] == ["/", "/people/", "/about/"]
+    B.SHOW_EVE_NAV = True
+    try:
+        assert [x for x, _ in B.nav_items()] == ["/", "/people/", "/eve/", "/about/"]
+    finally:
+        B.SHOW_EVE_NAV = False
