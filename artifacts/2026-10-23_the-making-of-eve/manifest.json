@@ -1,0 +1,157 @@
+{
+ "stem": "2026-10-23_the-making-of-eve",
+ "version": 1,
+ "audio_key": "audio/en/2026-10-23_the-making-of-eve.v1.mp3",
+ "audio_url": "https://audio.askevepodcast.com/audio/en/2026-10-23_the-making-of-eve.v1.mp3",
+ "audio_bytes": 44137688,
+ "audio_sha256": "7dfe2c48ebbe1db17f478f00aff730f0c427a3dda4716591022a82af3a7c578a",
+ "audio_mime": "audio/mpeg",
+ "duration_seconds": 2758,
+ "loudness_lufs": -16.9,
+ "true_peak_dbfs": -4.4,
+ "id3_chapters": 30,
+ "chapters": [
+  {
+   "startTime": 0.0,
+   "title": "AI-reconstructed audio notice"
+  },
+  {
+   "startTime": 27.36,
+   "title": "09:34 David (AI-reconstructed, narrator voice): Set up your workspace directory structure for"
+  },
+  {
+   "startTime": 274.25,
+   "title": "09:36 David (AI-reconstructed, narrator voice): Architecture refinement for the memory/search system. Three"
+  },
+  {
+   "startTime": 463.17,
+   "title": "09:40 David (AI-reconstructed, narrator voice): Patch and publish. Three fixes from your"
+  },
+  {
+   "startTime": 565.74,
+   "title": "09:44 David (AI-reconstructed, narrator voice): Cutover task. This conversation between David and"
+  },
+  {
+   "startTime": 830.5,
+   "title": "09:49 David (AI-reconstructed, narrator voice): Check the ask-eve-memory repo on GitHub. Run"
+  },
+  {
+   "startTime": 921.23,
+   "title": "09:51 David (AI-reconstructed, narrator voice): https://grok.com/share/c2hhcmQtMg***REDACTED***"
+  },
+  {
+   "startTime": 946.14,
+   "title": "09:51 David (AI-reconstructed, narrator voice): A URL for the first podcast transcript"
+  },
+  {
+   "startTime": 1101.83,
+   "title": "09:53 David (AI-reconstructed, narrator voice): Design the audio pipeline for the \"Ask"
+  },
+  {
+   "startTime": 1400.19,
+   "title": "10:08 David (AI-reconstructed, narrator voice): Update the Ask Eve podcast audio pipeline"
+  },
+  {
+   "startTime": 1496.04,
+   "title": "10:10 David (AI-reconstructed, narrator voice): Revise the Ask Eve podcast audio pipeline"
+  },
+  {
+   "startTime": 1804.96,
+   "title": "10:34 David (AI-reconstructed, narrator voice): Two jobs, in order. 1 Update docs/audio-pipeline.md"
+  },
+  {
+   "startTime": 1921.93,
+   "title": "10:36 David (AI-reconstructed, narrator voice): Update the Ask Eve podcast pipeline build"
+  },
+  {
+   "startTime": 1977.78,
+   "title": "10:37 David (his recorded voice): askevepodcast.com"
+  },
+  {
+   "startTime": 2029.68,
+   "title": "10:43 David (AI-reconstructed, narrator voice): Update the Ask Eve podcast pipeline build"
+  },
+  {
+   "startTime": 2102.17,
+   "title": "10:43 David (AI-reconstructed, narrator voice): David is going to sleep and wants"
+  },
+  {
+   "startTime": 2277.7,
+   "title": "10:45 David (AI-reconstructed, narrator voice): David wants to publish tonight and has"
+  },
+  {
+   "startTime": 2476.59,
+   "title": "10:47 David (AI-reconstructed, narrator voice): REDACTED xAI API key"
+  },
+  {
+   "startTime": 2516.44,
+   "title": "10:48 David (AI-reconstructed, narrator voice): David is asking whether the deploy guide"
+  },
+  {
+   "startTime": 2617.09,
+   "title": "10:49 David (AI-reconstructed, narrator voice): How do I give you recording?"
+  },
+  {
+   "startTime": 2619.28,
+   "title": "Transcript gap 10:49: Eve's reply not recovered (not voiced)"
+  },
+  {
+   "startTime": 2619.281,
+   "title": "10:52 David (AI-reconstructed, narrator voice): How do I share the transcript"
+  },
+  {
+   "startTime": 2621.79,
+   "title": "Transcript gap 10:52: Eve's reply not recovered (not voiced)"
+  },
+  {
+   "startTime": 2621.791,
+   "title": "10:55 David (AI-reconstructed, narrator voice): I put audio on gdrive in AskEve"
+  },
+  {
+   "startTime": 2625.26,
+   "title": "Transcript gap 10:55: Eve's reply not recovered (not voiced)"
+  },
+  {
+   "startTime": 2625.261,
+   "title": "10:56 David (AI-reconstructed, narrator voice): Where do I get it? Can\u2019t you"
+  },
+  {
+   "startTime": 2657.16,
+   "title": "10:58 David (AI-reconstructed, narrator voice): Hello?"
+  },
+  {
+   "startTime": 2676.9,
+   "title": "10:58 David (AI-reconstructed, narrator voice): But I\u2019m talking to a grokbot now"
+  },
+  {
+   "startTime": 2734.35,
+   "title": "10:59 David (AI-reconstructed, narrator voice): Start from the beginning, when I first"
+  },
+  {
+   "startTime": 2754.73,
+   "title": "11:00 David (AI-reconstructed, narrator voice): Which you will fill in with narrator"
+  }
+ ],
+ "recording_method": "mic-plus-tts",
+ "ai_reconstructed": true,
+ "mode": "hybrid",
+ "coverage": {
+  "david_lines": 26,
+  "david_real": 1,
+  "david_narrator": 25,
+  "david_real_share": 0.0385,
+  "david_real_seconds": 3.4,
+  "david_narrator_seconds": 1038.79,
+  "eve_seconds": 1661.64,
+  "gap_turns": [
+   58,
+   60,
+   62
+  ]
+ },
+ "placeholder_audio": false,
+ "tts": "xai_tts voice=eve",
+ "narrator": "xai_tts voice=rex",
+ "missing_turns": [],
+ "transcript_sha256": "fd831c95028a21f791475887fd30296fc9332beb2fdb1755c0185cacc7a95f72"
+}
