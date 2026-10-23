@@ -31,6 +31,16 @@ def episode_type(fm: dict) -> str:
     return t
 
 
+def season(fm: dict) -> int:
+    """Front-matter `season: N` (positive integer), default 1. Every feed item carries <itunes:season>."""
+    v = str(fm.get("season", "") or "").strip()
+    if not v:
+        return 1
+    if not v.isdigit() or int(v) < 1:
+        raise ValueError(f"season must be a positive integer, not {v!r}")
+    return int(v)
+
+
 def episode_number(fm: dict) -> int | None:
     """Front-matter `episode: N` for full episodes; bonus episodes have none."""
     if episode_type(fm) == "bonus":
