@@ -508,3 +508,21 @@ a.xl[aria-expanded=true]{background:color-mix(in srgb,var(--eve) 12%,transparent
 .mem__meta{margin:0;color:var(--muted);font-size:.9rem}
 .mem__b{margin:.2rem 0 .3rem}
 .mem .chips{margin-top:auto}
+
+/* About: "How it works" pipeline diagram (plain HTML) */
+.flow{margin:1.25rem 0 2rem}
+.flow__stages{list-style:none;margin:0;padding:0;display:grid;gap:1.6rem}
+.flow__stage{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1rem 1.1rem}
+.flow__stage:not(:last-child)::after{content:"↓";position:absolute;left:50%;bottom:-1.45rem;transform:translateX(-50%);color:var(--muted);font-size:1.2rem;line-height:1}
+.flow__h{display:flex;align-items:center;gap:.55rem;margin:0 0 .6rem;font-size:1.1rem}
+.flow__n{display:inline-grid;place-items:center;width:1.7rem;height:1.7rem;border-radius:50%;background:var(--surface2);border:1px solid var(--line);font-size:.85rem;font-weight:700}
+.flow__steps{list-style:none;margin:0;padding:0;display:grid;gap:.55rem}
+.flow__steps li{padding-left:.8rem;border-left:2px solid var(--line);margin:0}
+.flow__steps strong{display:block}
+.flow figcaption{margin-top:1rem}
+.flow__stage{overflow-wrap:anywhere}
+@media (min-width:760px){
+  .flow__stages{grid-template-columns:repeat(2,minmax(0,1fr));gap:1.6rem 2rem}
+  .flow__stage:nth-child(odd)::after{content:"→";left:auto;right:-1.45rem;top:1.25rem;bottom:auto;transform:none}
+  .flow__stage:nth-child(even)::after{content:none}
+}
