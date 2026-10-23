@@ -8,7 +8,7 @@ workers_dev = false
 routes = [{ pattern = "upload.askevepodcast.com", custom_domain = true }]
 
 [vars]
-CF_ACCOUNT_ID = "REPLACE_WITH_CLOUDFLARE_ACCOUNT_ID"   # not a secret; `npx wrangler@4 whoami`
+CF_ACCOUNT_ID = "***REDACTED***"   # not a secret; `npx wrangler@4 whoami`
 MASTERS_BUCKET = "ask-eve-masters"
 GH_REPO = "daveey/ask-eve"
 GH_WORKFLOW = "ingest.yml"
@@ -23,7 +23,7 @@ bucket_name = "ask-eve-masters"
 [[d1_databases]]
 binding = "DB"
 database_name = "ask-eve-meta"
-database_id = "REPLACE_WITH_D1_DATABASE_ID"   # from `npx wrangler@4 d1 create ask-eve-meta`
+database_id = "***REDACTED***"   # ask-eve-meta
 migrations_dir = "../../migrations"
 
 # Secrets (never in this file): npx wrangler@4 secret put UPLOAD_TOKEN | R2_ACCESS_KEY_ID | R2_SECRET_ACCESS_KEY | GITHUB_TOKEN
