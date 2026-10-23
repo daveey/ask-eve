@@ -1,0 +1,672 @@
+{
+ "_doc": "Curated link sources for site auto-linking. scripts/build_links.py verifies every URL (and finds the Grokipedia article) and writes index/links.json, which the site build reads. People's direct links come from the verified=true links in the people research (first X handle, then up to two official sites). `terms` are case-sensitive whole-word matches; ambiguous first names (Marc, Ben, Jason, Nancy, Peter) are left out on purpose.",
+ "people": {
+  "david-sacks": {
+   "name": "David Sacks",
+   "terms": [
+    "David Sacks",
+    "Sacks",
+    "Sachs",
+    "David Sachs"
+   ],
+   "site_page": true,
+   "direct": [
+    {
+     "label": "@DavidSacks on X",
+     "url": "https://x.com/DavidSacks"
+    },
+    {
+     "label": "Substack",
+     "url": "https://sacks.substack.com"
+    },
+    {
+     "label": "Craft Ventures",
+     "url": "https://www.craftventures.com"
+    }
+   ],
+   "wikipedia": "https://en.wikipedia.org/wiki/David_Sacks",
+   "grokipedia_check": "Craft Ventures"
+  },
+  "marc-andreessen": {
+   "name": "Marc Andreessen",
+   "terms": [
+    "Marc Andreessen",
+    "Mark Andreessen",
+    "Andreessen",
+    "Andreesen",
+    "Andreeson"
+   ],
+   "site_page": true,
+   "direct": [
+    {
+     "label": "@pmarca on X",
+     "url": "https://x.com/pmarca"
+    },
+    {
+     "label": "Substack",
+     "url": "https://pmarca.substack.com"
+    },
+    {
+     "label": "a16z author page",
+     "url": "https://a16z.com/author/marc-andreessen/"
+    }
+   ],
+   "wikipedia": "https://en.wikipedia.org/wiki/Marc_Andreessen",
+   "grokipedia_check": "Netscape"
+  },
+  "ben-horowitz": {
+   "name": "Ben Horowitz",
+   "terms": [
+    "Ben Horowitz",
+    "Horowitz"
+   ],
+   "site_page": true,
+   "direct": [
+    {
+     "label": "@bhorowitz on X",
+     "url": "https://x.com/bhorowitz"
+    },
+    {
+     "label": "Ben's Blog / a16z author page",
+     "url": "https://a16z.com/author/ben-horowitz/"
+    }
+   ],
+   "wikipedia": "https://en.wikipedia.org/wiki/Ben_Horowitz",
+   "grokipedia_check": "Andreessen"
+  },
+  "elon-musk": {
+   "name": "Elon Musk",
+   "terms": [
+    "Elon Musk",
+    "Musk",
+    "Elon"
+   ],
+   "site_page": true,
+   "direct": [
+    {
+     "label": "@elonmusk on X",
+     "url": "https://x.com/elonmusk"
+    }
+   ],
+   "wikipedia": "https://en.wikipedia.org/wiki/Elon_Musk",
+   "grokipedia_check": "Tesla"
+  },
+  "chamath-palihapitiya": {
+   "name": "Chamath Palihapitiya",
+   "terms": [
+    "Chamath Palihapitiya",
+    "Chamath",
+    "Palihapitiya",
+    "DeMuth",
+    "Dimoth",
+    "DeMoth"
+   ],
+   "site_page": true,
+   "direct": [
+    {
+     "label": "@chamath on X",
+     "url": "https://x.com/chamath"
+    },
+    {
+     "label": "Learn With Me (Social Capital research)",
+     "url": "https://research.socialcapital.com"
+    },
+    {
+     "label": "Social Capital",
+     "url": "https://www.socialcapital.com"
+    }
+   ],
+   "wikipedia": "https://en.wikipedia.org/wiki/Chamath_Palihapitiya",
+   "grokipedia_check": "Social Capital"
+  },
+  "jason-calacanis": {
+   "name": "Jason Calacanis",
+   "terms": [
+    "Jason Calacanis",
+    "Calacanis",
+    "J Cal",
+    "JCal"
+   ],
+   "site_page": true,
+   "direct": [
+    {
+     "label": "@Jason on X",
+     "url": "https://x.com/Jason"
+    },
+    {
+     "label": "calacanis.com",
+     "url": "https://calacanis.com"
+    },
+    {
+     "label": "This Week in Startups",
+     "url": "https://www.thisweekinstartups.com"
+    }
+   ],
+   "wikipedia": "https://en.wikipedia.org/wiki/Jason_Calacanis",
+   "grokipedia_check": "Weblogs"
+  },
+  "peter-thiel": {
+   "name": "Peter Thiel",
+   "terms": [
+    "Peter Thiel",
+    "Thiel",
+    "Peter Teal"
+   ],
+   "site_page": true,
+   "direct": [
+    {
+     "label": "@peterthiel on X",
+     "url": "https://x.com/peterthiel"
+    },
+    {
+     "label": "Founders Fund",
+     "url": "https://foundersfund.com"
+    },
+    {
+     "label": "Zero to One (book site)",
+     "url": "https://zerotoonebook.com"
+    }
+   ],
+   "wikipedia": "https://en.wikipedia.org/wiki/Peter_Thiel",
+   "grokipedia_check": "PayPal"
+  },
+  "nancy-pelosi": {
+   "name": "Nancy Pelosi",
+   "terms": [
+    "Nancy Pelosi",
+    "Pelosi"
+   ],
+   "site_page": true,
+   "direct": [
+    {
+     "label": "@SpeakerPelosi on X",
+     "url": "https://x.com/SpeakerPelosi"
+    },
+    {
+     "label": "Official House page",
+     "url": "https://pelosi.house.gov"
+    }
+   ],
+   "wikipedia": "https://en.wikipedia.org/wiki/Nancy_Pelosi",
+   "grokipedia_check": "Speaker"
+  },
+  "chan": {
+   "name": "Connie Chan",
+   "terms": [
+    "Connie Chan",
+    "Connie",
+    "Chan"
+   ],
+   "site_page": true,
+   "direct": [
+    {
+     "label": "@conniechansf on X",
+     "url": "https://x.com/conniechansf"
+    },
+    {
+     "label": "Campaign site",
+     "url": "https://www.conniechansf.com"
+    },
+    {
+     "label": "Official SF.gov page",
+     "url": "https://www.sf.gov/district-1-supervisor-connie-chan"
+    }
+   ],
+   "wikipedia": "https://en.wikipedia.org/wiki/Connie_Chan_(politician)",
+   "grokipedia_check": "Board of Supervisors"
+  },
+  "scott-wiener": {
+   "name": "Scott Wiener",
+   "terms": [
+    "Scott Wiener",
+    "Scott Weiner",
+    "Wiener"
+   ],
+   "site_page": true,
+   "direct": [
+    {
+     "label": "@Scott_Wiener on X",
+     "url": "https://x.com/Scott_Wiener"
+    },
+    {
+     "label": "Official State Senate page",
+     "url": "https://sd11.senate.ca.gov"
+    },
+    {
+     "label": "Campaign site (Scott Wiener for Congress)",
+     "url": "https://www.scottwiener.com"
+    }
+   ],
+   "wikipedia": "https://en.wikipedia.org/wiki/Scott_Wiener",
+   "grokipedia_check": "Senate"
+  },
+  "bari-weiss": {
+   "name": "Bari Weiss",
+   "terms": [
+    "Bari Weiss",
+    "Barry Weiss",
+    "Weiss",
+    "Bari"
+   ],
+   "site_page": true,
+   "direct": [
+    {
+     "label": "@bariweiss on X",
+     "url": "https://x.com/bariweiss"
+    },
+    {
+     "label": "The Free Press",
+     "url": "https://www.thefp.com"
+    },
+    {
+     "label": "The Free Press shows (incl. Honestly)",
+     "url": "https://www.thefp.com/shows"
+    }
+   ],
+   "wikipedia": "https://en.wikipedia.org/wiki/Bari_Weiss",
+   "grokipedia_check": "Free Press"
+  },
+  "zohran-mamdani": {
+   "name": "Zohran Mamdani",
+   "terms": [
+    "Zohran Mamdani",
+    "Mamdani",
+    "Zohran",
+    "Madani",
+    "Mumdani"
+   ],
+   "site_page": true,
+   "direct": [
+    {
+     "label": "@ZohranKMamdani on X",
+     "url": "https://x.com/ZohranKMamdani"
+    },
+    {
+     "label": "Official NYC Mayor's Office",
+     "url": "https://www.nyc.gov/mayors-office"
+    },
+    {
+     "label": "Campaign site",
+     "url": "https://zohranfornyc.com"
+    }
+   ],
+   "wikipedia": "https://en.wikipedia.org/wiki/Zohran_Mamdani",
+   "grokipedia_check": "New York"
+  },
+  "christine-pelosi": {
+   "name": "Christine Pelosi",
+   "terms": [
+    "Christine Pelosi"
+   ],
+   "site_page": false,
+   "direct": [
+    {
+     "label": "@sfpelosi on X",
+     "url": "https://x.com/sfpelosi"
+    },
+    {
+     "label": "Campaign site",
+     "url": "https://www.pelosiforsenate.com"
+    }
+   ],
+   "wikipedia": "https://en.wikipedia.org/wiki/Christine_Pelosi",
+   "grokipedia_check": "Pelosi"
+  }
+ },
+ "entities": {
+  "all-in": {
+   "name": "All-In podcast",
+   "terms": [
+    "All-In podcast",
+    "All-In Podcast",
+    "All-In"
+   ],
+   "direct": [
+    {
+     "label": "allin.com",
+     "url": "https://allin.com"
+    }
+   ],
+   "wikipedia": "https://en.wikipedia.org/wiki/All-In_(podcast)",
+   "grokipedia": "All-In_podcast",
+   "grokipedia_check": "Calacanis"
+  },
+  "free-press": {
+   "name": "The Free Press",
+   "terms": [
+    "The Free Press",
+    "Free Press"
+   ],
+   "direct": [
+    {
+     "label": "thefp.com",
+     "url": "https://www.thefp.com"
+    }
+   ],
+   "wikipedia": "https://en.wikipedia.org/wiki/The_Free_Press_(media_company)",
+   "grokipedia_check": "Weiss"
+  },
+  "anthropic": {
+   "name": "Anthropic",
+   "terms": [
+    "Anthropic"
+   ],
+   "direct": [
+    {
+     "label": "anthropic.com",
+     "url": "https://www.anthropic.com"
+    }
+   ],
+   "wikipedia": "https://en.wikipedia.org/wiki/Anthropic",
+   "grokipedia_check": "Claude"
+  },
+  "openai": {
+   "name": "OpenAI",
+   "terms": [
+    "OpenAI"
+   ],
+   "direct": [
+    {
+     "label": "openai.com",
+     "url": "https://openai.com"
+    }
+   ],
+   "wikipedia": "https://en.wikipedia.org/wiki/OpenAI",
+   "grokipedia_check": "ChatGPT"
+  },
+  "a16z": {
+   "name": "Andreessen Horowitz (a16z)",
+   "terms": [
+    "Andreessen Horowitz",
+    "a16z"
+   ],
+   "direct": [
+    {
+     "label": "a16z.com",
+     "url": "https://a16z.com"
+    }
+   ],
+   "wikipedia": "https://en.wikipedia.org/wiki/Andreessen_Horowitz",
+   "grokipedia_check": "venture"
+  },
+  "craft-ventures": {
+   "name": "Craft Ventures",
+   "terms": [
+    "Craft Ventures",
+    "Craft"
+   ],
+   "direct": [
+    {
+     "label": "craftventures.com",
+     "url": "https://www.craftventures.com"
+    }
+   ],
+   "wikipedia": "https://en.wikipedia.org/wiki/Craft_Ventures",
+   "grokipedia_check": "Sacks"
+  },
+  "founders-fund": {
+   "name": "Founders Fund",
+   "terms": [
+    "Founders Fund"
+   ],
+   "direct": [
+    {
+     "label": "foundersfund.com",
+     "url": "https://foundersfund.com"
+    }
+   ],
+   "wikipedia": "https://en.wikipedia.org/wiki/Founders_Fund",
+   "grokipedia_check": "Thiel"
+  },
+  "grok": {
+   "name": "Grok",
+   "terms": [
+    "Grok"
+   ],
+   "direct": [
+    {
+     "label": "grok.com",
+     "url": "https://grok.com"
+    }
+   ],
+   "wikipedia": "https://en.wikipedia.org/wiki/Grok_(chatbot)",
+   "grokipedia_check": "xAI"
+  },
+  "xai": {
+   "name": "xAI",
+   "terms": [
+    "xAI"
+   ],
+   "direct": [
+    {
+     "label": "x.ai",
+     "url": "https://x.ai"
+    }
+   ],
+   "wikipedia": "https://en.wikipedia.org/wiki/XAI_(company)",
+   "grokipedia_check": "Grok"
+  },
+  "usaid": {
+   "name": "USAID",
+   "terms": [
+    "USAID"
+   ],
+   "direct": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/United_States_Agency_for_International_Development",
+   "grokipedia_check": "foreign"
+  },
+  "doge": {
+   "name": "Department of Government Efficiency (DOGE)",
+   "terms": [
+    "DOGE"
+   ],
+   "direct": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Department_of_Government_Efficiency",
+   "grokipedia_check": "Musk"
+  },
+  "palantir": {
+   "name": "Palantir",
+   "terms": [
+    "Palantir"
+   ],
+   "direct": [
+    {
+     "label": "palantir.com",
+     "url": "https://www.palantir.com"
+    }
+   ],
+   "wikipedia": "https://en.wikipedia.org/wiki/Palantir_Technologies",
+   "grokipedia_check": "Thiel"
+  },
+  "spacex": {
+   "name": "SpaceX",
+   "terms": [
+    "SpaceX"
+   ],
+   "direct": [
+    {
+     "label": "spacex.com",
+     "url": "https://www.spacex.com"
+    }
+   ],
+   "wikipedia": "https://en.wikipedia.org/wiki/SpaceX",
+   "grokipedia_check": "Falcon"
+  },
+  "tesla": {
+   "name": "Tesla",
+   "terms": [
+    "Tesla"
+   ],
+   "direct": [
+    {
+     "label": "tesla.com",
+     "url": "https://www.tesla.com"
+    }
+   ],
+   "wikipedia": "https://en.wikipedia.org/wiki/Tesla,_Inc.",
+   "grokipedia_check": "electric"
+  },
+  "paypal": {
+   "name": "PayPal",
+   "terms": [
+    "PayPal"
+   ],
+   "direct": [
+    {
+     "label": "paypal.com",
+     "url": "https://www.paypal.com"
+    }
+   ],
+   "wikipedia": "https://en.wikipedia.org/wiki/PayPal",
+   "grokipedia_check": "payment"
+  },
+  "netscape": {
+   "name": "Netscape",
+   "terms": [
+    "Netscape"
+   ],
+   "direct": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Netscape",
+   "grokipedia_check": "browser"
+  },
+  "social-capital": {
+   "name": "Social Capital",
+   "terms": [
+    "Social Capital"
+   ],
+   "direct": [
+    {
+     "label": "socialcapital.com",
+     "url": "https://www.socialcapital.com"
+    }
+   ],
+   "wikipedia": "https://en.wikipedia.org/wiki/Social_Capital_(venture_capital)",
+   "grokipedia_check": "Palihapitiya"
+  },
+  "rene-girard": {
+   "name": "René Girard",
+   "terms": [
+    "René Girard",
+    "Girard"
+   ],
+   "direct": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Ren%C3%A9_Girard",
+   "grokipedia": "René_Girard",
+   "grokipedia_check": "mimetic"
+  },
+  "donald-trump": {
+   "name": "Donald Trump",
+   "terms": [
+    "Donald Trump",
+    "Trump"
+   ],
+   "direct": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Donald_Trump",
+   "grokipedia_check": "President"
+  },
+  "joe-biden": {
+   "name": "Joe Biden",
+   "terms": [
+    "Joe Biden",
+    "Biden"
+   ],
+   "direct": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Joe_Biden",
+   "grokipedia_check": "President"
+  },
+  "stanford": {
+   "name": "Stanford University",
+   "terms": [
+    "Stanford"
+   ],
+   "direct": [
+    {
+     "label": "stanford.edu",
+     "url": "https://www.stanford.edu"
+    }
+   ],
+   "wikipedia": "https://en.wikipedia.org/wiki/Stanford_University",
+   "grokipedia_check": "California"
+  },
+  "mar-a-lago": {
+   "name": "Mar-a-Lago",
+   "terms": [
+    "Mar-a-Lago"
+   ],
+   "direct": [],
+   "wikipedia": "https://en.wikipedia.org/wiki/Mar-a-Lago",
+   "grokipedia_check": "Palm Beach"
+  },
+  "twitter": {
+   "name": "Twitter (now X)",
+   "terms": [
+    "Twitter"
+   ],
+   "direct": [
+    {
+     "label": "x.com",
+     "url": "https://x.com"
+    }
+   ],
+   "wikipedia": "https://en.wikipedia.org/wiki/Twitter",
+   "grokipedia_check": "Musk"
+  },
+  "nyt": {
+   "name": "The New York Times",
+   "terms": [
+    "The New York Times",
+    "New York Times"
+   ],
+   "direct": [
+    {
+     "label": "nytimes.com",
+     "url": "https://www.nytimes.com"
+    }
+   ],
+   "wikipedia": "https://en.wikipedia.org/wiki/The_New_York_Times",
+   "grokipedia_check": "newspaper"
+  },
+  "cloudflare": {
+   "name": "Cloudflare",
+   "terms": [
+    "Cloudflare"
+   ],
+   "direct": [
+    {
+     "label": "cloudflare.com",
+     "url": "https://www.cloudflare.com"
+    }
+   ],
+   "wikipedia": "https://en.wikipedia.org/wiki/Cloudflare",
+   "grokipedia_check": "CDN"
+  },
+  "github": {
+   "name": "GitHub",
+   "terms": [
+    "GitHub"
+   ],
+   "direct": [
+    {
+     "label": "github.com",
+     "url": "https://github.com"
+    }
+   ],
+   "wikipedia": "https://en.wikipedia.org/wiki/GitHub",
+   "grokipedia_check": "Microsoft"
+  },
+  "elevenlabs": {
+   "name": "ElevenLabs",
+   "terms": [
+    "ElevenLabs"
+   ],
+   "direct": [
+    {
+     "label": "elevenlabs.io",
+     "url": "https://elevenlabs.io"
+    }
+   ],
+   "wikipedia": "https://en.wikipedia.org/wiki/ElevenLabs",
+   "grokipedia_check": "voice"
+  }
+ }
+}
