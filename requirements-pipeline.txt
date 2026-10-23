@@ -1,0 +1,5 @@
+# Audio pipeline (scripts/align_audio.py, revoice_eve.py, ...). ffmpeg >= 6 with libmp3lame must be on PATH.
+faster-whisper==1.2.1
+ctranslate2==4.8.3
+rapidfuzz==3.14.6
+numpy==2.5.4
