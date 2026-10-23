@@ -73,7 +73,7 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
           set -euo pipefail
-          slug="${STEM#*_}"
+          slug=$(python3 -c 'import sys; sys.path.insert(0, "scripts"); from frontmatter import public_slug; print(public_slug(sys.argv[1]))' "$STEM")
           { cat "artifacts/$STEM/d1_upsert.sql"
             echo "UPDATE episodes SET status='published', published_at=COALESCE(published_at, strftime('%Y-%m-%dT%H:%M:%SZ','now')) WHERE slug='$slug';"
           } > publish.sql

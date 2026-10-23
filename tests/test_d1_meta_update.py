@@ -7,20 +7,24 @@ import d1_meta_update as M
 import sqlite_apply
 
 
-def test_meta_update_changes_title_only(tmp_path):
+def test_meta_update_changes_title_and_slug_only(tmp_path):
     db = tmp_path / "d.sqlite"
     up = ROOT / "artifacts/2026-10-23_eve-david-podcast-planning/d1_upsert.sql"
-    old = up.read_text().replace("'First Encounter'", "'Old title'")
+    # the live row before the rename: old slug + old title (index/slugs.json now maps the stem to first-encounter)
+    old = up.read_text().replace("'First Encounter'", "'Old title'").replace("'first-encounter'", "'eve-david-podcast-planning'")
     old_sql = tmp_path / "old.sql"
     old_sql.write_text(old.replace(hashlib.sha256(EP1.read_bytes()).hexdigest(), "0" * 64))
     sqlite_apply.apply(db, ROOT / "migrations", old_sql)
     con = sqlite3.connect(db)
     before = con.execute("SELECT guid, audio_url, audio_bytes, audio_sha256 FROM episodes WHERE slug='eve-david-podcast-planning'").fetchone()
+    eid = con.execute("SELECT id FROM episodes WHERE slug='eve-david-podcast-planning'").fetchone()[0]
     meta = tmp_path / "meta.sql"
     meta.write_text(M.build_sql(EP1))
     sqlite_apply.apply(db, ROOT / "migrations", meta)
     row = con.execute("SELECT title, transcript_sha256, transcript_bytes, guid, audio_url, audio_bytes, audio_sha256 "
-                      "FROM episodes WHERE slug='eve-david-podcast-planning'").fetchone()
+                      "FROM episodes WHERE slug='first-encounter'").fetchone()
+    assert con.execute("SELECT id FROM episodes WHERE slug='first-encounter'").fetchone()[0] == eid   # same row, new slug
+    assert con.execute("SELECT count(*) FROM episodes").fetchone()[0] == 1
     assert row[0] == "First Encounter"
     assert row[1] == hashlib.sha256(EP1.read_bytes()).hexdigest() and row[2] == len(EP1.read_bytes())
     assert row[3:] == before and before[0] == "ask-eve:2026-10-23_eve-david-podcast-planning"
@@ -63,3 +67,8 @@ def test_meta_update_marks_bonus_and_drops_number(tmp_path):
 def test_meta_update_full_episode_keeps_number():
     sql = M.build_sql(EP1)            # First Encounter: full, no `episode:` key -> number untouched
     assert "episode_type='full'" in sql and "episode_number" not in sql.split("WHERE")[0]
+
+
+def test_meta_update_is_idempotent_after_rename():
+    sql = M.build_sql(EP1)
+    assert "SET slug='first-encounter'," in sql and "WHERE slug IN ('eve-david-podcast-planning', 'first-encounter')" in sql

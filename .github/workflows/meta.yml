@@ -1,6 +1,7 @@
 # Metadata-only update for a published episode (title / transcript front matter). No audio is copied:
 #   gh workflow run meta.yml -f stem=2026-10-23_eve-david-podcast-planning
-# Updates the D1 episodes row (title, transcript sha/bytes; slug, guid and audio unchanged), then rebuilds the site.
+# Updates the D1 episodes row (title, transcript sha/bytes, public slug from index/slugs.json; guid and audio unchanged),
+# then rebuilds the site.
 name: meta
 
 on:

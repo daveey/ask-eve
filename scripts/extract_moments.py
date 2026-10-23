@@ -27,7 +27,7 @@ import urllib.request
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from frontmatter import parse_front_matter_block  # noqa: E402
+from frontmatter import parse_front_matter_block, public_slug  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 MODEL = os.environ.get("MOMENTS_MODEL", "grok-4.7")
@@ -175,7 +175,7 @@ def extract(transcript: Path, timeline: Path | None, key: str, only: set[str] | 
         offs = {t["i"]: (t.get("edited_start"), t.get("edited_end")) for t in json.loads(timeline.read_text())["turns"]}
     text = numbered(turns)
     stem = transcript.stem
-    ep_slug = stem.split("_", 1)[1]
+    ep_slug = public_slug(stem)
     people = [p for p in load_people() if not only or p["slug"] in only]
     with ThreadPoolExecutor(max_workers=WORKERS) as pool:
         per_person = list(pool.map(lambda p: person_moments(p, turns, text, offs, ep_slug, key), people))
@@ -199,7 +199,7 @@ def main(argv=None) -> int:
         raise SystemExit("XAI_API_KEY is not set")
     stem = a.transcript.stem
     timeline = a.timeline or ROOT / f"artifacts/{stem}/timeline.json"
-    out = a.out or ROOT / f"index/moments/{stem.split('_', 1)[1]}.json"
+    out = a.out or ROOT / f"index/moments/{public_slug(stem)}.json"
     only = set(a.person) if a.person else None
     res = extract(a.transcript, timeline, key, only)
     if only and out.exists():   # replace just those people's moments

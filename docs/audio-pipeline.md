@@ -325,7 +325,7 @@ Item sketch, emitted by the endpoint from the D1 rows:
   <itunes:duration><duration_seconds></itunes:duration>
   <itunes:episodeType>full</itunes:episodeType>
   <itunes:explicit>true</itunes:explicit>
-  <description><![CDATA[<show note> Transcript: https://askevepodcast.com/episodes/eve-david-podcast-planning/]]></description>
+  <description><![CDATA[<show note> Transcript: https://askevepodcast.com/episodes/first-encounter/]]></description>
   <psc:chapters version="1.1"><psc:chapter start="00:00:00" title="Cold open"/></psc:chapters>
 </item>
 ```
