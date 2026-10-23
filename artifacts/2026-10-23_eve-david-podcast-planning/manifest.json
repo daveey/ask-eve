@@ -1,0 +1,56 @@
+{
+ "stem": "2026-10-23_eve-david-podcast-planning",
+ "version": 1,
+ "audio_key": "audio/en/2026-10-23_eve-david-podcast-planning.v1.mp3",
+ "audio_url": "https://audio.askevepodcast.com/audio/en/2026-10-23_eve-david-podcast-planning.v1.mp3",
+ "audio_bytes": 138609702,
+ "audio_sha256": "e37afa1f92cd4d30745b21fb78cf4245970e68ff2cbf8ac84c4c0141511091ce",
+ "audio_mime": "audio/mpeg",
+ "duration_seconds": 8663,
+ "loudness_lufs": -16.8,
+ "true_peak_dbfs": -4.3,
+ "id3_chapters": 8,
+ "chapters": [
+  {
+   "startTime": 0.0,
+   "title": "AI-reconstructed audio notice"
+  },
+  {
+   "startTime": 303.37,
+   "title": "Peter Thiel"
+  },
+  {
+   "startTime": 669.79,
+   "title": "Elon Musk"
+  },
+  {
+   "startTime": 2029.35,
+   "title": "David Sacks"
+  },
+  {
+   "startTime": 3189.91,
+   "title": "Jason Calacanis"
+  },
+  {
+   "startTime": 5103.88,
+   "title": "Chan & Nancy Pelosi & Scott Wiener"
+  },
+  {
+   "startTime": 5760.48,
+   "title": "Bari Weiss"
+  },
+  {
+   "startTime": 6042.2,
+   "title": "Zohran Mamdani"
+  }
+ ],
+ "recording_method": "tts-reconstructed",
+ "ai_reconstructed": true,
+ "placeholder_audio": false,
+ "tts": "xai_tts voice=eve",
+ "narrator": "xai_tts voice=rex",
+ "missing_turns": [
+  79
+ ],
+ "transcript_sha256": "15d413f1fc34283cc1bb50f31d694395979201996d803a5871ee1020b3adcea4"
+}
