@@ -1,0 +1,50 @@
+# Metadata-only update for a published episode (title / transcript front matter). No audio is copied:
+#   gh workflow run meta.yml -f stem=2026-10-23_eve-david-podcast-planning
+# Updates the D1 episodes row (title, transcript sha/bytes; slug, guid and audio unchanged), then rebuilds the site.
+name: meta
+
+on:
+  workflow_dispatch:
+    inputs:
+      stem: { description: "<date>_<slug> (episodes/<stem>.md must exist on main)", required: true, type: string }
+
+permissions:
+  contents: read
+  actions: write   # dispatch site.yml afterwards
+
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+jobs:
+  meta:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      STEM: ${{ inputs.stem }}
+      D1_NAME: ask-eve-meta
+    steps:
+      - name: Validate input
+        run: |
+          [[ "$STEM" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}_[a-z0-9-]{1,60}$ ]] || { echo "::error::bad stem"; exit 1; }
+
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: main
+          persist-credentials: false
+
+      - name: Update D1 episode metadata
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_D1_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          set -euo pipefail
+          test -f "episodes/$STEM.md" || { echo "::error::episodes/$STEM.md not on main"; exit 1; }
+          python3 scripts/d1_meta_update.py "episodes/$STEM.md" > meta.sql
+          cat meta.sql
+          npx --yes wrangler@4 d1 execute "$D1_NAME" --remote --file meta.sql --config workers/upload/wrangler.toml
+
+      - name: Rebuild the site (dispatch site.yml -> Cloudflare Pages)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run site.yml -R "$GITHUB_REPOSITORY" --ref main && echo "site build triggered"
