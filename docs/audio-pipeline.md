@@ -1,6 +1,6 @@
 # Ask Eve: audio pipeline design
 
-Status: revised 2026-10-23 (~11:15 UTC) to match the code on `main`. The code exists and is tested (`.venv/bin/pytest -q`, `cd workers/upload && npm test`). **No cloud resources exist yet**: no bucket, database, Worker, token, Netlify site, DNS record, or feed. Setup is in [`docs/deploy-guide.md`](deploy-guide.md); this doc is the design and the reasons for it.
+Status: revised 2026-10-23 (~11:15 UTC) to match the code on `main`. The code exists and is tested (`.venv/bin/pytest -q`, `cd workers/upload && npm test`). **Cloud setup is in progress, done by David's coding agent from the deploy guide** (as of 11:30 UTC on `main`: D1 `ask-eve-meta` created and its id put in `wrangler.toml`, PR #1; the site moved from Netlify to Cloudflare Pages, PR #2). Nothing in this doc assumes any other resource exists. Setup is in [`docs/deploy-guide.md`](deploy-guide.md); this doc is the design and the reasons for it.
 Scope: how an Eve–David session becomes a verbatim transcript, an MP3, metadata, a website, and a Spotify-listed RSS feed.
 Conventions: **[DAVID]** marks steps that need David (accounts, tokens, recording, judgment calls). **UNVERIFIED** marks claims I could not confirm from a primary source or a box test. `<stem>` means `<date>_<slug>`, for example `2026-10-23_eve-david-podcast-planning`.
 
@@ -50,7 +50,7 @@ Decisions this doc follows. Where a later decision supersedes an earlier one, th
 
 1. Done (code, local tests): `ingest_share.py`, `stitch_segments.py`, `align_audio.py`, `revoice_eve.py`, `produce_audio.py`, `verify_placement.py`, `d1_upsert.py`, `sqlite_apply.py`, `render_feed.py`, `build_site.py`, `run_episode.sh`, `migrations/0001_init.sql`, `workers/upload/`, `.github/workflows/{ingest,publish}.yml`, `netlify.toml`, `shortcuts/ask-eve-upload.md`.
 2. **[DAVID]** Run the 2-minute recording test (§1.5). It confirms the default recording path.
-3. **[DAVID]** Cloud setup, in the order of `docs/deploy-guide.md` (D-001…D-008): R2 buckets and S3 key, D1, Worker, GitHub secrets, Netlify + DNS + Email Routing, end-to-end test.
+3. **[DAVID]** Cloud setup, in the order of `docs/deploy-guide.md` (D-001…D-008): R2 buckets and S3 key, D1, Worker, GitHub secrets, Cloudflare Pages + DNS + Email Routing, end-to-end test.
 4. **[DAVID]** Cover art at 3000×3000 (§6.2), show description, category.
 5. **[DAVID]** Merge the episode-zero and episode-one ingest PRs after review, then run `publish.yml` for each.
 6. Validate the feed (§6.5). **[DAVID]** Submit to Spotify for Creators and enter the 8-digit code (§6.6).
@@ -248,7 +248,7 @@ Outputs: the MP3, `manifest.json` (`audio_bytes` from `stat`, `audio_sha256`, `d
 ### 3.4 Upload to R2, public URL, headers
 Created by the deploy guide (D-002), not by this doc: buckets `ask-eve-public` (custom domain `audio.askevepodcast.com`, r2.dev disabled) and `ask-eve-masters` (private: no custom domain, no r2.dev).
 
-Flow: `ingest.yml` stages the MP3 in the **private** bucket at `staging/<stem>/<stem>.v<N>.mp3` and opens the PR. After David merges, `publish.yml` checks the manifest (refuses `placeholder_audio`, requires the AI label where needed), copies the MP3 to `ask-eve-public/audio/en/<stem>.v<N>.mp3` after a sha256 check, uploads `chapters.json`, upserts D1, marks the episode published, and triggers the Netlify build hook. Uploads use the aws CLI against the R2 S3 endpoint (`https://$CLOUDFLARE_ACCOUNT_ID.r2.cloudflarestorage.com`, region `auto`).
+Flow: `ingest.yml` stages the MP3 in the **private** bucket at `staging/<stem>/<stem>.v<N>.mp3` and opens the PR. After David merges, `publish.yml` checks the manifest (refuses `placeholder_audio`, requires the AI label where needed), copies the MP3 to `ask-eve-public/audio/en/<stem>.v<N>.mp3` after a sha256 check, uploads `chapters.json`, upserts D1, marks the episode published, and dispatches `site.yml` (Cloudflare Pages). Uploads use the aws CLI against the R2 S3 endpoint (`https://$CLOUDFLARE_ACCOUNT_ID.r2.cloudflarestorage.com`, region `auto`).
 
 Public URL: `https://audio.askevepodcast.com/audio/en/2026-10-23_eve-david-podcast-planning.v1.mp3`.
 
@@ -287,13 +287,13 @@ Design notes: search stays local (09:41). `turn_offsets` is derived data: rebuil
 
 ---
 
-## 5. Website (Netlify): build-time D1
+## 5. Website (Cloudflare Pages via `site.yml`): build-time D1
 
-Built: `scripts/build_site.py` (stdlib Python, no Node on Netlify). `netlify.toml` runs `python3 scripts/build_site.py` and publishes `site/dist`, with an `application/rss+xml` header on `/feed.xml`.
-- At build time it reads D1 through the REST API (`POST https://api.cloudflare.com/client/v4/accounts/{account_id}/d1/database/{database_id}/query`) with Netlify env vars `CLOUDFLARE_ACCOUNT_ID`, `D1_DATABASE_ID`, and `D1_READ_TOKEN` (a separate token with **D1 Read** only, so a build-log leak can't write). Locally, `--db out/local-d1.sqlite` reads a sqlite file instead.
+Built: `scripts/build_site.py` (stdlib Python). Since PR #2 (deploy-guide deviation D-006) the site is deployed to **Cloudflare Pages** (project `ask-eve`) by `.github/workflows/site.yml`: it runs `python3 scripts/build_site.py`, copies `site/_headers` (the `application/rss+xml` header on `/feed.xml`) into `site/dist`, and runs `wrangler pages deploy`. `site.yml` runs on pushes to `main` that touch `build_site.py`, `render_feed.py`, `site/_headers`, or itself, and when `publish.yml` dispatches it. `netlify.toml` is the earlier Netlify path and is no longer used.
+- At build time it reads D1 through the REST API (`POST https://api.cloudflare.com/client/v4/accounts/{account_id}/d1/database/{database_id}/query`) with `CLOUDFLARE_ACCOUNT_ID`, `D1_DATABASE_ID` (not secret, in `site.yml`), and `D1_READ_TOKEN` (a separate token with **D1 Read** only, so a build-log leak can't write). Locally, `--db out/local-d1.sqlite` reads a sqlite file instead.
 - It writes `feed.xml` (via `render_feed.py`), `index.html`, and `episodes/<slug>/index.html` plus `transcript.txt`. Each transcript is checked against `transcript_sha256`; a mismatch fails the build, so it never ships a wrong transcript or an empty feed. Drafts are excluded unless `--include-drafts`.
 - Cloudflare notes the REST API "primarily interacts with the control plane" (https://developers.cloudflare.com/d1/best-practices/query-d1/). A few queries per build is fine; per-visitor reads would not be, and the static site makes none.
-- This is a deliberately minimal site (no Astro). Moving to Astro or Cloudflare Pages later doesn't change the data model.
+- This is a deliberately minimal site (no Astro). Moving to Astro later doesn't change the data model.
 
 ---
 
@@ -302,7 +302,7 @@ Built: `scripts/build_site.py` (stdlib Python, no Node on Netlify). `netlify.tom
 ### 6.1 What generates it
 `scripts/render_feed.py` renders `feed.xml` from the D1 rows (published episodes only, unless `--include-drafts` for a local preview), plus per-episode `show-notes/<stem>.md`. It refuses placeholder audio unless `--allow-placeholder`. AI-reconstructed episodes get their `ai_disclosure` in the item description and a banner in the show notes. `build_site.py` calls it at build time, so the feed is the static file `https://askevepodcast.com/feed.xml`.
 
-The feed URL is permanent once submitted. **Use `https://askevepodcast.com/feed.xml` from day one, not `*.netlify.app`.** Changing it later requires Spotify's update-RSS flow (https://support.spotify.com/us/creators/article/updating-an-rss-feed-link-or-hosting-provider/).
+The feed URL is permanent once submitted. **Use `https://askevepodcast.com/feed.xml` from day one, not `*.pages.dev`.** Changing it later requires Spotify's update-RSS flow (https://support.spotify.com/us/creators/article/updating-an-rss-feed-link-or-hosting-provider/).
 
 ### 6.2 Required content
 Sources: Spotify Podcast Delivery Specification v1.10 (linked from https://support.spotify.com/us/creators/article/podcast-specification-doc/; PDF at https://assets.ctfassets.net/jtdj514wr91r/4r4op9KhH3fY1t3BKt2eiH/7b1b682acf4c41baf79f9574d6dedd7f/Podcast_Delivery_Specification_v1.10_-_master_doc.pdf), Apple requirements (https://podcasters.apple.com/support/823-podcast-requirements, https://help.apple.com/itc/podcasts_connect/en.lproj/itcb54353390.html), and Spotify's email article (https://support.spotify.com/us/creators/article/adding-your-email-address-to-your-rss-feed/).
@@ -337,7 +337,7 @@ The email in the feed is **public**. Spotify notes that verification emails "som
 2. If the code doesn't arrive within about 4 hours, temporarily switch `itunes:email` to a **new dedicated** Gmail or Outlook address made for the show, claim the show, then switch back if desired. Spotify says a feed change can take "a couple of hours" to be seen.
 
 ### 6.4 Spotify ingestion behavior to design around (spec v1.10)
-- Spotify polls several times per hour and respects ETag/Last-Modified, so Netlify's static ETags are fine. Allow about an hour for changes to show up.
+- Spotify polls several times per hour and respects ETag/Last-Modified, so static-hosting ETags are fine. Allow about an hour for changes to show up.
 - **The guid must never change.** It's derived from `<date>_<slug>` and stored in D1.
 - Changing an MP3 at the same URL won't be re-fetched. Fixes always use a new key (`.v2.mp3`).
 
@@ -392,12 +392,13 @@ The upload Worker presigns only keys matching `^raw/\d{4}-\d{2}-\d{2}_[a-z0-9-]{
 | `scripts/verify_placement.py` | local / CI | ASR over the final mix vs the timeline → `placement_check.json` |
 | `scripts/d1_upsert.py` | local / CI | `d1_upsert.sql` (episode, people, chapters, turn offsets), always `status='draft'` |
 | `scripts/sqlite_apply.py` | local | applies the migration + SQL to a local sqlite file (D1 stand-in) |
-| `scripts/render_feed.py` | local / Netlify | `feed.xml`, show notes |
-| `scripts/build_site.py` | Netlify | §5 |
+| `scripts/render_feed.py` | local / `site.yml` | `feed.xml`, show notes |
+| `scripts/build_site.py` | `site.yml` | §5 |
+| `.github/workflows/site.yml` | GitHub Actions | build the site from D1 → Cloudflare Pages (§5) |
 | `scripts/run_episode.sh` | local | the whole chain for one episode, no cloud writes |
 | `workers/upload/` | Cloudflare Worker | §10: presign phone → R2 PUTs; `/ingest` → GitHub `workflow_dispatch` |
 | `.github/workflows/ingest.yml` | GitHub Actions | raw recording(s) → pipeline → MP3 staged in the private bucket → **PR** on `ingest/<stem>` with `episodes/<stem>.md` and `artifacts/<stem>/` |
-| `.github/workflows/publish.yml` | GitHub Actions | manual, after the PR is merged: placeholder/AI-label guard → copy MP3 to public (sha256-checked) → D1 upsert + `published` → Netlify build hook |
+| `.github/workflows/publish.yml` | GitHub Actions | manual, after the PR is merged: placeholder/AI-label guard → copy MP3 to public (sha256-checked) → D1 upsert + `published` → dispatch `site.yml` |
 
 Workflow safety: every input reaches the shell only through `env:` and is regex-validated first; there is no `pull_request` or `pull_request_target` trigger; actions are pinned by commit sha; ingest can only open PRs (it needs the repo setting "Allow GitHub Actions to create and approve pull requests", deploy guide §6).
 
@@ -405,12 +406,12 @@ Workflow safety: every input reaches the shell only through `env:` and is regex-
 
 | Name | Scope / permission | Stored in |
 |---|---|---|
-| `CLOUDFLARE_ACCOUNT_ID` | not sensitive | GitHub secret; Netlify env; Worker var `CF_ACCOUNT_ID` in `wrangler.toml` |
+| `CLOUDFLARE_ACCOUNT_ID` | not sensitive | GitHub secret; Worker var `CF_ACCOUNT_ID` in `wrangler.toml` |
 | `R2_ACCESS_KEY_ID` / `R2_SECRET_ACCESS_KEY` | R2 S3 token, **Object Read & Write** on `ask-eve-public` and `ask-eve-masters` | GitHub secrets (ingest, publish) |
 | `CLOUDFLARE_D1_TOKEN` | API token, **D1: Edit** on this account | GitHub secret (publish) |
-| `NETLIFY_BUILD_HOOK` | build hook URL (anyone holding it can trigger builds) | GitHub secret |
+| `CLOUDFLARE_PAGES_TOKEN` | API token, **Pages: Edit** on this account only (`site.yml`) | GitHub secret |
 | `XAI_API_KEY` | xAI TTS | GitHub secret (ingest); local `/home/box/.secrets/xai.env` style file outside the repo |
-| `D1_READ_TOKEN` (+ `D1_DATABASE_ID`) | API token, **D1: Read** only | Netlify env vars |
+| `D1_READ_TOKEN` (+ `D1_DATABASE_ID`) | API token, **D1: Read** only | GitHub secret (`site.yml`); `D1_DATABASE_ID` is in `site.yml` |
 | `UPLOAD_TOKEN` | random bearer secret (`openssl rand -hex 32`) the Shortcut sends | Worker secret; typed into the Shortcut |
 | Worker `R2_ACCESS_KEY_ID` / `R2_SECRET_ACCESS_KEY` | a **second** R2 S3 token, Object Read & Write on `ask-eve-masters` only (used to presign) | Worker secrets |
 | Worker `GITHUB_TOKEN` | fine-grained PAT, repo `daveey/ask-eve` only, **Actions: Read and write**, with an expiry | Worker secret only, never on the phone |
