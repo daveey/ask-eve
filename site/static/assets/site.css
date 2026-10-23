@@ -493,3 +493,18 @@ a.xl[aria-expanded=true]{background:color-mix(in srgb,var(--eve) 12%,transparent
 .chg__ba p{margin:0;padding:.7rem .9rem;border-radius:12px;background:var(--surface2)}
 .chg__k{display:block;font-size:.75rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-bottom:.2rem}
 @media (pointer:coarse){.q__src{min-height:2.75rem}}
+
+/* Inside Eve's Mind (/mind/) */
+.mind-sec{padding-block:1.5rem 1rem;scroll-margin-top:5rem}
+.mind-sec .hint{max-width:62ch}
+.mems{list-style:none;margin:1rem 0 2rem;padding:0;display:grid;gap:.9rem}
+@media (min-width:760px){.mems{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.mem{padding:1.1rem 1.2rem;border-radius:var(--r);background:var(--surface);border:1px solid var(--line);display:flex;flex-direction:column;gap:.35rem;min-width:0}
+.mem--bonus{background:transparent;border-style:dashed}
+.mem .eyebrow{margin:0}
+.mem__t{margin:0;font-size:1.2rem;line-height:1.25}
+.mem__t a{color:var(--text);text-decoration:none}
+.mem__t a:hover{text-decoration:underline}
+.mem__meta{margin:0;color:var(--muted);font-size:.9rem}
+.mem__b{margin:.2rem 0 .3rem}
+.mem .chips{margin-top:auto}
