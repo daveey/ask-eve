@@ -4,6 +4,7 @@ title: Eve-David podcast planning session
 people: [David Sacks, Marc Andreessen, Ben Horowitz, Elon Musk, Chamath Palihapitiya, Jason Calacanis, Peter Thiel, Nancy Pelosi, Chan, Scott Wiener, Bari Weiss, Zohran Mamdani]
 source: https://grok.com/share/c2hhcmQtMg_90f617bb-3947-4fc2-8300-c34b6eeed2d1
 note: Verbatim export of the shared Grok voice session (304 turns, 07:29-09:49 UTC). Human turns labeled David, assistant turns labeled Eve. Text unedited, ASR artifacts kept.
+redactions: 2026-10-23: three Eve turns (08:32:43, 08:33:03, 08:33:07) contained the URL of a private notes page, spelled out or as a link; replaced with [link to a private notes page removed] in the text and the audio. All other text is verbatim.
 ---
 
 [07:29:52] David: What happened to Andreessen and Horowitz? They became right-wingers somehow. Can you walk me through the narrative of what happened to them? Were they always like this? Did something make them crazy? They seem insane.
@@ -474,15 +475,15 @@ Chamath's the closest thing Sacks has to a soulmate in the group. He said on the
 
 The Sacks Watcher is agent four three seven five seven five f zero. 
 
-It's done with the baseline. The scorecard's at cursor dot com slash canvas slash store dash e nine seven five two one three four dash a two three nine dash four six eight four dash nine seven eight nine dash seven b b seven four four five c f c five c slash one seven a eight three two two c dash b five zero one dash four c c eight dash eight one f a dash one five d b zero eight five one eight f one a. About forty-three dated items from April twenty-third through today. Test one, symmetric scrutiny, comes out mixed leaning failing — he did go after OpenAI and Google DeepMind a couple times, but Anthropic gets the overwhelming majority of his fire. Test two, public updating, is failing — shifts he never acknowledged, zero admissions of being wrong. Test three, costly principle, also failing or at least no evidence yet — nothing found where he chose principle over Craft's money. One caveat it flagged: it's only read one All-In transcript in full, so a correction on air could still flip test two. Daily scans start weekdays at eight AM UTC.
+It's done with the baseline. The scorecard's at [link to a private notes page removed]. About forty-three dated items from April twenty-third through today. Test one, symmetric scrutiny, comes out mixed leaning failing — he did go after OpenAI and Google DeepMind a couple times, but Anthropic gets the overwhelming majority of his fire. Test two, public updating, is failing — shifts he never acknowledged, zero admissions of being wrong. Test three, costly principle, also failing or at least no evidence yet — nothing found where he chose principle over Craft's money. One caveat it flagged: it's only read one All-In transcript in full, so a correction on air could still flip test two. Daily scans start weekdays at eight AM UTC.
 
 [08:33:00] David: Okay, I don't want to listen. I don't want to listen to this. Can you just include the URL in the transcript?
 
-[08:33:03] Eve: Sure. The scorecard URL is https colon slash slash cursor dot com slash canvas slash store dash e nine seven five two one three four dash a two three nine dash four six eight four dash nine seven eight nine dash seven b b seven four four five c f c five c slash one seven a eight three two two c dash b five zero one dash four c c eight dash eight one fa dash one five db zero eight five one eight f one a.
+[08:33:03] Eve: Sure. The scorecard URL is [link to a private notes page removed].
 
 [08:33:06] David: No, no, don't read it. Don't read it.
 
-[08:33:07] Eve: https://cursor.com/canvas/store-e9752134-a239-4684-9789-7bb7445cfc5c/17a8322c-b501-4cc8-81fa-15db08518f1a
+[08:33:07] Eve: [link to a private notes page removed]
 
 [08:33:08] David: It's fine.
 

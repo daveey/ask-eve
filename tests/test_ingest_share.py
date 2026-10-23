@@ -4,7 +4,7 @@ import json
 
 import pytest
 
-from pipeline_helpers import EP1, EP1_SHA, SHARE_JSON
+from pipeline_helpers import EP1, EP1_EXPORT_SHA, EP1_SHA, SHARE_JSON
 import ingest_share as I
 
 EP1_ID = "c2hhcmQtMg_90f617bb-3947-4fc2-8300-c34b6eeed2d1"
@@ -23,8 +23,16 @@ def test_reproduces_episode1_byte_for_byte(tmp_path, capsys):
     assert rc == 0
     info = json.loads(capsys.readouterr().out)
     out = tmp_path / "2026-10-23_eve-david-podcast-planning.md"
-    assert out.read_bytes() == EP1.read_bytes()
-    assert info["sha256"] == EP1_SHA and info["turns"] == 304 and info["bytes"] == 151711
+    assert info["sha256"] == EP1_EXPORT_SHA and info["turns"] == 304 and info["bytes"] == 151711
+    # The committed transcript is the export minus a documented redaction (front-matter `redactions:`):
+    # three Eve lines that carried a private notes-page URL. Every other line is byte-identical.
+    exported, committed = out.read_text().split("\n"), EP1.read_text().split("\n")
+    assert [l for l in committed if l.startswith("redactions: ")] and len(committed) == len(exported) + 1
+    committed = [l for l in committed if not l.startswith("redactions: ")]
+    changed = [(a, b) for a, b in zip(exported, committed) if a != b]
+    assert len(changed) == 3
+    for a, b in changed:
+        assert "canvas" in a and "canvas" not in b and "[link to a private notes page removed]" in b
 
 
 def _share(*turns):
