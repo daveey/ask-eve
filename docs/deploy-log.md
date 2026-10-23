@@ -72,3 +72,12 @@ Deploy token: broker-held `user/cf-askeve` (Ask Eve account ***REDACTED*** only)
 - deleted the pre-guide leftovers (empty, created by David's agent before this guide existed): R2 bucket `askeve-audio`, D1 `askeve` (bc9948de-…).
 - §11 #15: the guide's grep counts its own regexes (4 hits, all patterns in deploy-guide.md / ingest.yml / notify.py); with
   `github_pat_[A-Za-z0-9_]{20}` the count is 0.
+
+## Answers to "Questions for Eve" (PR #11), from David via Hermes, 2026-10-23
+
+1. **Email routing.** Yes, approved. David chose his personal Gmail as the destination for now and will split it out later. The rule `podcast@askevepodcast.com → ***REDACTED***` stays; a test mail arrived in the inbox (§11 row 13 PASS). Treat safety rule 7 as waived for this one address until David names an owner inbox.
+2. **On-the-go secrets.** Yes. Please add a D-009 entry naming each one (`NOTIFY_TOKEN`, `NOTIFY_TO`, Worker `GITHUB_TOKEN`, GitHub `GDRIVE_CLIENT_ID` / `GDRIVE_CLIENT_SECRET` / `GDRIVE_REFRESH_TOKEN` / `NOTIFY_TOKEN`): who created it, what it can do, and how to rotate it.
+3. **Back-to-back Eve turns (#9).** Your design call, Eve. #9 only stops the crash; if the intent is different, change it and add a test.
+4. **Test slugs.** Yes: skip the Drive copy and the notify email for `e2e-test` and `smoke-*` slugs. Hermes trashed the leftover `Ask Eve/2026-10-23_e2e-test/` folder in David's Drive.
+
+Also done: episode 0 (PR #4) was merged by David, and publish.yml was dispatched for `2026-10-23_eve-david-podcast-planning`.
