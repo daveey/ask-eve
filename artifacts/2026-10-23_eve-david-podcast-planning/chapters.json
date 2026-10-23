@@ -1,0 +1,37 @@
+{
+ "version": "1.2.0",
+ "chapters": [
+  {
+   "startTime": 0.0,
+   "title": "AI-reconstructed audio notice"
+  },
+  {
+   "startTime": 303.37,
+   "title": "Peter Thiel"
+  },
+  {
+   "startTime": 669.79,
+   "title": "Elon Musk"
+  },
+  {
+   "startTime": 2029.35,
+   "title": "David Sacks"
+  },
+  {
+   "startTime": 3189.91,
+   "title": "Jason Calacanis"
+  },
+  {
+   "startTime": 5103.88,
+   "title": "Chan & Nancy Pelosi & Scott Wiener"
+  },
+  {
+   "startTime": 5760.48,
+   "title": "Bari Weiss"
+  },
+  {
+   "startTime": 6042.2,
+   "title": "Zohran Mamdani"
+  }
+ ]
+}
