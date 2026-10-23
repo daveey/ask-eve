@@ -87,6 +87,18 @@ jobs:
           done
           ls -la rec
 
+      # The raw recording goes to Drive BEFORE the pipeline, so it's there even if a later step fails.
+      - name: Copy the raw recording to Google Drive (Ask Eve/<date>_<slug>/)
+        continue-on-error: true   # Drive is a convenience copy; R2 is canonical, so never fail the ingest on it
+        env:
+          GDRIVE_CLIENT_ID: ${{ secrets.GDRIVE_CLIENT_ID }}
+          GDRIVE_CLIENT_SECRET: ${{ secrets.GDRIVE_CLIENT_SECRET }}
+          GDRIVE_REFRESH_TOKEN: ${{ secrets.GDRIVE_REFRESH_TOKEN }}
+        run: |
+          set -euo pipefail
+          python scripts/gdrive.py upload --folder "Ask Eve/$STEM" --out drive-raw.json rec/*
+          echo "DRIVE_JSON=drive-raw.json" >> "$GITHUB_ENV"
+
       - name: Run the episode pipeline (ingest_share, stitch, align, re-voice, produce, D1 SQL, feed preview)
         env:
           XAI_API_KEY: ${{ secrets.XAI_API_KEY }}   # empty -> PLACEHOLDER audio, flagged; publish.yml refuses it
@@ -100,7 +112,12 @@ jobs:
           segs=(); for k in "${keys[@]}"; do segs+=("rec/$(basename "$k")"); done
           mkdir -p out
           scripts/run_episode.sh "$SLUG" "$SHARE_URL" "${segs[@]}" 2>&1 | tee "out/run.log"
-          test -d "out/$STEM/artifacts" || { echo "::error::transcript stem differs from $STEM (share date vs input date?)"; exit 1; }
+          # The phone names the upload with its LOCAL date; the transcript stem uses the share's first UTC turn.
+          # They differ for sessions started after 5 pm Pacific, so adopt the transcript's stem from here on.
+          actual=$(python -c 'import json,glob;print(json.load(open(sorted(glob.glob("out/*/ingest.json"))[0]))["stem"])')
+          [[ "$actual" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}_[a-z0-9-]{1,60}$ ]] || { echo "::error::bad transcript stem $actual"; exit 1; }
+          [[ "$actual" == "$STEM" ]] || { echo "::notice::transcript stem $actual (upload was $STEM)"; echo "STEM=$actual" >> "$GITHUB_ENV"; }
+          test -d "out/$actual/artifacts" || { echo "::error::no artifacts for $actual"; exit 1; }
 
       - name: Stage the MP3 in the private bucket (publish.yml copies it to the public bucket after merge)
         env:
@@ -113,6 +130,19 @@ jobs:
           mp3=$(ls "out/$STEM/produce/"*.mp3)
           aws s3 cp "$mp3" "s3://$MASTERS_BUCKET/staging/$STEM/$(basename "$mp3")" --content-type audio/mpeg \
             --endpoint-url "https://$CF_ACCOUNT_ID.r2.cloudflarestorage.com" --only-show-errors
+
+      - name: Copy the produced MP3 + transcript + show notes to Google Drive
+        continue-on-error: true
+        env:
+          GDRIVE_CLIENT_ID: ${{ secrets.GDRIVE_CLIENT_ID }}
+          GDRIVE_CLIENT_SECRET: ${{ secrets.GDRIVE_CLIENT_SECRET }}
+          GDRIVE_REFRESH_TOKEN: ${{ secrets.GDRIVE_REFRESH_TOKEN }}
+        run: |
+          set -euo pipefail
+          RAW_STEM=$(jq -r '.folder.path // empty' drive-raw.json | sed 's#^Ask Eve/##')
+          python scripts/gdrive.py upload --folder "Ask Eve/${RAW_STEM:-$STEM}" --out drive-out.json \
+            out/$STEM/produce/*.mp3 "episodes/$STEM.md" "out/$STEM/artifacts/show-notes.md"
+          echo "DRIVE_JSON=drive-raw.json,drive-out.json" >> "$GITHUB_ENV"
 
       - name: Upload run artifacts (audio stays out of git)
         id: art
@@ -169,3 +199,12 @@ jobs:
           else
             gh pr create --base main --head "$branch" --title "Ingest: $STEM" --body-file pr_body.md
           fi
+          echo "PR_URL=$(gh pr view "$branch" --json url -q .url)" >> "$GITHUB_ENV"
+
+      - name: Tell David (email via the upload Worker) - runs on success AND failure
+        if: always()
+        env:
+          NOTIFY_TOKEN: ${{ secrets.NOTIFY_TOKEN }}
+          JOB_STATUS: ${{ job.status }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: python scripts/notify.py

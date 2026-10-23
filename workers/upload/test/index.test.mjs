@@ -128,3 +128,54 @@ test("helpers", () => {
   assert.equal(canonicalShareUrl("https://grok.com/share/A_b-9"), "https://grok.com/share/A_b-9");
   assert.ok(KEY_RE.test("raw/2026-10-23_x/export.mp4") && !KEY_RE.test("raw/2026-10-23_x/../phone.mp4"));
 });
+
+// ---- /notify (ingest.yml's last step emails David) ----
+const NOTIFY_TOKEN = "n".repeat(40);
+class FakeEmailMessage { constructor(from, to, raw) { Object.assign(this, { from, to, raw }); } }
+const mailEnv = (sent, extra = {}) => ({
+  ...env, NOTIFY_TOKEN, NOTIFY_TO: "owner@example.com", NOTIFY_FROM: "eve@askevepodcast.com", EmailMessage: FakeEmailMessage,
+  MAILER: { send: async (m) => { sent.push(m); } }, ...extra,
+});
+const notifyCall = (e, body, auth = `Bearer ${NOTIFY_TOKEN}`) =>
+  worker.fetch(new Request("https://upload.askevepodcast.com/notify", {
+    method: "POST", headers: auth ? { authorization: auth } : {}, body: JSON.stringify(body) }), e);
+
+test("notify: sends one email to the configured address only", async () => {
+  const sent = [];
+  const r = await notifyCall(mailEnv(sent), { subject: "Ask Eve: 2026-10-23_walk is ready ✓", text: "Listen: https://drive/x\n", to: "evil@x.com" });
+  assert.equal(r.status, 200);
+  assert.deepEqual(await r.json(), { sent: true });
+  assert.equal(sent.length, 1);
+  assert.equal(sent[0].to, "owner@example.com");          // body.to is ignored
+  assert.equal(sent[0].from, "eve@askevepodcast.com");
+  const raw = sent[0].raw;
+  assert.match(raw, /^From: Ask Eve <eve@askevepodcast\.com>\r\nTo: owner@example\.com\r\nSubject: =\?UTF-8\?B\?/);
+  assert.match(raw, /\r\nMessage-ID: <[0-9a-f-]+@askevepodcast\.com>\r\n/);
+  const subj = /Subject: =\?UTF-8\?B\?([^?]+)\?=/.exec(raw)[1];
+  assert.equal(Buffer.from(subj, "base64").toString("utf8"), "Ask Eve: 2026-10-23_walk is ready ✓");
+  const body = raw.split("\r\n\r\n")[1].replace(/\r\n/g, "");
+  assert.equal(Buffer.from(body, "base64").toString("utf8"), "Listen: https://drive/x\n");
+});
+
+test("notify: auth is NOTIFY_TOKEN, not UPLOAD_TOKEN; and the reverse", async () => {
+  const sent = [];
+  assert.equal((await notifyCall(mailEnv(sent), { subject: "s", text: "t" }, `Bearer ${TOKEN}`)).status, 401);
+  assert.equal((await notifyCall(mailEnv(sent), { subject: "s", text: "t" }, null)).status, 401);
+  assert.equal((await notifyCall(mailEnv(sent, { NOTIFY_TOKEN: undefined }), { subject: "s", text: "t" })).status, 401);
+  const r = await worker.fetch(new Request("https://u/presign", { method: "POST", headers: { authorization: `Bearer ${NOTIFY_TOKEN}` },
+    body: JSON.stringify(ok) }), mailEnv(sent));
+  assert.equal(r.status, 401);
+  assert.equal(sent.length, 0);
+});
+
+test("notify: validation, header injection, unconfigured, send failure", async () => {
+  const sent = [];
+  for (const bad of [{ text: "t" }, { subject: "", text: "t" }, { subject: "a\r\nBcc: x@y", text: "t" }, { subject: "x".repeat(201), text: "t" },
+                     { subject: "s" }, { subject: "s", text: "x".repeat(20001) }])
+    assert.equal((await notifyCall(mailEnv(sent), bad)).status, 400, JSON.stringify(bad).slice(0, 60));
+  assert.equal((await notifyCall(mailEnv(sent, { MAILER: undefined }), { subject: "s", text: "t" })).status, 501);
+  assert.equal(sent.length, 0);
+  const r = await notifyCall(mailEnv(sent, { MAILER: { send: async () => { throw new Error("destination not verified"); } } }), { subject: "s", text: "t" });
+  assert.equal(r.status, 502);
+  assert.match((await r.json()).detail, /not verified/);
+});
