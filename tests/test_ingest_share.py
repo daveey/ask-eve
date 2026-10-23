@@ -1,5 +1,6 @@
 from pathlib import Path
 import hashlib
+import os
 import json
 
 import pytest
@@ -7,7 +8,7 @@ import pytest
 from pipeline_helpers import EP1, EP1_EXPORT_SHA, EP1_SHA, SHARE_JSON
 import ingest_share as I
 
-EP1_ID = "c2hhcmQtMg_***REDACTED***"
+EP1_ID = os.environ.get("ASK_EVE_EP1_SHARE_ID", "")  # the episode-1 share id; kept out of git
 EP1_PEOPLE = ("David Sacks, Marc Andreessen, Ben Horowitz, Elon Musk, Chamath Palihapitiya, Jason Calacanis, "
               "Peter Thiel, Nancy Pelosi, Chan, Scott Wiener, Bari Weiss, Zohran Mamdani")
 
@@ -16,7 +17,7 @@ def test_committed_episode1_hash():
     assert hashlib.sha256(EP1.read_bytes()).hexdigest() == EP1_SHA
 
 
-@pytest.mark.skipif(not SHARE_JSON.exists(), reason="episode-1 share JSON not on this machine")
+@pytest.mark.skipif(not (SHARE_JSON.exists() and EP1_ID), reason="episode-1 share JSON / ASK_EVE_EP1_SHARE_ID not on this machine")
 def test_reproduces_episode1_byte_for_byte(tmp_path, capsys):
     rc = I.main([str(SHARE_JSON), "--share-id", EP1_ID, "--slug", "eve-david-podcast-planning",
                  "--title", "Eve-David podcast planning session", "--people", EP1_PEOPLE, "--out", str(tmp_path)])
@@ -27,6 +28,10 @@ def test_reproduces_episode1_byte_for_byte(tmp_path, capsys):
     # The committed transcript is the export minus a documented redaction (front-matter `redactions:`):
     # three Eve lines that carried a private notes-page URL. Every other line is byte-identical.
     exported, committed = out.read_text().split("\n"), EP1.read_text().split("\n")
+    # The share link (`source:`) was removed from the committed front matter (privacy cleanup).
+    assert sum(l.startswith("source: https://grok.com/share/") for l in exported) == 1
+    assert not [l for l in committed if l.startswith("source:")]
+    exported = [l for l in exported if not l.startswith("source: ")]
     # The display title was renamed after publishing (front matter only); the export keeps the original title.
     assert "title: Eve-David podcast planning session" in exported and "title: First Encounter" in committed
     exported = ["title: First Encounter" if l == "title: Eve-David podcast planning session" else l for l in exported]
@@ -40,9 +45,12 @@ def test_reproduces_episode1_byte_for_byte(tmp_path, capsys):
     assert [l for l in committed if l.startswith("redactions: ")] and len(committed) == len(exported) + 1
     committed = [l for l in committed if not l.startswith("redactions: ")]
     changed = [(a, b) for a, b in zip(exported, committed) if a != b]
-    assert len(changed) == 3
-    for a, b in changed:
-        assert "canvas" in a and "canvas" not in b and "[link to a private notes page removed]" in b
+    assert len(changed) == 5
+    links = [(a, b) for a, b in changed if "[link to a private notes page removed]" in b]
+    ids = [(a, b) for a, b in changed if "[redacted agent ID]" in b]
+    assert len(links) == 3 and len(ids) == 2
+    for a, b in links:
+        assert "canvas" in a and "canvas" not in b
 
 
 def _share(*turns):

@@ -163,7 +163,7 @@ Source type `grok-share` (default):
 
 Source type `grokbot-chat` (added for episode one): a JSON list `[{"speaker": "David"|"Eve", "text": …, "clock_utc_minute": "10:34 AM"}]` extracted from a Grok Bot conversation. Minute precision, rendered as `[HH:MM:00]`, list order kept, clocks must be non-decreasing, `source: grokbot-chat`, optional `episode:` key. Turns that look like secrets (API keys, tokens) are rejected, so a pasted key must already be redacted (episode one: `[REDACTED xAI API key]`). A reply that wasn't recovered is a turn whose text starts `[transcript gap`; it is kept in the transcript and never voiced.
 
-Tests: `tests/test_ingest_share.py` (synthetic share JSON, the episode-zero sha when `/workspace/share.json` is present, grokbot-chat rendering and validation).
+Tests: `tests/test_ingest_share.py` (synthetic share JSON, the episode-zero sha when the share export is present (`ASK_EVE_EP1_SHARE_JSON` + `ASK_EVE_EP1_SHARE_ID`, never committed), grokbot-chat rendering and validation).
 
 ---
 
@@ -410,7 +410,7 @@ Workflow safety: every input reaches the shell only through `env:` and is regex-
 | `R2_ACCESS_KEY_ID` / `R2_SECRET_ACCESS_KEY` | R2 S3 token, **Object Read & Write** on `ask-eve-public` and `ask-eve-masters` | GitHub secrets (ingest, publish) |
 | `CLOUDFLARE_D1_TOKEN` | API token, **D1: Edit** on this account | GitHub secret (publish) |
 | `CLOUDFLARE_PAGES_TOKEN` | API token, **Pages: Edit** on this account only (`site.yml`) | GitHub secret |
-| `XAI_API_KEY` | xAI TTS | GitHub secret (ingest); local `/home/box/.secrets/xai.env` style file outside the repo |
+| `XAI_API_KEY` | xAI TTS | GitHub secret (ingest); local env file outside the repo |
 | `D1_READ_TOKEN` (+ `D1_DATABASE_ID`) | API token, **D1: Read** only | GitHub secret (`site.yml`); `D1_DATABASE_ID` is in `site.yml` |
 | `UPLOAD_TOKEN` | random bearer secret (`openssl rand -hex 32`) the Shortcut sends | Worker secret; typed into the Shortcut |
 | Worker `R2_ACCESS_KEY_ID` / `R2_SECRET_ACCESS_KEY` | a **second** R2 S3 token, Object Read & Write on `ask-eve-masters` only (used to presign) | Worker secrets |

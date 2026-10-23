@@ -71,8 +71,11 @@ jobs:
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_D1_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          D1_DATABASE_ID: ${{ secrets.D1_DATABASE_ID }}
         run: |
           set -euo pipefail
+          [ -n "$D1_DATABASE_ID" ] || { echo "::error::GitHub secret D1_DATABASE_ID is not set"; exit 1; }
+          sed -i "s/__D1_DATABASE_ID__/${D1_DATABASE_ID}/" workers/upload/wrangler.toml
           slug=$(python3 -c 'import sys; sys.path.insert(0, "scripts"); from frontmatter import public_slug; print(public_slug(sys.argv[1]))' "$STEM")
           { cat "artifacts/$STEM/d1_upsert.sql"
             echo "UPDATE episodes SET status='published', published_at=COALESCE(published_at, strftime('%Y-%m-%dT%H:%M:%SZ','now')) WHERE slug='$slug';"

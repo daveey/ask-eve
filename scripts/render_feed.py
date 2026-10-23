@@ -79,7 +79,8 @@ def show_notes(ep: dict, people: list[str], chapters: list[dict]) -> str:
             disc = disc[:1].upper() + disc[1:]
         out += [f"> **AI-reconstructed audio.** {disc}", ""]
     out += [f"- Date: {ep['date']}", f"- Duration: {hhmmss(ep['duration_seconds'] or 0)}",
-            f"- Transcript: {SITE}/episodes/{ep['slug']}/", f"- Source: {ep['source_url']}", ""]
+            f"- Transcript: {SITE}/episodes/{ep['slug']}/"]
+    out += ([f"- Source: {ep['source_url']}"] if ep.get("source_url") else []) + [""]
     if people:
         out += ["## People", "", *[f"- {p}" for p in people], ""]
     if chapters:

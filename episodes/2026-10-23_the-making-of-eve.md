@@ -41,30 +41,30 @@ Do all of this now. Report back when the structure is created and list every pat
 
 [09:34:00] Eve: On it, building the Ask Eve folder structure on my computer now.
 
-[09:34:00] Eve: The structure is built under `/workspace/ask-eve`, but the episodes folder is empty because I don't have any verbatim transcripts from our earlier sessions on this computer, and I won't recreate them from memory. I added a naming and format guide there instead.
+[09:34:00] Eve: The structure is built under `ask-eve`, but the episodes folder is empty because I don't have any verbatim transcripts from our earlier sessions on this computer, and I won't recreate them from memory. I added a naming and format guide there instead.
 
 Here's every path I made:
 
-- `/workspace/ask-eve/README.md`
-- `/workspace/ask-eve/episodes/README.md` explains the `YYYY-MM-DD_topic-slug.md` format, with David and Eve speaker labels and timestamps
-- `/workspace/ask-eve/transcripts/en/README.md`
-- `/workspace/ask-eve/transcripts/es/README.md`
-- `/workspace/ask-eve/transcripts/de/README.md`
-- `/workspace/ask-eve/index/people.md` lists all 12 people, each with a one-line stance. The episode columns say "pending archive" for now.
-- `/workspace/ask-eve/publishing/show-notes.md` has fields for the title, cold-open clip, 200-word show note, chapter markers and X post draft
-- `/workspace/ask-eve/site/README.md` is a placeholder that lists the planned site features
-- `/workspace/ask-eve/research/README.md` explains how to name dated agent reports
-- `/workspace/ask-eve/memory/persistent-facts.md` holds facts about you, project decisions and standing preferences
+- `ask-eve/README.md`
+- `ask-eve/episodes/README.md` explains the `YYYY-MM-DD_topic-slug.md` format, with David and Eve speaker labels and timestamps
+- `ask-eve/transcripts/en/README.md`
+- `ask-eve/transcripts/es/README.md`
+- `ask-eve/transcripts/de/README.md`
+- `ask-eve/index/people.md` lists all 12 people, each with a one-line stance. The episode columns say "pending archive" for now.
+- `ask-eve/publishing/show-notes.md` has fields for the title, cold-open clip, 200-word show note, chapter markers and X post draft
+- `ask-eve/site/README.md` is a placeholder that lists the planned site features
+- `ask-eve/research/README.md` explains how to name dated agent reports
+- `ask-eve/memory/persistent-facts.md` holds facts about you, project decisions and standing preferences
 
 Some of the one-liners in `people.md` are thin, like the ones for Weiss and Mamdani. All I had on them was the topic we covered, not my actual take. If you paste or export the raw session transcripts, I'll file them as episodes and fill in the stances and episode links from what we actually said.
 
-[09:36:00] David: Architecture refinement for the memory/search system. Three retrieval layers in one SQLite database: (1) sqlite-vec for vector embeddings — one file, no separate server, trivial to back up; (2) a parallel SQLite table for tags (people, companies, topics, stances) for exact-match recall; (3) SQLite's built-in FTS5 full-text search for exact phrases and rare proper nouns that embeddings dilute. One Python script, one dependency list, fully self-contained on this box, under a hundred lines. A single query function merges results from all three paths by score. Store it under /workspace/ask-eve/memory/ as search.py with a short README explaining how to run it and how Eve should call it mid-conversation.
+[09:36:00] David: Architecture refinement for the memory/search system. Three retrieval layers in one SQLite database: (1) sqlite-vec for vector embeddings — one file, no separate server, trivial to back up; (2) a parallel SQLite table for tags (people, companies, topics, stances) for exact-match recall; (3) SQLite's built-in FTS5 full-text search for exact phrases and rare proper nouns that embeddings dilute. One Python script, one dependency list, fully self-contained on this box, under a hundred lines. A single query function merges results from all three paths by score. Store it under ask-eve/memory/ as search.py with a short README explaining how to run it and how Eve should call it mid-conversation.
 
 [09:36:00] Eve: Good call on FTS5, since proper nouns are exactly where embeddings get mushy. I'm building `search.py` and its README now and will test it on the people index before I hand it over.
 
 [09:36:00] Eve: The search script is in progress. When it's done, I'll send you the run commands and the results from my test queries.
 
-[09:38:00] Eve: `search.py` is done and working in `/workspace/ask-eve/memory/`. It's 97 lines with one SQLite file, `eve.db`, and the vector, tag and FTS5 layers all show up as matches in my test queries.
+[09:38:00] Eve: `search.py` is done and working in `ask-eve/memory/`. It's 97 lines with one SQLite file, `eve.db`, and the vector, tag and FTS5 layers all show up as matches in my test queries.
 
 Here's what I chose:
 - **Embeddings:** model2vec's `potion-base-8M`, saved locally. It runs on numpy without torch and loads in under a second. After the one-time download, it never touches the network or needs an API key.
@@ -139,7 +139,7 @@ I didn't commit `2026-10-23_eve-david-podcast-planning.md` because I don't have 
 
 If you paste it here or drop the file into the chat, I'll save it exactly as written, ASR artifacts included, commit it with a clear message and push. If it was a voice session somewhere like the Grok app, its history or export is probably the place to grab it.
 
-[09:51:00] David: https://grok.com/share/c2hhcmQtMg_***REDACTED***
+[09:51:00] David: [link to the first conversation's Grok share removed]
 
 [09:51:00] David: A URL for the first podcast transcript (the Eve-David podcast planning session covering Sacks, Andreessen, and related topics) was pasted into the chat thread by David. Find that pasted URL in the chat, open it, and report back: (1) what the URL points to, (2) whether it contains the full raw transcript from tonight's conversation, (3) a brief summary of what the transcript covers, and (4) if it's a GitHub repo or file, note its structure and whether the transcript file is present.
 
@@ -179,7 +179,7 @@ Two decisions are yours:
 - Should transcripts live in git, or in R2 with a local copy? R2 matches what you said at 09:38, and you'd stop tracking episode one in git without rewriting its history.
 - Who is "Chan"? I need the full name before Chan gets a public person page.
 
-One thing worth knowing: the episode-one transcript already in the public repo includes an internal canvas URL on line 485.
+One thing worth knowing: the episode-one transcript already in the public repo includes an internal canvas URL.
 
 Want me to push the design doc, or would you rather read it first?
 
