@@ -25,6 +25,13 @@ ROOT = Path(__file__).resolve().parent.parent
 TABLES = ["episodes", "people", "episode_people", "chapters"]
 
 
+def _disc(d: str) -> str:
+    if not d.lower().startswith("ai-reconstructed audio:"):
+        return d
+    d = d.split(":", 1)[1].strip()
+    return d[:1].upper() + d[1:]
+
+
 def d1_query(sql: str) -> list[dict]:
     a, d, t = (os.environ[k] for k in ("CLOUDFLARE_ACCOUNT_ID", "D1_DATABASE_ID", "D1_READ_TOKEN"))
     req = urllib.request.Request(f"https://api.cloudflare.com/client/v4/accounts/{a}/d1/database/{d}/query",
@@ -72,7 +79,7 @@ def build(db: Path, out: Path, include_drafts: bool) -> int:
         d = out / "episodes" / ep["slug"]
         d.mkdir(parents=True, exist_ok=True)
         (d / "transcript.txt").write_text(body_md.strip() + "\n")
-        ai = f"<p class=ai><b>AI-reconstructed audio.</b> {html.escape(ep['ai_disclosure'])}</p>" if ep["ai_reconstructed"] else ""
+        ai = f"<p class=ai><b>AI-reconstructed audio.</b> {html.escape(_disc(ep['ai_disclosure']))}</p>" if ep["ai_reconstructed"] else ""
         player = f"<audio controls preload=none src='{html.escape(ep['audio_url'])}'></audio>" if ep["audio_url"] else ""
         chapters = "".join(f"<li>{F.hhmmss(int(c['start_seconds']))} {html.escape(c['title'])}</li>" for c in ep["chapters"])
         (d / "index.html").write_text(page(ep["title"], f"<p><a href=/>Ask Eve</a></p><h1>{html.escape(ep['title'])}</h1>"

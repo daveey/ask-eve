@@ -50,7 +50,11 @@ def description(ep: dict, people: list[str]) -> str:
 def show_notes(ep: dict, people: list[str], chapters: list[dict]) -> str:
     out = [f"# {ep['title']}", ""]
     if ep["ai_reconstructed"]:
-        out += [f"> **AI-reconstructed audio.** {ep['ai_disclosure']}", ""]
+        disc = ep["ai_disclosure"]
+        if disc.lower().startswith("ai-reconstructed audio:"):
+            disc = disc.split(":", 1)[1].strip()
+            disc = disc[:1].upper() + disc[1:]
+        out += [f"> **AI-reconstructed audio.** {disc}", ""]
     out += [f"- Date: {ep['date']}", f"- Duration: {hhmmss(ep['duration_seconds'] or 0)}",
             f"- Transcript: {SITE}/episodes/{ep['slug']}/", f"- Source: {ep['source_url']}", ""]
     if people:
