@@ -68,6 +68,49 @@ Deploy token: broker-held `user/cf-askeve` (Ask Eve account ***REDACTED*** only)
 
 ### D-008 not started (blocked on David merging ingest PR #4, per the table)
 
+### D-008 superseded by D-010 (not run, per the table)
+
+### D-010 done 2026-10-23T18:16Z
+- commands run:
+  - Drive handoff `Ask Eve/_publish-handoff-2026-10-23`: the Actions Drive token (`GDRIVE_*`) has only the `drive.file` scope and
+    gets 404 on all 3 file ids, so the files were downloaded by file id through Hermes's browser session signed in as David
+    (`https://drive.usercontent.google.com/download?id=<id>&export=download`). Sizes: part00 70000000, part01 67334508,
+    making-of-eve 39762998 (as listed).
+  - `cat <stem>.v1.mp3.part00 <stem>.v1.mp3.part01 > <stem>.v1.mp3` and the guide's `printf … | sha256sum -c -`:
+    ```
+    2026-10-23_eve-david-podcast-planning.v1.mp3: OK
+    2026-10-23_the-making-of-eve.v1.mp3: OK
+    ```
+  - `npx wrangler@4 r2 object put "ask-eve-masters/staging/$s/$s.v1.mp3" --file "$s.v1.mp3" --content-type audio/mpeg --remote` for both
+    stems (overwrote the old ep-0 staging object). Read-back check, `wrangler r2 object get … --pipe | sha256sum`:
+    6cf5a294…ddbd1 (ep 0) and 4ace0041…218a83 (ep 1), equal to `audio_sha256` in both manifests.
+  - `gh workflow run publish.yml -R daveey/ask-eve --ref main -f stem=2026-10-23_eve-david-podcast-planning`, waited, then the same for
+    `2026-10-23_the-making-of-eve`.
+- run URLs (all `success`, every step green incl. "Guard - refuse placeholder audio" and "Copy MP3 + chapters … (sha256-verified)"):
+  - ep 0 publish: https://github.com/daveey/ask-eve/actions/runs/40001406510 → site.yml https://github.com/daveey/ask-eve/actions/runs/40001471372
+  - ep 1 publish: https://github.com/daveey/ask-eve/actions/runs/40001496953 → site.yml https://github.com/daveey/ask-eve/actions/runs/40001572693
+- curl output:
+  ```
+  $ curl -sI https://audio.askevepodcast.com/audio/en/2026-10-23_eve-david-podcast-planning.v1.mp3
+  HTTP/2 200
+  content-type: audio/mpeg
+  content-length: 137334508
+  $ curl -sI https://audio.askevepodcast.com/audio/en/2026-10-23_the-making-of-eve.v1.mp3
+  HTTP/2 200
+  content-type: audio/mpeg
+  content-length: 39762998
+  $ curl -s https://askevepodcast.com/feed.xml | grep -c '<item>'
+  2
+  ```
+  Feed enclosures: both URLs above with matching `length` and `type="audio/mpeg"`; item titles "The Making of Eve" and
+  "Eve-David podcast planning session". https://askevepodcast.com/ returns 200 and links both stems.
+- §11 rows touched by this task, re-run: #4 masters still private (r2.dev disabled, no custom domains); #5
+  `/does-not-exist` → 404 from Cloudflare/R2; #6 `access-control-allow-origin: https://askevepodcast.com` on the ep-1 MP3;
+  #12 feed.xml 200 `application/rss+xml; charset=utf-8`. All PASS.
+- notes: nothing else was created or deleted. An earlier Hermes card had staged a hermes-hub re-render of ep 0
+  (sha 81f4721f…, 138855462 B) at the same key; it was overwritten here, and that card's artifact-replacement PR was never opened.
+  The Drive handoff folder is left for David to trash.
+
 ### Cleanup
 - deleted the pre-guide leftovers (empty, created by David's agent before this guide existed): R2 bucket `askeve-audio`, D1 `askeve` (bc9948de-…).
 - §11 #15: the guide's grep counts its own regexes (4 hits, all patterns in deploy-guide.md / ingest.yml / notify.py); with
