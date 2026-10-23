@@ -13,6 +13,7 @@ on:
       share_url: { description: "https://grok.com/share/<id>", required: true, type: string }
       raw_key: { description: "raw/<date>_<slug>/phone.<ext> in ask-eve-masters (comma-separated for several segments)", required: true, type: string }
       title: { description: "episode title (default: from slug)", required: false, type: string, default: "" }
+      moments: { description: "also extract people discussion moments (xAI LLM) into index/moments/", required: false, type: boolean, default: false }
 
 permissions:
   contents: write
@@ -119,6 +120,16 @@ jobs:
           [[ "$actual" == "$STEM" ]] || { echo "::notice::transcript stem $actual (upload was $STEM)"; echo "STEM=$actual" >> "$GITHUB_ENV"; }
           test -d "out/$actual/artifacts" || { echo "::error::no artifacts for $actual"; exit 1; }
 
+      - name: Extract people discussion moments (optional; LLM-judged, reviewed in the PR)
+        if: ${{ inputs.moments }}
+        continue-on-error: true   # moments are a site extra; never fail the ingest on them
+        env:
+          XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
+        run: |
+          set -euo pipefail
+          [[ -n "$XAI_API_KEY" ]] || { echo "::warning::no XAI_API_KEY; skipping moments"; exit 0; }
+          python scripts/extract_moments.py "episodes/$STEM.md" --timeline "out/$STEM/artifacts/timeline.json"
+
       - name: Stage the MP3 in the private bucket (publish.yml copies it to the public bucket after merge)
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
@@ -169,6 +180,7 @@ jobs:
           mkdir -p "artifacts/$STEM"
           cp out/$STEM/artifacts/* "artifacts/$STEM/"
           git add "episodes/$STEM.md" "artifacts/$STEM"
+          git add index/moments 2>/dev/null || true   # only present when the moments input was set
           # guard: text only, no secrets
           if git diff --cached --name-only | grep -Eiv '\.(md|json|sql)$'; then echo "::error::non-text file staged"; exit 1; fi
           if git diff --cached | grep -E 'xai-[A-Za-z0-9]{20,}|gh[pousr]_[A-Za-z0-9]{20,}|github_pat_'; then echo "::error::secret-like string"; exit 1; fi

@@ -85,7 +85,49 @@ def test_people_pages(site):
     assert idx.count('class="pcard"') >= 10
     p = read(site, "people/david-sacks/index.html")
     assert "Eve&#x27;s current take" in p or "Eve's current take" in p
-    assert re.search(rf'href="/episodes/{EP0}/#t=\d+"', p) and "<mark>" in p
+    assert re.search(rf'href="/episodes/{EP0}/#t=\d+"', p)
+    assert "<mark>" not in p and "moment__q" not in p          # the old text-match snippets are gone
+    assert "discussions ·" in idx or "discussion ·" in idx
+
+
+def _moments(slug):
+    return json.loads((ROOT / f"index/moments/{slug}.json").read_text())["moments"]
+
+
+def test_person_page_one_block_per_moment(site):
+    ms = [m for m in _moments(EP0) if m["person"] == "david-sacks"]
+    assert ms
+    p = read(site, "people/david-sacks/index.html")
+    assert p.count('<li class="pm">') == sum(1 for slug in (EP0, EP1) for m in _moments(slug) if m["person"] == "david-sacks")
+    import html as _h
+    for m in ms:
+        start = int(m["start"])
+        assert f'href="/episodes/{EP0}/#t={start}"' in p
+        assert f"Listen from {B.clock(m['start'])}" in p and f"{B.clock(m['start'])}–{B.clock(m['end'])}" in p
+        assert _h.escape(m["summary"]) in p
+    assert '<span class="pm__ep">First Encounter</span>' in p
+
+
+def test_people_only_link_episodes_with_moments(site):
+    by_ep = {slug: {m["person"] for m in _moments(slug)} for slug in (EP0, EP1)}
+    for f in (site / "people").glob("*/index.html"):
+        slug, h = f.parent.name, f.read_text()
+        for ep in (EP0, EP1):
+            assert (f'class="pep__title"><a href="/episodes/{ep}/"' in h) == (slug in by_ep[ep]), (slug, ep)
+    for ep in (EP0, EP1):
+        h = read(site, f"episodes/{ep}/index.html")
+        side = h[h.index("People in this episode"):] if "People in this episode" in h else ""
+        side = side[:side.index("</section>")] if side else ""
+        assert set(re.findall(r'href="/people/([a-z0-9-]+)/"', side)) == by_ep[ep], ep
+
+
+def test_moment_html_without_offsets():
+    ep = {"slug": "x", "title": "T & U"}
+    m = {"start": None, "end": None, "clock": "07:59:21", "summary": "David asks <x>; Eve explains.", "topics": ["ai-policy"],
+         "first_turn": {"i": 38}}
+    h = B.moment_html(ep, m)
+    assert 'href="/episodes/x/#turn-38"' in h and "Read from 07:59" in h and "T &amp; U" in h and "&lt;x&gt;" in h
+    assert '<li class="pm__tag">ai-policy</li>' in h
 
 
 def test_about_and_privacy(site):

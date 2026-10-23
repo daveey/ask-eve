@@ -1,0 +1,15 @@
+{
+  "_doc": "Aliases and ASR misspellings per person in index/people.md, keyed by the stable person slug. Used by scripts/extract_moments.py to find where each person is discussed. `notes` are disambiguation hints for the judge.",
+  "david-sacks": {"aliases": ["Sacks", "Sachs", "David Sachs", "Sax"], "notes": "Not David the host (the user, David Bloomin). Only count the investor/All-In co-host/White House AI and crypto czar."},
+  "marc-andreessen": {"aliases": ["Andreessen", "Marc", "Mark Andreessen", "Andreesen", "Andreeson", "a16z", "a sixteen z"], "notes": "a16z mentions count only if Andreessen himself is the subject."},
+  "ben-horowitz": {"aliases": ["Horowitz", "Ben"], "notes": "Not David Horowitz (Ben's father) unless the discussion is about Ben."},
+  "elon-musk": {"aliases": ["Musk", "Elon", "DOGE"], "notes": "DOGE mentions count only when Musk himself is the subject."},
+  "chamath-palihapitiya": {"aliases": ["Chamath", "DeMuth", "Dimoth", "DeMoth", "Chamath Palihapitiya", "Palihapitiya"], "notes": "ASR often renders Chamath as DeMuth / Dimoth / DeMoth."},
+  "jason-calacanis": {"aliases": ["Calacanis", "Jason", "J Cal", "JCal"], "notes": ""},
+  "peter-thiel": {"aliases": ["Thiel", "Peter Teal", "Teal"], "notes": ""},
+  "nancy-pelosi": {"aliases": ["Pelosi", "Nancy"], "notes": "Christine Pelosi (her daughter) is a different person; segments about Christine do not count for Nancy unless Nancy herself is discussed."},
+  "chan": {"name": "Connie Chan", "aliases": ["Connie Chan", "Connie", "Chan"], "notes": "Connie Chan, the San Francisco supervisor Nancy Pelosi backed over Scott Wiener. 'Connie' in the transcript is this Connie Chan, NOT Christine Pelosi."},
+  "scott-wiener": {"aliases": ["Wiener", "Weiner", "Scott Weiner"], "notes": ""},
+  "bari-weiss": {"aliases": ["Bari", "Weiss", "Barry Weiss", "Free Press"], "notes": "Free Press mentions count only when Weiss or her outlet is the subject."},
+  "zohran-mamdani": {"aliases": ["Mamdani", "Madani", "Zohran", "Mumdani"], "notes": "ASR often renders Mamdani as Madani."}
+}
