@@ -1,0 +1,104 @@
+{
+ "recording_method": "mic-plus-tts",
+ "tts": "xai_tts voice=eve",
+ "placeholder_audio": false,
+ "pause_after": 0.35,
+ "max_pause": 1.5,
+ "inserted_seconds": 0,
+ "cut_seconds": 0.25,
+ "edited_duration": 58.34,
+ "time_map": [
+  {
+   "raw_start": 0.0,
+   "raw_end": 19.35,
+   "edited_start": 0.0
+  },
+  {
+   "raw_start": 19.6,
+   "raw_end": 57.1733,
+   "edited_start": 19.35
+  }
+ ],
+ "turns": [
+  {
+   "i": 0,
+   "speaker": "David",
+   "created_at": "2026-10-23T11:35:33.000Z",
+   "raw_start": 0.0,
+   "raw_end": 11.48,
+   "method": "sync-phrase",
+   "score": 100.0,
+   "edited_start": 0.0,
+   "edited_end": 11.48,
+   "edited_method": "sync-phrase"
+  },
+  {
+   "i": 1,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T11:35:33.000Z",
+   "raw_start": 11.78,
+   "raw_end": 19.6,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 7.82,
+   "edited_start": 11.78,
+   "edited_end": 17.85,
+   "edited_method": "tts-placed"
+  },
+  {
+   "i": 2,
+   "speaker": "David",
+   "created_at": "2026-10-23T11:35:59.000Z",
+   "raw_start": 19.9,
+   "raw_end": 27.92,
+   "method": "asr-match",
+   "score": 100.0,
+   "edited_start": 19.65,
+   "edited_end": 27.67,
+   "edited_method": "asr-match"
+  },
+  {
+   "i": 3,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T11:35:59.000Z",
+   "raw_start": 28.22,
+   "raw_end": 40.54,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 12.32,
+   "edited_start": 27.97,
+   "edited_end": 39.48,
+   "edited_method": "tts-placed"
+  },
+  {
+   "i": 4,
+   "speaker": "David",
+   "created_at": "2026-10-23T11:36:25.000Z",
+   "raw_start": 40.84,
+   "raw_end": 52.86,
+   "method": "asr-match",
+   "score": 90.1,
+   "edited_start": 40.59,
+   "edited_end": 52.61,
+   "edited_method": "asr-match"
+  },
+  {
+   "i": 5,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T11:36:25.000Z",
+   "raw_start": 53.16,
+   "raw_end": 59.314,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 6.154,
+   "edited_start": 52.91,
+   "edited_end": 58.34,
+   "edited_method": "tts-placed"
+  }
+ ],
+ "files": {
+  "david_edit": "out/2026-10-23_walk-0449/revoice/david_edit.wav",
+  "eve_track": "out/2026-10-23_walk-0449/revoice/eve_track.wav",
+  "mix": "out/2026-10-23_walk-0449/revoice/mix.wav"
+ }
+}

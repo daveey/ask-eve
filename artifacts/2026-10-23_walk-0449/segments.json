@@ -1,0 +1,22 @@
+{
+ "segments": [
+  {
+   "arg_index": 0,
+   "path": "rec/phone.m4a",
+   "duration": 57.173,
+   "creationdate": null,
+   "sha256": "a6ac8651f5dafe7028694627d8d85684081acc6a851d06d61f76e1ec2dd72b28",
+   "bytes": 838510,
+   "placement": "sequential",
+   "offset": 0.0
+  }
+ ],
+ "recording_started_at": null,
+ "duration": 57.173,
+ "recording_gaps": [],
+ "processing_chain": "highpass=f=80,acompressor=threshold=-21dB:ratio=3:attack=10:release=200:makeup=3",
+ "files": {
+  "david_48k": "out/2026-10-23_walk-0449/stitch/david_48k.wav",
+  "david_16k": "out/2026-10-23_walk-0449/stitch/david_16k.wav"
+ }
+}

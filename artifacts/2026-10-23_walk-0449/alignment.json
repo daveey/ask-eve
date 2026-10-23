@@ -1,0 +1,87 @@
+{
+ "alignment_method": "asr-david-gaps",
+ "alignment_coverage": 1.0,
+ "david_turns": 3,
+ "david_matchable": 3,
+ "david_matched": 3,
+ "eve_turns": 3,
+ "match_speakers": [
+  "David"
+ ],
+ "sync_offset_seconds": 0.0,
+ "sync_phrase": {
+  "raw_seconds": 0.0,
+  "score": 100.0,
+  "word_index": 0
+ },
+ "fit": {
+  "offset_seconds": -6.1,
+  "slope": 0.78538
+ },
+ "turns": [
+  {
+   "i": 0,
+   "speaker": "David",
+   "created_at": "2026-10-23T11:35:33.000Z",
+   "raw_start": 0.0,
+   "raw_end": 11.48,
+   "method": "sync-phrase",
+   "score": 100.0
+  },
+  {
+   "i": 1,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T11:35:33.000Z",
+   "raw_start": 11.78,
+   "raw_end": 19.6,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 7.82
+  },
+  {
+   "i": 2,
+   "speaker": "David",
+   "created_at": "2026-10-23T11:35:59.000Z",
+   "raw_start": 19.9,
+   "raw_end": 27.92,
+   "method": "asr-match",
+   "score": 100.0
+  },
+  {
+   "i": 3,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T11:35:59.000Z",
+   "raw_start": 28.22,
+   "raw_end": 40.54,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 12.32
+  },
+  {
+   "i": 4,
+   "speaker": "David",
+   "created_at": "2026-10-23T11:36:25.000Z",
+   "raw_start": 40.84,
+   "raw_end": 52.86,
+   "method": "asr-match",
+   "score": 90.1
+  },
+  {
+   "i": 5,
+   "speaker": "Eve",
+   "created_at": "2026-10-23T11:36:25.000Z",
+   "raw_start": 53.16,
+   "raw_end": 59.314,
+   "method": "gap-placed",
+   "score": null,
+   "gap_seconds": 6.154
+  }
+ ],
+ "transcript": "episodes/2026-10-23_walk-0449.md",
+ "transcript_sha256": "2312ae413a87c6515c392b3f4105d00a6ab0d05fad35355bfd00069c4b08c966",
+ "asr_model": "faster-whisper small int8",
+ "asr_words": 145,
+ "recording_started_at": null,
+ "creationdate_prior_offset": null,
+ "raw_audio_sha256": null
+}
