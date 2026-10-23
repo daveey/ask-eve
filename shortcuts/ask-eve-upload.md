@@ -1,3 +1,5 @@
+> **On the go?** Use the two-Shortcut flow in [docs/on-the-go.md](../docs/on-the-go.md) (Eve Start / Eve Done, signed files in `shortcuts/on-the-go/`). This page is the original single Share Sheet Shortcut.
+
 # iOS Shortcut: "Ask Eve upload"
 
 Uploads one recording (or several segments of one session) from the iPhone Share Sheet straight to the
