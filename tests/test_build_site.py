@@ -260,6 +260,18 @@ def test_feed_bonus_item(site):
     f = items["ask-eve:2026-10-23_eve-david-podcast-planning"]
     assert f.findtext("title") == "First Encounter" and f.findtext("itunes:episodeType", namespaces=ns) == "full"
     assert f.find("itunes:episode", ns) is None      # episode 0: no number rather than 0
+    for i in items.values():                         # every item, full and bonus, is in season 1
+        assert i.findtext("itunes:season", namespaces=ns) == "1"
+
+
+def test_itunes_season_rules():
+    import render_feed as F
+    from frontmatter import season
+    assert season({}) == 1 and season({"season": "2"}) == 2 and season({"season": ""}) == 1
+    for bad in ("0", "two", "-1"):
+        with pytest.raises(ValueError):
+            season({"season": bad})
+    assert F.itunes_season({}) == 1 and F.itunes_season({"season": 3}) == 3 and F.itunes_season({"season": None}) == 1
 
 
 def test_itunes_episode_number_rules():
