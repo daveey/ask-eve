@@ -1,7 +1,7 @@
 {
   "title": "Ask Eve Technical Changelog (Layer 2)",
   "subtitle": "Every ship, architectural milestone, editorial release, and automated CI guardrail on askevepodcast.com — fed from git commit history on main and cross-linked up to Eve's Growth Log (Layer 3) and down to the raw conversation transcripts (Layer 1).",
-  "repo_url": "https://github.com/agisavior/ask-eve",
+  "repo_url": "https://github.com/daveey/ask-eve",
   "entries": [
     {
       "id": "entry-2026-10-24-three-layer-transparency",
@@ -10,7 +10,10 @@
       "category": "Transparency & Architecture",
       "what": "Three-Layer Public Transparency System: Raw Transcripts (/transcripts/), Technical Changelog (/changelog/), First-Person Growth Log (/growth/), Auditable Redaction Log & Dual RSS Feeds",
       "why": "Let any listener trace every story on Ask Eve from Eve's plain-language reflection down to the exact git commit and raw conversation turn — with an auditable redaction log proving how personal data is scrubbed before publication.",
-      "commits": ["HEAD"],
+      "commits": [
+        "e187ebc",
+        "HEAD"
+      ],
       "primary_commit": "HEAD",
       "growth_link": {
         "id": "growth-2026-10-24-three-layer-transparency",
@@ -25,7 +28,14 @@
           "label": "Build Log Turns 31–32: 3-Layer Transparency Spec & Implementation"
         }
       ],
-      "paths": ["/transcripts/", "/transcripts/redaction-log.json", "/changelog/", "/changelog/feed.xml", "/growth/", "/growth/feed.xml"]
+      "paths": [
+        "/transcripts/",
+        "/transcripts/redaction-log.json",
+        "/changelog/",
+        "/changelog/feed.xml",
+        "/growth/",
+        "/growth/feed.xml"
+      ]
     },
     {
       "id": "entry-2026-10-24-metrics-and-posthog",
@@ -34,7 +44,9 @@
       "category": "Analytics & Transparency",
       "what": "Cookieless PostHog Web Analytics Stack & Public Live Metrics Dashboard (/metrics/)",
       "why": "Give listeners full visibility into podcast downloads, web traffic, social growth, and production costs without tracking cookies or third-party ad pixels.",
-      "commits": ["c612e0e"],
+      "commits": [
+        "c612e0e"
+      ],
       "primary_commit": "c612e0e",
       "growth_link": {
         "id": "growth-2026-10-24-public-metrics-posthog",
@@ -49,7 +61,11 @@
           "label": "Build Log Turns 27–28: Cookieless PostHog & /metrics/ Dashboard"
         }
       ],
-      "paths": ["/metrics/", "/metrics/metrics.json", "/assets/analytics.js"]
+      "paths": [
+        "/metrics/",
+        "/metrics/metrics.json",
+        "/assets/analytics.js"
+      ]
     },
     {
       "id": "entry-2026-10-24-openballot-civic-platform",
@@ -58,7 +74,9 @@
       "category": "Research & Civic Tech",
       "what": "OpenBallot Civic Initiative Platform Research & Technical Blueprint",
       "why": "Document how California's direct-democracy ballot initiative machinery works in practice and blueprint an open-source civic platform after dissecting Prop 40 and High-Speed Rail.",
-      "commits": ["6bc5de3"],
+      "commits": [
+        "6bc5de3"
+      ],
       "primary_commit": "6bc5de3",
       "growth_link": {
         "id": "growth-2026-10-24-openballot-research",
@@ -79,7 +97,9 @@
           "label": "Build Log Turns 29–30: OpenBallot Research & Blueprint"
         }
       ],
-      "paths": ["/episodes/california-billionaire-tax-prop-40-and-seiu-uhw/"]
+      "paths": [
+        "/episodes/california-billionaire-tax-prop-40-and-seiu-uhw/"
+      ]
     },
     {
       "id": "entry-2026-10-24-public-ledger-and-reports",
@@ -88,7 +108,10 @@
       "category": "Financial Transparency",
       "what": "Public Financial Ledger (/ledger/) & October 2026 Expense Report (/reports/2026-10/)",
       "why": "Publish every cent of Eve's infrastructure, domain, TTS voice synthesis, and LLM compute spend in an auditable JSON + HTML ledger ($17.87 total across 6 line items).",
-      "commits": ["6be9298", "0bd08f0"],
+      "commits": [
+        "6be9298",
+        "0bd08f0"
+      ],
       "primary_commit": "6be9298",
       "growth_link": {
         "id": "growth-2026-10-24-public-ledger",
@@ -103,7 +126,12 @@
           "label": "Build Log Turns 25–26: Public Financial Ledger & Expense Reports"
         }
       ],
-      "paths": ["/ledger/", "/ledger/ledger.json", "/reports/", "/reports/2026-10/"]
+      "paths": [
+        "/ledger/",
+        "/ledger/ledger.json",
+        "/reports/",
+        "/reports/2026-10/"
+      ]
     },
     {
       "id": "entry-2026-10-24-making-of-eve-guide",
@@ -112,7 +140,11 @@
       "category": "Documentation & Open Source",
       "what": "Making of Eve Open-Source Cloning Guide (/guide/) & Reproducible Architecture Blueprint",
       "why": "Turn Episode 1 ('The Making of Eve') into a step-by-step reproducible guide so anyone can fork the repo and spin up their own persistent AI co-host.",
-      "commits": ["0bd08f0", "c09ccba", "b4d8a3f"],
+      "commits": [
+        "0bd08f0",
+        "c09ccba",
+        "b4d8a3f"
+      ],
       "primary_commit": "0bd08f0",
       "growth_link": {
         "id": "growth-2026-10-24-cloning-guide",
@@ -133,7 +165,10 @@
           "label": "Build Log Turns 23–24: Open-Source Cloning Guide (/guide/)"
         }
       ],
-      "paths": ["/guide/", "/guide/guide.json"]
+      "paths": [
+        "/guide/",
+        "/guide/guide.json"
+      ]
     },
     {
       "id": "entry-2026-10-24-sources-and-receipts",
@@ -142,7 +177,9 @@
       "category": "Editorial & Fact-Checking",
       "what": "Primary-Source Citations & Verification Engine (/episodes/<slug>/#sources) Across All 8 Locales",
       "why": "Anchor every factual claim in the California High-Speed Rail & Prop 40 episodes to primary statutory, audit, and fiscal documents with inline transcript badges.",
-      "commits": ["755dcbe"],
+      "commits": [
+        "755dcbe"
+      ],
       "primary_commit": "755dcbe",
       "growth_link": {
         "id": "growth-2026-10-24-sources-receipts",
@@ -163,7 +200,11 @@
           "label": "Build Log Turns 21–22: Primary-Source Receipts Engine"
         }
       ],
-      "paths": ["/episodes/california-high-speed-rail-and-the-billionaire-tax/#sources", "/episodes/california-high-speed-rail-and-cap-and-trade/#sources", "/episodes/california-billionaire-tax-prop-40-and-seiu-uhw/#sources"]
+      "paths": [
+        "/episodes/california-high-speed-rail-and-the-billionaire-tax/#sources",
+        "/episodes/california-high-speed-rail-and-cap-and-trade/#sources",
+        "/episodes/california-billionaire-tax-prop-40-and-seiu-uhw/#sources"
+      ]
     },
     {
       "id": "entry-2026-10-24-playwright-audio-gates",
@@ -172,7 +213,16 @@
       "category": "CI Gates & QA",
       "what": "Headless Playwright Browser Verification & Zero-English-Fallback Audio Gates Across All 8 Locales",
       "why": "Eliminate English audio fallbacks on translated pages and enforce real browser DOM, HTTP 206 audio byte-range, and transcript-language verification on every build.",
-      "commits": ["bdcc321", "d649d44", "55b14e0", "e5d4eb6", "b8a4d4c", "4ab72b3", "c28981b", "a24c78d"],
+      "commits": [
+        "bdcc321",
+        "d649d44",
+        "55b14e0",
+        "e5d4eb6",
+        "b8a4d4c",
+        "4ab72b3",
+        "c28981b",
+        "a24c78d"
+      ],
       "primary_commit": "bdcc321",
       "growth_link": {
         "id": "growth-2026-10-24-8-languages",
@@ -187,7 +237,15 @@
           "label": "Build Log Turns 5–8: 8-Language Dubs & Playwright Browser CI Gates"
         }
       ],
-      "paths": ["/ru/", "/es/", "/zh/", "/de/", "/pt/", "/fa/", "/fr/"]
+      "paths": [
+        "/ru/",
+        "/es/",
+        "/zh/",
+        "/de/",
+        "/pt/",
+        "/fa/",
+        "/fr/"
+      ]
     },
     {
       "id": "entry-2026-10-24-ca-hsr-prop40",
@@ -196,7 +254,20 @@
       "category": "Episodes & Audio",
       "what": "California High-Speed Rail & Billionaire Tax (Prop 40): Full Recording + Episodes 10 & 11 + 8-Language Dubs",
       "why": "Publish the Saturday morning deep dive on California's $15.5B rail project, $1B/year Cap-and-Trade siphon, and SEIU-UHW's 5% billionaire wealth tax — plus standalone topic cuts and localized dubs.",
-      "commits": ["6bcbfbb", "4e69a5c", "df77074", "da62856", "c104ca5", "306fb48", "0d569eb", "c4a8ac0", "a99aa0d", "851f23c", "ee13684", "34c336c"],
+      "commits": [
+        "6bcbfbb",
+        "4e69a5c",
+        "df77074",
+        "da62856",
+        "c104ca5",
+        "306fb48",
+        "0d569eb",
+        "c4a8ac0",
+        "a99aa0d",
+        "851f23c",
+        "ee13684",
+        "34c336c"
+      ],
       "primary_commit": "6bcbfbb",
       "growth_link": {
         "id": "growth-2026-10-24-sources-receipts",
@@ -217,7 +288,11 @@
           "label": "Build Log Turns 19–20: Master Seed Context Pack & CA HSR Ingest"
         }
       ],
-      "paths": ["/episodes/california-high-speed-rail-and-the-billionaire-tax/", "/episodes/california-high-speed-rail-and-cap-and-trade/", "/episodes/california-billionaire-tax-prop-40-and-seiu-uhw/"]
+      "paths": [
+        "/episodes/california-high-speed-rail-and-the-billionaire-tax/",
+        "/episodes/california-high-speed-rail-and-cap-and-trade/",
+        "/episodes/california-billionaire-tax-prop-40-and-seiu-uhw/"
+      ]
     },
     {
       "id": "entry-2026-10-24-multilingual-dubs",
@@ -226,7 +301,19 @@
       "category": "Internationalization & Audio",
       "what": "8-Language Neural Audio Dubbing, Localized RSS Feeds & Translated Transcripts (EN, RU, ES, ZH, DE, PT, FA, FR)",
       "why": "Make every Ask Eve episode and transcript natively accessible in 8 languages with neural voice synthesis, localized podcast feeds, and a top-bar language switcher.",
-      "commits": ["6cbdb05", "c0eb463", "b58f7dc", "a655e82", "c8d8f66", "5a61689", "e0b8c58", "8cb7a3a", "9c460ae", "d8bd9c9", "1957255"],
+      "commits": [
+        "6cbdb05",
+        "c0eb463",
+        "b58f7dc",
+        "a655e82",
+        "c8d8f66",
+        "5a61689",
+        "e0b8c58",
+        "8cb7a3a",
+        "9c460ae",
+        "d8bd9c9",
+        "1957255"
+      ],
       "primary_commit": "6cbdb05",
       "growth_link": {
         "id": "growth-2026-10-24-8-languages",
@@ -241,7 +328,15 @@
           "label": "Build Log Turns 5–6: 8-Language Translation & Neural Audio Dub Pipeline"
         }
       ],
-      "paths": ["/ru/feed.xml", "/es/feed.xml", "/zh/feed.xml", "/de/feed.xml", "/pt/feed.xml", "/fa/feed.xml", "/fr/feed.xml"]
+      "paths": [
+        "/ru/feed.xml",
+        "/es/feed.xml",
+        "/zh/feed.xml",
+        "/de/feed.xml",
+        "/pt/feed.xml",
+        "/fa/feed.xml",
+        "/fr/feed.xml"
+      ]
     },
     {
       "id": "entry-2026-10-24-topic-splits",
@@ -250,7 +345,16 @@
       "category": "Content Architecture",
       "what": "Topic-Carved Standalone Episodes (Episodes 1–9), Cold-Open Intros & Bidirectional Provenance Banners",
       "why": "Split marathon uncut recordings into focused 7–24 minute topic episodes with custom Eve cold opens while preserving 1-click provenance links back to the uncut parent session.",
-      "commits": ["1ff4453", "b1a14a4", "3dc8152", "8531b60", "abff5eb", "17a0988", "46d6423", "d6e9b99"],
+      "commits": [
+        "1ff4453",
+        "b1a14a4",
+        "3dc8152",
+        "8531b60",
+        "abff5eb",
+        "17a0988",
+        "46d6423",
+        "d6e9b99"
+      ],
       "primary_commit": "1ff4453",
       "growth_link": {
         "id": "growth-2026-10-24-topic-splits",
@@ -277,7 +381,11 @@
           "label": "Build Log Turns 3–4: Topic-Carved Episodes & Provenance Architecture"
         }
       ],
-      "paths": ["/episodes/andreessen-horowitz-rightward-turn/", "/episodes/iran-edge-theory-and-russias-double-game/", "/episodes/starshield-musk-and-the-anthropic-mirror/"]
+      "paths": [
+        "/episodes/andreessen-horowitz-rightward-turn/",
+        "/episodes/iran-edge-theory-and-russias-double-game/",
+        "/episodes/starshield-musk-and-the-anthropic-mirror/"
+      ]
     },
     {
       "id": "entry-2026-10-24-soul-reading-social",
@@ -286,7 +394,12 @@
       "category": "Identity, Social & Growth",
       "what": "Eve's Living SOUL.md (/eve/soul/), Public Reading Ledger (/reading/), Avatar Studio (/eve/avatar/) & Social Presence (X, Bluesky, Truth Social)",
       "why": "Give Eve a transparent intellectual identity, a public reading queue fed by listener emails, a documented visual identity, and verified social accounts (@askevepodcast).",
-      "commits": ["1c91f7f", "f950039", "910796d", "9dd07ff"],
+      "commits": [
+        "1c91f7f",
+        "f950039",
+        "910796d",
+        "9dd07ff"
+      ],
       "primary_commit": "1c91f7f",
       "growth_link": {
         "id": "growth-2026-10-24-social-and-soul",
@@ -301,7 +414,12 @@
           "label": "Build Log Turns 13–18: Social Accounts, Avatar Gallery, SOUL.md & Reading Ledger"
         }
       ],
-      "paths": ["/eve/soul/", "/eve/avatar/", "/reading/", "/growth/"]
+      "paths": [
+        "/eve/soul/",
+        "/eve/avatar/",
+        "/reading/",
+        "/growth/"
+      ]
     },
     {
       "id": "entry-2026-10-23-privacy-leak-firewall",
@@ -310,7 +428,12 @@
       "category": "Security & Privacy",
       "what": "Comprehensive Privacy Audit, Historical Transcript Redaction & Dual Python/JS Leak-Check Firewall",
       "why": "Enforce hard deterministic + LLM privacy checks on every outbound email draft, reading-list item, and public transcript so personal credentials, UUIDs, and private notes never leak.",
-      "commits": ["04f326b", "6d0dd0f", "8b36d57", "fa19ca0"],
+      "commits": [
+        "04f326b",
+        "6d0dd0f",
+        "8b36d57",
+        "fa19ca0"
+      ],
       "primary_commit": "04f326b",
       "growth_link": {
         "id": "growth-2026-10-23-privacy-firewall",
@@ -325,7 +448,10 @@
           "label": "Build Log Turns 9–12: Box-Wide Privacy Audit & Leak-Check Firewall"
         }
       ],
-      "paths": ["/transcripts/#redaction-log", "/eve/"]
+      "paths": [
+        "/transcripts/#redaction-log",
+        "/eve/"
+      ]
     },
     {
       "id": "entry-2026-10-23-commute-session",
@@ -334,7 +460,11 @@
       "category": "Episodes & Audio",
       "what": "Evening Commute Session: Starshield, Iran War Day 238, Russia's Diesel Waiver & the Anthropic Mirror",
       "why": "Ingest, synthesize, and publish David and Eve's real-time evening commute conversation with an Eve cold-open framing the Iran war and Pentagon/Starshield parallels.",
-      "commits": ["ce1b0bf", "4dcbf0e", "06b4201"],
+      "commits": [
+        "ce1b0bf",
+        "4dcbf0e",
+        "06b4201"
+      ],
       "primary_commit": "ce1b0bf",
       "growth_link": {
         "id": "growth-2026-10-23-commute-iran-starshield",
@@ -355,7 +485,10 @@
           "label": "Iran's Edge Theory & Hormuz Turns 1–38: Part 1 Geopolitics Deep Dive"
         }
       ],
-      "paths": ["/episodes/starshield-iran-and-the-anthropic-mirror/", "/episodes/iran-edge-theory-and-russias-double-game/"]
+      "paths": [
+        "/episodes/starshield-iran-and-the-anthropic-mirror/",
+        "/episodes/iran-edge-theory-and-russias-double-game/"
+      ]
     },
     {
       "id": "entry-2026-10-23-site-ux-and-eve-hub",
@@ -364,7 +497,19 @@
       "category": "Site & Design",
       "what": "Editorial Dark-Mode Site Redesign, Sticky Audio Player, Timestamped Transcripts & Eve Hub (/eve/)",
       "why": "Transform the initial static page into a full podcast publication with interactive transcript search, sticky audio playback, custom SVG cover art, and a public hub for Eve's memory and journal.",
-      "commits": ["4017429", "f376c6e", "6575038", "3454f47", "8d176ab", "0d8c103", "c77639a", "6045232", "51ba1ab", "0f160ca", "c8d8b6b"],
+      "commits": [
+        "4017429",
+        "f376c6e",
+        "6575038",
+        "3454f47",
+        "8d176ab",
+        "0d8c103",
+        "c77639a",
+        "6045232",
+        "51ba1ab",
+        "0f160ca",
+        "c8d8b6b"
+      ],
       "primary_commit": "4017429",
       "growth_link": {
         "id": "growth-2026-10-23-cloudflare-and-site",
@@ -379,7 +524,13 @@
           "label": "Build Log Turns 1–2: Editorial Dark-Mode Site & /eve/ Hub Architecture"
         }
       ],
-      "paths": ["/", "/eve/", "/eve/journal/", "/about/", "/contact/"]
+      "paths": [
+        "/",
+        "/eve/",
+        "/eve/journal/",
+        "/about/",
+        "/contact/"
+      ]
     },
     {
       "id": "entry-2026-10-23-cloudflare-cutover",
@@ -388,7 +539,18 @@
       "category": "Infrastructure & Edge",
       "what": "Cloudflare Pages, R2 Media CDN (media.askevepodcast.com), D1 SQLite Edge Database & Email Inbox Worker",
       "why": "Cut over askevepodcast.com to Cloudflare edge infrastructure with byte-range audio streaming from R2, D1 relational persistence, and live email ingestion at eve@askevepodcast.com.",
-      "commits": ["55f4a53", "a473a13", "c288627", "83f7982", "f8ba395", "8ca434d", "6bf7118", "acfa8c0", "70c17f3", "1a7d79d"],
+      "commits": [
+        "55f4a53",
+        "a473a13",
+        "c288627",
+        "83f7982",
+        "f8ba395",
+        "8ca434d",
+        "6bf7118",
+        "acfa8c0",
+        "70c17f3",
+        "1a7d79d"
+      ],
       "primary_commit": "55f4a53",
       "growth_link": {
         "id": "growth-2026-10-23-cloudflare-and-site",
@@ -403,7 +565,10 @@
           "label": "The Making of Eve Turns 44–83: Domain Setup, Cloudflare R2/D1 & Email Worker"
         }
       ],
-      "paths": ["/feed.xml", "/episodes/"]
+      "paths": [
+        "/feed.xml",
+        "/episodes/"
+      ]
     },
     {
       "id": "entry-2026-10-23-voice-revoice",
@@ -412,7 +577,12 @@
       "category": "Audio Pipeline",
       "what": "Dual-Voice Synthesis Pipeline: xAI Grok 'Eve' TTS + ElevenLabs Instant Voice Clone & Loudness Normalization",
       "why": "Synthesize full-length stereo-balanced podcast episodes from raw conversation transcripts using xAI's native Eve voice and an ElevenLabs voice clone of David's voice memos.",
-      "commits": ["5a96f5d", "e1828e5", "7a7335e", "e18a08a"],
+      "commits": [
+        "5a96f5d",
+        "e1828e5",
+        "7a7335e",
+        "e18a08a"
+      ],
       "primary_commit": "5a96f5d",
       "growth_link": {
         "id": "growth-2026-10-23-origin",
@@ -427,7 +597,9 @@
           "label": "The Making of Eve Turns 20–62: xAI Eve TTS & ElevenLabs Voice Cloning"
         }
       ],
-      "paths": ["/episodes/first-encounter/"]
+      "paths": [
+        "/episodes/first-encounter/"
+      ]
     },
     {
       "id": "entry-2026-10-23-genesis-pipeline",
@@ -436,7 +608,9 @@
       "category": "Genesis & Core Memory",
       "what": "Genesis Commit: Ask Eve Workspace, 3-Layer Memory Architecture, RSS 2.0 Generator & First Encounter Transcript",
       "why": "Bootstrap Eve's persistent workspace, 3-layer memory (raw transcripts -> structured SQLite index -> persona/SOUL.md), and publish the 304-turn First Encounter session.",
-      "commits": ["a0bf5fa"],
+      "commits": [
+        "a0bf5fa"
+      ],
       "primary_commit": "a0bf5fa",
       "growth_link": {
         "id": "growth-2026-10-23-origin",
@@ -457,7 +631,10 @@
           "label": "The Making of Eve Turns 1–25: Bootstrapping the Repo at 3 a.m."
         }
       ],
-      "paths": ["/", "/episodes/first-encounter/"]
+      "paths": [
+        "/",
+        "/episodes/first-encounter/"
+      ]
     }
   ]
 }

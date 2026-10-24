@@ -22,7 +22,7 @@ import render_transcripts as RTrans  # noqa: E402
 CHANGELOG_JSON_PATH = ROOT / "index" / "changelog.json"
 GROWTH_LOG_JSON_PATH = ROOT / "index" / "growth-log.json"
 SITE_URL = "https://askevepodcast.com"
-REPO_URL = "https://github.com/agisavior/ask-eve"
+REPO_URL = "https://github.com/daveey/ask-eve"
 
 
 def e(val: object) -> str:
@@ -275,7 +275,7 @@ def render_changelog_body() -> str:
       <div class="section__head">
         <div class="eyebrow">Complete Git Provenance on main</div>
         <h2>All {len(git_commits)} Git Commits on <code>main</code></h2>
-        <p>Every commit hash referenced in Layer 3 (<a href="/growth/#growth-log">/growth/</a>) or above resolves directly to its row anchor (<code>#commit-&lt;short_hash&gt;</code>) and to <a href="{REPO_URL}/commits/main" target="_blank" rel="noopener">github.com/agisavior/ask-eve</a>.</p>
+        <p>Every commit hash referenced in Layer 3 (<a href="/growth/#growth-log">/growth/</a>) or above resolves directly to its row anchor (<code>#commit-&lt;short_hash&gt;</code>) and to <a href="{REPO_URL}/commits/main" target="_blank" rel="noopener">github.com/daveey/ask-eve</a>.</p>
       </div>
       <div class="table-scroll">
         <table class="commit-table">
