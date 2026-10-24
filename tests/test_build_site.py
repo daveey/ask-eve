@@ -559,3 +559,37 @@ def test_take_bad_anchor_raises(site):
         B.resolve_take(by, {"take": ["Some take."], "refs": [ref]}, "test")
     with pytest.raises(ValueError):
         B.resolve_ref(by, {**ref, "clock_time": "03:33:33"})
+
+
+def test_card_summaries_under_titles(site):
+    """Every episode card (main list + Bonus rows) carries a 1-2 line summary from site.json `summaries`."""
+    import html as _h
+    sums = json.loads((ROOT / "site/site.json").read_text())["summaries"]
+    assert all(0 < len(s) <= B.CARD_SUMMARY_MAX for s in sums.values())
+    h = read(site, "index.html")
+    main = h[h.index('id="eps-h"'):h.index('aria-labelledby="bonus-h"')]
+    assert f'<p class="card__blurb">{_h.escape(sums[EP0])}</p>' in main
+    assert main.index('class="card__title"') < main.index('class="card__blurb"')
+    bonus = h[h.index('aria-labelledby="bonus-h"'):]
+    bonus = bonus[:bonus.index("</section>")]
+    assert f'<span class="bonus-row__sum">{_h.escape(sums[EP1])}</span>' in bonus
+    assert bonus.index("bonus-row__title") < bonus.index("bonus-row__sum")
+
+
+def test_card_summary_precedence_and_fallback():
+    long = "word " * 60
+    assert B.card_summary({"summary": " Front  matter. "}, "Sidecar.", "Ctx.") == "Front matter."
+    assert B.card_summary({}, "Sidecar.", "Ctx.") == "Sidecar."
+    assert B.card_summary({}, None, "First one. Second one.") == "First one."
+    assert B.card_summary({}, "", "Mr. Smith left the U.S. Senate. Then") == "Mr. Smith left the U.S. Senate."
+    assert B.card_summary({}, "", "v1.2 is out. Next") == "v1.2 is out."
+    out = B.card_summary({}, None, long.strip() + ".")
+    assert out.endswith("…") and len(out) <= B.CARD_SUMMARY_MAX and not out[:-1].endswith(" ")
+    assert B.card_summary({}, None, "") == ""
+
+
+def test_card_summary_css_clamp():
+    css = (ROOT / "site/static/assets/site.css").read_text()
+    assert re.search(r"@media \(max-width:819px\)\{\.card__blurb,\.bonus-row__sum\{-webkit-line-clamp:2\}\}", css)
+    m = re.search(r"\.bonus-row__sum\{[^}]*font-size:([\d.]+)rem", css)
+    assert m and float(m.group(1)) * 16 >= 14 and "color:var(--muted)" in m.group(0)

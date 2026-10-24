@@ -398,6 +398,10 @@ body.has-player-idle.is-playing{padding-bottom:calc(8.2rem + env(safe-area-inset
 .bonus-row a:hover{background:var(--surface2)}
 .bonus-row__title{font-weight:650}
 .bonus-row__meta{color:var(--muted);font-size:.85rem;margin-left:auto}
+/* card descriptions: 1-2 lines, muted like .hint, never below 14px */
+.bonus-row__sum{flex-basis:100%;color:var(--muted);font-size:.9rem;line-height:1.45;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card__blurb{-webkit-line-clamp:3}
+@media (max-width:819px){.card__blurb,.bonus-row__sum{-webkit-line-clamp:2}}
 
 /* ---- mobile quality pass ---- */
 /* readable body text: 16px floor for paragraphs people actually read */

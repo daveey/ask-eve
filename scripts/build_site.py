@@ -164,6 +164,7 @@ def load_site(db: Path, include_drafts: bool) -> tuple[list[dict], list[dict]]:
         if ep["context"]:
             ep["summary"] = ep["context"]
         ep["blurb"] = (ep.get("summary") or cfg.get("blurbs", {}).get(ep["slug"]) or "").strip()
+        ep["card_summary"] = card_summary(ep["fm"], cfg.get("summaries", {}).get(ep["slug"]), ep["context"] or ep["blurb"])
         ep["person_slugs"] = [slugify(p) for p in ep["people"]]
     eps.sort(key=lambda x: (x["published_at"] or x["date"], x["episode_number"] or 0), reverse=True)
     people = {p["slug"]: p for p in load_people_index(ROOT / "index/people.md")}
@@ -720,6 +721,37 @@ def player_html(ep: dict, idle: bool = False) -> str:
 </div>"""
 
 
+CARD_SUMMARY_MAX = 160
+_ABBREV = {"Mr", "Mrs", "Ms", "Dr", "St", "Jr", "Sr", "vs", "etc", "e.g", "i.e", "No"}
+
+
+def card_first_sentence(text: str, limit: int = CARD_SUMMARY_MAX) -> str:
+    """First sentence of `text`; if longer than `limit`, cut at a word boundary and end with an ellipsis."""
+    text = " ".join((text or "").split())
+    if not text:
+        return ""
+    sent = text
+    for m in re.finditer(r"[.!?](?=\s+[A-Z0-9\"“'(])", text):
+        word = text[:m.start()].rsplit(" ", 1)[-1]
+        if m.group() == "." and (word in _ABBREV or re.fullmatch(r"(?:[A-Z]\.)*[A-Z]", word)):
+            continue   # "Mr. Smith", "U.S. policy": not a sentence end
+        sent = text[:m.end()]
+        break
+    if len(sent) <= limit:
+        return sent
+    cut = sent[:limit - 1].rsplit(" ", 1)[0].rstrip(",;:-–— ")
+    return cut + "…"
+
+
+def card_summary(fm: dict, sidecar: str | None, context: str) -> str:
+    """1-2 line description under an episode card's title.
+    Front-matter `summary:` wins, then site/site.json `summaries[slug]` (no transcript-sha churn), then the first sentence of `context`."""
+    for s in (fm.get("summary"), sidecar):
+        if isinstance(s, str) and s.strip():
+            return " ".join(s.split())
+    return card_first_sentence(context)
+
+
 def ep_card(ep: dict) -> str:
     kind, label = ai_kind(ep)
     badge = f'<span class="badge badge--{kind}">{icon("spark")}{e(label)}</span>' if kind else ""
@@ -728,7 +760,7 @@ def ep_card(ep: dict) -> str:
   <div class="card__body">
     <p class="eyebrow"><span class="card__num">{e(ep_label(ep))}</span> · <time datetime="{e(ep['date'])}">{human_date(ep['date'])}</time> · {human_duration(ep['duration_seconds'])}</p>
     <h3 class="card__title"><a href="/episodes/{e(ep['slug'])}/">{e(ep['title'])}</a></h3>
-    <p class="card__blurb">{e(ep['blurb'])}</p>
+    <p class="card__blurb">{e(ep['card_summary'])}</p>
     <div class="card__badges">{bonus_badge(ep)}{badge}</div>
     {chips(ep['people_full'], 5)}
   </div>
@@ -742,7 +774,8 @@ def bonus_section(bonus: list[dict]) -> str:
     rows = "".join(
         f'<li class="bonus-row"><a href="/episodes/{e(x["slug"])}/">'
         f'<span class="badge badge--bonus">Bonus</span><span class="bonus-row__title">{e(x["title"])}</span>'
-        f'<span class="bonus-row__meta">{human_date(x["date"])} · {human_duration(x["duration_seconds"])}</span></a></li>'
+        f'<span class="bonus-row__meta">{human_date(x["date"])} · {human_duration(x["duration_seconds"])}</span>'
+        + (f'<span class="bonus-row__sum">{e(x["card_summary"])}</span>' if x.get("card_summary") else "") + '</a></li>'
         for x in bonus)
     return f"""
 <section class="bonus" aria-labelledby="bonus-h">
