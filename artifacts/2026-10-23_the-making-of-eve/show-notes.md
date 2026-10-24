@@ -15,7 +15,7 @@
 - 00:07:47 09:40 David (AI-reconstructed, narrator voice): Patch and publish. Three fixes from your
 - 00:09:29 09:44 David (AI-reconstructed, narrator voice): Cutover task. This conversation between David and
 - 00:13:54 09:49 David (AI-reconstructed, narrator voice): Check the ask-eve-memory repo on GitHub. Run
-- 00:15:25 09:51 David (AI-reconstructed, narrator voice): https://grok.com/share/c2hhcmQtMg90f617bb-3947-4fc2-8300-c34b6eeed2d1
+- 00:15:25 09:51 David (AI-reconstructed, narrator voice): [link removed]
 - 00:15:50 09:51 David (AI-reconstructed, narrator voice): A URL for the first podcast transcript
 - 00:18:25 09:53 David (AI-reconstructed, narrator voice): Design the audio pipeline for the "Ask
 - 00:23:24 10:08 David (AI-reconstructed, narrator voice): Update the Ask Eve podcast audio pipeline

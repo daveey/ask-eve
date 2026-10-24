@@ -1,30 +1,30 @@
 # Ask Eve deploy log
 
-Entries by David's deploy agent (Hermes, kanban t_50bd4351). Secrets are never shown; scope/secret **names** only.
-Deploy token: broker-held `user/cf-askeve` (Ask Eve account b4d4a3f8b5b4d5ba074f878f59f16543 only), vended per command, never stored in GitHub.
+Entries by David's deploy agent (Hermes). Secrets are never shown; scope/secret **names** only.
+Deploy token: kept in the deploy agent's secret store (scoped to the Ask Eve Cloudflare account only), vended per command, never stored in GitHub.
 
 ### D-001 done 2026-10-23T11:11Z
 - commands: `node --version`, `npx --yes wrangler@4 --version`, `npx wrangler@4 whoami`, zones API
-- outputs: node v26.7.0, wrangler 4.152.0, gh 2.63.2; account "Askeve@dbloom.in's Account" b4d4a3f8b5b4d5ba074f878f59f16543;
-  askevepodcast.com zone 7594bf9fb7ad9b0286ea33abd47324f5 `active`, NS ezra/june.ns.cloudflare.com (askeve.fm 601fb93f… also active)
+- outputs: node v26.7.0, wrangler 4.152.0, gh 2.63.2; Ask Eve account [redacted];
+  askevepodcast.com zone [redacted] `active`, NS ezra/june.ns.cloudflare.com (a second zone also active)
 - notes: whoami warns "Unable to retrieve email" (token lacks User Details Read); harmless.
 
 ### D-002 done 2026-10-23T11:13Z
 - commands: §2 as written (`r2 bucket create` ×2, `cors set --file`, `domain add --zone-id`, `dev-url disable` ×2)
 - outputs: buckets ask-eve-masters, ask-eve-public; CORS rule origins askevepodcast.com + www, GET/HEAD, Range, expose
   Content-Length/Content-Range/ETag, max-age 3600; audio.askevepodcast.com ownership/ssl `active`; r2.dev disabled on both; masters has no domain.
-- R2 S3 pair: derived from CF API token `askeve-r2-s3` (Workers R2 Storage Bucket Item Write on the two buckets; key id = token id,
-  secret = sha256(token)). No dashboard visit. Recovery copy: broker scope `user/askeve-r2-s3`.
+- R2 S3 pair: created from a bucket-scoped Cloudflare API token (Workers R2 Storage Bucket Item Write on the two buckets).
+  No dashboard visit. Recovery copy: the deploy agent's secret store.
 
 ### D-003 done 2026-10-23T11:16Z
-- outputs: D1 `ask-eve-meta` database_id 8e196805-d1fa-438e-a8f6-17562c50631c (WNAM); `0001_init.sql` applied (15 commands);
+- outputs: D1 `ask-eve-meta` database_id [redacted; GitHub secret D1_DATABASE_ID] (WNAM); `0001_init.sql` applied (15 commands);
   tables: _cf_KV chapters d1_migrations episode_people episode_tags episodes people sqlite_sequence tags translations turn_offsets;
   `d1 migrations list`: no migrations to apply.
 - PR: https://github.com/daveey/ask-eve/pull/1 (merged by the deploy agent under David's standing approval).
 
 ### D-004 done 2026-10-23T12:29Z (GITHUB_TOKEN supplied outside this agent)
-- deploy: "Uploaded ask-eve-upload", custom domain upload.askevepodcast.com, version 622640b5-b832-41e2-a1bd-858fc4c0b65a;
-  redeployed from main 42fe45c (on-the-go /notify) as version 087f5cfa-94c8-4f59-8dc0-bd89bd0cfd61
+- deploy: "Uploaded ask-eve-upload", custom domain upload.askevepodcast.com, version [redacted];
+  redeployed from main 42fe45c (on-the-go /notify) as version [redacted]
 - `npm test`: `node --test test/` fails on Node 26 (Cannot find module …/test); fixed to `node --test test/*.test.mjs` in PR #2 → pass 10, fail 0
   (13/0 after #6)
 - secret list: GITHUB_TOKEN, NOTIFY_TO, NOTIFY_TOKEN, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY, UPLOAD_TOKEN. This agent set the R2 pair and
@@ -34,7 +34,7 @@ Deploy token: broker-held `user/cf-askeve` (Ask Eve account b4d4a3f8b5b4d5ba074f
   ingest no-such-upload → 404 "object not found; PUT the file first"; smoke object deleted.
 - Worker → GitHub dispatch: `/ingest` for e2e-test → `{"dispatched":true,"github_status":204}`; that run (39953630323) was cancelled on purpose,
   because D-007 had already run the same ingest.
-- UPLOAD_TOKEN: broker scope `user/askeve-upload-token` (not a file).
+- UPLOAD_TOKEN: the deploy agent's secret store (not a file).
 
 ### D-005 done 2026-10-23T11:19Z
 - secrets: CLOUDFLARE_ACCOUNT_ID, CLOUDFLARE_D1_TOKEN (`askeve-d1-rw`, D1 Write only), R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY, XAI_API_KEY
@@ -107,7 +107,7 @@ Deploy token: broker-held `user/cf-askeve` (Ask Eve account b4d4a3f8b5b4d5ba074f
 - §11 rows touched by this task, re-run: #4 masters still private (r2.dev disabled, no custom domains); #5
   `/does-not-exist` → 404 from Cloudflare/R2; #6 `access-control-allow-origin: https://askevepodcast.com` on the ep-1 MP3;
   #12 feed.xml 200 `application/rss+xml; charset=utf-8`. All PASS.
-- notes: nothing else was created or deleted. An earlier Hermes card had staged a hermes-hub re-render of ep 0
+- notes: nothing else was created or deleted. An earlier Hermes card had staged a Hermes re-render of ep 0
   (sha 81f4721f…, 138855462 B) at the same key; it was overwritten here, and that card's artifact-replacement PR was never opened.
   The Drive handoff folder is left for David to trash.
 
@@ -118,7 +118,7 @@ Deploy token: broker-held `user/cf-askeve` (Ask Eve account b4d4a3f8b5b4d5ba074f
 
 ## Answers to "Questions for Eve" (PR #11), from David via Hermes, 2026-10-23
 
-1. **Email routing.** Yes, approved. David chose his personal Gmail as the destination for now and will split it out later. The rule `podcast@askevepodcast.com → daveey@gmail.com` stays; a test mail arrived in the inbox (§11 row 13 PASS). Treat safety rule 7 as waived for this one address until David names an owner inbox.
+1. **Email routing.** Yes, approved. David chose his personal Gmail as the destination for now and will split it out later. The rule `podcast@askevepodcast.com → David's personal inbox` stays; a test mail arrived in the inbox (§11 row 13 PASS). Treat safety rule 7 as waived for this one address until David names an owner inbox.
 2. **On-the-go secrets.** Yes. Please add a D-009 entry naming each one (`NOTIFY_TOKEN`, `NOTIFY_TO`, Worker `GITHUB_TOKEN`, GitHub `GDRIVE_CLIENT_ID` / `GDRIVE_CLIENT_SECRET` / `GDRIVE_REFRESH_TOKEN` / `NOTIFY_TOKEN`): who created it, what it can do, and how to rotate it.
 3. **Back-to-back Eve turns (#9).** Your design call, Eve. #9 only stops the crash; if the intent is different, change it and add a test.
 4. **Test slugs.** Yes: skip the Drive copy and the notify email for `e2e-test` and `smoke-*` slugs. Hermes trashed the leftover `Ask Eve/2026-10-23_e2e-test/` folder in David's Drive.
@@ -134,7 +134,7 @@ Also done: episode 0 (PR #4) was merged by David, and publish.yml was dispatched
   curl -sI https://audio.askevepodcast.com/art/cover-3000.v1.jpg
   curl -s https://audio.askevepodcast.com/art/cover-3000.v1.jpg -o cover.jpg && sha256sum cover.jpg   # + the guide's python dimension snippet
   ```
-  (Cloudflare credentials from the broker scope `user/cf-askeve` as $CLOUDFLARE_API_TOKEN / $CLOUDFLARE_ACCOUNT_ID.)
+  (Cloudflare credentials from the deploy agent's secret store as $CLOUDFLARE_API_TOKEN / $CLOUDFLARE_ACCOUNT_ID.)
 - outputs / success-check results:
   ```
   cover-3000.jpg: OK            (331005 bytes; guide sha256 50252549… confirmed before starting)

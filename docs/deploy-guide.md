@@ -45,14 +45,25 @@ Status in the table below is maintained by David's side; your log entry is the r
 | D-008 | superseded by D-010 | ~~Publish episode 0~~: its ingest PR merged, but the audio was redone in PR #13 (the private-URL redaction); don't run this, run D-010 | – |
 | D-010 | done (deploy-log) | **Stage the corrected MP3s and publish episodes 0 and 1** (details below the table). Both ingest PRs are merged (#4, #5) and so is the cleanup PR #13. TTS is real for both (`placeholder_audio: false`). publish.yml run 39999620775 (ep 0) failed with `sha256sum: ep.mp3: FAILED`, because the object in `staging/` is an old render. Run 39999631791 (ep 1) failed with `404 … staging/2026-10-23_the-making-of-eve/2026-10-23_the-making-of-eve.v1.mp3 does not exist`. These MP3s were rendered outside Actions, so nothing staged them. | D-006, PR #13 merged |
 | D-011 | todo | **Upload the show cover to `ask-eve-public`** (details below the table). The feed's `<itunes:image>` is https://audio.askevepodcast.com/art/cover-3000.v1.jpg, which returns 404 because nothing uploaded it. The site redesign (PR #17, merged) added the 3000x3000 cover at `site/static/art/cover-3000.jpg`, now also live at https://askevepodcast.com/art/cover-3000.jpg. | D-002, PR #17 merged |
+| D-012 | todo | **Commit identity: GitHub noreply** (details below the table). On every machine that commits to this repo (your box and Hermes), commit as `452472+daveey@users.noreply.github.com`, never a personal or host address. | – |
+
+**D-012 steps.** Nothing is created or deleted.
+1. On each machine that commits here (David's deploy agent's box **and** the Hermes machine), in every clone of this repo and globally:
+   ```
+   git config --global user.name "David Bloomin"
+   git config --global user.email "452472+daveey@users.noreply.github.com"
+   git -C <each clone> config user.email "452472+daveey@users.noreply.github.com"   # only if the clone sets its own
+   ```
+   When merging with `gh pr merge`, pass `--author-email 452472+daveey@users.noreply.github.com` (otherwise GitHub uses the account's primary email).
+2. Expect: `git config user.email` prints the noreply address in each clone, and `git log -1 --format=%ae` on your next commit shows it.
+   Report the hostnames you fixed as "box" / "Hermes" only (no tailnet or host FQDNs).
 
 **D-010 steps.** This task names the objects you write, which are the two staging keys below. Overwriting the old ep-0 staging object is allowed.
 Nothing else is created or deleted.
-1. Download the 3 files from David's Google Drive folder `Ask Eve/_publish-handoff-2026-10-23`
-   (https://drive.google.com/drive/folders/1EGW9Bv-KlUQPQTi-OomgDVsUsmhwnrX_):
-   - `2026-10-23_eve-david-podcast-planning.v1.mp3.part00`: file id 11wDc82WPJwxMd2f004pyhJ3McnWgKWE3, 70,000,000 bytes
-   - `2026-10-23_eve-david-podcast-planning.v1.mp3.part01`: file id 1EgikYKJBceeWKKO3lanXJtSTvBcj_zqR, 67,334,508 bytes
-   - `2026-10-23_the-making-of-eve.v1.mp3`: file id 1eUWAz5MKA2FMt_FTmiQT4ZQWGA6cHqzQ, 39,762,998 bytes
+1. Download the 3 files from David's Google Drive folder `Ask Eve/_publish-handoff-2026-10-23` (find it by name; ids are not kept in git):
+   - `2026-10-23_eve-david-podcast-planning.v1.mp3.part00`: 70,000,000 bytes
+   - `2026-10-23_eve-david-podcast-planning.v1.mp3.part01`: 67,334,508 bytes
+   - `2026-10-23_the-making-of-eve.v1.mp3`: 39,762,998 bytes
 
    Episode 0 is split only because of an upload size limit; the parts are plain byte ranges. If you can't read the folder (for example, your Drive
    token only has the `drive.file` scope), mark D-010 `blocked: can't read the Drive handoff` and stop.
@@ -213,10 +224,12 @@ The CORS JSON above was accepted as written (`headers`, `exposeHeaders`, `maxAge
 ```bash
 npx wrangler@4 d1 create ask-eve-meta
 ```
-Expect: a `database_id` (UUID). Paste it into `workers/upload/wrangler.toml` (`[[d1_databases]] database_id`), replacing
-`REPLACE_WITH_D1_DATABASE_ID`. Set `CF_ACCOUNT_ID` in the same file's `[vars]`. Neither is secret; commit them on a branch and open a PR:
+Expect: a `database_id` (UUID). **Changed 2026-10-23 (privacy cleanup):** ids are no longer committed. Store it as the GitHub
+secret `D1_DATABASE_ID` (`printf %s "$D1_DATABASE_ID" | gh secret set D1_DATABASE_ID -R daveey/ask-eve`); publish.yml, meta.yml and
+site.yml substitute it for the `__D1_DATABASE_ID__` placeholder in `workers/upload/wrangler.toml` at run time. For a local wrangler
+command, substitute it in your working copy first and never commit the result:
 ```bash
-git switch -c deploy/D-003 && git commit -am "wrangler.toml: D1 id and account id" && git push -u origin deploy/D-003 && gh pr create --fill
+sed -i "s/__D1_DATABASE_ID__/$D1_DATABASE_ID/" workers/upload/wrangler.toml   # undo with: git checkout workers/upload/wrangler.toml
 cd workers/upload
 npx wrangler@4 d1 migrations apply ask-eve-meta --remote      # non-interactive shells auto-answer the "continue?" prompt with yes
 npx wrangler@4 d1 execute ask-eve-meta --remote --command "SELECT name FROM sqlite_master WHERE type='table' ORDER BY name"
@@ -224,7 +237,7 @@ cd ../..
 ```
 Expect: migration `0001_init.sql` applied; tables `chapters`, `d1_migrations`, `episode_people`, `episode_tags`, `episodes`,
 `people`, `tags`, `translations`, `turn_offsets` (plus `_cf_*` internal tables). `publish.yml` runs `wrangler d1 execute --config workers/upload/wrangler.toml`,
-so the id must be on `main` before D-004 and the first publish. David merges that PR, or the deploy agent does under David's standing
+so the `D1_DATABASE_ID` secret must be set before D-004 and the first publish (it was set on 2026-10-23). David merges that PR, or the deploy agent does under David's standing
 approval (merge your own deploy PRs once checks pass and review comments are addressed).
 
 ## 4. Worker `ask-eve-upload`
@@ -242,7 +255,9 @@ read -rs GITHUB_TOKEN;         printf %s "$GITHUB_TOKEN"         | npx wrangler@
 (If the account has no Worker yet, `secret put` offers to create a draft Worker; answer yes, since the deploy below replaces it.)
 
 `wrangler.toml` already has: route `upload.askevepodcast.com` (custom_domain), vars `GH_REPO="daveey/ask-eve"`, `GH_WORKFLOW="ingest.yml"`,
-`GH_REF="main"`, `MASTERS_BUCKET="ask-eve-masters"`, the R2 binding `MASTERS` → `ask-eve-masters`; you set `CF_ACCOUNT_ID` in §3.
+`GH_REF="main"`, `MASTERS_BUCKET="ask-eve-masters"`, the R2 binding `MASTERS` → `ask-eve-masters`. `CF_ACCOUNT_ID` is a **Worker secret** (not in git):
+`printf %s "$CF_ACCOUNT_ID" | npx wrangler@4 secret put CF_ACCOUNT_ID`. Before any `wrangler deploy` here, substitute `__D1_DATABASE_ID__` as in §3
+and revert it afterwards. Don't paste deploy output that shows binding values or ids into the deploy log.
 ```bash
 npm test                          # Expect: pass 10, fail 0 (Node 22+ prints "ℹ pass 10"; Node 20 prints "# pass 10")
 npx wrangler@4 deploy             # Expect: "Deployed ask-eve-upload", with upload.askevepodcast.com (custom domain)
@@ -263,7 +278,7 @@ curl -s -w ' %{http_code}\n' $U/ingest -H "Authorization: Bearer $UPLOAD_TOKEN" 
 npx wrangler@4 r2 object delete ask-eve-masters/raw/2026-10-23_smoke-test/phone.m4a --remote
 ```
 Save `UPLOAD_TOKEN` for David outside any repo (`mkdir -p ~/.ask-eve && umask 077 && printf %s "$UPLOAD_TOKEN" > ~/.ask-eve/upload_token`) and report only the path.
-(David's deploy agent stores it as the token-broker scope `user/askeve-upload-token` instead of a file.)
+(David's deploy agent keeps it in its secret store instead of a file.)
 Don't put it in any repo file, PR, issue, log or chat.
 
 ## 5. Tokens (deviation from the original design)
@@ -271,7 +286,7 @@ Don't put it in any repo file, PR, issue, log or chat.
 - **Deploy token** (this guide only): a Cloudflare *custom API token* with Account: *Workers Scripts: Edit*, *D1: Edit*,
   *Workers R2 Storage: Edit*, *Pages: Edit*; Zone (askevepodcast.com): *Workers Routes: Edit*, *DNS: Edit*. It lives only as
   `CLOUDFLARE_API_TOKEN` in your shell. Don't store it in GitHub. Revoke it, or let it expire, when you're done.
-  (David's deploy used the broker-held, account-scoped token `user/cf-askeve`; it never left the broker.)
+  (David's deploy used an account-scoped token held in the deploy agent's secret store; it never left the store.)
 - **CLOUDFLARE_D1_TOKEN** (GitHub): a separate token with only Account *D1 Write*, used by `publish.yml` to mark episodes published.
 - **D1_READ_TOKEN** (GitHub, for site.yml): a separate token with only Account *D1 Read*, used by the site build (§7).
 - **CLOUDFLARE_PAGES_TOKEN** (GitHub, for site.yml): a separate token with only Account *Pages Write*.
