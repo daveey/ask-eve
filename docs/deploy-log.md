@@ -160,3 +160,49 @@ Also done: episode 0 (PR #4) was merged by David, and publish.yml was dispatched
   #12 feed.xml 200 `application/rss+xml; charset=utf-8`, `<itunes:image href="https://audio.askevepodcast.com/art/cover-3000.v1.jpg"/>`,
   2 `<item>`s. All PASS.
 - notes: only that one object was written; nothing else created, overwritten or deleted. No site/feed rebuild.
+
+
+### D-012 done 2026-10-24T00:08Z
+- commands run (Hermes):
+  ```
+  git config --global user.name "David Bloomin"
+  git config --global user.email "452472+daveey@users.noreply.github.com"
+  git -C <each ask-eve clone> config --local --get user.email      # none set a local email; nothing to fix
+  gh pr merge <n> --squash --author-email 452472+daveey@users.noreply.github.com
+  ```
+- outputs / success-check results:
+  ```
+  git config user.email          -> 452472+daveey@users.noreply.github.com   (global; clones inherit it)
+  git log -1 --format=%ae        -> 452472+daveey@users.noreply.github.com   (this commit)
+  ```
+- notes: machine fixed: Hermes. Earlier Hermes commits used the GitHub default merge identity; from this entry on,
+  Hermes commits and merges use the noreply address.
+
+### Privacy cleanup follow-through (§3/§4, guide dbfb0e43) done 2026-10-24T00:05Z
+- commands run (Cloudflare credentials from the deploy agent's secret store as $CLOUDFLARE_API_TOKEN / $CLOUDFLARE_ACCOUNT_ID):
+  ```
+  gh secret list -R daveey/ask-eve                       # D1_DATABASE_ID present (set 2026-10-23T23:54Z)
+  cd workers/upload && npm test                          # ℹ pass 13, ℹ fail 0 (Node 26)
+  sed -i "s/__D1_DATABASE_ID__/$D1_DATABASE_ID/" wrangler.toml
+  npx wrangler@4 deploy                                  # removes the old plain-text CF_ACCOUNT_ID var
+  printf %s "$CLOUDFLARE_ACCOUNT_ID" | npx wrangler@4 secret put CF_ACCOUNT_ID
+  git checkout wrangler.toml                             # placeholder restored, nothing committed
+  ```
+- outputs / success-check results:
+  ```
+  Uploaded ask-eve-upload / Deployed ask-eve-upload triggers / upload.askevepodcast.com (custom domain)
+  ✨ Success! Uploaded secret CF_ACCOUNT_ID
+  Worker bindings after: CF_ACCOUNT_ID = secret_text (was plain_text), DB = d1, other vars/secrets unchanged
+  §4 smoke: presign no auth 401; presign {key raw/2026-10-23_smoke-test/phone.m4a, PUT, audio/mp4, 1800},
+            put_url host <acct>.r2.cloudflarestorage.com; PUT 200; r2 get + cmp: same;
+            ingest no-such-upload {"error":"object not found; PUT the file first"} 404; smoke object deleted
+  site.yml (reads D1 via D1_DATABASE_ID): run 40043214894 on 90843a9 success
+  feed.xml 200 application/rss+xml, 2 items, both enclosures 200, itunes:image cover-3000.v1.jpg 200
+  ```
+- resource ids and URLs: Worker `ask-eve-upload` version 5a3bf623-5c10-4dad-b676-69f577fa17fe;
+  https://github.com/daveey/ask-eve/actions/runs/40043214894 (D1 id and account id deliberately omitted per the privacy cleanup).
+- notes: `secret put` was refused while CF_ACCOUNT_ID still existed as a plain-text var, so the order was deploy first, then secret put;
+  the Worker had no CF_ACCOUNT_ID for about a minute (00:03-00:04Z), with no uploads in that window. Next time: deploy, then
+  `secret put` straight away. publish.yml was not re-run (both episodes are already published); its D1 step uses the
+  same `D1_DATABASE_ID` substitution as meta.yml, which succeeded after the change (runs 40042770775, 40042778412).
+  D-011 was already done (PR #18). No questions for Hermes in this guide version.
