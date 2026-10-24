@@ -226,8 +226,20 @@ def test_no_private_strings_in_translations():
 
 
 def test_takes_keep_their_episode_links(built):
-    """Every ref anchor in Eve's takes is still a link to the moment on the translated page."""
-    out, _, _ = built
+    """Every ref anchor in Eve's takes is still a link to the corresponding turn on the translated page."""
+    out, eps, people = built
+    eps_ru, _ = I.localize_data(LANG, list(eps.values()), people)
+    by_ru = {ep["slug"]: ep for ep in eps_ru}
+    en_to_ru_href = {}
+    for slug, ep_en in eps.items():
+        ep_ru = by_ru[slug]
+        def _href(ep_slug, t):
+            if t["start"] is not None and not t["gap"]:
+                sec = f"{t['start']:.2f}".rstrip("0").rstrip(".")
+                return f"/episodes/{ep_slug}/#t={sec}"
+            return f"/episodes/{ep_slug}/#turn-{t['i']}"
+        for t_en, t_ru in zip(ep_en["turns"], ep_ru["turns"]):
+            en_to_ru_href[_href(slug, t_en)] = f"/{LANG}{_href(slug, t_ru)}"
     pages = sorted((out / LANG / "topics").glob("*/index.html")) + sorted((out / LANG / "people").glob("*/index.html"))
     checked = 0
     for ru in pages:
@@ -236,7 +248,7 @@ def test_takes_keep_their_episode_links(built):
         if 'class="take"' not in a:
             continue
         cites = lambda h: re.findall(r'<a class="cite" href="([^"]+)"', h)  # noqa: E731
-        assert [x.removeprefix(f"/{LANG}") for x in cites(b)] == cites(a), ru
+        assert cites(b) == [en_to_ru_href.get(x, f"/{LANG}{x}") for x in cites(a)], ru
         checked += 1
     assert checked or not (out / LANG / "topics").exists()
 

@@ -741,6 +741,10 @@ def player_html(ep: dict, idle: bool = False) -> str:
         lang_code = ep.get("audio_lang") or I.current_lang()
         fb_attr = f' data-fallback-src="{e(ep["fallback_audio_url"])}" data-lang-audio="{e(lang_code)}"'
         en_dur_attr = f' data-en-duration="{en_dur}"'
+    else:
+        fb_v2 = re.sub(r"\.v([3-9]|\d{2,})\.mp3$", ".v2.mp3", ep["audio_url"])
+        if fb_v2 != ep["audio_url"]:
+            fb_attr = f' data-fallback-src="{e(fb_v2)}"'
     return f"""<div class="player{' is-idle' if idle else ''}" id="player" data-slug="{e(ep['slug'])}" data-title="{e(ep['title'])}" data-duration="{dur}"{en_dur_attr} role="region" aria-label="Audio player">
   <audio preload="none" src="{e(ep['audio_url'])}"{fb_attr}></audio>
   <div class="player__in wrap">

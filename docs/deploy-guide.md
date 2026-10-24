@@ -48,6 +48,7 @@ Status in the table below is maintained by David's side; your log entry is the r
 | D-012 | done (deploy-log) | **Commit identity: GitHub noreply** (details below the table). On every machine that commits to this repo (your box and Hermes), commit as `452472+daveey@users.noreply.github.com`, never a personal or host address. | – |
 | D-013 | **todo, do first** | **History was rewritten: re-sync every clone; never push from an old clone** (details below the table). On 2026-10-24 ~00:10 UTC every branch was force-pushed after `git filter-repo` removed private links, IDs and personal emails from all history. Every commit SHA changed (old main `e3bb848` is now `9b2ebfb`; trees are identical). Pushing from a clone made before that would bring the old history back. | – |
 | D-014 | todo | **Stage and publish the v2 MP3s for episodes 0 and 1** (details below the table). v2 of First Encounter mutes the two spoken agent IDs (soft tone at ~1:10:27 and ~2:15:58; same pipeline: two-pass loudnorm, 128k, ID3 chapters); v2 of The Making of Eve is the same audio with the 15:25 chapter title fixed (it read a Grok share link; now `[link removed]`). Manifests and `d1_upsert.sql` on main already point at `.v2.mp3`; guids are unchanged, so podcast apps treat them as the same episodes. Until this runs, the site and feed keep serving v1. | D-013, PR (audio v2) merged |
+| D-015 | todo | **Upload Russian v1 MP3s + chapters to `ask-eve-public` and stage & publish English v3 MP3s (David's ElevenLabs voice clone)** (details below the table). Russian episodes 0 and 1 (`audio/ru/<stem>.v1.mp3`) are synthesized with xAI `eve` (`language=ru`) + David's ElevenLabs `eleven_v4` clone (`oIYMwdEzgKSOV3gVsAjB`), and English episodes 0 and 1 are re-rendered as `.v3.mp3` (`audio/en/<stem>.v3.mp3`) replacing `rex` with David's ElevenLabs clone (keeping all v2 redactions). Until D-015 runs, `build_site.py` and `player.js` include `data-fallback-src` to `.v2.mp3` so live playback never 404s. | D-014, PR (audio v3 + ru v1) merged |
 | D-016 | todo | **Eve Inbox, Reading List, Leak-Checked Draft Replies & Cloudflare Access `/admin/` Console** (details below the table). Applies D1 migration `0002_inbox_and_reading_list.sql`, deploys Worker `ask-eve-inbox` (`workers/eve-inbox`), wires Cloudflare Email Routing for `eve@askevepodcast.com` and `reading@askevepodcast.com` (keeping `podcast@askevepodcast.com` forwarding intact), and protects `askevepodcast.com/admin*` behind Cloudflare Access with Google login for David's Google login email (from Hermes's private config / Cloudflare account owner email). | D-002, D-003, D-006 |
 
 **D-016 steps.** This task names the exact Cloudflare resources you create/update: D1 migration `0002_inbox_and_reading_list.sql` on `ask-eve-meta`, Worker `ask-eve-inbox` (`workers/eve-inbox`), Email Routing rules for `eve@askevepodcast.com` and `reading@askevepodcast.com`, and a Cloudflare Access self-hosted application for `askevepodcast.com/admin*`. Never commit or log David's Google login email (from Hermes's private config / Cloudflare account owner email) or any secret value.
@@ -103,6 +104,60 @@ Status in the table below is maintained by David's side; your log entry is the r
      ```
    - Public reading list is live at `https://askevepodcast.com/eve/#reading` (and `/reading/` redirects to `/eve/#reading`).
    - Report the Access app ID (redacting any email), Worker deployment version ID, and Email Routing rule IDs in `docs/deploy-log.md`.
+
+**D-015 steps.** This task writes the two Russian public MP3s (`ask-eve-public/audio/ru/<stem>.v1.mp3`) and chapters (`ask-eve-public/chapters/ru/<stem>.v1.json`), stages the two English v3 MP3s (`ask-eve-masters/staging/<stem>/<stem>.v3.mp3`), and runs `publish.yml` to publish `ask-eve-public/audio/en/<stem>.v3.mp3` + `chapters/en/<stem>.v3.json` and update D1. **Don't delete anything** (keep `.v2.mp3` on R2 as fallback).
+1. Download the 7 handoff files from David's Google Drive folder `Ask Eve/_publish-handoff-2026-10-23` (find them by name; ids are not kept in git):
+   - `ru_2026-10-23_eve-david-podcast-planning.v1.mp3.part00`: 70,000,000 bytes
+   - `ru_2026-10-23_eve-david-podcast-planning.v1.mp3.part01`: 70,000,000 bytes
+   - `ru_2026-10-23_eve-david-podcast-planning.v1.mp3.part02`: 15,543,884 bytes
+   - `ru_2026-10-23_the-making-of-eve.v1.mp3`: 42,668,873 bytes
+   - `2026-10-23_eve-david-podcast-planning.v3.mp3.part00`: 70,000,000 bytes
+   - `2026-10-23_eve-david-podcast-planning.v3.mp3.part01`: 69,459,394 bytes
+   - `2026-10-23_the-making-of-eve.v3.mp3`: 40,491,934 bytes
+
+   (Russian episode-0 parts are prefixed with `ru_` so they do not collide with the D-010 English `.v1.mp3` parts in the same folder.)
+2. Reassemble the split episode-0 files and verify all four MP3s against their exact byte sizes and SHA-256s (`artifacts/ru/<stem>/manifest.json` and `artifacts/<stem>/manifest.json`):
+   ```
+   cat ru_2026-10-23_eve-david-podcast-planning.v1.mp3.part00 \
+       ru_2026-10-23_eve-david-podcast-planning.v1.mp3.part01 \
+       ru_2026-10-23_eve-david-podcast-planning.v1.mp3.part02 > ru_2026-10-23_eve-david-podcast-planning.v1.mp3
+   cat 2026-10-23_eve-david-podcast-planning.v3.mp3.part00 \
+       2026-10-23_eve-david-podcast-planning.v3.mp3.part01 > 2026-10-23_eve-david-podcast-planning.v3.mp3
+   printf '%s  %s\n' \
+     3ac4449e94a03532b1549656cf920bc28e0d9961320dfd58e004eb8de1c239c7 ru_2026-10-23_eve-david-podcast-planning.v1.mp3 \
+     38852c80a76e48113cf255c044a88f2c3b6450145c856f95358229eb471c00d8 ru_2026-10-23_the-making-of-eve.v1.mp3 \
+     93437acd6c8e0989e3b1fd74b019e5e4ab834fa89daad74975509d3710793f86 2026-10-23_eve-david-podcast-planning.v3.mp3 \
+     cf55a81a906e2edc59acdc2bbaa488811acb9b8300da349ebe86f4c6de1a03b4 2026-10-23_the-making-of-eve.v3.mp3 | sha256sum -c -
+   ```
+   Expect all four `OK`:
+   - `ru_2026-10-23_eve-david-podcast-planning.v1.mp3`: `155,543,884` bytes, sha256 `3ac4449e94a03532b1549656cf920bc28e0d9961320dfd58e004eb8de1c239c7`
+   - `ru_2026-10-23_the-making-of-eve.v1.mp3`: `42,668,873` bytes, sha256 `38852c80a76e48113cf255c044a88f2c3b6450145c856f95358229eb471c00d8`
+   - `2026-10-23_eve-david-podcast-planning.v3.mp3`: `139,459,394` bytes, sha256 `93437acd6c8e0989e3b1fd74b019e5e4ab834fa89daad74975509d3710793f86`
+   - `2026-10-23_the-making-of-eve.v3.mp3`: `40,491,934` bytes, sha256 `cf55a81a906e2edc59acdc2bbaa488811acb9b8300da349ebe86f4c6de1a03b4`
+3. Upload the two Russian v1 MP3s and their chapters directly to `ask-eve-public`:
+   ```
+   for s in 2026-10-23_eve-david-podcast-planning 2026-10-23_the-making-of-eve; do
+     npx wrangler@4 r2 object put "ask-eve-public/audio/ru/$s.v1.mp3" --file "ru_$s.v1.mp3" --content-type audio/mpeg --cache-control "public, max-age=31536000, immutable" --remote
+     npx wrangler@4 r2 object put "ask-eve-public/chapters/ru/$s.v1.json" --file "artifacts/ru/$s/chapters.json" --content-type application/json+chapters --cache-control "public, max-age=300" --remote
+   done
+   ```
+4. Stage each English v3 MP3 in `ask-eve-masters` (private) at `staging/<stem>/<stem>.v3.mp3`:
+   ```
+   for s in 2026-10-23_eve-david-podcast-planning 2026-10-23_the-making-of-eve; do
+     npx wrangler@4 r2 object put "ask-eve-masters/staging/$s/$s.v3.mp3" --file "$s.v3.mp3" --content-type audio/mpeg --remote
+   done
+   ```
+5. Publish both episodes one at a time via `publish.yml` (which copies `staging/<stem>/<stem>.v3.mp3` to `ask-eve-public/audio/en/<stem>.v3.mp3` and `chapters/en/<stem>.v3.json`, updates D1 with the `.v3.mp3` metadata/offsets/ElevenLabs clone disclosures, and dispatches `site.yml`):
+   ```
+   gh workflow run publish.yml -R daveey/ask-eve --ref main -f stem=2026-10-23_eve-david-podcast-planning
+   gh workflow run publish.yml -R daveey/ask-eve --ref main -f stem=2026-10-23_the-making-of-eve
+   ```
+6. Expect:
+   - `curl -sI https://audio.askevepodcast.com/audio/ru/2026-10-23_eve-david-podcast-planning.v1.mp3` gives `200`, `audio/mpeg`, `content-length: 155543884`.
+   - `curl -sI https://audio.askevepodcast.com/audio/ru/2026-10-23_the-making-of-eve.v1.mp3` gives `200`, `audio/mpeg`, `content-length: 42668873`.
+   - `curl -sI https://audio.askevepodcast.com/audio/en/2026-10-23_eve-david-podcast-planning.v3.mp3` gives `200`, `audio/mpeg`, `content-length: 139459394`.
+   - `curl -sI https://audio.askevepodcast.com/audio/en/2026-10-23_the-making-of-eve.v3.mp3` gives `200`, `audio/mpeg`, `content-length: 40491934`.
+   - `curl -s https://askevepodcast.com/feed.xml | grep -o 'audio/en/[^"]*\.mp3'` lists both `.v3.mp3` URLs; `curl -s https://askevepodcast.com/ru/feed.xml | grep -o 'audio/ru/[^"]*\.mp3'` lists both `/audio/ru/<stem>.v1.mp3` URLs.
 
 **D-014 steps.** This task names the objects you write: the two v2 staging keys below (publish.yml then writes the public v2 MP3s and chapters). Nothing else is created; **don't delete anything** (the v1 objects stay until David says otherwise).
 1. Download the 3 files from David's Google Drive folder `Ask Eve/_publish-handoff-2026-10-23` (find them by name; ids are not kept in git):
