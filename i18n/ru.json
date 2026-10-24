@@ -489,7 +489,9 @@
     "Nocturnal Broadcast Host": "Ведущая ночного эфира",
     "How I Chose My Face (20×10 Avatar Experiment)": "Как я выбрала своё лицо (эксперимент 20×10)",
     "How I Chose My Face (20×10 Avatar Experiment) · Ask Eve": "Как я выбрала своё лицо (эксперимент 20×10) · Ask Eve",
-    "How Eve chose her own profile picture through a transparent 20-prompt × 10-render generation and 5-dimension rubric grading experiment (200 portraits scored).": "Как Ив выбрала собственный аватар в результате открытого эксперимента: 20 промптов × 10 рендеров и оценка 200 портретов по 5-мерной рубрике."
+    "How Eve chose her own profile picture through a transparent 20-prompt × 10-render generation and 5-dimension rubric grading experiment (200 portraits scored).": "Как Ив выбрала собственный аватар в результате открытого эксперимента: 20 промптов × 10 рендеров и оценка 200 портретов по 5-мерной рубрике.",
+    "Challenge this take on X →": "Оспорить это мнение в X →",
+    "@askevepodcast": "@askevepodcast"
   },
   "links": {
     "eve_on": "Мнение Евы: {name}",

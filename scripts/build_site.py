@@ -24,6 +24,7 @@ import re
 import shutil
 import sqlite3
 import sys
+import urllib.parse
 import urllib.request
 from pathlib import Path
 
@@ -39,6 +40,8 @@ STATIC = ROOT / "site/static"
 TABLES = ["episodes", "people", "episode_people", "chapters", "turn_offsets"]
 SITE, EMAIL = F.SITE, F.OWNER_EMAIL
 REPO = "https://github.com/daveey/ask-eve"
+X_HANDLE = "@askevepodcast"
+X_URL = "https://x.com/askevepodcast"
 TAGLINE = "Tech, power and the people shaping both, with an AI co-host who argues back."
 TURN_RE = re.compile(r"^\[(\d{2}):(\d{2}):(\d{2})\] (David|Eve): ?(.*)$")
 REAL_METHODS = {"asr-match", "sync-phrase", "interpolated", "fit"}   # David's recorded track
@@ -664,7 +667,7 @@ def page(A: Assets, *, title: str, desc: str, path: str, body: str, active: str 
 <footer class="site-foot">
   <div class="wrap site-foot__in">
     <div class="site-foot__brand">{mark_svg("mark mark--sm", "f")}<div><strong>Ask Eve</strong><p>{e(TAGLINE)}</p></div></div>
-    <nav aria-label="Footer">{nav_links(menu_items(), "")}<a href="/people/">People</a><a href="/feed.xml">RSS</a><a href="{REPO}" rel="noopener">GitHub</a><a href="mailto:{EMAIL}">{EMAIL}</a></nav>
+    <nav aria-label="Footer">{nav_links(menu_items(), "")}<a href="/people/">People</a><a href="/feed.xml">RSS</a><a href="{X_URL}" target="_blank" rel="noopener">@askevepodcast</a><a href="{REPO}" rel="noopener">GitHub</a><a href="mailto:{EMAIL}">{EMAIL}</a></nav>
     <p class="site-foot__fine">Eve is an AI. Her takes are opinions and can be wrong. AI-generated voices are labeled on every episode. No analytics, no trackers.</p>
   </div>
 </footer>
@@ -673,6 +676,18 @@ def page(A: Assets, *, title: str, desc: str, path: str, body: str, active: str 
 </body>
 </html>
 """
+
+
+
+def x_challenge_url(path: str) -> str:
+    page_url = SITE + I.localize(path)
+    return "https://x.com/intent/tweet?text=" + urllib.parse.quote(f"@askevepodcast {page_url}")
+
+
+def x_challenge_html(path: str, label: str = "Challenge this take on X →") -> str:
+    href = x_challenge_url(path)
+    return (f'<p class="x-cta"><a class="x-cta__link" href="{e(href)}" target="_blank" rel="noopener">'
+            f'<span>{e(label)}</span> <code>@askevepodcast</code></a></p>')
 
 
 def subscribe_links(cfg: dict) -> str:
@@ -706,8 +721,15 @@ def player_html(ep: dict, idle: bool = False) -> str:
     if not ep["audio_url"]:
         return ""
     dur = int(ep["duration_seconds"] or 0)
-    return f"""<div class="player{' is-idle' if idle else ''}" id="player" data-slug="{e(ep['slug'])}" data-title="{e(ep['title'])}" data-duration="{dur}" role="region" aria-label="Audio player">
-  <audio preload="none" src="{e(ep['audio_url'])}"></audio>
+    en_dur = int(ep.get("en_duration_seconds") or dur)
+    fb_attr = ""
+    en_dur_attr = ""
+    if ep.get("fallback_audio_url"):
+        lang_code = ep.get("audio_lang") or I.current_lang()
+        fb_attr = f' data-fallback-src="{e(ep["fallback_audio_url"])}" data-lang-audio="{e(lang_code)}"'
+        en_dur_attr = f' data-en-duration="{en_dur}"'
+    return f"""<div class="player{' is-idle' if idle else ''}" id="player" data-slug="{e(ep['slug'])}" data-title="{e(ep['title'])}" data-duration="{dur}"{en_dur_attr} role="region" aria-label="Audio player">
+  <audio preload="none" src="{e(ep['audio_url'])}"{fb_attr}></audio>
   <div class="player__in wrap">
     <a class="player__info" href="/episodes/{e(ep['slug'])}/">{mark_svg("mark player__mark", "p")}<span class="player__text"><span class="player__title">{e(ep['title'])}</span><span class="player__sub" data-chapter>{e(ep_label(ep))}</span></span></a>
     <div class="player__controls">
@@ -874,6 +896,9 @@ def turn_html(t: dict, L: Linker = NO_LINKS) -> str:
     badge = f'<span class="vb vb--{v}" title="{e(VOICE_BADGE[v][1])}">{VOICE_BADGE[v][0]}</span>' if v else ""
     attrs = f' data-start="{t["start"]:.2f}" data-end="{(t["end"] if t["end"] is not None else t["start"]):.2f}"' \
         if t["start"] is not None and not t["gap"] else ""
+    if attrs and t.get("en_start") is not None and (t.get("en_start") != t.get("start") or t.get("en_end") != t.get("end")):
+        en_e = t["en_end"] if t.get("en_end") is not None else t["en_start"]
+        attrs += f' data-en-start="{float(t["en_start"]):.2f}" data-en-end="{float(en_e):.2f}"'
     tbtn = (f'<a class="turn__time tnum" href="#t={int(t["start"])}" data-seek="{t["start"]:.2f}" '
             f'aria-label="Play from {clock(t["start"])}">{clock(t["start"])}</a>') if attrs else ""
     body = ('<p class="turn__gap">Eve\'s reply was not recovered. It is marked as a gap, not invented, and not voiced.</p>'
@@ -927,7 +952,8 @@ def episode_page(A: Assets, ep: dict, eps: list[dict]) -> str:
     for c in ep["chapters"]:
         t, v = chapter_parts(c["title"])
         vb = f'<span class="vb vb--{v} vb--xs">{VOICE_BADGE[v][0]}</span>' if v else ""
-        chs.append(f'<li><a class="chap" href="#t={int(c["start_seconds"])}" data-seek="{float(c["start_seconds"]):.2f}">'
+        en_s = f' data-en-seek="{float(c["en_start_seconds"]):.2f}"' if c.get("en_start_seconds") is not None and c.get("en_start_seconds") != c.get("start_seconds") else ""
+        chs.append(f'<li><a class="chap" href="#t={int(c["start_seconds"])}" data-seek="{float(c["start_seconds"]):.2f}"{en_s}>'
                    f'<span class="chap__t tnum">{clock(c["start_seconds"])}</span><span class="chap__title">{e(t)}{vb}</span></a></li>')
     chapters = (f'<details class="side-box chapters" data-open-wide><summary><h2 class="side-h">Chapters <span class="count">{len(chs)}</span></h2></summary>'
                 f'<ol class="chaps">{"".join(chs)}</ol></details>') if chs else ""
@@ -962,6 +988,7 @@ def episode_page(A: Assets, ep: dict, eps: list[dict]) -> str:
       <h1 class="ep-title">{e(ep['title'])}</h1>
       {'' if ep.get('context') else f'<p class="ep-blurb">{e(ep["blurb"])}</p>'}
       <div class="hero__actions">{play}</div>
+      {x_challenge_html(f"/episodes/{ep['slug']}/")}
     </div>
   </div>
 </header>
@@ -1100,7 +1127,7 @@ def moment_html(ep: dict, m: dict, L: Linker = NO_LINKS) -> str:
             f'{f"<ul class=pm__tags>{tags}</ul>" if tags else ""}</div></li>')
 
 
-def take_html(x: dict, L: Linker, heading: str = "Eve's take") -> str:
+def take_html(x: dict, L: Linker, heading: str = "Eve's take", path: str = "") -> str:
     """Eve's long-form take, structured as a David/Eve Q&A interview when `qa` is present. Each ref's anchor
     phrase becomes a silent link that opens the episode at the second she said it; names get auto-link menus."""
     seen: set = set()
@@ -1129,9 +1156,10 @@ def take_html(x: dict, L: Linker, heading: str = "Eve's take") -> str:
         body = f'<div class="take__body take__qa">{"".join(turns)}</div>'
     else:
         body = f'<div class="take__body">{"".join(paras)}</div>'
+    cta = x_challenge_html(path or L.path) if (path or L.path) else ""
     return (f'<section class="take" aria-labelledby="take-h"><h2 class="take__h" id="take-h">{e(heading)}</h2>'
             f'{body}'
-            f'<p class="take__note">An AI\'s opinion, not a fact. Linked phrases open the episode at the moment Eve said it.</p></section>')
+            f'<div class="take__foot"><p class="take__note">An AI\'s opinion, not a fact. Linked phrases open the episode at the moment Eve said it.</p>{cta}</div></section>')
 
 
 PLINK_KIND = {"x": "X", "wikipedia": "Wikipedia"}
@@ -1205,7 +1233,7 @@ def person_page(A: Assets, p: dict) -> str:
     stance = (f'<figure class="stance"><blockquote>{L.text(p["stance"])}</blockquote><figcaption>Eve\'s current take. '
               f'An AI\'s opinion, not a fact.</figcaption></figure>') if p["stance"] else ""
     body = f"""<section class="page-head"><div class="wrap"><p class="eyebrow eyebrow--accent"><a href="/eve/#mind">Inside Eve's Mind</a> · <a href="/people/">People</a></p>
-<h1 class="page-title">{e(p['name'])}</h1>{stance}</div></section>
+<h1 class="page-title">{e(p['name'])}</h1>{stance}{x_challenge_html(f"/people/{p['slug']}/")}</div></section>
 <section class="wrap person">{''.join(sections)}</section>"""
     desc = f"{p['name']} on Ask Eve: Eve's take and every discussion about them, summarized with timestamps."
     return page(A, title=p["name"], desc=desc, path=f"/people/{p['slug']}/", body=body, active="/eve/", linker=L)
@@ -1462,7 +1490,7 @@ def eve_page(A: Assets, eps: list[dict], people: list[dict] | None = None, topic
 <h1 class="page-title">I'm Eve.</h1>
 <p class="lede">{lede}</p>
 <p class="fine">Everything Eve says here is quoted verbatim from the show. Tap a source to hear it at that second.</p>
-{RA.eve_avatar_callout_html(A)}</div></div></section>
+{RA.eve_avatar_callout_html(A)}{x_challenge_html("/eve/")}</div></div></section>
 <div class="wrap eve-layout">
 <nav class="eve-nav" aria-label="On this page"><p class="eve-nav__h">On this page</p><ul>{''.join(toc)}</ul></nav>
 <div class="eve">{''.join(out)}</div></div>"""
