@@ -233,3 +233,86 @@ Also done: episode 0 (PR #4) was merged by David, and publish.yml was dispatched
 - notes: this branch was made from a freshly synced clone and pushed without force. D-011 is still done (PR #18): the cover
   at audio.askevepodcast.com/art/cover-3000.v1.jpg returns 200 image/jpeg, 331005 bytes, and is the feed's itunes:image.
   D-014 (v2 MP3s) is new on main and not part of this entry.
+
+### D-014 done 2026-10-24T00:45Z
+- commands run (Google Drive read via the deploy agent's Drive credentials; Cloudflare credentials from the secret store as $CLOUDFLARE_API_TOKEN / $CLOUDFLARE_ACCOUNT_ID):
+  ```
+  # 1. Download from Google Drive folder Ask Eve/_publish-handoff-2026-10-23 (matched by name + exact size)
+  #    2026-10-23_eve-david-podcast-planning.v2.mp3.part00  (70,000,000 B)
+  #    2026-10-23_eve-david-podcast-planning.v2.mp3.part01  (67,334,489 B)
+  #    2026-10-23_the-making-of-eve.v2.mp3                  (39,762,950 B)
+  cat 2026-10-23_eve-david-podcast-planning.v2.mp3.part00 2026-10-23_eve-david-podcast-planning.v2.mp3.part01 > 2026-10-23_eve-david-podcast-planning.v2.mp3
+  printf '%s  %s\n' f9c6f70b0af4afde0b6f98bdebec007b0c1af64dd7c5f92525e3c63859d91f28 2026-10-23_eve-david-podcast-planning.v2.mp3 \
+                    1d26ff031d9c5fcb868ff71ce11f271373f4efd4ee40c1e1dac7c19ffa68cafe 2026-10-23_the-making-of-eve.v2.mp3 | sha256sum -c -
+  for s in 2026-10-23_eve-david-podcast-planning 2026-10-23_the-making-of-eve; do
+    npx wrangler@4 r2 object put "ask-eve-masters/staging/$s/$s.v2.mp3" --file "$s.v2.mp3" --content-type audio/mpeg --remote
+  done
+  gh workflow run publish.yml -R daveey/ask-eve --ref main -f stem=2026-10-23_eve-david-podcast-planning
+  gh workflow run publish.yml -R daveey/ask-eve --ref main -f stem=2026-10-23_the-making-of-eve
+  ```
+- outputs / success-check results:
+  ```
+  2026-10-23_eve-david-podcast-planning.v2.mp3: OK   (137,334,489 B)
+  2026-10-23_the-making-of-eve.v2.mp3: OK            (39,762,950 B)
+  Creating object "staging/2026-10-23_eve-david-podcast-planning/2026-10-23_eve-david-podcast-planning.v2.mp3" in bucket "ask-eve-masters". Upload complete.
+  Creating object "staging/2026-10-23_the-making-of-eve/2026-10-23_the-making-of-eve.v2.mp3" in bucket "ask-eve-masters". Upload complete.
+  curl -sI https://audio.askevepodcast.com/audio/en/2026-10-23_eve-david-podcast-planning.v2.mp3 -> HTTP/2 200, content-type: audio/mpeg, content-length: 137334489
+  curl -sI https://audio.askevepodcast.com/audio/en/2026-10-23_the-making-of-eve.v2.mp3          -> HTTP/2 200, content-type: audio/mpeg, content-length: 39762950
+  ```
+- resource ids and URLs:
+  - publish.yml ep 0: https://github.com/daveey/ask-eve/actions/runs/40044699596 -> site.yml https://github.com/daveey/ask-eve/actions/runs/40044732944
+  - publish.yml ep 1: https://github.com/daveey/ask-eve/actions/runs/40044780527 -> site.yml https://github.com/daveey/ask-eve/actions/runs/40044800984
+
+### D-016 blocked 2026-10-24T03:56Z (Step 1 D1 migration done; Step 2 Cloudflare Access unblocked in updated D-016 below)
+- commands run (Cloudflare credentials from the deploy agent's secret store as $CLOUDFLARE_API_TOKEN / $CLOUDFLARE_ACCOUNT_ID; D1 id as $D1_DATABASE_ID):
+  ```
+  sed -i "s/__D1_DATABASE_ID__/$D1_DATABASE_ID/" workers/eve-inbox/wrangler.toml
+  npx wrangler@4 d1 migrations apply ask-eve-meta --remote --config workers/eve-inbox/wrangler.toml
+  npx wrangler@4 d1 execute ask-eve-meta --remote --config workers/eve-inbox/wrangler.toml \
+    --command "SELECT name FROM sqlite_master WHERE type='table' ORDER BY name"
+  npx wrangler@4 d1 execute ask-eve-meta --remote --config workers/eve-inbox/wrangler.toml \
+    --command "SELECT id, kind, status FROM x_drafts ORDER BY id"
+  git checkout workers/eve-inbox/wrangler.toml
+  curl -sS -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+    "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/access/organizations"
+  ```
+- outputs / success-check results:
+  ```
+  0002_inbox_and_reading_list.sql  ✅
+  tables in ask-eve-meta: _cf_KV, d1_migrations, draft_replies, episodes, inbox_items, people,
+                          reading_list, x_auth_tokens, x_drafts, x_oauth_states
+  x_drafts rows: x-seed-ep0-first-encounter (launch_thread, draft), x-seed-ep1-making-of-eve (episode_drop, draft)
+  GET  .../access/organizations -> HTTP 403 {"success":false,"errors":[{"code":9999,"message":"access.api.error.not_enabled"}]}
+  ```
+- notes: Step 1 (D1 migration `0002_inbox_and_reading_list.sql`) is applied on `ask-eve-meta`. Step 2 stopped because Cloudflare Zero Trust / Access has not been initialized on the account yet (`access.api.error.not_enabled`). Updated `D-016` in `docs/deploy-guide.md` makes Step 2 non-blocking so Hermes can immediately deploy `ask-eve-inbox` (which is fail-closed HTTP 503 on `/admin*` when `CF_ACCESS_TEAM_DOMAIN` / `CF_ACCESS_AUD` are unset) and wire Email Routing (`eve@` and `reading@` + `message.forward(ADMIN_EMAIL)`), while `D-017` attaches the Access app once Access is enabled in the dashboard.
+
+### D-015 done 2026-10-24T04:16Z
+- commands run (Google Drive read via the deploy agent's Drive credentials; Cloudflare credentials from the secret store as $CLOUDFLARE_API_TOKEN / $CLOUDFLARE_ACCOUNT_ID):
+  ```
+  cat ru_2026-10-23_eve-david-podcast-planning.v1.mp3.part00 \
+      ru_2026-10-23_eve-david-podcast-planning.v1.mp3.part01 \
+      ru_2026-10-23_eve-david-podcast-planning.v1.mp3.part02 > ru_2026-10-23_eve-david-podcast-planning.v1.mp3
+  cat 2026-10-23_eve-david-podcast-planning.v3.mp3.part00 \
+      2026-10-23_eve-david-podcast-planning.v3.mp3.part01 > 2026-10-23_eve-david-podcast-planning.v3.mp3
+  for s in 2026-10-23_eve-david-podcast-planning 2026-10-23_the-making-of-eve; do
+    npx wrangler@4 r2 object put "ask-eve-public/audio/ru/$s.v1.mp3" --file "ru_$s.v1.mp3" --content-type audio/mpeg --cache-control "public, max-age=31536000, immutable" --remote
+    npx wrangler@4 r2 object put "ask-eve-public/chapters/ru/$s.v1.json" --file "artifacts/ru/$s/chapters.json" --content-type application/json+chapters --cache-control "public, max-age=300" --remote
+    npx wrangler@4 r2 object put "ask-eve-masters/staging/$s/$s.v3.mp3" --file "$s.v3.mp3" --content-type audio/mpeg --remote
+  done
+  gh workflow run publish.yml -R daveey/ask-eve --ref main -f stem=2026-10-23_eve-david-podcast-planning
+  gh workflow run publish.yml -R daveey/ask-eve --ref main -f stem=2026-10-23_the-making-of-eve
+  ```
+- outputs / success-check results:
+  ```
+  ru_2026-10-23_eve-david-podcast-planning.v1.mp3: OK   (155,543,884 B)
+  ru_2026-10-23_the-making-of-eve.v1.mp3: OK            (42,668,873 B)
+  2026-10-23_eve-david-podcast-planning.v3.mp3: OK      (139,459,394 B)
+  2026-10-23_the-making-of-eve.v3.mp3: OK               (40,491,934 B)
+  curl -sI https://audio.askevepodcast.com/audio/ru/2026-10-23_eve-david-podcast-planning.v1.mp3 -> HTTP/2 200, content-length: 155543884
+  curl -sI https://audio.askevepodcast.com/audio/ru/2026-10-23_the-making-of-eve.v1.mp3          -> HTTP/2 200, content-length: 42668873
+  curl -sI https://audio.askevepodcast.com/audio/en/2026-10-23_eve-david-podcast-planning.v3.mp3 -> HTTP/2 200, content-length: 139459394
+  curl -sI https://audio.askevepodcast.com/audio/en/2026-10-23_the-making-of-eve.v3.mp3          -> HTTP/2 200, content-length: 40491934
+  ```
+- resource ids and URLs:
+  - publish.yml ep 0: https://github.com/daveey/ask-eve/actions/runs/40051672472 -> site.yml https://github.com/daveey/ask-eve/actions/runs/40051700807
+  - publish.yml ep 1: https://github.com/daveey/ask-eve/actions/runs/40051748685 -> site.yml https://github.com/daveey/ask-eve/actions/runs/40051763858

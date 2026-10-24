@@ -18,7 +18,7 @@ import {
   extractUrls,
 } from "./mime.mjs";
 import { verifyAccessRequest } from "./auth.mjs";
-import { renderAdminHtml } from "./admin_ui.mjs";
+import { renderAdminHtml, renderAdminGateHtml } from "./admin_ui.mjs";
 import {
   getXConnectionStatus,
   startXOAuth2Pkce,
@@ -67,20 +67,233 @@ function jsonResponse(body, status = 200, extraHeaders = {}) {
   });
 }
 
-async function fetchLinkedArticleExcerpt(url, env) {
-  if (!url || env?.DISABLE_ARTICLE_FETCH) return "";
+export const MAX_PER_SENDER_PER_DAY = 3;
+export const MAX_INBOX_ITEMS_PER_DAY = 100;
+export const MAX_AUTO_LLM_CALLS_PER_DAY = 15;
+
+export function isSafePublicHttpUrl(rawUrl) {
+  if (!rawUrl || typeof rawUrl !== "string") return false;
+  let parsed;
   try {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), 6000);
-    const resp = await fetch(url, {
-      signal: controller.signal,
-      headers: {
-        "User-Agent": "AskEvePodcastBot/1.0 (+https://askevepodcast.com/eve/)",
-        Accept: "text/html,text/plain,application/xhtml+xml",
-      },
-    });
-    clearTimeout(timer);
-    if (!resp.ok) return "";
+    parsed = new URL(rawUrl.trim());
+  } catch {
+    return false;
+  }
+  if (parsed.protocol !== "http:" && parsed.protocol !== "https:") return false;
+  if (parsed.username || parsed.password) return false;
+  const host = parsed.hostname.toLowerCase().replace(/^\[|\]$/g, "");
+  if (!host || !host.includes(".")) return false;
+  if (
+    host === "localhost" ||
+    host.endsWith(".localhost") ||
+    host.endsWith(".local") ||
+    host.endsWith(".internal") ||
+    host.endsWith(".ts.net") ||
+    host.endsWith(".arpa")
+  ) {
+    return false;
+  }
+  if (host.includes(":")) return false; // Disallow literal IPv6 addresses
+  const ipv4Match = host.match(/^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$/);
+  if (ipv4Match) {
+    const octets = ipv4Match.slice(1, 5).map(Number);
+    if (octets.some((o) => o < 0 || o > 255)) return false;
+    const [a, b] = octets;
+    if (
+      a === 0 ||
+      a === 10 ||
+      a === 127 ||
+      (a === 169 && b === 254) ||
+      (a === 172 && b >= 16 && b <= 31) ||
+      (a === 192 && b === 168) ||
+      (a === 100 && b >= 64 && b <= 127) ||
+      a >= 224
+    ) {
+      return false;
+    }
+  }
+  return true;
+}
+
+export function checkInboundEmailSpam(message, parsed) {
+  const fromAddr = String(parsed?.from_addr || message?.from || "").toLowerCase().trim();
+  const subject = String(parsed?.subject || "").trim();
+  const headers = parsed?.headers || {};
+
+  // Always allow critical account verification / security emails (e.g. X @askevepodcast signup)
+  // and mark bypassLlm: true so they are saved in D1 + forwarded with zero LLM spend.
+  const isVerificationSender =
+    /@(?:x\.com|twitter\.com|e\.x\.com|cloudflare\.com|github\.com|google\.com|apple\.com)$/i.test(fromAddr);
+  const isVerificationSubject =
+    /\b(verification|verify|confirm|confirmation|security code|login code|one-time|passcode|otp)\b/i.test(subject);
+  if (isVerificationSender || isVerificationSubject) {
+    return { drop: false, bypassLlm: true, reason: "verification_allowlist" };
+  }
+
+  const returnPath = String(headers["return-path"] || "").trim();
+  if (returnPath === "<>") {
+    return { drop: true, reason: "empty_return_path_bounce" };
+  }
+  if (/^(mailer-daemon|postmaster|noreply|no-reply|donotreply|bounce|bounces)@/i.test(fromAddr)) {
+    return { drop: true, reason: "automated_sender" };
+  }
+  const autoSubmitted = String(headers["auto-submitted"] || "").toLowerCase().trim();
+  if (autoSubmitted && autoSubmitted !== "no") {
+    return { drop: true, reason: "auto_submitted" };
+  }
+  if (headers["x-autoreply"] || headers["x-autorespond"]) {
+    return { drop: true, reason: "auto_reply_header" };
+  }
+  const precedence = String(headers["precedence"] || "").toLowerCase().trim();
+  if (["bulk", "junk", "list", "auto_reply"].includes(precedence)) {
+    return { drop: true, reason: `precedence_${precedence}` };
+  }
+  const authResults = String(
+    headers["authentication-results"] || headers["arc-authentication-results"] || ""
+  ).toLowerCase();
+  if (
+    authResults.includes("dmarc=fail") ||
+    (authResults.includes("spf=fail") && authResults.includes("dkim=fail"))
+  ) {
+    return { drop: true, reason: "email_auth_failed" };
+  }
+  return { drop: false, bypassLlm: false };
+}
+
+export async function checkRateLimitsAndBudget(senderAddr, env) {
+  if (!env?.DB) {
+    return { allowed: true, allowLlm: env?.LAZY_LLM_TRIAGE !== "true" };
+  }
+  const sinceIso = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString();
+  try {
+    if (senderAddr) {
+      const senderRow = await env.DB.prepare(
+        `SELECT COUNT(*) AS cnt FROM inbox_items WHERE from_addr = ?1 AND received_at >= ?2`
+      )
+        .bind(senderAddr, sinceIso)
+        .first();
+      const senderCount = Number(senderRow?.cnt ?? 0);
+      if (senderCount >= MAX_PER_SENDER_PER_DAY) {
+        return { allowed: false, allowLlm: false, reason: "sender_rate_limit" };
+      }
+    }
+    const totalRow = await env.DB.prepare(
+      `SELECT COUNT(*) AS cnt FROM inbox_items WHERE received_at >= ?1`
+    )
+      .bind(sinceIso)
+      .first();
+    const totalCount = Number(totalRow?.cnt ?? 0);
+    if (totalCount >= MAX_INBOX_ITEMS_PER_DAY) {
+      return { allowed: false, allowLlm: false, reason: "daily_inbox_cap" };
+    }
+    if (env?.LAZY_LLM_TRIAGE === "true") {
+      return { allowed: true, allowLlm: false, reason: "lazy_llm_triage" };
+    }
+    const llmRow = await env.DB.prepare(
+      `SELECT COUNT(*) AS cnt FROM inbox_items WHERE received_at >= ?1 AND status != 'queued_untriaged'`
+    )
+      .bind(sinceIso)
+      .first();
+    const llmCount = Number(llmRow?.cnt ?? 0);
+    if (llmCount >= MAX_AUTO_LLM_CALLS_PER_DAY) {
+      return { allowed: true, allowLlm: false, reason: "daily_llm_budget_cap" };
+    }
+  } catch {
+    // Continue safely if mock DB does not implement COUNT queries
+  }
+  return { allowed: true, allowLlm: true };
+}
+
+async function forwardToAdmin(message, env) {
+  const dest = String(env?.ADMIN_EMAIL || env?.ADMIN_ALLOWED_EMAIL || "").trim();
+  if (dest && typeof message?.forward === "function") {
+    try {
+      await message.forward(dest);
+    } catch (err) {
+      console.error("message.forward failed:", err?.message || err);
+    }
+  }
+}
+
+function verifyCsrfOrigin(request) {
+  const origin = request.headers.get("Origin") || request.headers.get("origin");
+  if (origin) {
+    try {
+      const reqUrl = new URL(request.url);
+      const origUrl = new URL(origin);
+      if (origUrl.host !== reqUrl.host) {
+        return { ok: false, error: "csrf_origin_mismatch" };
+      }
+    } catch {
+      return { ok: false, error: "csrf_invalid_origin" };
+    }
+  }
+  const secFetchSite = (
+    request.headers.get("Sec-Fetch-Site") ||
+    request.headers.get("sec-fetch-site") ||
+    ""
+  ).toLowerCase();
+  if (secFetchSite && secFetchSite !== "same-origin" && secFetchSite !== "none") {
+    return { ok: false, error: "csrf_cross_site_blocked" };
+  }
+  return { ok: true };
+}
+
+async function fetchLinkedArticleExcerpt(url, env) {
+  if (!url || env?.DISABLE_ARTICLE_FETCH || !isSafePublicHttpUrl(url)) return "";
+  try {
+    let currentUrl = url;
+    let resp = null;
+    for (let hop = 0; hop <= 2; hop++) {
+      if (!isSafePublicHttpUrl(currentUrl)) return "";
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 5000);
+      try {
+        resp = await fetch(currentUrl, {
+          redirect: "manual",
+          signal: controller.signal,
+          headers: {
+            "User-Agent": "AskEvePodcastBot/1.0 (+https://askevepodcast.com/eve/)",
+            Accept: "text/html,text/plain,application/xhtml+xml",
+          },
+        });
+      } finally {
+        clearTimeout(timer);
+      }
+      if (resp.status >= 300 && resp.status < 400) {
+        const loc = resp.headers.get("location");
+        if (!loc) return "";
+        currentUrl = new URL(loc, currentUrl).toString();
+        continue;
+      }
+      break;
+    }
+    if (!resp || !resp.ok) return "";
+    const contentLen = Number(resp.headers?.get?.("content-length") || 0);
+    if (contentLen > 2_000_000) return "";
+    if (resp.body && typeof resp.body.getReader === "function") {
+      const reader = resp.body.getReader();
+      const chunks = [];
+      let total = 0;
+      while (total < 120000) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        const chunk = value instanceof Uint8Array ? value : new Uint8Array(value);
+        chunks.push(chunk);
+        total += chunk.byteLength;
+      }
+      try { await reader.cancel(); } catch {}
+      const merged = new Uint8Array(Math.min(total, 120000));
+      let offset = 0;
+      for (const c of chunks) {
+        const slice = c.subarray(0, Math.max(0, merged.byteLength - offset));
+        merged.set(slice, offset);
+        offset += slice.byteLength;
+        if (offset >= merged.byteLength) break;
+      }
+      const raw = new TextDecoder("utf-8", { fatal: false }).decode(merged);
+      return stripHtmlToText(raw).slice(0, 12000);
+    }
     const raw = (await resp.text()).slice(0, 120000);
     return stripHtmlToText(raw).slice(0, 12000);
   } catch {
@@ -474,10 +687,38 @@ export default {
     const draftId = generateUlid("drf");
     const nowIso = new Date().toISOString();
 
-    const parsed = await parseInboundEmail(message.raw, {
-      from: message.from,
-      to: message.to,
-    });
+    let parsed;
+    try {
+      parsed = await parseInboundEmail(message.raw, {
+        from: message.from,
+        to: message.to,
+      });
+    } catch (err) {
+      await forwardToAdmin(message, env);
+      return {
+        skipped: true,
+        reason: String(err?.message || "mime_parse_failed"),
+      };
+    }
+
+    // 1. Pre-ingest deterministic spam / bounce / auth check (0 R2/D1/LLM spend on spam)
+    const spamCheck = checkInboundEmailSpam(message, parsed);
+    if (spamCheck.drop) {
+      return {
+        skipped: true,
+        reason: spamCheck.reason,
+      };
+    }
+
+    // 2. Per-sender rate limit (3/day), global daily cap (100/day), and daily LLM budget (15/day)
+    const rateCheck = await checkRateLimitsAndBudget(parsed.from_addr, env);
+    if (!rateCheck.allowed) {
+      await forwardToAdmin(message, env);
+      return {
+        skipped: true,
+        reason: rateCheck.reason,
+      };
+    }
 
     const rawR2Key = `inbox/${itemId}/raw.eml`;
     if (env?.MASTERS && typeof env.MASTERS.put === "function") {
@@ -508,8 +749,10 @@ export default {
       });
     }
 
+    const runLlmTriage = rateCheck.allowLlm && !spamCheck.bypassLlm;
     let linkedArticleText = "";
     if (
+      runLlmTriage &&
       parsed.extracted_urls.length > 0 &&
       (parsed.text_body || "").length < 1200
     ) {
@@ -519,7 +762,9 @@ export default {
       );
     }
 
-    const triage = await triageAndDraftWithGrok(parsed, linkedArticleText, env);
+    const triageEnv = runLlmTriage ? env : { ...env, XAI_API_KEY: "" };
+    const triage = await triageAndDraftWithGrok(parsed, linkedArticleText, triageEnv);
+    const itemStatus = runLlmTriage ? "ready" : "queued_untriaged";
 
     const leakResult = await leakCheck(
       {
@@ -538,7 +783,7 @@ export default {
         text_body, html_body, raw_r2_key, extracted_urls, attachments_json,
         doc_title, doc_summary, eve_initial_take, status, public_reading_id,
         inbound_message_id, source_tweet_id, author_handle
-      ) VALUES (?1, 'email', ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?13, ?14, 'ready', NULL, ?15, NULL, NULL)`
+      ) VALUES (?1, 'email', ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?13, ?14, ?15, NULL, ?16, NULL, NULL)`
     )
       .bind(
         itemId,
@@ -555,6 +800,7 @@ export default {
         triage.doc_title,
         triage.doc_summary,
         triage.eve_initial_take,
+        itemStatus,
         parsed.message_id || null
       )
       .run();
@@ -581,7 +827,17 @@ export default {
       )
       .run();
 
-    return { itemId, draftId, draftStatus, leakResult };
+    // Forward every legitimate inbound email (including @askevepodcast X verification codes!)
+    // to David's verified destination inbox (env.ADMIN_EMAIL).
+    if (env.ADMIN_EMAIL && typeof message.forward === "function") {
+      try {
+        await message.forward(String(env.ADMIN_EMAIL).trim());
+      } catch (err) {
+        console.error("message.forward failed:", err?.message || err);
+      }
+    }
+
+    return { itemId, draftId, itemStatus, draftStatus, leakResult };
   },
 
   async scheduled(_event, env, _ctx) {
@@ -599,10 +855,38 @@ export default {
     // Fail-closed Cloudflare Access JWT + ADMIN_EMAIL verification on all /admin* routes
     const auth = await verifyAccessRequest(request, env);
     if (!auth.ok) {
+      const accept = request.headers.get("Accept") || request.headers.get("accept") || "";
+      if (
+        request.method === "GET" &&
+        (path === "/admin" || path === "/admin/") &&
+        accept.includes("text/html")
+      ) {
+        return new Response(
+          renderAdminGateHtml({ status: auth.status || 401, error: auth.error }),
+          {
+            status: auth.status || 401,
+            headers: {
+              "Content-Type": "text/html; charset=utf-8",
+              "Cache-Control": "no-store",
+              "X-Frame-Options": "DENY",
+              "X-Content-Type-Options": "nosniff",
+              "Referrer-Policy": "no-referrer",
+            },
+          }
+        );
+      }
       return jsonResponse(
         { error: "unauthorized", detail: auth.error },
         auth.status || 401
       );
+    }
+
+    // CSRF Origin / Sec-Fetch-Site validation on all state-changing POST requests
+    if (request.method === "POST") {
+      const csrf = verifyCsrfOrigin(request);
+      if (!csrf.ok) {
+        return jsonResponse({ error: csrf.error }, 403);
+      }
     }
 
     // GET /admin or /admin/ -> Single-page Admin Console UI
@@ -616,6 +900,10 @@ export default {
           "Content-Type": "text/html; charset=utf-8",
           "Cache-Control": "no-store",
           "X-Frame-Options": "DENY",
+          "X-Content-Type-Options": "nosniff",
+          "Referrer-Policy": "no-referrer",
+          "Content-Security-Policy":
+            "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'",
         },
       });
     }
@@ -1014,11 +1302,22 @@ export default {
       const slug = slugify(body.slug || title);
       const defaultVia =
         item.channel === "x_mention" ? "X @mention" : "listener email";
+      const rawCandidateUrl =
+        body.url !== undefined ? body.url : urls.find((u) => isSafePublicHttpUrl(u)) || null;
+      if (rawCandidateUrl && !isSafePublicHttpUrl(rawCandidateUrl)) {
+        return jsonResponse(
+          {
+            error: "invalid_or_unsafe_url",
+            detail: "Reading list URLs must be public http:// or https:// URLs.",
+          },
+          400
+        );
+      }
       const readingEntry = {
         id: body.id || generateUlid("rd"),
         slug,
         title,
-        url: body.url !== undefined ? body.url : urls[0] || null,
+        url: rawCandidateUrl || null,
         author_or_source: body.author_or_source || item.from_name || "Listener submission",
         submitted_via: body.submitted_via || defaultVia,
         added_at: new Date().toISOString(),

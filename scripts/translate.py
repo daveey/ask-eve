@@ -111,7 +111,7 @@ articulate native speaker would actually say it on a podcast. Not stiff, not lit
 Rules:
 - Translate the meaning completely and faithfully. Do not add, drop, soften, summarize or "fix" claims, opinions,
   hedges, jokes, numbers or names. Keep the speaker's tone (Eve: sharp, confident, opinionated; David: casual).
-- David and Eve address each other informally (на «ты»).
+- David and Eve address each other informally (на «ты» in Russian, de «tú» in Spanish, 用「你」 in Chinese).
 - Names: use the standard {LANG_NAMES[lang]} spellings below; for other people use the established {LANG_NAMES[lang]}
   transliteration. If a name is an obvious speech-recognition misspelling of someone below (e.g. "DeMuth" for Chamath,
   "Madani" for Mamdani, "Peter Teal" for Thiel), write the correct name.
@@ -152,7 +152,8 @@ def check(src: str, out: str) -> list[str]:
     if pa != pb:
         probs.append(f"paragraphs {pa}->{pb}")
     r = len(out) / max(1, len(src))
-    if len(src) > 200 and not 0.7 <= r <= 2.0:
+    min_r = 0.15 if re.search(r"[\u4e00-\u9fff]", out) else 0.65
+    if len(src) > 200 and not min_r <= r <= 2.2:
         probs.append(f"length ratio {r:.2f}")
     return probs
 

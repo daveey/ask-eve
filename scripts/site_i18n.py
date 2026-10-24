@@ -28,7 +28,7 @@ ROOT = Path(__file__).resolve().parent.parent
 I18N_DIR = ROOT / "i18n"
 CACHE_DIR = ROOT / "translations"
 SOURCE = "en"
-LANGS = ["ru"]                       # translated editions; each needs i18n/<lang>.json
+LANGS = ["ru", "es", "zh"]                       # translated editions; each needs i18n/<lang>.json
 
 _cur = SOURCE                        # language of the page being rendered
 _paths: dict[str, set[str]] = {}     # lang -> English paths that have a translated page
@@ -169,7 +169,7 @@ MARK, END = "\u2063", "\u2064"   # invisible brackets around translated content 
 def trm(lang: str, text: str) -> str:
     """tr() for page data: the translation wrapped in MARK..END so the HTML pass knows it is content, not UI."""
     t = tr(lang, text)
-    return f"{MARK}{t}{END}" if t and t != text else t
+    return f"{MARK}{t}{END}" if t and (t != text or key(text) in cache(lang)) else t
 
 
 def unmark(s: str) -> str:
@@ -702,6 +702,7 @@ def switcher(path: str) -> str:
 
 LATIN = re.compile(r"[A-Za-z]")
 CYRILLIC = re.compile(r"[\u0400-\u04ff]")
+CJK = re.compile(r"[\u4e00-\u9fff]")
 VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "source", "track", "wbr"}
 SKIP_TAGS = {"code", "pre", "style"}
 SKIP_CLASSES = {"turn__body", "xl", "i18n-ready"}               # translated content and auto-linked names, never UI
@@ -747,7 +748,7 @@ def ui(lang: str, text: str, record: bool = True) -> str:
             return lead + _fill(lang, tpl, m) + trail
     if "·" in core:      # "Bonus · <time> · 41 min": translate each piece
         return lead + "".join(x if not x.strip(" ·") else ui(lang, x, record) for x in re.split(r"( ?· ?)", core)) + trail
-    if record and not CYRILLIC.search(core):
+    if record and not (CYRILLIC.search(core) or CJK.search(core)):
         _misses.setdefault(lang, set()).add(core)
     return text
 
@@ -771,12 +772,13 @@ class _Rewriter(HTMLParser):
         changed, new = False, []
         d = dict(attrs)
         for k, v in attrs:
+            has_mark = v is not None and MARK in v
             nv = v = unmark(v) if v is not None else v
             if v is not None:
                 if self.skipping() and k != "href":
                     pass
                 elif k in ATTRS or (k == "content" and tag == "meta" and (d.get("name") in META_CONTENT or d.get("property") in META_CONTENT)):
-                    nv = ui(self.lang, v)
+                    nv = ui(self.lang, v, record=not has_mark)
                 elif k == "href" and tag == "a" and "hreflang" not in d and v.startswith("/") and not v.startswith("//"):
                     p, _, frag = v.partition("#")
                     if p == "/feed.xml":

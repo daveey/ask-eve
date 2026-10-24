@@ -147,6 +147,7 @@ function createMockEnv(accessFixture, overrides = {}) {
               doc_title,
               doc_summary,
               eve_initial_take,
+              status,
               inbound_message_id,
             ] = bound;
             inboxItems.set(id, {
@@ -165,7 +166,7 @@ function createMockEnv(accessFixture, overrides = {}) {
               doc_title,
               doc_summary,
               eve_initial_take,
-              status: "ready",
+              status: status || "ready",
               public_reading_id: null,
               inbound_message_id,
               source_tweet_id: null,
@@ -430,6 +431,27 @@ function createMockEnv(accessFixture, overrides = {}) {
           }
           if (norm.startsWith("SELECT * FROM x_drafts WHERE id")) {
             return xDrafts.get(bound[0]) || null;
+          }
+          if (norm.startsWith("SELECT COUNT(*) AS cnt FROM inbox_items WHERE from_addr")) {
+            const [sender, since] = bound;
+            const cnt = Array.from(inboxItems.values()).filter(
+              (it) => it.from_addr === sender && it.received_at >= since
+            ).length;
+            return { cnt };
+          }
+          if (norm.startsWith("SELECT COUNT(*) AS cnt FROM inbox_items WHERE received_at >= ?1 AND status != 'queued_untriaged'")) {
+            const [since] = bound;
+            const cnt = Array.from(inboxItems.values()).filter(
+              (it) => it.received_at >= since && it.status !== "queued_untriaged"
+            ).length;
+            return { cnt };
+          }
+          if (norm.startsWith("SELECT COUNT(*) AS cnt FROM inbox_items WHERE received_at >= ?1")) {
+            const [since] = bound;
+            const cnt = Array.from(inboxItems.values()).filter(
+              (it) => it.received_at >= since
+            ).length;
+            return { cnt };
           }
           return null;
         },
@@ -981,4 +1003,147 @@ test("public @askevepodcast X mentions land in queue with <=280 char leak-checke
   );
   assert.equal(approvedPostResp.status, 200);
   assert.equal(env.X_POSTED.length, 2);
+});
+
+
+test("inbound email forwards to ADMIN_EMAIL (including X verification codes) and filters spam/rate-limits/SSRF", async () => {
+  const { isSafePublicHttpUrl } = await import("../src/index.mjs");
+  const { rawStreamToBytes } = await import("../src/mime.mjs");
+
+  const access = await createAccessFixture();
+  const env = createMockEnv(access);
+  const forwardedTo = [];
+
+  // 1. X verification email from verify@x.com is stored in D1 AND forwarded to ADMIN_EMAIL with 0 LLM spend
+  const xVerifyRes = await worker.email(
+    {
+      from: "verify@x.com",
+      to: "eve@askevepodcast.com",
+      raw: [
+        "From: X <verify@x.com>",
+        "To: eve@askevepodcast.com",
+        "Subject: 849201 is your X verification code",
+        "Message-ID: <x-verify-01@x.com>",
+        "",
+        "Your X confirmation code is 849201.",
+      ].join("\r\n"),
+      async forward(dest) {
+        forwardedTo.push(dest);
+      },
+    },
+    env,
+    {}
+  );
+  assert.equal(xVerifyRes.itemStatus, "queued_untriaged");
+  assert.deepEqual(forwardedTo, [access.adminEmail]);
+  assert.equal(env.DB.inboxItems.size, 1);
+
+  // 2. Automated bounce / bulk / DMARC-fail emails are dropped pre-ingest before R2/D1/LLM
+  const bounceRes = await worker.email(
+    {
+      from: "mailer-daemon@mx.example.com",
+      to: "eve@askevepodcast.com",
+      raw: [
+        "From: Mail Delivery Subsystem <mailer-daemon@mx.example.com>",
+        "To: eve@askevepodcast.com",
+        "Return-Path: <>",
+        "Auto-Submitted: auto-replied",
+        "Subject: Undelivered Mail Returned to Sender",
+        "",
+        "Bounce body",
+      ].join("\r\n"),
+    },
+    env,
+    {}
+  );
+  assert.equal(bounceRes.skipped, true);
+  assert.equal(env.DB.inboxItems.size, 1);
+
+  const dmarcFailRes = await worker.email(
+    {
+      from: "spoof@attacker.org",
+      to: "eve@askevepodcast.com",
+      raw: [
+        "From: Spoof <spoof@attacker.org>",
+        "To: eve@askevepodcast.com",
+        "Authentication-Results: mx.cloudflare.net; spf=fail; dkim=fail; dmarc=fail",
+        "Subject: Urgent",
+        "",
+        "Spoofed message",
+      ].join("\r\n"),
+    },
+    env,
+    {}
+  );
+  assert.equal(dmarcFailRes.skipped, true);
+  assert.equal(dmarcFailRes.reason, "email_auth_failed");
+
+  // 3. Per-sender rate limit (max 3 per 24h)
+  for (let i = 1; i <= 3; i++) {
+    const r = await worker.email(
+      {
+        from: "repeat@reader.org",
+        to: "eve@askevepodcast.com",
+        raw: `From: repeat@reader.org\r\nTo: eve@askevepodcast.com\r\nSubject: Note ${i}\r\n\r\nHello ${i}`,
+      },
+      env,
+      {}
+    );
+    assert.ok(r.itemId);
+  }
+  const fourth = await worker.email(
+    {
+      from: "repeat@reader.org",
+      to: "eve@askevepodcast.com",
+      raw: "From: repeat@reader.org\r\nTo: eve@askevepodcast.com\r\nSubject: Note 4\r\n\r\nHello 4",
+    },
+    env,
+    {}
+  );
+  assert.equal(fourth.skipped, true);
+  assert.equal(fourth.reason, "sender_rate_limit");
+
+  // 4. SSRF & scheme check + 2MB MIME stream cap
+  assert.equal(isSafePublicHttpUrl("https://arxiv.org/abs/2401.00001"), true);
+  assert.equal(isSafePublicHttpUrl("http://127.0.0.1:8080/admin"), false);
+  assert.equal(isSafePublicHttpUrl("http://169.254.169.254/latest/meta-data/"), false);
+  assert.equal(isSafePublicHttpUrl("http://hermes.tail123.ts.net/"), false);
+  assert.equal(isSafePublicHttpUrl("javascript:alert(1)"), false);
+
+  await assert.rejects(
+    () => rawStreamToBytes(new Uint8Array(2 * 1024 * 1024 + 10)),
+    /raw_email_too_large/
+  );
+
+  // 5. Admin console CSP headers & CSRF Origin block
+  const token = await access.signJwt();
+  const htmlResp = await worker.fetch(
+    new Request("https://askevepodcast.com/admin/", {
+      headers: {
+        "Cf-Access-Jwt-Assertion": token,
+        "Cf-Access-Authenticated-User-Email": access.adminEmail,
+      },
+    }),
+    env,
+    {}
+  );
+  assert.equal(htmlResp.status, 200);
+  assert.ok(htmlResp.headers.get("Content-Security-Policy")?.includes("default-src 'self'"));
+  assert.equal(htmlResp.headers.get("X-Content-Type-Options"), "nosniff");
+
+  const csrfResp = await worker.fetch(
+    new Request("https://askevepodcast.com/admin/api/x/draft", {
+      method: "POST",
+      headers: {
+        "Cf-Access-Jwt-Assertion": token,
+        "Cf-Access-Authenticated-User-Email": access.adminEmail,
+        Origin: "https://evil.example.com",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ body: "test" }),
+    }),
+    env,
+    {}
+  );
+  assert.equal(csrfResp.status, 403);
 });

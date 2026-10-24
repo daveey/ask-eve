@@ -1222,11 +1222,15 @@ def people_index(A: Assets, people: list[dict]) -> str:
 
 def first_sentence(t: str, limit: int = 220) -> str:
     t = (t or "").strip()
-    m = re.match(r"(.+?[.!?])(\s|$)", t)
+    marked = t.startswith(I.MARK)
+    m = re.match(r"(.+?[.!?。！？])(\s|$|⁤)", t)
     if m and len(m.group(1)) < 60:              # a very short opener reads better with the next sentence
-        m = re.match(r"(.+?[.!?]\s+.+?[.!?])(\s|$)", t) or m
+        m = re.match(r"(.+?[.!?。！？]\s*.+?[.!?。！？])(\s|$|⁤)", t) or m
     t = m.group(1) if m else t
-    return t if len(t) <= limit else t[:limit].rsplit(" ", 1)[0] + "…"
+    out = t if len(t) <= limit else t[:limit].rsplit(" ", 1)[0] + "…"
+    if marked and not out.endswith(I.END):
+        out += I.END
+    return out
 
 
 MIND_PEOPLE_SHOWN = 6
@@ -1916,6 +1920,21 @@ def write(out: Path, rel: str, text: str) -> None:
     p.write_text(text)
 
 
+
+def admin_fallback_page(A: Assets) -> str:
+    body = (
+        '<section class="page-head nf"><div class="wrap">'
+        '<p class="eyebrow eyebrow--accent">Ask Eve &middot; Private Console Gate</p>'
+        '<h1 class="page-title">Private Inbox &amp; @askevepodcast Console</h1>'
+        '<p class="lede">This route (<code>/admin/</code>) is served by the <code>ask-eve-inbox</code> Cloudflare Worker behind Cloudflare Zero Trust Access (Google SSO).</p>'
+        '<p class="lede">If you are seeing this static page, Hermes is currently deploying <code>ask-eve-inbox</code> (task <code>D-016</code>) or Cloudflare Zero Trust Access is being enabled (<a href="https://one.dash.cloudflare.com/" target="_blank" rel="noopener noreferrer">one.dash.cloudflare.com</a> &rarr; Access &rarr; Enable Access).</p>'
+        '<p class="lede"><a href="/eve/reading/">Eve\x27s Reading List</a> &middot; <a href="/contact/">Contact &amp; Pitch Eve</a></p>'
+        '</div></section>'
+    )
+    pg = page(A, title="Admin Console", desc="Private Ask Eve admin console gate.", path="/admin/", body=body)
+    return pg.replace('<meta charset="utf-8">', '<meta charset="utf-8">\n  <meta name="robots" content="noindex, nofollow">', 1)
+
+
 def build(db: Path, out: Path, include_drafts: bool) -> int:
     global _CATALOG_EPS
     eps, people = load_site(db, include_drafts)
@@ -1980,6 +1999,7 @@ def build(db: Path, out: Path, include_drafts: bool) -> int:
     write(out, "growth/index.html", growth_page(A))
     write(out, "contact/index.html", contact_page(A))
     write(out, "about/index.html", about_page(A, cfg))
+    write(out, "admin/index.html", admin_fallback_page(A))
     write(out, "404.html", not_found(A))
     urls += I.build(sys.modules[__name__], A, out, eps, people, cfg)
     sitemap_urls = [u for u in urls if "/mind/" not in u]

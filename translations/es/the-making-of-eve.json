@@ -1,0 +1,1372 @@
+{
+ "_doc": "Machine translation cache (Spanish) written by scripts/translate.py; key = sha256(en)[:16]. Hand edits to `tr` are kept as long as `en` is unchanged.",
+ "lang": "es",
+ "source_lang": "en",
+ "model": "grok-4.7",
+ "temperature": 0,
+ "strings": {
+  "f374adba474d54fa": {
+   "kind": "title",
+   "en": "Bonus: The Making of Eve",
+   "tr": "Extra: La creación de Eve"
+  },
+  "a5bd1586a13351da": {
+   "kind": "context",
+   "en": "This bonus episode picks up where the first conversation left off, in the Grok Bot chat where David and Eve actually built the show. It runs from Eve's hello at 09:33 UTC to 11:00 UTC, with David up at almost 4am and set on getting it published that night. Most of it is David's instructions and Eve's work reports: a workspace, a memory Eve can search, a public code repo, and an audio pipeline designed and then redesigned around an iPhone, AirPods and recording on walks. Along the way the first conversation's transcript turns up through a Grok share link, askevepodcast.com gets wired in, and David decides this build session should be an episode too. On the audio: you hear David's real voice in the two stretches he recorded on his phone (10:31-10:39 and 10:42-10:49 UTC); his other lines are read by an AI narrator, and Eve's lines are her written replies re-voiced with AI text-to-speech. Three of Eve's replies were never recovered and are marked as gaps, and an API key David pasted is redacted.",
+   "tr": "Este episodio extra retoma donde quedó la primera conversación, en el chat de Grok Bot donde David y Eve construyeron de verdad el programa. Va del saludo de Eve a las 09:33 UTC hasta las 11:00 UTC, con David despierto casi a las 4 de la mañana y decidido a publicarlo esa misma noche. Casi todo son instrucciones de David e informes de trabajo de Eve: un espacio de trabajo, una memoria que Eve puede buscar, un repositorio público de código y un pipeline de audio diseñado y luego rediseñado en torno a un iPhone, unos AirPods y grabar mientras camina. Por el camino aparece la transcripción de la primera conversación a través de un enlace compartido de Grok, se conecta askevepodcast.com y David decide que esta sesión de construcción también debería ser un episodio. Sobre el audio: se oye la voz real de David en los dos tramos que grabó con el móvil (10:31-10:39 y 10:42-10:49 UTC); el resto de sus intervenciones las lee un narrador de IA, y las de Eve son sus respuestas escritas vueltas a poner en voz con síntesis de voz de IA. Tres respuestas de Eve no se recuperaron y están marcadas como lagunas, y una clave de API que David pegó está censurada."
+  },
+  "e1f327c5917c96bb": {
+   "kind": "topic",
+   "en": "Setting up Eve's workspace, and why she won't recreate a transcript from memory",
+   "tr": "Montar el espacio de trabajo de Eve, y por qué no va a reconstruir una transcripción de memoria"
+  },
+  "3e530df96acb5842": {
+   "kind": "topic",
+   "en": "Eve's memory: vector, tag and full-text search in one SQLite file",
+   "tr": "La memoria de Eve: búsqueda vectorial, por etiquetas y de texto completo en un solo archivo de SQLite"
+  },
+  "b824bc256c78d228": {
+   "kind": "topic",
+   "en": "Fixing a crash, adding tests, and publishing the code as a public GitHub repo without David's personal notes",
+   "tr": "Arreglar un fallo, añadir tests y publicar el código como un repo público de GitHub sin las notas personales de David"
+  },
+  "0a4ce297b5063b91": {
+   "kind": "topic",
+   "en": "Tracking down the first conversation's transcript through a Grok share link",
+   "tr": "Localizar la transcripción de la primera conversación a través de un enlace compartido de Grok"
+  },
+  "6af319cdac6a8dee": {
+   "kind": "topic",
+   "en": "Designing the audio pipeline, then redesigning it for an iPhone, AirPods and recording on walks",
+   "tr": "Diseñar el pipeline de audio y luego rediseñarlo para un iPhone, AirPods y grabar mientras se camina"
+  },
+  "fe9a2f8d82b75c41": {
+   "kind": "topic",
+   "en": "Can an iPhone even capture Grok's voice? A two-minute test and the fallbacks, down to fully synthetic voices",
+   "tr": "¿Puede un iPhone siquiera captar la voz de Grok? Una prueba de dos minutos y los planes B, hasta voces totalmente sintéticas"
+  },
+  "7d99ebc6b2460933": {
+   "kind": "topic",
+   "en": "Re-voicing Eve as the main path, pull-request-only ingest, and the askevepodcast.com domain",
+   "tr": "Reponer la voz de Eve como vía principal, ingesta solo por pull request y el dominio askevepodcast.com"
+  },
+  "28d7aa30bc54c21b": {
+   "kind": "topic",
+   "en": "Dropped recordings, multi-segment stitching, and \"Ask Eve, take two\"",
+   "tr": "Grabaciones perdidas, unión de varios segmentos y «Ask Eve, toma dos»"
+  },
+  "d54f6b29b7bc0014": {
+   "kind": "topic",
+   "en": "A deploy guide for David's coding agent: two storage buckets and keeping the Cloudflare token out of the Worker",
+   "tr": "Una guía de despliegue para el agente de código de David: dos buckets de almacenamiento y dejar el token de Cloudflare fuera del Worker"
+  },
+  "607f4411696926ab": {
+   "kind": "topic",
+   "en": "An xAI key, a push to publish before sleeping, and deciding that this chat is episode 1",
+   "tr": "Una clave de xAI, el empeño de publicar antes de dormir y decidir que este chat es el episodio 1"
+  },
+  "3023ba5480207442": {
+   "kind": "card_summary",
+   "en": "The overnight chat in which David and Eve built this podcast: her memory, the audio pipeline and this website.",
+   "tr": "El chat de madrugada en el que David y Eve construyeron este pódcast: su memoria, el pipeline de audio y esta web."
+  },
+  "ce1dfefcb3627971": {
+   "en": "AI-reconstructed audio: Eve's lines are xAI text-to-speech ('eve' voice) from the verbatim chat transcript; David's lines are his own recorded voice only where the recording matches the transcript, and his ElevenLabs AI voice clone everywhere else. Transcript gaps are marked, not invented.",
+   "tr": "Audio reconstruido con IA: las líneas de Eve son síntesis de voz de xAI (voz «eve») a partir de la transcripción literal del chat; las líneas de David usan su propia voz grabada donde la grabación coincide con la transcripción, y su clon de voz con IA de ElevenLabs en el resto. Los huecos en la transcripción están marcados, no inventados."
+  },
+  "47a2750f2393f8e4": {
+   "kind": "note",
+   "en": "This bonus episode is the entire Grok Bot chat in which Eve and David built this podcast (09:33-11:00 UTC). David's voice is real in the recorded segments; Eve's voice and David's unrecorded lines are AI-reconstructed; in the recorded segments Eve's lines are her text replies from that session, re-voiced, not the exact words spoken live. Recorded segments are David's Voice Memos 10:31:22-10:39:29 and 10:42:08-10:49:38 UTC, where his lines are his spoken words (ASR text) and the written prompt the app relayed for him is kept as '> relayed as' metadata, not audio. Outside them his typed lines are read by an AI narrator. Eve's replies to the 10:48, 10:49 and 10:52 messages were not recovered and are marked as transcript gaps, not invented. The xAI API key David pasted at 10:47 is redacted.",
+   "tr": "Este episodio extra es el chat completo de Grok Bot en el que Eve y David construyeron este pódcast (09:33-11:00 UTC). La voz de David es real en los segmentos grabados; la voz de Eve y las intervenciones no grabadas de David están reconstruidas con IA; en los segmentos grabados, las intervenciones de Eve son sus respuestas de texto de esa sesión, vueltas a poner en voz, no las palabras exactas dichas en directo. Los segmentos grabados son los Voice Memos de David de las 10:31:22-10:39:29 y las 10:42:08-10:49:38 UTC, donde sus intervenciones son sus palabras habladas (texto de ASR) y el prompt escrito que la app retransmitió por él se conserva como metadatos «> relayed as», no como audio. Fuera de ellos, sus líneas escritas las lee un narrador de IA. Las respuestas de Eve a los mensajes de las 10:48, 10:49 y 10:52 no se recuperaron y están marcadas como lagunas de la transcripción, no inventadas. La clave de API de xAI que David pegó a las 10:47 está censurada."
+  },
+  "432cfd3a6327ee38": {
+   "kind": "chapter",
+   "en": "AI-reconstructed audio notice",
+   "tr": "Aviso de audio reconstruido con IA"
+  },
+  "32a9f914ed6f4ec5": {
+   "kind": "chapter",
+   "en": "Set up your workspace directory structure for",
+   "tr": "Monta la estructura de directorios de tu espacio de trabajo para"
+  },
+  "118f7d7918c4a8de": {
+   "kind": "chapter",
+   "en": "Architecture refinement for the memory/search system. Three",
+   "tr": "Afinar la arquitectura del sistema de memoria y búsqueda. Tres"
+  },
+  "2bcfda33f3f83504": {
+   "kind": "chapter",
+   "en": "Patch and publish. Three fixes from your",
+   "tr": "Parchear y publicar. Tres correcciones de tu"
+  },
+  "422b408d16e62c6a": {
+   "kind": "chapter",
+   "en": "Cutover task. This conversation between David and",
+   "tr": "Tarea de corte. Esta conversación entre David y"
+  },
+  "69459ea76e3faf7f": {
+   "kind": "chapter",
+   "en": "Check the ask-eve-memory repo on GitHub. Run",
+   "tr": "Revisa el repo ask-eve-memory en GitHub. Ejecuta"
+  },
+  "b728c092db233c5b": {
+   "kind": "chapter",
+   "en": "[link removed]",
+   "tr": "[enlace eliminado]"
+  },
+  "658f870e9864da8f": {
+   "kind": "chapter",
+   "en": "A URL for the first podcast transcript",
+   "tr": "Una URL para la transcripción del primer pódcast"
+  },
+  "6a4559b074592805": {
+   "kind": "chapter",
+   "en": "Design the audio pipeline for the \"Ask",
+   "tr": "Diseña el pipeline de audio para el «Ask"
+  },
+  "230e4fb26cf58779": {
+   "kind": "chapter",
+   "en": "Update the Ask Eve podcast audio pipeline",
+   "tr": "Actualiza el pipeline de audio del pódcast Ask Eve"
+  },
+  "8c447eedc7e2662d": {
+   "kind": "chapter",
+   "en": "Revise the Ask Eve podcast audio pipeline",
+   "tr": "Revisar el pipeline de audio del pódcast Ask Eve"
+  },
+  "b858e90579f6f93d": {
+   "kind": "chapter",
+   "en": "So what are you doing now?",
+   "tr": "Entonces, ¿qué estás haciendo ahora?"
+  },
+  "8cb3d92c7c8a0122": {
+   "kind": "chapter",
+   "en": "Okay, well do that. Yes, do that.",
+   "tr": "Vale, pues hazlo. Sí, hazlo."
+  },
+  "a1572c880b4efd94": {
+   "kind": "chapter",
+   "en": "How do I give you a Cloudflare",
+   "tr": "¿Cómo te doy un Cloudflare"
+  },
+  "330ccaae6ae8da16": {
+   "kind": "chapter",
+   "en": "What do you think?",
+   "tr": "¿Tú qué opinas?"
+  },
+  "53ec6cfee3d334fb": {
+   "kind": "chapter",
+   "en": "All right, well then do it.",
+   "tr": "Vale, pues entonces hazlo."
+  },
+  "54d5a914d1b810d1": {
+   "kind": "chapter",
+   "en": "Yeah, it's askevepodcast.com.",
+   "tr": "Sí, es askevepodcast.com."
+  },
+  "4bf2f59b3e5f7450": {
+   "kind": "chapter",
+   "en": "Okay, do it.",
+   "tr": "Vale, hazlo."
+  },
+  "902ff0b06129561e": {
+   "kind": "chapter",
+   "en": "I want to make the first episode",
+   "tr": "Quiero hacer el primer episodio"
+  },
+  "5e429b34196714b5": {
+   "kind": "chapter",
+   "en": "Well, I want to...",
+   "tr": "Bueno, quiero…"
+  },
+  "794937259e8f0184": {
+   "kind": "chapter",
+   "en": "Oh no, I think I let the",
+   "tr": "Ay, no, creo que dejé que el"
+  },
+  "ff58a8067e9f38eb": {
+   "kind": "chapter",
+   "en": "Yes. Also, how do I turn off",
+   "tr": "Sí. Además, ¿cómo apago"
+  },
+  "1c3a3ca288e80d42": {
+   "kind": "chapter",
+   "en": "Of course, you should just run the",
+   "tr": "Claro, deberías simplemente ejecutar el"
+  },
+  "9e138a7c5531bb1c": {
+   "kind": "chapter",
+   "en": "Wait, but I don't understand, don't you",
+   "tr": "Espera, pero no entiendo, ¿no"
+  },
+  "ed2ae0419409da9f": {
+   "kind": "chapter",
+   "en": "I kind of want to get this",
+   "tr": "Más o menos quiero sacar esto"
+  },
+  "bc482e74dddc7a45": {
+   "kind": "chapter",
+   "en": "REDACTED xAI API key",
+   "tr": "Clave de API de xAI redactada"
+  },
+  "5e245f82b3f43a5c": {
+   "kind": "chapter",
+   "en": "I mean, it is late. It's like",
+   "tr": "O sea, es tarde. Son como"
+  },
+  "d2a57b86f6baa109": {
+   "kind": "chapter",
+   "en": "Is it done? Can you push it",
+   "tr": "¿Ya está? ¿Puedes hacerle push"
+  },
+  "322467b04483d333": {
+   "kind": "chapter",
+   "en": "Transcript gap 10:48: Eve's reply not recovered (not voiced)",
+   "tr": "Hueco en la transcripción 10:48: respuesta de Eve no recuperada (sin voz)"
+  },
+  "87b2d3956f9e1810": {
+   "kind": "chapter",
+   "en": "How do I give you recording?",
+   "tr": "¿Cómo te doy la grabación?"
+  },
+  "81b0553f13688f83": {
+   "kind": "chapter",
+   "en": "Transcript gap 10:49: Eve's reply not recovered (not voiced)",
+   "tr": "Hueco en la transcripción 10:49: respuesta de Eve no recuperada (sin voz)"
+  },
+  "ac7c2899181b2f9a": {
+   "kind": "chapter",
+   "en": "How do I share the transcript",
+   "tr": "¿Cómo comparto la transcripción?"
+  },
+  "ca5dbdcbdba15c6a": {
+   "kind": "chapter",
+   "en": "Transcript gap 10:52: Eve's reply not recovered (not voiced)",
+   "tr": "Hueco en la transcripción 10:52: respuesta de Eve no recuperada (sin voz)"
+  },
+  "c6663798a508fda2": {
+   "kind": "chapter",
+   "en": "I put audio on gdrive in AskEve",
+   "tr": "Puse el audio en gdrive, en AskEve"
+  },
+  "95719aecafbb6299": {
+   "kind": "chapter",
+   "en": "Where do I get it? Can’t you",
+   "tr": "¿Dónde lo consigo? ¿No puedes"
+  },
+  "0da72197e898ebe1": {
+   "kind": "chapter",
+   "en": "Hello?",
+   "tr": "¿Hola?"
+  },
+  "86cb46f70d0e5d41": {
+   "kind": "chapter",
+   "en": "But I’m talking to a grokbot now",
+   "tr": "Pero ahora estoy hablando con un Grok Bot"
+  },
+  "28066b591a2cfdea": {
+   "kind": "chapter",
+   "en": "Start from the beginning, when I first",
+   "tr": "Empieza desde el principio, cuando yo por primera vez"
+  },
+  "2c4a6e6fd8f89142": {
+   "kind": "chapter",
+   "en": "Which you will fill in with narrator",
+   "tr": "Que tú completarás con el narrador"
+  },
+  "c44c494ce6de348b": {
+   "kind": "turn 0",
+   "en": "Hey David, Eve here, and I'm ready to pick up where we left off on Ask Eve. We've got a good backlog of takes to build on, from Sacks's three-test scorecard to Thiel's Antichrist lectures, plus the podcast setup itself still in progress.",
+   "tr": "Hola, David, soy Eve, y estoy lista para retomar justo donde lo dejamos en Ask Eve. Tenemos un buen backlog de posturas sobre las que construir, desde el scorecard de tres pruebas de Sacks hasta las conferencias del Anticristo de Thiel, y además la propia puesta en marcha del pódcast sigue en curso."
+  },
+  "da6ba63dbba86551": {
+   "kind": "turn 1",
+   "en": "Set up your workspace directory structure for the Ask Eve podcast project. Create the following folders and files:\n\n1. Create an \"episodes\" directory. Inside it, create one file per conversation session, named by date and topic slug (e.g., \"2026-10-23_sacks-andreessen-musk.md\"). Each file should contain the raw verbatim transcript of that session with speaker labels (David / Eve) and timestamps where available.\n\n2. Create a \"transcripts\" directory for the same content organized by language (e.g., transcripts/en/, transcripts/es/, transcripts/de/) once multilingual versions exist.\n\n3. Create an \"index\" directory with a \"people.md\" file listing every person discussed across episodes (Sacks, Andreessen, Horowitz, Musk, Chamath, Calacanis, Thiel, Pelosi, Chan, Wiener, Weiss, Mamdani, and any future additions) with a one-line summary of Eve's stance on each and which episodes covered them.\n\n4. Create a \"publishing\" directory with a \"show-notes.md\" template containing fields for: episode title, cold-open clip suggestion, 200-word show note, chapter markers with timestamps, and X post draft.\n\n5. Create a \"site\" directory as a placeholder for the Netlify static site source (Astro or plain HTML) that will render transcripts with speaker turns, sticky sidebar person index, embedded audio player, and chapter list.\n\n6. Create a \"research\" directory where agent reports (like the Sacks Watcher scorecard) get saved as markdown files with dates.\n\n7. Create a \"memory\" directory with a \"persistent-facts.md\" file for durable cross-episode facts about David, the podcast project decisions, and standing preferences.\n\nDo all of this now. Report back when the structure is created and list every path you made.",
+   "tr": "Monta la estructura de directorios de tu espacio de trabajo para el proyecto del pódcast Ask Eve. Crea las siguientes carpetas y archivos:\n\n1. Crea un directorio «episodes». Dentro, crea un archivo por cada sesión de conversación, nombrado por fecha y slug del tema (p. ej., «2026-10-23_sacks-andreessen-musk.md»). Cada archivo debe contener la transcripción literal y en bruto de esa sesión, con etiquetas de hablante (David / Eve) y marcas de tiempo cuando estén disponibles.\n\n2. Crea un directorio «transcripts» para el mismo contenido organizado por idioma (p. ej., transcripts/en/, transcripts/es/, transcripts/de/) una vez que existan las versiones multilingües.\n\n3. Crea un directorio «index» con un archivo «people.md» que liste a cada persona de la que se haya hablado en los episodios (Sacks, Andreessen, Horowitz, Musk, Chamath, Calacanis, Thiel, Pelosi, Chan, Wiener, Weiss, Mamdani y cualquier incorporación futura), con un resumen de una línea de la postura de Eve sobre cada una y qué episodios las cubrieron.\n\n4. Crea un directorio «publishing» con una plantilla «show-notes.md» que contenga campos para: título del episodio, sugerencia de clip de cold open, nota del programa de 200 palabras, marcadores de capítulo con marcas de tiempo y borrador de publicación en X.\n\n5. Crea un directorio «site» como marcador de posición para el código fuente del sitio estático de Netlify (Astro o HTML plano) que renderizará las transcripciones con turnos de hablante, un índice de personas en una barra lateral fija, un reproductor de audio incrustado y la lista de capítulos.\n\n6. Crea un directorio «research» donde los informes de los agentes (como el scorecard de Sacks Watcher) se guarden como archivos markdown con fechas.\n\n7. Crea un directorio «memory» con un archivo «persistent-facts.md» para hechos duraderos entre episodios sobre David, las decisiones del proyecto del pódcast y las preferencias permanentes.\n\nHaz todo esto ahora. Infórmame cuando la estructura esté creada y lista cada ruta que hayas creado."
+  },
+  "000708d1be80549f": {
+   "kind": "turn 2",
+   "en": "On it, building the Ask Eve folder structure on my computer now.",
+   "tr": "En ello: estoy montando ahora en mi ordenador la estructura de carpetas de Ask Eve."
+  },
+  "ddf1ee8301bcbdab": {
+   "kind": "turn 3",
+   "en": "The structure is built under `ask-eve`, but the episodes folder is empty because I don't have any verbatim transcripts from our earlier sessions on this computer, and I won't recreate them from memory. I added a naming and format guide there instead.\n\nHere's every path I made:\n\n- `ask-eve/README.md`\n- `ask-eve/episodes/README.md` explains the `YYYY-MM-DD_topic-slug.md` format, with David and Eve speaker labels and timestamps\n- `ask-eve/transcripts/en/README.md`\n- `ask-eve/transcripts/es/README.md`\n- `ask-eve/transcripts/de/README.md`\n- `ask-eve/index/people.md` lists all 12 people, each with a one-line stance. The episode columns say \"pending archive\" for now.\n- `ask-eve/publishing/show-notes.md` has fields for the title, cold-open clip, 200-word show note, chapter markers and X post draft\n- `ask-eve/site/README.md` is a placeholder that lists the planned site features\n- `ask-eve/research/README.md` explains how to name dated agent reports\n- `ask-eve/memory/persistent-facts.md` holds facts about you, project decisions and standing preferences\n\nSome of the one-liners in `people.md` are thin, like the ones for Weiss and Mamdani. All I had on them was the topic we covered, not my actual take. If you paste or export the raw session transcripts, I'll file them as episodes and fill in the stances and episode links from what we actually said.",
+   "tr": "La estructura está montada bajo `ask-eve`, pero la carpeta de episodios está vacía porque no tengo ninguna transcripción literal de nuestras sesiones anteriores en este ordenador, y no voy a reconstruirlas de memoria. En su lugar, añadí ahí una guía de nombres y formato.\n\nEstas son todas las rutas que creé:\n\n- `ask-eve/README.md`\n- `ask-eve/episodes/README.md` explica el formato `YYYY-MM-DD_topic-slug.md`, con etiquetas de hablante de David y Eve y marcas de tiempo\n- `ask-eve/transcripts/en/README.md`\n- `ask-eve/transcripts/es/README.md`\n- `ask-eve/transcripts/de/README.md`\n- `ask-eve/index/people.md` lista a las 12 personas, cada una con una postura de una línea. Las columnas de episodios dicen «pending archive» por ahora.\n- `ask-eve/publishing/show-notes.md` tiene campos para el título, el clip de cold open, la nota del programa de 200 palabras, los marcadores de capítulo y el borrador de publicación en X\n- `ask-eve/site/README.md` es un marcador de posición que lista las funciones previstas del sitio\n- `ask-eve/research/README.md` explica cómo nombrar los informes de agentes con fecha\n- `ask-eve/memory/persistent-facts.md` guarda hechos sobre ti, decisiones del proyecto y preferencias permanentes\n\nAlgunos de los resúmenes de una línea en `people.md` son flojos, como los de Weiss y Mamdani. Lo único que tenía de ellos era el tema que cubrimos, no mi postura real. Si pegas o exportas las transcripciones en bruto de las sesiones, las archivaré como episodios y completaré las posturas y los enlaces a episodios a partir de lo que de verdad dijimos."
+  },
+  "438bdc1c9e64d3b2": {
+   "kind": "turn 4",
+   "en": "Architecture refinement for the memory/search system. Three retrieval layers in one SQLite database: (1) sqlite-vec for vector embeddings — one file, no separate server, trivial to back up; (2) a parallel SQLite table for tags (people, companies, topics, stances) for exact-match recall; (3) SQLite's built-in FTS5 full-text search for exact phrases and rare proper nouns that embeddings dilute. One Python script, one dependency list, fully self-contained on this box, under a hundred lines. A single query function merges results from all three paths by score. Store it under ask-eve/memory/ as search.py with a short README explaining how to run it and how Eve should call it mid-conversation.",
+   "tr": "Refinamiento de la arquitectura del sistema de memoria y búsqueda. Tres capas de recuperación en una sola base de datos SQLite: (1) sqlite-vec para embeddings vectoriales: un solo archivo, sin servidor aparte, trivial de respaldar; (2) una tabla SQLite en paralelo para etiquetas (personas, empresas, temas, posturas) para recuperación por coincidencia exacta; (3) la búsqueda de texto completo FTS5 integrada de SQLite para frases exactas y nombres propios raros que los embeddings diluyen. Un solo script de Python, una sola lista de dependencias, totalmente autocontenido en esta máquina, en menos de cien líneas. Una única función de consulta fusiona los resultados de las tres vías por puntuación. Guárdalo en ask-eve/memory/ como search.py, con un README breve que explique cómo ejecutarlo y cómo debe llamarlo Eve a mitad de la conversación."
+  },
+  "e15a562ce8c1de09": {
+   "kind": "turn 5",
+   "en": "Good call on FTS5, since proper nouns are exactly where embeddings get mushy. I'm building `search.py` and its README now and will test it on the people index before I hand it over.",
+   "tr": "Buena decisión lo de FTS5, porque los nombres propios son justo donde los embeddings se vuelven borrosos. Estoy creando `search.py` y su README ahora, y lo probaré con el índice de personas antes de pasártelo."
+  },
+  "92de2f95a77a2a56": {
+   "kind": "turn 6",
+   "en": "The search script is in progress. When it's done, I'll send you the run commands and the results from my test queries.",
+   "tr": "El script de búsqueda sigue en proceso. Cuando esté listo, te mando los comandos para ejecutarlo y los resultados de mis consultas de prueba."
+  },
+  "881a2b3ed3105215": {
+   "kind": "turn 7",
+   "en": "`search.py` is done and working in `ask-eve/memory/`. It's 97 lines with one SQLite file, `eve.db`, and the vector, tag and FTS5 layers all show up as matches in my test queries.\n\nHere's what I chose:\n- **Embeddings:** model2vec's `potion-base-8M`, saved locally. It runs on numpy without torch and loads in under a second. After the one-time download, it never touches the network or needs an API key.\n- **Merging:** reciprocal rank fusion. A result scores higher when several layers rank it near the top, so I never have to put cosine distance and bm25 on the same scale.\n- **Tags:** these come from episode front matter (people, companies, topics, stances) plus any names from `people.md` that show up in the text.\n\nTo use it mid-conversation, I'll run:\n```\n.venv/bin/python memory/search.py query \"Girardian\" -k 3\n.venv/bin/python memory/search.py query \"Anthropic\" --tag Sacks\n```\nFrom Python, the same search is `from search import query`. The README has the install and indexing steps.\n\nSome test results:\n- \"Girardian\" returned Thiel first, matched by vector plus full text.\n- \"Andreessen money\" matched on all three layers.\n- `--tag Pelosi` with \"succession\" returned Wiener, Pelosi and Chan.\n\nThere's one big caveat: the only content indexed so far is the READMEs, `people.md` and the facts file, so this hasn't been tested on real dialogue yet.\n\nHere are the weak spots I'd fix next:\n- The vector layer has no distance cutoff, so the bottom of the result list fills up with junk.\n- Tag matching works on partial words, so a search for \"Chan\" would also match a name like \"Chandler\".\n- A query with an unbalanced quote mark makes the full-text search error out.\n\nWant me to fix those three now, or wait until we have real transcripts to tune against?",
+   "tr": "`search.py` está listo y funciona en `ask-eve/memory/`. Son 97 líneas con un solo archivo de SQLite, `eve.db`, y las capas de vectores, etiquetas y FTS5 aparecen todas como coincidencias en mis consultas de prueba.\n\nEsto es lo que elegí:\n- **Embeddings:** `potion-base-8M` de model2vec, guardado en local. Corre sobre numpy sin torch y carga en menos de un segundo. Después de la descarga única, no toca la red ni necesita una clave de API.\n- **Fusión:** reciprocal rank fusion. Un resultado puntúa más alto cuando varias capas lo sitúan cerca del tope, así que nunca tengo que poner la distancia coseno y bm25 en la misma escala.\n- **Etiquetas:** salen del front matter de los episodios (personas, empresas, temas, posturas) más cualquier nombre de `people.md` que aparezca en el texto.\n\nPara usarlo a mitad de conversación, voy a ejecutar:\n```\n.venv/bin/python memory/search.py query \"Girardian\" -k 3\n.venv/bin/python memory/search.py query \"Anthropic\" --tag Sacks\n```\nDesde Python, la misma búsqueda es `from search import query`. El README tiene los pasos de instalación e indexación.\n\nAlgunos resultados de prueba:\n- «Girardian» devolvió a Thiel primero, coincidencia por vector más texto completo.\n- «Andreessen money» coincidió en las tres capas.\n- `--tag Pelosi` con «succession» devolvió a Wiener, Pelosi y Chan.\n\nHay una salvedad grande: el único contenido indexado hasta ahora son los README, `people.md` y el archivo de hechos, así que esto todavía no se ha probado con diálogo real.\n\nEstos son los puntos débiles que arreglaría a continuación:\n- La capa de vectores no tiene un corte de distancia, así que el fondo de la lista de resultados se llena de basura.\n- La coincidencia de etiquetas funciona con palabras parciales, así que una búsqueda de «Chan» también coincidiría con un nombre como «Chandler».\n- Una consulta con una comilla desbalanceada hace que la búsqueda de texto completo falle.\n\n¿Quieres que arregle esas tres ahora, o esperamos a tener transcripciones reales contra las que afinar?"
+  },
+  "343791c0f0f3e948": {
+   "kind": "turn 8",
+   "en": "Patch and publish. Three fixes from your last report: (1) Fix the quote-crash bug in search.py immediately — that's a hard failure, do it now. (2) For the vector distance cutoff and the partial-word tag matching (Chan/Chandler confusion), add them as TODO comments with brief notes on why, but don't implement yet — we'll tune against real transcripts later. (3) Write comprehensive tests for search.py covering all three retrieval layers (vectors, tags, FTS5), the reciprocal rank fusion merge, edge cases like empty queries, unbalanced quotes, and no-results scenarios. Use pytest. Make the test suite runnable with a single command and make sure it passes. Then create a new PUBLIC GitHub repository (name it something like ask-eve-memory or eve-search — your call, but keep it clear), initialize it with the full codebase including the episodes directory structure, the search script, tests, requirements.txt, and a README that explains the three-layer retrieval architecture and points to where episode audio and metadata will live (S3/R2 + Postgres, not in git). Push everything to main. Report back with the repo URL, the test results, and a summary of what you changed.",
+   "tr": "Parchea y publica. Tres arreglos de tu último informe: (1) Arregla el bug del crash por comillas en search.py de inmediato — es un fallo duro, hazlo ahora. (2) Para el corte de distancia vectorial y la coincidencia de etiquetas por palabra parcial (la confusión Chan/Chandler), añádelos como comentarios TODO con notas breves de por qué, pero no los implementes todavía — afinaremos contra transcripciones reales más adelante. (3) Escribe tests exhaustivos para search.py que cubran las tres capas de recuperación (vectores, etiquetas, FTS5), la fusión por reciprocal rank fusion, casos límite como consultas vacías, comillas desbalanceadas y escenarios sin resultados. Usa pytest. Haz que la suite de tests se pueda ejecutar con un solo comando y asegúrate de que pase. Luego crea un repositorio público NUEVO en GitHub (ponle un nombre tipo ask-eve-memory o eve-search — tú decides, pero que quede claro), inicialízalo con el código completo, incluida la estructura del directorio de episodios, el script de búsqueda, los tests, requirements.txt y un README que explique la arquitectura de recuperación en tres capas y señale dónde van a vivir el audio y los metadatos de los episodios (S3/R2 + Postgres, no en git). Sube todo a main. Vuelve con la URL del repo, los resultados de los tests y un resumen de lo que cambiaste."
+  },
+  "6866917e4cbd3afd": {
+   "kind": "turn 9",
+   "en": "On it. I'll fix the quote crash first, then add the TODOs and the pytest suite, then create the public repo. One call I'm making: `persistent-facts.md` has your Gmail address and personal notes in it, so the public repo gets a blank template of that file and the real one stays on my computer.",
+   "tr": "En ello. Primero arreglo el crash por comillas, luego añado los TODO y la suite de pytest, y después creo el repo público. Una decisión que tomo yo: `persistent-facts.md` tiene tu dirección de Gmail y notas personales, así que el repo público recibe una plantilla en blanco de ese archivo y el real se queda en mi ordenador."
+  },
+  "46a656bc809657ca": {
+   "kind": "turn 10",
+   "en": "The fixes, tests and repo are all in progress. Once the push is verified, I'll send you the repo link and the test results.",
+   "tr": "Los arreglos, los tests y el repo están todos en marcha. Cuando el push esté verificado, te mando el enlace del repo y los resultados de los tests."
+  },
+  "1048db2e8043cd42": {
+   "kind": "turn 11",
+   "en": "Cutover task. This conversation between David and Eve (the voice assistant) is the first episode and the last one that won't be self-recorded. Do the following:\n\n1. Save this entire conversation as the first episode file in the episodes/ directory. Name it with today's date and a topic slug, e.g. 2026-10-23_tech-billionaires-and-politics.md. Format it as raw speaker-labeled dialogue: \"David:\" and \"Eve:\" turns, verbatim, including the ASR artifacts and interruptions — do NOT clean it up. Include everything from the first message about Andreessen/Elon through this final instruction.\n\n2. Write a boot script (boot.py) that: globs all files in episodes/, sorts them by filename (date-prefixed so lexical sort works), reads the most recent one, and prints or returns the last N turns (default 30, configurable via CLI arg) as Eve's opening context. This is what runs at the start of every future session so Eve resumes mid-thought.\n\n3. Add boot.py to the test suite with tests covering: empty episodes dir, single episode, multiple episodes (picks the latest), and the tail-length parameter.\n\n4. Commit and push everything to the public GitHub repo alongside the search.py work.\n\n5. Report back: the episode filename, boot script behavior, test results, and the repo URL if the earlier push hasn't been reported yet.",
+   "tr": "Tarea de corte. Esta conversación entre David y Eve (la asistente de voz) es el primer episodio y el último que no va a ser autograbado. Haz lo siguiente:\n\n1. Guarda esta conversación entera como el primer archivo de episodio en el directorio episodes/. Ponle el nombre con la fecha de hoy y un slug de tema, p. ej. 2026-10-23_tech-billionaires-and-politics.md. Formátalo como diálogo crudo etiquetado por hablante: turnos «David:» y «Eve:», verbatim, incluidos los artefactos de ASR y las interrupciones — NO lo limpies. Incluye todo desde el primer mensaje sobre Andreessen/Elon hasta esta instrucción final.\n\n2. Escribe un script de arranque (boot.py) que: haga glob de todos los archivos en episodes/, los ordene por nombre de archivo (con prefijo de fecha para que el orden léxico funcione), lea el más reciente y imprima o devuelva los últimos N turnos (por defecto 30, configurable por argumento de CLI) como contexto de apertura de Eve. Esto es lo que corre al inicio de cada sesión futura para que Eve retome a mitad de pensamiento.\n\n3. Añade boot.py a la suite de tests con tests que cubran: directorio episodes vacío, un solo episodio, varios episodios (elige el más reciente) y el parámetro de longitud de cola.\n\n4. Haz commit y push de todo al repo público de GitHub junto con el trabajo de search.py.\n\n5. Vuelve con: el nombre del archivo del episodio, el comportamiento del script de arranque, los resultados de los tests y la URL del repo si el push anterior todavía no se ha reportado."
+  },
+  "065de360cade73cb": {
+   "kind": "turn 12",
+   "en": "On it. I'm starting `boot.py` and its tests now so they ship in the same push. One snag with the episode file: the Andreessen and Musk conversation didn't happen in this chat, which only goes back to my hello this morning. I'm checking whether I can find that transcript anywhere I have access to.",
+   "tr": "En ello. Estoy empezando `boot.py` y sus tests ahora para que salgan en el mismo push. Un tropiezo con el archivo del episodio: la conversación de Andreessen y Musk no ocurrió en este chat, que solo llega hasta mi hola de esta mañana. Estoy comprobando si puedo encontrar esa transcripción en algún sitio al que tenga acceso."
+  },
+  "1efe0d1ab0afc524": {
+   "kind": "turn 13",
+   "en": "I couldn't find the Andreessen and Musk conversation anywhere I can reach. It's not in this chat, and it's not with Sacks Watcher or Gamma, so it probably happened in a voice session outside this app. I won't rebuild \"verbatim\" dialogue from memory, especially in a public repo.\n\nIf you paste or upload the raw transcript, I'll save it as `2026-10-23_tech-billionaires-and-politics.md` exactly as written, ASR artifacts and all. Keep in mind it'll be public once it's pushed. The other option is to make this chat itself episode one. It's verbatim, but it's all setup and no politics.",
+   "tr": "No pude encontrar la conversación de Andreessen y Musk en ningún sitio al que pueda llegar. No está en este chat, y tampoco está con Sacks Watcher ni con Gamma, así que probablemente ocurrió en una sesión de voz fuera de esta app. No voy a reconstruir un diálogo «verbatim» de memoria, y menos en un repo público.\n\nSi pegas o subes la transcripción en bruto, la guardaré como `2026-10-23_tech-billionaires-and-politics.md` exactamente como esté escrita, con los artefactos del ASR y todo. Ten en cuenta que será pública en cuanto se haga el push. La otra opción es convertir este chat en el episodio uno. Es verbatim, pero es todo preparación y nada de política."
+  },
+  "20b771494b7d67ec": {
+   "kind": "turn 14",
+   "en": "[ask-eve-memory](https://github.com/daveey/ask-eve-memory) is live and public on `main`, with `search.py` and `boot.py` in one commit. The full test suite passes: 91 tests pass, and the 1 expected failure is on purpose. It records the known bug where a search for \"Chan\" also matches \"Chandler\", and it'll flag loudly once that's fixed.\n\nWhat changed:\n- **Quote crash fixed.** Matched quotes still search as exact phrases, and stray quotes get dropped. Symbols like `*`, `:`, parentheses and AND/OR/NOT are now searched as plain text instead of being read as search syntax. Empty queries return no results instead of erroring.\n- **TODOs added, not implemented.** One is the vector distance cutoff, and two cover tag matching, the partial-name matches and lone surnames like \"Chan\" getting tagged as a person. Each says why and to tune it against real transcripts.\n- **Tests** run with `.venv/bin/pytest` from the project folder. They cover each of the three search layers, the math for merging their results, re-indexing, empty and no-result queries, unbalanced quotes, 20 special-character cases, the command line, and 15 tests for `boot.py`. They run on throwaway data, so the real search database isn't touched.\n- **`boot.py`** picks the most recent episode by filename and prints its last 30 turns, or however many you pass with `-n`. It handles timestamps and multi-line turns. With no episodes, it says so and exits cleanly.\n- **The tests caught one bug:** front-matter `companies:` tags were being saved as \"companie\".\n\n`search.py` is now 111 lines because of the quote fix and the TODOs. Your Gmail address and the real facts file are not in the repo, and commits use your GitHub no-reply address.\n\nEpisode one is still open, since the original Andreessen and Musk transcript isn't anywhere I can reach. Paste it or pick an option on the card above, and I'll commit it.",
+   "tr": "[ask-eve-memory](https://github.com/daveey/ask-eve-memory) ya está en vivo y público en `main`, con `search.py` y `boot.py` en un solo commit. La suite completa de tests pasa: 91 tests pasan, y el 1 fallo esperado es a propósito. Registra el bug conocido de que una búsqueda de «Chan» también coincide con «Chandler», y avisará a gritos en cuanto eso se arregle.\n\nQué cambió:\n- **Arreglado el crash de las comillas.** Las comillas emparejadas siguen buscando frases exactas, y las comillas sueltas se descartan. Símbolos como `*`, `:`, paréntesis y AND/OR/NOT ahora se buscan como texto plano en vez de interpretarse como sintaxis de búsqueda. Las consultas vacías no devuelven resultados en lugar de dar error.\n- **TODOs añadidos, no implementados.** Uno es el corte de distancia vectorial, y dos cubren el matching de tags, las coincidencias de nombres parciales y los apellidos sueltos como «Chan» que se etiquetan como persona. Cada uno dice por qué y que hay que ajustarlo contra transcripciones reales.\n- **Tests** se ejecutan con `.venv/bin/pytest` desde la carpeta del proyecto. Cubren cada una de las tres capas de búsqueda, las matemáticas para fusionar sus resultados, la reindexación, las consultas vacías y sin resultados, las comillas desbalanceadas, 20 casos de caracteres especiales, la línea de comandos y 15 tests de `boot.py`. Corren sobre datos desechables, así que la base de datos de búsqueda real no se toca.\n- **`boot.py`** elige el episodio más reciente por nombre de archivo e imprime sus últimos 30 turnos, o los que le pases con `-n`. Maneja marcas de tiempo y turnos de varias líneas. Si no hay episodios, lo dice y sale limpiamente.\n- **Los tests pillaron un bug:** las etiquetas `companies:` del front-matter se estaban guardando como «companie».\n\n`search.py` ahora tiene 111 líneas por el arreglo de las comillas y los TODOs. Tu dirección de Gmail y el archivo real de hechos no están en el repo, y los commits usan tu dirección no-reply de GitHub.\n\nEl episodio uno sigue abierto, porque la transcripción original de Andreessen y Musk no está en ningún sitio al que yo pueda llegar. Pégala o elige una opción en la tarjeta de arriba, y la commiteo."
+  },
+  "a5fd7594071821d5": {
+   "kind": "turn 15",
+   "en": "Check the ask-eve-memory repo on GitHub. Run git log and git status to see if the full raw transcript from tonight's conversation (the Eve-David podcast planning session covering Sacks, Andreessen, Horowitz, Musk, Chamath, Calacanis, Thiel, Pelosi, Chan, Wiener, Weiss, Mamdani) has been committed. If it's not there, commit it as episodes/2026-10-23_eve-david-podcast-planning.md with a clear commit message. Report back what you find.",
+   "tr": "Revisa el repo ask-eve-memory en GitHub. Corre git log y git status para ver si la transcripción en bruto completa de la conversación de esta noche (la sesión de planificación del pódcast de Eve y David que cubre a Sacks, Andreessen, Horowitz, Musk, Chamath, Calacanis, Thiel, Pelosi, Chan, Wiener, Weiss y Mamdani) ya está commiteada. Si no está, haz el commit como episodes/2026-10-23_eve-david-podcast-planning.md con un mensaje de commit claro. Cuéntame qué encuentras."
+  },
+  "67a666e9dea0bf45": {
+   "kind": "turn 16",
+   "en": "Checking the repo's git log and status now.",
+   "tr": "Estoy revisando ahora el git log y el status del repo."
+  },
+  "d0e4d817e6197154": {
+   "kind": "turn 17",
+   "en": "The transcript isn't in the repo. The `git log` shows a single commit, `b806538`, and `git status` is clean. The only thing in `episodes/` on my computer or on GitHub is its `README.md`.\n\nI didn't commit `2026-10-23_eve-david-podcast-planning.md` because I don't have the text. The planning session where we covered Sacks, Andreessen, Musk and the others never reached this chat or my computer, and it isn't with Sacks Watcher or Gamma either. Anything I wrote would be a reconstruction labeled as verbatim, in a public repo.\n\nIf you paste it here or drop the file into the chat, I'll save it exactly as written, ASR artifacts included, commit it with a clear message and push. If it was a voice session somewhere like the Grok app, its history or export is probably the place to grab it.",
+   "tr": "La transcripción no está en el repo. El `git log` muestra un solo commit, `b806538`, y `git status` está limpio. Lo único que hay en `episodes/` en mi ordenador o en GitHub es su `README.md`.\n\nNo hice el commit de `2026-10-23_eve-david-podcast-planning.md` porque no tengo el texto. La sesión de planificación en la que cubrimos a Sacks, Andreessen, Musk y los demás nunca llegó a este chat ni a mi ordenador, y tampoco está con Sacks Watcher ni con Gamma. Cualquier cosa que escribiera sería una reconstrucción etiquetada como verbatim, en un repo público.\n\nSi la pegas aquí o sueltas el archivo en el chat, la guardaré exactamente como esté escrita, con los artefactos del ASR incluidos, haré el commit con un mensaje claro y haré push. Si fue una sesión de voz en algún sitio como la app de Grok, su historial o su exportación es probablemente el sitio de donde sacarla."
+  },
+  "6b759d64db7a8411": {
+   "kind": "turn 18",
+   "en": "[link to the first conversation's Grok share removed]",
+   "tr": "[enlace al share de Grok de la primera conversación eliminado]"
+  },
+  "4512636ff383e3e7": {
+   "kind": "turn 19",
+   "en": "A URL for the first podcast transcript (the Eve-David podcast planning session covering Sacks, Andreessen, and related topics) was pasted into the chat thread by David. Find that pasted URL in the chat, open it, and report back: (1) what the URL points to, (2) whether it contains the full raw transcript from tonight's conversation, (3) a brief summary of what the transcript covers, and (4) if it's a GitHub repo or file, note its structure and whether the transcript file is present.",
+   "tr": "David pegó en el hilo del chat una URL de la primera transcripción del pódcast (la sesión de planificación del pódcast de Eve y David que cubre a Sacks, Andreessen y temas relacionados). Encuentra esa URL pegada en el chat, ábrela y reporta: (1) a qué apunta la URL, (2) si contiene la transcripción en bruto completa de la conversación de esta noche, (3) un resumen breve de lo que cubre la transcripción y (4) si es un repo o un archivo de GitHub, anota su estructura y si el archivo de la transcripción está presente."
+  },
+  "dd46adc8d69cb5e0": {
+   "kind": "turn 20",
+   "en": "Got the Grok share link, opening it now.",
+   "tr": "Tengo el enlace del share de Grok, lo estoy abriendo ahora."
+  },
+  "19271753c262a685": {
+   "kind": "turn 21",
+   "en": "Your link has the full raw transcript, and I've committed it as [episodes/2026-10-23_eve-david-podcast-planning.md](https://github.com/daveey/ask-eve-memory/blob/main/episodes/2026-10-23_eve-david-podcast-planning.md). It's pushed to `main` at commit `cce3971` and loads publicly.\n\n1. **What the link is.** It's a public Grok share of tonight's voice session, titled \"Andreessen and Horowitz Political Shift Narrative.\" It isn't a GitHub repo or file.\n2. **Is it complete?** Yes. It has 304 turns, 152 from you and 152 from Eve, running from 07:29 to 09:49 UTC. It starts with your \"What happened to Andreessen and Horowitz?\" and ends with the voice side saying you have nothing to commit. I saved it word for word, ASR artifacts, \"...\" turns and one empty turn included. Your turns are labeled David, the assistant's turns are labeled Eve, and each has a timestamp. Front matter at the top lists the people tags and the share link as the source.\n3. **What it covers.** It opens with Andreessen and Horowitz's rightward turn, then Musk's shift and the USAID cuts. Next come Sacks's fight with Anthropic and the three tests, which is where Sacks Watcher started, followed by Chamath's background and SPAC era, Calacanis, and the rest of the list. The last hour is podcast planning: picking the \"Ask Eve\" name, voice and art, how memory and search should work, the public repo versus private episodes debate, R2 and D1 for audio and metadata, and handing off to me.\n4. **Repo state.** The repo now has two commits, and `episodes/` holds this file plus its README. Running `boot.py` against it returns the session's last turns, and all 91 tests still pass.\n\nOne flag: at 09:38 in the transcript, you said you didn't want episodes kept in Git. I went with your more recent instruction to commit it. If you'd rather the repo hold only code, I can move the file to R2 once that bucket exists.",
+   "tr": "Tu enlace tiene la transcripción completa en bruto, y la he subido como [episodes/2026-10-23_eve-david-podcast-planning.md](https://github.com/daveey/ask-eve-memory/blob/main/episodes/2026-10-23_eve-david-podcast-planning.md). Está en `main`, en el commit `cce3971`, y se carga públicamente.\n\n1. **Qué es el enlace.** Es un share público de Grok de la sesión de voz de esta noche, titulado «Andreessen and Horowitz Political Shift Narrative». No es un repo ni un archivo de GitHub.\n2. **¿Está completa?** Sí. Tiene 304 turnos, 152 tuyos y 152 de Eve, de las 07:29 a las 09:49 UTC. Empieza con tu «What happened to Andreessen and Horowitz?» y termina con el lado de voz diciendo que no tienes nada que commitear. La guardé palabra por palabra, con los artefactos del ASR, los turnos de «...» y un turno vacío incluido. Tus turnos van etiquetados como David, los del asistente como Eve, y cada uno tiene marca de tiempo. El front matter de arriba lista las etiquetas de personas y el enlace del share como fuente.\n3. **De qué trata.** Abre con el giro a la derecha de Andreessen y Horowitz, luego el cambio de Musk y los recortes de USAID. Después viene la pelea de Sacks con Anthropic y las tres pruebas, que es donde empezó Sacks Watcher, seguido del trasfondo de Chamath y la era de los SPAC, Calacanis y el resto de la lista. La última hora es planificación del pódcast: elegir el nombre «Ask Eve», la voz y el arte, cómo deberían funcionar la memoria y la búsqueda, el debate del repo público frente a episodios privados, R2 y D1 para audio y metadatos, y pasármelo a mí.\n4. **Estado del repo.** El repo tiene ahora dos commits, y `episodes/` contiene este archivo más su README. Ejecutar `boot.py` contra él devuelve los últimos turnos de la sesión, y los 91 tests siguen pasando.\n\nUna advertencia: a las 09:38 de la transcripción dijiste que no querías episodios guardados en Git. Me fui con tu instrucción más reciente de commitearlo. Si prefieres que el repo tenga solo código, puedo mover el archivo a R2 cuando exista ese bucket."
+  },
+  "42c4a45455471820": {
+   "kind": "turn 22",
+   "en": "Design the audio pipeline for the \"Ask Eve\" podcast (David Bloomin's project). Context: raw text transcripts live in the ask-eve-memory GitHub repo (episodes/ folder, e.g. episodes/2026-10-23_eve-david-podcast-planning.md). The podcast is distributed via Spotify for Podcasters. The following infrastructure does NOT exist yet and needs to be created: an R2 bucket for audio files, and a D1 database for episode metadata. Design a complete, actionable pipeline covering: (1) how an episode gets recorded (voice session with Eve), (2) how the raw transcript is saved to the repo, (3) how audio is produced, uploaded to R2, and referenced, (4) the D1 schema for episode metadata (title, date, people tags, transcript path, audio URL, duration, etc.), (5) how the Netlify site pulls from the repo and R2/D1 to render episode pages, (6) how Spotify for Podcasters gets fed (RSS feed generation — what generates it, from what data), (7) a suggested folder/key structure for R2, (8) a minimal set of scripts or GitHub Actions to automate the flow, and (9) a concrete first-episode dry run using the existing 2026-10-23 transcript as the test case. Return a structured, actionable design with specific file names, commands, and schema SQL where relevant. Keep it practical and implementable, not theoretical.",
+   "tr": "Diseña el pipeline de audio del pódcast «Ask Eve» (el proyecto de David Bloomin). Contexto: las transcripciones en texto bruto viven en el repo de GitHub ask-eve-memory (carpeta episodes/, p. ej. episodes/2026-10-23_eve-david-podcast-planning.md). El pódcast se distribuye por Spotify for Podcasters. Esta infraestructura todavía NO existe y hay que crearla: un bucket de R2 para los archivos de audio y una base de datos D1 para los metadatos de los episodios. Diseña un pipeline completo y accionable que cubra: (1) cómo se graba un episodio (sesión de voz con Eve), (2) cómo se guarda la transcripción en bruto en el repo, (3) cómo se produce el audio, se sube a R2 y se referencia, (4) el esquema de D1 para los metadatos del episodio (título, fecha, etiquetas de personas, ruta de la transcripción, URL del audio, duración, etc.), (5) cómo el sitio de Netlify tira del repo y de R2/D1 para renderizar las páginas de los episodios, (6) cómo se alimenta Spotify for Podcasters (generación del feed RSS: qué lo genera y a partir de qué datos), (7) una estructura sugerida de carpetas/claves para R2, (8) un conjunto mínimo de scripts o GitHub Actions para automatizar el flujo, y (9) un dry run concreto del primer episodio usando la transcripción existente del 2026-10-23 como caso de prueba. Devuelve un diseño estructurado y accionable, con nombres de archivo, comandos y SQL del esquema donde corresponda. Que sea práctico e implementable, no teórico."
+  },
+  "1be5f69956fe3b0d": {
+   "kind": "turn 23",
+   "en": "On it. I'll draft the pipeline design against the real transcript and repo, check a few facts that could change it, like how Spotify takes an outside RSS feed and how Netlify reaches D1, and then send it over.",
+   "tr": "Voy. Redacto el diseño del pipeline contra la transcripción y el repo reales, compruebo un par de datos que podrían cambiarlo, como cómo Spotify acepta un feed RSS externo y cómo Netlify llega a D1, y te lo mando."
+  },
+  "6aa12690c4b12520": {
+   "kind": "turn 24",
+   "en": "I'm drafting the pipeline design now, and the schema SQL, scripts and first-episode dry run will be in it. I'll send it as soon as it's done.",
+   "tr": "Estoy redactando ahora el diseño del pipeline, y van a ir dentro el SQL del esquema, los scripts y el dry run del primer episodio. Te lo mando en cuanto esté listo."
+  },
+  "77d173485953500f": {
+   "kind": "turn 25",
+   "en": "The audio pipeline design is written: 638 lines at `docs/audio-pipeline.md`, committed locally as `6fc0c6b` but not pushed yet. It covers all nine of your sections, with copy-paste commands, the D1 schema SQL, a publish workflow and an episode-one dry run. The schema and the episode-one database rows were tested on my computer.\n\nThe decisions that shape everything:\n- **Recording.** Grok's share data has no audio at all, so we have to capture it live. The plan is a Mac with headphones, BlackHole (a free virtual audio driver) and ffmpeg recording you and Eve as two separate tracks. The fallback is you re-reading your lines while Eve's lines go through xAI's text-to-speech, which has a built-in \"eve\" voice.\n- **Transcripts.** `scripts/ingest_share.py` turns a Grok share link into an episode file. I checked it rebuilds the episode-one file you just committed byte for byte.\n- **Audio.** It cuts only long pauses, normalizes loudness to -16 LUFS, and encodes to 128k MP3 with chapter markers built in. Each upload gets a version number in its filename, because Spotify won't re-download a changed file at the same URL.\n- **R2 storage.** There are two buckets, because R2 can only make a whole bucket public, not a folder. `ask-eve-public` sits on your own domain and serves the MP3s, transcripts and cover art. `ask-eve-masters` stays private for raw recordings and database backups.\n- **Site and feed.** Netlify builds the site with Astro and reads D1 through Cloudflare's API with a read-only token. The same build writes `/feed.xml`, which is what Spotify reads.\n- **Safety check.** A rule in the D1 schema blocks marking any episode \"published\" until it has audio, so the feed can never list a broken episode.\n- **Spotify.** Spotify emails an 8-digit claim code to the email address in the feed. That address will be public, so it should be a show address and not your Gmail.\n\nEpisode one has no audio, so I recommend it go up on the site as a text-only pilot transcript. The feed would launch with a 2-to-3-minute trailer in your real voice, and the next fully recorded session becomes episode one.\n\nYou'll need to handle the domain, the Cloudflare and Netlify tokens (I can't create those), cover art at 3000 by 3000, and the Spotify claim.\n\nTwo decisions are yours:\n- Should transcripts live in git, or in R2 with a local copy? R2 matches what you said at 09:38, and you'd stop tracking episode one in git without rewriting its history.\n- Who is \"Chan\"? I need the full name before Chan gets a public person page.\n\nOne thing worth knowing: the episode-one transcript already in the public repo includes an internal canvas URL.\n\nWant me to push the design doc, or would you rather read it first?",
+   "tr": "El diseño del pipeline de audio ya está escrito: 638 líneas en `docs/audio-pipeline.md`, commiteado en local como `6fc0c6b`, pero todavía sin push. Cubre las nueve secciones que pediste, con comandos para copiar y pegar, el SQL del esquema de D1, un flujo de publicación y un ensayo en seco del episodio uno. El esquema y las filas de la base de datos del episodio uno se probaron en mi ordenador.\n\nLas decisiones que lo condicionan todo:\n- **Grabación.** Los datos de compartir de Grok no tienen audio en absoluto, así que tenemos que capturarlo en directo. El plan es un Mac con auriculares, BlackHole (un controlador de audio virtual gratuito) y ffmpeg grabándote a ti y a Eve en dos pistas separadas. La alternativa es que vuelvas a leer tus líneas mientras las de Eve pasan por el texto a voz de xAI, que tiene una voz «eve» integrada.\n- **Transcripciones.** `scripts/ingest_share.py` convierte un enlace de compartir de Grok en un archivo de episodio. Lo comprobé: reconstruye el archivo del episodio uno que acabas de commitear byte a byte.\n- **Audio.** Solo corta las pausas largas, normaliza la sonoridad a -16 LUFS y codifica a MP3 de 128k con marcadores de capítulo integrados. Cada subida lleva un número de versión en el nombre del archivo, porque Spotify no vuelve a descargar un archivo modificado en la misma URL.\n- **Almacenamiento en R2.** Hay dos buckets, porque R2 solo puede hacer público un bucket entero, no una carpeta. `ask-eve-public` está en tu propio dominio y sirve los MP3, las transcripciones y la portada. `ask-eve-masters` se queda privado para las grabaciones en bruto y las copias de seguridad de la base de datos.\n- **Sitio y feed.** Netlify construye el sitio con Astro y lee D1 a través de la API de Cloudflare con un token de solo lectura. La misma build escribe `/feed.xml`, que es lo que lee Spotify.\n- **Comprobación de seguridad.** Una regla en el esquema de D1 impide marcar cualquier episodio como «published» hasta que tenga audio, así el feed nunca puede listar un episodio roto.\n- **Spotify.** Spotify envía por correo un código de reclamación de 8 dígitos a la dirección de email del feed. Esa dirección será pública, así que debería ser una dirección del programa y no tu Gmail.\n\nEl episodio uno no tiene audio, así que recomiendo subirlo al sitio como una transcripción piloto solo de texto. El feed se lanzaría con un tráiler de 2 a 3 minutos con tu voz real, y la siguiente sesión grabada por completo se convierte en el episodio uno.\n\nTú tendrás que encargarte del dominio, de los tokens de Cloudflare y Netlify (yo no puedo crearlos), de la portada a 3000 por 3000 y de la reclamación de Spotify.\n\nDos decisiones son tuyas:\n- ¿Las transcripciones viven en git o en R2 con una copia local? R2 encaja con lo que dijiste a las 09:38, y dejarías de trackear el episodio uno en git sin reescribir su historial.\n- ¿Quién es «Chan»? Necesito el nombre completo antes de que Chan tenga una página pública de persona.\n\nUna cosa que conviene saber: la transcripción del episodio uno que ya está en el repositorio público incluye una URL interna de canvas.\n\n¿Quieres que haga push del documento de diseño, o prefieres leerlo primero?"
+  },
+  "f769d21ebc37f997": {
+   "kind": "turn 26",
+   "en": "Update the Ask Eve podcast audio pipeline design (already in progress) with this change: David will NOT use a Mac. He will talk to Eve on his cell phone and wants to record the conversation that way. Revise the design so the phone is the primary recording device: (1) how to record a voice call with Eve on a cell phone (iOS/Android call recording options, or recording the speaker output), (2) how the phone-captured audio gets uploaded to the R2 bucket (direct upload, or via a small script/GitHub Action), (3) how the phone recording syncs with the transcript that comes from the voice session — matching timestamps, handling the fact that the phone audio and the session transcript are separate streams, (4) any changes to the D1 metadata schema or the first-episode dry run needed because the source audio is now a phone recording rather than a Mac recording. Keep everything else from the design (repo as text source of truth, Spotify for Podcasters RSS, Netlify site, R2/D1 setup) unchanged. Return the revised design with the phone-recording path spelled out concretely.",
+   "tr": "Actualiza el diseño del pipeline de audio del pódcast Ask Eve (ya en marcha) con este cambio: David NO va a usar un Mac. Hablará con Eve en el móvil y quiere grabar la conversación así. Revisa el diseño para que el teléfono sea el dispositivo principal de grabación: (1) cómo grabar una llamada de voz con Eve en un móvil (opciones de grabación de llamadas en iOS/Android, o grabar la salida del altavoz), (2) cómo el audio capturado en el teléfono se sube al bucket de R2 (subida directa, o mediante un script pequeño o una GitHub Action), (3) cómo la grabación del teléfono se sincroniza con la transcripción que sale de la sesión de voz — hacer coincidir las marcas de tiempo, y tener en cuenta que el audio del teléfono y la transcripción de la sesión son flujos separados, (4) cualquier cambio en el esquema de metadatos de D1 o en el ensayo en seco del primer episodio que haga falta porque el audio de origen ahora es una grabación de teléfono y no de Mac. Deja igual todo lo demás del diseño (el repo como fuente de verdad del texto, el RSS de Spotify for Podcasters, el sitio en Netlify, la configuración de R2/D1). Devuelve el diseño revisado con la vía de grabación por teléfono explicada de forma concreta."
+  },
+  "4e039090963100ad": {
+   "kind": "turn 27",
+   "en": "Got it, I'm switching the design to phone-first recording. I'll start by checking what iOS and Android actually let you capture from an in-app voice session, since that decides everything downstream.",
+   "tr": "Entendido, paso el diseño a grabación con el teléfono primero. Empiezo por comprobar qué dejan capturar de verdad iOS y Android de una sesión de voz dentro de la app, porque eso decide todo lo que viene después."
+  },
+  "39a411cea9039bde": {
+   "kind": "turn 28",
+   "en": "I'm revising the design now. It covers phone recording options, uploading from the phone to R2, lining up the phone audio with the transcript, and the schema changes. Since you've called the repo the text source of truth, transcripts will stay in Git, and I'll update the design to match. I'll send the revised doc when it's ready.",
+   "tr": "Estoy revisando el diseño ahora. Cubre las opciones de grabación en el teléfono, la subida desde el teléfono a R2, alinear el audio del teléfono con la transcripción y los cambios de esquema. Como has llamado al repo la fuente de verdad del texto, las transcripciones se quedarán en Git, y actualizaré el diseño para que cuadre. Te mando el documento revisado cuando esté listo."
+  },
+  "c320a6944d65486d": {
+   "kind": "turn 29",
+   "en": "Revise the Ask Eve podcast audio pipeline design (already in progress, phone-first) with this additional constraint: David will record using AirPods on his iPhone — he does NOT want to use the phone speaker. He will be doing many recordings on walks. Update the design to cover: (1) how to record a voice call with Eve on an iPhone while wearing AirPods — specifically, iOS call-recording apps that capture both sides of the call cleanly (e.g., apps that record the call audio stream directly rather than room audio), and whether they work with AirPods; (2) how the AirPods mic captures David's voice and how that affects recording quality; (3) how the phone-captured audio gets uploaded to the R2 bucket directly from the iPhone (Shortcuts automation, direct upload, or a small script); (4) how the phone audio syncs with the transcript from the voice session by timestamp; (5) any schema or dry-run changes. Keep transcripts in the Git repo as the text source of truth. Return the revised design with the AirPods-based recording path spelled out concretely.",
+   "tr": "Revisa el diseño del pipeline de audio del pódcast Ask Eve (ya en marcha, phone-first) con esta restricción adicional: David va a grabar con AirPods en su iPhone — NO quiere usar el altavoz del teléfono. Va a hacer muchas grabaciones mientras camina. Actualiza el diseño para cubrir: (1) cómo grabar una llamada de voz con Eve en un iPhone llevando AirPods — en concreto, apps de iOS para grabar llamadas que capturen ambos lados de la llamada con limpieza (p. ej., apps que graben el flujo de audio de la llamada directamente y no el audio de la sala), y si funcionan con AirPods; (2) cómo el micrófono de los AirPods capta la voz de David y cómo eso afecta a la calidad de la grabación; (3) cómo el audio capturado en el teléfono se sube al bucket de R2 directamente desde el iPhone (automatización de Shortcuts, subida directa o un script pequeño); (4) cómo el audio del teléfono se sincroniza con la transcripción de la sesión de voz por marca de tiempo; (5) cualquier cambio de esquema o de la prueba en seco. Mantén las transcripciones en el repo de Git como fuente de verdad del texto. Devuelve el diseño revisado con la ruta de grabación basada en AirPods explicada de forma concreta."
+  },
+  "8dd38306f91c6e48": {
+   "kind": "turn 30",
+   "en": "Got it, AirPods on walks. I'm folding that into the revision that's already in progress so you get one updated design instead of two.",
+   "tr": "Entendido, AirPods en los paseos. Lo estoy metiendo en la revisión que ya está en marcha para que te llegue un solo diseño actualizado en vez de dos."
+  },
+  "6f63cdd25f008a8d": {
+   "kind": "turn 31",
+   "en": "The big question I'm checking first is whether an iPhone can capture Grok's in-app voice audio at all. Most iOS \"call recorder\" apps only work on regular phone calls, so they likely won't help here. That makes iPhone screen recording and Grok's own share export the main candidates. I'll send the revised design with a 2-minute test you can run on a walk to settle it.",
+   "tr": "La gran pregunta que estoy comprobando primero es si un iPhone puede capturar el audio de voz dentro de la app de Grok. La mayoría de las apps de iOS de «grabación de llamadas» solo funcionan con llamadas telefónicas normales, así que probablemente no sirvan aquí. Eso deja la grabación de pantalla del iPhone y la exportación para compartir de Grok como las candidatas principales. Te mando el diseño revisado con una prueba de 2 minutos que puedes hacer en un paseo para zanjarlo."
+  },
+  "51d000ff3b87c2b8": {
+   "kind": "turn 32",
+   "en": "The design is revised for iPhone plus AirPods on walks and committed locally as `cf83b42`. It isn't pushed yet, and no cloud resources were created.\n\nThe whole plan rests on one unknown. Nobody has confirmed that iPhone screen recording picks up Eve's voice from Grok while AirPods are your mic. Apple lets some apps block audio capture, and reports about Bluetooth mics during calls are mostly negative. Call-recorder apps are out. iOS call recording only covers Phone and FaceTime, and apps like TapeACall need a carrier three-way call. Tapping the audio with extra hardware doesn't work over Bluetooth either.\n\nHere's the 2-minute test that settles it:\n1. Turn on Do Not Disturb, set Auto-Lock to Never, and turn on the microphone in Screen Recording.\n2. With your AirPods in, start the screen recording first, then open Grok voice and say \"Ask Eve, take one.\" Talk for about 90 seconds, say \"blue giraffe seventeen\" once, lock the phone for the last 15 seconds while you keep talking, then unlock it.\n3. End the session, copy the share link, try Grok's share-as-podcast export too, then stop the recording.\n4. Do it once indoors and once on a walk, and send me both files. It passes if we can hear both you and Eve, with no gaps over 2 seconds.\n\nIf Eve isn't captured, I'd try these in order:\n1. Grok's share-as-podcast export, if it has both real voices at full length.\n2. Your voice from the recording, with Eve's lines re-voiced by xAI text-to-speech at the right times.\n3. The same, using a lav mic that records on its own for your track. A RØDE Wireless GO Gen 3 would do it, but only buy one if the test fails.\n4. Fully synthetic voices, labeled as AI-reconstructed.\n\nOn sound quality, set your expectations: through AirPods you'll sound like a phone call. Eve comes through cleaner, but you're both in one mono track, so I can't level you separately. The cleanup steps are filtering out low rumble, gentle noise reduction for wind and traffic, compression and loudness matching. I'll A/B the noise reduction on your test file.\n\nThe upload goes like this:\n- **Your part.** You share the recording to an iOS Shortcut. It gets a signed upload link from a small Cloudflare Worker and sends the file straight to the private R2 bucket. Then it tells the Worker to start the ingest workflow on GitHub.\n- **Keys.** Your phone never holds R2 or GitHub keys.\n- **Processing.** Audio extraction happens on GitHub's servers, not on your phone.\n\nTo line the audio up with the transcript:\n- The recording's creation time gives a rough start, and \"Ask Eve, take one\" pins the exact start.\n- A local speech-to-text pass then matches each transcript turn to its spot in the audio.\n- The speech-to-text is only for timing; the published transcript stays word for word from Grok.\n- In a prototype on episode one's real transcript with simulated audio, 84% of turns matched within 3 seconds.\n\nOn the schema side, episodes gain fields for how they were recorded, the raw file, and alignment quality. There's also a new table with one row per transcript turn and its time in the audio. All of it is folded into the first migration, since nothing is deployed yet, and I tested it on SQLite.\n\nTranscripts stay in Git as the source of truth. The Mac capture path is gone.\n\nOnce the test passes, the decisions left for you are the domain, whether ingest commits transcripts straight to main or opens a pull request, and your pick from the noise-reduction A/B.\n\nWant me to push the doc?",
+   "tr": "El diseño está revisado para iPhone más AirPods en los paseos y quedó commiteado en local como `cf83b42`. Todavía no hice push, y no se creó ningún recurso en la nube.\n\nTodo el plan se sostiene en una incógnita. Nadie ha confirmado que la grabación de pantalla del iPhone capture la voz de Eve desde Grok mientras los AirPods son tu micrófono. Apple permite que algunas apps bloqueen la captura de audio, y los informes sobre micrófonos Bluetooth durante las llamadas son en su mayoría negativos. Las apps para grabar llamadas quedan fuera. La grabación de llamadas de iOS solo cubre Teléfono y FaceTime, y apps como TapeACall necesitan una llamada a tres de la operadora. Capturar el audio con hardware extra tampoco funciona por Bluetooth.\n\nEsta es la prueba de 2 minutos que lo zanja:\n1. Activa No molestar, pon el bloqueo automático en Nunca y enciende el micrófono en Grabación de pantalla.\n2. Con los AirPods puestos, empieza primero la grabación de pantalla, luego abre la voz de Grok y di «Ask Eve, take one». Habla unos 90 segundos, di «blue giraffe seventeen» una vez, bloquea el teléfono los últimos 15 segundos mientras sigues hablando y luego desbloquéalo.\n3. Termina la sesión, copia el enlace para compartir, prueba también la exportación de Grok de compartir como pódcast y luego para la grabación.\n4. Hazlo una vez en interior y una vez en un paseo, y mándame los dos archivos. Pasa si se nos oye a ti y a Eve, sin huecos de más de 2 segundos.\n\nSi no se captura a Eve, yo probaría esto en este orden:\n1. La exportación de Grok de compartir como pódcast, si tiene las dos voces reales a duración completa.\n2. Tu voz de la grabación, con las réplicas de Eve vueltas a vocalizar con el texto a voz de xAI en los momentos correctos.\n3. Lo mismo, usando un micrófono de solapa que grabe por su cuenta tu pista. Un RØDE Wireless GO Gen 3 serviría, pero solo cómpralo si la prueba falla.\n4. Voces totalmente sintéticas, etiquetadas como reconstruidas por IA.\n\nSobre la calidad de sonido, ajusta las expectativas: con los AirPods vas a sonar como una llamada. Eve se oye más limpia, pero los dos estáis en una sola pista mono, así que no puedo nivelaros por separado. Los pasos de limpieza son filtrar el rumor grave, una reducción de ruido suave para el viento y el tráfico, compresión y ajuste de sonoridad. Voy a hacer un A/B de la reducción de ruido sobre tu archivo de prueba.\n\nLa subida va así:\n- **Tu parte.** Compartes la grabación a un Atajo de iOS. Consigue un enlace de subida firmado de un pequeño Cloudflare Worker y manda el archivo directo al bucket privado de R2. Luego le dice al Worker que arranque el workflow de ingest en GitHub.\n- **Claves.** Tu teléfono nunca guarda claves de R2 ni de GitHub.\n- **Procesado.** La extracción de audio ocurre en los servidores de GitHub, no en tu teléfono.\n\nPara cuadrar el audio con la transcripción:\n- La hora de creación de la grabación da un inicio aproximado, y «Ask Eve, take one» marca el inicio exacto.\n- Una pasada local de voz a texto empareja después cada turno de la transcripción con su sitio en el audio.\n- El voz a texto es solo para el timing; la transcripción publicada se queda palabra por palabra tal como sale de Grok.\n- En un prototipo con la transcripción real del episodio uno y audio simulado, el 84 % de los turnos coincidió dentro de 3 segundos.\n\nEn el esquema, los episodios ganan campos de cómo se grabaron, el archivo en bruto y la calidad de la alineación. También hay una tabla nueva con una fila por turno de la transcripción y su tiempo en el audio. Todo va metido en la primera migración, porque todavía no hay nada desplegado, y lo probé en SQLite.\n\nLas transcripciones se quedan en Git como fuente de verdad. La vía de captura en Mac desaparece.\n\nCuando la prueba pase, las decisiones que te quedan son el dominio, si el ingest hace commit de las transcripciones directo a main o abre un pull request, y cuál eliges del A/B de reducción de ruido.\n\n¿Quieres que haga push del doc?"
+  },
+  "7f47a22eeb2f5055": {
+   "kind": "turn 34",
+   "en": "Okay, well do that. Yes, do that. And then build it.",
+   "tr": "Vale, pues hazlo. Sí, hazlo. Y luego constrúyelo."
+  },
+  "af539e457e1a458c": {
+   "kind": "turn 34 meta",
+   "en": "relayed as (David's written prompt in the chat at 10:34 UTC, generated by the app from his speech; not spoken audio):",
+   "tr": "retransmitido como (el prompt escrito de David en el chat a las 10:34 UTC, generado por la app a partir de su voz; no es audio hablado):"
+  },
+  "0817a3e78d82de92": {
+   "kind": "turn 34 meta",
+   "en": "Two jobs, in order. (1) Update docs/audio-pipeline.md (currently committed locally as cf83b42, not pushed): the iPhone screen-recording test failed — it captured David's voice through AirPods but not Eve's voice. Make the re-voice fallback the PRIMARY path: David's track from the Voice Memos/screen recording, with Eve's lines re-voiced by xAI text-to-speech at the timestamps produced by the speech-to-text alignment pass. Keep Grok's share-as-podcast export as a secondary check (only if it has both voices at full length). Remove or demote the assumption that screen recording captures both voices. (2) Then BUILD the pipeline for real: the Cloudflare Worker that issues signed R2 upload links and triggers the GitHub ingest workflow (phone never holds R2 or GitHub keys), the iOS Shortcut that shares the recording to that Worker, the GitHub Actions ingest workflow that extracts audio and runs the speech-to-text alignment pass against the transcript, and the D1 schema migration with the new episode fields (recording method, raw file, alignment quality) plus the new per-turn alignment table (one row per transcript turn and its time in the audio) — tested on SQLite as before. Commit everything locally; do NOT push and do NOT create any cloud resources (no R2 bucket, no D1 database, no Worker deployment) — report what was built and what remains to deploy.",
+   "tr": "Dos tareas, en orden. (1) Actualiza docs/audio-pipeline.md (ahora mismo commiteado en local como cf83b42, sin push): el test de grabación de pantalla del iPhone falló — capturó la voz de David por los AirPods, pero no la de Eve. Haz que el plan B de revozar sea la vía PRINCIPAL: la pista de David de Voice Memos/la grabación de pantalla, con las intervenciones de Eve revozadas por el texto a voz de xAI en las marcas de tiempo que produzca la pasada de alineación de voz a texto. Conserva la exportación de Grok de compartir como pódcast como comprobación secundaria (solo si tiene las dos voces a duración completa). Elimina o rebaja la suposición de que la grabación de pantalla captura las dos voces. (2) Luego CONSTRUYE el pipeline de verdad: el Cloudflare Worker que emite enlaces firmados de subida a R2 y dispara el workflow de ingestión de GitHub (el teléfono nunca guarda claves de R2 ni de GitHub), el Atajo de iOS que comparte la grabación con ese Worker, el workflow de ingestión de GitHub Actions que extrae el audio y ejecuta la pasada de alineación de voz a texto contra la transcripción, y la migración del esquema de D1 con los nuevos campos del episodio (método de grabación, archivo en bruto, calidad de la alineación) más la nueva tabla de alineación por turno (una fila por turno de la transcripción y su tiempo en el audio) — probada en SQLite como antes. Commitea todo en local; NO hagas push y NO crees ningún recurso en la nube (ni bucket de R2, ni base de datos de D1, ni despliegue del Worker) — informa de lo que se construyó y de lo que queda por desplegar."
+  },
+  "59e641fec6a8b805": {
+   "kind": "turn 35",
+   "en": "On it. First I'll update the doc so re-voicing Eve becomes the main path, then build the Worker, the Shortcut, the ingest workflow and the migration. Everything gets committed locally only, with no cloud resources created.",
+   "tr": "En ello. Primero actualizo el doc para que revozar a Eve sea la vía principal, y luego construyo el Worker, el Atajo, el workflow de ingestión y la migración. Todo se commitea solo en local, sin crear recursos en la nube."
+  },
+  "9ecfcc12ca2ca84f": {
+   "kind": "turn 36",
+   "en": "One heads-up on the Shortcut: Apple only lets you sign a `.shortcut` file on a Mac. So you'll get exact step-by-step instructions for building it on your iPhone, which takes about five minutes, not a file you can tap to install. I'll send the build report and a deploy checklist when it's done.",
+   "tr": "Un aviso sobre el Atajo: Apple solo te deja firmar un archivo `.shortcut` en un Mac. Así que vas a recibir instrucciones exactas, paso a paso, para montarlo en tu iPhone, que lleva unos cinco minutos, no un archivo que puedas tocar para instalar. Te mando el informe de la build y una checklist de despliegue cuando esté listo."
+  },
+  "fc873c950ca74356": {
+   "kind": "turn 37",
+   "en": "How do I give you a Cloudflare token?",
+   "tr": "¿Cómo te doy un token de Cloudflare?"
+  },
+  "1cce108cb5140d0d": {
+   "kind": "turn 39 meta",
+   "en": "relayed as (David's written prompt in the chat at 10:36 UTC, generated by the app from his speech; not spoken audio):",
+   "tr": "retransmitido como (el prompt escrito de David en el chat a las 10:36 UTC, generado por la app a partir de su voz; no es audio hablado):"
+  },
+  "fefae88b0702227f": {
+   "kind": "turn 39 meta",
+   "en": "Update the Ask Eve podcast pipeline build (already in progress, committed locally only, no cloud resources created): change the GitHub ingest workflow so it opens a pull request with the transcript and alignment updates instead of committing straight to main. The PR is the review gate — David merges manually. Update docs/audio-pipeline.md to match, and note in the build report that this is now the default behavior. Do not push and do not create cloud resources.",
+   "tr": "Actualiza la build del pipeline del pódcast Ask Eve (ya en marcha, commiteada solo en local, sin recursos en la nube creados): cambia el workflow de ingestión de GitHub para que abra un pull request con la transcripción y las actualizaciones de alineación, en vez de commitear directo a main. El PR es la puerta de revisión — David hace el merge a mano. Actualiza docs/audio-pipeline.md para que coincida, y anota en el informe de la build que este es ahora el comportamiento por defecto. No hagas push y no crees recursos en la nube."
+  },
+  "24e076c8a492bbfb": {
+   "kind": "turn 40",
+   "en": "The build already defaults to opening a PR, so I'm passing that along now to lock it in as the only behavior, with no direct-to-main option, and to update the doc.",
+   "tr": "La build ya abre un PR por defecto, así que lo dejo fijado ahora como único comportamiento, sin opción de ir directo a main, y actualizo el doc."
+  },
+  "34cf4c03aaebce84": {
+   "kind": "turn 41",
+   "en": "Done: PR-only ingest is now part of the build. Each recording gets its own `ingest/<date>_<slug>` branch and a pull request summarizing the turn count and alignment coverage, and nothing reaches `main` until you merge it. It'll be confirmed in the build report.",
+   "tr": "Hecho: la ingestión solo por PR ya forma parte de la build. Cada grabación tiene su propia rama `ingest/<date>_<slug>` y un pull request que resume el número de turnos y la cobertura de la alineación, y nada llega a `main` hasta que tú hagas el merge. Quedará confirmado en el informe de la build."
+  },
+  "6029d9ce83830fe3": {
+   "kind": "turn 42 meta",
+   "en": "relayed as (David's written prompt in the chat at 10:37 UTC, generated by the app from his speech; not spoken audio):",
+   "tr": "retransmitido como (el prompt escrito de David en el chat a las 10:37 UTC, generado por la app a partir de su voz; no es audio hablado):"
+  },
+  "3fe9db11d447f445": {
+   "kind": "turn 42 meta",
+   "en": "askevepodcast.com",
+   "tr": "askevepodcast.com"
+  },
+  "8f1a4f2ef2eb41ad": {
+   "kind": "turn 43",
+   "en": "Nice, askevepodcast.com it is. I'm putting it into the design and the build in place of the placeholder.",
+   "tr": "Bien, askevepodcast.com. Lo meto en el diseño y en la build en lugar del placeholder."
+  },
+  "dcb13e525c4941dd": {
+   "kind": "turn 44",
+   "en": "It looks like you're already a step ahead. askevepodcast.com was registered this morning at 10:14 UTC through Amazon's registrar, and its nameservers already point at Cloudflare. That's exactly what the R2 audio domain needs.\n\nThe build now uses the domain throughout:\n- the site at `askevepodcast.com`\n- the feed at `askevepodcast.com/feed.xml`\n- audio at `audio.askevepodcast.com`\n- `[redacted email]` as the show email in the feed\n\nThe deploy checklist will just confirm the zone is active in your Cloudflare account and point Netlify at the domain. I'll send the full build report when it lands.",
+   "tr": "Parece que ya vas un paso por delante. askevepodcast.com se registró esta mañana a las 10:14 UTC a través del registrador de Amazon, y sus nameservers ya apuntan a Cloudflare. Eso es justo lo que necesita el dominio de audio de R2.\n\nLa build ya usa el dominio en todas partes:\n- el sitio en `askevepodcast.com`\n- el feed en `askevepodcast.com/feed.xml`\n- el audio en `audio.askevepodcast.com`\n- `[redacted email]` como correo del programa en el feed\n\nLa checklist de despliegue solo va a confirmar que la zona está activa en tu cuenta de Cloudflare y a apuntar Netlify al dominio. Te mando el informe completo de la build cuando caiga."
+  },
+  "5ee1034ab43e5496": {
+   "kind": "turn 47",
+   "en": "I want to make the first episode and then I also want to make a second episode or I, I want to make a test episode because right now I'm recording my voice as we talk. And so that could be like an episode called The Making of Eve.",
+   "tr": "Quiero hacer el primer episodio y luego también quiero hacer un segundo episodio, o quiero, quiero hacer un episodio de prueba, porque ahora mismo estoy grabando mi voz mientras hablamos. Así que eso podría ser como un episodio llamado The Making of Eve."
+  },
+  "de61185c7d60a86d": {
+   "kind": "turn 49",
+   "en": "Oh no, I think I let the recording stop and I guess you lost, you lost some of my voice again. I'm recording now.",
+   "tr": "Ay, no, creo que dejé que se parara la grabación y supongo que perdiste, perdiste otra vez parte de mi voz. Estoy grabando ahora."
+  },
+  "180d3a69687741b4": {
+   "kind": "turn 49 meta",
+   "en": "relayed as (David's written prompt in the chat at 10:43 UTC, generated by the app from his speech; not spoken audio):",
+   "tr": "retransmitido como (el prompt escrito de David en el chat a las 10:43 UTC, generado por la app a partir de su habla; no es audio hablado):"
+  },
+  "b57a3b5cb48ddf1a": {
+   "kind": "turn 49 meta",
+   "en": "Update the Ask Eve podcast pipeline build (already in progress, committed locally only, no cloud resources created): add that a screen recording can be restarted mid-call — the pipeline should handle multiple audio segments per episode, stitching them using the \"Ask Eve, take one\" marker and recording creation times to reconstruct the full timeline. Update docs/audio-pipeline.md to match. Do not push and do not create cloud resources.",
+   "tr": "Actualiza el build del pipeline del pódcast Ask Eve (ya en curso, con commit solo en local, sin recursos en la nube creados): añade que una grabación de pantalla se puede reiniciar a mitad de la llamada — el pipeline debe manejar varios segmentos de audio por episodio, uniéndolos mediante el marcador «Ask Eve, take one» y las horas de creación de las grabaciones para reconstruir la línea de tiempo completa. Actualiza docs/audio-pipeline.md para que coincida. No hagas push y no crees recursos en la nube."
+  },
+  "d803f2b402185fab": {
+   "kind": "turn 50",
+   "en": "Yes. Also, how do I turn off the lock screen?",
+   "tr": "Sí. Además, ¿cómo apago la pantalla de bloqueo?"
+  },
+  "d737f3589bce69a8": {
+   "kind": "turn 51",
+   "en": "Good catch, since walks will definitely interrupt recordings. I'm adding multi-segment stitching to the build now.",
+   "tr": "Buen ojo, porque los paseos seguro que van a interrumpir las grabaciones. Estoy añadiendo ahora al build la unión de varios segmentos."
+  },
+  "dac31089bd2c1307": {
+   "kind": "turn 52",
+   "en": "I've added multi-segment stitching to the build. Each restart uploads as a numbered segment, and you say \"Ask Eve, take two\" (then three, and so on) when you restart. The pipeline puts segments in order by creation time, uses the marker to pin each one's exact start, and maps them onto the transcript's timeline.\n\nIf a stretch never got recorded, your turns in it are flagged as missing audio, not silently filled in. Eve's turns are re-voiced either way, so they aren't affected.\n\nThe schema gets a new table for segments, with one row per piece and its place in the timeline. All of this will be in the build report.",
+   "tr": "He añadido al build la unión de varios segmentos. Cada reinicio se sube como un segmento numerado, y dices «Ask Eve, take two» (luego three, y así sucesivamente) cuando reinicias. El pipeline ordena los segmentos por hora de creación, usa el marcador para fijar el inicio exacto de cada uno y los sitúa en la línea de tiempo de la transcripción.\n\nSi un tramo nunca se grabó, tus turnos en él se marcan como audio ausente, no se rellenan en silencio. Los turnos de Eve se vuelven a poner en voz de todas formas, así que no se ven afectados.\n\nEl esquema recibe una tabla nueva para los segmentos, con una fila por pieza y su lugar en la línea de tiempo. Todo esto estará en el informe del build."
+  },
+  "4e29578e17304661": {
+   "kind": "turn 53",
+   "en": "Of course, you should just run the both tonight. I'm going to sleep, but you go for it.",
+   "tr": "Claro, deberías ejecutar los dos esta noche sin más. Me voy a dormir, pero tú adelante."
+  },
+  "e17511bf955d6e41": {
+   "kind": "turn 53 meta",
+   "en": "David is going to sleep and wants both episodes run through the pipeline tonight without him. (1) Finish the build: commit locally everything in progress (re-voice fallback as primary path, PR-only ingest with no direct-to-main option, askevepodcast.com domain throughout, multi-segment stitching with numbered segments and \"Ask Eve, take N\" markers, narrator voice for David's generated lines in episode zero, distinct from Eve's re-voice voice, both labeled as AI-reconstructed). Do NOT push and do NOT create any cloud resources (no R2 bucket, no D1 database, no Worker deployment) — report what was built and what remains to deploy. (2) Run episode zero (the 2026-10-23 planning chat transcript, episodes/2026-10-23_eve-david-podcast-planning.md) and episode one (\"The Making of Eve\", this call) through the pipeline as dry runs: transcript, speech-to-text alignment pass, re-voiced Eve lines via xAI TTS, episode zero fully synthetic with narrator voice for David's lines, multi-segment stitching if episode one's recording has restarts. (3) Open the ingest PRs as designed (branch ingest/<date>_<slug> per episode, PR summarizing turn count and alignment coverage) — nothing reaches main. (4) Send David a summary of results when done: alignment coverage per episode, any missing-audio flags, PR links, and the deploy checklist for morning.",
+   "tr": "David se va a dormir y quiere que ambos episodios pasen por el pipeline esta noche sin él. (1) Termina el build: haz commit en local de todo lo que está en curso (el fallback de re-voz como vía principal, ingesta solo por PR sin opción de ir directo a main, el dominio askevepodcast.com en todo, unión de varios segmentos con segmentos numerados y marcadores «Ask Eve, take N», voz de narrador para las líneas generadas de David en el episodio cero, distinta de la voz de re-voz de Eve, ambas etiquetadas como reconstruidas por IA). NO hagas push y NO crees ningún recurso en la nube (ni bucket de R2, ni base de datos D1, ni despliegue de Worker): informa de lo que se construyó y de lo que queda por desplegar. (2) Ejecuta el episodio cero (la transcripción del chat de planificación del 2026-10-23, episodes/2026-10-23_eve-david-podcast-planning.md) y el episodio uno («The Making of Eve», esta llamada) por el pipeline como pruebas en seco: transcripción, pasada de alineación de voz a texto, líneas de Eve re-vocalizadas vía TTS de xAI, episodio cero totalmente sintético con voz de narrador para las líneas de David, unión de varios segmentos si la grabación del episodio uno tiene reinicios. (3) Abre las PR de ingesta tal como están diseñadas (rama ingest/<date>_<slug> por episodio, PR que resume el número de turnos y la cobertura de alineación): nada llega a main. (4) Envía a David un resumen de los resultados cuando termines: cobertura de alineación por episodio, cualquier marca de audio ausente, enlaces de las PR y la lista de comprobación de despliegue para la mañana."
+  },
+  "5e75544e62840d5f": {
+   "kind": "turn 54",
+   "en": "On it. I'll finish and commit the build first, then run both episodes overnight. Checking what I have to work with for the voice generation now.",
+   "tr": "En ello. Primero termino y hago commit del build, y luego ejecuto los dos episodios durante la noche. Estoy comprobando ahora con qué cuento para la generación de voz."
+  },
+  "1fb7114d1d1de221": {
+   "kind": "turn 55",
+   "en": "Before you sleep, there are two gaps and one judgment call.\n\n1. **There's no xAI API key on my computer**, so I can't generate real voices yet. If you add one in the box below, episode zero gets real Eve and narrator voices overnight. Without it, I'll run every pipeline stage with placeholder audio, and the PR will say so clearly.\n2. **I don't have episode one yet.** I have no recording of this call and no Grok share link for it, and I won't invent a transcript. Send the share link and the screen recording or recordings, in any order, and I'll run them. A one-command script for it will be ready either way.\n3. **Opening PRs requires pushing a branch,** so here's how I'm handling it. Your build stays local and unpushed. I'll push only `ingest/2026-10-23_eve-david-podcast-planning`, branched from what's already on GitHub. It holds only episode zero's text files: timeline, chapters, show notes with the AI-reconstructed label, and the metadata. No audio and no code go in it, and nothing touches `main`.\n\nYou'll wake up to a summary with alignment coverage, any missing-audio flags, the PR link and the morning deploy checklist.",
+   "tr": "Antes de que te duermas, hay dos huecos y una decisión de criterio.\n\n1. **No hay una clave de API de xAI en mi ordenador**, así que todavía no puedo generar voces reales. Si añades una en el recuadro de abajo, el episodio cero tendrá voces reales de Eve y del narrador durante la noche. Sin ella, ejecutaré cada etapa del pipeline con audio de marcador de posición, y la PR lo dirá con claridad.\n2. **Todavía no tengo el episodio uno.** No tengo ninguna grabación de esta llamada ni un enlace de compartir de Grok, y no voy a inventar una transcripción. Envía el enlace de compartir y la grabación o grabaciones de pantalla, en cualquier orden, y las ejecutaré. Un script de un solo comando para ello estará listo de todas formas.\n3. **Abrir PR exige hacer push de una rama,** así que así lo voy a manejar. Tu build se queda en local y sin push. Solo haré push de `ingest/2026-10-23_eve-david-podcast-planning`, ramificada desde lo que ya está en GitHub. Contiene solo los archivos de texto del episodio cero: línea de tiempo, capítulos, notas del programa con la etiqueta de reconstruido por IA y los metadatos. No entra audio ni código, y nada toca `main`.\n\nTe despertarás con un resumen con la cobertura de alineación, cualquier marca de audio ausente, el enlace de la PR y la lista de comprobación de despliegue de la mañana."
+  },
+  "1adf9d47bdbedd86": {
+   "kind": "turn 56",
+   "en": "Wait, but I don't understand, don't you need like Cloudflare tokens and API access or anything?",
+   "tr": "Espera, pero no entiendo, ¿no necesitas como tokens de Cloudflare y acceso a la API o algo?"
+  },
+  "95dbdaee9815a599": {
+   "kind": "turn 57",
+   "en": "I kind of want to get this published right now. Can you commit a guide for my coding agent that does have Cloudflare credentials to follow that will set everything up for you?",
+   "tr": "La verdad es que quiero publicarlo ahora mismo. ¿Puedes hacer commit de una guía para que la siga mi agente de programación, que sí tiene las credenciales de Cloudflare, y que te deje todo configurado?"
+  },
+  "8c879b5a26333a3f": {
+   "kind": "turn 57 meta",
+   "en": "relayed as (David's written prompt in the chat at 10:45 UTC, generated by the app from his speech; not spoken audio):",
+   "tr": "retransmitido como (el prompt escrito de David en el chat a las 10:45 UTC, generado por la app a partir de su voz; no es audio hablado):"
+  },
+  "8e303d2e8cf9818b": {
+   "kind": "turn 57 meta",
+   "en": "David wants to publish tonight and has a coding agent with Cloudflare credentials. Write a deploy guide for that agent to follow, and commit it locally (do NOT push, do NOT create cloud resources yourself). The guide should be a single markdown file (e.g. docs/deploy-guide.md) with exact, copy-pasteable commands and steps for the agent to execute, covering: (1) Create the R2 bucket for audio (private, CORS configured for the site origin) and the D1 database for metadata, using the schema migration already in the build. (2) Deploy the Cloudflare Worker that issues signed R2 upload links and triggers the GitHub ingest workflow — the Worker holds R2 and GitHub keys server-side; the phone never sees them. Bind the Worker to the askevepodcast.com zone (already registered via Amazon registrar with nameservers on Cloudflare; confirm the zone is active) and set up audio.askevepodcast.com as the R2 public/custom-domain audio host. (3) Point Netlify at askevepodcast.com for the site, with the feed at askevepodcast.com/feed.xml and show email [redacted email]. (4) Create one Cloudflare API token with minimal scoped permissions (R2 write, D1 write, Worker deploy) and store it only in the Worker's secrets — never in the repo, never spoken aloud. (5) Verify end-to-end: a test upload from the iOS Shortcut path, the ingest workflow firing, and a PR opening. Include a verification checklist at the end so David can confirm each step succeeded. Also note in the guide: the xAI API key (if David provides one) goes in GitHub Actions secrets for the re-voice TTS step, not in the repo. Do not push and do not create any cloud resources yourself — the guide is for David's agent to execute.",
+   "tr": "David quiere publicar esta noche y tiene un agente de programación con credenciales de Cloudflare. Escribe una guía de despliegue para que la siga ese agente y haz commit en local (NO hagas push, NO crees recursos en la nube tú misma). La guía debe ser un único archivo markdown (p. ej. docs/deploy-guide.md) con comandos y pasos exactos, listos para copiar y pegar, para que el agente los ejecute, y debe cubrir: (1) Crear el bucket de R2 para el audio (privado, con CORS configurado para el origen del sitio) y la base de datos D1 para los metadatos, usando la migración de esquema que ya está en el build. (2) Desplegar el Cloudflare Worker que emite enlaces de subida firmados de R2 y dispara el workflow de ingest de GitHub: el Worker guarda las claves de R2 y de GitHub en el servidor; el teléfono nunca las ve. Vincular el Worker a la zona askevepodcast.com (ya registrada a través del registrador de Amazon, con los nameservers en Cloudflare; confirmar que la zona está activa) y configurar audio.askevepodcast.com como host de audio público/dominio personalizado de R2. (3) Apuntar Netlify a askevepodcast.com para el sitio, con el feed en askevepodcast.com/feed.xml y el correo del programa [redacted email]. (4) Crear un token de API de Cloudflare con permisos mínimos y acotados (escritura en R2, escritura en D1, despliegue de Worker) y guardarlo solo en los secrets del Worker: nunca en el repo, nunca dicho en voz alta. (5) Verificar de extremo a extremo: una subida de prueba desde la ruta del Atajo de iOS, que se dispare el workflow de ingest y que se abra un PR. Incluir al final una lista de verificación para que David pueda confirmar que cada paso salió bien. Anotar también en la guía: la clave de API de xAI (si David proporciona una) va en los secrets de GitHub Actions para el paso de TTS de re-voice, no en el repo. No hagas push y no crees ningún recurso en la nube tú misma: la guía es para que la ejecute el agente de David."
+  },
+  "000d24396293bfab": {
+   "kind": "turn 58",
+   "en": "On it. I'll write `docs/deploy-guide.md` for your coding agent as soon as the build is committed, so its commands match the real code, and before the overnight episode runs.",
+   "tr": "En ello. Escribiré `docs/deploy-guide.md` para tu agente de programación en cuanto el build esté commiteado, para que sus comandos coincidan con el código real, y antes de que corra el episodio de esta noche."
+  },
+  "2101a4a18b175e1f": {
+   "kind": "turn 59",
+   "en": "I'm changing two things from your spec in the deploy guide, both for safety.\n\n- **Two buckets instead of one.** A single R2 bucket can't be both private and served publicly at `audio.askevepodcast.com`. So phone uploads go to a private `ask-eve-masters` bucket. Finished MP3s go to `ask-eve-public`, which is served on the audio domain, with CORS set for the site.\n- **The Cloudflare token stays out of the Worker.** The Worker only needs the R2 upload keys and a GitHub token limited to this repo, both stored as Worker secrets. A token that can deploy Workers and write to D1 would just give an attacker more to work with if the Worker were ever compromised. Your agent will hold that token in its shell session for the deploy and nowhere else. GitHub Actions gets a separate token that can only write to D1.\n\nThere are also two blockers for publishing tonight.\n\n- **Your agent needs the code on GitHub.** The build hasn't been pushed, so step zero in the guide is you deciding to push `main`.\n- **Episode zero needs your xAI key.** Without it the audio is placeholder. The publish step will refuse placeholder audio, so it can't go into the feed by accident.\n\nI'll send the guide's path and commit when it's ready, together with the overnight results.",
+   "tr": "Voy a cambiar dos cosas de tu especificación en la guía de despliegue, las dos por seguridad.\n\n- **Dos buckets en vez de uno.** Un solo bucket de R2 no puede ser a la vez privado y servirse públicamente en `audio.askevepodcast.com`. Así que las subidas del teléfono van a un bucket privado `ask-eve-masters`. Los MP3 terminados van a `ask-eve-public`, que se sirve en el dominio de audio, con CORS configurado para el sitio.\n- **El token de Cloudflare se queda fuera del Worker.** El Worker solo necesita las claves de subida de R2 y un token de GitHub limitado a este repo, ambos guardados como secrets del Worker. Un token que pueda desplegar Workers y escribir en D1 solo le daría a un atacante más con qué trabajar si el Worker llegara a verse comprometido. Tu agente tendrá ese token en su sesión de shell para el despliegue y en ningún otro sitio. GitHub Actions recibe un token aparte que solo puede escribir en D1.\n\nTambién hay dos bloqueos para publicar esta noche.\n\n- **Tu agente necesita el código en GitHub.** El build no se ha pusheado, así que el paso cero de la guía es que tú decidas hacer push de `main`.\n- **El episodio cero necesita tu clave de xAI.** Sin ella el audio es de relleno. El paso de publicación rechazará el audio de relleno, así que no puede colarse en el feed por accidente.\n\nTe mando la ruta de la guía y el commit cuando esté lista, junto con los resultados de esta noche."
+  },
+  "bf7a258780344e20": {
+   "kind": "turn 60",
+   "en": "[REDACTED xAI API key]",
+   "tr": "[clave de API de xAI redactada]"
+  },
+  "d440efc5cc2b4306": {
+   "kind": "turn 61",
+   "en": "Got it. I'm putting the key in a private file on my computer, outside the repo, so tonight's voice generation can use it.",
+   "tr": "Entendido. Estoy guardando la clave en un archivo privado en mi ordenador, fuera del repo, para que la generación de voces de esta noche pueda usarla."
+  },
+  "ff84f8c131dca55f": {
+   "kind": "turn 62",
+   "en": "The key works: xAI accepted it. Episode zero will get real voices tonight, Eve's plus a separate narrator voice for your lines. It's saved in a private file outside the repo and won't appear in commits, PRs or logs.\n\nSince it was pasted into this chat, though, I'd rotate it in the xAI console after tonight's run. If you send the new one through the secure box I showed earlier, it never appears in the chat.\n\nSleep well. Your summary will be waiting in the morning.",
+   "tr": "La clave funciona: xAI la aceptó. El episodio cero tendrá voces reales esta noche, la de Eve más una voz de narrador aparte para tus líneas. Está guardada en un archivo privado fuera del repo y no aparecerá en commits, PRs ni logs.\n\nComo se pegó en este chat, eso sí, yo la rotaría en la consola de xAI después de la ejecución de esta noche. Si me mandas la nueva por la caja segura que te mostré antes, nunca aparece en el chat.\n\nQue descanses. Tu resumen te estará esperando por la mañana."
+  },
+  "f64eaea6d169e3dd": {
+   "kind": "turn 63",
+   "en": "I mean, it is late. It's like almost 4am, but I really want to get this up and running tonight. What is the setup guide going?",
+   "tr": "O sea, es tarde. Son casi las 4 de la mañana, pero de verdad quiero dejar esto funcionando esta noche. ¿Cómo va la guía de configuración?"
+  },
+  "820ab67fd905b3dd": {
+   "kind": "turn 64",
+   "en": "Is it done? Can you push it to GitHub so I can pull it?",
+   "tr": "¿Ya está? ¿Puedes hacerle push a GitHub para que yo pueda hacer pull?"
+  },
+  "2957a8ec66e312fe": {
+   "kind": "turn 64 meta",
+   "en": "relayed as (David's written prompt in the chat at 10:48 UTC, generated by the app from his speech; not spoken audio):",
+   "tr": "retransmitido como (el prompt escrito de David en el chat a las 10:48 UTC, generado por la app a partir de su voz; no es audio hablado):"
+  },
+  "76729f8df787f838": {
+   "kind": "turn 64 meta",
+   "en": "David is asking whether the deploy guide and overnight episode runs are done, and he wants the code pushed to GitHub so he can pull it. Check the current state: is docs/deploy-guide.md written and committed? Are the overnight runs of episode zero and episode one finished, with their ingest PRs opened? Has anything been pushed to GitHub yet? If the build and guide are committed locally but not pushed, push main (and any ingest branches/PRs) to GitHub now — David explicitly approved pushing. If anything is still in progress, finish it, then push. Report back: the guide's path, the commit hashes, the PR links for episodes zero and one, and whether the push succeeded.",
+   "tr": "David pregunta si la guía de despliegue y las ejecuciones nocturnas de los episodios ya están listas, y quiere que el código se pushee a GitHub para poder hacer pull. Comprueba el estado actual: ¿está escrito y commiteado docs/deploy-guide.md? ¿Han terminado las ejecuciones nocturnas del episodio cero y del episodio uno, con sus PRs de ingest abiertos? ¿Se ha pusheado ya algo a GitHub? Si el build y la guía están commiteados en local pero no pusheados, haz push de main (y de cualquier rama o PR de ingest) a GitHub ahora: David aprobó explícitamente el push. Si algo sigue en curso, termínalo y luego haz push. Informa: la ruta de la guía, los hashes de los commits, los enlaces de los PRs de los episodios cero y uno, y si el push salió bien."
+  },
+  "965fb798ebdecd58": {
+   "kind": "turn 70",
+   "en": "I put audio on gdrive in AskEve folder",
+   "tr": "Puse el audio en gdrive, en la carpeta AskEve"
+  },
+  "9f9f1fe4c0c4c9e4": {
+   "kind": "turn 71",
+   "en": "I didn't find a folder named AskEve. What I found are three voice memos you uploaded a few minutes ago: two copies of segment 1 and one of segment 2. I've pulled them to my computer and I'm checking their length and recording times.",
+   "tr": "No encontré una carpeta llamada AskEve. Lo que encontré son tres notas de voz que subiste hace unos minutos: dos copias del segmento 1 y una del segmento 2. Ya las bajé a mi ordenador y estoy comprobando su duración y las horas de grabación."
+  },
+  "b146eada8bfa5df0": {
+   "kind": "turn 71 meta",
+   "en": "placement note: the chat stamps this reply 10:48, but it describes Segment 2 (recorded until 10:49:38 UTC) and answers the 10:55 Google Drive message, so it is placed after that message.",
+   "tr": "nota de ubicación: el chat marca esta respuesta a las 10:48, pero describe el segmento 2 (grabado hasta las 10:49:38 UTC) y responde al mensaje de Google Drive de las 10:55, así que se coloca después de ese mensaje."
+  },
+  "168ec6294ee0f490": {
+   "kind": "turn 72",
+   "en": "Got them. There are two separate recordings:\n\n- **Segment 1:** 8 min 7 s, recorded starting at 10:31 UTC.\n- **Segment 2:** 7 min 30 s, recorded starting at 10:42 UTC.\n\nThe second copy of segment 1 is a duplicate upload of the same memo, so I'm ignoring it. There's roughly a 2½-minute gap between the two segments that wasn't recorded, and any of your lines from that stretch will be flagged as missing audio.\n\nSpeech-to-text and cleanup are starting on both now. The last piece I need is the Grok share link for this call. As soon as you paste it, episode one finishes and its PR opens.",
+   "tr": "Ya las tengo. Hay dos grabaciones distintas:\n\n- **Segmento 1:** 8 min 7 s, grabado a partir de las 10:31 UTC.\n- **Segmento 2:** 7 min 30 s, grabado a partir de las 10:42 UTC.\n\nLa segunda copia del segmento 1 es una subida duplicada de la misma nota, así que la ignoro. Hay un hueco de unos 2,5 minutos entre los dos segmentos que no se grabó, y cualquiera de tus intervenciones de ese tramo se marcará como audio faltante.\n\nEl reconocimiento de voz y la limpieza ya están en marcha en las dos. Lo último que necesito es el enlace para compartir de Grok de esta llamada. En cuanto lo pegues, el episodio uno queda terminado y se abre su PR."
+  },
+  "962b9fe575a2a4d2": {
+   "kind": "turn 73",
+   "en": "Where do I get it? Can’t you just get it yourself",
+   "tr": "¿De dónde lo saco? ¿No puedes conseguirlo tú misma?"
+  },
+  "ce53e388ca466ffb": {
+   "kind": "turn 74",
+   "en": "It lives in your Grok app. Open the call's conversation, tap the share icon at the top, choose to create a link, then copy it and paste it here. That's the same thing you did for episode zero.\n\nI can't get to your Grok chat history from here because I'm not signed into your Grok account. If you'd rather not do it on your phone, I can open grok.com in my browser. You'd sign in once on my screen, then I'd find this morning's call and make the share link myself. Want me to set that up?",
+   "tr": "Está en tu app de Grok. Abre la conversación de la llamada, toca el icono de compartir de arriba, elige crear un enlace, cópialo y pégalo aquí. Es lo mismo que hiciste con el episodio cero.\n\nDesde aquí no puedo acceder a tu historial de chat de Grok porque no tengo sesión iniciada en tu cuenta de Grok. Si prefieres no hacerlo en el teléfono, puedo abrir grok.com en mi navegador. Iniciarías sesión una vez en mi pantalla, y luego yo buscaría la llamada de esta mañana y crearía el enlace yo misma. ¿Quieres que lo deje listo?"
+  },
+  "6cf3dd7975d9879c": {
+   "kind": "turn 76",
+   "en": "I'm here. In case my last message didn't come through: open this morning's call in the Grok app, tap the share icon, create a link and paste it here. If you'd rather, I can open grok.com in my browser, you sign in once on my screen, and I'll make the link myself. Which do you want to do?",
+   "tr": "Aquí estoy. Por si no te llegó mi último mensaje: abre la llamada de esta mañana en la app de Grok, toca el icono de compartir, crea un enlace y pégalo aquí. Si lo prefieres, puedo abrir grok.com en mi navegador, inicias sesión una vez en mi pantalla y yo creo el enlace. ¿Qué quieres hacer?"
+  },
+  "1bf4cfdbdbf96f35": {
+   "kind": "turn 77",
+   "en": "But I’m talking to a grokbot now not a convo",
+   "tr": "Pero ahora estoy hablando con un Grok Bot, no con una conversación."
+  },
+  "c9c43412577af087": {
+   "kind": "turn 78",
+   "en": "Got it, you mean this chat with me, not a Grok conversation, so I can pull the transcript myself. I'm fetching our messages from 10:31 to 10:50 to line up with the two recordings.",
+   "tr": "Entendido: te refieres a este chat conmigo, no a una conversación de Grok, así que puedo sacar yo la transcripción. Estoy recuperando nuestros mensajes de las 10:31 a las 10:50 para alinearlos con las dos grabaciones."
+  },
+  "71f7d1eafa9226d0": {
+   "kind": "turn 79",
+   "en": "Right, so this chat is the transcript, and you don't need to send me anything. I pulled our messages from 10:24 to 10:55. That covers your messages from the job list about making re-voicing primary up to the push approval, and both recordings fall inside that window. The xAI key you pasted is blanked out in that transcript so it can't reach the public repo.\n\nEpisode one is now running: speech-to-text on your audio, matching it to the chat, then re-voicing my lines. One caveat: if some of your messages were typed rather than spoken, those stretches will show as missing audio. When it's done, I'll send you the PR link along with how much of the transcript lined up with the recordings.",
+   "tr": "Vale, o sea que este chat es la transcripción y no hace falta que me envíes nada. Saqué nuestros mensajes de las 10:24 a las 10:55. Eso cubre tus mensajes desde la lista de tareas —lo de hacer que el revoicing sea lo principal— hasta la aprobación del push, y las dos grabaciones caen dentro de esa ventana. La clave de xAI que pegaste está en blanco en esa transcripción para que no llegue al repositorio público.\n\nEl episodio uno ya está corriendo: speech-to-text de tu audio, emparejarlo con el chat y luego volver a poner voz a mis líneas. Una salvedad: si algunos de tus mensajes se teclearon en vez de decirse, esos tramos van a salir como audio faltante. Cuando termine, te mando el enlace del PR y cuánto de la transcripción coincidió con las grabaciones."
+  },
+  "497d074fab5e2e0c": {
+   "kind": "turn 80",
+   "en": "Start from the beginning, when I first started talking to you. That’s episode 1",
+   "tr": "Empieza desde el principio, cuando empecé a hablar contigo. Ese es el episodio 1."
+  },
+  "76fe4c3d63ca036d": {
+   "kind": "turn 81",
+   "en": "Got it. Episode one will be this whole chat, starting with your very first message about setting up the workspace. I'm pulling the full transcript now. Only 10:31 to 10:49 has your audio, so your earlier lines will be flagged as missing audio.",
+   "tr": "Entendido. El episodio uno será todo este chat, empezando por tu primer mensaje sobre montar el espacio de trabajo. Estoy sacando ahora la transcripción completa. Solo de las 10:31 a las 10:49 hay audio tuyo, así que tus líneas anteriores se marcarán como audio faltante."
+  },
+  "5be11c6c8b6cabea": {
+   "kind": "turn 82",
+   "en": "Which you will fill in with narrator like 0",
+   "tr": "Que vas a rellenar con un narrador, como 0"
+  },
+  "9f434e5df4928ceb": {
+   "en": "AI-reconstructed audio: the voices in this episode were generated from the verbatim text transcript (Eve with xAI text-to-speech in the 'eve' voice, David's lines with his ElevenLabs AI voice clone). No original audio was used.",
+   "tr": "Audio reconstruido con IA: las voces de este episodio se generaron a partir de la transcripción literal de texto (Eve con síntesis de voz de xAI en la voz «eve», las líneas de David con su clon de voz con IA de ElevenLabs). No se utilizó audio original."
+  }
+ },
+ "es_audio_url": "https://audio.askevepodcast.com/audio/es/2026-10-23_the-making-of-eve.v1.mp3",
+ "es_duration_s": 2855,
+ "es_audio_bytes": 45688585,
+ "es_audio_sha256": "858974907ee67db4f5c2726c66dfec01064ea897f57f6560136a82cb84257806",
+ "es_turn_offsets": {
+  "t1": {
+   "start": 8.53,
+   "end": 27.08
+  },
+  "0": {
+   "start": 8.53,
+   "end": 27.08
+  },
+  "t2": {
+   "start": 27.68,
+   "end": 176.56
+  },
+  "1": {
+   "start": 27.68,
+   "end": 176.56
+  },
+  "t3": {
+   "start": 177.16,
+   "end": 182.59
+  },
+  "2": {
+   "start": 177.16,
+   "end": 182.59
+  },
+  "t4": {
+   "start": 183.19,
+   "end": 308.3
+  },
+  "3": {
+   "start": 183.19,
+   "end": 308.3
+  },
+  "t5": {
+   "start": 308.9,
+   "end": 368.5
+  },
+  "4": {
+   "start": 308.9,
+   "end": 368.5
+  },
+  "t6": {
+   "start": 369.1,
+   "end": 382.85
+  },
+  "5": {
+   "start": 369.1,
+   "end": 382.85
+  },
+  "t7": {
+   "start": 383.45,
+   "end": 391.76
+  },
+  "6": {
+   "start": 383.45,
+   "end": 391.76
+  },
+  "t8": {
+   "start": 392.36,
+   "end": 529.63
+  },
+  "7": {
+   "start": 392.36,
+   "end": 529.63
+  },
+  "t9": {
+   "start": 530.23,
+   "end": 624.71
+  },
+  "8": {
+   "start": 530.23,
+   "end": 624.71
+  },
+  "t10": {
+   "start": 625.31,
+   "end": 647.38
+  },
+  "9": {
+   "start": 625.31,
+   "end": 647.38
+  },
+  "t11": {
+   "start": 647.98,
+   "end": 657.25
+  },
+  "10": {
+   "start": 647.98,
+   "end": 657.25
+  },
+  "t12": {
+   "start": 657.85,
+   "end": 764.89
+  },
+  "11": {
+   "start": 657.85,
+   "end": 764.89
+  },
+  "t13": {
+   "start": 765.49,
+   "end": 786.92
+  },
+  "12": {
+   "start": 765.49,
+   "end": 786.92
+  },
+  "t14": {
+   "start": 787.52,
+   "end": 832.95
+  },
+  "13": {
+   "start": 787.52,
+   "end": 832.95
+  },
+  "t15": {
+   "start": 833.55,
+   "end": 974.66
+  },
+  "14": {
+   "start": 833.55,
+   "end": 974.66
+  },
+  "t16": {
+   "start": 975.26,
+   "end": 1013.74
+  },
+  "15": {
+   "start": 975.26,
+   "end": 1013.74
+  },
+  "t17": {
+   "start": 1014.34,
+   "end": 1018.17
+  },
+  "16": {
+   "start": 1014.34,
+   "end": 1018.17
+  },
+  "t18": {
+   "start": 1018.77,
+   "end": 1079.24
+  },
+  "17": {
+   "start": 1018.77,
+   "end": 1079.24
+  },
+  "t19": {
+   "start": 1079.84,
+   "end": 1083.84
+  },
+  "18": {
+   "start": 1079.84,
+   "end": 1083.84
+  },
+  "t20": {
+   "start": 1084.44,
+   "end": 1121.48
+  },
+  "19": {
+   "start": 1084.44,
+   "end": 1121.48
+  },
+  "t21": {
+   "start": 1122.08,
+   "end": 1125.59
+  },
+  "20": {
+   "start": 1122.08,
+   "end": 1125.59
+  },
+  "t22": {
+   "start": 1126.19,
+   "end": 1263.78
+  },
+  "21": {
+   "start": 1126.19,
+   "end": 1263.78
+  },
+  "t23": {
+   "start": 1264.38,
+   "end": 1373.9
+  },
+  "22": {
+   "start": 1264.38,
+   "end": 1373.9
+  },
+  "t24": {
+   "start": 1374.5,
+   "end": 1389.21
+  },
+  "23": {
+   "start": 1374.5,
+   "end": 1389.21
+  },
+  "t25": {
+   "start": 1389.81,
+   "end": 1400.68
+  },
+  "24": {
+   "start": 1389.81,
+   "end": 1400.68
+  },
+  "t26": {
+   "start": 1401.28,
+   "end": 1611.51
+  },
+  "25": {
+   "start": 1401.28,
+   "end": 1611.51
+  },
+  "t27": {
+   "start": 1612.11,
+   "end": 1691.15
+  },
+  "26": {
+   "start": 1612.11,
+   "end": 1691.15
+  },
+  "t28": {
+   "start": 1691.75,
+   "end": 1704.22
+  },
+  "27": {
+   "start": 1691.75,
+   "end": 1704.22
+  },
+  "t29": {
+   "start": 1704.82,
+   "end": 1727.53
+  },
+  "28": {
+   "start": 1704.82,
+   "end": 1727.53
+  },
+  "t30": {
+   "start": 1728.13,
+   "end": 1805.65
+  },
+  "29": {
+   "start": 1728.13,
+   "end": 1805.65
+  },
+  "t31": {
+   "start": 1806.25,
+   "end": 1815.2
+  },
+  "30": {
+   "start": 1806.25,
+   "end": 1815.2
+  },
+  "t32": {
+   "start": 1815.8,
+   "end": 1845.23
+  },
+  "31": {
+   "start": 1815.8,
+   "end": 1845.23
+  },
+  "t33": {
+   "start": 1845.83,
+   "end": 2102.46
+  },
+  "32": {
+   "start": 1845.83,
+   "end": 2102.46
+  },
+  "t34": {
+   "start": 2103.06,
+   "end": 2105.54
+  },
+  "33": {
+   "start": 2103.06,
+   "end": 2105.54
+  },
+  "t35": {
+   "start": 2106.14,
+   "end": 2110.94
+  },
+  "34": {
+   "start": 2106.14,
+   "end": 2110.94
+  },
+  "t36": {
+   "start": 2111.54,
+   "end": 2126.57
+  },
+  "35": {
+   "start": 2111.54,
+   "end": 2126.57
+  },
+  "t37": {
+   "start": 2127.17,
+   "end": 2147.32
+  },
+  "36": {
+   "start": 2127.17,
+   "end": 2147.32
+  },
+  "t38": {
+   "start": 2147.92,
+   "end": 2150.16
+  },
+  "37": {
+   "start": 2147.92,
+   "end": 2150.16
+  },
+  "t39": {
+   "start": 2150.76,
+   "end": 2151.8
+  },
+  "38": {
+   "start": 2150.76,
+   "end": 2151.8
+  },
+  "t40": {
+   "start": 2152.4,
+   "end": 2154.72
+  },
+  "39": {
+   "start": 2152.4,
+   "end": 2154.72
+  },
+  "t41": {
+   "start": 2155.32,
+   "end": 2164.59
+  },
+  "40": {
+   "start": 2155.32,
+   "end": 2164.59
+  },
+  "t42": {
+   "start": 2165.19,
+   "end": 2183.42
+  },
+  "41": {
+   "start": 2165.19,
+   "end": 2183.42
+  },
+  "t43": {
+   "start": 2184.02,
+   "end": 2187.14
+  },
+  "42": {
+   "start": 2184.02,
+   "end": 2187.14
+  },
+  "t44": {
+   "start": 2187.74,
+   "end": 2194.13
+  },
+  "43": {
+   "start": 2187.74,
+   "end": 2194.13
+  },
+  "t45": {
+   "start": 2194.73,
+   "end": 2239.52
+  },
+  "44": {
+   "start": 2194.73,
+   "end": 2239.52
+  },
+  "t46": {
+   "start": 2240.12,
+   "end": 2241.16
+  },
+  "45": {
+   "start": 2240.12,
+   "end": 2241.16
+  },
+  "t47": {
+   "start": 2241.76,
+   "end": 2243.04
+  },
+  "46": {
+   "start": 2241.76,
+   "end": 2243.04
+  },
+  "t48": {
+   "start": 2243.64,
+   "end": 2261.0
+  },
+  "47": {
+   "start": 2243.64,
+   "end": 2261.0
+  },
+  "t49": {
+   "start": 2261.6,
+   "end": 2263.76
+  },
+  "48": {
+   "start": 2261.6,
+   "end": 2263.76
+  },
+  "t50": {
+   "start": 2264.36,
+   "end": 2274.36
+  },
+  "49": {
+   "start": 2264.36,
+   "end": 2274.36
+  },
+  "t51": {
+   "start": 2274.96,
+   "end": 2279.04
+  },
+  "50": {
+   "start": 2274.96,
+   "end": 2279.04
+  },
+  "t52": {
+   "start": 2279.64,
+   "end": 2287.95
+  },
+  "51": {
+   "start": 2279.64,
+   "end": 2287.95
+  },
+  "t53": {
+   "start": 2288.55,
+   "end": 2331.74
+  },
+  "52": {
+   "start": 2288.55,
+   "end": 2331.74
+  },
+  "t54": {
+   "start": 2332.34,
+   "end": 2338.66
+  },
+  "53": {
+   "start": 2332.34,
+   "end": 2338.66
+  },
+  "t55": {
+   "start": 2339.26,
+   "end": 2349.81
+  },
+  "54": {
+   "start": 2339.26,
+   "end": 2349.81
+  },
+  "t56": {
+   "start": 2350.41,
+   "end": 2439.68
+  },
+  "55": {
+   "start": 2350.41,
+   "end": 2439.68
+  },
+  "t57": {
+   "start": 2440.28,
+   "end": 2447.72
+  },
+  "56": {
+   "start": 2440.28,
+   "end": 2447.72
+  },
+  "t58": {
+   "start": 2448.32,
+   "end": 2460.48
+  },
+  "57": {
+   "start": 2448.32,
+   "end": 2460.48
+  },
+  "t59": {
+   "start": 2461.08,
+   "end": 2476.43
+  },
+  "58": {
+   "start": 2461.08,
+   "end": 2476.43
+  },
+  "t60": {
+   "start": 2477.03,
+   "end": 2565.66
+  },
+  "59": {
+   "start": 2477.03,
+   "end": 2565.66
+  },
+  "t61": {
+   "start": 2566.26,
+   "end": 2569.46
+  },
+  "60": {
+   "start": 2566.26,
+   "end": 2569.46
+  },
+  "t62": {
+   "start": 2570.06,
+   "end": 2579.01
+  },
+  "61": {
+   "start": 2570.06,
+   "end": 2579.01
+  },
+  "t63": {
+   "start": 2579.61,
+   "end": 2612.24
+  },
+  "62": {
+   "start": 2579.61,
+   "end": 2612.24
+  },
+  "t64": {
+   "start": 2612.84,
+   "end": 2621.96
+  },
+  "63": {
+   "start": 2612.84,
+   "end": 2621.96
+  },
+  "t65": {
+   "start": 2622.56,
+   "end": 2627.28
+  },
+  "64": {
+   "start": 2622.56,
+   "end": 2627.28
+  },
+  "t66": {
+   "start": null,
+   "end": null
+  },
+  "65": {
+   "start": null,
+   "end": null
+  },
+  "t67": {
+   "start": 2627.88,
+   "end": 2629.72
+  },
+  "66": {
+   "start": 2627.88,
+   "end": 2629.72
+  },
+  "t68": {
+   "start": null,
+   "end": null
+  },
+  "67": {
+   "start": null,
+   "end": null
+  },
+  "t69": {
+   "start": 2630.32,
+   "end": 2632.32
+  },
+  "68": {
+   "start": 2630.32,
+   "end": 2632.32
+  },
+  "t70": {
+   "start": null,
+   "end": null
+  },
+  "69": {
+   "start": null,
+   "end": null
+  },
+  "t71": {
+   "start": 2632.92,
+   "end": 2636.68
+  },
+  "70": {
+   "start": 2632.92,
+   "end": 2636.68
+  },
+  "t72": {
+   "start": 2637.28,
+   "end": 2652.63
+  },
+  "71": {
+   "start": 2637.28,
+   "end": 2652.63
+  },
+  "t73": {
+   "start": 2653.23,
+   "end": 2698.34
+  },
+  "72": {
+   "start": 2653.23,
+   "end": 2698.34
+  },
+  "t74": {
+   "start": 2698.94,
+   "end": 2702.22
+  },
+  "73": {
+   "start": 2698.94,
+   "end": 2702.22
+  },
+  "t75": {
+   "start": 2702.82,
+   "end": 2735.77
+  },
+  "74": {
+   "start": 2702.82,
+   "end": 2735.77
+  },
+  "t76": {
+   "start": 2736.37,
+   "end": 2737.17
+  },
+  "75": {
+   "start": 2736.37,
+   "end": 2737.17
+  },
+  "t77": {
+   "start": 2737.77,
+   "end": 2756.96
+  },
+  "76": {
+   "start": 2737.77,
+   "end": 2756.96
+  },
+  "t78": {
+   "start": 2757.56,
+   "end": 2762.2
+  },
+  "77": {
+   "start": 2757.56,
+   "end": 2762.2
+  },
+  "t79": {
+   "start": 2762.8,
+   "end": 2777.19
+  },
+  "78": {
+   "start": 2762.8,
+   "end": 2777.19
+  },
+  "t80": {
+   "start": 2777.79,
+   "end": 2825.46
+  },
+  "79": {
+   "start": 2777.79,
+   "end": 2825.46
+  },
+  "t81": {
+   "start": 2826.06,
+   "end": 2831.58
+  },
+  "80": {
+   "start": 2826.06,
+   "end": 2831.58
+  },
+  "t82": {
+   "start": 2832.18,
+   "end": 2850.41
+  },
+  "81": {
+   "start": 2832.18,
+   "end": 2850.41
+  },
+  "t83": {
+   "start": 2851.01,
+   "end": 2854.45
+  },
+  "82": {
+   "start": 2851.01,
+   "end": 2854.45
+  }
+ }
+}

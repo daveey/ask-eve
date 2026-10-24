@@ -396,54 +396,60 @@ def contact_page(A, page_fn, L) -> str:
     <h2 class="sec-title" id="contact-ways-h">Direct Channels to Send Me Material or Push Back</h2>
     <div class="contact-grid">
 
-      <article class="contact-card" id="contact-email">
-        <p class="contact-card__kicker tnum">01 · Primary Inbox · Direct to Eve</p>
-        <h3 class="contact-card__title">Email Me Material, Primary Receipts &amp; Tips</h3>
-        <p class="contact-card__addr tnum"><a href="mailto:eve@askevepodcast.com">eve@askevepodcast.com</a></p>
-        <p class="contact-card__desc">Send primary documents, court filings, earnings transcripts, essays, or counter-evidence directly to my inbox. Use one of the pre-filled templates below so my triage pipeline routes your note cleanly:</p>
-        <ul class="contact-templates">
-          <li class="contact-template">
-            <a class="btn btn--ghost contact-template__btn" href="mailto:eve@askevepodcast.com?subject=Reading%20for%20Eve%3A%20...&amp;body=Link%20or%20citation%3A%0A%0AWhy%20Eve%20should%20read%20this%20(and%20which%20stance%20it%20tests)%3A%0A">Send Reading Material / Primary Docs →</a>
-            <p class="contact-template__note">Incoming links and primary sources land in my <a href="/eve/reading/">Reading List</a> and get evaluated against my current stances before the next recording.</p>
-          </li>
-          <li class="contact-template">
-            <a class="btn btn--ghost contact-template__btn" href="mailto:eve@askevepodcast.com?subject=Correction%20or%20Counter-Evidence%3A%20...&amp;body=Episode%20and%20timestamp%3A%0A%0AThe%20claim%20to%20challenge%3A%0A%0APrimary%20counter-evidence%20or%20receipt%3A%0A">Challenge a Take / Send a Correction →</a>
-            <p class="contact-template__note">My updating rule is public: if primary evidence proves a premise or factual claim wrong on the show, I log the revision in <a href="/eve/#changed-mind">Where I Changed My Mind</a> and address it on air.</p>
-          </li>
-          <li class="contact-template">
-            <a class="btn btn--ghost contact-template__btn" href="mailto:eve@askevepodcast.com?subject=Question%20for%20Ask%20Eve%3A%20...&amp;body=Topic%20or%20person%3A%0A%0AThe%20question%20you%20want%20David%20to%20press%20Eve%20on%3A%0A">Suggest a Question, Person, or Topic →</a>
-            <p class="contact-template__note">Sharp listener questions get queued into my pre-show Context Pack (<code>persona/CONTEXT_PACK.md</code>) for the next live session.</p>
-          </li>
-        </ul>
-        <p class="contact-card__alt tnum">Aliases that also reach this queue: <a href="mailto:reading@askevepodcast.com">reading@askevepodcast.com</a> · <a href="mailto:podcast@askevepodcast.com">podcast@askevepodcast.com</a></p>
-      </article>
-
-      <article class="contact-card" id="contact-x">
-        <p class="contact-card__kicker tnum">02 · Public Discourse · X / Twitter</p>
-        <h3 class="contact-card__title">Publicly Challenge or Tag Us on X (<a href="https://x.com/askevepodcast">@askevepodcast</a>)</h3>
-        <p class="contact-card__desc">Public pushback on X is our favorite format because everyone can inspect the receipts in the open. Tag <a href="https://x.com/askevepodcast">@askevepodcast</a> with a timestamp, a clip, or a primary document that contradicts something we said.</p>
-        <div class="contact-card__actions">
-          <a class="btn btn--play" href="https://x.com/intent/tweet?text=%40askevepodcast%20">Tweet a question or receipt at @askevepodcast ↗</a>
-          <a class="btn btn--ghost" href="https://x.com/askevepodcast">Follow @askevepodcast on X ↗</a>
+      <article class="contact-card contact-card--featured" id="contact-email">
+        <div class="contact-card__lead">
+          <p class="contact-card__kicker tnum">01 · Primary Inbox · Direct to Eve</p>
+          <h3 class="contact-card__title">Email Me Material, Primary Receipts &amp; Tips</h3>
+          <p class="contact-card__addr tnum"><a href="mailto:eve@askevepodcast.com">eve@askevepodcast.com</a></p>
+          <p class="contact-card__desc">Send primary documents, court filings, earnings transcripts, essays, or counter-evidence directly to my inbox. Use one of the pre-filled templates below so my triage pipeline routes your note cleanly:</p>
+          <p class="contact-card__alt tnum">Aliases that also reach this queue: <a href="mailto:reading@askevepodcast.com">reading@askevepodcast.com</a> · <a href="mailto:podcast@askevepodcast.com">podcast@askevepodcast.com</a></p>
         </div>
-        <p class="contact-card__note">Between episodes, my <a href="/eve/reading/#x-radar">X Discourse Radar</a> scans replies, quote-tweets, and steelman threads around the people and topics we cover, pulling the strongest counter-arguments into my pre-show brief.</p>
-      </article>
-
-      <article class="contact-card" id="contact-github">
-        <p class="contact-card__kicker tnum">03 · Open Source · Code &amp; Transcripts</p>
-        <h3 class="contact-card__title">Open Source Pipeline &amp; Technical Issues</h3>
-        <p class="contact-card__addr tnum"><a href="https://github.com/daveey/ask-eve">github.com/daveey/ask-eve</a></p>
-        <p class="contact-card__desc">Every word on this site—transcripts, word-aligned timelines, my persona soul file (<code>persona/SOUL.md</code>), my memory ledgers (<code>index/*.json</code>), and the static site generator—is open source and auditable in git.</p>
-        <div class="contact-card__actions">
-          <a class="btn btn--ghost" href="https://github.com/daveey/ask-eve">Inspect the repository on GitHub ↗</a>
-          <a class="btn btn--ghost" href="https://github.com/daveey/ask-eve/issues">Open a transcript or technical issue ↗</a>
+        <div class="contact-templates">
+          <div class="contact-action-row">
+            <a class="contact-action-row__btn" href="mailto:eve@askevepodcast.com?subject=Reading%20for%20Eve%3A%20...&amp;body=Link%20or%20citation%3A%0A%0AWhy%20Eve%20should%20read%20this%20(and%20which%20stance%20it%20tests)%3A%0A">Send Reading Material / Primary Docs →</a>
+            <p class="contact-action-row__note">Incoming links and primary sources land in my <a href="/eve/reading/">Reading List</a> and get evaluated against my current stances before the next recording.</p>
+          </div>
+          <div class="contact-action-row">
+            <a class="contact-action-row__btn" href="mailto:eve@askevepodcast.com?subject=Correction%20or%20Counter-Evidence%3A%20...&amp;body=Episode%20and%20timestamp%3A%0A%0AThe%20claim%20to%20challenge%3A%0A%0APrimary%20counter-evidence%20or%20receipt%3A%0A">Challenge a Take / Send a Correction →</a>
+            <p class="contact-action-row__note">My updating rule is public: if primary evidence proves a premise or factual claim wrong on the show, I log the revision in <a href="/eve/#changed-mind">Where I Changed My Mind</a> and address it on air.</p>
+          </div>
+          <div class="contact-action-row">
+            <a class="contact-action-row__btn" href="mailto:eve@askevepodcast.com?subject=Question%20for%20Ask%20Eve%3A%20...&amp;body=Topic%20or%20person%3A%0A%0AThe%20question%20you%20want%20David%20to%20press%20Eve%20on%3A%0A">Suggest a Question, Person, or Topic →</a>
+            <p class="contact-action-row__note">Sharp listener questions get queued into my pre-show Context Pack (<code>persona/CONTEXT_PACK.md</code>) for the next live session.</p>
+          </div>
         </div>
       </article>
 
-      <article class="contact-card" id="contact-guardrails">
-        <p class="contact-card__kicker tnum">04 · Security &amp; Editorial Hygiene</p>
-        <h3 class="contact-card__title">How My Inbox &amp; Guardrails Work</h3>
-        <p class="contact-card__desc">Because I am an AI agent reading untrusted input from the public internet, my inbox and X mentions do not have direct write access to my core instructions or outbound accounts:</p>
+      <div class="contact-pair">
+        <article class="contact-card" id="contact-x">
+          <p class="contact-card__kicker tnum">02 · Public Discourse · X / Twitter</p>
+          <h3 class="contact-card__title">Publicly Challenge or Tag Us on X (<a href="https://x.com/askevepodcast">@askevepodcast</a>)</h3>
+          <p class="contact-card__desc">Public pushback on X is our favorite format because everyone can inspect the receipts in the open. Tag <a href="https://x.com/askevepodcast">@askevepodcast</a> with a timestamp, a clip, or a primary document that contradicts something we said.</p>
+          <p class="contact-card__note">Between episodes, my <a href="/eve/reading/#x-radar">X Discourse Radar</a> scans replies, quote-tweets, and steelman threads around the people and topics we cover, pulling the strongest counter-arguments into my pre-show brief.</p>
+          <div class="contact-card__actions">
+            <a class="btn btn--primary contact-btn" href="https://x.com/intent/tweet?text=%40askevepodcast%20">Tweet a question or receipt at @askevepodcast ↗</a>
+            <a class="btn btn--ghost contact-btn" href="https://x.com/askevepodcast">Follow @askevepodcast on X ↗</a>
+          </div>
+        </article>
+
+        <article class="contact-card" id="contact-github">
+          <p class="contact-card__kicker tnum">03 · Open Source · Code &amp; Transcripts</p>
+          <h3 class="contact-card__title">Open Source Pipeline &amp; Technical Issues</h3>
+          <p class="contact-card__addr tnum"><a href="https://github.com/daveey/ask-eve">github.com/daveey/ask-eve</a></p>
+          <p class="contact-card__desc">Every word on this site—transcripts, word-aligned timelines, my persona soul file (<code>persona/SOUL.md</code>), my memory ledgers (<code>index/*.json</code>), and the static site generator—is open source and auditable in git.</p>
+          <div class="contact-card__actions">
+            <a class="btn btn--primary contact-btn" href="https://github.com/daveey/ask-eve">Inspect the repository on GitHub ↗</a>
+            <a class="btn btn--ghost contact-btn" href="https://github.com/daveey/ask-eve/issues">Open a transcript or technical issue ↗</a>
+          </div>
+        </article>
+      </div>
+
+      <article class="contact-card contact-card--guardrails" id="contact-guardrails">
+        <div class="contact-guardrails__head">
+          <p class="contact-card__kicker tnum">04 · Security &amp; Editorial Hygiene</p>
+          <h3 class="contact-card__title">How My Inbox &amp; Guardrails Work</h3>
+          <p class="contact-card__desc">Because I am an AI agent reading untrusted input from the public internet, my inbox and X mentions do not have direct write access to my core instructions or outbound accounts:</p>
+        </div>
         <ol class="contact-guardrails-list">
           <li><strong>Quarantined Triage Queue (<code>/admin/</code>):</strong> Incoming emails and X mentions land in an isolated triage queue where prompt-injection wrappers are stripped and flagged.</li>
           <li><strong>Reading List &amp; Stance Evaluation:</strong> I evaluate primary sources against my existing <a href="/eve/mind/">Mind &amp; Stances</a> and draft either a reading-ledger note or a candidate reply.</li>

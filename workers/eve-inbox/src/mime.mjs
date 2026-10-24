@@ -1,11 +1,25 @@
 // workers/eve-inbox/src/mime.mjs
 // Zero-dependency RFC 5322 / MIME parser & outbound reply builder for Cloudflare Email Workers.
 
-export async function rawStreamToBytes(raw) {
+export const MAX_RAW_EMAIL_BYTES = 2 * 1024 * 1024; // 2 MB hard cap against OOM
+export const MAX_MIME_DEPTH = 6;
+export const MAX_MIME_ATTACHMENTS = 10;
+
+export async function rawStreamToBytes(raw, maxBytes = MAX_RAW_EMAIL_BYTES) {
   if (!raw) return new Uint8Array(0);
-  if (raw instanceof Uint8Array) return raw;
-  if (raw instanceof ArrayBuffer) return new Uint8Array(raw);
-  if (typeof raw === "string") return new TextEncoder().encode(raw);
+  if (raw instanceof Uint8Array) {
+    if (raw.byteLength > maxBytes) throw new Error(`raw_email_too_large (${raw.byteLength} > ${maxBytes})`);
+    return raw;
+  }
+  if (raw instanceof ArrayBuffer) {
+    if (raw.byteLength > maxBytes) throw new Error(`raw_email_too_large (${raw.byteLength} > ${maxBytes})`);
+    return new Uint8Array(raw);
+  }
+  if (typeof raw === "string") {
+    const encoded = new TextEncoder().encode(raw);
+    if (encoded.byteLength > maxBytes) throw new Error(`raw_email_too_large (${encoded.byteLength} > ${maxBytes})`);
+    return encoded;
+  }
   if (typeof raw.getReader === "function") {
     const reader = raw.getReader();
     const chunks = [];
@@ -14,8 +28,12 @@ export async function rawStreamToBytes(raw) {
       const { done, value } = await reader.read();
       if (done) break;
       const chunk = value instanceof Uint8Array ? value : new Uint8Array(value);
-      chunks.push(chunk);
       total += chunk.byteLength;
+      if (total > maxBytes) {
+        try { await reader.cancel(); } catch {}
+        throw new Error(`raw_email_too_large (${total} > ${maxBytes})`);
+      }
+      chunks.push(chunk);
     }
     const merged = new Uint8Array(total);
     let offset = 0;
@@ -25,7 +43,9 @@ export async function rawStreamToBytes(raw) {
     }
     return merged;
   }
-  return new TextEncoder().encode(String(raw));
+  const encoded = new TextEncoder().encode(String(raw));
+  if (encoded.byteLength > maxBytes) throw new Error(`raw_email_too_large (${encoded.byteLength} > ${maxBytes})`);
+  return encoded;
 }
 
 export function decodeRfc2047(str) {
@@ -168,7 +188,8 @@ function splitHeaderAndBody(rawPart) {
   return [rawPart, ""];
 }
 
-function walkMimePart(rawPart, accum) {
+function walkMimePart(rawPart, accum, depth = 0) {
+  if (depth > MAX_MIME_DEPTH) return;
   const [headerBlock, bodyBlock] = splitHeaderAndBody(rawPart);
   const headers = parseHeaders(headerBlock);
   const contentTypeHeader = headers.get("content-type") || "text/plain; charset=utf-8";
@@ -185,7 +206,7 @@ function walkMimePart(rawPart, accum) {
       const seg = segments[i];
       if (seg.startsWith("--")) break;
       const trimmed = seg.replace(/^\r?\n/, "").replace(/\r?\n$/, "");
-      if (trimmed) walkMimePart(trimmed, accum);
+      if (trimmed) walkMimePart(trimmed, accum, depth + 1);
     }
     return;
   }
@@ -212,6 +233,7 @@ function walkMimePart(rawPart, accum) {
     return;
   }
 
+  if (accum.attachments.length >= MAX_MIME_ATTACHMENTS) return;
   const safeFilename = (filename || `attachment-${accum.attachments.length + 1}`)
     .replace(/[^A-Za-z0-9._-]/g, "_")
     .slice(0, 120);
@@ -288,6 +310,7 @@ export async function parseInboundEmail(rawInput, envelope = {}) {
     html_body: htmlBody,
     extracted_urls: urls,
     attachments: accum.attachments,
+    headers: Object.fromEntries(topHeaders.entries()),
   };
 }
 

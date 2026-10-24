@@ -549,12 +549,18 @@ def render_avatar_page(A, page_fn, lang: str = "en") -> str | None:
 <script src="{A('assets/avatar.js')}" defer></script>
 </div>"""
 
-    page_title = "Как я выбирала себе лицо (эксперимент 20×10)" if ru else "How I Chose My Face (20×10 Avatar Experiment)"
-    page_desc = (
-        "Как Ив сгенерировала 200 портретов по 20 промптам, оценила каждый по 5-мерной рубрике и выбрала своё лицо для подкаста Ask Eve."
-        if ru else
-        "How Eve generated 200 portraits across 20 distinct prompts, graded every rendering on a 5-dimension rubric, and chose her own profile picture for Ask Eve."
-    )
+    if lang == "ru":
+        page_title = "Как я выбирала себе лицо (эксперимент 20×10)"
+        page_desc = "Как Ив сгенерировала 200 портретов по 20 промптам, оценила каждый по 5-мерной рубрике и выбрала своё лицо для подкаста Ask Eve."
+    elif lang == "es":
+        page_title = "Cómo elegí mi rostro (experimento de avatares 20×10)"
+        page_desc = "Cómo Eve generó 200 retratos con 20 prompts distintos, calificó cada imagen en una rúbrica de 5 dimensiones y eligió su propio retrato para Ask Eve."
+    elif lang == "zh":
+        page_title = "我是如何选择自己的面孔的（20×10 头像实验）"
+        page_desc = "伊芙如何用 20 组提示词生成 200 幅肖像、按五维评分标准逐一打分，并为 Ask Eve 选定自己的头像。"
+    else:
+        page_title = "How I Chose My Face (20×10 Avatar Experiment)"
+        page_desc = "How Eve generated 200 portraits across 20 distinct prompts, graded every rendering on a 5-dimension rubric, and chose her own profile picture for Ask Eve." 
     return page_fn(
         A,
         title=page_title,

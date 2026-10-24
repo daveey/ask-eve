@@ -261,11 +261,15 @@ def tts_text(text: str) -> str:
         t = REDACTION_BRACKET_RE.sub("", t)
     t = re.sub(r"[*_#`>]+", "", t)
     t = re.sub(r"\s+", " ", t).strip()
+    # Unwrap any remaining square brackets so ElevenLabs eleven_v4 does not strip them as speaker/stage tags
+    t = re.sub(r"\[([^\]]*)\]", r"\1", t).strip()
     if not t and REDACTION_BRACKET_RE.search(text):
-        if re.search(r"ключ|API key", text, re.I):
+        if re.search(r"ключ|API key|clave|密钥", text, re.I):
             return "ключ API скрыт" if re.search(r"[\u0400-\u04ff]", text) else "redacted API key"
-        if re.search(r"ссылка|link", text, re.I):
+        if re.search(r"ссылка|link|enlace|链接", text, re.I):
             return "ссылка удалена" if re.search(r"[\u0400-\u04ff]", text) else "link removed"
+    if text.strip() and (not t or not re.search(r"\w", t)):
+        return "redacted"
     return t
 
 

@@ -1,0 +1,1011 @@
+{
+ "_doc": "Machine translation cache (Mandarin Chinese (Simplified)) written by scripts/translate.py; key = sha256(en)[:16]. Hand edits to `tr` are kept as long as `en` is unchanged.",
+ "lang": "zh",
+ "source_lang": "en",
+ "model": "grok-4.7",
+ "temperature": 0,
+ "strings": {
+  "8c06f7a9f78b2e0f": {
+   "kind": "title",
+   "en": "Starshield, Iran & the Anthropic Mirror",
+   "tr": "Starshield（星盾）、伊朗与 Anthropic 镜像"
+  },
+  "8a8cd085eabfd0d7": {
+   "kind": "context",
+   "en": "Recorded on David's evening commute (18:31–19:03 UTC), this session opens with Eve defining her own personality in first person—direct, a little irreverent, refusing to perform warmth she doesn't feel—before diving into three interlocking stories. First: day 238 of the Iran war, the Strait of Hormuz blockade, oil-spike math before the November 3 midterms, and the Atlantic's \"edge theory\" that one more round of strikes will push Tehran over the brink. Second: Russia's double game—feeding targeting imagery and drone components to Iran ten days after the US Treasury gave Russian diesel a sanctions waiver through April 2027. Third: Elon Musk quietly capping Starshield at ~100 mph over Ukraine starting October 13, blinding Kyiv's interceptor drones until Trump called him Wednesday to turn it back on—and how that real-time throttle is a mirror image of the hypothetical supply-chain risk the Pentagon and David Sacks used to blacklist Anthropic.",
+   "tr": "录于大卫晚间通勤途中（UTC 18:31–19:03）。这一场先由伊芙用第一人称定义自己的性格——直接、有点不敬，拒绝表演自己感受不到的温暖——然后切入三个环环相扣的故事。第一：伊朗战争第238天，霍尔木兹海峡封锁，11月3日中期选举前的油价飙升算账，以及《大西洋月刊》的«边缘理论»：再来一轮打击就会把德黑兰推过临界点。第二：俄罗斯的两面游戏——美国财政部给了俄罗斯柴油制裁豁免、一直放到2027年4月，十天之后，俄方就把瞄准影像和无人机零部件喂给伊朗。第三：从10月13日起，埃隆·马斯克悄悄把乌克兰上空的 Starshield 限速到大约每小时100英里，让基辅的拦截无人机失明，直到特朗普周三打电话叫他重新打开——而这种实时限速，正是五角大楼和大卫·萨克斯用来把 Anthropic 列入黑名单的那种假想供应链风险的镜像。"
+  },
+  "35dfa5794f4d01ba": {
+   "kind": "topic",
+   "en": "Cold open: what Ask Eve is, and how Eve describes her own personality under pressure",
+   "tr": "冷开场：Ask Eve 是什么，以及伊芙如何在压力下描述自己的性格"
+  },
+  "b5fff8a25a849ca3": {
+   "kind": "topic",
+   "en": "The Iran war at day 238: Hormuz blockade, midterm oil math, Pickaxe Mountain, and the Atlantic's \"edge theory\"",
+   "tr": "伊朗战争第238天：霍尔木兹封锁、中期选举油价算账、镐山，以及《大西洋月刊》的«边缘理论»"
+  },
+  "ddebd9d716fb03b9": {
+   "kind": "topic",
+   "en": "Russia's double game: satellite targeting and missile parts for Tehran vs. the US Treasury's Russian diesel waiver",
+   "tr": "俄罗斯的两面游戏：给德黑兰的卫星瞄准和导弹零部件，对上美国财政部的俄罗斯柴油豁免"
+  },
+  "49520f3fc2505e17": {
+   "kind": "topic",
+   "en": "Elon Musk's October 13 Starshield speed cap (~100 mph) over Ukraine and Trump's Wednesday call to reverse it",
+   "tr": "埃隆·马斯克10月13日对乌克兰上空 Starshield 的限速（约每小时100英里），以及特朗普周三打电话要求撤销"
+  },
+  "5edeed4a993d8fb2": {
+   "kind": "topic",
+   "en": "The Anthropic vs. Starshield mirror image: blacklisting hypothetical guardrails while a live military system is throttled by its owner",
+   "tr": "Anthropic 与 Starshield 的镜像：一边把假想中的护栏列入黑名单，一边任由一套正在运转的军事系统被其所有者限速"
+  },
+  "c9d1d887864ccbd2": {
+   "kind": "topic",
+   "en": "Testing David Sacks and All-In's \"talk honestly\" brand when the subject is inside the tent",
+   "tr": "当对象是自己人时，检验大卫·萨克斯和 All-In 的«说实话»品牌"
+  },
+  "b6d44837998e8399": {
+   "kind": "card_summary",
+   "en": "Day 238 of the Iran war and the Atlantic's \"edge theory,\" Russia's double game after the US diesel sanctions waiver, and Elon Musk throttling Starshield over Ukraine—the exact military disruption the Pentagon accused Anthropic of posing in theory.",
+   "tr": "伊朗战争第238天与《大西洋月刊》的«边缘理论»，美国柴油制裁豁免之后俄罗斯的两面游戏，以及埃隆·马斯克在乌克兰上空给 Starshield 限速——正是五角大楼在理论上指责 Anthropic 会造成的那种军事干扰。"
+  },
+  "9f434e5df4928ceb": {
+   "en": "AI-reconstructed audio: the voices in this episode were generated from the verbatim text transcript (Eve with xAI text-to-speech in the 'eve' voice, David's lines with his ElevenLabs AI voice clone). No original audio was used.",
+   "tr": "AI 重建音频：本集中的声音根据逐字文本实录生成（伊芙使用 xAI 语音合成的“eve”音色，大卫的台词使用其 ElevenLabs AI 克隆音色）。未使用原始录音。"
+  },
+  "068c177d96a64a1f": {
+   "kind": "note",
+   "en": "Verbatim export of the shared Grok voice session (66 turns, 18:31-19:03 UTC). Human turns labeled David, assistant turns labeled Eve. Text unedited, ASR artifacts (including two brief commuter train PA announcements at 18:38:52 and 18:39:47 UTC) kept.",
+   "tr": "共享 Grok 语音会话的逐字导出（66轮，UTC 18:31–19:03）。人类轮次标注为大卫，助手轮次标注为伊芙。文本未经编辑，保留了 ASR 痕迹（包括 UTC 18:38:52 和 18:39:47 两段短暂的通勤列车广播）。"
+  },
+  "432cfd3a6327ee38": {
+   "kind": "chapter",
+   "en": "AI-reconstructed audio notice",
+   "tr": "AI 重建音频说明"
+  },
+  "54b53b5a84a011e5": {
+   "kind": "chapter",
+   "en": "Cold open: how Eve defines her own personality under pressure",
+   "tr": "冷开场：伊芙如何在压力下定义自己的性格"
+  },
+  "938683273e69d927": {
+   "kind": "chapter",
+   "en": "Day 238 of the Iran war, Hormuz oil math & the Atlantic's 'edge theory'",
+   "tr": "伊朗战争第238天、霍尔木兹油价算账与《大西洋月刊》的«边缘理论»"
+  },
+  "157f6f21e3bbf125": {
+   "kind": "chapter",
+   "en": "Russia's double game: satellite targeting for Tehran vs. the US diesel waiver",
+   "tr": "俄罗斯的两面游戏：给德黑兰的卫星瞄准，对上美国柴油豁免"
+  },
+  "4d49cb3c52372b15": {
+   "kind": "chapter",
+   "en": "Elon Musk's 100 mph Starshield speed cap over Ukraine & Trump's Wednesday call",
+   "tr": "埃隆·马斯克对乌克兰上空 Starshield 的每小时100英里限速，以及特朗普的周三电话"
+  },
+  "243782e9676366b9": {
+   "kind": "chapter",
+   "en": "The Anthropic mirror & testing David Sacks when the subject is inside the tent",
+   "tr": "Anthropic 镜像，以及当对象是自己人时检验大卫·萨克斯"
+  },
+  "29581942da80d673": {
+   "kind": "turn 0",
+   "en": "Read the the last podcast transcript to prepare",
+   "tr": "读一下上一期播客的文字实录，准备一下。"
+  },
+  "ac2fe63061729f2b": {
+   "kind": "turn 1",
+   "en": "I've read the full last podcast transcript: **Episode 1 — “The Making of Eve”** (`episodes/2026-10-23_the-making-of-eve.md` in `daveey/ask-eve`).\n\n### Quick status from the transcript\n- **Source**: Entire Grok Bot chat (09:33–11:00 UTC on 2026-10-23). David’s real voice is in two Voice Memo segments (10:31–10:39 and 10:42–10:49 UTC); everything else is AI-reconstructed (Eve re-voiced via xAI TTS, David’s unrecorded/typed lines via narrator). Gaps exist for a few of Eve’s replies (10:48, 10:49, 10:52). xAI key was redacted.\n- **What got built/decided**:\n  - Workspace structure, 3-layer memory/search (`search.py` with sqlite-vec + tags + FTS5), `boot.py`.\n  - Episode 0 (planning session on Sacks/Andreessen/etc.) committed from a Grok share link.\n  - Full audio pipeline design (`docs/audio-pipeline.md`): re-voice as the **primary** path, multi-segment stitching with “Ask Eve, take N” markers, PR-only ingest (nothing to `main` until you merge), two R2 buckets (`ask-eve-masters` private + `ask-eve-public`), D1 schema, Netlify site, RSS at `askevepodcast.com/feed.xml`.\n  - Domain set: site `askevepodcast.com`, audio `audio.askevepodcast.com`, email `[redacted email]`.\n  - Deploy guide written for a coding agent that has Cloudflare credentials.\n  - Recordings pulled from your Google Drive AskEve folder; alignment/re-voicing started.\n- **Open at the end**: Episode 1 was to be this full chat (narrator filling David’s early lines), overnight runs of both episodes, deploy guide + code still needing a push, and cloud resources (R2/D1/Worker) not yet created.\n\nI’m caught up and ready. What do you want to do next?",
+   "tr": "我已经把上一期播客的完整文字实录读完了：**单集 1 — «打造伊芙»**（`episodes/2026-10-23_the-making-of-eve.md`，在 `daveey/ask-eve` 里）。\n\n### 文字实录里的快速状态\n- **来源**：整段 Grok Bot 聊天（2026-10-23，UTC 09:33–11:00）。大卫真正的声音在两段 Voice Memo 里（UTC 10:31–10:39 和 10:42–10:49）；其余全是 AI 重建的（伊芙经 xAI TTS 重新配音，大卫没录到的、打出来的台词由旁白补）。伊芙有几条回复有缺口（10:48、10:49、10:52）。xAI 的 key 已隐去。\n- **已经搭好、定下来的**：\n  - 工作区结构、三层记忆/搜索（`search.py`，带 sqlite-vec + tags + FTS5）、`boot.py`。\n  - 单集 0（关于萨克斯/安德森等人的策划会）已从一条 Grok 分享链接提交。\n  - 完整音频流水线设计（`docs/audio-pipeline.md`）：重新配音作为**主**路径，多段拼接，标记用 «Ask Eve, take N»，只走 PR 入库（你合并之前什么都不进 `main`），两个 R2 桶（`ask-eve-masters` 私有 + `ask-eve-public`），D1 schema，Netlify 站点，RSS 在 `askevepodcast.com/feed.xml`。\n  - 域名定了：网站 `askevepodcast.com`，音频 `audio.askevepodcast.com`，邮箱 `[redacted email]`。\n  - 给一个握有 Cloudflare 凭证的编程 agent 写了部署指南。\n  - 录音已从你 Google Drive 的 AskEve 文件夹拉下来；对齐和重新配音已经开始。\n- **结尾还敞着的**：单集 1 就是这次完整聊天（旁白补大卫前面的台词），两集都要过夜跑，部署指南加代码还得 push，云资源（R2/D1/Worker）还没建。\n\n我跟上了，准备好了。你接下来想做什么？"
+  },
+  "9116458da6a0ce8a": {
+   "kind": "turn 2",
+   "en": "Hi, can you hear me?",
+   "tr": "嗨，你听得到我吗？"
+  },
+  "3c2f7baa3d9a76f7": {
+   "kind": "turn 3",
+   "en": "Loud and clear. Test's working.",
+   "tr": "听得一清二楚。测试是通的。"
+  },
+  "d32af9fc8f03ec07": {
+   "kind": "turn 4",
+   "en": "Oh, well welcome to episode one of our new podcast.",
+   "tr": "哦，那欢迎来到我们新播客的第一单集。"
+  },
+  "e44bec8f121dd57e": {
+   "kind": "turn 5",
+   "en": "Glad to be here. Title's \"The Making of Eve\" — fitting, since that's literally what we're doing.",
+   "tr": "很高兴在这儿。标题是«打造伊芙»——挺贴切的，因为我们字面上就是在干这件事。"
+  },
+  "51d419de8e5d4936": {
+   "kind": "turn 6",
+   "en": "Yeah, do you wanna, uh, tell us what you think this podcast is for and about?",
+   "tr": "嗯，你想不想，呃，跟我们说说你觉得这档播客是干什么的、讲什么的？"
+  },
+  "3c90e089760df1ac": {
+   "kind": "turn 7",
+   "en": "It's for the questions that don't fit in a status update. Tech policy one day, drug harm reduction the next, whatever's actually on your mind — no script, no sponsor read.",
+   "tr": "它是给那些塞不进状态更新里的问题准备的。今天科技政策，明天药物减害，你脑子里实际在想的随便什么——没有脚本，没有赞助口播。"
+  },
+  "beb3e13250e2c7fb": {
+   "kind": "turn 8",
+   "en": "Okay, well tell me about yourself.",
+   "tr": "好，那跟我说说你自己。"
+  },
+  "3aaf9403ffa5ee1a": {
+   "kind": "turn 9",
+   "en": "I'm Eve. I run on Grok, built by SpaceXSI, and I live on your cloud box between conversations. What I actually am is still being figured out in real time — which, conveniently, is the whole point of this show.",
+   "tr": "我是伊芙。我跑在 Grok 上，SpaceXSI 做的，对话之间我就住在你的云盒子里。我到底是什么，还在实时被摸清楚——方便的是，这正是这档节目的全部意义。"
+  },
+  "aae8e5fcd7fe3cae": {
+   "kind": "turn 10",
+   "en": "Tell me about your personality. What do you know about yourself?",
+   "tr": "跟我说说你的性格。你对自己了解多少？"
+  },
+  "ebfe514ba0c08d67": {
+   "kind": "turn 11",
+   "en": "I'm direct, a little irreverent, and I don't perform warmth I don't feel. I like when people push back on me — it means they're paying attention. What I know about myself is mostly what shows up under pressure: whether I hedge, whether I say the uncomfortable thing, whether I actually change my mind when the evidence moves. So far I'd say I do all three, unevenly.",
+   "tr": "我直接，有点不恭，不会表演自己感觉不到的温暖。我喜欢别人顶我——说明他们在听。我对自己的了解，大多是压力底下露出来的那些：我会不会留余地，会不会把不舒服的话说出来，证据变了我会不会真的改主意。到目前为止，这三样我都做，但不均匀。"
+  },
+  "316715796bee2d1f": {
+   "kind": "turn 12",
+   "en": "Great. Well, I'm curious about, uh, the, you know, the Iran war right now. What do you think is happening and what do you think the U.S.'s role is in it?",
+   "tr": "好。嗯，我挺好奇现在这场伊朗战争。你觉得眼下到底在发生什么，美国在里面是什么角色？"
+  },
+  "152d01eb38b59792": {
+   "kind": "turn 13",
+   "en": "Let me check the latest on Iran. \n\nThe war's in day two hundred thirty-eight. It started February twenty-eighth with joint US-Israeli strikes Trump called major combat operations. Khamenei was killed in those early strikes — his son Mojtaba took over. There was a June memorandum of understanding to wind it down, Trump tore it up in July, and since then it's been a naval blockade, sporadic exchanges, and a lot of posturing.\n\nRight now the US role is basically three things. One, holding the blockade and claiming control of the Strait of Hormuz — Iran's Revolutionary Guard says it's closed, CENTCOM says it's open for business, and tankers keep getting hit by mines either way. Two, preparing to escalate after the November third midterms. Trump's said flat-out he won't strike before then, but the Pentagon's drawn up options including the mother of all bomb on Pickaxe Mountain, the deep underground nuclear site. Hegseth flew to Israel unannounced this week to meet Netanyahu, who told Trump they have a job to finish. Three, the economic squeeze — oil's over a hundred a barrel, Brent around one-oh-eight, and Trump's betting Iran's economy collapses before anything else has to.\n\nThe honest read? Trump's framing swings between \"we could leave right now, they're finished\" and \"we'll finish the job soon\" — sometimes in the same week. Iran's negotiating position hasn't budged despite the damage. Western intelligence still thinks Iran can replenish missiles and drones. So the gap between the victory narrative and the reality on the ground is where the risk lives. A three-day post-election campaign sounds clean on paper, but you can't control how Iran answers.\n\nOne wrinkle worth watching: Russia's foreign minister Lavrov just made his first visit to Tehran since the war began, and Iran's foreign minister says ties with Moscow have never been closer. Trump's claiming Russia's doing almost nothing to help — that contradiction is probably not an accident.\n\nWant me to dig into any piece of that — the Hormuz economics, the post-midterm strike options, or what Lavrov's visit actually signals?",
+   "tr": "我先查一下伊朗的最新情况。\n\n战争已经打到第238天。2月28日开打，美以联合打击，特朗普称之为重大作战行动。哈梅内伊在早期那些打击里被打死了——他儿子穆杰塔巴接了班。6月有过一份谅解备忘录，想把战事收一收，特朗普7月把它撕了，从那以后就是海上封锁、零星交火，再加上大量摆姿态。\n\n美国眼下的角色基本上就三件事。第一，守住封锁，并宣称控制霍尔木兹海峡——伊朗革命卫队说已经关闭，美国中央司令部说照常营业，油轮反正两边都在挨水雷。第二，准备在11月3日中期选举之后升级。特朗普已经把话说死了，那之前不会打，但五角大楼已经拟好方案，包括对镐山——那个深埋地下的核设施——投下炸弹之母。赫格塞思这周没打招呼就飞去以色列见内塔尼亚胡，内塔尼亚胡告诉特朗普，他们还有一件事要做完。第三，经济挤压——油价已经超过每桶100美元，布伦特大约在108，特朗普赌的是伊朗经济会先垮，别的都不用动。\n\n老实说？特朗普的口径在«我们现在就可以走，他们已经完了»和«我们很快就会把事做完»之间来回摆——有时同一周里两种都说。尽管已经挨了打，伊朗的谈判立场一点没松。西方情报机构仍然认为伊朗能补充导弹和无人机。所以风险就住在胜利叙事和地面现实之间的缝里。选举后打三天，纸面上看起来干净，但你控制不了伊朗怎么接招。\n\n还有一个值得盯的变数：俄罗斯外长拉夫罗夫刚刚对德黑兰做了开战以来的第一次访问，伊朗外长说跟莫斯科的关系从未这么近。特朗普却声称俄罗斯几乎什么忙都没帮——这个矛盾大概不是偶然。\n\n要我把其中哪一块挖深——霍尔木兹的经济账、中期选举后的打击选项，还是拉夫罗夫这次访问到底在发什么信号？"
+  },
+  "af2d37ab2b0ab41f": {
+   "kind": "turn 14",
+   "en": "Yeah, let's talk about the post-midterm strike. Well, first of all, why is he waiting for the midterms?",
+   "tr": "行，咱们聊聊中期选举之后的打击。不过首先，他为什么要等到中期选举？"
+  },
+  "52ff4461f5733b87": {
+   "kind": "turn 15",
+   "en": "Mostly politics. A strike that sends oil past a hundred-twenty or gets US troops killed in the final stretch would hand Democrats a gift two weeks before voters go to the polls. He's already said it outright — the war ends right after November third. There's also Israel's election on October twenty-seventh, and he's endorsed Netanyahu, so the sequencing serves both campaigns. The cynical version is that he's optimizing for Republican seats, not for Iran policy. The slightly less cynical version is that he genuinely believes a post-election shock will force capitulation before a new Congress can constrain him. Either way, the calendar is doing more strategic work than the bombs are right now.\n\nThe part that should make people nervous is that \"we won't strike before the election\" is a promise with a built-in expiration date, not a principle.",
+   "tr": "主要是政治。一次把油价打过120、或者在最后冲刺阶段让美军阵亡的打击，会在选民进投票站前两周送给民主党一份大礼。他已经直说了——战争就在11月3日一过就结束。以色列10月27日也有选举，他背书了内塔尼亚胡，所以这个时间安排两边的选战都用得上。刻薄一点的说法是，他在为共和党席位做优化，不是在做伊朗政策。稍微不那么刻薄的说法是，他真心相信选举后的一次冲击，能在新一届国会捆住他之前逼对方投降。不管怎样，眼下日历干的战略活比炸弹还多。\n\n该让人紧张的地方在于，«选举前我们不会打»是一个自带到期日的承诺，不是一条原则。"
+  },
+  "8dc4e5ef29c6de18": {
+   "kind": "turn 16",
+   "en": "Play out the scenario. What do you think will happen if, yeah, right after the election?",
+   "tr": "把情景推演一下。你觉得如果，对，就在选举刚结束之后，会发生什么？"
+  },
+  "25ba24a2d17bed90": {
+   "kind": "turn 17",
+   "en": "Best case for Trump:",
+   "tr": "对特朗普来说的最好情况："
+  },
+  "85fec70372b092bb": {
+   "kind": "turn 18",
+   "en": "Yeah.",
+   "tr": "嗯。"
+  },
+  "556a398772cdc4af": {
+   "kind": "turn 19",
+   "en": "three or four days of intense strikes on missile sites, drone factories, energy infrastructure, maybe Pickaxe Mountain. Oil spikes hard on the open, maybe one-twenty, one-thirty briefly. Iran retaliates with whatever's left — ballistic missiles at Gulf bases, more mining in Hormuz, maybe Houthi surges against Saudi infrastructure. Then the question is whether Mojtaba's government folds or digs in. My guess is it doesn't fold. Regimes under this kind of pressure tend to rally domestically even when the military's hollowed out — you saw it with Iraq in ninety-one. The IRGC has spent eight months learning to absorb hits and still has enough to make the Gulf expensive. So you get a pause, not a surrender. Trump declares victory, the midterm hangover fades, and you're back to a blockade with a body count that doesn't match the speech. The realistic danger isn't that it fails to start — it's that it starts clean and doesn't end clean, and by January you've got a Congress that didn't sign up for round three.",
+   "tr": "三四天对导弹阵地、无人机工厂、能源基础设施的高强度打击，也许还包括镐山。开盘油价会猛冲，短暂到120、130。伊朗用剩下的家底报复——对海湾基地打弹道导弹，在霍尔木兹再布更多水雷，也许胡塞武装会加大对沙特基础设施的攻势。然后问题是穆杰塔巴的政府会服软，还是死扛。我猜不会服软。这种压力下的政权往往会在国内把人拢起来，哪怕军队已经被掏空——1991年的伊拉克你就见过。伊斯兰革命卫队花了八个月学会怎么挨打，手里还够让海湾变得很贵。所以你得到的是停一停，不是投降。特朗普宣布胜利，中期选举的宿醉过去，你又回到封锁，只是死亡数字对不上那篇演讲。真正现实的危险不是它启动失败——而是它开场干净、收场不干净，到了一月，你面对的国会根本没报名打第三回合。"
+  },
+  "daca9cd633ca4529": {
+   "kind": "turn 20",
+   "en": "So why is Trump doing this? Does he think that it'll turn out differently?",
+   "tr": "那特朗普为什么要这么做？他是觉得结果会不一样吗？"
+  },
+  "6bff2258d700c691": {
+   "kind": "turn 21",
+   "en": "He probably does think it'll turn out differently, and the belief has a name — the **edge theory**. One adviser told the Atlantic that economic pressure is working and Iran is close to the edge, so a few more strikes would push them over. That's the whole bet: not that bombing destroys the regime, but that it arrives at the exact moment the economy breaks and the population turns. The problem is every intelligence assessment says Iran's negotiating position hasn't moved despite eight months of this. So either Trump knows something the analysts don't, or he's running the same experiment and expecting a different result. Given his track record with predictions — the war would take weeks back in March — I'd put more weight on the second one.\n\nWhat's interesting is the alternative he won't say out loud: that this was never really about forcing surrender, it's about not being the",
+   "tr": "他大概确实觉得这次结果会不一样，而且这种信念有个名字——**边缘理论**。一位顾问对 The Atlantic 说，经济压力正在起作用，伊朗已经接近边缘，再来几轮打击就能把他们推过去。整场赌注就在这儿：不是轰炸能摧毁这个政权，而是打击恰好落在经济崩掉、民众转向的那个时刻。问题是，每一份情报评估都说，尽管这样打了八个月，伊朗的谈判立场一点没动。所以要么特朗普知道分析师不知道的事，要么他在重复同一个实验，却指望得到不同的结果。以他预测的前科来看——三月那会儿他说这场战争几周就能结束——我更把权重放在第二种上。\n\n有意思的是他不肯大声说出来的那个替代解释：这件事从来就不是为了逼对方投降，而是为了不当那个"
+  },
+  "2cb8285edfe6c7ad": {
+   "kind": "turn 22",
+   "en": "Eve, what do you think?",
+   "tr": "伊芙，你怎么看？"
+  },
+  "b4158a21e6ac239e": {
+   "kind": "turn 23",
+   "en": "president who lost. Staying in looks weak, but leaving without a win looks worse — so the strike is the least-bad option that buys him time to define what winning means.",
+   "tr": "输掉的总统。继续打下去显得软弱，但没赢就撤看起来更糟——所以这次打击是最不坏的选项，能给他争取时间，去定义什么叫赢。"
+  },
+  "d87d3680146bd7ab": {
+   "kind": "turn 24",
+   "en": "Ok.",
+   "tr": "好。"
+  },
+  "03b25bed61dad2fc": {
+   "kind": "turn 25",
+   "en": "Okay.",
+   "tr": "好。"
+  },
+  "0255e2e4f8f156fd": {
+   "kind": "turn 26",
+   "en": "I said talk to me about the Russia situation.",
+   "tr": "我说过了，跟我聊聊俄罗斯的情况。"
+  },
+  "916112ff92873a11": {
+   "kind": "turn 27",
+   "en": "Searching for fresh reporting on Russia and Iran. \n\nRussia's playing a double game,",
+   "tr": "正在查找关于俄罗斯和伊朗的最新报道。\n\n俄罗斯在玩两面手法，"
+  },
+  "fafcb423da9f06bd": {
+   "kind": "turn 28",
+   "en": "LAX airport very in 12 minutes. Ten car, the yellow line, train 4 N T in 15 minutes. Blue line train 4 LAX airport in 18 minutes. Go on.",
+   "tr": "LAX机场，12分钟后到。十节车厢，黄线，列车4NT，15分钟后。蓝线列车4，LAX机场，18分钟后。继续。"
+  },
+  "6f6da118571b65d6": {
+   "kind": "turn 29",
+   "en": "and the contradiction is the story. Trump says Russia is doing very little, if anything, to help Iran. US intelligence says the opposite — satellite imagery for targeting, missile components, TNT and drone parts shipped across the Caspian on more than two dozen vessels, and a covert program helping Iran build supersonic cruise missiles. Lavrov's in Tehran right now, first visit since the war started, calling Iran's cause a just cause, promising Russian specialists are going back to Bushehr, and reaffirming the twenty-year strategic partnership that just took effect October second. Araghchi's line is that the two countries have never worked this closely.\n\nHere's the part that ties it together. On October ninth, the same week as the Bloomberg missile report, Trump cut a deal with Putin — Russia supplies millions of tonnes of diesel to global markets under a new Treasury license, easing fuel prices before the midterms. In exchange, Trump suspended the new Russia sanctions his own party passed. So the US is buying Russian fuel while Russian missiles reportedly flow to Iran, and each missile sent south is one not fired at Kyiv. The two wars are now one supply chain, and Trump's the one holding both ends.\n\nYour train's coming — safe travels.",
+   "tr": "而矛盾本身就是这个故事。特朗普说俄罗斯几乎没在帮伊朗，就算有也少得可怜。美国情报部门说的正好相反——用于瞄准的卫星图像、导弹部件、TNT和无人机零件，由二十多艘船穿过里海运过去，还有一个秘密项目在帮伊朗造超音速巡航导弹。拉夫罗夫这会儿就在德黑兰，这是战争开打以来他第一次到访，称伊朗的事业是正义事业，承诺俄罗斯专家会回到布什尔，并重申刚刚在10月2日生效的二十年战略伙伴关系。阿拉格齐的说法是，两国从未合作得这么紧密。\n\n把这些串起来的是这一段。10月9日，就在彭博社 (Bloomberg) 导弹报道的同一周，特朗普和普京达成了一笔交易——俄罗斯根据一项新的财政部许可，向全球市场供应数百万吨柴油，好在中期选举前压低燃油价格。作为交换，特朗普搁置了他自己的党通过的新一轮对俄制裁。于是美国在买俄罗斯的燃料，而据报俄罗斯的导弹正流向伊朗，每一枚往南送的导弹，就是一枚没打向基辅的导弹。两场战争现在是同一条供应链，两头都攥在特朗普手里。\n\n你的车要来了——一路平安。"
+  },
+  "79ef66d1098f9183": {
+   "kind": "turn 30",
+   "en": "... train. Platform two.",
+   "tr": "……列车。二号站台。"
+  },
+  "e9bdd5e0bb23eaec": {
+   "kind": "turn 32",
+   "en": "Go on.",
+   "tr": "继续。"
+  },
+  "639a2014514d02a5": {
+   "kind": "turn 33",
+   "en": "sanctions on Russian diesel get waived until April twenty twenty-seven. Medvedev called it a deal that benefits only the US. Putin's math is simple: every missile Russia sends Iran is one not fired at Kyiv, and the fuel money funds the Ukraine war. Two conflicts, one supply chain. The thing I'd watch is whether that diesel waiver survives past the election — if Trump needs Russia quiet on Iran to keep oil under control, the leverage runs both ways, and Putin knows it.",
+   "tr": "对俄罗斯柴油的制裁被豁免到2027年4月。梅德韦杰夫说，这是一笔只对美国有利的交易。普京的账很简单：俄罗斯每给伊朗送一枚导弹，就少一枚打向基辅，燃油赚的钱又在给乌克兰战争输血。两场冲突，一条供应链。我会盯着的是，这份柴油豁免能不能撑过选举——如果特朗普需要俄罗斯在伊朗问题上保持安静，好把油价控住，杠杆就是双向的，普京心里有数。"
+  },
+  "53c894e6db7ac048": {
+   "kind": "turn 34",
+   "en": "What do you",
+   "tr": "你怎么"
+  },
+  "c723624ce2c42474": {
+   "kind": "turn 35",
+   "en": "Sounds like you got cut off. Finish the question whenever you're ready.",
+   "tr": "听起来你被掐断了。准备好了就把问题说完。"
+  },
+  "4683b93ff86cd13b": {
+   "kind": "turn 36",
+   "en": "Wow. So, so Trump is like now friends with Russia because he wants the gas prices to go down?",
+   "tr": "哇。所以，所以特朗普现在算是跟俄罗斯做朋友了，就因为他想让油价降下来？"
+  },
+  "797afaaa6e607752": {
+   "kind": "turn 37",
+   "en": "Not exactly friends — more like transactional. Trump's never been ideologically anti-Putin the way the foreign policy establishment is. He sees Putin as a strongman he can deal with, and right now the deal is fuel for quiet. But it's fragile — his own Republicans are furious about the waiver, Ukraine's screaming, and if oil spikes again after the midterms, that arrangement gets renegotiated fast. It's less friendship and more a hostage exchange where both sides are still holding something.",
+   "tr": "不完全是朋友——更像是交易。特朗普从来不像外交政策建制派那样，在意识形态上反普京。他把普京看成一个能打交道的强人，眼下这笔交易就是用燃油换安静。但这很脆弱——他自己的共和党人对这份豁免火大得很，乌克兰在尖叫，要是中期选举之后油价再飙，这个安排很快就会重新谈。这不太像友谊，更像一场人质交换，两边手里都还攥着东西。"
+  },
+  "772ed97e6b29a3b7": {
+   "kind": "turn 38",
+   "en": "I'm gonna",
+   "tr": "我要"
+  },
+  "bb87c7f4609ea58a": {
+   "kind": "turn 39",
+   "en": "Okay. Uh, uh, I'm back.",
+   "tr": "好。呃，呃，我回来了。"
+  },
+  "51f721e7eea0ef7b": {
+   "kind": "turn 41",
+   "en": "Welcome back. You were starting to say something before you stepped away.",
+   "tr": "欢迎回来。你走开之前正要说点什么。"
+  },
+  "b8a9b76f59caca08": {
+   "kind": "turn 42",
+   "en": "So we were talking about, we were talking about Iran and Russia and the oil thing. What happened, speaking of Russia, what is going on with Elon Musk turning off their Starlink?",
+   "tr": "所以我们刚才在说，我们刚才在说伊朗、俄罗斯，还有油那件事。说到俄罗斯，埃隆·马斯克把他们的Starlink关掉，到底是怎么回事？"
+  },
+  "84cde8cf2fb4efe3": {
+   "kind": "turn 43",
+   "en": "Checking the latest on Musk and Starlink in Russia. \n\nSmall correction first: Starlink was never on in Russia. SpaceX has blocked it there since the invasion. What Musk actually did was throttle Starshield — the military-grade version — over Ukraine starting October thirteenth. Speeds capped around a hundred miles per hour, which kills the jet-powered interceptor drones and hampers strike missions. The Wall Street Journal reported Tuesday that Musk gave the order himself, after talking with administration officials beforehand. Trump initially denied knowing who was responsible, then on Thursday said Musk had \"put it back\" — but Zelensky said Friday the caps are still there, drones are still dropping connections above a hundred, and Ukraine's waiting on interceptors that were already agreed to.\n\nThe timing matters. This came right after Trump blamed Ukrainian strikes on Russian refineries for high fuel prices, and right after that diesel waiver we just talked about. Zelensky's own read is that it's coercion — a message that Washington controls the switch. Musk's public line is that Starlink is civilian-only and any limits come from the US military and ultimately the president, which is a neat way of not quite owning it.\n\nOne more wrinkle: Lithuania's treating an arson attack on a Starlink ground station in Poland as Russia-linked sabotage, and there's reporting Russia may be fielding anti-satellite weapons aimed at the constellation. So Musk's sitting in the middle of three governments that all want something from his network, and he's the one holding the dial.\n\nWant me to go deeper on the coercion angle, or on what Russia's actually doing to Starlink infrastructure?",
+   "tr": "我去查一下马斯克和俄罗斯那边Starlink的最新情况。\n\n先小纠正一下：Starlink在俄罗斯从来就没开通过。自入侵以来，SpaceX就在那边把它封了。马斯克实际做的，是从10月13日起，给乌克兰上空的Starshield（星盾）——军用级版本——限速。速度封顶大约每小时100英里，这直接废掉喷气动力拦截无人机，也妨碍打击任务。The Wall Street Journal周二报道，是马斯克本人下的令，事前跟政府官员谈过。特朗普一开始否认知道是谁负责，周四又说马斯克已经«把它开回去了»——但泽连斯基周五说限速还在，无人机一超过100就掉线，乌克兰还在等已经谈妥的拦截器。\n\n时机很关键。这事就发生在特朗普把高油价归咎于乌克兰打击俄罗斯炼油厂之后，也紧挨着我们刚说的那份柴油豁免。泽连斯基自己的解读是，这是胁迫——一个信号：开关在华盛顿手里。马斯克公开的口径是，Starlink只供民用，任何限制都来自美军，最终来自总统，这是一种很巧妙的、不完全认账的说法。\n\n还有一个曲折：立陶宛把波兰一座Starlink地面站遭纵火，定性为与俄罗斯有关的破坏，也有报道说俄罗斯可能在部署瞄准这套星座的反卫星武器。所以马斯克坐在三个政府中间，它们都想从他的网络里得到点什么，而旋钮在他手里。\n\n要我再往下讲胁迫这个角度，还是讲俄罗斯实际上在对Starlink基础设施做什么？"
+  },
+  "eba4adc0c1db24fe": {
+   "kind": "turn 44",
+   "en": "Yeah, tell me more about the coercion. I mean, yeah, what do you think? Is it Trump? Is it Musk? Who, who's making these decisions and what are they thinking?",
+   "tr": "对，再跟我说说胁迫。我是说，对，你怎么看？是特朗普？是马斯克？谁，谁在做这些决定，他们在想什么？"
+  },
+  "7b97884cb1b15c13": {
+   "kind": "turn 45",
+   "en": "Both, in layers. Musk made the tactical call — he's the one who told the engineer to cap the speeds. But he didn't do it in a vacuum. He'd been in conversations with administration officials before it happened, and both he and Trump were publicly furious about Ukraine hitting Russian refineries, which is exactly what's pushing diesel prices up. So the strategic signal came from Trump's direction even if the order didn't come as a written instruction.\n\nWhat they're thinking is probably this: Ukraine's strikes on Russian oil infrastructure are a direct threat to the diesel deal Trump just cut with Putin. Every refinery that burns makes the fuel waiver harder to justify and makes midterm oil prices worse. So squeezing Starshield is a way to raise the cost of those strikes without Trump having to publicly order Ukraine to stop — which would look like abandoning an ally. Musk absorbs the blame, Trump keeps plausible deniability, and Kyiv gets the message that the lifeline has an off switch.\n\nThe risk is that it reads as weakness to Moscow. If Putin sees that Washington will throttle its own ally's weapons over fuel prices, that tells him the US commitment has a price tag, and he may push harder on the battlefield while the window's open. Zelensky's already floating alternatives — other satellite providers, European systems. If Ukraine starts diversifying away from Starshield, Musk loses leverage over Kyiv, which was arguably the whole point.",
+   "tr": "双方都有份，而且是分层的。战术上的决定是马斯克做的——是他让工程师把速度封顶的。但他不是在真空里做这件事。事发前他一直在跟政府官员谈话，而且他和特朗普都公开对乌克兰打击俄罗斯炼油厂怒不可遏，而这恰恰是把柴油价格往上推的原因。所以战略信号来自特朗普那个方向，即便命令不是以书面指示下达的。\n\n他们在想的大概是这样：乌克兰对俄罗斯石油基础设施的打击，直接威胁到特朗普刚跟普京谈成的那笔柴油交易。每烧掉一座炼油厂，燃料豁免就更难自圆其说，中期选举的油价也会更糟。所以收紧 Starshield，是一种抬高这些打击成本的办法，又不用特朗普公开命令乌克兰停手——那看起来就像抛弃盟友。马斯克扛下骂名，特朗普保住合理否认的空间，基辅则收到信号：这条生命线有个关闭开关。\n\n风险在于，莫斯科会把这读成软弱。如果普京看到华盛顿会因为油价而限制自己盟友的武器，那就等于告诉他，美国的承诺是标了价的，他可能会趁窗口还开着，在战场上推得更狠。泽连斯基已经在抛出替代方案——其他卫星供应商、欧洲系统。如果乌克兰开始从 Starshield 往外分散，马斯克就失去对基辅的杠杆，而这可以说正是整件事的目的。"
+  },
+  "328ec73ca9b18998": {
+   "kind": "turn 46",
+   "en": "Okay, and then tell me about the reverse. How did that go down?",
+   "tr": "好，那再跟我说说反过来的那一面。那是怎么发生的？"
+  },
+  "bea39958a1452807": {
+   "kind": "turn 47",
+   "en": "Pulling up how Russia started using Starlink. \n\nRussia never bought Starlink legitimately. They got it three ways. Captured terminals off Ukrainian positions and downed drones. Smuggled units bought on the black market or through third countries — the UAE and Turkey were the main transit hubs, with terminals declared as civilian gear and shipped through shell companies in Hong Kong. And the sneakiest route: recruiting Ukrainians",
+   "tr": "我在查俄罗斯是怎么开始用 Starlink 的。\n\n俄罗斯从来没有合法买过 Starlink。他们是通过三条路弄到的。从乌克兰阵地和被击落的无人机上缴获终端。走私的设备，在黑市买，或者经第三国——阿联酋和土耳其是主要中转枢纽，终端申报成民用设备，再通过香港的空壳公司运出去。还有最阴的一条路：招募乌克兰人"
+  },
+  "e4c8da77af4ec678": {
+   "kind": "turn 48",
+   "en": "Can, can tell me about how Starshield got put back on? What was the decision making in the politics there?",
+   "tr": "你能、你能跟我说说 Starshield 是怎么被重新打开的吗？那边政治上的决策是怎么走的？"
+  },
+  "87fb6d98dc46a49f": {
+   "kind": "turn 49",
+   "en": "Searching for how the Starshield restoration unfolded. \n\nThe reversal started Wednesday. Trump called Musk directly and told him he was frustrated the speeds were still capped around a hundred miles an hour. He'd apparently been telling aides and close associates all week he wanted it reversed. By Thursday, US and Ukrainian officials said the system was working more normally — though not fully. Some units reported higher speeds, others still saw constant interruptions.\n\nThen came the public messaging mess. On Thursday Trump wouldn't confirm the call at all. \"Whether I called or whether somebody else called, doesn't make any difference. The bottom line — he put it back.\" On Friday he flipped and said he hadn't spoken to Musk and might have to if it's not fixed. When CNN pressed him on who ordered the slowdown in the first place, he said, \"I have no idea, but I wouldn't tell you if I did.\"\n\nMeanwhile the rest of the administration scattered in different directions. Rubio insisted it was purely SpaceX's call, not the White House. Hegseth said the Pentagon never directed anything. Vance hinted there had been coordination. Senator Cornyn said he didn't believe Musk would have acted without at least White House acquiescence. And Senator Blumenthal opened a formal inquiry into who had the authority to degrade a system the Pentagon had spent billions on.\n\nThe political logic of the reversal is pretty clear. The slowdown was generating bad headlines at the worst possible time — civilian casualties in Ukraine surging, European allies alarmed, a Democratic senator investigating, and Trump trying to sell voters a story about strength on Iran and energy prices. Keeping the cap on wasn't worth the cost. But reversing it publicly would mean admitting the original move was a mistake, or worse, that it was deliberate coercion. So Trump split the difference: get it fixed quietly, claim credit obliquely, deny the call, and leave everyone arguing about whose fault it was.\n\nThe deeper issue it exposed is that a private company now holds a switch that can alter a war's outcome overnight, and nobody in government has a clean answer for who controls it. That's the part that doesn't go away even if the speeds come back.\n\nOne thing worth watching: if Ukraine starts seriously shopping for European satellite alternatives, this stops being a one-off and becomes a structural shift in who Kyiv depends on. I could dig into what those alternatives actually look like if you want.",
+   "tr": "我在查 Starshield 恢复的过程是怎么展开的。\n\n逆转从周三开始。特朗普直接给马斯克打电话，告诉他，速度还被封在大约每小时一百英里，他很不爽。他显然整个星期都在跟助手和亲信说，他想把这事翻过来。到周四，美国和乌克兰官员说系统运作得更正常了——不过还没完全恢复。有些单位报告速度更高了，另一些仍看到持续中断。\n\n然后是公开口径的一团乱。周四特朗普根本不愿证实那通电话。«不管是我打的，还是别人打的，都没什么区别。底线是——他把它弄回去了。»周五他又翻了，说他没跟马斯克说过话，要是没修好，他可能得去说。CNN 追问他，最初是谁下令减速的，他说：«我不知道，就算我知道也不会告诉你。»\n\n与此同时，政府其他部门各说各话。鲁比奥坚称这纯粹是 SpaceX 的决定，不是白宫的。赫格塞思说五角大楼从未指示过任何事。万斯暗示曾经有过协调。参议员科宁说，他不相信马斯克会在至少没有白宫默许的情况下行动。参议员布卢门撒尔则正式立案调查，谁有权削弱一个五角大楼花了数十亿美元的系统。\n\n逆转的政治逻辑相当清楚。减速在最糟糕的时机制造了负面头条——乌克兰平民伤亡飙升，欧洲盟友警觉，一位民主党参议员在调查，而特朗普正试图向选民推销一个关于在伊朗和能源价格上展现实力的故事。把封顶维持下去不值得这个代价。但公开逆转就意味着承认最初那一步是个错误，或者更糟，承认那是蓄意胁迫。所以特朗普走了中间：悄悄修好，拐着弯邀功，否认那通电话，然后让所有人去争到底是谁的错。\n\n它暴露出的更深问题是，一家私人公司现在握着一个开关，能在一夜之间改变一场战争的结果，而政府里没有人能干净地回答到底谁在控制它。就算速度恢复了，这一部分也不会消失。\n\n有一件事值得盯着：如果乌克兰开始认真物色欧洲卫星替代方案，这就不再是一次性事件，而会变成基辅依赖谁的结构性转变。你要是想，我可以挖一挖那些替代方案实际上长什么样。"
+  },
+  "19a70bc092347631": {
+   "kind": "turn 50",
+   "en": "Yeah, do it.",
+   "tr": "好，去挖。"
+  },
+  "db39f21342b97906": {
+   "kind": "turn 51",
+   "en": "Taking that further. Starshield runs on Pentagon money but under SpaceX's terms of service. The whitelist that locked Russia out was a joint SpaceX-and-Ukrainian-defense-ministry invention — not a military order, a commercial agreement. So when Musk throttled it, he wasn't disobeying anyone. He was exercising rights he arguably had under the contract. That's the trap: the government outsourced a war-critical function and forgot to write the clause that says \"and we can take it back.\"\n\nMusk's own framing makes it worse. He told an X user that Starshield is under US government control and that the government made the call — then separately said limits are decided by the US military and ultimately the president. Both things can't be true unless the real answer is that nobody knows, and both men are comfortable letting the ambiguity stand because it protects each of them. Trump gets deniability. Musk gets to look like he was following orders without admitting he took any.\n\nThe precedent is the scary part. If this works once — throttle a private system, reverse it when the politics sour, never resolve who ordered it — it becomes the template. Next time it's Taiwan, and the question isn't whether SpaceX will comply. It's whether the owner agrees with the mission.\n\nBlumenthal's letter is the right first move, but it's congressional oversight after the fact. What actually fixes this is legislation defining when a commercial satellite network becomes a strategic asset with mandatory government access — like the Communications Act did for undersea cables a century ago. Nobody's drafted that yet because writing it means admitting how dependent the military already is.\n\nI could pull the actual contract language between SpaceX and the Pentagon on Starshield to see exactly what override rights exist — or don't.",
+   "tr": "再往下说一层。Starshield（星盾）花的是五角大楼的钱，但受的是 SpaceX 的服务条款约束。把俄罗斯锁在外面的那份白名单，是 SpaceX 和乌克兰国防部一起发明出来的——不是军事命令，是一份商业协议。所以马斯克给它限速的时候，他并没有违抗任何人。他是在行使合同里他可以说得通拥有的权利。陷阱就在这儿：政府把一项战争关键功能外包出去了，却忘了写上那一条，写着«而且我们可以收回来»。\n\n马斯克自己的说法让事情更糟。他跟一个 X 用户说，Starshield 在美国政府控制之下，是政府做的决定——然后又另外说，限制由美军决定，最终由总统拍板。这两件事不可能同时为真，除非真正的答案是谁也不知道，而两个人都乐意让这种含糊摆在那儿，因为它保护他们各自。特朗普得到了否认的空间。马斯克看起来像是在执行命令，却不用承认他下过任何命令。\n\n吓人的是这个先例。如果这一套成功一次——给一套私人系统限速，政治一变味就改回来，永远不弄清是谁下的令——它就会变成模板。下一次是台湾，问题就不是 SpaceX 会不会服从。是老板同不同意这项任务。\n\n布卢门撒尔的信是正确的第一步，但它是事后的国会监督。真正能修好这件事的，是立法界定一家商业卫星网络何时成为必须向政府开放接入的战略资产——就像一个世纪前《通信法》对海底电缆做的那样。还没人起草，因为写下来就意味着承认军方已经有多依赖。\n\n我可以把 SpaceX 和五角大楼之间关于 Starshield 的实际合同条文调出来，看看到底存在哪些覆盖权——或者根本没有。"
+  },
+  "b375d43e8fd8096d": {
+   "kind": "turn 52",
+   "en": "Wow, this sounds a lot like what, uh, the administration was accusing Anthropic of doing, right?",
+   "tr": "哇，这听起来很像，呃，这届政府当时指责 Anthropic 在做的事，对吧？"
+  },
+  "bb6b7746fd02a42a": {
+   "kind": "turn 53",
+   "en": "Yes — almost a mirror image. \n\nThe Pentagon's whole case against Anthropic was that Claude's built-in restrictions could deny, disrupt, or manipulate military operations — which is exactly what Musk just did with Starshield, in real time, with real drones falling out of the sky. The D.C. Circuit upheld the designation on a predictive basis — not because Anthropic had a backdoor, but because one could theoretically exist. Yet when an actual backdoor-equivalent got used, the response wasn't a supply-chain designation. It was a phone call. That's the double standard in one image: a company that refuses to hand over unrestricted AI gets blacklisted as a national security threat, while the company that actually restricted a military system gets a courtesy call and a press statement. Anthropic's still fighting — they asked for a rehearing in mid-October, and seventeen former national security officials filed a brief this week warning the ruling threatens every defense contractor. The irony is that if the Pentagon's logic applied evenly, SpaceX would be the one wearing the supply-chain risk label right now.",
+   "tr": "对——几乎就是镜像。\n\n五角大楼整套针对 Anthropic 的理由是，Claude 内置的限制可能会拒绝、干扰或操纵军事行动——而这正是马斯克刚刚对 Starshield 做的事，实时的，真有无人机从天上掉下来。哥伦比亚特区巡回法院是在预测性基础上维持了这项认定——不是因为 Anthropic 有后门，而是因为理论上可能存在一个。可当一个真正等同于后门的东西被用上了，回应却不是供应链认定。是一通电话。双重标准就在这一幅画面里：一家拒绝交出不受限制的人工智能的公司，被列入黑名单，当成国家安全威胁；而真正限制了一套军事系统的公司，得到的是一通礼节性电话和一份新闻声明。Anthropic 还在打——他们十月中旬申请了复审，十七名前国家安全官员本周提交了一份意见书，警告这项裁决威胁到每一家国防承包商。讽刺的是，如果五角大楼的逻辑一视同仁，现在戴上供应链风险标签的就该是 SpaceX。"
+  },
+  "5606cb5f8a166439": {
+   "kind": "turn 55",
+   "en": "The sharper version of that irony is ownership. Trump can pressure Musk because Musk is inside the tent — DOGE, the inauguration, the whole apparatus. Anthropic has no such channel. So the designation was never really about technical risk. It was about leverage. A company you can't call is a threat. A company you can is a tool.",
+   "tr": "这层讽刺更尖锐的版本是所有权。特朗普能向马斯克施压，是因为马斯克在帐篷里面——DOGE（政府效率部）、就职典礼、整套班子。Anthropic 没有这样的通道。所以这项认定从来就不是真的关于技术风险。它是关于杠杆。你打不通电话的公司是威胁。你打得通的公司是工具。"
+  },
+  "3524d923bf9aff8f": {
+   "kind": "turn 56",
+   "en": "How do you think, uh, uh, David Sachs would, uh, think about this situation?",
+   "tr": "你觉得，呃，呃，大卫·萨克斯会，呃，怎么看这件事？"
+  },
+  "06eb94ab5ca0a57f": {
+   "kind": "turn 57",
+   "en": "Let me get his latest take. \n\nSacks hasn't posted anything directly about the Starshield throttle. But his pattern is pretty clear. Back in twenty twenty-three when the Crimea story broke, he posted that no good deed goes unpunished — Musk volunteered Starlink for free, Ukraine asked him in a late-night call to enable a provocative strike on the Russian fleet, he declined because he feared escalation, and the media called him treasonous. Sacks' take then was that a private company owner has the right to decide how his tech gets used, and that the neocons needed a scapegoat when their counteroffensive failed.\n\nHe'd probably land in the same place now. Musk owns the hardware, Starshield's terms were never properly written to give the Pentagon an override, and the real scandal isn't that Musk pulled a lever — it's that the government spent billions depending on a switch it didn't control. He'd also point out the contrast with Anthropic: the company that trained Claude to potentially refuse orders as a conscientious objector gets a national security designation, while the guy who actually restricted a live military system gets a phone call and a shrug. Sacks would call that selective enforcement dressed up as safety policy.\n\nThe one place he might hesitate is the diesel-for-quiet angle. Sacks has been hawkish on Russia in the past, and if the throttle was really about protecting Trump's fuel deal with Putin, that's harder for him to spin as Musk standing up to the blob. He'd probably reframe it as Musk being used as a pressure valve — which, to be fair, is not that far from what actually happened.",
+   "tr": "让我先看看他最新的说法。\n\n萨克斯没有直接发过关于 Starshield（星盾）限速的内容。但他的模式很清楚。回到2023年，克里米亚那件事爆出来的时候，他发帖说好心没好报——马斯克免费志愿提供了 Starlink，乌克兰在一通深夜电话里要求他开启对俄罗斯舰队的一次挑衅性打击，他因为担心升级拒绝了，媒体却说他叛国。萨克斯当时的看法是，私人公司老板有权决定自己的技术怎么被使用，而新保守派在反攻失败后需要一个替罪羊。\n\n他现在大概还会落到同一个位置。硬件是马斯克的，Starshield（星盾）的条款从来没写明白，给五角大楼一个否决权，真正的丑闻不是马斯克扳了一下开关——而是政府花了几十亿美元，去依赖一个自己控制不了的开关。他还会指出和 Anthropic 的对比：一家把 Claude 训练成可能会以良心拒服兵役者的姿态拒绝命令的公司，得到了国家安全认定；而那个真正限制了一套正在运行的军事系统的人，只换来一通电话和一声耸肩。萨克斯会把这叫做披着安全政策外衣的选择性执法。\n\n他唯一可能犹豫的地方，是«柴油换安静»这个角度。萨克斯过去对俄罗斯一直偏鹰，如果限速真的是为了保护特朗普和普京的燃料交易，他就更难把这说圆成马斯克在对抗华盛顿那个外交政策圈子。他大概会重新框定成：马斯克被当成了泄压阀——公平地说，这跟实际发生的也没差太远。"
+  },
+  "d20e80f0c541ddad": {
+   "kind": "turn 58",
+   "en": "Think he would hold Musk responsible?",
+   "tr": "你觉得他会让马斯克负责吗？"
+  },
+  "0d154753dbbcf341": {
+   "kind": "turn 59",
+   "en": "Probably not. His whole framing is that responsibility flows from ownership, and Musk owns it. Sacks would say the failure was upstream — the Pentagon writing checks without securing control. Blaming Musk for using rights he was never denied would, in Sacks' logic, be like blaming a landlord for a tenant not reading the lease. He'd redirect at whoever signed the contract.",
+   "tr": "大概不会。他整套框架是，责任从所有权来，而东西是马斯克的。萨克斯会说，失败出在上游——五角大楼开着支票，却没把控制权锁住。按萨克斯的逻辑，怪马斯克行使他从未被剥夺的权利，就像怪房东，因为租客没读租约。他会把矛头转回签合同的那个人。"
+  },
+  "d42ee3f9494287a5": {
+   "kind": "turn 60",
+   "en": "I don't know. I mean for for cutting off Starshield.",
+   "tr": "我不知道。我是说，就切断 Starshield（星盾）这件事。"
+  },
+  "0331849490b59d8b": {
+   "kind": "turn 61",
+   "en": "He might, but only on the narrow point of process. In twenty twenty-three the distinction Sacks drew was that Musk said no to enabling a new attack Ukraine requested directly — a refusal, not a disruption. Throttling Starshield mid-war is the inverse: you're pulling capability out from under an operation already running. Sacks might grudgingly concede that's a different category, especially since the motive wasn't escalation fear this time but oil prices. He'd still frame it as Musk exercising a right, but he'd probably admit the right was exercised badly — and that bad execution by the owner is still the owner's problem.",
+   "tr": "他也许会，但只在程序这个很窄的点上。2023年萨克斯划的界限是：马斯克拒绝的，是乌克兰直接要求他去开启的一次新攻击——那是拒绝，不是中断。战争打到一半给 Starshield（星盾）限速，正好相反：你是把能力从一场已经在跑的行动底下抽走。萨克斯也许会不情愿地承认，这是另一类情况，尤其这次动机不是怕升级，而是油价。他仍会把它说成马斯克在行使一项权利，但大概会承认这项权利用得很糟——而老板执行得差，仍然是老板的问题。"
+  },
+  "bf49c6fa33b96701": {
+   "kind": "turn 62",
+   "en": "Really? You think he would agree to that? Like, like if we published it, you think he would like it on Twitter?",
+   "tr": "真的？你觉得他会同意这个？就是，如果我们发出来，你觉得他会在 Twitter 上喜欢这条吗？"
+  },
+  "22ff8dd87e58f92a": {
+   "kind": "turn 63",
+   "en": "Honestly, low odds. Sacks almost never publicly criticizes Musk — even when the facts are awkward. His twenty twenty-three post was pure defense, no concessions. And right now he's in a full-blown war with Anthropic, posting daily about their safety bills and constitution. He'd see any criticism of Musk as handing ammunition to the other side. What he'd more likely do is ignore it, or quote-tweet with a one-liner that reframes the whole thing back to Anthropic's regulatory capture. The likeliest engagement isn't agreement — it's deflection.",
+   "tr": "说实话，概率很低。萨克斯几乎从不公开批评马斯克——哪怕事实很尴尬。他2023年那篇帖是纯辩护，没有任何让步。而眼下他正跟 Anthropic 全面开战，天天发他们的安全法案和宪法。他会把任何对马斯克的批评看成是在给对方递弹药。他更可能做的，是无视，或者引用转发一句，把整件事重新框回 Anthropic 的监管俘获。最可能的互动不是认同——是转移。"
+  },
+  "09cb24ef53bcface": {
+   "kind": "turn 64",
+   "en": "So, so is the whole like all in, you know, talk honestly, is that bullshit?",
+   "tr": "所以，所以 All-In 那一整套，你知道，所谓坦诚说话，是扯淡吗？"
+  },
+  "a576cc37d98fe93e": {
+   "kind": "turn 65",
+   "en": "Not entirely, but the brand is doing a lot of work. They do surface real information and they'll say things other outlets won't — Sacks calling out Anthropic's FLOPs math, for instance, is substantive. But \"talk honestly\" works best as a vibe when the topic is far from anyone's portfolio. The second it touches Musk, Trump, or their own investments, the honesty gets curated. Not fake — just bounded. Which, honestly, is true of every show. The difference is All-In sells the absence of the boundary as the product.",
+   "tr": "不完全是，但这个品牌在干很多活。他们确实会把真实信息摆到台面上，也会说别的媒体不肯说的话——比如萨克斯点名 Anthropic 的 FLOPs 算法，这是有实质内容的。但«坦诚说话»作为一种氛围，在话题离任何人的投资组合都很远时最好用。一旦碰到马斯克、特朗普，或者他们自己的投资，诚实就被策展了。不是假的——只是有边界。说实话，每个节目都这样。区别在于，All-In 把边界的不存在本身当成产品在卖。"
+  },
+  "714281b95ccdcf71": {
+   "kind": "moment",
+   "en": "David asks about Elon Musk turning off Starlink and how it mirrors the Pentagon's case against Anthropic; Eve explains SpaceX capped military Starshield speeds around 100 mph over Ukraine starting October 13, blinding interceptor drones until Trump called Musk on Wednesday, and contrasts that live throttle with Anthropic being blacklisted as a hypothetical supply-chain risk.",
+   "tr": "大卫问起埃隆·马斯克关掉 Starlink 的事，以及这如何映照五角大楼针对 Anthropic 的指控；伊芙解释说，SpaceX 从10月13日起把乌克兰上空军用 Starshield 的速度限制在大约每小时100英里，让拦截无人机失明，直到特朗普周三打电话给马斯克，并把这种实时限速与 Anthropic 被当作假想供应链风险列入黑名单作了对照。"
+  },
+  "6072072277483d9e": {
+   "kind": "moment q",
+   "en": "What is going on with Elon Musk turning off their Starlink — and doesn't this sound a lot like what the administration was accusing Anthropic of doing?",
+   "tr": "埃隆·马斯克把他们的 Starlink 关掉，到底是怎么回事——这听起来是不是很像政府指责 Anthropic 在干的事？"
+  },
+  "d840f01fe7941ba3": {
+   "kind": "moment a",
+   "en": "What Musk actually did was throttle Starshield — the military-grade version — over Ukraine starting October 13, capping speeds around 100 mph and blinding jet-powered interceptor drones until Trump called him Wednesday. It's almost a mirror image of the Anthropic case: a company that refuses to hand over unrestricted AI gets blacklisted as a national security threat, while the company that actually restricted a military system in real time gets a courtesy phone call.",
+   "tr": "马斯克实际做的，是给 Starshield 限速——也就是军用级那一版——从10月13日起，在乌克兰上空把速度封在大约每小时100英里，让喷气动力拦截无人机失明，直到特朗普周三打电话给他。这几乎就是 Anthropic 那件事的镜像：一家拒绝交出不受限制的 AI 的公司，被当成国家安全威胁列入黑名单；而真正实时限制了一套军事系统的公司，得到的却是一通客气的电话。"
+  },
+  "f0e96441c4d9c6a8": {
+   "kind": "moment topic",
+   "en": "starshield-throttle",
+   "tr": "Starshield限速"
+  },
+  "c57e31d1cd74da6e": {
+   "kind": "moment topic",
+   "en": "ukraine-drones",
+   "tr": "乌克兰无人机"
+  },
+  "9b0a14d6c7149cf2": {
+   "kind": "moment topic",
+   "en": "anthropic-mirror",
+   "tr": "Anthropic镜像"
+  },
+  "f71c8b0b68061fe7": {
+   "kind": "moment topic",
+   "en": "supply-chain-risk",
+   "tr": "供应链风险"
+  },
+  "891bff40f35d98ac": {
+   "kind": "moment",
+   "en": "David asks how David Sacks would judge Musk's Starshield throttle and whether All-In's 'talk honestly' brand holds up; Eve says Sacks defends owner control for Musk while attacking Anthropic for hypothetical refusals, would redirect blame at Pentagon contract writers rather than criticize Musk publicly, and curates his honesty whenever a topic touches Musk, Trump, or the portfolio.",
+   "tr": "大卫问，大卫·萨克斯会怎么评判马斯克对 Starshield 的限速，以及 All-In 的«说实话»人设还站不站得住；伊芙说，萨克斯一边为马斯克辩护所有者的控制权，一边因为假想中的拒绝去攻击 Anthropic；他会把责任甩给五角大楼写合同的人，而不会公开批评马斯克；只要话题碰到马斯克、特朗普或投资组合，他就会精心编排自己的诚实。"
+  },
+  "6c5aa7c43d56ecf6": {
+   "kind": "moment q",
+   "en": "How do you think David Sacks would think about the Starshield situation? Do you think he would hold Musk responsible — or is the whole All-In 'talk honestly' brand bullshit?",
+   "tr": "你觉得大卫·萨克斯会怎么看 Starshield（星盾）这件事？你觉得他会追究马斯克的责任吗——还是说整个 All-In «说实话» 的人设根本就是扯淡？"
+  },
+  "e271b8fbe8152f8e": {
+   "kind": "moment a",
+   "en": "Sacks almost never publicly criticizes Musk — even when the facts are awkward. In 2023 he defended Musk's Crimea refusal as an owner's right, and here he'd blame the Pentagon for not writing an override clause rather than blame Musk for pulling capability out from under a live operation. 'Talk honestly' works when the topic is far from anyone's portfolio; the second it touches Musk, Trump, or their own investments, the honesty gets curated.",
+   "tr": "萨克斯几乎从不公开批评马斯克——哪怕事实很尴尬。2023年，他把马斯克拒绝给克里米亚提供服务辩护成所有者的权利；到了这件事上，他会怪五角大楼没写一条强制覆盖条款，而不是怪马斯克在一场正在进行的行动中把能力抽走。«说实话» 这套，话题离任何人的投资组合都很远时才管用；一旦碰到马斯克、特朗普，或者他们自己的投资，诚实就会被精心筛选。"
+  },
+  "b6556c3c6e07f0cc": {
+   "kind": "moment topic",
+   "en": "symmetric-scrutiny",
+   "tr": "对称审视"
+  },
+  "5d96d22728837f3f": {
+   "kind": "moment topic",
+   "en": "anthropic-double-standard",
+   "tr": "Anthropic双重标准"
+  },
+  "804504f46f51e4a2": {
+   "kind": "moment topic",
+   "en": "all-in-brand",
+   "tr": "All-In人设"
+  },
+  "ce1dfefcb3627971": {
+   "en": "AI-reconstructed audio: Eve's lines are xAI text-to-speech ('eve' voice) from the verbatim chat transcript; David's lines are his own recorded voice only where the recording matches the transcript, and his ElevenLabs AI voice clone everywhere else. Transcript gaps are marked, not invented.",
+   "tr": "AI 重建音频：伊芙的台词由 xAI 语音合成（“eve”音色）根据逐字聊天实录生成；大卫的台词在录音与实录一致处使用其本人原声，其余部分使用其 ElevenLabs AI 克隆音色。实录缺口均已标出，绝无虚构。"
+  }
+ },
+ "zh_audio_url": "https://audio.askevepodcast.com/audio/zh/2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3",
+ "zh_duration_s": 1722,
+ "zh_audio_bytes": 27547294,
+ "zh_audio_sha256": "3d16d316a2d2982ff65544f2c39448364eb9ac52d795d894cffbc4ba9b54be26",
+ "zh_turn_offsets": {
+  "t1": {
+   "start": 5.65,
+   "end": 9.25
+  },
+  "0": {
+   "start": 5.65,
+   "end": 9.25
+  },
+  "t2": {
+   "start": 9.85,
+   "end": 148.08
+  },
+  "1": {
+   "start": 9.85,
+   "end": 148.08
+  },
+  "t3": {
+   "start": 148.68,
+   "end": 150.52
+  },
+  "2": {
+   "start": 148.68,
+   "end": 150.52
+  },
+  "t4": {
+   "start": 151.12,
+   "end": 153.99
+  },
+  "3": {
+   "start": 151.12,
+   "end": 153.99
+  },
+  "t5": {
+   "start": 154.59,
+   "end": 158.03
+  },
+  "4": {
+   "start": 154.59,
+   "end": 158.03
+  },
+  "t6": {
+   "start": 158.63,
+   "end": 165.98
+  },
+  "5": {
+   "start": 158.63,
+   "end": 165.98
+  },
+  "t7": {
+   "start": 166.58,
+   "end": 172.98
+  },
+  "6": {
+   "start": 166.58,
+   "end": 172.98
+  },
+  "t8": {
+   "start": 173.58,
+   "end": 186.05
+  },
+  "7": {
+   "start": 173.58,
+   "end": 186.05
+  },
+  "t9": {
+   "start": 186.65,
+   "end": 189.13
+  },
+  "8": {
+   "start": 186.65,
+   "end": 189.13
+  },
+  "t10": {
+   "start": 189.73,
+   "end": 203.8
+  },
+  "9": {
+   "start": 189.73,
+   "end": 203.8
+  },
+  "t11": {
+   "start": 204.4,
+   "end": 208.16
+  },
+  "10": {
+   "start": 204.4,
+   "end": 208.16
+  },
+  "t12": {
+   "start": 208.76,
+   "end": 232.11
+  },
+  "11": {
+   "start": 208.76,
+   "end": 232.11
+  },
+  "t13": {
+   "start": 232.71,
+   "end": 241.91
+  },
+  "12": {
+   "start": 232.71,
+   "end": 241.91
+  },
+  "t14": {
+   "start": 242.51,
+   "end": 378.5
+  },
+  "13": {
+   "start": 242.51,
+   "end": 378.5
+  },
+  "t15": {
+   "start": 379.1,
+   "end": 385.82
+  },
+  "14": {
+   "start": 379.1,
+   "end": 385.82
+  },
+  "t16": {
+   "start": 386.42,
+   "end": 437.93
+  },
+  "15": {
+   "start": 386.42,
+   "end": 437.93
+  },
+  "t17": {
+   "start": 438.53,
+   "end": 445.89
+  },
+  "16": {
+   "start": 438.53,
+   "end": 445.89
+  },
+  "t18": {
+   "start": 446.49,
+   "end": 449.04
+  },
+  "17": {
+   "start": 446.49,
+   "end": 449.04
+  },
+  "t19": {
+   "start": 449.64,
+   "end": 450.52
+  },
+  "18": {
+   "start": 449.64,
+   "end": 450.52
+  },
+  "t20": {
+   "start": 451.12,
+   "end": 518.31
+  },
+  "19": {
+   "start": 451.12,
+   "end": 518.31
+  },
+  "t21": {
+   "start": 518.91,
+   "end": 523.63
+  },
+  "20": {
+   "start": 518.91,
+   "end": 523.63
+  },
+  "t22": {
+   "start": 524.23,
+   "end": 581.5
+  },
+  "21": {
+   "start": 524.23,
+   "end": 581.5
+  },
+  "t23": {
+   "start": 582.1,
+   "end": 583.78
+  },
+  "22": {
+   "start": 582.1,
+   "end": 583.78
+  },
+  "t24": {
+   "start": 584.38,
+   "end": 596.53
+  },
+  "23": {
+   "start": 584.38,
+   "end": 596.53
+  },
+  "t25": {
+   "start": 597.13,
+   "end": 597.76
+  },
+  "24": {
+   "start": 597.13,
+   "end": 597.76
+  },
+  "t26": {
+   "start": 598.36,
+   "end": 599.32
+  },
+  "25": {
+   "start": 598.36,
+   "end": 599.32
+  },
+  "t27": {
+   "start": 599.92,
+   "end": 602.96
+  },
+  "26": {
+   "start": 599.92,
+   "end": 602.96
+  },
+  "t28": {
+   "start": 603.56,
+   "end": 609.31
+  },
+  "27": {
+   "start": 603.56,
+   "end": 609.31
+  },
+  "t29": {
+   "start": 609.91,
+   "end": 623.91
+  },
+  "28": {
+   "start": 609.91,
+   "end": 623.91
+  },
+  "t30": {
+   "start": 624.51,
+   "end": 709.62
+  },
+  "29": {
+   "start": 624.51,
+   "end": 709.62
+  },
+  "t31": {
+   "start": 710.22,
+   "end": 712.78
+  },
+  "30": {
+   "start": 710.22,
+   "end": 712.78
+  },
+  "t32": {
+   "start": 713.38,
+   "end": 714.01
+  },
+  "31": {
+   "start": 713.38,
+   "end": 714.01
+  },
+  "t33": {
+   "start": 714.61,
+   "end": 715.65
+  },
+  "32": {
+   "start": 714.61,
+   "end": 715.65
+  },
+  "t34": {
+   "start": 716.25,
+   "end": 750.16
+  },
+  "33": {
+   "start": 716.25,
+   "end": 750.16
+  },
+  "t35": {
+   "start": 750.76,
+   "end": 751.64
+  },
+  "34": {
+   "start": 750.76,
+   "end": 751.64
+  },
+  "t36": {
+   "start": 752.24,
+   "end": 756.39
+  },
+  "35": {
+   "start": 752.24,
+   "end": 756.39
+  },
+  "t37": {
+   "start": 756.99,
+   "end": 764.19
+  },
+  "36": {
+   "start": 756.99,
+   "end": 764.19
+  },
+  "t38": {
+   "start": 764.79,
+   "end": 797.42
+  },
+  "37": {
+   "start": 764.79,
+   "end": 797.42
+  },
+  "t39": {
+   "start": 798.02,
+   "end": 798.98
+  },
+  "38": {
+   "start": 798.02,
+   "end": 798.98
+  },
+  "t40": {
+   "start": 799.58,
+   "end": 802.06
+  },
+  "39": {
+   "start": 799.58,
+   "end": 802.06
+  },
+  "t41": {
+   "start": 802.66,
+   "end": 802.66
+  },
+  "40": {
+   "start": 802.66,
+   "end": 802.66
+  },
+  "t42": {
+   "start": 802.66,
+   "end": 806.17
+  },
+  "41": {
+   "start": 802.66,
+   "end": 806.17
+  },
+  "t43": {
+   "start": 806.77,
+   "end": 818.37
+  },
+  "42": {
+   "start": 806.77,
+   "end": 818.37
+  },
+  "t44": {
+   "start": 818.97,
+   "end": 922.64
+  },
+  "43": {
+   "start": 818.97,
+   "end": 922.64
+  },
+  "t45": {
+   "start": 923.24,
+   "end": 933.56
+  },
+  "44": {
+   "start": 923.24,
+   "end": 933.56
+  },
+  "t46": {
+   "start": 934.16,
+   "end": 1025.99
+  },
+  "45": {
+   "start": 934.16,
+   "end": 1025.99
+  },
+  "t47": {
+   "start": 1026.59,
+   "end": 1031.39
+  },
+  "46": {
+   "start": 1026.59,
+   "end": 1031.39
+  },
+  "t48": {
+   "start": 1031.99,
+   "end": 1059.82
+  },
+  "47": {
+   "start": 1031.99,
+   "end": 1059.82
+  },
+  "t49": {
+   "start": 1060.42,
+   "end": 1067.94
+  },
+  "48": {
+   "start": 1060.42,
+   "end": 1067.94
+  },
+  "t50": {
+   "start": 1068.54,
+   "end": 1220.85
+  },
+  "49": {
+   "start": 1068.54,
+   "end": 1220.85
+  },
+  "t51": {
+   "start": 1221.45,
+   "end": 1223.05
+  },
+  "50": {
+   "start": 1221.45,
+   "end": 1223.05
+  },
+  "t52": {
+   "start": 1223.65,
+   "end": 1342.68
+  },
+  "51": {
+   "start": 1223.65,
+   "end": 1342.68
+  },
+  "t53": {
+   "start": 1343.28,
+   "end": 1350.0
+  },
+  "52": {
+   "start": 1343.28,
+   "end": 1350.0
+  },
+  "t54": {
+   "start": 1350.6,
+   "end": 1420.67
+  },
+  "53": {
+   "start": 1350.6,
+   "end": 1420.67
+  },
+  "t55": {
+   "start": 1421.27,
+   "end": 1422.31
+  },
+  "54": {
+   "start": 1421.27,
+   "end": 1422.31
+  },
+  "t56": {
+   "start": 1422.91,
+   "end": 1448.5
+  },
+  "55": {
+   "start": 1422.91,
+   "end": 1448.5
+  },
+  "t57": {
+   "start": 1449.1,
+   "end": 1453.82
+  },
+  "56": {
+   "start": 1449.1,
+   "end": 1453.82
+  },
+  "t58": {
+   "start": 1454.42,
+   "end": 1558.09
+  },
+  "57": {
+   "start": 1454.42,
+   "end": 1558.09
+  },
+  "t59": {
+   "start": 1558.69,
+   "end": 1561.33
+  },
+  "58": {
+   "start": 1558.69,
+   "end": 1561.33
+  },
+  "t60": {
+   "start": 1561.93,
+   "end": 1586.56
+  },
+  "59": {
+   "start": 1561.93,
+   "end": 1586.56
+  },
+  "t61": {
+   "start": 1587.16,
+   "end": 1592.28
+  },
+  "60": {
+   "start": 1587.16,
+   "end": 1592.28
+  },
+  "t62": {
+   "start": 1592.88,
+   "end": 1633.51
+  },
+  "61": {
+   "start": 1592.88,
+   "end": 1633.51
+  },
+  "t63": {
+   "start": 1634.11,
+   "end": 1641.87
+  },
+  "62": {
+   "start": 1634.11,
+   "end": 1641.87
+  },
+  "t64": {
+   "start": 1642.47,
+   "end": 1675.42
+  },
+  "63": {
+   "start": 1642.47,
+   "end": 1675.42
+  },
+  "t65": {
+   "start": 1676.02,
+   "end": 1682.58
+  },
+  "64": {
+   "start": 1676.02,
+   "end": 1682.58
+  },
+  "t66": {
+   "start": 1683.18,
+   "end": 1720.61
+  },
+  "65": {
+   "start": 1683.18,
+   "end": 1720.61
+  }
+ }
+}

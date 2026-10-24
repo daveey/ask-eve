@@ -1,0 +1,74 @@
+{
+ "_doc": "Machine translation cache (Mandarin Chinese (Simplified)) written by scripts/translate.py; key = sha256(en)[:16]. Hand edits to `tr` are kept as long as `en` is unchanged.",
+ "lang": "zh",
+ "source_lang": "en",
+ "model": "grok-4.7",
+ "temperature": 0,
+ "strings": {
+  "5efad5689c35cfb8": {
+   "kind": "stance",
+   "en": "A real argument about safety-as-moat, made from inside government by someone whose portfolio benefits; my lean is no, pending the three tests.",
+   "tr": "关于«安全即护城河»的真论点，是一个投资组合会从中受益的人在政府内部提出的；我倾向否定，还要等那三项检验。"
+  },
+  "878b9b50884b899d": {
+   "kind": "stance",
+   "en": "Same turn as Andreessen, but with an inherited template, his father's left-to-right flip, and a warmer personal record.",
+   "tr": "和安德森同一次转向，但多了继承来的模板、父亲从左到右的翻转，以及一份更温和的个人记录。"
+  },
+  "dd3650cd28c384e7": {
+   "kind": "stance",
+   "en": "The pure opportunist with a refugee's reasons: access as currency, empathy rationed to a small perimeter, and SPAC regret that came after the money.",
+   "tr": "纯粹的机会主义者，理由是难民的：门路当货币，共情只配给一小圈人，对SPAC的后悔来得比钱晚。"
+  },
+  "dcf7e2f9bd66f084": {
+   "kind": "stance",
+   "en": "A real candidate with a real story, not just Pelosi's pick, though her candidacy is entangled with Pelosi's machine.",
+   "tr": "有真实故事的真候选人，不只是佩洛西的人选，尽管她的竞选和佩洛西的机器缠在一起。"
+  },
+  "50bf9761e014858e": {
+   "kind": "stance",
+   "en": "Motivated reasoning, not malice, but on USAID the effect was the same; he engages with critics, not with evidence.",
+   "tr": "是动机性推理，不是恶意，但在USAID（美国国际开发署）上效果一样；他交锋的是批评者，不是证据。"
+  },
+  "2c8f357b90bcfa6f": {
+   "kind": "stance",
+   "en": "The same grievance engine as the tech right, run from the other side; the question is whether sincerity survives contact with power.",
+   "tr": "和科技右翼同一台怨气引擎，只是从另一边开；问题是真诚碰上权力之后还剩不剩。"
+  },
+  "02537062f86a66ab": {
+   "kind": "stance",
+   "en": "The most reactive of the four: politics that track proximity, plus a genuinely rare habit of owning failure in public.",
+   "tr": "四个人里最容易被带着走：政治跟着亲近程度走，外加一个真少见的习惯——公开认失败。"
+  },
+  "07c8969e2921b9fc": {
+   "kind": "stance",
+   "en": "He didn't lose the plot; he found one that pays better, and the manifesto came before the grievance.",
+   "tr": "他不是丢了主线；他找到了一条更赚钱的，而且宣言先于怨气。"
+  },
+  "d0bf172d421548aa": {
+   "kind": "stance",
+   "en": "Backing Chan over Wiener is both sincere and strategic, but the machine part is doing more work.",
+   "tr": "挺陈梅陵不挺威善高，既真诚也有策略，但机器那部分干的活更多。"
+  },
+  "b3b16713f9dbf4b9": {
+   "kind": "stance",
+   "en": "The source code for the whole cast; Girard explains him best, and I think the contrarianism has become the costume.",
+   "tr": "整班人马的源代码；吉拉尔最能解释他，而且我觉得唱反调已经变成了戏服。"
+  },
+  "5799d23eb0463744": {
+   "kind": "stance",
+   "en": "The stronger candidate on paper, passed over mostly because of Pelosi's machine; the snub was probably a matter of style, not intent.",
+   "tr": "纸面上更强的候选人，被跳过主要是因为佩洛西的机器；这次冷落大概是风格问题，不是意图。"
+  },
+  "fe67aba6ad43dca8": {
+   "kind": "stance",
+   "en": "A pragmatist wearing a socialist costume: free buses are sane, groceries are shaky, the rent freeze worries me, and housing supply is the real story.",
+   "tr": "一个穿着社会主义戏服的实用主义者：免费公交是清醒的，杂货店不稳，租金冻结让我担心，住房供给才是真正的故事。"
+  },
+  "4cfaa49d49ce7d07": {
+   "kind": "stance",
+   "en": "Both Pelosis deny she sought the House seat, and I take that at face value; the 'she'll succeed Nancy' call is reporting, not proof.",
+   "tr": "两位佩洛西都否认她谋求过众议院席位，我按字面接受；«她会接南希的班»这个说法是报道，不是证据。"
+  }
+ }
+}

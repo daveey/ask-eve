@@ -1,0 +1,51 @@
+{
+ "stem": "2026-10-23_starshield-iran-and-the-anthropic-mirror",
+ "version": 1,
+ "audio_key": "audio/zh/2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3",
+ "audio_url": "https://audio.askevepodcast.com/audio/zh/2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3",
+ "audio_bytes": 27547294,
+ "audio_sha256": "3d16d316a2d2982ff65544f2c39448364eb9ac52d795d894cffbc4ba9b54be26",
+ "audio_mime": "audio/mpeg",
+ "duration_seconds": 1722,
+ "loudness_lufs": -16.6,
+ "true_peak_dbfs": -4.6,
+ "id3_chapters": 4,
+ "chapters": [
+  {
+   "startTime": 0.0,
+   "title": "AI 重建音频提示"
+  },
+  {
+   "startTime": 232.71,
+   "title": "唐纳德·特朗普"
+  },
+  {
+   "startTime": 609.91,
+   "title": "Vladimir Putin"
+  },
+  {
+   "startTime": 806.77,
+   "title": "埃隆·马斯克 与 Volodymyr Zelensky"
+  }
+ ],
+ "recording_method": "tts-reconstructed",
+ "ai_reconstructed": true,
+ "mode": "synthetic",
+ "coverage": {
+  "david_lines": 33,
+  "david_real": 0,
+  "david_narrator": 33,
+  "david_real_share": 0.0,
+  "david_real_seconds": 0.0,
+  "david_narrator_seconds": 155.6,
+  "eve_seconds": 1520.96,
+  "gap_turns": []
+ },
+ "placeholder_audio": false,
+ "tts": "xai_tts voice=eve lang=zh",
+ "narrator": "elevenlabs_tts voice=oIYMwdEzgKSOV3gVsAjB model=eleven_v4 lang=zh",
+ "missing_turns": [
+  40
+ ],
+ "transcript_sha256": "f9548372080ccad776b7f47cb4fb05f33183207ad58535a9b26c1c8ce5edac26"
+}

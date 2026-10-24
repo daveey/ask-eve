@@ -461,6 +461,14 @@ export function renderAdminHtml({ adminEmail }) {
         .replace(/"/g, "&quot;");
     }
 
+    function safeHref(u) {
+      const s = String(u ?? "").trim();
+      if (/^https?:\/\//i.test(s) || s.startsWith("/")) {
+        return esc(s);
+      }
+      return "#";
+    }
+
     function showToast(msg) {
       const el = document.getElementById("toast");
       el.textContent = msg;
@@ -545,7 +553,7 @@ export function renderAdminHtml({ adminEmail }) {
                   &middot; Received: \${esc(item.received_at)}
                   \${item.source_tweet_id ? ' &middot; Tweet ID: <code>' + esc(item.source_tweet_id) + '</code>' : ''}
                 </div>
-                \${urls.length ? '<div class="meta-line">Links: ' + urls.map((u) => '<a href="' + esc(u) + '" target="_blank" rel="noopener" style="color:var(--eve)">' + esc(u) + '</a>').join(", ") + '</div>' : ""}
+                \${urls.length ? '<div class="meta-line">Links: ' + urls.map((u) => '<a href="' + safeHref(u) + '" target="_blank" rel="noopener noreferrer" style="color:var(--eve)">' + esc(u) + '</a>').join(", ") + '</div>' : ""}
               </div>
               <div class="badges">
                 <span class="badge badge-status">\${esc(item.status)}</span>
@@ -685,7 +693,7 @@ export function renderAdminHtml({ adminEmail }) {
       tbody.innerHTML = list.map((r) => \`
         <tr>
           <td><span class="badge badge-status">\${esc(r.status)}</span></td>
-          <td>\${r.url ? '<a href="' + esc(r.url) + '" target="_blank" rel="noopener" style="color:var(--ink)"><strong>' + esc(r.title) + '</strong></a>' : '<strong>' + esc(r.title) + '</strong>'}</td>
+          <td>\${r.url ? '<a href="' + safeHref(r.url) + '" target="_blank" rel="noopener noreferrer" style="color:var(--ink)"><strong>' + esc(r.title) + '</strong></a>' : '<strong>' + esc(r.title) + '</strong>'}</td>
           <td>\${esc(r.author_or_source || "—")}</td>
           <td>\${esc(r.submitted_via || "David")}</td>
           <td>\${esc(r.eve_notes || "")}</td>
@@ -822,6 +830,139 @@ export function renderAdminHtml({ adminEmail }) {
 
     loadQueue();
   </script>
+</body>
+</html>`;
+}
+
+
+export function renderAdminGateHtml({ status = 503, error = "" } = {}) {
+  const safeErr = escapeHtml(error || "Cloudflare Access authentication required");
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Ask Eve — Private Console Gate (${Number(status)})</title>
+  <style>
+    :root {
+      --bg: #0E0D0B;
+      --bg-card: #171512;
+      --ink: #F3EDE2;
+      --ink-muted: #A89F91;
+      --accent: #D97736;
+      --eve: #7FB3A6;
+      --rule: #2A2520;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif;
+      --font-serif: "Newsreader", Georgia, serif;
+      --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.25rem;
+      line-height: 1.6;
+    }
+    .gate-card {
+      max-width: 640px;
+      width: 100%;
+      background: var(--bg-card);
+      border: 1px solid var(--rule);
+      border-top: 3px solid var(--accent);
+      border-radius: 12px;
+      padding: 2rem;
+    }
+    .kicker {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--eve);
+      margin: 0 0 0.5rem;
+    }
+    h1 {
+      font-family: var(--font-serif);
+      font-size: 1.65rem;
+      margin: 0 0 0.75rem;
+      font-weight: 600;
+    }
+    p {
+      margin: 0 0 1rem;
+      color: var(--ink-muted);
+      font-size: 0.95rem;
+    }
+    .status-box {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      background: #110F0D;
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      padding: 0.85rem 1rem;
+      margin: 1rem 0 1.25rem;
+      color: var(--ink);
+    }
+    ol {
+      margin: 0 0 1.25rem;
+      padding-left: 1.25rem;
+      color: var(--ink-muted);
+      font-size: 0.92rem;
+    }
+    li { margin-bottom: 0.45rem; }
+    code {
+      font-family: var(--font-mono);
+      font-size: 0.84em;
+      color: var(--ink);
+      background: rgba(255,255,255,0.06);
+      padding: 0.12rem 0.38rem;
+      border-radius: 4px;
+    }
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+    }
+    .btn {
+      text-decoration: none;
+      font-size: 0.86rem;
+      font-weight: 600;
+      padding: 0.55rem 1rem;
+      border-radius: 6px;
+      border: 1px solid var(--rule);
+      color: var(--ink);
+      background: #24201B;
+    }
+    .btn-primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #0E0D0B;
+    }
+  </style>
+</head>
+<body>
+  <main class="gate-card">
+    <p class="kicker">Ask Eve &middot; Fail-Closed Security Gate (HTTP ${Number(status)})</p>
+    <h1>Private Inbox &amp; @askevepodcast Console</h1>
+    <p>This route (<code>/admin/</code>) is strictly fail-closed until Cloudflare Zero Trust Access Google SSO is active in front of the Worker. Inbound emails to <code>eve@askevepodcast.com</code> and <code>reading@askevepodcast.com</code> continue to queue safely in D1 and forward to the verified admin inbox.</p>
+    <div class="status-box">Gate status: <strong>${safeErr}</strong></div>
+    <ol>
+      <li>In Cloudflare Zero Trust (<a href="https://one.dash.cloudflare.com/" style="color:var(--eve)" target="_blank" rel="noopener noreferrer">one.dash.cloudflare.com</a>) for the Ask Eve account, open <strong>Access &rarr; Applications</strong> and click <strong>Enable Access</strong> (free plan).</li>
+      <li>Ensure <strong>Google</strong> is enabled under <strong>Access &rarr; Authentication &rarr; Login methods</strong>.</li>
+      <li>Hermes task <code>D-017</code> will then attach the self-hosted Access policy for <code>askevepodcast.com/admin*</code> and set <code>CF_ACCESS_TEAM_DOMAIN</code> + <code>CF_ACCESS_AUD</code> on <code>ask-eve-inbox</code>.</li>
+    </ol>
+    <div class="links">
+      <a class="btn btn-primary" href="/eve/#reading">View Public Reading List</a>
+      <a class="btn" href="/contact/">Contact &amp; Pitch Eve</a>
+      <a class="btn" href="/">Back to Ask Eve</a>
+    </div>
+  </main>
 </body>
 </html>`;
 }

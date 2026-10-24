@@ -44,66 +44,76 @@ Status in the table below is maintained by David's side; your log entry is the r
 | D-007 | done (deploy-log) | End-to-end PR-only ingest test (§9) | D-004, D-005 |
 | D-008 | superseded by D-010 | ~~Publish episode 0~~: its ingest PR merged, but the audio was redone in PR #13 (the private-URL redaction); don't run this, run D-010 | – |
 | D-010 | done (deploy-log) | **Stage the corrected MP3s and publish episodes 0 and 1** (details below the table). Both ingest PRs are merged (#4, #5) and so is the cleanup PR #13. TTS is real for both (`placeholder_audio: false`). publish.yml run 39999620775 (ep 0) failed with `sha256sum: ep.mp3: FAILED`, because the object in `staging/` is an old render. Run 39999631791 (ep 1) failed with `404 … staging/2026-10-23_the-making-of-eve/2026-10-23_the-making-of-eve.v1.mp3 does not exist`. These MP3s were rendered outside Actions, so nothing staged them. | D-006, PR #13 merged |
-| D-011 | todo | **Upload the show cover to `ask-eve-public`** (details below the table). The feed's `<itunes:image>` is https://audio.askevepodcast.com/art/cover-3000.v1.jpg, which returns 404 because nothing uploaded it. The site redesign (PR #17, merged) added the 3000x3000 cover at `site/static/art/cover-3000.jpg`, now also live at https://askevepodcast.com/art/cover-3000.jpg. | D-002, PR #17 merged |
+| D-011 | done (deploy-log) | **Upload the show cover to `ask-eve-public`** (details below the table). The feed's `<itunes:image>` is https://audio.askevepodcast.com/art/cover-3000.v1.jpg, which returns 404 because nothing uploaded it. The site redesign (PR #17, merged) added the 3000x3000 cover at `site/static/art/cover-3000.jpg`, now also live at https://askevepodcast.com/art/cover-3000.jpg. | D-002, PR #17 merged |
 | D-012 | done (deploy-log) | **Commit identity: GitHub noreply** (details below the table). On every machine that commits to this repo (your box and Hermes), commit as `452472+daveey@users.noreply.github.com`, never a personal or host address. | – |
-| D-013 | **todo, do first** | **History was rewritten: re-sync every clone; never push from an old clone** (details below the table). On 2026-10-24 ~00:10 UTC every branch was force-pushed after `git filter-repo` removed private links, IDs and personal emails from all history. Every commit SHA changed (old main `e3bb848` is now `9b2ebfb`; trees are identical). Pushing from a clone made before that would bring the old history back. | – |
-| D-014 | todo | **Stage and publish the v2 MP3s for episodes 0 and 1** (details below the table). v2 of First Encounter mutes the two spoken agent IDs (soft tone at ~1:10:27 and ~2:15:58; same pipeline: two-pass loudnorm, 128k, ID3 chapters); v2 of The Making of Eve is the same audio with the 15:25 chapter title fixed (it read a Grok share link; now `[link removed]`). Manifests and `d1_upsert.sql` on main already point at `.v2.mp3`; guids are unchanged, so podcast apps treat them as the same episodes. Until this runs, the site and feed keep serving v1. | D-013, PR (audio v2) merged |
-| D-015 | todo | **Upload Russian v1 MP3s + chapters to `ask-eve-public` and stage & publish English v3 MP3s (David's ElevenLabs voice clone)** (details below the table). Russian episodes 0 and 1 (`audio/ru/<stem>.v1.mp3`) are synthesized with xAI `eve` (`language=ru`) + David's ElevenLabs `eleven_v4` clone (`oIYMwdEzgKSOV3gVsAjB`), and English episodes 0 and 1 are re-rendered as `.v3.mp3` (`audio/en/<stem>.v3.mp3`) replacing `rex` with David's ElevenLabs clone (keeping all v2 redactions). Until D-015 runs, `build_site.py` and `player.js` include `data-fallback-src` to `.v2.mp3` so live playback never 404s. | D-014, PR (audio v3 + ru v1) merged |
-| D-016 | todo | **Eve Inbox, Reading List, Leak-Checked Draft Replies & Cloudflare Access `/admin/` Console** (details below the table). Applies D1 migration `0002_inbox_and_reading_list.sql`, deploys Worker `ask-eve-inbox` (`workers/eve-inbox`), wires Cloudflare Email Routing for `eve@askevepodcast.com` and `reading@askevepodcast.com` (keeping `podcast@askevepodcast.com` forwarding intact), and protects `askevepodcast.com/admin*` behind Cloudflare Access with Google login for David's Google login email (from Hermes's private config / Cloudflare account owner email). | D-002, D-003, D-006 |
+| D-013 | done (deploy-log) | **History was rewritten: re-sync every clone; never push from an old clone** (details below the table). On 2026-10-24 ~00:10 UTC every branch was force-pushed after `git filter-repo` removed private links, IDs and personal emails from all history. Every commit SHA changed (old main `e3bb848` is now `9b2ebfb`; trees are identical). Pushing from a clone made before that would bring the old history back. | – |
+| D-014 | done (deploy-log) | **Stage and publish the v2 MP3s for episodes 0 and 1** (details below the table). v2 of First Encounter mutes the two spoken agent IDs (soft tone at ~1:10:27 and ~2:15:58; same pipeline: two-pass loudnorm, 128k, ID3 chapters); v2 of The Making of Eve is the same audio with the 15:25 chapter title fixed (it read a Grok share link; now `[link removed]`). Manifests and `d1_upsert.sql` on main already point at `.v2.mp3`; guids are unchanged, so podcast apps treat them as the same episodes. Until this runs, the site and feed keep serving v1. | D-013, PR (audio v2) merged |
+| D-015 | done (deploy-log) | **Upload Russian v1 MP3s + chapters to `ask-eve-public` and stage & publish English v3 MP3s (David's ElevenLabs voice clone)** (details below the table). Russian episodes 0 and 1 (`audio/ru/<stem>.v1.mp3`) are synthesized with xAI `eve` (`language=ru`) + David's ElevenLabs `eleven_v4` clone (`oIYMwdEzgKSOV3gVsAjB`), and English episodes 0 and 1 are re-rendered as `.v3.mp3` (`audio/en/<stem>.v3.mp3`) replacing `rex` with David's ElevenLabs clone (keeping all v2 redactions). Until D-015 runs, `build_site.py` and `player.js` include `data-fallback-src` to `.v2.mp3` so live playback never 404s. | D-014, PR (audio v3 + ru v1) merged |
+| D-016 | **todo, do now** | **Deploy Worker `ask-eve-inbox` & wire Email Routing (`eve@` + `reading@` with forwarding to `ADMIN_EMAIL`)** (details below the table). Step 1 (D1 migration `0002_inbox_and_reading_list.sql`) is already applied. Because `workers/eve-inbox` is strictly fail-closed (`HTTP 503` on `/admin*` when `CF_ACCESS_TEAM_DOMAIN` / `CF_ACCESS_AUD` are unset), **do not block on Cloudflare Access `access.api.error.not_enabled`**: deploy `ask-eve-inbox` and wire Email Routing immediately so `eve@askevepodcast.com` (including `@askevepodcast` X verification codes!) and `reading@askevepodcast.com` are live and forwarded to `ADMIN_EMAIL`. | D-002, D-003, D-006 |
+| D-017 | todo | **Attach Cloudflare Zero Trust Access self-hosted app (`askevepodcast.com/admin*`) & set `CF_ACCESS_TEAM_DOMAIN` + `CF_ACCESS_AUD` on `ask-eve-inbox`** (details below the table). Run once Cloudflare Zero Trust Access is enabled on the account (`/accounts/$ACCOUNT_ID/access/organizations` returns 200 instead of `access.api.error.not_enabled`). | D-016 |
 
-**D-016 steps.** This task names the exact Cloudflare resources you create/update: D1 migration `0002_inbox_and_reading_list.sql` on `ask-eve-meta`, Worker `ask-eve-inbox` (`workers/eve-inbox`), Email Routing rules for `eve@askevepodcast.com` and `reading@askevepodcast.com`, and a Cloudflare Access self-hosted application for `askevepodcast.com/admin*`. Never commit or log David's Google login email (from Hermes's private config / Cloudflare account owner email) or any secret value.
-1. **Apply D1 migration `0002_inbox_and_reading_list.sql` on `ask-eve-meta`:**
+**D-016 steps (unblocked — do NOT stop if Cloudflare Access returns `access.api.error.not_enabled`).** This task deploys Worker `ask-eve-inbox` (`workers/eve-inbox`) and wires Cloudflare Email Routing for `eve@askevepodcast.com` and `reading@askevepodcast.com` on `askevepodcast.com`. `workers/eve-inbox/src/index.mjs` now both stores inbound messages in D1 `inbox_items` AND forwards a copy via `message.forward(env.ADMIN_EMAIL)` to David's verified Email Routing destination inbox (the same verified destination address used by `podcast@askevepodcast.com`), so `@askevepodcast` X verification codes and listener emails arrive in David's inbox immediately. Furthermore, `workers/eve-inbox/src/auth.mjs` is strictly **fail-closed** (`HTTP 503` on all `/admin*` routes whenever `CF_ACCESS_TEAM_DOMAIN` or `CF_ACCESS_AUD` is not set), and `GET /admin/` renders a clean HTML status gate explaining how to enable Zero Trust Access. Never commit or log David's email or any secret value.
+1. **Verify D1 migration `0002_inbox_and_reading_list.sql` on `ask-eve-meta` (already applied in PR #46):**
+    Substitute `__D1_DATABASE_ID__` in `workers/eve-inbox/wrangler.toml` (just like `workers/upload/wrangler.toml` in §4, restoring the placeholder with `git checkout workers/eve-inbox/wrangler.toml` when finished):
    ```bash
+   sed -i "s/__D1_DATABASE_ID__/$D1_DATABASE_ID/" workers/eve-inbox/wrangler.toml
    npx wrangler@4 d1 migrations apply ask-eve-meta --remote --config workers/eve-inbox/wrangler.toml
    npx wrangler@4 d1 execute ask-eve-meta --remote --config workers/eve-inbox/wrangler.toml --command "SELECT name FROM sqlite_master WHERE type='table' ORDER BY name"
    ```
-   Expect: `0002_inbox_and_reading_list.sql` applied; tables include `draft_replies`, `inbox_items`, `reading_list`, `x_drafts`, `x_auth_tokens`, and `x_oauth_states` (plus 2 seeded launch posts in `x_drafts`).
-2. **Configure Cloudflare Access self-hosted application for `askevepodcast.com/admin*`:**
-   - Ensure Google OAuth identity provider is enabled in Cloudflare Zero Trust (`Access -> Authentication -> Login methods -> Google`).
-   - Create a self-hosted Access application (via Zero Trust API `/accounts/$ACCOUNT_ID/access/apps` or dashboard `Access -> Applications -> Add an application -> Self-hosted`):
-     - **Name:** `Ask Eve Admin Console`
-     - **Application domain:** `askevepodcast.com`, path: `admin*` (`https://askevepodcast.com/admin*`)
-     - **Session duration:** `24h`
-     - **Allowed IdPs:** Google
-     - **Policy (`Allow`):** Name `David Google Login Only`, Action `Allow`, Rule: `Include -> Emails -> David's Google login email (from Hermes's private config / Cloudflare account owner email)`.
-   - Record the Access application Audience (`AUD`) tag (`$CF_ACCESS_AUD`) and team domain (`<team-name>.cloudflareaccess.com`, `$CF_ACCESS_TEAM_DOMAIN`).
+   Expect: tables `draft_replies`, `inbox_items`, `reading_list`, `x_auth_tokens`, `x_drafts`, and `x_oauth_states` present.
+2. **Optional / non-blocking Access check:**
+   Check whether Cloudflare Zero Trust Access has been initialized on the account yet:
+   ```bash
+   curl -sS -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/access/organizations"
+   ```
+   - **If `success: true`:** follow the `D-017` steps below to create the Access app and include `CF_ACCESS_TEAM_DOMAIN` and `CF_ACCESS_AUD` in Step 3.
+   - **If it returns `access.api.error.not_enabled` (code `9999`):** **DO NOT STOP and do NOT mark `D-016` blocked.** Skip `CF_ACCESS_TEAM_DOMAIN` and `CF_ACCESS_AUD` for now (leaving `/admin*` safely fail-closed at HTTP `503`) and proceed immediately to Steps 3, 4, 5, and 6!
 3. **Set secrets on `ask-eve-inbox` (`workers/eve-inbox`):**
    Pipe each secret via stdin (never echo or commit values):
    - `XAI_API_KEY`: same xAI API key used for Grok (`grok-4.7`) triage and draft generation.
-   - `ADMIN_EMAIL`: David's Google login email (from Hermes's private config / Cloudflare account owner email).
-   - `PRIVATE_LEAK_TERMS`: comma-separated private blocklist terms (David's Google login email, any personal domain/handle, street/property names from Hermes's private config) that `leak_check.js` must block in addition to its built-in regex rules.
-   - `CF_ACCESS_TEAM_DOMAIN`: `<team-name>.cloudflareaccess.com` from step 2.
-   - `CF_ACCESS_AUD`: the 64-hex Access Application Audience (`AUD`) tag from step 2.
-   - **X (`@askevepodcast`) posting & mention sync credentials** (either OAuth 2.0 PKCE app credentials OR OAuth 1.0a user tokens):
-     - **Option A (OAuth 2.0 PKCE via `/admin/x/oauth/start`):** set `X_CLIENT_ID` and `X_CLIENT_SECRET` from David's X Developer Portal app (with Callback URI `https://askevepodcast.com/admin/x/oauth/callback` and Read+Write permissions). Once `/admin/` is live, David clicks **Connect @askevepodcast (OAuth 2.0 PKCE)** while signed into `@askevepodcast` on X to store the token in D1 `x_auth_tokens`.
-     - **Option B (OAuth 1.0a env secrets):** set `X_API_KEY`, `X_API_SECRET`, `X_ACCESS_TOKEN`, and `X_ACCESS_TOKEN_SECRET` generated for `@askevepodcast` in the X Developer Portal.
+   - `ADMIN_EMAIL`: David's already-verified Email Routing destination address on the Cloudflare account (the same verified destination inbox that `podcast@askevepodcast.com` forwards to). `ask-eve-inbox` forwards inbound emails to `ADMIN_EMAIL` via `message.forward(env.ADMIN_EMAIL)` and requires `ADMIN_EMAIL` in the Access JWT when `/admin/` is unlocked.
+   - `PRIVATE_LEAK_TERMS`: comma-separated private blocklist terms (David's destination email, personal domain/handle, street/property names from Hermes's private config) that `leak_check.js` blocks in addition to its built-in regex rules.
+   - Optional (if available now): `CF_ACCESS_TEAM_DOMAIN`, `CF_ACCESS_AUD`, `X_CLIENT_ID`, `X_CLIENT_SECRET` (or `X_API_KEY`, `X_API_SECRET`, `X_ACCESS_TOKEN`, `X_ACCESS_TOKEN_SECRET`).
+4. **Deploy Worker `ask-eve-inbox` first, then upload secrets:**
+   (Note: `wrangler secret put` requires the Worker script `ask-eve-inbox` to exist first, so run `npx wrangler@4 deploy` before `secret put`, then restore `wrangler.toml`.)
    ```bash
    cd workers/eve-inbox
+   npm test
+   npx wrangler@4 deploy
    for s in XAI_API_KEY ADMIN_EMAIL PRIVATE_LEAK_TERMS CF_ACCESS_TEAM_DOMAIN CF_ACCESS_AUD X_CLIENT_ID X_CLIENT_SECRET; do
      [ -n "${!s:-}" ] && printf '%s' "${!s}" | npx wrangler@4 secret put "$s"
    done
    npx wrangler@4 secret list
+   cd ../..
+   git checkout workers/eve-inbox/wrangler.toml
    ```
-   Expect: the core 5 secret names (plus `X_CLIENT_ID` / `X_CLIENT_SECRET` or `X_API_KEY`..`X_ACCESS_TOKEN_SECRET` if provided) listed on `ask-eve-inbox`.
-4. **Deploy Worker `ask-eve-inbox`:**
-   `workers/eve-inbox/wrangler.toml` binds `DB` (`ask-eve-meta` D1), `MASTERS` (`ask-eve-masters` R2), `SEND_EMAIL` (Cloudflare Email Routing outbound binding), and routes `askevepodcast.com/admin*` to the Worker:
-   ```bash
-   cd workers/eve-inbox && npx wrangler@4 deploy
-   ```
-   Expect: Worker `ask-eve-inbox` deployed and bound to route `askevepodcast.com/admin*`.
+   Expect: Worker `ask-eve-inbox` deployed on route `askevepodcast.com/admin*`, and `secret list` shows `XAI_API_KEY`, `ADMIN_EMAIL`, `PRIVATE_LEAK_TERMS` (plus any optional secrets set).
 5. **Configure Cloudflare Email Routing on `askevepodcast.com`:**
-   - **Keep `podcast@askevepodcast.com` forwarding to David's Google login email (from Hermes's private config / Cloudflare account owner email)** untouched so Apple Podcasts / Spotify verification codes continue arriving directly in David's inbox!
-   - Add/update two Email Routing rules on zone `askevepodcast.com` (`zones/$ZONE_ID/email/routing/rules`):
-     1. Match `to: eve@askevepodcast.com` -> Action: `Send to a Worker` -> Destination: `ask-eve-inbox`.
-     2. Match `to: reading@askevepodcast.com` -> Action: `Send to a Worker` -> Destination: `ask-eve-inbox`.
-   - Ensure the destination address for David's Google login email is verified in Email Routing so the `SEND_EMAIL` binding is authorized to send outbound replies once David clicks **Send Reply** in `/admin/`.
+   - **Keep `podcast@askevepodcast.com` forwarding to David's verified destination inbox untouched.**
+   - Create or update two Email Routing rules on zone `askevepodcast.com` (`POST`/`PUT` `https://api.cloudflare.com/client/v4/zones/$ZONE_ID/email/routing/rules`):
+     1. Match `{"type":"literal","field":"to","value":"eve@askevepodcast.com"}` -> Action `{"type":"worker","value":["ask-eve-inbox"]}`, `"enabled":true`, `"name":"Eve Inbox Worker"`.
+     2. Match `{"type":"literal","field":"to","value":"reading@askevepodcast.com"}` -> Action `{"type":"worker","value":["ask-eve-inbox"]}`, `"enabled":true`, `"name":"Eve Reading List Worker"`.
+   - Note: if your current `$CLOUDFLARE_API_TOKEN` lacks Zone `Email Routing Rules: Write`, add `Zone -> Email Routing Rules -> Edit` (and `Account -> Access: Apps and Policies -> Edit` if possible) via token self-update or report the exact permission needed after deploying the Worker in Step 4.
 6. **Verify fail-closed security & routing:**
-   - Unauthenticated request to `/admin/api/queue` is blocked before reaching the Worker (HTTP `302` redirect to Cloudflare Access Google login, or HTTP `401` JSON from the Worker's fail-closed JWT check if hit directly):
-     ```bash
-     curl -sI https://askevepodcast.com/admin/api/queue | head -n 5
-     ```
-   - Public reading list is live at `https://askevepodcast.com/eve/#reading` (and `/reading/` redirects to `/eve/#reading`).
-   - Report the Access app ID (redacting any email), Worker deployment version ID, and Email Routing rule IDs in `docs/deploy-log.md`.
+   ```bash
+   curl -sI https://askevepodcast.com/admin/api/queue | head -n 5
+   curl -sI -H "Accept: text/html" https://askevepodcast.com/admin/ | head -n 5
+   ```
+   Expect:
+   - `/admin/api/queue` returns `HTTP/2 503` JSON (`{"error":"unauthorized","detail":"Cloudflare Access env vars ... not configured (fail-closed)"}`) when Access is not yet enabled, or `302`/`401` when Access is enabled.
+   - `/admin/` with `Accept: text/html` returns `HTTP/2 503` `text/html` (the styled Ask Eve fail-closed gate page, no longer a 404!).
+   - Mark `D-016` `done` in `docs/deploy-log.md` once the Worker is deployed and Email Routing rules are active (even if Access is still pending `D-017`).
+
+**D-017 steps (run once Cloudflare Zero Trust Access is enabled on the account).**
+1. Check `GET https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/access/organizations`. If it still returns `access.api.error.not_enabled`, leave `D-017` in `todo` / `blocked` with a one-line note (David enables Zero Trust Access once in the dashboard at `https://one.dash.cloudflare.com/` -> `Access` -> **Enable Access**, free tier).
+2. Once `access/organizations` returns `200`, record the team domain (`<team-name>.cloudflareaccess.com` -> `$CF_ACCESS_TEAM_DOMAIN`), create the self-hosted Access application for `askevepodcast.com/admin*` (`Ask Eve Admin Console`, Session duration `24h`, Policy `Allow` -> `Emails` -> David's email `$ADMIN_EMAIL`), and record its Audience tag (`$CF_ACCESS_AUD`).
+3. Set `CF_ACCESS_TEAM_DOMAIN` and `CF_ACCESS_AUD` on `ask-eve-inbox`:
+   ```bash
+   cd workers/eve-inbox
+   printf '%s' "$CF_ACCESS_TEAM_DOMAIN" | npx wrangler@4 secret put CF_ACCESS_TEAM_DOMAIN
+   printf '%s' "$CF_ACCESS_AUD" | npx wrangler@4 secret put CF_ACCESS_AUD
+   ```
+4. Verify `curl -sI https://askevepodcast.com/admin/` returns `HTTP/2 302` redirecting to `<team-name>.cloudflareaccess.com`.
 
 **D-015 steps.** This task writes the two Russian public MP3s (`ask-eve-public/audio/ru/<stem>.v1.mp3`) and chapters (`ask-eve-public/chapters/ru/<stem>.v1.json`), stages the two English v3 MP3s (`ask-eve-masters/staging/<stem>/<stem>.v3.mp3`), and runs `publish.yml` to publish `ask-eve-public/audio/en/<stem>.v3.mp3` + `chapters/en/<stem>.v3.json` and update D1. **Don't delete anything** (keep `.v2.mp3` on R2 as fallback).
 1. Download the 7 handoff files from David's Google Drive folder `Ask Eve/_publish-handoff-2026-10-23` (find them by name; ids are not kept in git):
@@ -212,7 +222,7 @@ Status in the table below is maintained by David's side; your log entry is the r
    git config --global user.email "452472+daveey@users.noreply.github.com"
    git -C <each clone> config user.email "452472+daveey@users.noreply.github.com"   # only if the clone sets its own
    ```
-   When merging with `gh pr merge`, pass `--author-email 452472+daveey@users.noreply.github.com` (otherwise GitHub uses the account's primary email).
+   Do not merge PRs with `gh pr merge` (GitHub's web `--rebase`, `--squash`, and `--merge` all record the account's primary email as the committer, or fail with GraphQL `Invalid email address`). Instead, merge locally in a clone with `user.email=452472+daveey@users.noreply.github.com` set: `git fetch origin <branch> && git checkout main && git merge --no-ff origin/<branch> && git push origin main`.
 2. Expect: `git config user.email` prints the noreply address in each clone, and `git log -1 --format=%ae` on your next commit shows it.
    Report the hostnames you fixed as "box" / "Hermes" only (no tailnet or host FQDNs).
 
