@@ -763,7 +763,7 @@ CJK = re.compile(r"[\u4e00-\u9fff]")
 ARABIC = re.compile(r"[\u0600-\u06ff\u0750-\u077f\ufb50-\ufdff\ufe70-\ufeff]")
 VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "source", "track", "wbr"}
 SKIP_TAGS = {"code", "pre", "style"}
-SKIP_CLASSES = {"turn__body", "xl", "i18n-ready", "lang-menu", "lang-menu__name", "lang-menu__panel", "lang-menu__code", "source-card__idx", "source-card__pub", "source-card__domain", "source-card__jump", "source-card__title", "source-card__desc", "source-card__person", "source-card__tag", "source-card__ep", "src-badge", "src-span", "guide-prose", "guide-table-wrap", "ledger-table", "ledger-stats", "ledger-banner", "support-grid", "report-card", "ledger-wrap", "metrics-wrap"}  # translated content, auto-linked names, and native autonym language menu
+SKIP_CLASSES = {"turn__body", "xl", "i18n-ready", "lang-menu", "lang-menu__name", "lang-menu__panel", "lang-menu__code", "source-card__idx", "source-card__pub", "source-card__domain", "source-card__jump", "source-card__title", "source-card__desc", "source-card__person", "source-card__tag", "source-card__ep", "src-badge", "src-span", "guide-prose", "guide-table-wrap", "ledger-table", "ledger-stats", "ledger-banner", "support-grid", "report-card", "ledger-wrap", "metrics-wrap", "changelog-wrap", "transcripts-wrap", "growth-log-wrap", "transparency-bar"}  # translated content, auto-linked names, and native autonym language menu
 ATTRS = {"aria-label", "title", "alt", "placeholder", "aria-valuetext"}
 META_CONTENT = {"description", "og:title", "og:description", "twitter:title", "twitter:description"}
 
@@ -843,7 +843,7 @@ class _Rewriter(HTMLParser):
                         nv = f"/{self.lang}/feed.xml"
                     elif p in _paths.get(self.lang, ()):
                         nv = f"/{self.lang}{p}" + (f"#{frag}" if frag else "")
-                elif k in ("href", "data-copy", "data-copy-feed") and v.endswith("/feed.xml") and f"/{self.lang}/feed.xml" not in v:
+                elif k in ("href", "data-copy", "data-copy-feed") and v.endswith("/feed.xml") and not v.endswith(("/changelog/feed.xml", "/growth/feed.xml")) and f"/{self.lang}/feed.xml" not in v:
                     nv = v[:-len("/feed.xml")] + f"/{self.lang}/feed.xml" 
             changed |= nv != dict(attrs)[k]
             new.append((k, nv))
@@ -991,7 +991,10 @@ def build(B, A, out: Path, eps: list[dict], people: list[dict], cfg: dict) -> li
                  ("/guide/", lambda: B.guide_page(A, eps2)), ("/ledger/", lambda: B.ledger_page(A)),
                  ("/reports/", lambda: B.reports_index_page(A)), ("/reports/2026-10/", lambda: B.report_month_page(A, "2026-10")),
                  ("/about/", lambda: B.about_page(A, cfg)), ("/contact/", lambda: B.contact_page(A)),
-                 ("/growth/", lambda: B.growth_page(A)), ("/metrics/", lambda: B.metrics_page(A))]
+                 ("/growth/", lambda: B.growth_page(A)), ("/metrics/", lambda: B.metrics_page(A)), ("/changelog/", lambda: B.changelog_page(A)), ("/transcripts/", lambda: B.transcripts_index_page(A))]
+        import redact_transcripts as _RT
+        _rlog = _RT.load_redaction_log()
+        pages += [(f"/transcripts/{c['slug']}/", (lambda c=c, r=_rlog: B.transcript_conv_page(A, c, r))) for c in _RT.load_redacted_conversations()]
         pages += [(f"/people/{p['slug']}/", (lambda p=p: B.person_page(A, p))) for p in people2]
         pages += [(f"/episodes/{s}/", (lambda s=s: B.episode_page(A, by[s], standalone_eps2))) for s in by]
         data, tdata = eve_data(B), takes_data(B)

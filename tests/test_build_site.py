@@ -314,8 +314,8 @@ def test_head_subscribe_spotify_when_configured():
     import build_site as B
     h = B.head_subscribe({"subscribe": {"spotify": "https://open.spotify.com/show/x", "apple_podcasts": ""}})
     assert 'aria-label="Follow on Spotify"' in h and "hsub--apple" not in h and "hsub--rss" in h
-    assert [x for x, _ in B.nav_items()] == ["/", "/eve/", "/guide/", "/ledger/", "/contact/"]
-    assert [x for x, _ in B.menu_items()] == ["/", "/eve/", "/guide/", "/ledger/", "/contact/", "/reports/", "/about/"]
+    assert [x for x, _ in B.nav_items()] == ["/", "/eve/", "/guide/", "/ledger/", "/changelog/", "/contact/"]
+    assert [x for x, _ in B.menu_items()] == ["/", "/eve/", "/guide/", "/ledger/", "/changelog/", "/contact/", "/transcripts/", "/growth/", "/reports/", "/about/"]
 
 
 # ---------------------------------------------------------------- auto-linking (silent links + menus)

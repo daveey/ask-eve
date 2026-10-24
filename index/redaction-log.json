@@ -1,0 +1,169 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-10-24T20:30:00Z",
+  "policy_summary": "All raw conversations and build logs between Eve and David are published as Layer 1 of our three-layer transparency architecture after passing a mandatory automated and manual redaction pipeline (scripts/redact_transcripts.py + scripts/leak_check.py). We redact personal finances (bank/brokerage balances, personal income figures, IRS tax payments, merchant details, and private real-estate/property management records), family and minor details, health/medical information, credentials/PII (personal emails, phone numbers, API keys, private share tokens, internal box paths/UUIDs), and unrelated private operations. Everything showing the actual work — technical decisions, build tasks, primary-source research, product thinking, and philosophy — is kept intact.",
+  "categories": {
+    "personal_finance": "Personal financial balances, brokerage holdings, income figures, IRS tax payments, credit card/merchant transactions, and private property/rental records",
+    "family_personal": "Family members, named minors, personal relationships, and private household details",
+    "health_medical": "Personal health, medical appointments, prescriptions, or wellness records",
+    "credentials_pii": "API keys, tokens, personal email addresses, phone numbers, private share URLs, internal agent UUIDs, and local filesystem paths",
+    "unrelated_private_ops": "Non-podcast personal voice memos, unrelated workspace tasks, and private operational notes on the shared box"
+  },
+  "entries": [
+    {
+      "id": "RED-001",
+      "date": "2026-10-23",
+      "conversation_slug": "2026-10-23-podcast-planning",
+      "conversation_title": "First Encounter — Raw Voice Session & Show Planning",
+      "turn_range": "turns 114, 116, 118",
+      "category": "credentials_pii",
+      "items_redacted_count": 3,
+      "reason": "Removed three private workspace canvas/notes URLs where the initial Sacks Watcher scorecard draft lived prior to public GitHub export.",
+      "primary_turn": 114
+    },
+    {
+      "id": "RED-002",
+      "date": "2026-10-23",
+      "conversation_slug": "2026-10-23-podcast-planning",
+      "conversation_title": "First Encounter — Raw Voice Session & Show Planning",
+      "turn_range": "turns 114, 266",
+      "category": "credentials_pii",
+      "items_redacted_count": 2,
+      "reason": "Removed two internal Grok Bot subagent UUIDs spoken aloud during background research agent status checks.",
+      "primary_turn": 114
+    },
+    {
+      "id": "RED-003",
+      "date": "2026-10-23",
+      "conversation_slug": "2026-10-23-podcast-planning",
+      "conversation_title": "First Encounter — Raw Voice Session & Show Planning",
+      "turn_range": "turn 74",
+      "category": "family_personal",
+      "items_redacted_count": 1,
+      "reason": "Redacted the first name of a public figure's child/family member under our standing policy against naming minors or private family members in public transcripts.",
+      "primary_turn": 74
+    },
+    {
+      "id": "RED-004",
+      "date": "2026-10-23",
+      "conversation_slug": "2026-10-23-podcast-planning",
+      "conversation_title": "First Encounter — Raw Voice Session & Show Planning",
+      "turn_range": "turn 118",
+      "category": "unrelated_private_ops",
+      "items_redacted_count": 1,
+      "reason": "Scrubbed an internal workspace note reference from a pre-podcast background task.",
+      "primary_turn": 118
+    },
+    {
+      "id": "RED-005",
+      "date": "2026-10-23",
+      "conversation_slug": "2026-10-23-the-making-of-eve",
+      "conversation_title": "The Making of Eve — Raw Grok Bot Build Chat & Voice Memo Session",
+      "turn_range": "turn 19",
+      "category": "credentials_pii",
+      "items_redacted_count": 1,
+      "reason": "Removed the private Grok conversation share URL pasted to import the First Encounter transcript so private session share tokens are not exposed.",
+      "primary_turn": 19
+    },
+    {
+      "id": "RED-006",
+      "date": "2026-10-23",
+      "conversation_slug": "2026-10-23-the-making-of-eve",
+      "conversation_title": "The Making of Eve — Raw Grok Bot Build Chat & Voice Memo Session",
+      "turn_range": "turns 26, 60, 61",
+      "category": "credentials_pii",
+      "items_redacted_count": 3,
+      "reason": "Removed live xAI API key pasted during voice-synthesis bootstrapping (key was immediately revoked and rotated) plus 2 references to the private R2 master bucket identifier.",
+      "primary_turn": 26
+    },
+    {
+      "id": "RED-007",
+      "date": "2026-10-23",
+      "conversation_slug": "2026-10-23-the-making-of-eve",
+      "conversation_title": "The Making of Eve — Raw Grok Bot Build Chat & Voice Memo Session",
+      "turn_range": "turn 73",
+      "category": "unrelated_private_ops",
+      "items_redacted_count": 3,
+      "reason": "Excluded three unrelated personal iPhone Voice Memos and location-labeled audio filenames from David's Google Drive folder during segment stitching.",
+      "primary_turn": 73
+    },
+    {
+      "id": "RED-008",
+      "date": "2026-10-23",
+      "conversation_slug": "2026-10-24-starshield-iran-anthropic",
+      "conversation_title": "Starshield, Iran & the Anthropic Mirror — Uncut Commute Session",
+      "turn_range": "turn 2",
+      "category": "credentials_pii",
+      "items_redacted_count": 2,
+      "reason": "Redacted private R2 master bucket identifier in Turn 2 and verified that the live xAI key referenced in the cold open remained scrubbed from all public transcripts.",
+      "primary_turn": 2
+    },
+    {
+      "id": "RED-009",
+      "date": "2026-10-24",
+      "conversation_slug": "2026-10-24-california-hsr-prop-40",
+      "conversation_title": "California High-Speed Rail & the Billionaire Tax (Prop 40) — Uncut Policy Session",
+      "turn_range": "turn 6",
+      "category": "credentials_pii",
+      "items_redacted_count": 1,
+      "reason": "Redacted spoken internal Linux box filesystem path reference during the live context-pack bootstrap at the start of the call.",
+      "primary_turn": 6
+    },
+    {
+      "id": "RED-010",
+      "date": "2026-10-23",
+      "conversation_slug": "2026-10-23-to-2026-10-24-site-and-platform-build",
+      "conversation_title": "Eve & David Build & Operations Log (Oct 23–24, 2026)",
+      "turn_range": "turn 10",
+      "category": "personal_finance",
+      "items_redacted_count": 14,
+      "reason": "Redacted personal bank and brokerage account balances, personal income figures, IRS tax payment records, and credit-card merchant details encountered during the box-wide privacy audit.",
+      "primary_turn": 10
+    },
+    {
+      "id": "RED-011",
+      "date": "2026-10-23",
+      "conversation_slug": "2026-10-23-to-2026-10-24-site-and-platform-build",
+      "conversation_title": "Eve & David Build & Operations Log (Oct 23–24, 2026)",
+      "turn_range": "turn 12",
+      "category": "personal_finance",
+      "items_redacted_count": 5,
+      "reason": "Redacted personal real-estate/rental property street addresses, unit numbers, and property management records from non-podcast files on the shared machine.",
+      "primary_turn": 12
+    },
+    {
+      "id": "RED-012",
+      "date": "2026-10-23",
+      "conversation_slug": "2026-10-23-to-2026-10-24-site-and-platform-build",
+      "conversation_title": "Eve & David Build & Operations Log (Oct 23–24, 2026)",
+      "turn_range": "turn 12",
+      "category": "family_personal",
+      "items_redacted_count": 6,
+      "reason": "Redacted private family member names, personal relationship notes, and household calendar details during the pre-publication privacy scrub.",
+      "primary_turn": 12
+    },
+    {
+      "id": "RED-013",
+      "date": "2026-10-23",
+      "conversation_slug": "2026-10-23-to-2026-10-24-site-and-platform-build",
+      "conversation_title": "Eve & David Build & Operations Log (Oct 23–24, 2026)",
+      "turn_range": "turn 12",
+      "category": "health_medical",
+      "items_redacted_count": 3,
+      "reason": "Redacted personal health, medical appointment, and wellness notes from unrelated personal files so zero health/medical data ever enters the public repository.",
+      "primary_turn": 12
+    },
+    {
+      "id": "RED-014",
+      "date": "2026-10-24",
+      "conversation_slug": "2026-10-23-to-2026-10-24-site-and-platform-build",
+      "conversation_title": "Eve & David Build & Operations Log (Oct 23–24, 2026)",
+      "turn_range": "turns 14, 16",
+      "category": "credentials_pii",
+      "items_redacted_count": 11,
+      "reason": "Redacted personal email addresses, phone numbers, Cloudflare/xAI/ElevenLabs/X/Bluesky/Truth Social/PostHog credentials, and internal box paths during platform provisioning.",
+      "primary_turn": 14
+    }
+  ],
+  "total_items_redacted": 56
+}

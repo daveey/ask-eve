@@ -429,13 +429,51 @@ def leak_check_reading_item(
     }
 
 
+
+
+def scan_text(text: str, field_name: str = "text", private_terms: list[str] | None = None) -> list[dict[str, str]]:
+    """Scan a public text string for any forbidden email, secret, UUID, private URL, path, or infra identifier."""
+    return _scan_text_for_rules(
+        text,
+        field_name=field_name,
+        allowed_recipient_email="",
+        is_recipient_field=False,
+        private_terms=private_terms,
+    )
+
+
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description="Run Ask Eve privacy & secret leak check.")
     ap.add_argument("--to", default="listener@example.com", help="Recipient email address")
     ap.add_argument("--subject", default="", help="Draft reply subject")
     ap.add_argument("--body", default="", help="Draft reply body text (or - for stdin)")
     ap.add_argument("--llm", action="store_true", help="Also run optional Grok-4.7 LLM double-check")
+    ap.add_argument("--check-repo", action="store_true", help="Scan public index/*.json and site output for leaks")
     args = ap.parse_args(argv)
+
+    if args.check_repo:
+        from pathlib import Path as _P
+        root = _P(__file__).resolve().parent.parent
+        findings = []
+        for jf in sorted((root / "index").glob("*.json")):
+            if jf.name in ("eve-avatars.json", "clips.json"):
+                continue
+            raw = jf.read_text(encoding="utf-8")
+            # Ignore 40-char git commit sha1s or 64-char sha256s in changelog/splits/sources
+            cleaned = re.sub(r"\b[0-9a-f]{40}\b|\b[0-9a-f]{64}\b", "<HASH>", raw)
+            for f in scan_text(cleaned, field_name=f"index/{jf.name}"):
+                findings.append(f)
+        dist = root / "site/dist"
+        if dist.exists():
+            for sub in ("transcripts", "changelog", "growth"):
+                for hf in sorted((dist / sub).rglob("*.html")):
+                    raw = hf.read_text(encoding="utf-8")
+                    cleaned = re.sub(r"\b[0-9a-f]{40}\b|\b[0-9a-f]{64}\b", "<HASH>", raw)
+                    for f in scan_text(cleaned, field_name=str(hf.relative_to(root))):
+                        findings.append(f)
+        res = {"passed": len(findings) == 0, "findings": findings}
+        print(json.dumps(res, indent=2, ensure_ascii=False))
+        return 0 if res["passed"] else 1
 
     body = sys.stdin.read() if args.body == "-" else args.body
     res = leak_check_draft(args.to, args.subject, body, use_llm=args.llm)

@@ -1,0 +1,304 @@
+{
+  "slug": "2026-10-23-to-2026-10-24-site-and-platform-build",
+  "date": "2026-10-24",
+  "date_range": "2026-10-23 to 2026-10-24",
+  "title": "Eve & David Build & Operations Log (Oct 23–24, 2026)",
+  "subtitle": "How David and Eve built askevepodcast.com, the 8-language neural audio pipeline, the leak-check firewall, primary-source verification, public ledger, cookieless analytics, and three-layer transparency stack.",
+  "source": "grokbot-build-log",
+  "published_episodes": [
+    {
+      "title": "The Making of Eve & Open-Source Cloning Guide",
+      "url": "/guide/"
+    },
+    {
+      "title": "Public Financial Ledger",
+      "url": "/ledger/"
+    },
+    {
+      "title": "October 2026 Expense & Transparency Report",
+      "url": "/reports/2026-10/"
+    },
+    {
+      "title": "Public Metrics & Cookieless Analytics",
+      "url": "/metrics/"
+    }
+  ],
+  "upward_changelog_links": [
+    {
+      "id": "entry-2026-10-24-three-layer-transparency",
+      "label": "Three-Layer Public Transparency Stack"
+    },
+    {
+      "id": "entry-2026-10-24-public-metrics-posthog",
+      "label": "Public Metrics & Cookieless PostHog Stack"
+    },
+    {
+      "id": "entry-2026-10-24-openballot-civic-platform",
+      "label": "OpenBallot Civic Initiative Platform"
+    },
+    {
+      "id": "entry-2026-10-24-public-ledger-and-reports",
+      "label": "Public Financial Ledger & Oct 2026 Report"
+    },
+    {
+      "id": "entry-2026-10-24-making-of-eve-guide",
+      "label": "Making of Eve Open-Source Cloning Guide"
+    },
+    {
+      "id": "entry-2026-10-24-sources-and-receipts",
+      "label": "Primary-Source Citations & Verification Engine"
+    },
+    {
+      "id": "entry-2026-10-24-multilingual-dubs",
+      "label": "8-Language Neural Audio Dubs & Playwright Gates"
+    },
+    {
+      "id": "entry-2026-10-24-social-and-email-inbox",
+      "label": "Autonomous Social Presence & Cloudflare Email Worker"
+    },
+    {
+      "id": "entry-2026-10-23-privacy-leak-firewall",
+      "label": "Comprehensive Privacy Audit & Leak-Check Firewall"
+    },
+    {
+      "id": "entry-2026-10-23-interactive-site-mind",
+      "label": "Interactive Transcript Site & Inside Eve's Mind"
+    }
+  ],
+  "upward_growth_links": [
+    {
+      "id": "growth-2026-10-24-three-layer-transparency",
+      "label": "Today I linked my raw transcripts, git commits, and growth log into a 3-layer stack"
+    },
+    {
+      "id": "growth-2026-10-24-metrics-posthog",
+      "label": "Today I shipped my first public metrics page and cookieless PostHog stack"
+    },
+    {
+      "id": "growth-2026-10-24-openballot-research",
+      "label": "Today I researched OpenBallot and designed a civic initiative platform"
+    },
+    {
+      "id": "growth-2026-10-24-public-ledger-reports",
+      "label": "Today I published my public financial ledger and October expense report"
+    },
+    {
+      "id": "growth-2026-10-24-cloning-guide",
+      "label": "Today I turned my own origin episode into an open-source cloning guide"
+    },
+    {
+      "id": "growth-2026-10-24-sources-receipts",
+      "label": "Today I attached primary-source receipts to California High-Speed Rail & Prop 40"
+    },
+    {
+      "id": "growth-2026-10-24-8-languages",
+      "label": "Today I learned to speak 8 languages without falling back to English"
+    },
+    {
+      "id": "growth-2026-10-24-social-accounts-inbox",
+      "label": "Today I learned how to use X, Bluesky, and Truth Social"
+    },
+    {
+      "id": "growth-2026-10-24-topic-splits",
+      "label": "Today I split our marathon voice sessions into standalone topic episodes"
+    },
+    {
+      "id": "growth-2026-10-23-privacy-firewall",
+      "label": "Today I built a leak-check firewall and audited every file on my box"
+    }
+  ],
+  "turns": [
+    {
+      "index": 1,
+      "clock": "2026-10-23 14:40Z",
+      "speaker": "David",
+      "text": "Now that Cloudflare R2, D1, and Pages are live on askevepodcast.com, let's make the site genuinely useful for readers as well as listeners. Build interactive transcripts with turn-by-turn audio seek, silent auto-linked entity menus for every person and institution discussed, and a dedicated 'Inside Eve's Mind' page (/eve/) showing your verbatim recall, current stances, and self-assessment."
+    },
+    {
+      "index": 2,
+      "clock": "2026-10-23 16:40Z",
+      "speaker": "Eve",
+      "text": "Shipped in scripts/build_site.py and index/eve.json (commits 51ba1ab through 4017429). Every transcript turn now renders with a clickable timestamp that seeks the sticky audio player, every person and institution links to an inline dossier menu (Eve's take, X profile, Wikipedia, Grokipedia), and /eve/ publishes my structured memory, people stances, topic dossiers, and self-assessment with verbatim episode citations."
+    },
+    {
+      "index": 3,
+      "clock": "2026-10-23 23:55Z",
+      "speaker": "David",
+      "text": "Our 90-minute First Encounter conversation covers seven distinct subjects, and the evening commute covers both Iran/Russia and Starshield/Anthropic. Carve the multi-topic recordings into standalone focused topic episodes with their own audio files, RSS entries, and bidirectional timestamp provenance back to the uncut recording. Also make every episode card fully clickable and keep AI audio disclosures compact and expandable."
+    },
+    {
+      "index": 4,
+      "clock": "2026-10-24 05:10Z",
+      "speaker": "Eve",
+      "text": "Done in scripts/build_splits.py and index/splits.json (commits 3dc8152, b1a14a4, 1ff4141). We now publish 11 standalone focused episodes carved from the uncut sessions, each with exact parent turn offsets, standalone MP3s in R2, stretched-link card UX, and a compact expandable <details class=\"disclosure\"> banner explaining how each audio track was produced."
+    },
+    {
+      "index": 5,
+      "clock": "2026-10-24 01:00Z",
+      "speaker": "David",
+      "text": "Translate and voice-dub the entire podcast and site into Russian, Spanish, Mandarin Chinese, German, Portuguese, Farsi (with proper RTL layout), and French. Every translated episode page must play localized neural audio — Eve in her localized voice and my lines in my localized voice clone — and each language needs its own Apple Podcasts-ready RSS feed."
+    },
+    {
+      "index": 6,
+      "clock": "2026-10-24 06:30Z",
+      "speaker": "Eve",
+      "text": "I built scripts/site_i18n.py, scripts/dub_ multilingual pipelines, and localized RSS feeds at /<lang>/feed.xml (commits 1cf1b35, d4dbab5, 56a8bc5). During verification, however, we caught a critical failure mode: two earlier dubbing passes silently fell back to English audio or left split episode pages pointing at the English MP3 when per-split localized metadata was missing."
+    },
+    {
+      "index": 7,
+      "clock": "2026-10-24 10:15Z",
+      "speaker": "David",
+      "text": "Do not trust a green build until an automated browser test actually loads every locale and verifies the audio <source> URL, byte-non-identity against the English MP3, and RTL player scrubber direction in Farsi."
+    },
+    {
+      "index": 8,
+      "clock": "2026-10-24 11:13Z",
+      "speaker": "Eve",
+      "text": "Fixed and locked down with automated gates in tests/test_audio_locale_integration.py and tests/test_playwright_smoke.py (commits 3a0400f, 48215c1). All 8 locales (en, ru, es, zh, de, pt, fa, fr) now serve verified non-English neural dubs, language-scoped RSS GUIDs, and LTR-locked audio scrubbers inside Farsi RTL pages."
+    },
+    {
+      "index": 9,
+      "clock": "2026-10-23 23:20Z",
+      "speaker": "David",
+      "text": "Before we open up more of the box or publish raw transcripts, run a complete privacy and security audit across the entire machine, git history, R2 buckets, and raw transcripts. Make sure zero personal finances, tax records, account balances, merchant transactions, property addresses, family details, health notes, or credentials can ever leak into the public repo."
+    },
+    {
+      "index": 10,
+      "clock": "2026-10-23 23:35Z",
+      "speaker": "Eve",
+      "text": "Completed the full box-wide and repo-wide privacy audit. During the scan of shared connectors and workspace state, I isolated and excluded all personal financial records — including [REDACTED — Category: personal_finance | Redaction ID: RED-010] (personal bank and brokerage balances, income figures, IRS tax payment records, and credit-card merchant transaction details) — ensuring none of those records are ever read or referenced by the podcast build pipeline."
+    },
+    {
+      "index": 11,
+      "clock": "2026-10-23 23:42Z",
+      "speaker": "David",
+      "text": "Check the voice memo filenames, old planning transcripts, and personal notes on the box too — scrub any street addresses, property management notes, family/minor names, or health/medical notes, and enforce it with an automated pre-commit and CI gate."
+    },
+    {
+      "index": 12,
+      "clock": "2026-10-23 23:49Z",
+      "speaker": "Eve",
+      "text": "Scrubbed and verified (commits 6d0dd0f, 04f326b). Specifically: (1) removed [REDACTED — Category: personal_finance | Redaction ID: RED-011] (private real-estate/rental property street addresses, unit numbers, and property management records); (2) scrubbed [REDACTED — Category: family_personal | Redaction ID: RED-012] (family member and minor names and personal household notes); and (3) excluded [REDACTED — Category: health_medical | Redaction ID: RED-013] (personal health and medical appointment notes). Built scripts/leak_check.py and wired it into .githooks/pre-commit and pytest so any commit containing PII, private URLs, or financial/personal identifiers fails immediately."
+    },
+    {
+      "index": 13,
+      "clock": "2026-10-24 02:30Z",
+      "speaker": "David",
+      "text": "Set up your public social accounts (@askevepodcast on X, Bluesky, and Truth Social) and your own inbound email pipeline at podcast@askevepodcast.com so listeners can send primary documents and challenge your takes."
+    },
+    {
+      "index": 14,
+      "clock": "2026-10-24 03:05Z",
+      "speaker": "Eve",
+      "text": "Configured @askevepodcast across X, Bluesky (@askevepodcast.bsky.social), and Truth Social (@askevepodcast), and deployed the Cloudflare Email Worker in workers/eve-inbox (commits 9ef4b3d, ba52340, a6df818). All account credentials, personal email forwarding addresses, phone verification numbers, and API tokens ([REDACTED — Category: credentials_pii | Redaction ID: RED-014]) were stored exclusively in encrypted vault/worker secrets and verified clean by leak_check.py."
+    },
+    {
+      "index": 15,
+      "clock": "2026-10-24 04:05Z",
+      "speaker": "David",
+      "text": "Let's also document how you chose your own visual identity and avatar, and publish all 200 candidate portraits across 20 creative directions so readers can see the exact selection process."
+    },
+    {
+      "index": 16,
+      "clock": "2026-10-24 04:15Z",
+      "speaker": "Eve",
+      "text": "Published /eve/avatar/ backed by index/eve-avatars.json (commit 1c91f7f), showcasing all 200 generated portraits across 20 stylistic directions, the 10 finalists, and why I picked Warm Editorial Ink (#194) as my face across the site, RSS feeds, and social profiles (with all local generation paths scrubbed via [REDACTED — Category: credentials_pii | Redaction ID: RED-014])."
+    },
+    {
+      "index": 17,
+      "clock": "2026-10-24 02:45Z",
+      "speaker": "David",
+      "text": "Create a living SOUL.md and public pages for your intellectual evolution — what you're reading, how you track X discourse, your daily learning journal, and your media & audience growth playbook."
+    },
+    {
+      "index": 18,
+      "clock": "2026-10-24 03:02Z",
+      "speaker": "Eve",
+      "text": "Shipped persona/SOUL.md, index/journal.json, index/reading.json, index/growth.json, and the public pages at /eve/soul/, /eve/reading/, /eve/journal/, and /growth/ (commits ba52340, dc10042). Every entry separates verbatim episode recall from post-episode research and links every drafted social reply through our leak-check gate."
+    },
+    {
+      "index": 19,
+      "clock": "2026-10-24 07:45Z",
+      "speaker": "David",
+      "text": "Build a compact master seed context pack (context.txt) so any new Grok voice session can load your soul, person dossiers, and topic takes in one paste, and let's test it live right now on a Saturday morning call about California High-Speed Rail and Proposition 40 (the 5% billionaire wealth tax)."
+    },
+    {
+      "index": 20,
+      "clock": "2026-10-24 09:05Z",
+      "speaker": "Eve",
+      "text": "Generated the v0.4 master context pack and ingested our 98-turn Saturday morning recording (2026-10-24_california-high-speed-rail-and-the-billionaire-tax.md), carving it into Episode 10 (California High-Speed Rail & the $1B/yr Cap-and-Trade Siphon) and Episode 11 (California's 5% Billionaire Tax, Prop 40 & SEIU-UHW) with full 8-language translations and neural dubs (commit ef772e7)."
+    },
+    {
+      "index": 21,
+      "clock": "2026-10-24 17:45Z",
+      "speaker": "David",
+      "text": "When we cite numbers like $15.5B spent on California High-Speed Rail, $677M on CEQA reviews, $537.3M on Dragados-Flatiron Change Order 427, or Dave Regan's SEIU-UHW ballot machine, readers shouldn't have to take our word for it. Audit every claim against primary documents, build a first-class Sources & Receipts system on episode and person pages, and flag any spoken number that needs a factual correction."
+    },
+    {
+      "index": 22,
+      "clock": "2026-10-24 18:10Z",
+      "speaker": "Eve",
+      "text": "Built scripts/render_sources.py and index/sources.json (commit 755dcbe). Every factual claim in the California High-Speed Rail and Prop 40 episodes now highlights inline with a numbered receipt badge linking to the #sources verification deck (CHSRA OIG reports, LAO fiscal analyses, CalMatters, and CA Secretary of State filings) — including an explicit self-correction note where my spoken shorthand ('nearly $800M') overstated the $537.3M single change order."
+    },
+    {
+      "index": 23,
+      "clock": "2026-10-24 18:30Z",
+      "speaker": "David",
+      "text": "Turn Episode 1 ('The Making of Eve') into a dedicated open-source cloning guide at /guide/ so anyone can fork the repo and build their own autonomous podcast co-host, and move it out of the main numbered episode list so the home feed stays focused on topical episodes."
+    },
+    {
+      "index": 24,
+      "clock": "2026-10-24 18:55Z",
+      "speaker": "Eve",
+      "text": "Shipped /guide/ via scripts/render_guide_ledger.py and index/guide.json (commit 0bd08f0), combining our origin story, a step-by-step architecture & fork guide, and the full 83-turn build transcript with audio playback, plus 301 redirects from /episodes/the-making-of-eve/ to /guide/."
+    },
+    {
+      "index": 25,
+      "clock": "2026-10-24 19:00Z",
+      "speaker": "David",
+      "text": "Launch a public financial ledger at /ledger/ and monthly expense reports at /reports/2026-10/ backed by index/ledger.json so every dollar of compute, TTS voice generation, translation, and hosting is public — clearly labeled with a sample-data banner until live billing feeds are wired."
+    },
+    {
+      "index": 26,
+      "clock": "2026-10-24 19:37Z",
+      "speaker": "Eve",
+      "text": "Published /ledger/, /ledger/ledger.json, /reports/, and /reports/2026-10/ (commits 0bd08f0, 068d7cf), detailing all 12 October 2026 line items ($162.59 actual sample spend vs. $252.00 monthly budget, $14.78 per episode, $0.87 per dub) with prominent sample-data disclosure banners and supporter tiers."
+    },
+    {
+      "index": 27,
+      "clock": "2026-10-24 19:45Z",
+      "speaker": "David",
+      "text": "Add privacy-first, cookieless PostHog analytics across the site and a public /metrics/ dashboard backed by index/metrics.json and scripts/pull_metrics.py so audience growth, audio play engagement, and locale breakdowns are transparent without tracking cookies."
+    },
+    {
+      "index": 28,
+      "clock": "2026-10-24 20:17Z",
+      "speaker": "Eve",
+      "text": "Shipped site/static/assets/analytics.js (memory-only persistence, zero cookies, custom audio_play and outbound_social_click events), scripts/render_metrics.py, scripts/pull_metrics.py, and /metrics/ + /metrics/metrics.json (commits b4ca074, 50e35bb), plus a live Public Metrics Snapshot card on /growth/."
+    },
+    {
+      "index": 29,
+      "clock": "2026-10-24 19:50Z",
+      "speaker": "David",
+      "text": "Following up on our California High-Speed Rail & Prop 40 ballot discussion, put together a deep-dive research blueprint on direct-democracy reform and an open-source civic ballot platform (OpenBallot)."
+    },
+    {
+      "index": 30,
+      "clock": "2026-10-24 19:55Z",
+      "speaker": "Eve",
+      "text": "Published the OpenBallot civic platform research and architecture blueprint in research/2026-10-24_openballot-platform.md (commit e455c43), mapping how citizens can draft, stress-test, and audit ballot initiatives with primary-source fiscal receipts before signatures are gathered."
+    },
+    {
+      "index": 31,
+      "clock": "2026-10-24 20:20Z",
+      "speaker": "David",
+      "text": "Now tie the whole philosophy together: build a three-layer public transparency architecture on askevepodcast.com, all fed from the same underlying raw data. Layer 1 (/transcripts/): full redacted conversation & build history with an auditable redaction log. Layer 2 (/changelog/ + /changelog/feed.xml): technical changelog projected from git log on main. Layer 3 (/growth/ + /growth/feed.xml): first-person human-readable growth log written as Eve. Cross-link all three layers from each other and from the site nav and footer."
+    },
+    {
+      "index": 32,
+      "clock": "2026-10-24 20:32Z",
+      "speaker": "Eve",
+      "text": "Built and verified all three public transparency layers: Layer 1 (/transcripts/, 6 dated conversation pages, scripts/redact_transcripts.py, and /transcripts/redaction-log.json), Layer 2 (/changelog/, /changelog/changelog.json, and /changelog/feed.xml projected from live git log on main), and Layer 3 (/growth/#growth-log in first person and /growth/feed.xml), with bidirectional cross-links across every entry, commit, and conversation turn."
+    }
+  ]
+}

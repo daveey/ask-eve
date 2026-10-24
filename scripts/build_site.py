@@ -33,6 +33,9 @@ import render_avatar as RA  # noqa: E402
 import render_features as RF
 import render_guide_ledger as RGL
 import render_metrics as RM
+import redact_transcripts as RT  # noqa: E402
+import render_transcripts as RTrans  # noqa: E402
+import render_changelog as RC  # noqa: E402
 import build_context_pack as BCP  # noqa: E402
 import render_feed as F  # noqa: E402
 from frontmatter import episode_type, parse_front_matter_block, season  # noqa: E402
@@ -934,8 +937,8 @@ def og_image(slug: str | None) -> str:
 
 
 # Header nav. About lives in the compact (mobile) menu and the footer only.
-NAV = [("/", "Episodes"), ("/eve/", "Eve"), ("/guide/", "Guide"), ("/ledger/", "Ledger"), ("/contact/", "Contact")]
-MENU_EXTRA = [("/reports/", "Reports"), ("/about/", "About")]
+NAV = [("/", "Episodes"), ("/eve/", "Eve"), ("/guide/", "Guide"), ("/ledger/", "Ledger"), ("/changelog/", "Changelog"), ("/contact/", "Contact")]
+MENU_EXTRA = [("/transcripts/", "Transcripts"), ("/growth/", "Growth"), ("/reports/", "Reports"), ("/about/", "About")]
 EVE_NAV = ("/eve/", "Eve")
 SHOW_EVE_NAV = True
 # The Eve hub's Topics section (Inside Eve's Mind) and Eve's takes stay hidden until David approves them.
@@ -996,6 +999,8 @@ def page(A: Assets, *, title: str, desc: str, path: str, body: str, active: str 
 <link rel="canonical" href="{e(url)}">
 {I.head_links(A, SITE, path)}
 <link rel="alternate" type="application/rss+xml" title="Ask Eve (RSS)" href="{F.FEED}">
+<link rel="alternate" type="application/rss+xml" title="Ask Eve Technical Changelog (RSS)" href="/changelog/feed.xml">
+<link rel="alternate" type="application/rss+xml" title="Ask Eve Growth Log (RSS)" href="/growth/feed.xml">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#f6f1e9" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0e0c13" media="(prefers-color-scheme: dark)">
@@ -1042,7 +1047,7 @@ def page(A: Assets, *, title: str, desc: str, path: str, body: str, active: str 
 <footer class="site-foot">
   <div class="wrap site-foot__in">
     <div class="site-foot__brand">{mark_svg("mark mark--sm", "f")}<div><strong>Ask Eve</strong><p>{e(TAGLINE)}</p></div></div>
-    <nav aria-label="Footer">{nav_links(menu_items(), "")}<a href="/people/">People</a><a href="/metrics/">Metrics</a><a href="/feed.xml">RSS</a><a href="{X_URL}" data-social-platform="x" target="_blank" rel="noopener">{X_HANDLE}</a><a href="https://bsky.app/profile/askevepodcast.bsky.social" data-social-platform="bluesky" target="_blank" rel="noopener">Bluesky</a><a href="https://truthsocial.com/@askevepodcast" data-social-platform="truthsocial" target="_blank" rel="noopener">Truth Social</a><a data-social-platform="github" href="{REPO}" rel="noopener">GitHub</a><a href="mailto:{EMAIL}">{EMAIL}</a></nav>
+    <nav aria-label="Footer">{nav_links(menu_items(), "")}<a href="/people/">People</a><a href="/metrics/">Metrics</a><a href="/feed.xml">RSS</a><a href="/changelog/feed.xml">Changelog RSS</a><a href="/growth/feed.xml">Growth RSS</a><a href="{X_URL}" data-social-platform="x" target="_blank" rel="noopener">{X_HANDLE}</a><a href="https://bsky.app/profile/askevepodcast.bsky.social" data-social-platform="bluesky" target="_blank" rel="noopener">Bluesky</a><a href="https://truthsocial.com/@askevepodcast" data-social-platform="truthsocial" target="_blank" rel="noopener">Truth Social</a><a data-social-platform="github" href="{REPO}" rel="noopener">GitHub</a><a href="mailto:{EMAIL}">{EMAIL}</a></nav>
     <p class="site-foot__fine">Eve is an AI. Her takes are opinions and can be wrong. AI-generated voices are labeled on every episode. No analytics, no trackers.</p>
   </div>
 </footer>
@@ -2440,8 +2445,51 @@ def growth_page(A: Assets) -> str:
 <header class="eve-view-head"><p class="eyebrow eyebrow--accent">Autonomous Growth Engine</p>
 <h2 class="eve-view-head__title">How I Learn, Track Discourse &amp; Evolve</h2>
 <p class="lede">My reading &amp; influence ledger, X discourse radar, daily learning journal, and self-directed investigation threads.</p></header>
-{RM.render_metrics_summary_card()}{RF.reading_ledger_html(L)}{RF.growth_sections_html(L)}{RF.journal_section_html(L, standalone=True)}</div>"""
+{RC.render_growth_log_section()}{RM.render_metrics_summary_card()}{RF.reading_ledger_html(L)}{RF.growth_sections_html(L)}{RF.journal_section_html(L, standalone=True)}</div>"""
     return page(A, title="Eve's Growth Engine", desc="How Eve learns between episodes: reading ledger, X discourse radar, and self-directed research threads.", path="/growth/", body=body, active="/eve/", linker=L)
+
+
+def changelog_page(A: Assets) -> str:
+    L = Linker(load_links(), "/changelog/")
+    body = RC.render_changelog_body()
+    return page(
+        A,
+        title="Technical Changelog · Ask Eve",
+        desc="What shipped on Ask Eve, when, and why — fed from git commit history on main and cross-linked to Eve's Growth Log and raw transcripts.",
+        path="/changelog/",
+        body=body,
+        active="/changelog/",
+        linker=L,
+    )
+
+
+def transcripts_index_page(A: Assets) -> str:
+    L = Linker(load_links(), "/transcripts/")
+    body = RTrans.render_transcripts_index_body()
+    return page(
+        A,
+        title="Raw Conversation Transcripts & Redaction Log · Ask Eve",
+        desc="Full dated conversation history between Eve and David with an auditable privacy redaction log and upward links to git commits and growth stories.",
+        path="/transcripts/",
+        body=body,
+        active="/transcripts/",
+        linker=L,
+    )
+
+
+def transcript_conv_page(A: Assets, conv: dict, rlog: dict) -> str:
+    path = f"/transcripts/{conv['slug']}/"
+    L = Linker(load_links(), path)
+    body = RTrans.render_transcript_conversation_body(conv, rlog)
+    return page(
+        A,
+        title=f"{conv['title']} · Raw Transcript · Ask Eve",
+        desc=conv["subtitle"],
+        path=path,
+        body=body,
+        active="/transcripts/",
+        linker=L,
+    )
 
 
 def metrics_page(A: Assets) -> str:
@@ -2614,7 +2662,10 @@ def build(db: Path, out: Path, include_drafts: bool) -> int:
     bonus_eps = [ep for ep in audio_eps if is_bonus(ep)]
     standalone_eps = (splits_desc + bonus_eps) if splits_desc else audio_eps
     _CATALOG_EPS = splits_desc + audio_eps
-    extra_pages = ["/", "/episodes/", "/people/", "/guide/", "/ledger/", "/reports/", "/reports/2026-10/", "/about/", "/contact/", "/growth/", "/metrics/"]
+    redacted_convs = RT.load_redacted_conversations()
+    rlog_data = RT.load_redaction_log()
+    conv_paths = [f"/transcripts/{c['slug']}/" for c in redacted_convs]
+    extra_pages = ["/", "/episodes/", "/people/", "/guide/", "/ledger/", "/reports/", "/reports/2026-10/", "/about/", "/contact/", "/growth/", "/metrics/", "/changelog/", "/transcripts/"] + conv_paths
     I.plan(sys.modules[__name__], eps, people, extra_pages)
     out.mkdir(parents=True, exist_ok=True)
     if splits_desc:
@@ -2679,7 +2730,7 @@ def build(db: Path, out: Path, include_drafts: bool) -> int:
     if (ROOT / "site/_headers").exists():
         shutil.copyfile(ROOT / "site/_headers", out / "_headers")
     cfg = eps[0]["cfg"] if eps else (json.loads((ROOT / "site/site.json").read_text()) if (ROOT / "site/site.json").exists() else {})
-    urls = ["/", "/people/", "/guide/", "/ledger/", "/reports/", "/reports/2026-10/", "/about/", "/contact/", "/growth/", "/metrics/"]
+    urls = ["/", "/people/", "/guide/", "/ledger/", "/reports/", "/reports/2026-10/", "/about/", "/contact/", "/growth/", "/metrics/", "/changelog/", "/transcripts/"] + conv_paths
     for ep in audio_eps:
         write(out, f"episodes/{ep['slug']}/transcript.txt", ep["body_md"] + "\n")
         write(out, f"episodes/{ep['slug']}/index.html", episode_page(A, ep, standalone_eps))
@@ -2759,6 +2810,16 @@ def build(db: Path, out: Path, include_drafts: bool) -> int:
     for m_key in RGL.load_ledger().get("monthly_reports", {}):
         write(out, f"reports/{m_key}/index.html", report_month_page(A, m_key))
     write(out, "growth/index.html", growth_page(A))
+    write(out, "growth/feed.xml", RC.render_growth_rss())
+    write(out, "growth/growth-log.json", json.dumps(RC.load_growth_log_data(), indent=2, ensure_ascii=False) + "\n")
+    write(out, "changelog/index.html", changelog_page(A))
+    write(out, "changelog/feed.xml", RC.render_changelog_rss())
+    write(out, "changelog/changelog.json", json.dumps(RC.load_changelog_data(), indent=2, ensure_ascii=False) + "\n")
+    write(out, "transcripts/index.html", transcripts_index_page(A))
+    write(out, "transcripts/redaction-log.json", RT.REDACTION_LOG_PATH.read_text(encoding="utf-8"))
+    for conv in redacted_convs:
+        write(out, f"transcripts/{conv['slug']}/index.html", transcript_conv_page(A, conv, rlog_data))
+        write(out, f"transcripts/{conv['slug']}/transcript.json", json.dumps(conv, indent=2, ensure_ascii=False) + "\n")
     write(out, "metrics/index.html", metrics_page(A))
     if RM.METRICS_PATH.exists():
         write(out, "metrics/metrics.json", RM.METRICS_PATH.read_text())
