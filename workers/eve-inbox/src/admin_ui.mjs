@@ -463,7 +463,7 @@ export function renderAdminHtml({ adminEmail }) {
 
     function safeHref(u) {
       const s = String(u ?? "").trim();
-      if (/^https?:\/\//i.test(s) || s.startsWith("/")) {
+      if (/^https?:\\/\\//i.test(s) || s.startsWith("/")) {
         return esc(s);
       }
       return "#";
