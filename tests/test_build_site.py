@@ -598,3 +598,21 @@ def test_card_summary_css_clamp():
     assert re.search(r"@media \(max-width:819px\)\{\.card__blurb,\.bonus-row__sum\{-webkit-line-clamp:2\}\}", css)
     m = re.search(r"\.bonus-row__sum\{[^}]*font-size:([\d.]+)rem", css)
     assert m and float(m.group(1)) * 16 >= 14 and "color:var(--muted)" in m.group(0)
+
+
+def test_x_challenge_and_footer_links(site):
+    dist = site
+    for rel in ["index.html", "eve/index.html", "episodes/first-encounter/index.html",
+                "people/jason-calacanis/index.html", "topics/sacks-vs-anthropic/index.html"]:
+        html = (dist / rel).read_text()
+        assert 'href="https://x.com/askevepodcast"' in html, rel
+    for rel, expected_path in [
+        ("eve/index.html", "/eve/"),
+        ("episodes/first-encounter/index.html", "/episodes/first-encounter/"),
+        ("people/jason-calacanis/index.html", "/people/jason-calacanis/"),
+        ("topics/sacks-vs-anthropic/index.html", "/topics/sacks-vs-anthropic/"),
+    ]:
+        html = (dist / rel).read_text()
+        assert "Challenge this take on X →" in html, rel
+        assert "<code>@askevepodcast</code>" in html, rel
+        assert f"https://x.com/intent/tweet?text=%40askevepodcast%20https%3A//askevepodcast.com{expected_path}" in html, rel

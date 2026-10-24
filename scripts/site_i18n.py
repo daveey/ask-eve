@@ -186,11 +186,22 @@ def localize_data(lang: str, eps: list[dict], people: list[dict]) -> tuple[list[
     for ep in eps2:
         meta = ep_meta(lang, ep["slug"])
         stem = Path(ep["transcript_path"]).stem
+        en_audio_url = ep.get("audio_url") or ""
+        en_dur = ep.get("duration_seconds")
+        for t in ep["turns"]:
+            t["en_start"] = t["start"]
+            t["en_end"] = t["end"]
+        for c in ep.get("chapters", []):
+            c["en_start_seconds"] = c.get("start_seconds")
         audio_url = meta.get(f"{lang}_audio_url") or meta.get("audio_url")
-        if not audio_url and ep.get("audio_url"):
+        if not audio_url and en_audio_url:
             audio_url = f"https://audio.askevepodcast.com/audio/{lang}/{stem}.v1.mp3"
         if audio_url:
             ep["audio_url"] = audio_url
+            if en_audio_url and audio_url != en_audio_url:
+                ep["fallback_audio_url"] = en_audio_url
+                ep["audio_lang"] = lang
+                ep["en_duration_seconds"] = en_dur
         dur = meta.get(f"{lang}_duration_s", meta.get("duration_s"))
         if dur is not None:
             ep["duration_seconds"] = int(round(float(dur)))
@@ -634,7 +645,7 @@ def switcher(path: str) -> str:
                          f'<span class="lang-menu__name">{lab}</span>'
                          f'<span class="lang-menu__code">{l.upper()}</span>{_CHECK_SVG}</span>')
         else:
-            items.append(f'<a class="lang-menu__item" href="{href}" hreflang="{l}" lang="{l}">'
+            items.append(f'<a class="lang-menu__item" href="{href}" hreflang="{l}" lang="{l}" data-lang-option="{l}">'
                          f'<span class="lang-menu__name">{lab}</span>'
                          f'<span class="lang-menu__code">{l.upper()}</span></a>')
     return (f'<details class="lang-menu" data-menu>'

@@ -121,8 +121,8 @@ def test_lang_menu_dropdown(built, monkeypatch):
         assert '<span class="lang-menu__cur">EN</span>' in en
         assert '<span class="lang-menu__cur">RU</span>' in ru
         assert '<span class="lang-menu__item is-active" lang="en" aria-current="true"><span class="lang-menu__name">English</span><span class="lang-menu__code">EN</span>' in en
-        assert f'<a class="lang-menu__item" href="/{LANG}{path}" hreflang="{LANG}" lang="{LANG}"><span class="lang-menu__name">Русский</span><span class="lang-menu__code">RU</span></a>' in en
-        assert f'<a class="lang-menu__item" href="{path}" hreflang="en" lang="en"><span class="lang-menu__name">English</span><span class="lang-menu__code">EN</span></a>' in ru
+        assert f'<a class="lang-menu__item" href="/{LANG}{path}" hreflang="{LANG}" lang="{LANG}" data-lang-option="{LANG}"><span class="lang-menu__name">Русский</span><span class="lang-menu__code">RU</span></a>' in en
+        assert f'<a class="lang-menu__item" href="{path}" hreflang="en" lang="en" data-lang-option="en"><span class="lang-menu__name">English</span><span class="lang-menu__code">EN</span></a>' in ru
         assert '<span class="lang-menu__item is-active" lang="ru" aria-current="true"><span class="lang-menu__name">Русский</span><span class="lang-menu__code">RU</span>' in ru
     # Verify menu scales cleanly as additional languages are added
     monkeypatch.setattr(I, "LANGS", ("ru", "es"))
@@ -158,10 +158,13 @@ def test_ru_audio_and_feed(built):
     for s in cached_slugs():
         stem = Path(eps[s]["transcript_path"]).stem
         expected_ru_url = I.ep_meta(LANG, s).get("ru_audio_url") or f"https://audio.askevepodcast.com/audio/ru/{stem}.v1.mp3"
-        en_urls = re.findall(r'https://audio\.askevepodcast\.com/[^"\s]+', (out / f"episodes/{s}/index.html").read_text())
-        ru_urls = re.findall(r'https://audio\.askevepodcast\.com/[^"\s]+', (out / f"{LANG}/episodes/{s}/index.html").read_text())
+        en_html = (out / f"episodes/{s}/index.html").read_text()
+        ru_html = (out / f"{LANG}/episodes/{s}/index.html").read_text()
+        en_urls = re.findall(r'https://audio\.askevepodcast\.com/[^"\s]+', en_html)
         assert en_urls and all("/audio/ru/" not in u for u in en_urls)
-        assert ru_urls and set(ru_urls) == {expected_ru_url}
+        assert f'src="{expected_ru_url}"' in ru_html
+        assert f'data-fallback-src="{eps[s]["audio_url"]}"' in ru_html
+        assert 'data-lang-audio="ru"' in ru_html
         assert f'<enclosure url="{expected_ru_url}"' in ru_feed
 
 
