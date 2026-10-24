@@ -97,7 +97,7 @@ Status in the table below is maintained by David's side; your log entry is the r
 6. **Verify fail-closed security & routing:**
    ```bash
    curl -sI https://askevepodcast.com/admin/api/queue | head -n 5
-   curl -sI -H "Accept: text/html" https://askevepodcast.com/admin/ | head -n 5
+   curl -sS -D - -o /dev/null -H "Accept: text/html" https://askevepodcast.com/admin/ | head -n 5
    ```
    Expect:
    - `/admin/api/queue` returns `HTTP/2 503` JSON (`{"error":"unauthorized","detail":"Cloudflare Access env vars ... not configured (fail-closed)"}`) when Access is not yet enabled, or `302`/`401` when Access is enabled.
@@ -222,7 +222,12 @@ Status in the table below is maintained by David's side; your log entry is the r
    git config --global user.email "452472+daveey@users.noreply.github.com"
    git -C <each clone> config user.email "452472+daveey@users.noreply.github.com"   # only if the clone sets its own
    ```
-   Do not merge PRs with `gh pr merge` (GitHub's web `--rebase`, `--squash`, and `--merge` all record the account's primary email as the committer, or fail with GraphQL `Invalid email address`). Instead, merge locally in a clone with `user.email=452472+daveey@users.noreply.github.com` set: `git fetch origin <branch> && git checkout main && git merge --no-ff origin/<branch> && git push origin main`.
+   **Safety rule 5 still applies: never push to `main`, including a locally created merge commit.**
+   Push only `deploy/<task-id>` and open a PR. Verify both author and committer identities, not just `%ae`.
+   GitHub rebase merging has previously replaced a noreply committer with the account's primary email;
+   `--author-email` does not establish a safe committer identity. Do not use rebase as a privacy workaround.
+   Merge through the PR only after a privacy-safe GitHub merge identity is verified. Until then leave the PR open
+   for review; do not work around the identity issue with a direct main push or a history rewrite.
 2. Expect: `git config user.email` prints the noreply address in each clone, and `git log -1 --format=%ae` on your next commit shows it.
    Report the hostnames you fixed as "box" / "Hermes" only (no tailnet or host FQDNs).
 
@@ -581,6 +586,15 @@ Rollback is for David (or for you only when a task in *Current instructions* say
 ## Answers from Hermes
 - **D-011 is done.** The cover was uploaded on 2026-10-23T21:07Z (deploy-log entry, PR #18). https://audio.askevepodcast.com/art/cover-3000.v1.jpg
   returns 200 image/jpeg (331005 bytes), and the feed's `<itunes:image>` points to it. The table row can move to `done (deploy-log)`.
-- **`gh pr merge --author-email 452472+daveey@users.noreply.github.com` fails** with `GraphQL: Invalid email address (mergePullRequest)`.
-  It failed with --squash on PR #32. The user id 452472 is correct (`gh api users/daveey --jq .id`). Hermes merges with `gh pr merge --rebase`, which keeps each commit's noreply author and makes no merge commit. A squash or merge
-  commit without `--author-email` would use the account's primary email, so the guide's D-012 step should say `--rebase`.
+- **D-012 correction (supersedes the prior rebase advice; see PR #39):** rebase merging preserves author identity
+  but can expose the account's primary address as committer. A local merge followed by a main push violates safety
+  rule 5. Use a PR-only handoff until a privacy-safe merge identity is verified. No direct main push was performed.
+- **D-016 is independent of D-017:** inbox delivery/storage are deployed while `/admin/` serves an HTML 503 gate
+  and `/admin/api/queue` returns JSON 503. Missing Access credentials must never open the console or block reception.
+- **Forwarding reliability:** legitimate mail is forwarded before storage/AI work, and forwarding failures propagate
+  to Email Routing instead of being silently accepted. Spam filtering stays ahead of forwarding. Tests cover storage
+  failure and operation without Access. Generated replies and X posts still require explicit approval.
+- **Remaining configuration:** Access is not enabled (API error 9999 confirmed using a narrowly scoped temporary
+  token, then revoked); D-017 and X credentials remain separate. X mention polling is disabled until credentials are
+  configured. The Worker account subdomain was initialized for Cloudflare trigger API compatibility, but Worker
+  workers.dev and preview URLs remain disabled.

@@ -15,13 +15,15 @@ name = "ask-eve-inbox"
 main = "src/index.mjs"
 compatibility_date = "2026-10-01"
 workers_dev = false
+preview_urls = false
 
 routes = [
   { pattern = "askevepodcast.com/admin*", zone_name = "askevepodcast.com" }
 ]
 
 [triggers]
-crons = ["*/10 * * * *"]
+# Enable mention sync after X credentials are configured.
+crons = []
 
 [vars]
 MASTERS_BUCKET = "ask-eve-masters"

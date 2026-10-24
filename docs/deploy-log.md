@@ -316,3 +316,62 @@ Also done: episode 0 (PR #4) was merged by David, and publish.yml was dispatched
 - resource ids and URLs:
   - publish.yml ep 0: https://github.com/daveey/ask-eve/actions/runs/40051672472 -> site.yml https://github.com/daveey/ask-eve/actions/runs/40051700807
   - publish.yml ep 1: https://github.com/daveey/ask-eve/actions/runs/40051748685 -> site.yml https://github.com/daveey/ask-eve/actions/runs/40051763858
+
+
+### D-016 deployed and verified — 2026-10-24 00:07 PDT (t_3864bf32)
+- Fresh clone on Hermes from rewritten history; fetched main `21c2e0a` before the final deploy. No old-history push.
+- Commands: `npm test` in `workers/eve-inbox` (8 passed); `npx wrangler@4 deploy --config workers/eve-inbox/wrangler.toml`
+  with the live D1 id substituted only for deployment and the placeholder restored afterward; Cloudflare API secret PUTs,
+  rule PUT/POSTs, then exact resource readbacks. Secrets supplied in-process by token-broker, never written to repository files.
+- The latest source's forwarding occurred after storage/AI and swallowed delivery errors. Minimal correction: legitimate-mail
+  forwarding precedes R2/D1/AI; failures propagate. Spam filtering still precedes forwarding. Tests cover storage failure,
+  forwarding failure, missing destination, Access-free receipt, and existing approval/leak-check gates.
+- `ask-eve-inbox` deployed; current version after secret updates: `68a356fb-2c29-4f54-8e76-93d078afa70a`.
+  Bound `DB` to `ask-eve-meta`, `MASTERS` to private `ask-eve-masters`, and `SEND_EMAIL`.
+  Route `askevepodcast.com/admin*`, id `64d15eaaf635415aab5e0bf634d6d919`, fail-open false.
+- Core secret names read back: `ADMIN_EMAIL`, `PRIVATE_LEAK_TERMS`, `XAI_API_KEY`.
+  Destination matches the existing verified podcast forwarding destination. Private leak terms include destination,
+  private domain and handle; no street/property terms were available in this task's private configuration.
+- D1 tables verified: `inbox_items`, `draft_replies`, `reading_list`, `x_auth_tokens`, `x_drafts`, `x_oauth_states`.
+  Migration was already applied; no duplicate schema changes were made.
+- Email Routing readbacks: `reading@askevepodcast.com` -> Worker, rule `54def1ea2665479980c790fb5ece6b41`;
+  `eve@askevepodcast.com` -> Worker, rule `b31a4477379645a9b0095abc60148696`.
+  Podcast rule `c739855ebd614323b7beb498e477c471` compared equal before/after every routing write and remains direct forwarding.
+- Canary sequencing: kept eve direct forwarding until reading delivery AND storage were verified. First reading test bounced
+  with SMTP 550 immediately after rule creation; after propagation, subsequent tests arrived in Gmail with Cloudflare headers.
+  Reading receipt id `1a16ca9990783eea`; verified D1/R2 records `inq_01M5PAK2SQM57AY8CS96T6FZ6D` and
+  `inq_01M5PAMFR5RAW4KFTEZFHK8MG8` (raw archives retrieved and test subject matched, 7190 and 7169 bytes).
+  Both draft replies are `blocked_by_leak_check`; no reply was sent and nothing was published.
+- Eve delivery receipts after cutover: `1a16caaa626d5756` and verification-subject test `1a16cac649a12525`,
+  both in the destination Inbox with Cloudflare forwarding evidence.
+- Follow-up real verification-email test exposed D1 CHECK failure: new source emitted `queued_untriaged`, absent from
+  migration 0002's status enum. Corrected no-LLM status and budget query to schema-supported `queued`; test DB now
+  enforces the production enum. Re-ran all 8 tests successfully and redeployed.
+- Final Worker version after secrets: `c1d341d3-5000-45e4-bcd4-52609db94c07`; final admin route id
+  `433ca3aa90dc4fff94c76f88c1343b22`. Real eve verification canary persisted as
+  `inq_01M5PBNVSVBWYJN1YPYWX64DYE` in D1 with a leak-blocked draft; its 7190-byte raw R2 archive was retrieved
+  and subject matched. Destination Gmail receipt `1a16cbb1142b8e34` was verified with Cloudflare forwarding headers.
+  Subsequent tail reported outcome `ok`, no exceptions. Both aliases now have real delivery AND storage evidence.
+- Retained existing per-sender limit (3 items/day): additional mail is forwarded but not stored after the limit.
+  Verification-subject tests exercise the bypass-LLM path; no actual X signup code was requested or exposed.
+- Live unauthenticated GET checks: `/admin/api/queue` -> 503 `application/json`; `/admin/` with `Accept: text/html`
+  -> 503 `text/html`. No protected queue is exposed. The guide's HTML probe now uses GET, not HEAD, matching the handler.
+- Initial deploy hit Cloudflare error 10063 (Workers account subdomain not initialized). Initialized account subdomain
+  `askevepodcast`, then deployed successfully. Worker `workers_dev=false` and `preview_urls=false` remain enforced.
+  X cron is intentionally empty until X credentials are configured; no public X posting was attempted.
+- Prior-task audit: D-001 through D-013 already recorded; D-014/D-015 are done in current guide with evidence PRs #41/#47.
+  Did not rerun publishing or overwrite audio. Prior D-016 attempt #46 applied the migration but did not deploy the Worker.
+
+### D-017 deferred, non-blocking — 2026-10-24 00:07 PDT
+- The ordinary token returns 403/10000 for Access org lookup. A separately minted account-scoped token with Access org/IdP
+  Read and Apps/Policies Read confirmed 403/9999 `access.api.error.not_enabled` on organizations, apps and identity providers.
+  Temporary token revoked afterward. Access app id, team domain and AUD therefore do not exist for this deployment.
+- Kept Access secrets unset and admin fail-closed. Google Access setup and X credentials are separate remaining work;
+  neither is required for forwarding/storage. No invented credentials and no public posting.
+
+### D-012 PR-only clarification — 2026-10-24 00:07 PDT
+- Both author and committer in this branch use `452472+daveey@users.noreply.github.com`.
+- Corrected the guide conflict: a local merge followed by `git push origin main` violates safety rule 5.
+  Prior rebase advice in Answers from Hermes was false for committer privacy (documented by PR #39).
+  No main push or GitHub rebase merge was performed. This branch remains a PR for privacy-safe review/merge;
+  do not repeat a known primary-email leak merely to close the deployment task.

@@ -150,6 +150,8 @@ function createMockEnv(accessFixture, overrides = {}) {
               status,
               inbound_message_id,
             ] = bound;
+            // Mirror migration 0002's CHECK so mocks cannot accept invalid states.
+            assert.ok(["queued", "processing", "ready", "published_to_reading_list", "archived", "rejected"].includes(status), "invalid inbox status");
             inboxItems.set(id, {
               id,
               channel: "email",
@@ -439,10 +441,10 @@ function createMockEnv(accessFixture, overrides = {}) {
             ).length;
             return { cnt };
           }
-          if (norm.startsWith("SELECT COUNT(*) AS cnt FROM inbox_items WHERE received_at >= ?1 AND status != 'queued_untriaged'")) {
+          if (norm.startsWith("SELECT COUNT(*) AS cnt FROM inbox_items WHERE received_at >= ?1 AND status != 'queued'")) {
             const [since] = bound;
             const cnt = Array.from(inboxItems.values()).filter(
-              (it) => it.received_at >= since && it.status !== "queued_untriaged"
+              (it) => it.received_at >= since && it.status !== "queued"
             ).length;
             return { cnt };
           }
@@ -637,6 +639,7 @@ test("inbound email handler queues item, creates leak-checked draft reply, and n
     {
       from: "clara@philosophy.org",
       to: "eve@askevepodcast.com",
+      forward: async (to) => assert.equal(to, env.ADMIN_EMAIL),
       raw: rawMime,
     },
     env,
@@ -702,6 +705,7 @@ test("send endpoint enforces hard leak-check + sha256 gate and sends only after 
     {
       from: "listener@example.org",
       to: "eve@askevepodcast.com",
+      forward: async (to) => assert.equal(to, env.ADMIN_EMAIL),
       raw: [
         "From: Listener <listener@example.org>",
         "To: eve@askevepodcast.com",
@@ -1019,6 +1023,7 @@ test("inbound email forwards to ADMIN_EMAIL (including X verification codes) and
     {
       from: "verify@x.com",
       to: "eve@askevepodcast.com",
+      forward: async (to) => assert.equal(to, env.ADMIN_EMAIL),
       raw: [
         "From: X <verify@x.com>",
         "To: eve@askevepodcast.com",
@@ -1034,7 +1039,7 @@ test("inbound email forwards to ADMIN_EMAIL (including X verification codes) and
     env,
     {}
   );
-  assert.equal(xVerifyRes.itemStatus, "queued_untriaged");
+  assert.equal(xVerifyRes.itemStatus, "queued");
   assert.deepEqual(forwardedTo, [access.adminEmail]);
   assert.equal(env.DB.inboxItems.size, 1);
 
@@ -1043,6 +1048,7 @@ test("inbound email forwards to ADMIN_EMAIL (including X verification codes) and
     {
       from: "mailer-daemon@mx.example.com",
       to: "eve@askevepodcast.com",
+      forward: async (to) => assert.equal(to, env.ADMIN_EMAIL),
       raw: [
         "From: Mail Delivery Subsystem <mailer-daemon@mx.example.com>",
         "To: eve@askevepodcast.com",
@@ -1063,6 +1069,7 @@ test("inbound email forwards to ADMIN_EMAIL (including X verification codes) and
     {
       from: "spoof@attacker.org",
       to: "eve@askevepodcast.com",
+      forward: async (to) => assert.equal(to, env.ADMIN_EMAIL),
       raw: [
         "From: Spoof <spoof@attacker.org>",
         "To: eve@askevepodcast.com",
@@ -1084,7 +1091,8 @@ test("inbound email forwards to ADMIN_EMAIL (including X verification codes) and
       {
         from: "repeat@reader.org",
         to: "eve@askevepodcast.com",
-        raw: `From: repeat@reader.org\r\nTo: eve@askevepodcast.com\r\nSubject: Note ${i}\r\n\r\nHello ${i}`,
+        forward: async (to) => assert.equal(to, env.ADMIN_EMAIL),
+      raw: `From: repeat@reader.org\r\nTo: eve@askevepodcast.com\r\nSubject: Note ${i}\r\n\r\nHello ${i}`,
       },
       env,
       {}
@@ -1095,6 +1103,7 @@ test("inbound email forwards to ADMIN_EMAIL (including X verification codes) and
     {
       from: "repeat@reader.org",
       to: "eve@askevepodcast.com",
+      forward: async (to) => assert.equal(to, env.ADMIN_EMAIL),
       raw: "From: repeat@reader.org\r\nTo: eve@askevepodcast.com\r\nSubject: Note 4\r\n\r\nHello 4",
     },
     env,
@@ -1146,4 +1155,36 @@ test("inbound email forwards to ADMIN_EMAIL (including X verification codes) and
     {}
   );
   assert.equal(csrfResp.status, 403);
+});
+
+// Inbox reception must not depend on Access being provisioned.
+test("forwarding precedes storage and succeeds without Access configuration", async () => {
+  const access = await createAccessFixture();
+  const env = createMockEnv(access, { CF_ACCESS_AUD: "", CF_ACCESS_TEAM_DOMAIN: "" });
+  const order = [];
+  const put = env.MASTERS.put.bind(env.MASTERS);
+  env.MASTERS.put = async (...args) => { order.push("store"); return put(...args); };
+  await worker.email({ from: "reader@example.org", to: "reading@askevepodcast.com",
+    raw: "From: reader@example.org\r\nTo: reading@askevepodcast.com\r\nSubject: Delivery test\r\n\r\nA note.",
+    forward: async to => { assert.equal(to, env.ADMIN_EMAIL); order.push("forward"); },
+  }, env, {});
+  assert.equal(order[0], "forward");
+  assert.equal(env.DB.inboxItems.size, 1);
+  assert.equal(env.DB.draftReplies.size, 1);
+  assert.equal(env.SEND_EMAIL.sent.length, 0);
+  for (const path of ["/admin/", "/admin/api/queue", "/admin/x/oauth/start"]) {
+    const response = await worker.fetch(new Request(`https://askevepodcast.com${path}`), env, {});
+    assert.equal(response.status, 503);
+  }
+});
+
+test("storage failure cannot prevent forwarding; forwarding failure is not swallowed", async () => {
+  let forwarded = 0;
+  const env = { ADMIN_EMAIL: "owner@example.org", MASTERS: { put: async () => { throw new Error("storage offline"); } } };
+  const message = { from: "reader@example.org", to: "eve@askevepodcast.com",
+    raw: "Subject: Test\r\n\r\nHello", forward: async () => { forwarded++; } };
+  await assert.rejects(worker.email(message, env, {}), /storage offline/);
+  assert.equal(forwarded, 1);
+  await assert.rejects(worker.email({ ...message, forward: async () => { throw new Error("forward failed"); } }, env, {}), /forward failed/);
+  await assert.rejects(worker.email(message, {}, {}), /forwarding is not configured/);
 });

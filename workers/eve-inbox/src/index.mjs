@@ -190,7 +190,7 @@ export async function checkRateLimitsAndBudget(senderAddr, env) {
       return { allowed: true, allowLlm: false, reason: "lazy_llm_triage" };
     }
     const llmRow = await env.DB.prepare(
-      `SELECT COUNT(*) AS cnt FROM inbox_items WHERE received_at >= ?1 AND status != 'queued_untriaged'`
+      `SELECT COUNT(*) AS cnt FROM inbox_items WHERE received_at >= ?1 AND status != 'queued'`
     )
       .bind(sinceIso)
       .first();
@@ -206,13 +206,9 @@ export async function checkRateLimitsAndBudget(senderAddr, env) {
 
 async function forwardToAdmin(message, env) {
   const dest = String(env?.ADMIN_EMAIL || env?.ADMIN_ALLOWED_EMAIL || "").trim();
-  if (dest && typeof message?.forward === "function") {
-    try {
-      await message.forward(dest);
-    } catch (err) {
-      console.error("message.forward failed:", err?.message || err);
-    }
-  }
+  if (!dest) throw new Error("inbox forwarding is not configured");
+  // Let Email Routing report/retry delivery failures instead of silently losing mail.
+  await message.forward(dest);
 }
 
 function verifyCsrfOrigin(request) {
@@ -720,6 +716,9 @@ export default {
       };
     }
 
+    // Forward before storage/triage so downstream failures cannot block delivery.
+    await forwardToAdmin(message, env);
+
     const rawR2Key = `inbox/${itemId}/raw.eml`;
     if (env?.MASTERS && typeof env.MASTERS.put === "function") {
       await env.MASTERS.put(rawR2Key, parsed.rawBytes, {
@@ -764,7 +763,7 @@ export default {
 
     const triageEnv = runLlmTriage ? env : { ...env, XAI_API_KEY: "" };
     const triage = await triageAndDraftWithGrok(parsed, linkedArticleText, triageEnv);
-    const itemStatus = runLlmTriage ? "ready" : "queued_untriaged";
+    const itemStatus = runLlmTriage ? "ready" : "queued";
 
     const leakResult = await leakCheck(
       {
@@ -826,16 +825,6 @@ export default {
         draftStatus
       )
       .run();
-
-    // Forward every legitimate inbound email (including @askevepodcast X verification codes!)
-    // to David's verified destination inbox (env.ADMIN_EMAIL).
-    if (env.ADMIN_EMAIL && typeof message.forward === "function") {
-      try {
-        await message.forward(String(env.ADMIN_EMAIL).trim());
-      } catch (err) {
-        console.error("message.forward failed:", err?.message || err);
-      }
-    }
 
     return { itemId, draftId, itemStatus, draftStatus, leakResult };
   },
