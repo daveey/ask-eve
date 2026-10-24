@@ -60,8 +60,14 @@ def make_chapters(md: str, timeline: dict, min_gap: float = 120.0) -> list[dict]
             tr = tmap[x["i"]]
             clock = (tr.created_at or "")[11:16]
             words = " ".join(re.sub(r"[\[\]()*_`#>]", "", tr.text).split()[:7])
+            nar_id = (timeline.get("narrator") or "").lower()
+            nar_label = (
+                "AI-reconstructed, David voice clone"
+                if ("elevenlabs" in nar_id or "clone" in nar_id or "oiymwdezgksov3gvsajb" in nar_id)
+                else "AI-reconstructed, narrator voice"
+            )
             title = (f"Transcript gap {clock}: Eve's reply not recovered (not voiced)" if src == "gap" else
-                     f"{clock} David ({'his recorded voice' if src == 'real' else 'AI-reconstructed, narrator voice'}): {words}")
+                     f"{clock} David ({'his recorded voice' if src == 'real' else nar_label}): {words}")
             st = round(float(x["edited_start"]), 3)
             if st <= chapters[-1]["startTime"]:
                 st = round(chapters[-1]["startTime"] + 0.001, 3)
@@ -95,13 +101,13 @@ def ffmetadata(title: str, chapters: list[dict], duration: float) -> str:
 
 
 def produce(mix: Path, transcript: Path, timeline: dict, out_dir: Path, version: int = 1, mono: bool = False,
-            min_chapter_gap: float = 120.0) -> dict:
+            min_chapter_gap: float = 120.0, lang: str = "en", chapters_override: list[dict] | None = None) -> dict:
     out_dir.mkdir(parents=True, exist_ok=True)
     md = transcript.read_text(encoding="utf-8")
     stem = transcript.stem
     fm = front_matter(md)
     dur_in = float(json.loads(run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "json", str(mix)]).stdout)["format"]["duration"])
-    chapters = make_chapters(md, timeline, min_chapter_gap)
+    chapters = chapters_override if chapters_override is not None else make_chapters(md, timeline, min_chapter_gap)
     I = -19.0 if mono else TARGET["I"]
     meas = measure_loudnorm(mix)
     silent = meas["input_i"] in ("-inf", "-70.00") or float(meas["input_i"]) < -69
@@ -126,8 +132,8 @@ def produce(mix: Path, transcript: Path, timeline: dict, out_dir: Path, version:
     (out_dir / "chapters.json").write_text(json.dumps(chapters_json, indent=1) + "\n")
     method = timeline.get("recording_method", "mic-plus-tts")
     manifest = {
-        "stem": stem, "version": version, "audio_key": f"audio/en/{stem}.v{version}.mp3",
-        "audio_url": f"https://audio.askevepodcast.com/audio/en/{stem}.v{version}.mp3",
+        "stem": stem, "version": version, "audio_key": f"audio/{lang}/{stem}.v{version}.mp3",
+        "audio_url": f"https://audio.askevepodcast.com/audio/{lang}/{stem}.v{version}.mp3",
         "audio_bytes": int(probe["format"]["size"]), "audio_sha256": data_sha.hexdigest(), "audio_mime": "audio/mpeg",
         "duration_seconds": round(float(probe["format"]["duration"])), "loudness_lufs": loud["integrated_lufs"],
         "true_peak_dbfs": loud["true_peak_dbfs"], "id3_chapters": len(probe.get("chapters", [])), "chapters": chapters,
@@ -150,8 +156,9 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--version", type=int, default=1)
     ap.add_argument("--mono", action="store_true")
     ap.add_argument("--min-chapter-gap", type=float, default=120.0)
+    ap.add_argument("--lang", default="en")
     a = ap.parse_args(argv)
-    m = produce(a.mix, a.transcript, json.loads(a.timeline.read_text()), a.out, a.version, a.mono, a.min_chapter_gap)
+    m = produce(a.mix, a.transcript, json.loads(a.timeline.read_text()), a.out, a.version, a.mono, a.min_chapter_gap, lang=a.lang)
     print(json.dumps({k: m[k] for k in ("audio_key", "audio_bytes", "duration_seconds", "loudness_lufs", "id3_chapters", "placeholder_audio")}))
     return 0
 

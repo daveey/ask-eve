@@ -329,7 +329,9 @@ def scrub(text: str) -> str:
 
 def write_cache(lang: str, name: str, items: list[tuple[str, str]], new: dict[str, str]) -> int:
     path = I.CACHE_DIR / lang / f"{name}.json"
-    old = json.loads(path.read_text()).get("strings", {}) if path.exists() else {}
+    raw = json.loads(path.read_text()) if path.exists() else {}
+    old = raw.get("strings", {})
+    extra = {k: v for k, v in raw.items() if k not in {"_doc", "lang", "source_lang", "model", "temperature", "strings"}}
     strings = {}
     for kind, en in items:
         k = I.key(en)
@@ -340,7 +342,7 @@ def write_cache(lang: str, name: str, items: list[tuple[str, str]], new: dict[st
     path.parent.mkdir(parents=True, exist_ok=True)
     doc = {"_doc": f"Machine translation cache ({LANG_NAMES[lang]}) written by scripts/translate.py; key = sha256(en)[:16]. "
                    "Hand edits to `tr` are kept as long as `en` is unchanged.",
-           "lang": lang, "source_lang": "en", "model": MODEL, "temperature": 0, "strings": strings}
+           "lang": lang, "source_lang": "en", "model": MODEL, "temperature": 0, **extra, "strings": strings}
     path.write_text(json.dumps(doc, ensure_ascii=False, indent=1) + "\n")
     return len(strings)
 

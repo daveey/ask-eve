@@ -59,7 +59,8 @@ class XAITTS:
             raise ValueError("XAI_API_KEY is empty")
         self.api_key, self.voice_id, self.language, self.speed = api_key, voice_id, language, speed
         self.url, self.retries, self.timeout = url, retries, timeout
-        self.name = f"xai_tts voice={voice_id}"
+        self.name = f"xai_tts voice={voice_id}" + (f" lang={language}" if language and language != "en" else "")
+        self.max_chars = TTS_MAX_CHARS
 
     def payload(self, text: str) -> dict:
         p = {"text": text, "voice_id": self.voice_id, "language": self.language,
@@ -87,15 +88,84 @@ class XAITTS:
         raise RuntimeError("unreachable")
 
 
+ELEVENLABS_TTS_URL = "https://api.elevenlabs.io/v1/text-to-speech"
+ELEVENLABS_MAX_CHARS = 10000   # ElevenLabs v4 limit: 10,000 characters per request
+DEFAULT_DAVID_VOICE_ID = "oIYMwdEzgKSOV3gVsAjB"
+DEFAULT_ELEVENLABS_MODEL = "eleven_v4"
+DEFAULT_ELEVENLABS_OUTPUT_FORMAT = "mp3_44100_192"
+
 DEFAULT_EVE_VOICE = "eve"      # xAI built-in: "Energetic and upbeat, British accent" (docs.x.ai voices table, 2026-10-23)
-DEFAULT_NARRATOR_VOICE = "rex" # xAI built-in: "Confident and clear"; a different speaker from Eve, for David's lines
+DEFAULT_NARRATOR_VOICE = "rex" # xAI built-in: "Confident and clear"; fallback when ELEVENLABS_API_KEY is unset
 DISCLAIMER = "Voices in this episode are AI-reconstructed from the text transcript."
 HYBRID_DISCLAIMER = ("Eve's voice, and David's lines wherever his recording is missing, are AI-reconstructed "
                      "from the text transcript. David's real voice is used only where his recording matches the transcript.")
 HYBRID_DISCLOSURE = ("AI-reconstructed audio: Eve's lines are xAI text-to-speech ('eve' voice) from the verbatim chat transcript; "
                      "David's lines are his own recorded voice only where the recording matches the transcript, and an AI narrator "
                      "voice ('rex') everywhere else. Transcript gaps are marked, not invented.")
+CLONE_DISCLOSURE = ("AI-reconstructed audio: the voices in this episode were generated from the verbatim text transcript "
+                    "(Eve with xAI text-to-speech in the 'eve' voice, David's lines with his ElevenLabs AI voice clone). "
+                    "No original audio was used.")
+CLONE_HYBRID_DISCLOSURE = ("AI-reconstructed audio: Eve's lines are xAI text-to-speech ('eve' voice) from the verbatim chat transcript; "
+                           "David's lines are his own recorded voice only where the recording matches the transcript, and his "
+                           "ElevenLabs AI voice clone everywhere else. Transcript gaps are marked, not invented.")
 GAP_RE = re.compile(r"^\[transcript gap\b", re.I)   # marker turns: never voiced
+
+
+def is_david_clone(narrator: str | None) -> bool:
+    s = (narrator or "").lower()
+    return "elevenlabs" in s or "clone" in s or DEFAULT_DAVID_VOICE_ID.lower() in s
+
+
+class ElevenLabsTTS:
+    """ElevenLabs TTS REST client for David's Instant Voice Clone (`eleven_v4`)."""
+
+    placeholder = False
+    max_chars = ELEVENLABS_MAX_CHARS
+
+    def __init__(self, api_key: str, voice_id: str = DEFAULT_DAVID_VOICE_ID, model_id: str = DEFAULT_ELEVENLABS_MODEL,
+                 output_format: str = DEFAULT_ELEVENLABS_OUTPUT_FORMAT, stability: float = 0.5,
+                 similarity_boost: float = 0.85, style: float = 0.0, use_speaker_boost: bool = True,
+                 language_code: str | None = None, url: str = ELEVENLABS_TTS_URL, retries: int = 5, timeout: float = 180):
+        if not api_key:
+            raise ValueError("ELEVENLABS_API_KEY is empty")
+        self.api_key, self.voice_id, self.model_id, self.output_format = api_key, voice_id, model_id, output_format
+        self.voice_settings = {
+            "stability": stability,
+            "similarity_boost": similarity_boost,
+            "style": style,
+            "use_speaker_boost": use_speaker_boost,
+        }
+        self.language_code = language_code if language_code and language_code != "en" else None
+        self.url, self.retries, self.timeout = url.rstrip("/"), retries, timeout
+        lang_tag = f" lang={self.language_code}" if self.language_code else ""
+        self.name = f"elevenlabs_tts voice={voice_id} model={model_id}{lang_tag}"
+
+    def endpoint(self) -> str:
+        return f"{self.url}/{self.voice_id}?output_format={self.output_format}"
+
+    def payload(self, text: str) -> dict:
+        p: dict = {"text": text, "model_id": self.model_id, "voice_settings": dict(self.voice_settings)}
+        if self.language_code:
+            p["language_code"] = self.language_code
+        return p
+
+    def synthesize(self, text: str) -> tuple[bytes, str]:
+        body = json.dumps(self.payload(text)).encode()
+        delay = 2.0
+        for attempt in range(self.retries + 1):
+            req = urllib.request.Request(self.endpoint(), data=body, method="POST", headers={
+                "xi-api-key": self.api_key, "Content-Type": "application/json", "Accept": "audio/mpeg"})
+            try:
+                with urllib.request.urlopen(req, timeout=self.timeout) as r:  # noqa: S310 (fixed https host)
+                    return r.read(), "mp3"
+            except urllib.error.HTTPError as e:
+                if e.code in (408, 429, 500, 502, 503, 504) and attempt < self.retries:
+                    time.sleep(delay)
+                    delay *= 2
+                    continue
+                detail = e.read()[:300].decode("utf-8", "replace")
+                raise RuntimeError(f"ElevenLabs TTS HTTP {e.code}: {detail}") from None
+        raise RuntimeError("unreachable")
 
 
 class SilentTTS:
@@ -135,15 +205,34 @@ class PiperTTS:
             return out.read_bytes(), "wav"
 
 
-def make_client(role: str, backend: str | None = None):
-    """role 'eve' or 'narrator'. backend: 'xai' | 'piper' | 'silent' | None (auto: xai if XAI_API_KEY else TTS_BACKEND or silent).
-    Voices: EVE_VOICE (default 'eve'), NARRATOR_VOICE (default 'rex')."""
+def make_client(role: str, backend: str | None = None, language: str = "en"):
+    """role 'eve' or 'narrator'. backend: 'xai' | 'elevenlabs' | 'piper' | 'silent' | None.
+    For narrator (David), defaults to ElevenLabsTTS (`oIYMwdEzgKSOV3gVsAjB`, `eleven_v4`) when
+    ELEVENLABS_API_KEY is set, falling back to xAI `rex` only when ELEVENLABS_API_KEY is unset."""
     voice = os.environ.get("EVE_VOICE", DEFAULT_EVE_VOICE) if role == "eve" else os.environ.get("NARRATOR_VOICE", DEFAULT_NARRATOR_VOICE)
     if role == "narrator" and voice.lower() == os.environ.get("EVE_VOICE", DEFAULT_EVE_VOICE).lower():
         raise ValueError("NARRATOR_VOICE must differ from EVE_VOICE")
+    if role == "narrator":
+        el_key = os.environ.get("ELEVENLABS_API_KEY", "").strip()
+        if backend == "elevenlabs":
+            return ElevenLabsTTS(
+                el_key,
+                voice_id=os.environ.get("DAVID_VOICE_ID", DEFAULT_DAVID_VOICE_ID),
+                model_id=os.environ.get("ELEVENLABS_MODEL", DEFAULT_ELEVENLABS_MODEL),
+                language_code=language if language != "en" else None,
+            )
+        if backend is None and el_key:
+            return ElevenLabsTTS(
+                el_key,
+                voice_id=os.environ.get("DAVID_VOICE_ID", DEFAULT_DAVID_VOICE_ID),
+                model_id=os.environ.get("ELEVENLABS_MODEL", DEFAULT_ELEVENLABS_MODEL),
+                language_code=language if language != "en" else None,
+            )
+    if backend == "elevenlabs" and role == "eve":
+        backend = "xai" if os.environ.get("XAI_API_KEY") else os.environ.get("TTS_BACKEND", "silent")
     backend = backend or ("xai" if os.environ.get("XAI_API_KEY") else os.environ.get("TTS_BACKEND", "silent"))
     if backend == "xai":
-        return XAITTS(os.environ.get("XAI_API_KEY", ""), voice_id=voice)
+        return XAITTS(os.environ.get("XAI_API_KEY", ""), voice_id=voice, language=language)
     if backend == "piper":
         model = os.environ["PIPER_EVE_MODEL" if role == "eve" else "PIPER_NARRATOR_MODEL"]
         return PiperTTS(voice, model, os.environ.get("PIPER_BIN", "piper"))
@@ -154,10 +243,30 @@ def make_client(role: str, backend: str | None = None):
 
 # ---------------------------------------------------------------- text
 
+REDACTION_SENTENCE_RE = re.compile(
+    r"(?:The Sacks Watcher is agent|Eve's ID is|Sacks Watcher\s*[—–-]\s*это агент|ID Евы\s*[—–-])\s*\[redacted agent ID\]\.?\s*",
+    re.I,
+)
+REDACTION_BRACKET_RE = re.compile(
+    r"\[(?:redacted[^\]]*|REDACTED[^\]]*|link [^\]]*removed|ссылка[^\]]*удалена|ключ[^\]]*скрыт|удалён[^\]]*)\]",
+    re.I,
+)
+
+
 def tts_text(text: str) -> str:
     t = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", text)      # markdown links -> text
+    t = REDACTION_SENTENCE_RE.sub(" ", t)
+    if REDACTION_BRACKET_RE.search(t):
+        t = re.sub(r"(?:\s+at|\s+is|\s*:\s*|\s+[—–-]\s+)\s*" + REDACTION_BRACKET_RE.pattern, "", t, flags=re.I)
+        t = REDACTION_BRACKET_RE.sub("", t)
     t = re.sub(r"[*_#`>]+", "", t)
-    return re.sub(r"\s+", " ", t).strip()
+    t = re.sub(r"\s+", " ", t).strip()
+    if not t and REDACTION_BRACKET_RE.search(text):
+        if re.search(r"ключ|API key", text, re.I):
+            return "ключ API скрыт" if re.search(r"[\u0400-\u04ff]", text) else "redacted API key"
+        if re.search(r"ссылка|link", text, re.I):
+            return "ссылка удалена" if re.search(r"[\u0400-\u04ff]", text) else "link removed"
+    return t
 
 
 def split_text(text: str, limit: int = TTS_MAX_CHARS) -> list[str]:
@@ -168,7 +277,9 @@ def split_text(text: str, limit: int = TTS_MAX_CHARS) -> list[str]:
         while len(sent) > limit:
             parts.append(sent[:limit]); sent = sent[limit:]
         if len(cur) + len(sent) + 1 > limit:
-            parts.append(cur); cur = sent
+            if cur:
+                parts.append(cur)
+            cur = sent
         else:
             cur = f"{cur} {sent}".strip()
     if cur:
@@ -203,21 +314,17 @@ def make_clip(client: TTSClient, text: str, cache: Path) -> Path:
     if final.exists():
         return final
     cache.mkdir(parents=True, exist_ok=True)
-    pieces = []
-    for k, chunk in enumerate(split_text(clean)):
-        data, ext = client.synthesize(chunk)
-        raw = cache / f"{key}.{k}.raw.{ext}"
+    limit = getattr(client, "max_chars", TTS_MAX_CHARS)
+    chunks = split_text(clean, limit=limit)
+    if len(chunks) == 1:
+        data, ext = client.synthesize(chunks[0])
+        raw = cache / f"{key}.0.raw.{ext}"
         raw.write_bytes(data)
-        norm = cache / f"{key}.{k}.wav"
-        to_wav48(raw, norm)
+        to_wav48(raw, final)
         raw.unlink()
-        pieces.append(norm)
-    if len(pieces) == 1:
-        pieces[0].rename(final)
-    else:
-        concat_wavs(pieces, final)
-        for p in pieces:
-            p.unlink()
+        return final
+    pieces = [make_clip(client, chunk, cache) for chunk in chunks]
+    concat_wavs(pieces, final)
     return final
 
 
@@ -492,8 +599,13 @@ def synthesize_episode(turns, eve: TTSClient, narrator: TTSClient, out_dir: Path
                 "david_narrator_seconds": dur([x for x in david_lines if x["source"] == "narrator"]),
                 "eve_seconds": dur([x for x in out_turns if x.get("source") == "eve-tts"]),
                 "gap_turns": sorted(gaps)}
+    default_disc = (
+        (CLONE_HYBRID_DISCLOSURE if hybrid else CLONE_DISCLOSURE)
+        if is_david_clone(narrator.name)
+        else (HYBRID_DISCLOSURE if hybrid else None)
+    )
     result = {"recording_method": "mic-plus-tts" if hybrid else "tts-reconstructed", "tts": eve.name,
-              "ai_reconstructed": True, "ai_disclosure": (ai_disclosure or HYBRID_DISCLOSURE) if hybrid else ai_disclosure, "mode": "hybrid" if hybrid else "synthetic",
+              "ai_reconstructed": True, "ai_disclosure": ai_disclosure or default_disc, "mode": "hybrid" if hybrid else "synthetic",
               "coverage": coverage,
               **({"alignment_method": "asr-fuzzy", "alignment_coverage": coverage["david_real_share"]} if hybrid else {}), "narrator": narrator.name, "placeholder_audio": placeholder,
               "placeholder_turns": sorted(failed) if not (getattr(eve, "placeholder", True) or getattr(narrator, "placeholder", True)) else "all",
@@ -514,7 +626,7 @@ def main(argv: list[str] | None = None, client: TTSClient | None = None, narrato
     ap.add_argument("--synthetic", action="store_true", help="tts-reconstructed: voice every turn (Eve + narrator), with disclaimer")
     ap.add_argument("--real-clips", type=Path, help="hybrid (with --synthetic): JSON {turn_index: {start, end, score}} of David turns "
                                                      "whose recording matches; cut from --audio; other David turns use the narrator")
-    ap.add_argument("--backend", choices=["xai", "piper", "silent"], help="default: xai if XAI_API_KEY is set, else $TTS_BACKEND or silent")
+    ap.add_argument("--backend", choices=["xai", "elevenlabs", "piper", "silent"], help="default: elevenlabs for narrator if ELEVENLABS_API_KEY is set, xai if XAI_API_KEY is set, else $TTS_BACKEND or silent")
     ap.add_argument("--workers", type=int, default=4, help="concurrent TTS requests")
     ap.add_argument("--cache", type=Path, default=Path("out/tts-cache"), help="clip cache (content-hash keyed)")
     ap.add_argument("--out", required=True, type=Path)
@@ -527,8 +639,8 @@ def main(argv: list[str] | None = None, client: TTSClient | None = None, narrato
     md = a.transcript.read_text(encoding="utf-8")
     turns = parse_transcript(md)
     if a.synthetic:
-        eve = client or make_client("eve", a.backend)
-        narr = narrator or make_client("narrator", a.backend)
+        eve = client or make_client("eve", a.backend, language=a.language)
+        narr = narrator or make_client("narrator", a.backend, language=a.language)
         rc = {int(k): v for k, v in json.loads(a.real_clips.read_text()).items()} if a.real_clips else None
         if rc is not None and not a.audio:
             ap.error("--real-clips needs --audio (David's cleaned 48 kHz track)")
@@ -543,7 +655,7 @@ def main(argv: list[str] | None = None, client: TTSClient | None = None, narrato
         if not os.environ.get("XAI_API_KEY") and a.backend in (None, "xai"):
             print("XAI_API_KEY not set; skipping re-voice (use --backend silent|piper for a PLACEHOLDER mix)", file=sys.stderr)
             return 0
-        client = make_client("eve", a.backend)
+        client = make_client("eve", a.backend, language=a.language)
     alignment = json.loads(a.alignment.read_text())
     text = {t.index: t.text for t in turns if t.speaker == "Eve"}
     a.out.mkdir(parents=True, exist_ok=True)

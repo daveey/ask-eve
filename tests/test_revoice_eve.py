@@ -142,6 +142,7 @@ def test_failed_real_clip_becomes_placeholder(tmp_path):
 
 def test_make_client_voices(monkeypatch):
     monkeypatch.delenv("XAI_API_KEY", raising=False)
+    monkeypatch.delenv("ELEVENLABS_API_KEY", raising=False)
     monkeypatch.delenv("TTS_BACKEND", raising=False)
     monkeypatch.delenv("EVE_VOICE", raising=False)
     monkeypatch.delenv("NARRATOR_VOICE", raising=False)
@@ -214,3 +215,95 @@ def test_hybrid_chapters_and_d1_labels(tmp_path, david):
     tr = tmp_path / "2026-11-01_x.md"; tr.write_text(md)
     sql = D.build_sql(tr, tmp_path, "x", revoice=r)
     assert "'mic-plus-tts'" in sql and R.HYBRID_DISCLOSURE.replace("'", "''") in sql and "'asr-fuzzy'" in sql
+
+
+def test_elevenlabs_client_and_narrator_fallback(monkeypatch, tmp_path):
+    monkeypatch.delenv("XAI_API_KEY", raising=False)
+    monkeypatch.delenv("ELEVENLABS_API_KEY", raising=False)
+    monkeypatch.delenv("DAVID_VOICE_ID", raising=False)
+    monkeypatch.delenv("ELEVENLABS_MODEL", raising=False)
+    # Without ELEVENLABS_API_KEY, narrator falls back to xAI rex when XAI_API_KEY is set
+    monkeypatch.setenv("XAI_API_KEY", "test-xai-key")
+    c_fallback = R.make_client("narrator")
+    assert isinstance(c_fallback, R.XAITTS) and c_fallback.voice_id == "rex"
+
+    # With ELEVENLABS_API_KEY set, narrator uses ElevenLabsTTS (oIYMwdEzgKSOV3gVsAjB, eleven_v4) while eve stays on XAITTS
+    monkeypatch.setenv("ELEVENLABS_API_KEY", "test-el-key")
+    c_nar = R.make_client("narrator")
+    c_eve = R.make_client("eve")
+    assert isinstance(c_nar, R.ElevenLabsTTS)
+    assert c_nar.voice_id == "oIYMwdEzgKSOV3gVsAjB"
+    assert c_nar.model_id == "eleven_v4"
+    assert c_nar.output_format == "mp3_44100_192"
+    assert c_nar.max_chars == 10000
+    assert c_nar.payload("Hello world") == {
+        "text": "Hello world",
+        "model_id": "eleven_v4",
+        "voice_settings": {
+            "stability": 0.5,
+            "similarity_boost": 0.85,
+            "style": 0.0,
+            "use_speaker_boost": True,
+        },
+    }
+    assert c_nar.endpoint().endswith("/oIYMwdEzgKSOV3gVsAjB?output_format=mp3_44100_192")
+    assert isinstance(c_eve, R.XAITTS) and c_eve.voice_id == "eve"
+
+    # Russian language_code support
+    c_ru = R.make_client("narrator", language="ru")
+    assert isinstance(c_ru, R.ElevenLabsTTS)
+    assert c_ru.payload("Привет")["language_code"] == "ru"
+    assert "lang=ru" in c_ru.name
+
+
+def test_elevenlabs_10k_limit_and_sha256_disk_cache(tmp_path):
+    calls = []
+    tone_wav = tmp_path / "tone.wav"
+    write_tone_wav(tone_wav, 0.25, [(0.0, 0.25, 440)])
+    tone_bytes = tone_wav.read_bytes()
+
+    class DummyElevenLabs:
+        name = "elevenlabs_tts voice=oIYMwdEzgKSOV3gVsAjB model=eleven_v4"
+        placeholder = False
+        max_chars = 10000
+
+        def synthesize(self, text: str):
+            assert len(text) <= 10000
+            calls.append(text)
+            return tone_bytes, "wav"
+
+    client = DummyElevenLabs()
+    long_text = ("Sentence one is quite clear. " * 450).strip()
+    assert len(long_text) > 10000
+    cache = tmp_path / "cache"
+    clip1 = R.make_clip(client, long_text, cache)
+    assert clip1.exists() and len(calls) == 2
+    # Calling make_clip again hits sha256 disk cache with zero new API calls
+    clip2 = R.make_clip(client, long_text, cache)
+    assert clip1 == clip2 and len(calls) == 2
+
+
+def test_clone_disclosures_and_redaction_stripping(tmp_path, david):
+    import produce_audio as P
+    import d1_upsert as D
+
+    # Redaction notes are stripped before TTS synthesis
+    assert "[redacted agent ID]" not in R.tts_text("The Sacks Watcher is agent [redacted agent ID]. Eve's ID is [redacted agent ID]. Ready.")
+    assert "link to a private notes page removed" not in R.tts_text("See [link to a private notes page removed] now.")
+    assert "ссылка на закрытую страницу заметок удалена" not in R.tts_text("См. [ссылка на закрытую страницу заметок удалена] здесь.")
+
+    md = ("---\ndate: 2026-11-01\ntitle: t\npeople: []\n---\n\n"
+          "[10:00:00] David: typed spec line\n\n[10:00:00] Eve: Answer one.\n\n[10:01:00] David: spoken line\n")
+    eve, nar = FakeTTS({}, default=0.5), FakeTTS({}, default=0.5)
+    nar.name = "elevenlabs_tts voice=oIYMwdEzgKSOV3gVsAjB model=eleven_v4"
+    r = R.synthesize_episode(A.parse_transcript(md), eve, nar, tmp_path / "h", tmp_path / "c",
+                             disclaimer=R.HYBRID_DISCLAIMER,
+                             real_clips={2: {"start": 1.0, "end": 3.0, "score": 88.0}}, real_audio=david)
+    ch = P.make_chapters(md, r)
+    assert "AI-reconstructed, David voice clone" in ch[1]["title"]
+    assert "his recorded voice" in ch[2]["title"]
+    assert "ElevenLabs AI voice clone" in r["ai_disclosure"]
+    tr = tmp_path / "2026-11-01_x.md"
+    tr.write_text(md)
+    sql = D.build_sql(tr, tmp_path, "x", revoice=r)
+    assert "ElevenLabs AI voice clone" in sql

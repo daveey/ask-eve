@@ -49,6 +49,7 @@ def strings(lang: str) -> dict:
 
 _S: dict[str, dict] = {}
 _C: dict[str, dict[str, str]] = {}
+_M: dict[str, dict[str, dict]] = {}
 
 
 def S(lang: str) -> dict:
@@ -68,8 +69,42 @@ def cache(lang: str) -> dict[str, str]:
     return _C[lang]
 
 
+def ep_meta(lang: str, slug: str) -> dict:
+    """Per-episode metadata (ru_audio_url, ru_duration_s, ru_audio_bytes, ru_audio_sha256, ru_turn_offsets)
+    stored at the top level of translations/<lang>/<slug>.json."""
+    if lang not in _M:
+        out: dict[str, dict] = {}
+        for f in sorted((CACHE_DIR / lang).glob("*.json")) if (CACHE_DIR / lang).exists() else []:
+            if not f.stem.startswith("_"):
+                doc = json.loads(f.read_text())
+                out[f.stem] = {k: v for k, v in doc.items() if k != "strings"}
+        _M[lang] = out
+    return _M[lang].get(slug, {})
+
+
+def _turn_offset(offs, i: int) -> tuple[float | None, float | None] | None:
+    if not offs:
+        return None
+    item = None
+    if isinstance(offs, list):
+        if 0 <= i < len(offs):
+            item = offs[i]
+    elif isinstance(offs, dict):
+        item = offs.get(str(i)) if str(i) in offs else offs.get(i)
+    if item is None:
+        return None
+    if isinstance(item, (list, tuple)) and len(item) >= 2:
+        s, e = item[0], item[1]
+        return (float(s) if s is not None else None, float(e) if e is not None else None)
+    if isinstance(item, dict):
+        s = item.get("start", item.get("edited_start_seconds"))
+        e = item.get("end", item.get("edited_end_seconds"))
+        return (float(s) if s is not None else None, float(e) if e is not None else None)
+    return None
+
+
 def reset() -> None:
-    _S.clear(); _C.clear(); _paths.clear(); _misses.clear()
+    _S.clear(); _C.clear(); _M.clear(); _paths.clear(); _misses.clear()
 
 
 # ---------------------------------------------------------------- what gets translated
@@ -146,9 +181,47 @@ def tr(lang: str, text: str) -> str:
 
 
 def localize_data(lang: str, eps: list[dict], people: list[dict]) -> tuple[list[dict], list[dict]]:
-    """Deep copy of the site data with content swapped for cached translations (identity links kept)."""
+    """Deep copy of the site data with content swapped for cached translations and localized audio metadata."""
     eps2, people2 = copy.deepcopy((eps, people))
     for ep in eps2:
+        meta = ep_meta(lang, ep["slug"])
+        stem = Path(ep["transcript_path"]).stem
+        audio_url = meta.get(f"{lang}_audio_url") or meta.get("audio_url")
+        if not audio_url and ep.get("audio_url"):
+            audio_url = f"https://audio.askevepodcast.com/audio/{lang}/{stem}.v1.mp3"
+        if audio_url:
+            ep["audio_url"] = audio_url
+        dur = meta.get(f"{lang}_duration_s", meta.get("duration_s"))
+        if dur is not None:
+            ep["duration_seconds"] = int(round(float(dur)))
+        nbytes = meta.get(f"{lang}_audio_bytes", meta.get("audio_bytes"))
+        if nbytes is not None:
+            ep["audio_bytes"] = int(nbytes)
+        sha = meta.get(f"{lang}_audio_sha256", meta.get("audio_sha256"))
+        if sha:
+            ep["audio_sha256"] = str(sha)
+        offs = meta.get(f"{lang}_turn_offsets", meta.get("turn_offsets"))
+        old_starts = [(t["i"], float(t["start"]), bool(t["gap"])) for t in ep["turns"] if t["start"] is not None]
+        if offs:
+            for t in ep["turns"]:
+                pair = _turn_offset(offs, t["i"])
+                if pair is not None:
+                    s, e = pair
+                    if t["gap"]:
+                        t["start"], t["end"] = s, e
+                    elif s is not None:
+                        t["start"], t["end"] = s, (e if e is not None else s)
+            if dur is None:
+                ends = [float(t["end"]) for t in ep["turns"] if t.get("end") is not None]
+                if ends:
+                    ep["duration_seconds"] = max(int(round(max(ends))), 1)
+            for c in ep.get("chapters", []):
+                cs = float(c.get("start_seconds") or 0)
+                if cs > 0 and old_starts:
+                    is_gap_ch = c["title"].startswith("Transcript gap")
+                    ti, old_s, _ = min(old_starts, key=lambda x: (abs(x[1] - cs), x[2] != is_gap_ch))
+                    if abs(old_s - cs) < 2.0 and ep["turns"][ti]["start"] is not None:
+                        c["start_seconds"] = round(float(ep["turns"][ti]["start"]) + (0.001 if cs % 1 and not is_gap_ch and ep["turns"][ti]["gap"] else 0.0), 3)
         ep["title"] = trm(lang, ep["title"])
         ep["context"] = trm(lang, ep.get("context") or "")
         ep["topics"] = [trm(lang, t) for t in ep.get("topics", [])]
@@ -169,6 +242,11 @@ def localize_data(lang: str, eps: list[dict], people: list[dict]) -> tuple[list[
                 t["text"] = tr(lang, t["text"])
             t["meta"] = [trm(lang, m) for m in t["meta"]]
         for m in ep.get("moments", []):
+            if offs:
+                if 0 <= m.get("start_turn", -1) < len(ep["turns"]) and ep["turns"][m["start_turn"]]["start"] is not None:
+                    m["start"] = ep["turns"][m["start_turn"]]["start"]
+                if 0 <= m.get("end_turn", -1) < len(ep["turns"]) and ep["turns"][m["end_turn"]]["end"] is not None:
+                    m["end"] = ep["turns"][m["end_turn"]]["end"]
             m["summary"] = trm(lang, m["summary"])
             if m.get("david_q"):
                 m["david_q"] = trm(lang, m["david_q"])
@@ -290,7 +368,12 @@ def _sources_class(B, eps_en: list[dict]):
             if r is None:
                 return None
             ep = self.eps[r["ep"]["slug"]]
-            return {**r, "ep": ep, "turn": ep["turns"][r["turn"]["i"]]}
+            t = ep["turns"][r["turn"]["i"]]
+            if t["start"] is not None and not t["gap"]:
+                href, when = f"/episodes/{ep['slug']}/#t={int(t['start'])}", B.clock(t["start"])
+            else:
+                href, when = f"/episodes/{ep['slug']}/#turn-{t['i']}", t["clock"] + " UTC"
+            return {**r, "ep": ep, "turn": t, "href": href, "when": when}
     return Sources
 
 
@@ -526,19 +609,38 @@ def head_links(A, site: str, path: str) -> str:
     return "\n".join(out)
 
 
+_GLOBE_SVG = ('<svg class="ico lang-menu__ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" '
+              'stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
+              '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>')
+_CARET_SVG = ('<svg class="lang-menu__caret" viewBox="0 0 12 12" fill="none" stroke="currentColor" '
+              'stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
+              '<path d="M3 4.5 6 7.5 9 4.5"/></svg>')
+_CHECK_SVG = ('<svg class="lang-menu__check" viewBox="0 0 16 16" fill="none" stroke="currentColor" '
+              'stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
+              '<path d="M3.5 8.5 6.5 11.5 12.5 4.5"/></svg>')
+
+
 def switcher(path: str) -> str:
-    """EN / RU switch for the header. Compact: on phones only the other language shows."""
+    """Language dropdown menu for the header (<details class="lang-menu" data-menu>), scalable to many languages."""
     if not any(_paths.values()):
         return ""
-    links = []
+    cur_name = S(_cur).get("language_name", "English") if _cur != SOURCE else "English"
+    items = []
     for l in [SOURCE] + [x for x in LANGS if _paths.get(x)]:
         href = path if l == SOURCE else (f"/{l}{path}" if path in _paths[l] else f"/{l}/")
         lab = S(l).get("language_name", "English") if l != SOURCE else "English"
         if l == _cur:
-            links.append(f'<span class="lang-switch__a" lang="{l}" title="{lab}" aria-current="true">{l.upper()}</span>')
+            items.append(f'<span class="lang-menu__item is-active" lang="{l}" aria-current="true">'
+                         f'<span class="lang-menu__name">{lab}</span>'
+                         f'<span class="lang-menu__code">{l.upper()}</span>{_CHECK_SVG}</span>')
         else:
-            links.append(f'<a class="lang-switch__a" href="{href}" hreflang="{l}" lang="{l}" title="{lab}">{l.upper()}</a>')
-    return f'<nav class="lang-switch" aria-label="Language">{"".join(links)}</nav>'
+            items.append(f'<a class="lang-menu__item" href="{href}" hreflang="{l}" lang="{l}">'
+                         f'<span class="lang-menu__name">{lab}</span>'
+                         f'<span class="lang-menu__code">{l.upper()}</span></a>')
+    return (f'<details class="lang-menu" data-menu>'
+            f'<summary class="lang-menu__btn" aria-label="Language: {cur_name}" title="Language: {cur_name}">'
+            f'{_GLOBE_SVG}<span class="lang-menu__cur">{_cur.upper()}</span>{_CARET_SVG}</summary>'
+            f'<nav class="lang-menu__panel" aria-label="Language">{"".join(items)}</nav></details>')
 
 
 # ---------------------------------------------------------------- UI translation of a rendered page
@@ -622,8 +724,12 @@ class _Rewriter(HTMLParser):
                     nv = ui(self.lang, v)
                 elif k == "href" and tag == "a" and "hreflang" not in d and v.startswith("/") and not v.startswith("//"):
                     p, _, frag = v.partition("#")
-                    if p in _paths.get(self.lang, ()):
+                    if p == "/feed.xml":
+                        nv = f"/{self.lang}/feed.xml"
+                    elif p in _paths.get(self.lang, ()):
                         nv = f"/{self.lang}{p}" + (f"#{frag}" if frag else "")
+                elif k in ("href", "data-copy", "data-copy-feed") and v.endswith("/feed.xml") and f"/{self.lang}/feed.xml" not in v:
+                    nv = v[:-len("/feed.xml")] + f"/{self.lang}/feed.xml" 
             changed |= nv != dict(attrs)[k]
             new.append((k, nv))
         return new, changed
@@ -787,6 +893,7 @@ def build(B, A, out: Path, eps: list[dict], people: list[dict], cfg: dict) -> li
                 if path.startswith("/episodes/"):
                     B.write(out, f"{lang}{path}transcript.txt", by[path.split('/')[2]]["body_md"] + "\n")
             B.write(out, f"{lang}/404.html", translate_html(lang, B.not_found(A), "/", note=False))
+            B.write(out, f"{lang}/feed.xml", render_feed(lang, B, [ep for ep in eps2 if f"/episodes/{ep['slug']}/" in _paths[lang]]))
         finally:
             _cur = SOURCE
             B.EVE_FILE, B.EveSources, B.load_links, B.TAKES_FILE = saved
@@ -794,3 +901,81 @@ def build(B, A, out: Path, eps: list[dict], people: list[dict], cfg: dict) -> li
             print(f"warning: {lang}: {len(misses(lang))} UI strings untranslated (run scripts/translate.py --ui): "
                   + "; ".join(misses(lang)[:12]), file=sys.stderr)
     return urls
+
+
+def render_feed(lang: str, B, eps: list[dict]) -> str:
+    """Render /<lang>/feed.xml with translated metadata and localized audio enclosures."""
+    import datetime as dt
+    import render_feed as F
+    e = html.escape
+    topics_lbl = ui(lang, "Topics", record=False)
+    people_lbl = ui(lang, "People discussed", record=False)
+    tr_lbl = ui(lang, "Full verbatim transcript", record=False)
+    items = []
+    for raw in eps:
+        ep = copy.deepcopy(raw)
+        if not ep.get("audio_url"):
+            continue
+        for k in ("title", "ai_disclosure", "context", "summary", "blurb"):
+            if isinstance(ep.get(k), str):
+                ep[k] = unmark(ep[k])
+        ep["topics"] = [unmark(t) for t in ep.get("topics", [])]
+        ep["people"] = [unmark(p) for p in ep.get("people", [])]
+        url = f"{B.SITE}/{lang}/episodes/{ep['slug']}/"
+        parts, html_parts = [], []
+        if ep.get("ai_reconstructed") and ep.get("ai_disclosure"):
+            parts.append(ep["ai_disclosure"])
+            html_parts.append(f"<p><em>{e(ep['ai_disclosure'])}</em></p>")
+        if ep.get("context") or ep.get("summary"):
+            c = ep.get("context") or ep["summary"]
+            parts.append(c)
+            html_parts.append(f"<p>{e(c)}</p>")
+        if ep.get("topics"):
+            parts.append(f"{topics_lbl}:\n" + "\n".join(f"- {t}" for t in ep["topics"]))
+            html_parts.append(f"<p><strong>{e(topics_lbl)}</strong></p><ul>" + "".join(f"<li>{e(t)}</li>" for t in ep["topics"]) + "</ul>")
+        if ep.get("people"):
+            parts.append(f"{people_lbl}: " + ", ".join(ep["people"]) + ".")
+            html_parts.append(f"<p>{e(people_lbl)}: {e(', '.join(ep['people']))}.</p>")
+        parts.append(f"{tr_lbl}: {url}")
+        html_parts.append(f'<p>{e(tr_lbl)}: <a href="{e(url)}">{e(url)}</a></p>')
+        desc = "\n\n".join(parts)
+        chtml = "".join(html_parts).replace("]]>", "]]&gt;")
+        pub = ep.get("published_at") or (ep["date"] + "T12:00:00Z")
+        items.append(f"""  <item>
+    <title>{e(ep['title'])}</title>
+    <guid isPermaLink="false">{e(ep['guid'])}</guid>
+    <link>{e(url)}</link>
+    <pubDate>{F.rfc2822(pub)}</pubDate>
+    <description>{e(desc)}</description>
+    <itunes:summary>{e(desc)}</itunes:summary>
+    <content:encoded><![CDATA[{chtml}]]></content:encoded>
+    <enclosure url="{e(ep['audio_url'])}" length="{ep['audio_bytes']}" type="{e(ep.get('audio_mime') or 'audio/mpeg')}"/>
+    <itunes:duration>{ep['duration_seconds']}</itunes:duration>
+    <itunes:explicit>{'true' if ep.get('explicit') else 'false'}</itunes:explicit>
+    <itunes:episodeType>{e(ep.get('episode_type') or 'full')}</itunes:episodeType>
+    <itunes:season>{F.itunes_season(ep)}</itunes:season>{f'''
+    <itunes:episode>{F.itunes_episode(ep)}</itunes:episode>''' if F.itunes_episode(ep) is not None else ''}
+    <podcast:transcript url="{e(url)}transcript.txt" type="text/plain"/>
+  </item>""")
+    built = F.rfc2822(dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"))
+    show_desc = ui(lang, F.SHOW["description"], record=False)
+    feed_url = f"{B.SITE}/{lang}/feed.xml"
+    return f"""<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:podcast="https://podcastindex.org/namespace/1.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>{e(F.SHOW['title'])}</title>
+  <link>{B.SITE}/{lang}/</link>
+  <atom:link href="{feed_url}" rel="self" type="application/rss+xml"/>
+  <language>{lang}</language>
+  <description>{e(show_desc)}</description>
+  <lastBuildDate>{built}</lastBuildDate>
+  <itunes:author>{e(F.SHOW['author'])}</itunes:author>
+  <itunes:owner><itunes:name>{e(F.SHOW['author'])}</itunes:name><itunes:email>{e(F.OWNER_EMAIL)}</itunes:email></itunes:owner>
+  <itunes:image href="{e(F.SHOW['image'])}"/>
+  <itunes:category text="{e(F.SHOW['category'])}"/>
+  <itunes:explicit>true</itunes:explicit>
+  <itunes:type>episodic</itunes:type>
+{chr(10).join(items)}
+</channel>
+</rss>
+"""
