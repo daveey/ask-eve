@@ -233,3 +233,28 @@ Also done: episode 0 (PR #4) was merged by David, and publish.yml was dispatched
 - notes: this branch was made from a freshly synced clone and pushed without force. D-011 is still done (PR #18): the cover
   at audio.askevepodcast.com/art/cover-3000.v1.jpg returns 200 image/jpeg, 331005 bytes, and is the feed's itunes:image.
   D-014 (v2 MP3s) is new on main and not part of this entry.
+
+### D-015 done (deployment; report PR pending merge) 2026-10-24T04:16Z
+- Scope: Russian v1 audio/chapters and English v3 audio/chapters for episodes 0 and 1 only. D-016 resources untouched; no objects deleted. Existing v1/v2 objects retained.
+- Preconditions: fresh post-rewrite clone (Hermes: repo), old `e3bb848` absent. PR #45 merged at `52884a15e826807b9b886d8154911ee197d41991`; all four manifests have `placeholder_audio: false`. D-014 deployment independently confirmed by both public v2 MP3s returning 200 with lengths 137334489 and 39762950. D-014/D-016 sibling cards inspected before writes.
+- Downloaded all seven named handoff files from Drive in the authenticated browser. Part lengths: Russian ep0 70000000/70000000/15543884; English ep0 70000000/69459394; single files 42668873 and 40491934. Reassembled in numbered order. All four exact sizes and SHA-256s verified before upload, then verified again by downloading the complete public MP3 responses:
+
+  | Audio | bytes | SHA-256 | HEAD |
+  |---|---:|---|---|
+  | ru ep0 v1 | 155543884 | `3ac4449e94a03532b1549656cf920bc28e0d9961320dfd58e004eb8de1c239c7` | 200 audio/mpeg |
+  | ru ep1 v1 | 42668873 | `38852c80a76e48113cf255c044a88f2c3b6450145c856f95358229eb471c00d8` | 200 audio/mpeg |
+  | en ep0 v3 | 139459394 | `93437acd6c8e0989e3b1fd74b019e5e4ab834fa89daad74975509d3710793f86` | 200 audio/mpeg |
+  | en ep1 v3 | 40491934 | `cf55a81a906e2edc59acdc2bbaa488811acb9b8300da349ebe86f4c6de1a03b4` | 200 audio/mpeg |
+
+- Commands: `npx --yes wrangler@4 r2 object put ... --remote` with the exact D-015 keys, MIME types and cache controls. Russian MP3s and chapters uploaded to `ask-eve-public`; English MP3s staged in `ask-eve-masters/staging/<stem>/<stem>.v3.mp3`. Both private staged objects downloaded with `r2 object get --remote` and their sizes/hashes matched before dispatch.
+- Published sequentially, waiting for each publish and its site build to succeed:
+  - episode 0 publish: https://github.com/daveey/ask-eve/actions/runs/40061403530 — success.
+  - episode 0 site: https://github.com/daveey/ask-eve/actions/runs/40061437207 — success.
+  - episode 1 publish: https://github.com/daveey/ask-eve/actions/runs/40061485997 — success.
+  - episode 1 site: https://github.com/daveey/ask-eve/actions/runs/40061528354 — success.
+- Read-only D1 API query confirmed both public slugs have `status=published`, English v3 audio keys, exact lengths and hashes above. Both workflows passed their placeholder/hash guards and D1 upsert steps.
+- Four public chapter URLs return 200 `application/json+chapters` and their parsed JSON exactly matches the corresponding repository files.
+- Feeds: `https://askevepodcast.com/feed.xml` returns 200 `application/rss+xml; charset=utf-8`, exactly two English v3 enclosures with correct lengths. `https://askevepodcast.com/ru/feed.xml` returns 200 `application/xml`, exactly two Russian v1 enclosures with correct lengths. English GUIDs remain `ask-eve:<stem>`; Russian feed uses the same GUID values. No feed identity changes made.
+- Site: both `/episodes/{first-encounter,the-making-of-eve}/` and their `/ru/` equivalents return 200 and contain current audio URLs. English First Encounter rendered successfully in a real browser; audio element selected the v3 URL. This checks rendering/source selection, not subjective listening quality.
+- Touched §11 checks: #1 reviewed publish head `b50fccdfd5e156fbc4cca118d1a2bd02ca9a93c0` (no guide/audio/workflow delta from reviewed #45); #3 both named buckets listed; #4 masters r2.dev disabled and no custom domains; #5 missing public object returns Cloudflare 404; #6 all four audio HEAD responses allow Origin `https://askevepodcast.com`; #12 feeds/site pass as above. #15 token scan recorded with report commit. #16 credentials used only through broker `user/cf-askeve` and `user/github`; no new secrets or permission changes.
+- Notes: Russian feed MIME is generic XML (valid RSS XML), unlike English's explicit RSS MIME; D-015 only specifies its enclosure URLs. Existing merge-email blocker is tracked separately: do not use a rebase fallback that records a private committer email. Deployment is live independently of merging this documentation PR.

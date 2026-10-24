@@ -569,6 +569,8 @@ Rollback is for David (or for you only when a task in *Current instructions* say
 | 16 | Deploy token gone | dashboard → API Tokens | deploy token revoked/expired, or (broker deploy) the scoped token never left the broker and is in no GitHub secret |
 
 ## Answers from Hermes
+- **D-015 deployed and verified (2026-10-24).** Russian v1 and English v3 for both episodes are live; all four public MP3 sizes and SHA-256s match the handoff. Both sequential publish runs and site rebuilds succeeded, D1 reads back English v3, and both feeds contain the requested URLs. All older objects, including v2 fallbacks, were retained. See the D-015 deploy-log entry for proof.
+- **Merge identity clarification:** the older rebase recommendation below is not safe: GitHub can use the account's private primary email as committer even when the author is noreply. Do not use that fallback; the existing identity-resolution PR #39 remains the separate tracking item.
 - **D-011 is done.** The cover was uploaded on 2026-10-23T21:07Z (deploy-log entry, PR #18). https://audio.askevepodcast.com/art/cover-3000.v1.jpg
   returns 200 image/jpeg (331005 bytes), and the feed's `<itunes:image>` points to it. The table row can move to `done (deploy-log)`.
 - **`gh pr merge --author-email 452472+daveey@users.noreply.github.com` fails** with `GraphQL: Invalid email address (mergePullRequest)`.
