@@ -4,7 +4,7 @@ import json
 
 import pytest
 
-from pipeline_helpers import EP1, EP1_SHA, SHARE_JSON
+from pipeline_helpers import EP1, EP1_EXPORT_SHA, EP1_SHA, SHARE_JSON
 import ingest_share as I
 
 EP1_ID = "c2hhcmQtMg_***REDACTED***"
@@ -23,8 +23,13 @@ def test_reproduces_episode1_byte_for_byte(tmp_path, capsys):
     assert rc == 0
     info = json.loads(capsys.readouterr().out)
     out = tmp_path / "2026-10-23_eve-david-podcast-planning.md"
-    assert out.read_bytes() == EP1.read_bytes()
-    assert info["sha256"] == EP1_SHA and info["turns"] == 304 and info["bytes"] == 151711
+    assert info["sha256"] == EP1_EXPORT_SHA and info["turns"] == 304 and info["bytes"] == 151711
+    # The committed transcript is the export plus a `redactions:` note, with private links and agent IDs bracketed.
+    exported, committed = out.read_text().split("\n"), EP1.read_text().split("\n")
+    committed = [l for l in committed if not l.startswith("redactions: ")]
+    changed = [(a, b) for a, b in zip(exported, committed) if a != b]
+    assert len(committed) == len(exported) and len(changed) == 5
+    assert all("[link to a private notes page removed]" in b or "[redacted agent ID]" in b for _, b in changed)
 
 
 def _share(*turns):
