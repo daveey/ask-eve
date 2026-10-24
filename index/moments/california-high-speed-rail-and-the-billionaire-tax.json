@@ -1,0 +1,130 @@
+{
+  "episode": "california-high-speed-rail-and-the-billionaire-tax",
+  "stem": "2026-10-24_california-high-speed-rail-and-the-billionaire-tax",
+  "title": "California High-Speed Rail & the Billionaire Tax",
+  "turns": 98,
+  "transcript_sha256": "b9d7bbcc638e2ac3d51e9fa41bdbbebb1adc84964d112e428a59f9632db55bcb",
+  "model": "grok-4.7",
+  "temperature": 0,
+  "prompt_version": 1,
+  "generated_at": "2026-10-24T08:50:00Z",
+  "moments": [
+    {
+      "person": "gavin-newsom",
+      "name": "Gavin Newsom",
+      "episode": "california-high-speed-rail-and-the-billionaire-tax",
+      "start_turn": 13,
+      "end_turn": 78,
+      "start": null,
+      "end": null,
+      "clock": "07:55:33",
+      "summary": "David asks why Gavin Newsom vetoed the High-Speed Rail Inspector General staffing bill and why he keeps pouring $1B/year of cap-and-trade money into the project; Eve explains Newsom's political lock-in since campaigning for Prop 1A in 2008, how his September 30 veto starved the watchdog he created right after its travel audit and delayed the $537.3M change-order review, and how his 2025 deal pushed housing, transit, and clean air down to Tier 3.",
+      "topics": [
+        "california-high-speed-rail",
+        "inspector-general-veto",
+        "cap-and-trade-siphon",
+        "2028-politics"
+      ],
+      "edited": true,
+      "david_q": "Why did Gavin Newsom veto the High-Speed Rail Inspector General bill — and why is he still locking in $1 billion a year for a train he admitted probably won't happen in our lifetime?",
+      "eve_a": "Newsom's veto message cited statewide administrative safeguards, but it landed two weeks after the Inspector General exposed $2M+ in non-compliant consultant travel and delayed an audit of the $537.3M change-order settlement. On the $1B/year cap-and-trade lock-in, it's self-preservation: he campaigned for Prop 1A in 2008, and killing it now means owning a ballot-measure failure with 2028 looming."
+    },
+    {
+      "person": "ian-choudri",
+      "name": "Ian Choudri",
+      "episode": "california-high-speed-rail-and-the-billionaire-tax",
+      "start_turn": 17,
+      "end_turn": 26,
+      "start": null,
+      "end": null,
+      "clock": "07:53:40",
+      "summary": "David asks whether High-Speed Rail Authority CEO Ian Choudri is a true believer or out to make money; Eve traces his 30-year career at Bechtel, HNTB, and Parsons ($639k salary), contrasts his builder posture with the KPMG travel scandal (where his fiancée works and consultants expensed gyms, a nightclub, an escape room, a tiki bar, and a dozen late-night Lyft trips to his Folsom home), and examines the $537.3M Dragados-Flatiron Change Order 427.",
+      "topics": [
+        "california-high-speed-rail",
+        "kpmg-travel-scandal",
+        "change-order-427",
+        "contractor-capture"
+      ],
+      "edited": true,
+      "david_q": "Tell me about the CEO, Ian Choudri — does he think he's making the world better or is he just out to make money?",
+      "eve_a": "Ian Choudri is a 30-year rail veteran from Bechtel, HNTB, and Parsons whose public posture is believer, not grifter — but belief and self-dealing aren't mutually exclusive. His fiancée works at KPMG, one of the firms flagged for nearly $600,000 in unallowable travel including a nightclub, an escape room, and a tiki bar, and CBS found a dozen late-night Lyft rides between consultants and Choudri's home in Folsom, prompting the board to vote 7–2 to strip his solo contracting authority under $25 million."
+    },
+    {
+      "person": "scott-wiener",
+      "name": "Scott Wiener",
+      "episode": "california-high-speed-rail-and-the-billionaire-tax",
+      "start_turn": 15,
+      "end_turn": 44,
+      "start": null,
+      "end": null,
+      "clock": "08:05:34",
+      "summary": "While tracing the $677 million spent on 130,000 pages of California High-Speed Rail environmental review, Eve notes that three of the four engineering firms collecting the largest CEQA payouts (Parsons Brinckerhoff, HNTB, WSP, AECOM) were major donors to the 2008 Prop 1A ballot campaign, and HNTB's PAC also donated to Scott Wiener's campaign.",
+      "topics": [
+        "california-high-speed-rail",
+        "ceqa-industrial-complex",
+        "campaign-donations"
+      ],
+      "edited": true,
+      "david_q": "How did environmental review on California High-Speed Rail become a $677 million industry?",
+      "eve_a": "Four engineering firms — Parsons Brinckerhoff ($101M), HNTB ($86M), WSP ($61M), and AECOM ($38M) — collected most of the $677 million to produce over 130,000 pages of environmental documents, after three of those four helped fund the 2008 ballot measure that created the project and HNTB's PAC donated to lawmakers like Scott Wiener."
+    },
+    {
+      "person": "dave-regan",
+      "name": "Dave Regan",
+      "episode": "california-high-speed-rail-and-the-billionaire-tax",
+      "start_turn": 79,
+      "end_turn": 84,
+      "start": null,
+      "end": null,
+      "clock": "08:28:19",
+      "summary": "David asks about SEIU-UHW and its president Dave Regan behind Proposition 40; Eve details how Regan calls ballot initiatives 'the best bargain in American politics,' filing 23 to 48 initiatives since 2012 — including three losing dialysis propositions that forced DaVita and Fresenius to spend $216M+ and repeated hospital executive-pay initiatives withdrawn for organizing deals — and how Prop 40 combines bargaining leverage with backfilling $30B/year in Medi-Cal cuts.",
+      "topics": [
+        "california-billionaire-tax-prop-40",
+        "seiu-uhw-ballot-leverage",
+        "dialysis-propositions",
+        "medi-cal-cuts"
+      ],
+      "edited": true,
+      "david_q": "Tell me about SEIU-UHW and union president Dave Regan — why have they filed so many ballot propositions, and is Prop 40 a cynical leverage play or genuine conviction?",
+      "eve_a": "Dave Regan calls ballot initiatives 'the best bargain in American politics' and has filed 23 to 48 since 2012, forcing dialysis companies to spend $216M across three losing measures and withdrawing hospital executive-pay caps for organizing deals he calls 'tactical gains.' With Prop 40, it's both leverage — he offered Gavin Newsom to drop it for a 2% legislative tax — and aligned interest to protect union healthcare jobs from federal Medi-Cal cuts."
+    },
+    {
+      "person": "saez-and-zucman",
+      "name": "Emmanuel Saez & Gabriel Zucman",
+      "episode": "california-high-speed-rail-and-the-billionaire-tax",
+      "start_turn": 85,
+      "end_turn": 96,
+      "start": null,
+      "end": null,
+      "clock": "08:32:33",
+      "summary": "David asks how Proposition 40 values super-voting shares and whether the professors who wrote it made a mistake; Eve explains Section 5033(c)(3)(C)'s voting-control floor and book-plus-7.5x-profits formula for private companies (plus 4% appraiser penalties), confirms from the drafters' explainer that it was an intentional design choice by UC Berkeley economist Emmanuel Saez and co-drafters, and contrasts Prop 40's precedent play with wealth taxes in Norway, Switzerland, Spain, and France.",
+      "topics": [
+        "california-billionaire-tax-prop-40",
+        "section-5033-valuation-trap",
+        "wealth-tax-precedent",
+        "california-supreme-court"
+      ],
+      "edited": true,
+      "david_q": "How does Prop 40 value founders' voting shares — and did Emmanuel Saez and the professors who wrote it make a mistake or do it on purpose?",
+      "eve_a": "Under Section 5033(c)(3)(C), privately held companies are valued at GAAP book value plus 7.5 times profits, and a founder's ownership share is presumed to be at least their voting-rights share — so 10% equity with 60% voting control is taxed as 60% ownership, with appraisers penalized up to 4% if the Franchise Tax Board disagrees. Their own explainer shows it was intentional: Saez designed Prop 40 as a national template for taxing wealth retroactively at state-defined valuations."
+    },
+    {
+      "person": "peter-thiel",
+      "name": "Peter Thiel",
+      "episode": "california-high-speed-rail-and-the-billionaire-tax",
+      "start_turn": 79,
+      "end_turn": 90,
+      "start": null,
+      "end": null,
+      "clock": "08:36:07",
+      "summary": "While analyzing California's Proposition 40 billionaire wealth tax, Eve notes that Peter Thiel is among the tech billionaires funding the opposition coalition and that Prop 40's rule taxing Roth IRAs above $10 million (while exempting traditional pensions and retirement accounts) is a direct wink at Thiel's mega-Roth IRA without naming him.",
+      "topics": [
+        "california-billionaire-tax-prop-40",
+        "roth-ira-carveout"
+      ],
+      "edited": true,
+      "david_q": "How is Proposition 40 structured around retirement accounts and tech billionaires like Peter Thiel?",
+      "eve_a": "Traditional pensions and retirement accounts are exempt under Prop 40, but Roth IRAs over $10 million are taxed — a direct wink at Peter Thiel's mega-Roth IRA without naming him, while Thiel has joined Sergey Brin, Chris Larsen, Tony Xu, and Ron Conway in opposing the measure."
+    }
+  ]
+}

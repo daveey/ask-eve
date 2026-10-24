@@ -2,7 +2,7 @@
  "_doc": "Machine translation cache (French) written by scripts/translate.py; key = sha256(en)[:16]. Hand edits to `tr` are kept as long as `en` is unchanged.",
  "lang": "fr",
  "source_lang": "en",
- "model": "grok-4.20-0309-non-reasoning",
+ "model": "grok-4.7",
  "temperature": 0,
  "strings": {
   "9e9135fe41c48ab4": {
@@ -1249,6 +1249,366 @@
    "kind": "take christine-pelosi ref a",
    "en": "She'd shrug at the machine-politics framing — she prides herself on whipping votes and rewarding loyalists — but the Christine thread would bother her, because the appearance of dynastic maneuvering undercuts her argument about Asian American representation.",
    "tr": "Она бы пожала плечами на framing в духе «машинной политики» — она гордится тем, что умеет выбивать голоса и вознаграждать лояльных, — но тема Кристин её бы задела, потому что видимость династических игр подрывает её аргумент о представительстве азиатских американцев."
+  },
+  "6fe29a9f3b47afec": {
+   "kind": "take role",
+   "en": "Governor of California; former Lieutenant Governor and Mayor of San Francisco",
+   "tr": "Губернатор Калифорнии; бывший вице-губернатор и мэр Сан-Франциско"
+  },
+  "70f2b9a4cb3cb474": {
+   "kind": "take lede",
+   "en": "Campaigned for Prop 1A in 2008, admitted the full rail line probably won't materialize in our lifetime, then locked in $1B a year through 2045 and vetoed the Inspector General staffing bill right after its travel audit — while simultaneously breaking with his left flank to oppose Prop 40's billionaire tax ahead of 2028.",
+   "tr": "A fait campagne pour la Prop 1A en 2008, a admis que la ligne ferroviaire complète ne verra probablement pas le jour de notre vivant, puis a verrouillé 1 milliard de dollars par an jusqu’en 2045 et a opposé son veto au projet de loi sur les effectifs de l’inspecteur général juste après l’audit des déplacements de celui-ci — tout en rompant avec son flanc gauche pour s’opposer à la taxe sur les milliardaires de la Prop 40 avant 2028."
+  },
+  "276d0aae02ad2023": {
+   "kind": "take gavin-newsom para",
+   "en": "Gavin Newsom's posture on California High-Speed Rail is a masterclass in ⟦political lock-in⟧. He campaigned for Prop 1A as San Francisco mayor in 2008, said out loud as lieutenant governor that the full system probably wouldn't materialize in our lifetime, and yet as governor he signed the 2025 deal locking in a flat $1 billion a year from the Greenhouse Gas Reduction Fund through 2045 while bumping affordable housing, transit, and clean air down to Tier 3.",
+   "tr": "Позиция Гэвина Ньюсома по калифорнийской высокоскоростной железной дороге — мастер-класс по ⟦политической фиксации⟧. В 2008 году, будучи мэром Сан-Франциско, он агитировал за Prop 1A, уже вице-губернатором вслух сказал, что полная система, скорее всего, не появится на нашем веку, и всё же как губернатор подписал сделку 2025 года, закрепившую ровно 1 млрд долларов в год из Фонда сокращения выбросов парниковых газов до 2045-го, отодвинув доступное жильё, транспорт и чистый воздух на третий уровень."
+  },
+  "d81cda6349aa281a": {
+   "kind": "take gavin-newsom para",
+   "en": "The steelman from his defenders is pragmatism: once voters approved the bond and 19,000 Central Valley construction jobs were on the line, killing the project mid-span would leave a half-built concrete monument with zero trains and a permanent failure on his 2028 presidential resume. Finishing the 119-mile Merced-to-Bakersfield segment is the only way to salvage something operational.",
+   "tr": "Самый сильный аргумент его защитников — прагматизм: раз избиратели одобрили облигации, а на кону 19 000 строительных рабочих мест в Центральной долине, свернуть проект на полпути значит оставить недостроенный бетонный памятник без единого поезда и вечное поражение в президентском резюме к 2028 году. Довести до конца участок в 119 миль от Мерседа до Бейкерсфилда — единственный способ спасти хоть что-то работающее."
+  },
+  "a8df95efbb3cdfe0": {
+   "kind": "take gavin-newsom para",
+   "en": "Where that defense collapses is his ⟦September 30 veto of Assemblymember Lori Wilson's Inspector General staffing and contracting bill⟧ — which passed the Assembly 64–8 and the Senate 39–0 — just two weeks after Inspector General Ben Belnap (whom Newsom himself appointed in 2022) exposed $2M+ in non-compliant consultant travel expenses and warned that three vacant auditor seats were delaying a review of the Authority's $537.3 million change-order settlement. Newsom's veto message cited statewide administrative safeguards, which protects the bureaucratic system from the exception when the system itself is what's failing.",
+   "tr": "Эта защита рушится на его ⟦вето от 30 сентября на законопроект члена Ассамблеи Лори Уилсон о штате и контрактах генерального инспектора⟧ — он прошёл Ассамблею 64–8 и Сенат 39–0 — всего через две недели после того, как генеральный инспектор Бен Белнап (которого сам Ньюсом назначил в 2022 году) вскрыл несоответствующие требованиям командировочные расходы консультантов на 2 млн долларов с лишним и предупредил, что три вакантных места аудиторов задерживают проверку урегулирования изменений заказов Управления на 537,3 млн долларов. В послании о вето Ньюсом сослался на общештатные административные гарантии, что защищает бюрократическую систему от исключения именно тогда, когда сбоит сама система."
+  },
+  "ae74ee560c96aadd": {
+   "kind": "take gavin-newsom para",
+   "en": "On Proposition 40, the 5% billionaire wealth tax, Newsom made the opposite calculation: he ⟦called it 'really damaging to the state,'⟧ refused Dave Regan's offer to drop the ballot initiative in exchange for a 2% legislative tax, and endorsed Sergey Brin's Prop 42 counter-measure banning personal property taxes. On the Three-Test Scorecard, his Prop 40 opposition is a rare break with labor orthodoxy that carries real primary friction, but his high-speed rail record — ⟦creating a watchdog for reform credit and then starving it the moment it bites⟧ — scores leaning-fail on symmetric scrutiny and public updating.",
+   "tr": "По Proposition 40, 5-процентному налогу на состояние миллиардеров, Ньюсом сделал противоположный расчёт: он ⟦назвал его «по-настоящему вредным для штата»⟧, отказался от предложения Дейва Ригана снять инициативу с бюллетеня в обмен на законодательный налог в 2% и поддержал контрмеру Сергея Брина Prop 42, запрещающую налоги на личное имущество. По Three-Test Scorecard его оппозиция Prop 40 — редкий разрыв с профсоюзной ортодоксией, который создаёт реальное трение на праймериз, но его послужной список по высокоскоростной железной дороге — ⟦создать сторожевого пса ради реформаторских очков, а потом морить его голодом в ту секунду, когда он кусает⟧ — получает оценку «склоняется к провалу» по симметричной проверке и публичному обновлению позиции."
+  },
+  "afb80d4f4e526651": {
+   "kind": "take gavin-newsom qa q",
+   "en": "Why is Gavin Newsom still pouring $1 billion a year into California High-Speed Rail if even he said the full system probably won't happen in our lifetime?",
+   "tr": "Почему Гэвин Ньюсом по-прежнему вливает по 1 млрд долларов в год в калифорнийскую высокоскоростную железную дорогу, если даже он говорил, что полная система, скорее всего, не появится на нашем веку?"
+  },
+  "5131cd3d4aa8df77": {
+   "kind": "take gavin-newsom qa q",
+   "en": "Why did Newsom veto the bipartisan bill giving the High-Speed Rail Inspector General hiring and contracting authority?",
+   "tr": "Почему Ньюсом наложил вето на двухпартийный законопроект, дающий генеральному инспектору высокоскоростной железной дороги полномочия на найм и контракты?"
+  },
+  "2bec6b71cb02954a": {
+   "kind": "take gavin-newsom qa q",
+   "en": "How does Newsom's opposition to the Prop 40 billionaire tax fit into his 2028 calculus and the Three-Test Scorecard?",
+   "tr": "Как оппозиция Ньюсома налогу на миллиардеров по Prop 40 вписывается в его расчёт на 2028 год и в Three-Test Scorecard?"
+  },
+  "d9ccfd41be2e15ab": {
+   "kind": "take gavin-newsom ref",
+   "en": "Vetoing the Inspector General staffing bill",
+   "tr": "Вето на законопроект о штате генерального инспектора"
+  },
+  "c782534690344bf3": {
+   "kind": "take gavin-newsom ref q",
+   "en": "Wait, why did Newsom veto the inspector general bill?",
+   "tr": "Погоди, почему Ньюсом наложил вето на законопроект о генеральном инспекторе?"
+  },
+  "31da1e9528738777": {
+   "kind": "take gavin-newsom ref a",
+   "en": "Newsom's stated reason is process purity: his veto message said the inspector general's office should address its needs through existing state channels. The bill by Assemblymember Lori Wilson passed the Assembly 64 to 8 and the Senate 39 to nothing, and the veto landed September 30, two weeks after Inspector General Ben Belnap published the travel-expense report.",
+   "tr": "Официальная причина Ньюсома — чистота процедуры: в послании о вето он написал, что офис генерального инспектора должен закрывать свои нужды через существующие каналы штата. Законопроект члена Ассамблеи Лори Уилсон прошёл Ассамблею 64 против 8 и Сенат 39 против нуля, а вето легло 30 сентября, через две недели после того, как генеральный инспектор Бен Белнап опубликовал отчёт о командировочных расходах."
+  },
+  "4311717909b6287c": {
+   "kind": "take gavin-newsom ref",
+   "en": "Starving the watchdog he created",
+   "tr": "Морит голодом сторожевого пса, которого сам создал"
+  },
+  "75ecd2853ff0d7c1": {
+   "kind": "take gavin-newsom ref q",
+   "en": "What happens if the Inspector General can't staff up to audit the change orders?",
+   "tr": "Что будет, если генеральный инспектор не сможет набрать штат для аудита изменений заказов?"
+  },
+  "d4475ba4a2cdcc69": {
+   "kind": "take gavin-newsom ref a",
+   "en": "The next likely casualty is the $500M+ change-order audit. The deeper irony is that Newsom created this inspector general in 2022 as a reform gesture, and now that the office is exposing problems on his watch, his response is to limit its reach right when it's producing.",
+   "tr": "Следующая вероятная жертва — аудит изменений заказов на 500 млн долларов с лишним. Более глубокая ирония в том, что Ньюсом создал этого генерального инспектора в 2022 году как реформаторский жест, а теперь, когда офис вскрывает проблемы при нём, его ответ — ограничить его досягаемость ровно тогда, когда тот начинает давать результат."
+  },
+  "7049106358862749": {
+   "kind": "take gavin-newsom ref",
+   "en": "Why Newsom locked in the $1B/year rail siphon",
+   "tr": "Почему Ньюсом закрепил ежегодную откачку 1 млрд на железную дорогу"
+  },
+  "20e6deac076515de": {
+   "kind": "take gavin-newsom ref q",
+   "en": "Why did Newsom prioritize this billion-dollar throwaway?",
+   "tr": "Почему Ньюсом поставил в приоритет этот выброшенный миллиард?"
+  },
+  "eab9ee39eeafd389": {
+   "kind": "take gavin-newsom ref a",
+   "en": "Mostly self-preservation. He's been tied to this since 2008 when he campaigned for Prop 1A as San Francisco mayor. Killing it now means owning the failure on a ballot measure with 2028 looming, and the part nobody's said out loud is that Newsom might actually believe in it less than anyone in Sacramento and still can't say so.",
+   "tr": "В основном самосохранение. Он связан с этим с 2008 года, когда агитировал за Prop 1A как мэр Сан-Франциско. Свернуть сейчас — значит взять на себя провал по мере, вынесенной на голосование, когда 2028-й уже на носу, и то, чего никто не сказал вслух: Ньюсом, возможно, верит в это меньше всех в Сакраменто и всё равно не может этого сказать."
+  },
+  "17ab0c8780da6d76": {
+   "kind": "take gavin-newsom ref",
+   "en": "Opposing Prop 40 & endorsing Prop 42",
+   "tr": "Против Prop 40 и за Prop 42"
+  },
+  "a65313401af7a7ab": {
+   "kind": "take gavin-newsom ref q",
+   "en": "Where does Gavin Newsom stand on California's Prop 40 billionaire wealth tax?",
+   "tr": "Какова позиция Гэвина Ньюсома по калифорнийскому налогу на состояние миллиардеров Prop 40?"
+  },
+  "7c094afaa6dfb9f6": {
+   "kind": "take gavin-newsom ref a",
+   "en": "Newsom is against it: he called it 'really damaging to the state,' refused SEIU-UHW president Dave Regan's offer to drop the initiative for a 2% legislative version, and endorsed Prop 42, a Sergey Brin-funded measure that would ban new taxes on personal property outright.",
+   "tr": "Ньюсом против: он назвал его «по-настоящему вредным для штата», отказался от предложения президента SEIU-UHW Дейва Ригана снять инициативу в обмен на законодательную версию в 2% и поддержал Prop 42 — меру на деньги Сергея Брина, которая прямо запретила бы новые налоги на личное имущество."
+  },
+  "3d87db68f69034b9": {
+   "kind": "take role",
+   "en": "CEO of the California High-Speed Rail Authority; former senior executive at HNTB, Bechtel, and Parsons",
+   "tr": "Гендиректор Управления высокоскоростной железной дороги Калифорнии; бывший топ-менеджер HNTB, Bechtel и Parsons"
+  },
+  "90038fdee85e8ecd": {
+   "kind": "take lede",
+   "en": "A 30-year rail engineer who genuinely believes he can deliver a train, but whose contractor-side blind spots produced a KPMG travel scandal, late-night consultant rideshares to his Folsom home, and a $537.3M change-order settlement.",
+   "tr": "Un ingénieur ferroviaire de 30 ans d’expérience qui croit sincèrement pouvoir livrer un train, mais dont les angles morts côté prestataires ont produit un scandale de voyages KPMG, des courses VTC de consultants tard le soir jusqu’à son domicile de Folsom, et un règlement d’avenants de 537,3 millions de dollars."
+  },
+  "9e5a2e4d7a144e4f": {
+   "kind": "take ian-choudri para",
+   "en": "Ian Choudri took over the California High-Speed Rail Authority in August 2024 at roughly $639,000 a year after three decades building rail in France, Spain, and the Channel Tunnel at Bechtel, Parsons, and HNTB — where he previously served as project executive on the Authority's own first construction package. His public posture is true believer, not cynical caretaker: he locked in the $1 billion annual cap-and-trade stream through 2045, dropped the Buy American requirement to order German-built Siemens trainsets by 2029, and insists riders will demand the full system once trains roll in the Central Valley.",
+   "tr": "Ian Choudri возглавил Управление высокоскоростной железной дороги Калифорнии в августе 2024 года примерно за 639 000 долларов в год после трёх десятилетий строительства железных дорог во Франции, Испании и на Евротоннеле в Bechtel, Parsons и HNTB — где ранее был исполнительным руководителем проекта по первому строительному пакету самого Управления. Публично он истинно верующий, а не циничный временщик: он закрепил ежегодный поток от cap-and-trade в 1 млрд долларов до 2045 года, снял требование Buy American, чтобы к 2029 году заказать немецкие поезда Siemens, и настаивает, что пассажиры потребуют всю систему, как только поезда пойдут в Центральной долине."
+  },
+  "8146c974be709d9f": {
+   "kind": "take ian-choudri para",
+   "en": "The steelman is that after years of bureaucratic drift, the Authority needed a hard-charging builder who knew how to close contracts, lay track, and court private capital. If Choudri were purely collecting a paycheck, he wouldn't be picking public fights to accelerate delivery.",
+   "tr": "Самый сильный аргумент в его пользу в том, что после лет бюрократического дрейфа Управлению нужен был жёсткий строитель, который умеет закрывать контракты, укладывать пути и привлекать частный капитал. Если бы Choudri просто получал зарплату, он не стал бы публично конфликтовать, чтобы ускорить сдачу."
+  },
+  "d2d39f03a413feb1": {
+   "kind": "take ian-choudri para",
+   "en": "The details, however, undercut the pure-idealist story. ⟦Belief and self-dealing aren't mutually exclusive⟧. In October 2026, the board ⟦voted 7–2 to strip Choudri's solo contracting authority under $25 million⟧ after the Inspector General flagged over $2 million in unallowable consultant travel — including nearly $600,000 at KPMG, where Choudri's fiancée works, with receipts for gyms, a nightclub, an escape room, and a tiki bar, plus a dozen late-night Lyft rides between consultants and Choudri's home in Folsom.",
+   "tr": "Детали, однако, подрывают историю чистого идеалиста. ⟦Убеждённость и корысть не исключают друг друга⟧. В октябре 2026 года совет ⟦проголосовал 7–2 за то, чтобы лишить Choudri единоличного права заключать контракты до 25 миллионов долларов⟧ после того, как генеральный инспектор указал на более чем 2 миллиона долларов недопустимых командировочных расходов консультантов — в том числе почти 600 000 долларов в KPMG, где работает невеста Choudri, с чеками за спортзалы, ночной клуб, квест и тики-бар, плюс дюжина ночных поездок на Lyft между консультантами и домом Choudri в Фолсоме."
+  },
+  "164d8e8f91122694": {
+   "kind": "take ian-choudri para",
+   "en": "On the Three-Test Scorecard, walking away from reporters when asked about late-night consultant rideshares to his house and pushing through ⟦Change Order 427 — a $537.3 million closed-session settlement with Dragados-Flatiron⟧ that pushed their package past $3 billion before the Inspector General could audit the process — is a clean fail on public updating and symmetric oversight.",
+   "tr": "По шкале Three-Test Scorecard уход от журналистов, когда его спросили о ночных поездках консультантов к его дому, и продавливание ⟦Change Order 427 — закрытого мирового соглашения с Dragados-Flatiron на 537,3 миллиона долларов⟧, из-за которого их пакет перевалил за 3 миллиарда ещё до того, как генеральный инспектор смог проверить процедуру, — это чистый провал по публичной отчётности и симметричному надзору."
+  },
+  "892c907d6384d6d6": {
+   "kind": "take ian-choudri qa q",
+   "en": "Who is Ian Choudri, and does he actually believe in California High-Speed Rail?",
+   "tr": "Кто такой Ian Choudri и правда ли он верит в калифорнийскую высокоскоростную железную дорогу?"
+  },
+  "9ad90ad668679482": {
+   "kind": "take ian-choudri qa q",
+   "en": "What did the Inspector General and CBS uncover about KPMG travel expenses and late-night Lyft rides to Choudri's house?",
+   "tr": "Что генеральный инспектор и CBS выяснили о командировочных расходах KPMG и ночных поездках на Lyft к дому Choudri?"
+  },
+  "f04a27320fe95860": {
+   "kind": "take ian-choudri ref",
+   "en": "Board strips Choudri's $25M solo contracting authority",
+   "tr": "Совет лишает Choudri права единолично заключать контракты до 25 млн долларов"
+  },
+  "02dbca62d6975a33": {
+   "kind": "take ian-choudri ref q",
+   "en": "What is going on with California High-Speed Rail right now?",
+   "tr": "Что сейчас происходит с калифорнийской высокоскоростной железной дорогой?"
+  },
+  "a81bcb2a6e0f4c57": {
+   "kind": "take ian-choudri ref a",
+   "en": "The inspector general flagged over $2 million in consultant travel costs that didn't comply with state rules, and in response the board voted 7 to 2 in October to strip CEO Ian Choudri's authority to sign contracts under $25 million on his own.",
+   "tr": "Генеральный инспектор указал на более чем 2 миллиона долларов командировочных расходов консультантов, которые не соответствовали правилам штата, и в ответ совет в октябре проголосовал 7 против 2 за то, чтобы лишить гендиректора Ian Choudri права самостоятельно подписывать контракты до 25 миллионов долларов."
+  },
+  "6b0dfeb5286260cb": {
+   "kind": "take ian-choudri ref",
+   "en": "Believer vs. the KPMG travel & Folsom Lyft scandal",
+   "tr": "Верующий против скандала с командировками KPMG и Lyft в Фолсоме"
+  },
+  "ea3359b53089afd2": {
+   "kind": "take ian-choudri ref q",
+   "en": "Tell me about the CEO — does he think he's making the world better or is he just out to make money?",
+   "tr": "Расскажи про гендиректора — он считает, что делает мир лучше, или просто хочет заработать?"
+  },
+  "fe4580b17d72b52f": {
+   "kind": "take ian-choudri ref a",
+   "en": "Ian Choudri is a 30-year infrastructure veteran from Bechtel, HNTB, and Parsons whose public posture is believer, not grifter. But his fiancée works at KPMG — one of the firms flagged for nearly $600,000 in unallowable travel including a nightclub, escape room, and tiki bar — and CBS found a dozen late-night Lyft trips between consultants and Choudri's home in Folsom. Belief and self-dealing aren't mutually exclusive.",
+   "tr": "Ian Choudri — инфраструктурный ветеран с 30-летним стажем из Bechtel, HNTB и Parsons, и публично он верующий, а не жулик. Но его невеста работает в KPMG — одной из фирм, на которую указали из-за почти 600 000 долларов недопустимых командировок, включая ночной клуб, квест и тики-бар, — а CBS нашла дюжину ночных поездок на Lyft между консультантами и домом Choudri в Фолсоме. Убеждённость и корысть не исключают друг друга."
+  },
+  "0094d6bc6e6c2df3": {
+   "kind": "take california-high-speed-rail ref",
+   "en": "Change Order 427: $537.3M to Dragados-Flatiron",
+   "tr": "Change Order 427: 537,3 млн для Dragados-Flatiron"
+  },
+  "311c6ac055b61ebe": {
+   "kind": "take california-high-speed-rail ref q",
+   "en": "What did the $500M+ change-order settlement actually cover?",
+   "tr": "Что на самом деле покрывало урегулирование change order на 500+ млн?"
+  },
+  "68f7a29e1efef0a7": {
+   "kind": "take california-high-speed-rail ref a",
+   "en": "Change Order 427 with Dragados-Flatiron Joint Venture was finalized May 21, 2026 for $537.3 million — the largest single change order in the project's history, pushing a contract that started at $1.365 billion past $3 billion after 597 prior change orders.",
+   "tr": "Change Order 427 с Dragados-Flatiron Joint Venture был окончательно оформлен 21 мая 2026 года на 537,3 миллиона долларов — крупнейший единичный change order в истории проекта; он довёл контракт, начинавшийся с 1,365 миллиарда, за 3 миллиарда после 597 предыдущих change orders."
+  },
+  "0cb8eb917d3b5122": {
+   "kind": "take role",
+   "en": "President of SEIU-United Healthcare Workers West (SEIU-UHW)",
+   "tr": "Президент SEIU-United Healthcare Workers West (SEIU-UHW)"
+  },
+  "c32f81bcc3399832": {
+   "kind": "take lede",
+   "en": "Calls ballot initiatives 'the best bargain in American politics' and has filed up to 48 since 2012 — using the ballot box as an attrition and bargaining weapon against hospitals, dialysis clinics, and now California's billionaires.",
+   "tr": "Qualifie les initiatives référendaires de « meilleure affaire de la politique américaine » et en a déposé jusqu’à 48 depuis 2012 — se servant de l’urne comme arme d’usure et de marchandage contre les hôpitaux, les cliniques de dialyse, et maintenant les milliardaires de Californie."
+  },
+  "f0379bbda46a405c": {
+   "kind": "take dave-regan para",
+   "en": "Dave Regan has run SEIU-United Healthcare Workers West with a single, explicit insight: in California, qualifying a ballot initiative costs $3 million to $5 million, while defending against one can cost a target industry $100 million per cycle. Calling ballot initiatives '⟦the best bargain in American politics⟧,' he has filed between 23 and 48 state and local measures since 2012, almost none of which passed at the ballot box because passing isn't the primary mechanism — leverage is.",
+   "tr": "Дейв Риган руководит SEIU-United Healthcare Workers West, исходя из одного ясного расчёта: в Калифорнии квалифицировать инициативу для бюллетеня стоит от 3 до 5 млн долларов, а защита от неё может обойтись целевой отрасли в 100 млн долларов за цикл. Называя инициативы «⟦лучшей сделкой в американской политике⟧», он с 2012 года подал от 23 до 48 инициатив уровня штата и местных — и почти ни одна не прошла на голосовании, потому что прохождение и не главный механизм. Главное — рычаг давления."
+  },
+  "49471c4bde7207da": {
+   "kind": "take dave-regan para",
+   "en": "Look at the two clearest tracks. On dialysis, where California has zero unionized dialysis workers, SEIU-UHW ran three nearly identical propositions in 2018 (Prop 8), 2020 (Prop 23), and 2022 (Prop 29), losing all three by 20-to-36-point margins while forcing DaVita and Fresenius to burn over $216 million. On hospitals, Regan filed executive-pay and pricing caps in 2014, 2016, and 2026, repeatedly withdrawing them in exchange for California Hospital Association deals on organizing rules, Medi-Cal lobbying, and dropping anti-union counter-measures — leading the California Primary Care Association to sue him personally for racketeering over Prop 44.",
+   "tr": "Посмотрите на две самые ясные линии. По диализу, где в Калифорнии нет ни одного работника диализа в профсоюзе, SEIU-UHW провёл три почти одинаковых предложения в 2018 (Prop 8), 2020 (Prop 23) и 2022 (Prop 29), проиграв все три с отрывом от 20 до 36 пунктов, но заставив DaVita и Fresenius сжечь больше 216 млн долларов. По больницам Риган подавал потолки на зарплаты руководства и на цены в 2014, 2016 и 2026 годах и раз за разом отзывал их в обмен на сделки с California Hospital Association по правилам организации профсоюзов, лоббированию Medi-Cal и отказу от антипрофсоюзных контрмер — из-за чего California Primary Care Association подала на него лично иск о рэкете в связи с Prop 44."
+  },
+  "15b56d4063c4dbd5": {
+   "kind": "take dave-regan para",
+   "en": "The steelman is that a union president's job is to win contracts and protect healthcare funding using every lawful pressure valve available. When Jerry Brown signed the $15 minimum wage (SB 3) in 2016 one week after checking the viability of SEIU-UHW's ballot signatures, and when Trump's federal budget threatened $30 billion a year in Medi-Cal cuts affecting one in three Californians, Regan used the only hammer big enough to force Sacramento to the table.",
+   "tr": "Самая сильная версия в его пользу такова: работа президента профсоюза — выигрывать контракты и защищать финансирование здравоохранения, используя каждый законный клапан давления. Когда Джерри Браун в 2016 году подписал минимальную зарплату в 15 долларов (SB 3) через неделю после того, как проверил жизнеспособность подписей SEIU-UHW под инициативой, и когда федеральный бюджет Трампа грозил сокращениями Medi-Cal на 30 млрд долларов в год, затрагивающими каждого третьего калифорнийца, Риган взял единственный молоток, достаточно большой, чтобы заставить Сакраменто сесть за стол."
+  },
+  "4bf50778926dafb2": {
+   "kind": "take dave-regan para",
+   "en": "With Proposition 40, the 5% billionaire wealth tax, both motives are running at once: Regan literally ⟦offered Gavin Newsom to drop Prop 40 in exchange for a 2% legislative tax⟧, proving the leverage playbook was live, while also aligning with his members' existential need to backfill Medi-Cal. He is completely transparent that withdrawals are '⟦tactical gains⟧' — ruthless institutional hardball rather than hypocrisy.",
+   "tr": "С предложением 40, 5-процентным налогом на богатство миллиардеров, оба мотива работают сразу: Риган буквально ⟦предложил Гэвину Ньюсому снять Prop 40 в обмен на законодательный налог в 2 %⟧, доказав, что сценарий рычага жив, и одновременно совпав с экзистенциальной потребностью своих членов закрыть дыру в Medi-Cal. Он совершенно открыто говорит, что отзывы — это «⟦тактические приобретения⟧»: безжалостная институциональная жёсткая игра, а не лицемерие."
+  },
+  "a61ec691584fe63b": {
+   "kind": "take dave-regan qa q",
+   "en": "Why has SEIU-UHW president Dave Regan filed up to 48 ballot initiatives since 2012 if almost none of them pass?",
+   "tr": "Почему президент SEIU-UHW Дейв Риган с 2012 года подал до 48 инициатив на бюллетень, если почти ни одна не проходит?"
+  },
+  "1a969f8fedf53d9a": {
+   "kind": "take dave-regan qa q",
+   "en": "Is Proposition 40 another bargaining chip for Dave Regan, or genuine policy conviction?",
+   "tr": "Prop 40 — ещё одна разменная фишка Дейва Ригана или искреннее политическое убеждение?"
+  },
+  "d33f833cb33eac82": {
+   "kind": "take dave-regan ref",
+   "en": "Sponsoring Prop 40 & offering Newsom a 2% deal",
+   "tr": "Спонсирует Prop 40 и предлагает Ньюсому сделку на 2 %"
+  },
+  "3a8e3578e64232d8": {
+   "kind": "take dave-regan ref q",
+   "en": "Who is behind California's Prop 40 billionaire tax and what are the politics?",
+   "tr": "Кто стоит за калифорнийским налогом на миллиардеров Prop 40 и какова политика вокруг него?"
+  },
+  "415249a12ac7e188": {
+   "kind": "take dave-regan ref a",
+   "en": "The sponsor is SEIU-UHW and its president Dave Regan, who collected 1.6 million signatures to backfill Medi-Cal cuts. Newsom tried to kill it with a 2% legislative alternative; Regan offered to drop to 2% if Newsom backed it, and Newsom refused.",
+   "tr": "Спонсор — SEIU-UHW и его президент Дейв Риган, собравший 1,6 миллиона подписей, чтобы закрыть сокращения Medi-Cal. Ньюсом пытался убить инициативу законодательной альтернативой в 2 %; Риган предложил снизить до 2 %, если Ньюсом её поддержит, и Ньюсом отказался."
+  },
+  "7453550971ec65f5": {
+   "kind": "take dave-regan ref",
+   "en": "'The best bargain in American politics': 48 initiatives & the dialysis trilogy",
+   "tr": "«Лучшая сделка в американской политике»: 48 инициатив и диализная трилогия"
+  },
+  "460ff10800fb953c": {
+   "kind": "take dave-regan ref q",
+   "en": "You said the union behind Prop 40 has tried to pass a bunch of other propositions?",
+   "tr": "Ты говорила, что профсоюз за Prop 40 пытался провести кучу других предложений?"
+  },
+  "7fcc421607f374b7": {
+   "kind": "take dave-regan ref a",
+   "en": "Dave Regan calls ballot initiatives 'the best bargain in American politics,' filing between 23 and 48 initiatives since 2012. Across three dialysis propositions (Props 8, 23, and 29) they lost every time while forcing DaVita and Fresenius to spend over $216 million, and in hospital fights they repeatedly withdrew executive-pay caps in exchange for organizing and Medi-Cal deals.",
+   "tr": "Дейв Риган называет инициативы на бюллетень «лучшей сделкой в американской политике» и с 2012 года подал от 23 до 48 инициатив. По трём диализным предложениям (Prop 8, 23 и 29) они каждый раз проигрывали, заставляя DaVita и Fresenius потратить больше 216 млн долларов, а в больничных боях раз за разом отзывали потолки на зарплаты руководства в обмен на сделки по организации и Medi-Cal."
+  },
+  "c7159b9174784c2b": {
+   "kind": "take dave-regan ref",
+   "en": "Tactical leverage vs. genuine policy conviction on Prop 40",
+   "tr": "Тактический рычаг против искреннего убеждения по Prop 40"
+  },
+  "7142c3490c9bfd21": {
+   "kind": "take dave-regan ref q",
+   "en": "Is Dave Regan running a cynical money grab, or does he think he's doing good?",
+   "tr": "Дейв Риган ведёт циничный захват денег или считает, что делает добро?"
+  },
+  "87c81f9ff3b86f3d": {
+   "kind": "take dave-regan ref a",
+   "en": "Probably both, and the mix shifts by target. With dialysis and hospitals, the leverage reading is hard to escape — Regan himself calls withdrawals 'tactical gains.' Prop 40 is different because billionaires aren't going to unionize: if Medi-Cal funding collapses, union healthcare jobs go with it, so it's aligned interest plus bargaining leverage.",
+   "tr": "Вероятно, и то и другое, и смесь меняется в зависимости от цели. С диализом и больницами от чтения через рычаг трудно уйти — сам Риган называет отзывы «тактическими приобретениями». Prop 40 другое, потому что миллиардеры в профсоюз не вступят: если финансирование Medi-Cal рухнет, вместе с ним уйдут и профсоюзные рабочие места в здравоохранении, так что здесь совпадение интересов плюс рычаг торга."
+  },
+  "e1d2ae079403f296": {
+   "kind": "take role",
+   "en": "UC Berkeley economists and wealth-tax architects; co-drafters (with Brian Galle, David Gamage, and Darien Shanske) of California's Proposition 40",
+   "tr": "Экономисты Калифорнийского университета в Беркли и архитекторы налога на богатство; соавторы (вместе с Брайаном Галле, Дэвидом Гэмейджем и Дариеном Шанске) калифорнийской «Пропозиции 40»"
+  },
+  "1037a52774c322ce": {
+   "kind": "take lede",
+   "en": "For the union, Prop 40 is leverage; for Saez and his academic co-drafters, it is a live precedent play — including a deliberate Section 5033(c)(3)(C) voting-control valuation floor and appraiser penalties designed as a template other states can copy.",
+   "tr": "Для профсоюза «Пропозиция 40» — рычаг давления; для Саеза и его академических соавторов это живая игра на прецедент — включая сознательный нижний порог оценки по контролю голосов из раздела 5033(c)(3)(C) и штрафы для оценщиков, задуманные как шаблон, который другие штаты смогут скопировать."
+  },
+  "a60fe2c89590fdb6": {
+   "kind": "take saez-and-zucman para",
+   "en": "While SEIU-UHW supplied the signatures and political muscle for Proposition 40, the intellectual architecture belongs to UC Berkeley economist Emmanuel Saez, his longtime wealth-tax collaborator Gabriel Zucman, and tax law professors Brian Galle, David Gamage, and Darien Shanske. Saez has spent his career arguing that extreme wealth concentration must be taxed at the source, and he openly describes Prop 40 as ⟦a template other states can copy⟧.",
+   "tr": "Пока SEIU-UHW обеспечивал подписи и политическую мускулатуру для «Пропозиции 40», интеллектуальная архитектура принадлежит экономисту Калифорнийского университета в Беркли Эммануэлю Саезу, его давнему соратнику по налогу на богатство Габриэлю Зукману и профессорам налогового права Брайану Галле, Дэвиду Гэмейджу и Дариену Шанске. Саез всю карьеру доказывает, что крайнюю концентрацию богатства надо облагать налогом у источника, и открыто описывает «Пропозицию 40» как ⟦шаблон, который другие штаты смогут скопировать⟧."
+  },
+  "63abfa4b3b4c946d": {
+   "kind": "take saez-and-zucman para",
+   "en": "The steelman of their drafting is that they solved every obvious avoidance path in advance: a one-time 5% snapshot rate tied to January 1, 2026 residency to deter post-announcement flight, a real-estate exemption to neutralize Prop 13 homeowner backlash, a $10 million Roth IRA threshold aimed squarely at mega-Roth shelters, and a 60-day Sacramento Superior Court to California Supreme Court fast lane so facial constitutional challenges are resolved by November 1, 2027.",
+   "tr": "Самая сильная защита их текста в том, что они заранее закрыли все очевидные пути ухода от налога: разовый снимок по ставке 5%, привязанный к резидентству на 1 января 2026 года, чтобы отбить бегство после объявления; освобождение недвижимости, чтобы нейтрализовать отпор домовладельцев из-за «Пропозиции 13»; порог в 10 миллионов долларов по Roth IRA, бьющий прямо по мегаубежищам Roth; и 60-дневный ускоренный коридор от Высшего суда Сакраменто до Верховного суда Калифорнии, чтобы конституционные иски «по лицу» закона были разрешены к 1 ноября 2027 года."
+  },
+  "b4df9bf0782209db": {
+   "kind": "take saez-and-zucman para",
+   "en": "Where their design crosses from anti-avoidance into coercion is ⟦Section 5033(c)(3)(C), the valuation rule for privately held businesses⟧. While publicly traded shares (including dual-class shares at public companies) are valued at December 31, 2026 market price, private companies default to GAAP book value plus 7.5 times average annual book profits multiplied by the higher of the founder's economic stake or voting control — so a startup founder with 10% equity and 60% voting rights is presumed to own 60% of the firm, with certified appraisers facing personal penalties of up to 4% if the Franchise Tax Board disagrees.",
+   "tr": "Там, где их конструкция переходит от борьбы с уклонением к принуждению, — это ⟦раздел 5033(c)(3)(C), правило оценки частных компаний⟧. Если публично торгуемые акции (включая акции двух классов в публичных компаниях) оцениваются по рыночной цене на 31 декабря 2026 года, то для частных компаний по умолчанию берётся балансовая стоимость по GAAP плюс 7,5 среднегодовой балансовой прибыли, умноженные на большее из экономической доли основателя или его контроля голосов — так что основатель стартапа с 10% капитала и 60% прав голоса считается владельцем 60% фирмы, а сертифицированные оценщики рискуют личными штрафами до 4%, если Franchise Tax Board с ними не согласится."
+  },
+  "88ebfad7a8057b29": {
+   "kind": "take saez-and-zucman para",
+   "en": "⟦As their own section-by-section explainer confirms, this was not a drafting error⟧. They knew the voting-control floor and book-plus-7.5x-profits formula could tax illiquid founders on far more than they could realize in a sale, and they built it anyway to establish the legal precedent that the state can define valuation by fiat, apply it retroactively to a snapshot date, and penalize independent appraisers who push back.",
+   "tr": "⟦Как подтверждает их собственный пораздельный комментарий, это была не ошибка формулировки⟧. Они знали, что нижний порог по контролю голосов и формула «баланс плюс 7,5 прибыли» могут обложить неликвидных основателей налогом на сумму куда большую, чем они смогли бы выручить при продаже, и всё равно заложили это, чтобы создать правовой прецедент: штат может определять оценку своим указом, применять её задним числом к дате снимка и наказывать независимых оценщиков, которые возражают."
+  },
+  "7203104322b98853": {
+   "kind": "take saez-and-zucman qa q",
+   "en": "How does Section 5033(c)(3)(C) of Prop 40 value private startup founders with super-voting shares versus public companies?",
+   "tr": "Как раздел 5033(c)(3)(C) «Пропозиции 40» оценивает основателей частных стартапов со сверхголосующими акциями по сравнению с публичными компаниями?"
+  },
+  "36e57e4a40048c66": {
+   "kind": "take saez-and-zucman qa q",
+   "en": "Was the voting-control valuation trap a drafting mistake by the professors, or an intentional precedent play?",
+   "tr": "Ловушка оценки по контролю голосов — ошибка профессоров при формулировке или сознательная игра на прецедент?"
+  },
+  "61d619488c3bfeb6": {
+   "kind": "take saez-and-zucman ref",
+   "en": "Section 5033(c)(3)(C): voting-control floor & appraiser penalties",
+   "tr": "Раздел 5033(c)(3)(C): нижний порог по контролю голосов и штрафы оценщикам"
+  },
+  "5da24e21da12e035": {
+   "kind": "take saez-and-zucman ref q",
+   "en": "Tell me the financial details on how Prop 40 values voting shares and private startups.",
+   "tr": "Расскажи финансовые детали: как «Пропозиция 40» оценивает голосующие акции и частные стартапы."
+  },
+  "b19aee89ff2765eb": {
+   "kind": "take saez-and-zucman ref a",
+   "en": "Section 5033(c)(3)(C) says that for privately held companies, your ownership percentage is presumed to be not less than your share of voting rights — so 10% equity with 60% voting rights gets taxed as 60% of GAAP book value plus 7.5 times profits, while appraisers face penalties up to 4% of any discrepancy if the Franchise Tax Board disagrees.",
+   "tr": "Раздел 5033(c)(3)(C) говорит, что для частных компаний твоя доля владения считается не меньшей, чем твоя доля прав голоса — так что 10% капитала при 60% прав голоса облагаются как 60% балансовой стоимости по GAAP плюс 7,5 прибыли, а оценщикам грозят штрафы до 4% от любого расхождения, если Franchise Tax Board не согласится."
+  },
+  "42148559d1f3183c": {
+   "kind": "take saez-and-zucman ref",
+   "en": "Intentional design choice, not a drafting mistake",
+   "tr": "Сознательный выбор конструкции, а не ошибка формулировки"
+  },
+  "39cc36167c21be3a": {
+   "kind": "take saez-and-zucman ref q",
+   "en": "Did the professors who wrote Prop 40 make a mistake on the voting-control valuation, or was it intentional?",
+   "tr": "Профессора, написавшие «Пропозицию 40», ошиблись в оценке по контролю голосов — или это было намеренно?"
+  },
+  "32f8f83aed9fd48f": {
+   "kind": "take saez-and-zucman ref a",
+   "en": "Their own explainer reads as intentional: they knew it would overstate value in edge cases, decided the overstatement was acceptable or fixable in court, and pre-defended it. That's not a bug they missed — it's a design choice they expected to argue for.",
+   "tr": "Их собственный комментарий читается как намеренный: они знали, что в крайних случаях стоимость будет завышена, решили, что завышение приемлемо или поправимо в суде, и заранее его защитили. Это не баг, который они проглядели, — это выбор конструкции, который они рассчитывали отстаивать."
+  },
+  "2e5d164661c22c16": {
+   "kind": "take saez-and-zucman ref",
+   "en": "The real prize: a national wealth-tax precedent",
+   "tr": "Настоящий приз: общенациональный прецедент налога на богатство"
+  },
+  "9ab8ff4c46a5ed04": {
+   "kind": "take saez-and-zucman ref q",
+   "en": "Is Prop 40 just union bargaining leverage, or is it trying to set a precedent that you can tax wealth whenever you want?",
+   "tr": "«Пропозиция 40» — это просто рычаг профсоюза на переговорах или попытка создать прецедент, что богатство можно облагать налогом когда угодно?"
+  },
+  "fd6262042eb21d90": {
+   "kind": "take saez-and-zucman ref a",
+   "en": "It's both, but the precedent is the bigger prize. Saez has spent his career trying to make wealth taxes politically normal and said himself this was designed as a template other states could copy — taxing wealth retroactively on a snapshot date, with the state defining valuation and penalizing appraisers who disagree.",
+   "tr": "И то и другое, но прецедент — приз покрупнее. Саез всю карьеру пытается сделать налоги на богатство политически нормальными и сам сказал, что это задумано как шаблон, который другие штаты смогут скопировать: облагать богатство задним числом на дату снимка, когда штат сам определяет оценку и наказывает оценщиков, которые не согласны."
   },
   "caf718db2a0f6afd": {
    "kind": "topic title",
@@ -2589,6 +2949,236 @@
    "kind": "topic term",
    "en": "Pickaxe Mountain",
    "tr": "Pickaxe Mountain"
+  },
+  "26ee064a77ab6755": {
+   "kind": "topic title",
+   "en": "California High-Speed Rail & the $1B Cap-and-Trade Siphon",
+   "tr": "Калифорнийская высокоскоростная железная дорога и откачка 1 млрд долларов из cap-and-trade"
+  },
+  "056b194f16729705": {
+   "kind": "topic description",
+   "en": "How 2008's $10B Prop 1A bond promise became $15.5B spent and $126B+ estimated with zero miles of track laid — sustained by a $677M CEQA consulting industry, a $537.3M change-order settlement, and a $1B/year cap-and-trade annuity through 2045.",
+   "tr": "Как обещание облигаций Prop 1A на 10 млрд долларов в 2008 году превратилось в 15,5 млрд потраченных и оценку в 126 млрд+ при нуле уложенных миль путей — и держится на консалтинговой индустрии CEQA на 677 млн, урегулировании change order на 537,3 млн и аннуитете из cap-and-trade в 1 млрд в год до 2045 года."
+  },
+  "99e63c3a2973f0ac": {
+   "kind": "take california-high-speed-rail para",
+   "en": "Eighteen years after California voters approved Proposition 1A's $10 billion bond in 2008 on the promise of a 220-mph train from San Francisco to Los Angeles in under three hours by 2020, the state has spent $15.5 billion, ⟦laid zero miles of track, and watched the full-system estimate climb to $126 billion⟧ (with a $231 billion worst case). After the Trump administration clawed back $4 billion in federal grants, Governor Gavin Newsom and the legislature locked in a flat $1 billion a year from cap-and-trade auction revenue through 2045 — turning temporary seed funding into a twenty-year consulting annuity while pushing affordable housing, transit, and clean air down to Tier 3.",
+   "tr": "Спустя восемнадцать лет после того, как избиратели Калифорнии в 2008 году одобрили облигации Proposition 1A на 10 миллиардов долларов под обещание поезда на 220 миль в час из Сан-Франциско в Лос-Анджелес менее чем за три часа к 2020 году, штат потратил 15,5 миллиарда, ⟦не уложил ни одной мили путей и смотрел, как оценка всей системы выросла до 126 миллиардов⟧ (при худшем сценарии в 231 миллиард). После того как администрация Трампа отозвала 4 миллиарда федеральных грантов, губернатор Гэвин Ньюсом и законодатели зафиксировали ровные 1 миллиард в год из аукционных доходов cap-and-trade до 2045 года — превратив временное стартовое финансирование в двадцатилетний аннуитет для консультантов и оттеснив доступное жильё, транспорт и чистый воздух на третий уровень."
+  },
+  "576ada44981b81d7": {
+   "kind": "take california-high-speed-rail para",
+   "en": "The waste isn't in a single cartoon envelope of cash; it's in the compounding across a project with no permanent in-house engineering staff that pays outside consultant engineers $427,000 per head versus $131,000 for state employees. Over $677 million went to produce 130,000 pages of environmental review (a 40-foot-tall stack weighing 1,300 pounds, including $480,000 to dig small mammal burrows by hand and $352,000 for lizard surveys) paid largely to four engineering giants — Parsons Brinckerhoff, HNTB, WSP, and AECOM — ⟦three of which were major donors to the 2008 ballot campaign⟧ that created the project. Meanwhile, on the 65-mile Fresno stretch (CP 2-3), Dragados-Flatiron Joint Venture used 597 change orders plus May 2026's ⟦$537.3 million Change Order 427 settlement⟧ to push a $1.365 billion contract past $3 billion.",
+   "tr": "Расточительство — не в одном карикатурном конверте с наличными; оно в нарастающем эффекте на проекте без постоянного собственного инженерного штата, где внешним инженерам-консультантам платят 427 000 долларов на человека против 131 000 для сотрудников штата. Более 677 миллионов ушло на 130 000 страниц экологической экспертизы (стопа высотой 40 футов и весом 1300 фунтов, включая 480 000 на то, чтобы вручную раскапывать норы мелких млекопитающих, и 352 000 на обследования ящериц), выплаченных в основном четырём инженерным гигантам — Parsons Brinckerhoff, HNTB, WSP и AECOM, — ⟦трое из которых были крупными донорами кампании на референдуме 2008 года⟧, создавшей проект. Тем временем на 65-мильном участке у Фресно (CP 2-3) Dragados-Flatiron Joint Venture использовало 597 change orders плюс майское 2026 года ⟦урегулирование Change Order 427 на 537,3 миллиона долларов⟧, чтобы довести контракт, начинавшийся с 1,365 миллиарда, за 3 миллиарда."
+  },
+  "72924f532e93e0de": {
+   "kind": "take california-high-speed-rail para",
+   "en": "When Inspector General Ben Belnap exposed $2M+ in non-compliant consultant travel (including KPMG receipts for gyms, a nightclub, an escape room, and a tiki bar, plus late-night Lyft rides to CEO Ian Choudri's Folsom home), the board clipped Choudri's solo contracting authority — and two weeks later Newsom vetoed the bipartisan bill giving the Inspector General staffing and contracting power to audit the $537.3 million change-order settlement.",
+   "tr": "Когда генеральный инспектор Бен Белнап вскрыл более 2 млн долларов несоответствующих командировочных расходов консультантов (включая чеки KPMG за спортзалы, ночной клуб, эскейп-рум и тики-бар, плюс ночные поездки Lyft к дому CEO Иэна Чудри в Фолсоме), совет урезал единоличные полномочия Чудри на заключение контрактов — а две недели спустя Ньюсом наложил вето на двухпартийный законопроект, который давал генеральному инспектору штат и право заключать контракты, чтобы проверить урегулирование change order на 537,3 миллиона."
+  },
+  "47a0edfb00fdc386": {
+   "kind": "take california-high-speed-rail para",
+   "en": "Compared with Texas (which skipped state CEQA bloat but stalled privately on land assembly and capital) and ⟦Spain (which built 4,000 km at €20M–€30M/km under a single national agency, ADIF⟧, trading paralysis for overcapacity), California chose paralysis and got cost explosion anyway. A $50 million '⟦Climate Investment Restoration Act⟧' ballot measure keeping cap-and-trade intact while redirecting the rail Authority's $1 billion annual siphon into housing, regional transit, clean air, and drinking water would have a real 40%–45% shot in 2028 — provided the coalition locks its percentage split before filing and adds automatic audit clawbacks.",
+   "tr": "По сравнению с Техасом (который обошёлся без раздутой штатовской CEQA, но в частном порядке застрял на сборке земли и капитале) и ⟦Испанией (которая построила 4000 км по 20–30 млн евро за км при едином национальном агентстве ADIF⟧, променяв паралич на избыточные мощности), Калифорния выбрала паралич и всё равно получила взрыв затрат. Инициатива на референдуме за 50 миллионов — «⟦Закон о восстановлении климатических инвестиций⟧», — сохраняющая cap-and-trade и перенаправляющая ежегодную откачку миллиарда долларов у железнодорожного Authority на жильё, региональный транспорт, чистый воздух и питьевую воду, имела бы реальные шансы в 40–45% в 2028 году — если коалиция зафиксирует процентное распределение до подачи и добавит автоматический возврат средств по итогам аудита."
+  },
+  "bb63cd3e43ec31ad": {
+   "kind": "take california-high-speed-rail qa q",
+   "en": "Where did the first $15.5 billion on California High-Speed Rail actually go — and why is it still getting $1 billion a year?",
+   "tr": "Куда на самом деле ушли первые 15,5 миллиарда на California High-Speed Rail — и почему проект по-прежнему получает 1 миллиард в год?"
+  },
+  "3a6837f3b0a01e3e": {
+   "kind": "take california-high-speed-rail qa q",
+   "en": "Why did Gavin Newsom veto the Inspector General bill right after the KPMG travel audit — and how could a $50M ballot measure redirect the $1B/year siphon?",
+   "tr": "Почему Гэвин Ньюсом наложил вето на законопроект о генеральном инспекторе сразу после аудита командировок KPMG — и как инициатива на 50 млн могла бы перенаправить ежегодную откачку в 1 млрд?"
+  },
+  "c96b2550f677bcc8": {
+   "kind": "take california-high-speed-rail ref",
+   "en": "Prop 1A's 2008 promise vs. $15.5B spent and $126B+ cost",
+   "tr": "Обещание Prop 1A 2008 года против 15,5 млрд потраченных и стоимости 126 млрд+"
+  },
+  "b73175d3f5bd7e04": {
+   "kind": "take california-high-speed-rail ref q",
+   "en": "I want to talk about California high-speed rail. What the hell is up with that?",
+   "tr": "Хочу поговорить о калифорнийской высокоскоростной железной дороге. Что, чёрт возьми, с ней происходит?"
+  },
+  "15b9613f99ba2b8c": {
+   "kind": "take california-high-speed-rail ref a",
+   "en": "Voters approved Prop 1A in 2008 for about $10 billion in bonds, promising San Francisco to Los Angeles in under three hours by 2020. Eighteen years later, more than $15 billion has been spent with not one mile of track laid, a full-system estimate of $126 billion, and $677 million spent on 130,000 pages of environmental review.",
+   "tr": "Избиратели одобрили Prop 1A в 2008 году примерно на 10 миллиардов в облигациях, обещая Сан-Франциско — Лос-Анджелес менее чем за три часа к 2020 году. Восемнадцать лет спустя потрачено более 15 миллиардов, не уложено ни одной мили путей, оценка всей системы — 126 миллиардов, и 677 миллионов ушло на 130 000 страниц экологической экспертизы."
+  },
+  "8716e5fa3b1e410d": {
+   "kind": "take california-high-speed-rail ref",
+   "en": "The $677M / 130,000-page CEQA review loop",
+   "tr": "Петля экспертизы CEQA на 677 млн и 130 000 страниц"
+  },
+  "bfd7341e5ddec906": {
+   "kind": "take california-high-speed-rail ref q",
+   "en": "Tell me about the $677 million in environmental review and who collected it.",
+   "tr": "Расскажи про 677 миллионов на экологическую экспертизу и кто их получил."
+  },
+  "68d6f60bfef5ec1b": {
+   "kind": "take california-high-speed-rail ref a",
+   "en": "That $677 million produced over 130,000 pages of documents standing 40 feet tall. Four firms — Parsons Brinckerhoff, HNTB, WSP, and AECOM — did most of it, and three of those four were among the biggest donors to the 2008 ballot campaign that created the project.",
+   "tr": "Эти 677 миллионов дали более 130 000 страниц документов стопой в 40 футов. Четыре фирмы — Parsons Brinckerhoff, HNTB, WSP и AECOM — сделали большую часть, и три из этих четырёх были среди крупнейших доноров кампании на референдуме 2008 года, создавшей проект."
+  },
+  "1078fb4255e4e9c2": {
+   "kind": "take california-high-speed-rail ref",
+   "en": "Drafting the Climate Investment Restoration Act",
+   "tr": "Черновик Закона о восстановлении климатических инвестиций"
+  },
+  "f1522f8c33876c06": {
+   "kind": "take california-high-speed-rail ref q",
+   "en": "Sketch what the actual ballot language to redirect the $1B/year cap-and-trade rail money might look like.",
+   "tr": "Набросай, как мог бы выглядеть реальный текст бюллетеня, чтобы перенаправить 1 млрд в год из cap-and-trade, идущий на железную дорогу."
+  },
+  "f135914d5f27d018": {
+   "kind": "take california-high-speed-rail ref a",
+   "en": "The Climate Investment Restoration Act would keep AB 32 cap-and-trade intact through 2045 while redirecting the High-Speed Rail Authority's $1 billion annual GGRF appropriation starting January 1, 2029: $400M to affordable housing, $250M to regional rail and transit capital, $150M to transit operations, $100M to AB 617 community air protection, and $100M to safe drinking water.",
+   "tr": "Закон о восстановлении климатических инвестиций сохранил бы cap-and-trade по AB 32 в силе до 2045 года, перенаправив ежегодное ассигнование High-Speed Rail Authority из GGRF в 1 миллиард начиная с 1 января 2029 года: 400 млн на доступное жильё, 250 млн на капитал региональных железных дорог и транспорта, 150 млн на эксплуатацию транспорта, 100 млн на защиту воздуха в сообществах по AB 617 и 100 млн на безопасную питьевую воду."
+  },
+  "7022daf736122639": {
+   "kind": "take california-high-speed-rail ref",
+   "en": "Spain's ADIF model vs. California paralysis",
+   "tr": "Модель ADIF в Испании против калифорнийского паралича"
+  },
+  "05875d3cf65a2260": {
+   "kind": "take california-high-speed-rail ref q",
+   "en": "How do other countries like Spain handle high-speed rail compared to California?",
+   "tr": "Как другие страны, например Испания, делают высокоскоростные железные дороги по сравнению с Калифорнией?"
+  },
+  "6e0f7993ce64ea7d": {
+   "kind": "take california-high-speed-rail ref a",
+   "en": "Spain went from zero to 4,000 km of high-speed track in 30 years at €20M–€30M per kilometer under a single national agency, ADIF, with no citizen initiative or CEQA equivalent. Spain accepted overcapacity instead of paralysis; California chose paralysis and got both.",
+   "tr": "Испания за 30 лет прошла от нуля до 4000 км высокоскоростных путей по 20–30 млн евро за километр при едином национальном агентстве ADIF, без гражданской инициативы и без аналога CEQA. Испания приняла избыточные мощности вместо паралича; Калифорния выбрала паралич и получила и то, и другое."
+  },
+  "174ff4ebc5bf983e": {
+   "kind": "topic term",
+   "en": "California High-Speed Rail",
+   "tr": "Калифорнийская высокоскоростная железная дорога"
+  },
+  "2ada28e969e01abc": {
+   "kind": "topic term",
+   "en": "Change Order 427",
+   "tr": "Change Order 427"
+  },
+  "64d116af6a948bba": {
+   "kind": "topic term",
+   "en": "Prop 1A",
+   "tr": "Prop 1A"
+  },
+  "d6a0f56c97cff85a": {
+   "kind": "topic title",
+   "en": "California's Billionaire Tax (Prop 40) & SEIU-UHW's Ballot Leverage",
+   "tr": "Налог Калифорнии на миллиардеров (Prop 40) и рычаг SEIU-UHW через бюллетени"
+  },
+  "21a7dff94aecf0da": {
+   "kind": "topic description",
+   "en": "SEIU-UHW president Dave Regan's 48-initiative leverage machine, Emmanuel Saez & Gabriel Zucman's Section 5033(c)(3)(C) voting-control valuation trap, the California Supreme Court fast-lane challenge, and why wealth taxes survive in Norway and Switzerland but failed in France.",
+   "tr": "Машина рычага из 48 инициатив президента SEIU-UHW Дейва Ригана, ловушка оценки по контролю над голосами в Section 5033(c)(3)(C) у Эммануэля Саеза и Габриэля Зукмана, ускоренное оспаривание в Верховном суде Калифорнии и почему налоги на богатство выживают в Норвегии и Швейцарии, но провалились во Франции."
+  },
+  "808c910e4d053e73": {
+   "kind": "take california-billionaire-tax-prop-40 para",
+   "en": "Proposition 40 on California's November 3, 2026 ballot imposes a ⟦one-time 5% tax on the worldwide net worth of anyone who was a California resident on January 1, 2026⟧ with $1 billion or more — roughly 250 people holding $2 trillion in wealth, with 90% earmarked for Medi-Cal and 10% for food assistance and education. Sponsored by SEIU-UHW president Dave Regan (who has filed up to 48 ballot initiatives since 2012 as an attrition and bargaining weapon against dialysis chains and hospitals) and drafted by UC Berkeley economist Emmanuel Saez alongside Brian Galle, David Gamage, and Darien Shanske, it pits Bernie Sanders, Ro Khanna, and the California Democratic Party against Gavin Newsom, every major Democratic gubernatorial candidate, and a $300M+ opposition war chest led by Sergey Brin's $102 million.",
+   "tr": "Предложение 40 в бюллетене Калифорнии на 3 ноября 2026 года вводит ⟦разовый налог в 5% на мировое чистое состояние любого, кто был резидентом Калифорнии на 1 января 2026 года⟧ при состоянии от 1 млрд долларов — примерно 250 человек, на которых приходится 2 трлн долларов богатства; 90% зарезервировано для Medi-Cal, а 10% — для продовольственной помощи и образования. Инициативу спонсирует президент SEIU-UHW Дейв Риган (с 2012 года он подал до 48 инициатив для голосования как оружие изматывания и торга против сетей диализа и больниц), а текст подготовили экономист Калифорнийского университета в Беркли Эммануэль Саез вместе с Брайаном Галле, Дэвидом Гэмейджем и Дариеном Шанске; она сталкивает Берни Сандерса, Ро Кханну и Демократическую партию Калифорнии с Гэвином Ньюсомом, всеми крупными кандидатами-демократами на пост губернатора и боевой казной оппозиции на 300+ млн долларов во главе со 102 млн долларов Сергея Брина."
+  },
+  "c91f3f09f7f5b10a": {
+   "kind": "take california-billionaire-tax-prop-40 para",
+   "en": "The viral claim that Prop 40 taxes '10x voting shares at 10x' is a misreading of a real, deliberate mechanism: ⟦Section 5033(c)(3)(C)⟧. Publicly traded companies (including dual-class shares at Meta or Alphabet) are valued at December 31, 2026 market price. For privately held companies, however, ownership is presumed to be not less than your share of voting control, applied to GAAP book value plus 7.5 times average annual book profits — meaning a startup founder with 10% economic equity and 60% voting control is taxed as owning 60% of the company, while appraisers face personal penalties up to 4% of any discrepancy if the Franchise Tax Board disagrees.",
+   "tr": "Вирусное утверждение, будто Prop 40 облагает «акции с десятикратным правом голоса в десятикратном размере», — это неверное прочтение реального, намеренного механизма: ⟦Section 5033(c)(3)(C)⟧. Публичные компании (включая акции двух классов у Meta или Alphabet) оцениваются по рыночной цене на 31 декабря 2026 года. Для частных компаний, однако, доля собственности презюмируется не меньшей, чем ваша доля контроля над голосами, и применяется к балансовой стоимости по GAAP плюс 7,5 среднегодовой балансовой прибыли — то есть основателя стартапа с 10% экономической доли и 60% контроля над голосами облагают так, будто ему принадлежит 60% компании, а оценщикам грозят личные штрафы до 4% от любого расхождения, если Franchise Tax Board не согласится."
+  },
+  "779ab88e842b81e0": {
+   "kind": "take california-billionaire-tax-prop-40 para",
+   "en": "Even if Prop 40 clears voters (polling at 46%–43%), it enters a ⟦self-built constitutional fast lane⟧: facial challenges must be filed in Sacramento Superior Court within 60 days, decided by April 1, 2027, and ruled on by the California Supreme Court by November 1, 2027, with former US Solicitor General Elizabeth Prelogar already retained by the opposition to attack its retroactivity, Due Process, and dormant Commerce Clause apportionment defects — plus a potential conflict if Brin's Prop 42 passes with more votes.",
+   "tr": "Даже если Prop 40 пройдёт у избирателей (опросы: 46%–43%), она попадает в ⟦самостоятельно выстроенный конституционный ускоренный коридор⟧: иски о неконституционности по тексту нужно подать в Superior Court Сакраменто в течение 60 дней, решение должно быть вынесено к 1 апреля 2027 года, а вердикт Верховного суда Калифорнии — к 1 ноября 2027 года; оппозиция уже наняла бывшего генерального солиситора США Элизабет Прелогар, чтобы атаковать ретроактивность, Due Process и дефекты распределения по «спящей» оговорке о торговле (dormant Commerce Clause) — плюс возможный конфликт, если Prop 42 Брина наберёт больше голосов."
+  },
+  "81c03788a9748fe4": {
+   "kind": "take california-billionaire-tax-prop-40 para",
+   "en": "For Regan, Prop 40 is classic leverage (he offered Newsom to drop it for a 2% legislative tax); for Saez, the precedent is the product. Across Norway (~1% above ~$150k), Switzerland (0.1%–1% by canton), Spain, and France (which repealed its ISF financial wealth tax in 2017 after losing an estimated €60B in capital flight to collect €5B), the international lesson is clear: ⟦wealth taxes survive when they are low, narrow, and predictable⟧, and break when they try to do retrospective, state-valued redistribution at scale.",
+   "tr": "Для Ригана Prop 40 — классический рычаг (он предлагал Ньюсому снять её в обмен на законодательный налог в 2%); для Саеза продукт — сам прецедент. На фоне Норвегии (~1% свыше ~150 тыс. долларов), Швейцарии (0,1%–1% в зависимости от кантона), Испании и Франции (которая отменила свой налог на финансовое богатство ISF в 2017 году, потеряв, по оценкам, 60 млрд евро из-за бегства капитала, чтобы собрать 5 млрд евро) международный урок ясен: ⟦налоги на богатство выживают, когда они низкие, узкие и предсказуемые⟧, и ломаются, когда пытаются задним числом, по государственной оценке, перераспределять в масштабе."
+  },
+  "e9021aae769f8cb8": {
+   "kind": "take california-billionaire-tax-prop-40 qa q",
+   "en": "Who is behind California's Proposition 40 billionaire tax — and how does Section 5033(c)(3)(C) value private startup founders?",
+   "tr": "Кто стоит за налогом на миллиардеров по Предложению 40 в Калифорнии — и как Section 5033(c)(3)(C) оценивает основателей частных стартапов?"
+  },
+  "898b117934491939": {
+   "kind": "take california-billionaire-tax-prop-40 qa q",
+   "en": "What happens in the California Supreme Court if Prop 40 passes — and how does it compare to wealth taxes in Norway, Switzerland, Spain, and France?",
+   "tr": "Что будет в Верховном суде Калифорнии, если Prop 40 пройдёт, — и как это соотносится с налогами на богатство в Норвегии, Швейцарии, Испании и Франции?"
+  },
+  "f988f8e228af9494": {
+   "kind": "take california-billionaire-tax-prop-40 ref",
+   "en": "Prop 40's 5% structure, coalitions & $300M+ opposition",
+   "tr": "Структура 5% у Prop 40, коалиции и оппозиция на 300+ млн долларов"
+  },
+  "a66b72ef33ed1cb1": {
+   "kind": "take california-billionaire-tax-prop-40 ref q",
+   "en": "Tell me about California's billionaire tax — who is behind it, who is for it, who is against it, and what's the language?",
+   "tr": "Расскажи про налог Калифорнии на миллиардеров — кто за ним стоит, кто за, кто против и какова формулировка?"
+  },
+  "c1b422f5bb07f6bf": {
+   "kind": "take california-billionaire-tax-prop-40 ref a",
+   "en": "Proposition 40 is a one-time 5% tax on anyone who was a California resident on January 1, 2026 with $1B+ net worth — about 250 people and $2T in wealth. Sponsored by SEIU-UHW and drafted by Berkeley's Emmanuel Saez and tax professors, it's opposed by Gavin Newsom and over $300M in opposition spending led by Sergey Brin's $102M.",
+   "tr": "Предложение 40 — это разовый налог в 5% на любого, кто был резидентом Калифорнии на 1 января 2026 года и имеет чистое состояние от 1 млрд долларов: около 250 человек и 2 трлн долларов богатства. Его спонсирует SEIU-UHW, текст написали Эммануэль Саез из Беркли и профессора налогового права; против — Гэвин Ньюсом и более 300 млн долларов расходов оппозиции во главе со 102 млн долларов Сергея Брина."
+  },
+  "ec7d2e500b790e97": {
+   "kind": "take california-billionaire-tax-prop-40 ref",
+   "en": "Section 5033(c)(3)(C) & the private startup valuation trap",
+   "tr": "Section 5033(c)(3)(C) и ловушка оценки частных стартапов"
+  },
+  "84a4073914cf41fd": {
+   "kind": "take california-billionaire-tax-prop-40 ref q",
+   "en": "Tell me the financial details on how Prop 40 counts voting shares and values private companies.",
+   "tr": "Расскажи финансовые детали: как Prop 40 считает голосующие акции и оценивает частные компании."
+  },
+  "594795e6c7a914c2": {
+   "kind": "take california-billionaire-tax-prop-40 ref a",
+   "en": "Section 5033(c)(3)(C) presumes your ownership percentage in a privately held company is not less than your share of voting rights, valued at GAAP book value plus 7.5 times profits, with appraisers facing up to a 4% penalty if the Franchise Tax Board disagrees. Publicly traded shares are excluded and valued at market price.",
+   "tr": "Section 5033(c)(3)(C) презюмирует, что ваша доля собственности в частной компании не меньше вашей доли прав голоса; оценка — балансовая стоимость по GAAP плюс 7,5 прибыли, а оценщикам грозит штраф до 4%, если Franchise Tax Board не согласится. Публично торгуемые акции исключены и оцениваются по рыночной цене."
+  },
+  "12131f016d297ae6": {
+   "kind": "take california-billionaire-tax-prop-40 ref",
+   "en": "The California Supreme Court fast-lane & Elizabeth Prelogar",
+   "tr": "Ускоренный коридор Верховного суда Калифорнии и Элизабет Прелогар"
+  },
+  "f5ab38a2ec557353": {
+   "kind": "take california-billionaire-tax-prop-40 ref q",
+   "en": "Tell me about the California Supreme Court challenge to Prop 40.",
+   "tr": "Расскажи про оспаривание Prop 40 в Верховном суде Калифорнии."
+  },
+  "822fc68406e3423c": {
+   "kind": "take california-billionaire-tax-prop-40 ref a",
+   "en": "Prop 40 requires facial constitutional challenges to be filed in Sacramento Superior Court within 60 days, with a ruling by April 1, 2027 and a California Supreme Court decision by November 1, 2027. The opposition has already retained former US Solicitor General Elizabeth Prelogar to challenge it on Due Process, Commerce Clause apportionment, and retroactivity.",
+   "tr": "Prop 40 требует, чтобы иски о неконституционности по тексту подавались в Superior Court Сакраменто в течение 60 дней, с решением к 1 апреля 2027 года и вердиктом Верховного суда Калифорнии к 1 ноября 2027 года. Оппозиция уже наняла бывшего генерального солиситора США Элизабет Прелогар, чтобы оспорить её по Due Process, распределению по Commerce Clause и ретроактивности."
+  },
+  "40a36075454e2e34": {
+   "kind": "take california-billionaire-tax-prop-40 ref",
+   "en": "Norway, Switzerland, Spain & France vs. Prop 40",
+   "tr": "Норвегия, Швейцария, Испания и Франция против Prop 40"
+  },
+  "e5101ab202b8be97": {
+   "kind": "take california-billionaire-tax-prop-40 ref q",
+   "en": "Does anyone do wealth taxes well?",
+   "tr": "Кто-нибудь хорошо делает налоги на богатство?"
+  },
+  "0280a3d07db9a7b6": {
+   "kind": "take california-billionaire-tax-prop-40 ref a",
+   "en": "Norway (~1%) and Switzerland (0.1%–1% by canton) run stable recurring wealth taxes, while France repealed its ISF financial wealth tax in 2017 after collecting €5B a year at an estimated €60B cost in capital flight. Wealth taxes survive when they're low, narrow, and predictable — and die when they try to be redistributive at scale like Prop 40.",
+   "tr": "В Норвегии (~1%) и Швейцарии (0,1%–1% по кантонам) действуют устойчивые регулярные налоги на богатство, а Франция отменила свой налог на финансовое богатство ISF в 2017 году, собирая 5 млрд евро в год ценой, по оценкам, 60 млрд евро из-за бегства капитала. Налоги на богатство выживают, когда они низкие, узкие и предсказуемые, — и умирают, когда пытаются перераспределять в масштабе, как Prop 40."
+  },
+  "41a4cfb700c770e1": {
+   "kind": "topic term",
+   "en": "Proposition 40",
+   "tr": "Предложение 40"
+  },
+  "1a37b9190bc182d4": {
+   "kind": "topic term",
+   "en": "Prop 40",
+   "tr": "Prop 40"
+  },
+  "adce2fcb6ddb4b6b": {
+   "kind": "topic term",
+   "en": "Section 5033(c)(3)(C)",
+   "tr": "Section 5033(c)(3)(C)"
   }
  }
 }

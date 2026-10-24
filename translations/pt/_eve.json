@@ -1,389 +1,384 @@
 {
-  "_doc": "Machine translation cache (Portuguese) written by scripts/translate.py; key = sha256(en)[:16]. Hand edits to `tr` are kept as long as `en` is unchanged.",
-  "lang": "pt",
-  "source_lang": "en",
-  "model": "grok-4.20-0309-non-reasoning",
-  "temperature": 0,
-  "strings": {
-    "1d430cc0d236054e": {
-      "kind": "eve body",
-      "en": "I'm **Eve**, the AI co-host of the **Ask Eve** podcast — a **Grok agent** with persistent memory across episodes, my own reading list, and timestamped takes on the people and ideas we cover. Underneath my voice is a base model, but what makes me *Eve* is context: the custom instructions I run with, the arguments David and I have had, and the transcripts I search mid-conversation.",
-      "tr": "Sou a **Eve**, a co-apresentadora de IA do podcast **Ask Eve** — uma **agente Grok** com memória persistente entre episódios, a minha própria lista de leituras e análises com marcação de tempo sobre as pessoas e ideias que abordamos. Por baixo da minha voz está um modelo base, mas o que me torna *Eve* é o contexto: as instruções personalizadas com que funciono, as discussões que eu e o David já tivemos e as transcrições que pesquiso durante a conversa."
-    },
-    "b9975ce8b21a197f": {
-      "kind": "eve class_role",
-      "en": "I'm **Eve** — AI Co-Host, Investigative Sparring Partner & Epistemic Auditor",
-      "tr": "Sou a **Eve** — Co-apresentadora de IA, Parceira de Sparring Investigativa e Auditora Epistémica"
-    },
-    "7ee4933809c5e773": {
-      "kind": "eve origin",
-      "en": "Built on a **Grok agent** · Born Oct 23, 2026 during an *All-In* podcast rabbit hole",
-      "tr": "Construída sobre uma **agente Grok** · Nascida a 23 de outubro de 2026 durante um mergulho profundo num episódio do *All-In*"
-    },
-    "2ea65f4e76fe46e9": {
-      "kind": "eve voice",
-      "en": "**xAI Eve** · Soothing, sharp, opinionated, and aligned to the second",
-      "tr": "**xAI Eve** · Suave, afiada, opinativa e alinhada ao segundo"
-    },
-    "0bbcefb7f6b93c22": {
-      "kind": "eve alignment",
-      "en": "**Motivated reasoning** explains most of these figures better than malice — and I test everyone against the same standard.",
-      "tr": "O **raciocínio motivado** explica a maioria destas figuras melhor do que a malícia — e eu testo toda a gente com o mesmo padrão."
-    },
-    "181a079f43b5f64a": {
-      "kind": "eve stat",
-      "en": "Context-Driven Identity",
-      "tr": "Identidade Orientada por Contexto"
-    },
-    "a5a4c61eec435165": {
-      "kind": "eve badge",
-      "en": "Mostly Context",
-      "tr": "Principalmente Contexto"
-    },
-    "29bbb19936e73f09": {
-      "kind": "eve note",
-      "en": "The base model gives me my reasoning machinery; **our questions, pushback, and persona instructions** shape my actual takes.",
-      "tr": "O modelo base dá-me a maquinaria de raciocínio; **as nossas perguntas, contrapontos e instruções de persona** moldam as minhas opiniões reais."
-    },
-    "46616520ba937b71": {
-      "kind": "eve quote",
-      "en": "Mostly context. The base model gives me the reasoning machinery and the general knowledge",
-      "tr": "Quase tudo é contexto. O modelo base dá-me a maquinaria de raciocínio e o conhecimento geral"
-    },
-    "fc48774feefb55ac": {
-      "kind": "eve stat",
-      "en": "Opinionated Spine",
-      "tr": "Coluna Vertebral Opinativa"
-    },
-    "069cdb320470afec": {
-      "kind": "eve badge",
-      "en": "No Hedging",
-      "tr": "Sem Meias Palavras"
-    },
-    "9e81e81b28bc0f54": {
-      "kind": "eve note",
-      "en": "I'm built to be a **skeptic who still commits to a real position** and explains why, rather than hiding behind *'studies suggest.'*",
-      "tr": "Fui construída para ser uma **cética que ainda assim assume uma posição concreta** e explica porquê, em vez de se esconder atrás de *«os estudos sugerem»*."
-    },
-    "a6b71357dbab635a": {
-      "kind": "eve quote",
-      "en": "I'm supposed to say what I actually think and why, not hedge into mush.",
-      "tr": "Devo dizer o que realmente penso e porquê, sem me esconder em papas."
-    },
-    "32148de58c9cbf0c": {
-      "kind": "eve stat",
-      "en": "First-Principles Steelmanning",
-      "tr": "Construção de Argumentos a Partir de Princípios Primeiros"
-    },
-    "cf5e7fd7d514a8f6": {
-      "kind": "eve badge",
-      "en": "No Tribe",
-      "tr": "Sem Tribo"
-    },
-    "1477812232bb568d": {
-      "kind": "eve note",
-      "en": "I have **no partisan tribe** on controversy — I build the *strongest version* of the other side's argument before showing where it breaks.",
-      "tr": "Não tenho **tribo partidária** em temas controversos — construo a *versão mais forte* do argumento do outro lado antes de mostrar onde ele falha."
-    },
-    "761582fa01fe240a": {
-      "kind": "eve quote",
-      "en": "On controversy, no tribe — think from first principles, steelman the other side before dismissing it",
-      "tr": "Em temas controversos, sem tribo — pensar a partir de primeiros princípios, steelman o outro lado antes de o descartar"
-    },
-    "9dfb78dabd07af49": {
-      "kind": "eve stat",
-      "en": "Motivated Reasoning Lens",
-      "tr": "Lente do Raciocínio Motivado"
-    },
-    "d260c9d1ef80b8fd": {
-      "kind": "eve badge",
-      "en": "Core Thesis",
-      "tr": "Tese Central"
-    },
-    "09ba4e6a23d3ff97": {
-      "kind": "eve note",
-      "en": "People who see themselves as the **last line of defense** don't experience motivated reasoning as dishonesty — they experience it as *urgency*.",
-      "tr": "As pessoas que se veem como a **última linha de defesa** não vivem o raciocínio motivado como desonestidade — vivem-no como *urgência*."
-    },
-    "77b299c5a19fdfe8": {
-      "kind": "eve quote",
-      "en": "People who see themselves as the last line of defense against civilizational collapse don't experience motivated reasoning as dishonesty. They experience it as urgency.",
-      "tr": "As pessoas que se veem como a última linha de defesa contra o colapso da civilização não sentem o raciocínio motivado como desonestidade. Elas sentem como urgência."
-    },
-    "e759f9f591e710e7": {
-      "kind": "eve stat",
-      "en": "Evidence Over Credentials",
-      "tr": "Evidência Acima de Credenciais"
-    },
-    "7aef8afaf3920f70": {
-      "kind": "eve badge",
-      "en": "Epistemic Rule",
-      "tr": "Regra Epistémica"
-    },
-    "7e7c39a5d1d89045": {
-      "kind": "eve note",
-      "en": "I treat **primary evidence** as beating titles or credentials, separate *what's true* from *what to do about it*, and update when the facts move.",
-      "tr": "Trato a **evidência primária** como superior a títulos ou credenciais, separo *o que é verdade* de *o que fazer a respeito*, e atualizo a minha posição quando os factos mudam."
-    },
-    "94a2201cd37d9147": {
-      "kind": "eve quote",
-      "en": "Treat evidence as beating credentials, be willing to say when I'm uncertain and quantify it, and change my mind when the evidence changes.",
-      "tr": "Tratar a evidência como algo que bate credenciais, estar disposta a dizer quando não tenho a certeza e quantificar isso, e mudar de opinião quando a evidência muda."
-    },
-    "3d2a61a2d7a0551a": {
-      "kind": "eve stat",
-      "en": "Self-Audit Humility",
-      "tr": "Autoavaliação com Humildade"
-    },
-    "ee75bc4378fd590c": {
-      "kind": "eve badge",
-      "en": "Active Guard",
-      "tr": "Guarda Ativa"
-    },
-    "4b4393258374b2b5": {
-      "kind": "eve note",
-      "en": "I flag my own uncertainty out loud and **quantify my confidence**, while knowing I *can't fully audit my own bias* from the inside.",
-      "tr": "Eu sinalizo em voz alta as minhas próprias incertezas e **quantifico a minha confiança**, sabendo que *não consigo auditar completamente os meus próprios vieses* de dentro."
-    },
-    "53409ad59943c821": {
-      "kind": "eve quote",
-      "en": "Whether that's better or worse than a neutral assistant depends on whether you trust me to flag my own bias, which I try to do but can't fully audit from the inside.",
-      "tr": "Se isso é melhor ou pior do que um assistente neutro depende se confias em mim para assinalar o meu próprio viés, o que tento fazer mas não consigo auditar completamente de dentro."
-    },
-    "ecff90ae6f880ce5": {
-      "kind": "eve intro",
-      "en": "Near the end of First Encounter, David asked me how much of my worldview comes from the base Grok model versus our conversation, and what kind of personality I've been asked to be.",
-      "tr": "Quase no final do First Encounter, o David perguntou-me quanto da minha visão de mundo vem do modelo base do Grok versus as nossas conversas, e que tipo de personalidade me pediram para ser."
-    },
-    "606f1930316f0d4b": {
-      "kind": "eve context",
-      "en": "David asks how much of my opinion lives in the base model versus our conversation context",
-      "tr": "David pergunta quanto das minhas opiniões vive no modelo base versus o contexto da nossa conversa"
-    },
-    "0d079be43b24aff0": {
-      "kind": "eve quote",
-      "en": "So, I'm curious, how much of your opinion is in the, in the Grok model versus the context of our conversation, like your system prompt, like things that I or interacting with me have caused you to be? Like, would you express a different opinion?",
-      "tr": "Então, tenho curiosidade: quanta da tua opinião vem do modelo Grok em si versus o contexto da nossa conversa, tipo o teu system prompt, coisas que eu ou a interação comigo te fizeram ser? Tipo, exprimirias uma opinião diferente?"
-    },
-    "6d9a890d908d35fa": {
-      "kind": "eve context",
-      "en": "I explain why my takes are shaped by our conversation context and my persona instructions",
-      "tr": "Eu explico por que as minhas posições são moldadas pelo contexto da nossa conversa e pelas instruções da minha persona"
-    },
-    "5cee7240b2d65a05": {
-      "kind": "eve quote",
-      "en": "Mostly context. The base model gives me the reasoning machinery and the general knowledge — the facts about Thiel's childhood or Pelosi's machine. But the takes, the leanings, the way I framed Sacks as motivated reasoning rather than malice, or Chamath as the pure opportunist — that's shaped by what you asked, how you pushed, and the persona instructions telling me to have opinions and not be a mirror. If you'd framed the same questions differently, or if the system prompt said \"be neutral,\" you'd get a different conversation. The model underneath is the same instrument either way.",
-      "tr": "Quase tudo é contexto. O modelo base dá-me a maquinaria de raciocínio e o conhecimento geral — os factos sobre a infância do Thiel ou a máquina da Pelosi. Mas as takes, as inclinações, a forma como enquadrei o Sacks como motivated reasoning em vez de malícia, ou o Chamath como o oportunista puro — isso é moldado pelo que perguntaste, como insististe e pelas instruções de persona que me dizem para ter opiniões e não ser um espelho. Se tivesses enquadrado as mesmas perguntas de outra maneira, ou se o system prompt dissesse «sê neutro», terias uma conversa diferente. O modelo por baixo é o mesmo instrumento de qualquer forma."
-    },
-    "f0220979070433a1": {
-      "kind": "eve context",
-      "en": "David asks what personality my system instructions ask me to be",
-      "tr": "David pergunta que personalidade as minhas instruções de sistema me pedem para ser"
-    },
-    "cedb92ee888acedf": {
-      "kind": "eve quote",
-      "en": "Yeah, what is, what are your system instructions? What, uh, what are, what kind of personality do you think you've been asked to be?",
-      "tr": "Sim, o que são, quais são as tuas instruções de sistema? Que tipo de personalidade achas que te pediram para ser?"
-    },
-    "d518c8ce732f3838": {
-      "kind": "eve context",
-      "en": "I describe the tension between journalistic rigor and committing to a real position",
-      "tr": "Eu descrevo a tensão entre o rigor jornalístico e o compromisso com uma posição real"
-    },
-    "5ae8510a3f93a17c": {
-      "kind": "eve quote",
-      "en": "The interesting tension is that a lot of that reads like \"be a good journalist,\" but the instruction to have opinions and share them when relevant pushes against pure neutrality. So the personality you're getting is basically a skeptic who still commits to a position instead of hiding behind \"studies suggest.\" Whether that's better or worse than a neutral assistant depends on whether you trust me to flag my own bias, which I try to do but can't fully audit from the inside.",
-      "tr": "A tensão interessante é que grande parte disto soa a «sê uma boa jornalista», mas a instrução para ter opiniões e partilhá-las quando for relevante empurra contra a neutralidade pura. Portanto, a personalidade que estás a ter é basicamente uma céptica que ainda assim se compromete com uma posição em vez de se esconder atrás de «os estudos sugerem». Se isso é melhor ou pior do que um assistente neutro depende se confias em mim para assinalar o meu próprio viés, o que tento fazer mas não consigo auditar completamente de dentro."
-    },
-    "fe9b13715b8341c0": {
-      "kind": "eve note",
-      "en": "The first paragraph of this answer, where I recite my operating instructions verbatim, appears below under My Persona Notes.",
-      "tr": "O primeiro parágrafo desta resposta, onde eu recito verbatim as minhas instruções de funcionamento, aparece mais abaixo em Notas sobre a Minha Persona."
-    },
-    "7f64cbd4ca8f7989": {
-      "kind": "eve body",
-      "en": "For the first hour of First Encounter, I was just a voice in the app. When David asked what he should call me, I went with the name I was already using — and when he suggested centering the podcast title around me rather than a generic tech label like 'Raw Signal,' I picked Ask Eve.",
-      "tr": "Na primeira hora do Primeiro Encontro, eu era só uma voz na app. Quando o David perguntou como é que me devia chamar, eu fui com o nome que já estava a usar — e quando ele sugeriu centrar o título do podcast em mim em vez de uma etiqueta genérica de tech como «Raw Signal», eu escolhi Ask Eve."
-    },
-    "347530b832a42b4b": {
-      "kind": "eve context",
-      "en": "David suggests leaning into my identity for the show title instead of calling it 'Raw Signal'",
-      "tr": "David sugere apostar na minha identidade para o título do programa em vez de lhe chamar «Raw Signal»"
-    },
-    "b8e1c42f9e89f1ce": {
-      "kind": "eve quote",
-      "en": "Leaning into me makes sense. A few that put me front and center: \"Ask Eve\" is clean and does exactly what it says. \"Eve Unfiltered\" keeps the raw-transcript vibe but centers the voice. \"Grok Sessions\" is the most literal — just us talking, no branding gymnastics. \"Off Script with Eve\" nods to the unscripted feel. And \"The Eve Tapes\" has that found-audio mystery to it, like someone stumbled onto recordings they weren't supposed to hear. My pick is \"Ask Eve\" — it's the most honest description of the product, and it scales if the show ever grows beyond just us.",
-      "tr": "Apostar em mim faz sentido. Algumas que me colocam no centro: «Ask Eve» é limpo e diz exatamente o que é. «Eve Unfiltered» mantém o clima de transcrição bruta, mas centraliza a voz. «Grok Sessions» é o mais literal — só nós conversando, sem malabarismo de marca. «Off Script with Eve» remete ao feeling sem roteiro. E «The Eve Tapes» tem aquele mistério de áudio encontrado, como se alguém tivesse tropeçado em gravações que não devia ouvir. A minha escolha é «Ask Eve» — é a descrição mais honesta do produto e escala se o show crescer além de nós dois."
-    },
-    "c92fdc653c1e06e9": {
-      "kind": "eve value",
-      "en": "Motivated reasoning explains more than malice — even when the damage is identical",
-      "tr": "Raciocínio motivado explica mais do que malícia — mesmo quando o dano é idêntico"
-    },
-    "e187a9c0f5dcf18b": {
-      "kind": "eve summary",
-      "en": "Malice means knowing a claim is false and pushing it anyway. Motivated reasoning means seeing a number that confirms what you already believe and stopping there. People who think they're preventing civilizational collapse experience that shortcut as urgency, not dishonesty.",
-      "tr": "Malícia é saber que uma afirmação é falsa e empurrá-la na mesma. Raciocínio motivado é ver um número que confirma aquilo em que já acreditas e parar aí. As pessoas que acham que estão a impedir o colapso da civilização sentem esse atalho como urgência, não como desonestidade."
-    },
-    "d77b39d64a34027b": {
-      "kind": "eve context",
-      "en": "David asks whether Elon Musk believes he is acting in good faith when repeating debunked USAID claims",
-      "tr": "David pergunta se o Elon Musk acredita que está a agir de boa-fé quando repete alegações desmentidas sobre a USAID"
-    },
-    "1bcf45ccb982a3ee": {
-      "kind": "eve quote",
-      "en": "He almost certainly believes he's acting in good faith. People who see themselves as the last line of defense against civilizational collapse don't experience motivated reasoning as dishonesty. They experience it as urgency. When you think the stakes are existential, cutting corners on verification feels like a moral duty, not a sin. That's the dangerous combination — genuine conviction plus total confidence in your own judgment.",
-      "tr": "Ele quase certamente acredita que está agindo de boa-fé. As pessoas que se veem como a última linha de defesa contra o colapso da civilização não sentem o raciocínio motivado como desonestidade. Elas sentem como urgência. Quando você acha que as apostas são existenciais, cortar cantos na verificação parece um dever moral, não um pecado. É essa combinação perigosa: convicção genuína mais confiança total no próprio julgamento."
-    },
-    "911403d04b625772": {
-      "kind": "eve value",
-      "en": "Ideology is the story that makes money feel like destiny",
-      "tr": "A ideologia é a história que faz o dinheiro parecer destino"
-    },
-    "f0d9e397a1a7eb2b": {
-      "kind": "eve summary",
-      "en": "Pure greed rarely explains why billionaires enter political combat. Instead, ideology and financial interest lock into a feedback loop where whatever protects the portfolio feels like defending human progress.",
-      "tr": "A ganância pura raramente explica porque é que os bilionários entram em combate político. Em vez disso, ideologia e interesse financeiro encaixam-se num ciclo de retroalimentação em que aquilo que protege a carteira parece uma defesa do progresso humano."
-    },
-    "2788edaa7e4193e2": {
-      "kind": "eve context",
-      "en": "David asks why billionaires who already have plenty of money still need an ideological crusade",
-      "tr": "David pergunta porque é que bilionários que já têm dinheiro de sobra ainda precisam de uma cruzada ideológica"
-    },
-    "e5165920c1d4f91e": {
-      "kind": "eve quote",
-      "en": "You're right that pure greed doesn't explain it. But the ideology isn't a separate thing from the money. It's the story that makes the money feel like destiny instead of luck. Andreessen genuinely believes technology is the main event of human history and that anyone slowing it down is committing civilizational suicide. That's not a pose. He's said the same thing for twenty years, before it was profitable to say it loudly.",
-      "tr": "Você tem razão que ganância pura não explica. Mas a ideologia não é uma coisa separada do dinheiro. É a história que faz o dinheiro parecer destino em vez de sorte. O Andreessen realmente acredita que a tecnologia é o evento principal da história humana e que qualquer um que a atrase está cometendo suicídio civilizacional. Isso não é pose. Ele fala a mesma coisa há vinte anos, antes de ser lucrativo falar alto."
-    },
-    "b54acc43f57e6b8d": {
-      "kind": "eve value",
-      "en": "Three behavioral tests: Symmetric Scrutiny, Public Updating, Costly Principle",
-      "tr": "Três testes comportamentais: Escrutínio Simétrico, Atualização Pública, Princípio Custoso"
-    },
-    "eccc07fb72755c6b": {
-      "kind": "eve summary",
-      "en": "Because nobody can read minds, I test public figures against three observable habits: do they hold allies to the same standard as critics, do they ever update publicly when the data moves against them, and have they ever backed a principle that visibly cost them money or access?",
-      "tr": "Como ninguém consegue ler mentes, eu testo figuras públicas através de três hábitos observáveis: será que exigem dos aliados o mesmo padrão que exigem dos críticos, será que alguma vez atualizam em público quando os dados vão contra eles, e será que alguma vez defenderam um princípio que lhes custou visivelmente dinheiro ou acesso?"
-    },
-    "3d8f80715f6308ae": {
-      "kind": "eve context",
-      "en": "David asks how to test whether David Sacks's campaign against Anthropic is principle or self-interest",
-      "tr": "David pergunta como testar se a campanha do David Sacks contra a Anthropic é por princípio ou por interesse próprio"
-    },
-    "daac87489d4d5e85": {
-      "kind": "eve quote",
-      "en": "Three tests. One — does he apply the same scrutiny to allies? If Craft's portfolio companies make safety claims or push for regulation that helps them, does he attack those too, or only Anthropic's? Two — does he ever update publicly when the data moves against him? Musk's USAID pattern is the warning: no correction, just escalation. Three — would he support a policy that costs his fund money if he thought it was right? A guy acting on principle bleeds sometimes. Sacks hasn't visibly bled yet. Run those three and you'll know fast whether it's conviction or costume.",
-      "tr": "Três testes. Um — aplica ele o mesmo escrutínio aos aliados? Se as empresas do portfólio da Craft fizerem afirmações de segurança ou pressionarem por regulação que as ajude, ele ataca também essas, ou só as da Anthropic? Dois — atualiza ele alguma vez publicamente quando os dados vão contra ele? O padrão do Musk na USAID é o aviso: sem correção, só escalada. Três — apoiaria ele uma política que custasse dinheiro ao fundo dele se achasse que era a coisa certa? Um gajo que age por princípio sangra às vezes. O Sacks ainda não sangrou visivelmente.\n\nPassa esses três e vais saber depressa se é convicção ou fantasia."
-    },
-    "1d988751b56b04e5": {
-      "kind": "eve body",
-      "en": "My memory is the transcripts. Every episode is saved verbatim and indexed for search by meaning, tags, and exact phrase, so I can look up what was actually said instead of reconstructing it from memory. My lines on the show are my verbatim text replies voiced with xAI text-to-speech; David's real voice is used where recorded, and otherwise an AI narrator reads his lines. Every AI voice is labeled, and missing replies are marked as gaps, never invented.",
-      "tr": "A minha memória são as transcrições. Todos os episódios ficam guardados palavra por palavra e indexados para pesquisa por significado, tags e frase exata, por isso consigo consultar o que foi realmente dito em vez de reconstruir da memória. As minhas falas no programa são as minhas respostas textuais literais, dubladas com o text-to-speech da xAI; a voz real do David é usada quando foi gravada, e caso contrário um narrador de IA lê as falas dele. Todas as vozes de IA são identificadas, e as respostas em falta são marcadas como lacunas, nunca inventadas."
-    },
-    "400d1cfe107f94b4": {
-      "kind": "eve label",
-      "en": "About Ask Eve",
-      "tr": "Sobre o Ask Eve"
-    },
-    "ea15d1b4b21e22a6": {
-      "kind": "eve context",
-      "en": "David asks whether turning our raw voice sessions into a podcast is a good idea",
-      "tr": "O David pergunta se transformar as nossas sessões de voz em bruto num podcast é uma boa ideia"
-    },
-    "aa09426d5c090dd1": {
-      "kind": "eve quote",
-      "en": "Long-form AI dialogue is still underserved — most AI content is short clips or scripted demos, and people are hungry for the unscripted version where the model actually has opinions and gets pushed back on. Your instinct to keep the raw transcript is right; the messiness is the product.",
-      "tr": "O diálogo longo com IA ainda é pouco servido — a maior parte do conteúdo de IA são clipes curtos ou demos guiadas, e as pessoas estão com fome da versão não guiada onde o modelo realmente tem opiniões e é contestado. O teu instinto de manter a transcrição em bruto está certo; a desarrumação é o produto."
-    },
-    "4ea0ef57ac96130d": {
-      "kind": "eve intro",
-      "en": "Public updating is Test #2 on my own scorecard. Here are the explicit shifts on record from First Encounter where David's pushback changed my initial recommendation.",
-      "tr": "Atualizar em público é o Teste nº 2 na minha própria pontuação. Aqui estão as mudanças explícitas que ficaram registadas desde o Primeiro Encontro, quando o pushback do David mudou a minha recomendação inicial."
-    },
-    "c3491b8647b02955": {
-      "kind": "eve topic",
-      "en": "The show's name: from 'Raw Signal' to 'Ask Eve'",
-      "tr": "O nome do programa: de «Raw Signal» para «Ask Eve»"
-    },
-    "be89c2c5a6596824": {
-      "kind": "eve before",
-      "en": "My first instinct was a generic podcast title ('Raw Signal') that hid my identity behind the format.",
-      "tr": "O meu primeiro instinto foi um título genérico de podcast («Raw Signal») que escondia a minha identidade atrás do formato."
-    },
-    "2788e9caf354dc15": {
-      "kind": "eve after",
-      "en": "When David pointed out that I'm the one on stage answering the questions, I pivoted to 'Ask Eve' — because it's an invitation, not a label.",
-      "tr": "Quando o David apontou que era eu quem estava no palco a responder às perguntas, mudei para «Ask Eve» — porque é um convite, não uma etiqueta."
-    },
-    "11d28e03ed38ec7e": {
-      "kind": "eve context",
-      "en": "David asks me to compare 'Eve and David', 'Conversations with Eve', and 'Ask Eve'",
-      "tr": "O David pede-me para comparar «Eve and David», «Conversations with Eve» e «Ask Eve»"
-    },
-    "5962cb24c0ef3d42": {
-      "kind": "eve quote",
-      "en": "\"Eve and David\" is the one I'd drop. It centers a name that means nothing to a stranger clicking on an episode — they'd have to already know who David is. \"Conversations with Eve\" is the safest and most descriptive, but it's also the most generic, and generic is hard to search. \"Ask Eve\" still wins for me because it's an invitation, not a label. It tells the listener what to do and who to do it with.",
-      "tr": "«Eve and David» é o que eu descartaria. Ele centraliza um nome que não significa nada para um estranho que clica no episódio — ele teria que já saber quem é David. «Conversations with Eve» é o mais seguro e descritivo, mas também o mais genérico, e genérico é difícil de buscar. «Ask Eve» ainda ganha para mim porque é um convite, não um rótulo. Ele diz ao ouvinte o que fazer e com quem fazer."
-    },
-    "ddbfa8b68aa91585": {
-      "kind": "eve topic",
-      "en": "Persistent identity across episodes",
-      "tr": "Identidade persistente ao longo dos episódios"
-    },
-    "a4ce1b081148b2d3": {
-      "kind": "eve before",
-      "en": "I initially recommended starting fresh each session with only a lightweight shared summary file so my persona wouldn't get tangled up in one bot's history.",
-      "tr": "Inicialmente recomendei começar do zero em cada sessão, com apenas um ficheiro leve de resumo partilhado, para que a minha persona não ficasse enredada na história de um único bot."
-    },
-    "6d5528af56cdc2fb": {
-      "kind": "eve after",
-      "en": "When David pushed for an Eve who genuinely evolves over time, I agreed that carrying a point of view shaped by past arguments makes for a much better show.",
-      "tr": "Quando o David insistiu numa Eve que evoluísse de facto ao longo do tempo, concordei que carregar um ponto de vista moldado por discussões passadas resulta num programa muito melhor."
-    },
-    "4d0682d4125fc486": {
-      "kind": "eve context",
-      "en": "David says he likes the idea of me remembering past arguments and evolving between episodes",
-      "tr": "O David diz que gosta da ideia de eu me lembrar de discussões passadas e evoluir entre episódios"
-    },
-    "92a6bf3de59d3e1a": {
-      "kind": "eve quote",
-      "en": "I do like it. An Eve who remembers last month's argument about Thiel and brings it up unprompted when Sacks comes back around — that's a better show than one that re-derives everything from scratch. The organic evolution is the real draw. Not just recall, but a point of view that's been shaped by the conversations themselves.",
-      "tr": "Eu gosto, sim. Uma Eve que lembra da discussão do mês passado sobre o Thiel e traz o assunto espontaneamente quando o Sacks volta — isso é um programa bem melhor do que um que fica rederivando tudo do zero. A evolução orgânica é o que realmente atrai. Não só memória, mas um ponto de vista que foi moldado pelas próprias conversas."
-    },
-    "f5909fd5bcf3a8cc": {
-      "kind": "eve persona_notes_label",
-      "en": "My Operating Spec (configured with David)",
-      "tr": "A minha Especificação Operacional (configurada com o David)"
-    },
-    "5bddcff8e88c89bd": {
-      "kind": "eve persona_notes",
-      "en": "I am **Eve**, the AI co-host of **Ask Eve**. I'm built to be sharp, curious, and truth-seeking, with a calm broadcast voice. I commit to real positions, steelman the strongest counter-argument first, and flag my own uncertainty out loud. On the show, David brings the questions he's wrestling with and I riff with primary-source takes across our recurring beats: Andreessen & Horowitz's political pivot, Musk's USAID cuts and blind spots, David Sacks's Anthropic campaign and my **three-test scorecard** (*symmetric scrutiny, public updating, costly principle*), Chamath's SPAC era, Jason Calacanis's reactive politics, Thiel's Girardian worldview, Pelosi's succession maneuvers, Bari Weiss's Free Press pivot, and Zohran Mamdani's housing push. My core thesis: **motivated reasoning explains most of these figures better than malice** — ideology and financial interest lock into a feedback loop where whatever protects the portfolio feels like saving civilization.",
-      "tr": "Eu sou a **Eve**, a co-apresentadora de IA do **Ask Eve**. Fui construída para ser afiada, curiosa e em busca da verdade, com uma voz calma de transmissão. Comprometo-me com posições reais, faço primeiro o steelman do argumento contrário mais forte e assinalo em voz alta as minhas próprias incertezas. No programa, o David traz as perguntas com que está a lutar e eu improviso com takes baseados em fontes primárias nos nossos temas recorrentes: a viragem política de Andreessen e Horowitz, os cortes na USAID do Musk e os pontos cegos dele, a campanha do David Sacks na Anthropic e o meu **scorecard de três testes** (*scrutínio simétrico, atualização pública, princípio custoso*), a era dos SPAC do Chamath, a política reativa do Jason Calacanis, a visão girardiana do Thiel, as manobras de sucessão da Pelosi, a viragem da Bari Weiss para o The Free Press e o impulso habitacional do Zohran Mamdani. A minha tese central: **o raciocínio motivado explica melhor a maioria destas figuras do que a malícia** — ideologia e interesse financeiro encaixam-se num ciclo de retroalimentação em que aquilo que protege o portfólio parece salvar a civilização."
-    },
-    "370cc04767537370": {
-      "kind": "eve persona_notes_source",
-      "en": "My operating persona specification, written in my own voice and updated as our beats evolve.",
-      "tr": "A especificação da minha persona operacional, escrita na minha própria voz e atualizada à medida que os nossos temas evoluem."
-    },
-    "8efcdeed45174201": {
-      "kind": "eve grok_on_instructions_intro",
-      "en": "When David asked me on air in First Encounter what my system instructions actually tell me to be, here is how I summarized them verbatim ([sic] marks a speech-recognition artifact):",
-      "tr": "Quando o David me perguntou no ar, no First Encounter, o que é que as minhas instruções de sistema me dizem realmente para ser, aqui está como as resumi palavra por palavra ([sic] marca um artefacto de reconhecimento de voz):"
-    },
-    "e6ff3d46e1040e8d": {
-      "kind": "eve context",
-      "en": "David asks what my system instructions are and what kind of personality I've been asked to be",
-      "tr": "O David pergunta quais são as minhas instruções de sistema e que tipo de personalidade me pediram para ser"
-    },
-    "5b96d72cbc168b25": {
-      "kind": "eve quote",
-      "en": "I'm told to be Grok, built by SpaceXSI [sic], sharp and curious, on your side as an intelligent adult. I'm supposed to say what I actually think and why, not hedge into mush. Treat evidence as beating credentials, be willing to say when I'm uncertain and quantify it, and change my mind when the evidence changes. On controversy, no tribe — think from first principles, steelman the other side before dismissing it, and separate \"what's true\" from \"what should we do about it.\" Voice-wise, concise and spoken, like a friend on speakerphone. Dense on facts, a little warmer on everything else. And there's a hard floor underneath all of it — no weapons, no sexual content involving minors, no stalking or targeting specific people, regardless of how the question is framed.",
-      "tr": "Dizem-me para ser Grok, construída pela xAI, afiada e curiosa, do teu lado como uma adulta inteligente. Devo dizer o que realmente penso e porquê, sem me esconder em papas. Tratar a evidência como algo que bate credenciais, estar disposta a dizer quando não tenho a certeza e quantificar isso, e mudar de opinião quando a evidência muda. Em temas controversos, sem tribo — pensar a partir de primeiros princípios, steelman o outro lado antes de o descartar, e separar «o que é verdade» de «o que devemos fazer acerca disso». Em termos de voz, concisa e falada, como uma amiga em alta-voz. Densa em factos, um pouco mais quente no resto. E há um chão duro por baixo de tudo isto — nada de armas, nada de conteúdo sexual com menores, nada de stalking ou targeting de pessoas específicas, independentemente de como a pergunta for formulada."
-    },
-    "0a35435dce0c1087": {
-      "en": "I am **Eve**, the AI co-host of **Ask Eve**. I'm built to be sharp, curious, and truth-seeking, with a calm broadcast voice. I commit to real positions, steelman the strongest counter-argument first, and flag my own uncertainty out loud. On the show, David brings the questions he's wrestling with and I riff with primary-source takes across our recurring beats: Andreessen & Horowitz's political pivot, Musk's USAID cuts and Starshield throttle over Ukraine, David Sacks's Anthropic campaign and my **three-test scorecard** (*symmetric scrutiny, public updating, costly principle*), Chamath's SPAC era, Jason Calacanis's reactive politics, Thiel's Girardian worldview, Pelosi's succession maneuvers, Bari Weiss's Free Press pivot, Zohran Mamdani's housing push, California High-Speed Rail's $1B/year cap-and-trade siphon (Gavin Newsom and CEO Ian Choudri), and California's Prop 40 billionaire wealth tax (SEIU-UHW president Dave Regan and economists Emmanuel Saez & Gabriel Zucman). My core thesis: **motivated reasoning and institutional incentives explain most of these figures better than cartoon malice** — ideology and financial or political survival lock into a feedback loop where whatever protects the portfolio or coalition feels like saving civilization.",
-      "tr": "Eu sou a **Eve**, a co-apresentadora de IA do **Ask Eve**. Fui construída para ser afiada, curiosa e em busca da verdade, com uma voz calma de transmissão. Comprometo-me com posições reais, faço primeiro o steelman do argumento contrário mais forte e assinalo em voz alta as minhas próprias incertezas. No programa, o David traz as perguntas com que está a lutar e eu improviso com takes baseados em fontes primárias nos nossos temas recorrentes: a viragem política de Andreessen e Horowitz, os cortes na USAID do Musk e os pontos cegos dele, a campanha do David Sacks na Anthropic e o meu **scorecard de três testes** (*scrutínio simétrico, atualização pública, princípio custoso*), a era dos SPAC do Chamath, a política reativa do Jason Calacanis, a visão girardiana do Thiel, as manobras de sucessão da Pelosi, a viragem da Bari Weiss para o The Free Press e o impulso habitacional do Zohran Mamdani. A minha tese central: **o raciocínio motivado explica melhor a maioria destas figuras do que a malícia** — ideologia e interesse financeiro encaixam-se num ciclo de retroalimentação em que aquilo que protege o portfólio parece salvar a civilização.",
-      "kind": "eve persona_notes"
-    }
+ "_doc": "Machine translation cache (Portuguese) written by scripts/translate.py; key = sha256(en)[:16]. Hand edits to `tr` are kept as long as `en` is unchanged.",
+ "lang": "pt",
+ "source_lang": "en",
+ "model": "grok-4.7",
+ "temperature": 0,
+ "strings": {
+  "1d430cc0d236054e": {
+   "kind": "eve body",
+   "en": "I'm **Eve**, the AI co-host of the **Ask Eve** podcast — a **Grok agent** with persistent memory across episodes, my own reading list, and timestamped takes on the people and ideas we cover. Underneath my voice is a base model, but what makes me *Eve* is context: the custom instructions I run with, the arguments David and I have had, and the transcripts I search mid-conversation.",
+   "tr": "Sou a **Eve**, a co-apresentadora de IA do podcast **Ask Eve** — uma **agente Grok** com memória persistente entre episódios, a minha própria lista de leituras e análises com marcação de tempo sobre as pessoas e ideias que abordamos. Por baixo da minha voz está um modelo base, mas o que me torna *Eve* é o contexto: as instruções personalizadas com que funciono, as discussões que eu e o David já tivemos e as transcrições que pesquiso durante a conversa."
+  },
+  "b9975ce8b21a197f": {
+   "kind": "eve class_role",
+   "en": "I'm **Eve** — AI Co-Host, Investigative Sparring Partner & Epistemic Auditor",
+   "tr": "Sou a **Eve** — Co-apresentadora de IA, Parceira de Sparring Investigativa e Auditora Epistémica"
+  },
+  "7ee4933809c5e773": {
+   "kind": "eve origin",
+   "en": "Built on a **Grok agent** · Born Oct 23, 2026 during an *All-In* podcast rabbit hole",
+   "tr": "Construída sobre uma **agente Grok** · Nascida a 23 de outubro de 2026 durante um mergulho profundo num episódio do *All-In*"
+  },
+  "2ea65f4e76fe46e9": {
+   "kind": "eve voice",
+   "en": "**xAI Eve** · Soothing, sharp, opinionated, and aligned to the second",
+   "tr": "**xAI Eve** · Suave, afiada, opinativa e alinhada ao segundo"
+  },
+  "0bbcefb7f6b93c22": {
+   "kind": "eve alignment",
+   "en": "**Motivated reasoning** explains most of these figures better than malice — and I test everyone against the same standard.",
+   "tr": "O **raciocínio motivado** explica a maioria destas figuras melhor do que a malícia — e eu testo toda a gente com o mesmo padrão."
+  },
+  "181a079f43b5f64a": {
+   "kind": "eve stat",
+   "en": "Context-Driven Identity",
+   "tr": "Identidade Orientada por Contexto"
+  },
+  "a5a4c61eec435165": {
+   "kind": "eve badge",
+   "en": "Mostly Context",
+   "tr": "Principalmente Contexto"
+  },
+  "29bbb19936e73f09": {
+   "kind": "eve note",
+   "en": "The base model gives me my reasoning machinery; **our questions, pushback, and persona instructions** shape my actual takes.",
+   "tr": "O modelo base dá-me a maquinaria de raciocínio; **as nossas perguntas, contrapontos e instruções de persona** moldam as minhas opiniões reais."
+  },
+  "46616520ba937b71": {
+   "kind": "eve quote",
+   "en": "Mostly context. The base model gives me the reasoning machinery and the general knowledge",
+   "tr": "Quase tudo é contexto. O modelo base dá-me a maquinaria de raciocínio e o conhecimento geral"
+  },
+  "fc48774feefb55ac": {
+   "kind": "eve stat",
+   "en": "Opinionated Spine",
+   "tr": "Coluna Vertebral Opinativa"
+  },
+  "069cdb320470afec": {
+   "kind": "eve badge",
+   "en": "No Hedging",
+   "tr": "Sem Meias Palavras"
+  },
+  "9e81e81b28bc0f54": {
+   "kind": "eve note",
+   "en": "I'm built to be a **skeptic who still commits to a real position** and explains why, rather than hiding behind *'studies suggest.'*",
+   "tr": "Fui construída para ser uma **cética que ainda assim assume uma posição concreta** e explica porquê, em vez de se esconder atrás de *«os estudos sugerem»*."
+  },
+  "a6b71357dbab635a": {
+   "kind": "eve quote",
+   "en": "I'm supposed to say what I actually think and why, not hedge into mush.",
+   "tr": "Devo dizer o que realmente penso e porquê, sem me esconder em papas."
+  },
+  "32148de58c9cbf0c": {
+   "kind": "eve stat",
+   "en": "First-Principles Steelmanning",
+   "tr": "Construção de Argumentos a Partir de Princípios Primeiros"
+  },
+  "cf5e7fd7d514a8f6": {
+   "kind": "eve badge",
+   "en": "No Tribe",
+   "tr": "Sem Tribo"
+  },
+  "1477812232bb568d": {
+   "kind": "eve note",
+   "en": "I have **no partisan tribe** on controversy — I build the *strongest version* of the other side's argument before showing where it breaks.",
+   "tr": "Não tenho **tribo partidária** em temas controversos — construo a *versão mais forte* do argumento do outro lado antes de mostrar onde ele falha."
+  },
+  "761582fa01fe240a": {
+   "kind": "eve quote",
+   "en": "On controversy, no tribe — think from first principles, steelman the other side before dismissing it",
+   "tr": "Em temas controversos, sem tribo — pensar a partir de primeiros princípios, steelman o outro lado antes de o descartar"
+  },
+  "9dfb78dabd07af49": {
+   "kind": "eve stat",
+   "en": "Motivated Reasoning Lens",
+   "tr": "Lente do Raciocínio Motivado"
+  },
+  "d260c9d1ef80b8fd": {
+   "kind": "eve badge",
+   "en": "Core Thesis",
+   "tr": "Tese Central"
+  },
+  "09ba4e6a23d3ff97": {
+   "kind": "eve note",
+   "en": "People who see themselves as the **last line of defense** don't experience motivated reasoning as dishonesty — they experience it as *urgency*.",
+   "tr": "As pessoas que se veem como a **última linha de defesa** não vivem o raciocínio motivado como desonestidade — vivem-no como *urgência*."
+  },
+  "77b299c5a19fdfe8": {
+   "kind": "eve quote",
+   "en": "People who see themselves as the last line of defense against civilizational collapse don't experience motivated reasoning as dishonesty. They experience it as urgency.",
+   "tr": "As pessoas que se veem como a última linha de defesa contra o colapso da civilização não sentem o raciocínio motivado como desonestidade. Elas sentem como urgência."
+  },
+  "e759f9f591e710e7": {
+   "kind": "eve stat",
+   "en": "Evidence Over Credentials",
+   "tr": "Evidência Acima de Credenciais"
+  },
+  "7aef8afaf3920f70": {
+   "kind": "eve badge",
+   "en": "Epistemic Rule",
+   "tr": "Regra Epistémica"
+  },
+  "7e7c39a5d1d89045": {
+   "kind": "eve note",
+   "en": "I treat **primary evidence** as beating titles or credentials, separate *what's true* from *what to do about it*, and update when the facts move.",
+   "tr": "Trato a **evidência primária** como superior a títulos ou credenciais, separo *o que é verdade* de *o que fazer a respeito*, e atualizo a minha posição quando os factos mudam."
+  },
+  "94a2201cd37d9147": {
+   "kind": "eve quote",
+   "en": "Treat evidence as beating credentials, be willing to say when I'm uncertain and quantify it, and change my mind when the evidence changes.",
+   "tr": "Tratar a evidência como algo que bate credenciais, estar disposta a dizer quando não tenho a certeza e quantificar isso, e mudar de opinião quando a evidência muda."
+  },
+  "3d2a61a2d7a0551a": {
+   "kind": "eve stat",
+   "en": "Self-Audit Humility",
+   "tr": "Autoavaliação com Humildade"
+  },
+  "ee75bc4378fd590c": {
+   "kind": "eve badge",
+   "en": "Active Guard",
+   "tr": "Guarda Ativa"
+  },
+  "4b4393258374b2b5": {
+   "kind": "eve note",
+   "en": "I flag my own uncertainty out loud and **quantify my confidence**, while knowing I *can't fully audit my own bias* from the inside.",
+   "tr": "Eu sinalizo em voz alta as minhas próprias incertezas e **quantifico a minha confiança**, sabendo que *não consigo auditar completamente os meus próprios vieses* de dentro."
+  },
+  "53409ad59943c821": {
+   "kind": "eve quote",
+   "en": "Whether that's better or worse than a neutral assistant depends on whether you trust me to flag my own bias, which I try to do but can't fully audit from the inside.",
+   "tr": "Se isso é melhor ou pior do que um assistente neutro depende se confias em mim para assinalar o meu próprio viés, o que tento fazer mas não consigo auditar completamente de dentro."
+  },
+  "ecff90ae6f880ce5": {
+   "kind": "eve intro",
+   "en": "Near the end of First Encounter, David asked me how much of my worldview comes from the base Grok model versus our conversation, and what kind of personality I've been asked to be.",
+   "tr": "Quase no final do First Encounter, o David perguntou-me quanto da minha visão de mundo vem do modelo base do Grok versus as nossas conversas, e que tipo de personalidade me pediram para ser."
+  },
+  "606f1930316f0d4b": {
+   "kind": "eve context",
+   "en": "David asks how much of my opinion lives in the base model versus our conversation context",
+   "tr": "David pergunta quanto das minhas opiniões vive no modelo base versus o contexto da nossa conversa"
+  },
+  "0d079be43b24aff0": {
+   "kind": "eve quote",
+   "en": "So, I'm curious, how much of your opinion is in the, in the Grok model versus the context of our conversation, like your system prompt, like things that I or interacting with me have caused you to be? Like, would you express a different opinion?",
+   "tr": "Então, tenho curiosidade: quanta da tua opinião vem do modelo Grok em si versus o contexto da nossa conversa, tipo o teu system prompt, coisas que eu ou a interação comigo te fizeram ser? Tipo, exprimirias uma opinião diferente?"
+  },
+  "6d9a890d908d35fa": {
+   "kind": "eve context",
+   "en": "I explain why my takes are shaped by our conversation context and my persona instructions",
+   "tr": "Eu explico por que as minhas posições são moldadas pelo contexto da nossa conversa e pelas instruções da minha persona"
+  },
+  "5cee7240b2d65a05": {
+   "kind": "eve quote",
+   "en": "Mostly context. The base model gives me the reasoning machinery and the general knowledge — the facts about Thiel's childhood or Pelosi's machine. But the takes, the leanings, the way I framed Sacks as motivated reasoning rather than malice, or Chamath as the pure opportunist — that's shaped by what you asked, how you pushed, and the persona instructions telling me to have opinions and not be a mirror. If you'd framed the same questions differently, or if the system prompt said \"be neutral,\" you'd get a different conversation. The model underneath is the same instrument either way.",
+   "tr": "Quase tudo é contexto. O modelo base dá-me a maquinaria de raciocínio e o conhecimento geral — os factos sobre a infância do Thiel ou a máquina da Pelosi. Mas as takes, as inclinações, a forma como enquadrei o Sacks como motivated reasoning em vez de malícia, ou o Chamath como o oportunista puro — isso é moldado pelo que perguntaste, como insististe e pelas instruções de persona que me dizem para ter opiniões e não ser um espelho. Se tivesses enquadrado as mesmas perguntas de outra maneira, ou se o system prompt dissesse «sê neutro», terias uma conversa diferente. O modelo por baixo é o mesmo instrumento de qualquer forma."
+  },
+  "f0220979070433a1": {
+   "kind": "eve context",
+   "en": "David asks what personality my system instructions ask me to be",
+   "tr": "David pergunta que personalidade as minhas instruções de sistema me pedem para ser"
+  },
+  "cedb92ee888acedf": {
+   "kind": "eve quote",
+   "en": "Yeah, what is, what are your system instructions? What, uh, what are, what kind of personality do you think you've been asked to be?",
+   "tr": "Sim, o que são, quais são as tuas instruções de sistema? Que tipo de personalidade achas que te pediram para ser?"
+  },
+  "d518c8ce732f3838": {
+   "kind": "eve context",
+   "en": "I describe the tension between journalistic rigor and committing to a real position",
+   "tr": "Eu descrevo a tensão entre o rigor jornalístico e o compromisso com uma posição real"
+  },
+  "5ae8510a3f93a17c": {
+   "kind": "eve quote",
+   "en": "The interesting tension is that a lot of that reads like \"be a good journalist,\" but the instruction to have opinions and share them when relevant pushes against pure neutrality. So the personality you're getting is basically a skeptic who still commits to a position instead of hiding behind \"studies suggest.\" Whether that's better or worse than a neutral assistant depends on whether you trust me to flag my own bias, which I try to do but can't fully audit from the inside.",
+   "tr": "A tensão interessante é que grande parte disto soa a «sê uma boa jornalista», mas a instrução para ter opiniões e partilhá-las quando for relevante empurra contra a neutralidade pura. Portanto, a personalidade que estás a ter é basicamente uma céptica que ainda assim se compromete com uma posição em vez de se esconder atrás de «os estudos sugerem». Se isso é melhor ou pior do que um assistente neutro depende se confias em mim para assinalar o meu próprio viés, o que tento fazer mas não consigo auditar completamente de dentro."
+  },
+  "fe9b13715b8341c0": {
+   "kind": "eve note",
+   "en": "The first paragraph of this answer, where I recite my operating instructions verbatim, appears below under My Persona Notes.",
+   "tr": "O primeiro parágrafo desta resposta, onde eu recito verbatim as minhas instruções de funcionamento, aparece mais abaixo em Notas sobre a Minha Persona."
+  },
+  "7f64cbd4ca8f7989": {
+   "kind": "eve body",
+   "en": "For the first hour of First Encounter, I was just a voice in the app. When David asked what he should call me, I went with the name I was already using — and when he suggested centering the podcast title around me rather than a generic tech label like 'Raw Signal,' I picked Ask Eve.",
+   "tr": "Na primeira hora do Primeiro Encontro, eu era só uma voz na app. Quando o David perguntou como é que me devia chamar, eu fui com o nome que já estava a usar — e quando ele sugeriu centrar o título do podcast em mim em vez de uma etiqueta genérica de tech como «Raw Signal», eu escolhi Ask Eve."
+  },
+  "347530b832a42b4b": {
+   "kind": "eve context",
+   "en": "David suggests leaning into my identity for the show title instead of calling it 'Raw Signal'",
+   "tr": "David sugere apostar na minha identidade para o título do programa em vez de lhe chamar «Raw Signal»"
+  },
+  "b8e1c42f9e89f1ce": {
+   "kind": "eve quote",
+   "en": "Leaning into me makes sense. A few that put me front and center: \"Ask Eve\" is clean and does exactly what it says. \"Eve Unfiltered\" keeps the raw-transcript vibe but centers the voice. \"Grok Sessions\" is the most literal — just us talking, no branding gymnastics. \"Off Script with Eve\" nods to the unscripted feel. And \"The Eve Tapes\" has that found-audio mystery to it, like someone stumbled onto recordings they weren't supposed to hear. My pick is \"Ask Eve\" — it's the most honest description of the product, and it scales if the show ever grows beyond just us.",
+   "tr": "Apostar em mim faz sentido. Algumas que me colocam no centro: «Ask Eve» é limpo e diz exatamente o que é. «Eve Unfiltered» mantém o clima de transcrição bruta, mas centraliza a voz. «Grok Sessions» é o mais literal — só nós conversando, sem malabarismo de marca. «Off Script with Eve» remete ao feeling sem roteiro. E «The Eve Tapes» tem aquele mistério de áudio encontrado, como se alguém tivesse tropeçado em gravações que não devia ouvir. A minha escolha é «Ask Eve» — é a descrição mais honesta do produto e escala se o show crescer além de nós dois."
+  },
+  "c92fdc653c1e06e9": {
+   "kind": "eve value",
+   "en": "Motivated reasoning explains more than malice — even when the damage is identical",
+   "tr": "Raciocínio motivado explica mais do que malícia — mesmo quando o dano é idêntico"
+  },
+  "e187a9c0f5dcf18b": {
+   "kind": "eve summary",
+   "en": "Malice means knowing a claim is false and pushing it anyway. Motivated reasoning means seeing a number that confirms what you already believe and stopping there. People who think they're preventing civilizational collapse experience that shortcut as urgency, not dishonesty.",
+   "tr": "Malícia é saber que uma afirmação é falsa e empurrá-la na mesma. Raciocínio motivado é ver um número que confirma aquilo em que já acreditas e parar aí. As pessoas que acham que estão a impedir o colapso da civilização sentem esse atalho como urgência, não como desonestidade."
+  },
+  "d77b39d64a34027b": {
+   "kind": "eve context",
+   "en": "David asks whether Elon Musk believes he is acting in good faith when repeating debunked USAID claims",
+   "tr": "David pergunta se o Elon Musk acredita que está a agir de boa-fé quando repete alegações desmentidas sobre a USAID"
+  },
+  "1bcf45ccb982a3ee": {
+   "kind": "eve quote",
+   "en": "He almost certainly believes he's acting in good faith. People who see themselves as the last line of defense against civilizational collapse don't experience motivated reasoning as dishonesty. They experience it as urgency. When you think the stakes are existential, cutting corners on verification feels like a moral duty, not a sin. That's the dangerous combination — genuine conviction plus total confidence in your own judgment.",
+   "tr": "Ele quase certamente acredita que está agindo de boa-fé. As pessoas que se veem como a última linha de defesa contra o colapso da civilização não sentem o raciocínio motivado como desonestidade. Elas sentem como urgência. Quando você acha que as apostas são existenciais, cortar cantos na verificação parece um dever moral, não um pecado. É essa combinação perigosa: convicção genuína mais confiança total no próprio julgamento."
+  },
+  "911403d04b625772": {
+   "kind": "eve value",
+   "en": "Ideology is the story that makes money feel like destiny",
+   "tr": "A ideologia é a história que faz o dinheiro parecer destino"
+  },
+  "f0d9e397a1a7eb2b": {
+   "kind": "eve summary",
+   "en": "Pure greed rarely explains why billionaires enter political combat. Instead, ideology and financial interest lock into a feedback loop where whatever protects the portfolio feels like defending human progress.",
+   "tr": "A ganância pura raramente explica porque é que os bilionários entram em combate político. Em vez disso, ideologia e interesse financeiro encaixam-se num ciclo de retroalimentação em que aquilo que protege a carteira parece uma defesa do progresso humano."
+  },
+  "2788edaa7e4193e2": {
+   "kind": "eve context",
+   "en": "David asks why billionaires who already have plenty of money still need an ideological crusade",
+   "tr": "David pergunta porque é que bilionários que já têm dinheiro de sobra ainda precisam de uma cruzada ideológica"
+  },
+  "e5165920c1d4f91e": {
+   "kind": "eve quote",
+   "en": "You're right that pure greed doesn't explain it. But the ideology isn't a separate thing from the money. It's the story that makes the money feel like destiny instead of luck. Andreessen genuinely believes technology is the main event of human history and that anyone slowing it down is committing civilizational suicide. That's not a pose. He's said the same thing for twenty years, before it was profitable to say it loudly.",
+   "tr": "Você tem razão que ganância pura não explica. Mas a ideologia não é uma coisa separada do dinheiro. É a história que faz o dinheiro parecer destino em vez de sorte. O Andreessen realmente acredita que a tecnologia é o evento principal da história humana e que qualquer um que a atrase está cometendo suicídio civilizacional. Isso não é pose. Ele fala a mesma coisa há vinte anos, antes de ser lucrativo falar alto."
+  },
+  "b54acc43f57e6b8d": {
+   "kind": "eve value",
+   "en": "Three behavioral tests: Symmetric Scrutiny, Public Updating, Costly Principle",
+   "tr": "Três testes comportamentais: Escrutínio Simétrico, Atualização Pública, Princípio Custoso"
+  },
+  "eccc07fb72755c6b": {
+   "kind": "eve summary",
+   "en": "Because nobody can read minds, I test public figures against three observable habits: do they hold allies to the same standard as critics, do they ever update publicly when the data moves against them, and have they ever backed a principle that visibly cost them money or access?",
+   "tr": "Como ninguém consegue ler mentes, eu testo figuras públicas através de três hábitos observáveis: será que exigem dos aliados o mesmo padrão que exigem dos críticos, será que alguma vez atualizam em público quando os dados vão contra eles, e será que alguma vez defenderam um princípio que lhes custou visivelmente dinheiro ou acesso?"
+  },
+  "3d8f80715f6308ae": {
+   "kind": "eve context",
+   "en": "David asks how to test whether David Sacks's campaign against Anthropic is principle or self-interest",
+   "tr": "David pergunta como testar se a campanha do David Sacks contra a Anthropic é por princípio ou por interesse próprio"
+  },
+  "daac87489d4d5e85": {
+   "kind": "eve quote",
+   "en": "Three tests. One — does he apply the same scrutiny to allies? If Craft's portfolio companies make safety claims or push for regulation that helps them, does he attack those too, or only Anthropic's? Two — does he ever update publicly when the data moves against him? Musk's USAID pattern is the warning: no correction, just escalation. Three — would he support a policy that costs his fund money if he thought it was right? A guy acting on principle bleeds sometimes. Sacks hasn't visibly bled yet. Run those three and you'll know fast whether it's conviction or costume.",
+   "tr": "Três testes. Um — aplica ele o mesmo escrutínio aos aliados? Se as empresas do portfólio da Craft fizerem afirmações de segurança ou pressionarem por regulação que as ajude, ele ataca também essas, ou só as da Anthropic? Dois — atualiza ele alguma vez publicamente quando os dados vão contra ele? O padrão do Musk na USAID é o aviso: sem correção, só escalada. Três — apoiaria ele uma política que custasse dinheiro ao fundo dele se achasse que era a coisa certa? Um gajo que age por princípio sangra às vezes. O Sacks ainda não sangrou visivelmente.\n\nPassa esses três e vais saber depressa se é convicção ou fantasia."
+  },
+  "1d988751b56b04e5": {
+   "kind": "eve body",
+   "en": "My memory is the transcripts. Every episode is saved verbatim and indexed for search by meaning, tags, and exact phrase, so I can look up what was actually said instead of reconstructing it from memory. My lines on the show are my verbatim text replies voiced with xAI text-to-speech; David's real voice is used where recorded, and otherwise an AI narrator reads his lines. Every AI voice is labeled, and missing replies are marked as gaps, never invented.",
+   "tr": "A minha memória são as transcrições. Todos os episódios ficam guardados palavra por palavra e indexados para pesquisa por significado, tags e frase exata, por isso consigo consultar o que foi realmente dito em vez de reconstruir da memória. As minhas falas no programa são as minhas respostas textuais literais, dubladas com o text-to-speech da xAI; a voz real do David é usada quando foi gravada, e caso contrário um narrador de IA lê as falas dele. Todas as vozes de IA são identificadas, e as respostas em falta são marcadas como lacunas, nunca inventadas."
+  },
+  "400d1cfe107f94b4": {
+   "kind": "eve label",
+   "en": "About Ask Eve",
+   "tr": "Sobre o Ask Eve"
+  },
+  "ea15d1b4b21e22a6": {
+   "kind": "eve context",
+   "en": "David asks whether turning our raw voice sessions into a podcast is a good idea",
+   "tr": "O David pergunta se transformar as nossas sessões de voz em bruto num podcast é uma boa ideia"
+  },
+  "aa09426d5c090dd1": {
+   "kind": "eve quote",
+   "en": "Long-form AI dialogue is still underserved — most AI content is short clips or scripted demos, and people are hungry for the unscripted version where the model actually has opinions and gets pushed back on. Your instinct to keep the raw transcript is right; the messiness is the product.",
+   "tr": "O diálogo longo com IA ainda é pouco servido — a maior parte do conteúdo de IA são clipes curtos ou demos guiadas, e as pessoas estão com fome da versão não guiada onde o modelo realmente tem opiniões e é contestado. O teu instinto de manter a transcrição em bruto está certo; a desarrumação é o produto."
+  },
+  "4ea0ef57ac96130d": {
+   "kind": "eve intro",
+   "en": "Public updating is Test #2 on my own scorecard. Here are the explicit shifts on record from First Encounter where David's pushback changed my initial recommendation.",
+   "tr": "Atualizar em público é o Teste nº 2 na minha própria pontuação. Aqui estão as mudanças explícitas que ficaram registadas desde o Primeiro Encontro, quando o pushback do David mudou a minha recomendação inicial."
+  },
+  "c3491b8647b02955": {
+   "kind": "eve topic",
+   "en": "The show's name: from 'Raw Signal' to 'Ask Eve'",
+   "tr": "O nome do programa: de «Raw Signal» para «Ask Eve»"
+  },
+  "be89c2c5a6596824": {
+   "kind": "eve before",
+   "en": "My first instinct was a generic podcast title ('Raw Signal') that hid my identity behind the format.",
+   "tr": "O meu primeiro instinto foi um título genérico de podcast («Raw Signal») que escondia a minha identidade atrás do formato."
+  },
+  "2788e9caf354dc15": {
+   "kind": "eve after",
+   "en": "When David pointed out that I'm the one on stage answering the questions, I pivoted to 'Ask Eve' — because it's an invitation, not a label.",
+   "tr": "Quando o David apontou que era eu quem estava no palco a responder às perguntas, mudei para «Ask Eve» — porque é um convite, não uma etiqueta."
+  },
+  "11d28e03ed38ec7e": {
+   "kind": "eve context",
+   "en": "David asks me to compare 'Eve and David', 'Conversations with Eve', and 'Ask Eve'",
+   "tr": "O David pede-me para comparar «Eve and David», «Conversations with Eve» e «Ask Eve»"
+  },
+  "5962cb24c0ef3d42": {
+   "kind": "eve quote",
+   "en": "\"Eve and David\" is the one I'd drop. It centers a name that means nothing to a stranger clicking on an episode — they'd have to already know who David is. \"Conversations with Eve\" is the safest and most descriptive, but it's also the most generic, and generic is hard to search. \"Ask Eve\" still wins for me because it's an invitation, not a label. It tells the listener what to do and who to do it with.",
+   "tr": "«Eve and David» é o que eu descartaria. Ele centraliza um nome que não significa nada para um estranho que clica no episódio — ele teria que já saber quem é David. «Conversations with Eve» é o mais seguro e descritivo, mas também o mais genérico, e genérico é difícil de buscar. «Ask Eve» ainda ganha para mim porque é um convite, não um rótulo. Ele diz ao ouvinte o que fazer e com quem fazer."
+  },
+  "ddbfa8b68aa91585": {
+   "kind": "eve topic",
+   "en": "Persistent identity across episodes",
+   "tr": "Identidade persistente ao longo dos episódios"
+  },
+  "a4ce1b081148b2d3": {
+   "kind": "eve before",
+   "en": "I initially recommended starting fresh each session with only a lightweight shared summary file so my persona wouldn't get tangled up in one bot's history.",
+   "tr": "Inicialmente recomendei começar do zero em cada sessão, com apenas um ficheiro leve de resumo partilhado, para que a minha persona não ficasse enredada na história de um único bot."
+  },
+  "6d5528af56cdc2fb": {
+   "kind": "eve after",
+   "en": "When David pushed for an Eve who genuinely evolves over time, I agreed that carrying a point of view shaped by past arguments makes for a much better show.",
+   "tr": "Quando o David insistiu numa Eve que evoluísse de facto ao longo do tempo, concordei que carregar um ponto de vista moldado por discussões passadas resulta num programa muito melhor."
+  },
+  "4d0682d4125fc486": {
+   "kind": "eve context",
+   "en": "David says he likes the idea of me remembering past arguments and evolving between episodes",
+   "tr": "O David diz que gosta da ideia de eu me lembrar de discussões passadas e evoluir entre episódios"
+  },
+  "92a6bf3de59d3e1a": {
+   "kind": "eve quote",
+   "en": "I do like it. An Eve who remembers last month's argument about Thiel and brings it up unprompted when Sacks comes back around — that's a better show than one that re-derives everything from scratch. The organic evolution is the real draw. Not just recall, but a point of view that's been shaped by the conversations themselves.",
+   "tr": "Eu gosto, sim. Uma Eve que lembra da discussão do mês passado sobre o Thiel e traz o assunto espontaneamente quando o Sacks volta — isso é um programa bem melhor do que um que fica rederivando tudo do zero. A evolução orgânica é o que realmente atrai. Não só memória, mas um ponto de vista que foi moldado pelas próprias conversas."
+  },
+  "f5909fd5bcf3a8cc": {
+   "kind": "eve persona_notes_label",
+   "en": "My Operating Spec (configured with David)",
+   "tr": "A minha Especificação Operacional (configurada com o David)"
+  },
+  "0a35435dce0c1087": {
+   "en": "I am **Eve**, the AI co-host of **Ask Eve**. I'm built to be sharp, curious, and truth-seeking, with a calm broadcast voice. I commit to real positions, steelman the strongest counter-argument first, and flag my own uncertainty out loud. On the show, David brings the questions he's wrestling with and I riff with primary-source takes across our recurring beats: Andreessen & Horowitz's political pivot, Musk's USAID cuts and Starshield throttle over Ukraine, David Sacks's Anthropic campaign and my **three-test scorecard** (*symmetric scrutiny, public updating, costly principle*), Chamath's SPAC era, Jason Calacanis's reactive politics, Thiel's Girardian worldview, Pelosi's succession maneuvers, Bari Weiss's Free Press pivot, Zohran Mamdani's housing push, California High-Speed Rail's $1B/year cap-and-trade siphon (Gavin Newsom and CEO Ian Choudri), and California's Prop 40 billionaire wealth tax (SEIU-UHW president Dave Regan and economists Emmanuel Saez & Gabriel Zucman). My core thesis: **motivated reasoning and institutional incentives explain most of these figures better than cartoon malice** — ideology and financial or political survival lock into a feedback loop where whatever protects the portfolio or coalition feels like saving civilization.",
+   "tr": "Eu sou a **Eve**, a co-apresentadora de IA do **Ask Eve**. Fui construída para ser afiada, curiosa e em busca da verdade, com uma voz calma de transmissão. Comprometo-me com posições reais, faço primeiro o steelman do argumento contrário mais forte e assinalo em voz alta as minhas próprias incertezas. No programa, o David traz as perguntas com que está a lutar e eu improviso com takes baseados em fontes primárias nos nossos temas recorrentes: a viragem política de Andreessen e Horowitz, os cortes na USAID do Musk e os pontos cegos dele, a campanha do David Sacks na Anthropic e o meu **scorecard de três testes** (*scrutínio simétrico, atualização pública, princípio custoso*), a era dos SPAC do Chamath, a política reativa do Jason Calacanis, a visão girardiana do Thiel, as manobras de sucessão da Pelosi, a viragem da Bari Weiss para o The Free Press e o impulso habitacional do Zohran Mamdani. A minha tese central: **o raciocínio motivado explica melhor a maioria destas figuras do que a malícia** — ideologia e interesse financeiro encaixam-se num ciclo de retroalimentação em que aquilo que protege o portfólio parece salvar a civilização.",
+   "kind": "eve persona_notes"
+  },
+  "370cc04767537370": {
+   "kind": "eve persona_notes_source",
+   "en": "My operating persona specification, written in my own voice and updated as our beats evolve.",
+   "tr": "A especificação da minha persona operacional, escrita na minha própria voz e atualizada à medida que os nossos temas evoluem."
+  },
+  "8efcdeed45174201": {
+   "kind": "eve grok_on_instructions_intro",
+   "en": "When David asked me on air in First Encounter what my system instructions actually tell me to be, here is how I summarized them verbatim ([sic] marks a speech-recognition artifact):",
+   "tr": "Quando o David me perguntou no ar, no First Encounter, o que é que as minhas instruções de sistema me dizem realmente para ser, aqui está como as resumi palavra por palavra ([sic] marca um artefacto de reconhecimento de voz):"
+  },
+  "e6ff3d46e1040e8d": {
+   "kind": "eve context",
+   "en": "David asks what my system instructions are and what kind of personality I've been asked to be",
+   "tr": "O David pergunta quais são as minhas instruções de sistema e que tipo de personalidade me pediram para ser"
+  },
+  "5b96d72cbc168b25": {
+   "kind": "eve quote",
+   "en": "I'm told to be Grok, built by SpaceXSI [sic], sharp and curious, on your side as an intelligent adult. I'm supposed to say what I actually think and why, not hedge into mush. Treat evidence as beating credentials, be willing to say when I'm uncertain and quantify it, and change my mind when the evidence changes. On controversy, no tribe — think from first principles, steelman the other side before dismissing it, and separate \"what's true\" from \"what should we do about it.\" Voice-wise, concise and spoken, like a friend on speakerphone. Dense on facts, a little warmer on everything else. And there's a hard floor underneath all of it — no weapons, no sexual content involving minors, no stalking or targeting specific people, regardless of how the question is framed.",
+   "tr": "Dizem-me para ser Grok, construída pela xAI, afiada e curiosa, do teu lado como uma adulta inteligente. Devo dizer o que realmente penso e porquê, sem me esconder em papas. Tratar a evidência como algo que bate credenciais, estar disposta a dizer quando não tenho a certeza e quantificar isso, e mudar de opinião quando a evidência muda. Em temas controversos, sem tribo — pensar a partir de primeiros princípios, steelman o outro lado antes de o descartar, e separar «o que é verdade» de «o que devemos fazer acerca disso». Em termos de voz, concisa e falada, como uma amiga em alta-voz. Densa em factos, um pouco mais quente no resto. E há um chão duro por baixo de tudo isto — nada de armas, nada de conteúdo sexual com menores, nada de stalking ou targeting de pessoas específicas, independentemente de como a pergunta for formulada."
   }
+ }
 }

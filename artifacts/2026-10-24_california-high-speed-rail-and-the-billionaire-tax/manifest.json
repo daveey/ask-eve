@@ -1,0 +1,69 @@
+{
+  "stem": "2026-10-24_california-high-speed-rail-and-the-billionaire-tax",
+  "version": 1,
+  "audio_key": "audio/en/2026-10-24_california-high-speed-rail-and-the-billionaire-tax.v1.mp3",
+  "audio_url": "https://audio.askevepodcast.com/audio/en/2026-10-24_california-high-speed-rail-and-the-billionaire-tax.v1.mp3",
+  "audio_bytes": 61641470,
+  "audio_sha256": "bb4f9e4a282c00f49acf2b80ed654b781b5949c3636fae5986becc0fe6b3ab13",
+  "audio_mime": "audio/mpeg",
+  "duration_seconds": 3852,
+  "loudness_lufs": -16.8,
+  "true_peak_dbfs": -4.0,
+  "id3_chapters": 9,
+  "chapters": [
+    {
+      "startTime": 0.0,
+      "title": "AI-reconstructed audio notice"
+    },
+    {
+      "startTime": 5.9,
+      "title": "Live bootstrap: loading Eve's master seed context pack"
+    },
+    {
+      "startTime": 119.04,
+      "title": "California High-Speed Rail: Prop 1A's 2008 promise vs. $15.5B spent & zero track laid"
+    },
+    {
+      "startTime": 733.71,
+      "title": "Why megaprojects never die: Gavin Newsom's $1B/year cap-and-trade siphon & Inspector General veto"
+    },
+    {
+      "startTime": 922.0,
+      "title": "CEO Ian Choudri, the KPMG travel audit & the $537.3M Dragados-Flatiron Change Order 427"
+    },
+    {
+      "startTime": 1519.57,
+      "title": "Tracing a cap-and-trade dollar, the $677M CEQA industry & Texas vs. Spain vs. China"
+    },
+    {
+      "startTime": 2027.99,
+      "title": "Drafting the Climate Investment Restoration Act to redirect the $1B/year siphon"
+    },
+    {
+      "startTime": 2555.75,
+      "title": "California's Billionaire Tax (Prop 40): SEIU-UHW's Dave Regan vs. Emmanuel Saez & Gabriel Zucman"
+    },
+    {
+      "startTime": 3354.82,
+      "title": "Section 5033(c)(3)(C)'s voting-control valuation trap & how wealth taxes work in Europe"
+    }
+  ],
+  "recording_method": "tts-reconstructed",
+  "ai_reconstructed": true,
+  "mode": "synthetic",
+  "coverage": {
+    "david_lines": 49,
+    "david_real": 0,
+    "david_narrator": 49,
+    "david_real_share": 0.0,
+    "david_real_seconds": 0,
+    "david_narrator_seconds": 344.96,
+    "eve_seconds": 3442.39,
+    "gap_turns": []
+  },
+  "placeholder_audio": false,
+  "tts": "xai_tts voice=eve",
+  "narrator": "elevenlabs_tts voice=oIYMwdEzgKSOV3gVsAjB model=eleven_v4",
+  "missing_turns": [],
+  "transcript_sha256": "78761f8bcf522eb9ad6aec99c41181772b8f25ed7a88d5793d61c0344f0acebd"
+}

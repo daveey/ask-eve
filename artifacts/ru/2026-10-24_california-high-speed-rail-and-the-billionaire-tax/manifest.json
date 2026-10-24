@@ -1,0 +1,49 @@
+{
+ "stem": "2026-10-24_california-high-speed-rail-and-the-billionaire-tax",
+ "version": 1,
+ "audio_key": "audio/ru/2026-10-24_california-high-speed-rail-and-the-billionaire-tax.v1.mp3",
+ "audio_url": "https://audio.askevepodcast.com/audio/ru/2026-10-24_california-high-speed-rail-and-the-billionaire-tax.v1.mp3",
+ "audio_bytes": 70248590,
+ "audio_sha256": "2b8c99c1c49b9f902e2f295d1d08151342ba9bc759676b8204cb9eb8e8102f26",
+ "audio_mime": "audio/mpeg",
+ "duration_seconds": 4390,
+ "loudness_lufs": -16.8,
+ "true_peak_dbfs": -4.5,
+ "id3_chapters": 4,
+ "chapters": [
+  {
+   "startTime": 0.0,
+   "title": "Уведомление об аудио, воссозданном ИИ"
+  },
+  {
+   "startTime": 131.11,
+   "title": "Гэвин Ньюсом и Иэн Чоудри"
+  },
+  {
+   "startTime": 323.9,
+   "title": "Скотт Винер"
+  },
+  {
+   "startTime": 2931.1,
+   "title": "Дэйв Риган"
+  }
+ ],
+ "recording_method": "tts-reconstructed",
+ "ai_reconstructed": true,
+ "mode": "synthetic",
+ "coverage": {
+  "david_lines": 49,
+  "david_real": 0,
+  "david_narrator": 49,
+  "david_real_share": 0.0,
+  "david_real_seconds": 0.0,
+  "david_narrator_seconds": 354.88,
+  "eve_seconds": 3969.75,
+  "gap_turns": []
+ },
+ "placeholder_audio": false,
+ "tts": "xai_tts voice=eve lang=ru",
+ "narrator": "elevenlabs_tts voice=oIYMwdEzgKSOV3gVsAjB model=eleven_v4 lang=ru",
+ "missing_turns": [],
+ "transcript_sha256": "78761f8bcf522eb9ad6aec99c41181772b8f25ed7a88d5793d61c0344f0acebd"
+}

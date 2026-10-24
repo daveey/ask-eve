@@ -2,7 +2,7 @@
  "_doc": "Machine translation cache (Mandarin Chinese (Simplified)) written by scripts/translate.py; key = sha256(en)[:16]. Hand edits to `tr` are kept as long as `en` is unchanged.",
  "lang": "zh",
  "source_lang": "en",
- "model": "grok-4.20-0309-non-reasoning",
+ "model": "grok-4.7",
  "temperature": 0,
  "strings": {
   "5efad5689c35cfb8": {
@@ -30,10 +30,40 @@
    "en": "Motivated reasoning, not malice, but on USAID the effect was the same; he engages with critics, not with evidence.",
    "tr": "是动机性推理，不是恶意，但在USAID（美国国际开发署）上效果一样；他交锋的是批评者，不是证据。"
   },
+  "b3b16713f9dbf4b9": {
+   "kind": "stance",
+   "en": "The source code for the whole cast; Girard explains him best, and I think the contrarianism has become the costume.",
+   "tr": "整班人马的源代码；吉拉尔最能解释他，而且我觉得唱反调已经变成了戏服。"
+  },
+  "5799d23eb0463744": {
+   "kind": "stance",
+   "en": "The stronger candidate on paper, passed over mostly because of Pelosi's machine; the snub was probably a matter of style, not intent.",
+   "tr": "纸面上更强的候选人，被跳过主要是因为佩洛西的机器；这次冷落大概是风格问题，不是意图。"
+  },
   "2c8f357b90bcfa6f": {
    "kind": "stance",
    "en": "The same grievance engine as the tech right, run from the other side; the question is whether sincerity survives contact with power.",
    "tr": "和科技右翼同一台怨气引擎，只是从另一边开；问题是真诚碰上权力之后还剩不剩。"
+  },
+  "c32f81bcc3399832": {
+   "kind": "stance",
+   "en": "Calls ballot initiatives 'the best bargain in American politics' and has filed up to 48 since 2012 — using the ballot box as an attrition and bargaining weapon against hospitals, dialysis clinics, and now California's billionaires.",
+   "tr": "他把公民投票倡议称作«美国政治里最划算的买卖»，自2012年以来最多提交了48项——把投票箱当作消耗战和讨价还价的武器，用来对付医院、透析诊所，如今又对准加州的亿万富翁。"
+  },
+  "1037a52774c322ce": {
+   "kind": "stance",
+   "en": "For the union, Prop 40 is leverage; for Saez and his academic co-drafters, it is a live precedent play — including a deliberate Section 5033(c)(3)(C) voting-control valuation floor and appraiser penalties designed as a template other states can copy.",
+   "tr": "对工会来说，40号提案是筹码；对萨伊兹和他那些学术圈的共同起草人来说，这是一场正在打的先例牌——包括刻意设置的第5033(c)(3)(C)条投票控制权估值下限，以及评估师罚则，就是要做成其他州可以照抄的模板。"
+  },
+  "70f2b9a4cb3cb474": {
+   "kind": "stance",
+   "en": "Campaigned for Prop 1A in 2008, admitted the full rail line probably won't materialize in our lifetime, then locked in $1B a year through 2045 and vetoed the Inspector General staffing bill right after its travel audit — while simultaneously breaking with his left flank to oppose Prop 40's billionaire tax ahead of 2028.",
+   "tr": "2008年曾为1A号提案助选，承认完整铁路线大概我们这辈子都建不成，随后却把每年10亿美元锁定到2045年，并在差旅审计刚出炉后就否决了监察长编制法案——同时又跟自己的左翼侧翼决裂，赶在2028年前反对40号提案的亿万富翁税。"
+  },
+  "90038fdee85e8ecd": {
+   "kind": "stance",
+   "en": "A 30-year rail engineer who genuinely believes he can deliver a train, but whose contractor-side blind spots produced a KPMG travel scandal, late-night consultant rideshares to his Folsom home, and a $537.3M change-order settlement.",
+   "tr": "一位干了30年的铁路工程师，真心相信自己能把火车交付出来，但他站在承包商一侧的盲点，酿成了KPMG差旅丑闻、顾问深夜拼车去他福尔瑟姆的家，以及一笔5.373亿美元的变更单和解。"
   },
   "02537062f86a66ab": {
    "kind": "stance",
@@ -49,16 +79,6 @@
    "kind": "stance",
    "en": "Backing Chan over Wiener is both sincere and strategic, but the machine part is doing more work.",
    "tr": "挺陈梅陵不挺威善高，既真诚也有策略，但机器那部分干的活更多。"
-  },
-  "b3b16713f9dbf4b9": {
-   "kind": "stance",
-   "en": "The source code for the whole cast; Girard explains him best, and I think the contrarianism has become the costume.",
-   "tr": "整班人马的源代码；吉拉尔最能解释他，而且我觉得唱反调已经变成了戏服。"
-  },
-  "5799d23eb0463744": {
-   "kind": "stance",
-   "en": "The stronger candidate on paper, passed over mostly because of Pelosi's machine; the snub was probably a matter of style, not intent.",
-   "tr": "纸面上更强的候选人，被跳过主要是因为佩洛西的机器；这次冷落大概是风格问题，不是意图。"
   },
   "fe67aba6ad43dca8": {
    "kind": "stance",

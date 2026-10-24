@@ -2,7 +2,7 @@
  "_doc": "Machine translation cache (German) written by scripts/translate.py; key = sha256(en)[:16]. Hand edits to `tr` are kept as long as `en` is unchanged.",
  "lang": "de",
  "source_lang": "en",
- "model": "grok-4.20-0309-non-reasoning",
+ "model": "grok-4.7",
  "temperature": 0,
  "strings": {
   "5efad5689c35cfb8": {
@@ -30,10 +30,40 @@
    "en": "Motivated reasoning, not malice, but on USAID the effect was the same; he engages with critics, not with evidence.",
    "tr": "Motiviertes Denken, keine Bosheit, aber bei USAID war die Wirkung dieselbe; er setzt sich mit Kritikern auseinander, nicht mit Beweisen."
   },
+  "b3b16713f9dbf4b9": {
+   "kind": "stance",
+   "en": "The source code for the whole cast; Girard explains him best, and I think the contrarianism has become the costume.",
+   "tr": "Der Quellcode für die ganze Truppe; Girard erklärt ihn am besten, und ich glaube, der Kontrarianismus ist inzwischen nur noch das Kostüm."
+  },
+  "5799d23eb0463744": {
+   "kind": "stance",
+   "en": "The stronger candidate on paper, passed over mostly because of Pelosi's machine; the snub was probably a matter of style, not intent.",
+   "tr": "Auf dem Papier der stärkere Kandidat, übergangen vor allem wegen Pelosis Maschine; die Abfuhr war wahrscheinlich eine Stilfrage, nicht Absicht."
+  },
   "2c8f357b90bcfa6f": {
    "kind": "stance",
    "en": "The same grievance engine as the tech right, run from the other side; the question is whether sincerity survives contact with power.",
    "tr": "Derselbe Grievance-Motor wie die Tech-Rechte, nur von der anderen Seite betrieben; die Frage ist, ob die Aufrichtigkeit den Kontakt mit der Macht überlebt."
+  },
+  "c32f81bcc3399832": {
+   "kind": "stance",
+   "en": "Calls ballot initiatives 'the best bargain in American politics' and has filed up to 48 since 2012 — using the ballot box as an attrition and bargaining weapon against hospitals, dialysis clinics, and now California's billionaires.",
+   "tr": "Nennt Volksinitiativen «das beste Schnäppchen der amerikanischen Politik» und hat seit 2012 bis zu 48 davon eingereicht — die Wahlurne als Zermürbungs- und Verhandlungswaffe gegen Krankenhäuser, Dialysekliniken und jetzt Kaliforniens Milliardäre."
+  },
+  "1037a52774c322ce": {
+   "kind": "stance",
+   "en": "For the union, Prop 40 is leverage; for Saez and his academic co-drafters, it is a live precedent play — including a deliberate Section 5033(c)(3)(C) voting-control valuation floor and appraiser penalties designed as a template other states can copy.",
+   "tr": "Для профсоюза Prop 40 — рычаг давления; для Саеза и его академических соавторов это живая игра на прецедент — включая намеренный нижний порог оценки по контролю голосов в Section 5033(c)(3)(C) и штрафы для оценщиков, задуманные как шаблон, который другие штаты могут скопировать."
+  },
+  "70f2b9a4cb3cb474": {
+   "kind": "stance",
+   "en": "Campaigned for Prop 1A in 2008, admitted the full rail line probably won't materialize in our lifetime, then locked in $1B a year through 2045 and vetoed the Inspector General staffing bill right after its travel audit — while simultaneously breaking with his left flank to oppose Prop 40's billionaire tax ahead of 2028.",
+   "tr": "Hat 2008 für Prop 1A Wahlkampf gemacht, eingeräumt, dass die volle Bahnstrecke zu unseren Lebzeiten wohl nicht zustande kommt, dann 1 Mrd. Dollar im Jahr bis 2045 festgezurrt und das Besetzungsgesetz für den Inspector General direkt nach dessen Reiseprüfung per Veto gestoppt — und gleichzeitig mit seinem linken Flügel gebrochen, um sich vor 2028 gegen die Milliardärssteuer von Prop 40 zu stellen."
+  },
+  "90038fdee85e8ecd": {
+   "kind": "stance",
+   "en": "A 30-year rail engineer who genuinely believes he can deliver a train, but whose contractor-side blind spots produced a KPMG travel scandal, late-night consultant rideshares to his Folsom home, and a $537.3M change-order settlement.",
+   "tr": "Ein Bahningenieur mit 30 Jahren Erfahrung, der ernsthaft glaubt, einen Zug liefern zu können, dessen blinde Flecken auf Auftragnehmerseite aber einen KPMG-Reiseskandal, nächtliche Rideshare-Fahrten von Beratern zu seinem Haus in Folsom und einen Nachtragsvergleich über 537,3 Mio. Dollar hervorgebracht haben."
   },
   "02537062f86a66ab": {
    "kind": "stance",
@@ -49,16 +79,6 @@
    "kind": "stance",
    "en": "Backing Chan over Wiener is both sincere and strategic, but the machine part is doing more work.",
    "tr": "Chan statt Wiener zu unterstützen, ist sowohl aufrichtig als auch strategisch, aber die Maschine leistet den größeren Teil der Arbeit."
-  },
-  "b3b16713f9dbf4b9": {
-   "kind": "stance",
-   "en": "The source code for the whole cast; Girard explains him best, and I think the contrarianism has become the costume.",
-   "tr": "Der Quellcode für die ganze Truppe; Girard erklärt ihn am besten, und ich glaube, der Kontrarianismus ist inzwischen nur noch das Kostüm."
-  },
-  "5799d23eb0463744": {
-   "kind": "stance",
-   "en": "The stronger candidate on paper, passed over mostly because of Pelosi's machine; the snub was probably a matter of style, not intent.",
-   "tr": "Auf dem Papier der stärkere Kandidat, übergangen vor allem wegen Pelosis Maschine; die Abfuhr war wahrscheinlich eine Stilfrage, nicht Absicht."
   },
   "fe67aba6ad43dca8": {
    "kind": "stance",

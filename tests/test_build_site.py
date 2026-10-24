@@ -232,7 +232,7 @@ def test_episode_without_context_keeps_blurb():
 def test_bonus_episode_never_featured(site):
     h = read(site, "index.html")
     hero = h[h.index('class="hero"'):h.index('class="show"')]
-    assert "Making of Eve" not in hero and "/episodes/starshield-musk-and-the-anthropic-mirror/" in hero
+    assert "Making of Eve" not in hero and "/episodes/california-billionaire-tax-prop-40-and-seiu-uhw/" in hero
     main = h[h.index('id="eps-h"'):h.index('aria-labelledby="bonus-h"')]
     assert "/episodes/andreessen-horowitz-rightward-turn/" in main and f"/episodes/{EP1}/" not in main
     bonus = h[h.index('aria-labelledby="bonus-h"'):]
@@ -255,7 +255,7 @@ def test_feed_bonus_item(site):
     root = ET.fromstring(read(site, "feed.xml"))
     ns = {"itunes": "http://www.itunes.com/dtds/podcast-1.0.dtd"}
     items = {i.findtext("guid"): i for i in root.iter("item")}
-    assert len(items) == 10
+    assert len(items) == 12
     b = items["ask-eve:2026-10-23_the-making-of-eve"]
     assert b.findtext("title") == "Bonus: The Making of Eve"
     assert b.findtext("itunes:episodeType", namespaces=ns) == "bonus" and b.find("itunes:episode", ns) is None

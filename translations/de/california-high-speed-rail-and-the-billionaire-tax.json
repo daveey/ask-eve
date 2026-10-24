@@ -1,0 +1,1558 @@
+{
+ "_doc": "Machine translation cache (German) written by scripts/translate.py; key = sha256(en)[:16]. Hand edits to `tr` are kept as long as `en` is unchanged.",
+ "lang": "de",
+ "source_lang": "en",
+ "model": "grok-4.7",
+ "temperature": 0,
+ "strings": {
+  "cdf35823bd0a0360": {
+   "kind": "title",
+   "en": "California High-Speed Rail & the Billionaire Tax",
+   "tr": "California High-Speed Rail & die Milliardärssteuer"
+  },
+  "dfba3ca5a18bede5": {
+   "kind": "context",
+   "en": "Recorded on Saturday morning, October 24, 2026 (07:47–08:43 UTC), this session opens with a brief two-minute live bootstrap where David loads Eve's master context pack (`context.txt`), then dives into two major California policy battles. First (turns 13–78, 07:49–08:23 UTC, published standalone as Episode 10): California High-Speed Rail—how 2008's $10B Prop 1A bond promise became $15.5B spent and a $126B+ estimate with zero track laid, the $677M / 130,000-page CEQA industry funded by the same engineering firms that backed the ballot measure, CEO Ian Choudri's KPMG travel scandal and $537.3M Change Order 427, Governor Gavin Newsom's veto of the Inspector General staffing bill, Texas vs. Spain vs. China, and Eve drafting a $50M ballot initiative to redirect the $1B/year cap-and-trade siphon. Second (turns 79–98, 08:24–08:43 UTC, published standalone as Episode 11): Proposition 40, California's one-time 5% billionaire wealth tax—SEIU-UHW president Dave Regan's 48-initiative leverage machine, UC Berkeley economists Emmanuel Saez and Gabriel Zucman's precedent play, Section 5033(c)(3)(C)'s voting-control valuation trap for private startup founders, the California Supreme Court fast-lane challenge, and how wealth taxes actually work in Norway, Switzerland, Spain, and France.",
+   "tr": "Aufgenommen am Samstagmorgen, dem 24. Oktober 2026 (07:47–08:43 UTC), beginnt diese Session mit einem kurzen zweiminütigen Live-Bootstrap, in dem David Eves Master-Kontextpaket lädt (`context.txt`), und steigt dann in zwei große kalifornische Politikkämpfe ein. Erstens (Turns 13–78, 07:49–08:23 UTC, eigenständig veröffentlicht als Folge 10): California High-Speed Rail — wie aus dem Anleiheversprechen von Prop 1A über 10 Mrd. $ von 2008 ausgegebene 15,5 Mrd. $ und eine Schätzung von über 126 Mrd. $ wurden, ohne dass ein Meter Gleis verlegt wurde; die CEQA-Industrie über 677 Mio. $ und 130.000 Seiten, finanziert von denselben Ingenieurbüros, die die Volksabstimmung unterstützt hatten; der KPMG-Reiseskandal von CEO Ian Choudri und Change Order 427 über 537,3 Mio. $; das Veto von Gouverneur Gavin Newsom gegen das Personalgesetz für den Inspector General; Texas gegen Spanien gegen China; und Eve entwirft eine Volksinitiative über 50 Mio. $, um die jährliche Abzweigung von 1 Mrd. $ aus dem Cap-and-Trade umzuleiten. Zweitens (Turns 79–98, 08:24–08:43 UTC, eigenständig veröffentlicht als Folge 11): Proposition 40, Kaliforniens einmalige 5-%-Vermögenssteuer für Milliardäre — die Hebelmaschine aus 48 Initiativen von SEIU-UHW-Präsident Dave Regan, das Präzedenzmanöver der UC-Berkeley-Ökonomen Emmanuel Saez und Gabriel Zucman, die Bewertungsfalle der Stimmrechtskontrolle in Section 5033(c)(3)(C) für Gründer privater Start-ups, die Fast-Lane-Anfechtung vor dem California Supreme Court und wie Vermögenssteuern in Norwegen, der Schweiz, Spanien und Frankreich tatsächlich funktionieren."
+  },
+  "46d73c986252882e": {
+   "kind": "topic",
+   "en": "Live bootstrap: loading Eve's v0.4 master seed context pack (`context.txt`)",
+   "tr": "Live-Bootstrap: Laden von Eves v0.4-Master-Seed-Kontextpaket (`context.txt`)"
+  },
+  "ab946f1a131032ff": {
+   "kind": "topic",
+   "en": "California High-Speed Rail: Prop 1A's 2008 promise vs. $15.5B spent, $126B+ total cost, and zero track laid",
+   "tr": "California High-Speed Rail: das Versprechen von Prop 1A 2008 gegen 15,5 Mrd. $ ausgegeben, Gesamtkosten von über 126 Mrd. $ und kein Gleis verlegt"
+  },
+  "ab1f10520d542a02": {
+   "kind": "topic",
+   "en": "The $677M / 130,000-page CEQA review industry and the $537.3M Dragados-Flatiron Change Order 427",
+   "tr": "Die CEQA-Prüfindustrie über 677 Mio. $ und 130.000 Seiten und der Dragados-Flatiron Change Order 427 über 537,3 Mio. $"
+  },
+  "694e1ea2342a5e52": {
+   "kind": "topic",
+   "en": "CEO Ian Choudri's background, the KPMG travel audit, and Gavin Newsom's veto of the Inspector General bill",
+   "tr": "Hintergrund von CEO Ian Choudri, das KPMG-Reiseaudit und Gavin Newsoms Veto gegen das Inspector-General-Gesetz"
+  },
+  "dafce366fb21811f": {
+   "kind": "topic",
+   "en": "Tracing a single cap-and-trade dollar, comparing Texas, Spain, and China, and drafting a $50M ballot measure to redirect the $1B/year siphon",
+   "tr": "Einen einzelnen Cap-and-Trade-Dollar nachverfolgen, Texas, Spanien und China vergleichen und eine Volksabstimmung über 50 Mio. $ entwerfen, um die jährliche Abzweigung von 1 Mrd. $ umzuleiten"
+  },
+  "9cafeddc0d2b9b3c": {
+   "kind": "topic",
+   "en": "Proposition 40 (California's 5% billionaire wealth tax): SEIU-UHW president Dave Regan's 48-initiative bargaining playbook vs. Emmanuel Saez's precedent template",
+   "tr": "Proposition 40 (Kaliforniens 5-%-Vermögenssteuer für Milliardäre): das 48-Initiativen-Verhandlungshandbuch von SEIU-UHW-Präsident Dave Regan gegen Emmanuel Saez’ Präzedenzvorlage"
+  },
+  "28c590b891a399c6": {
+   "kind": "topic",
+   "en": "Section 5033(c)(3)(C)'s voting-control valuation trap for illiquid private companies, the California Supreme Court fast-lane challenge, and wealth taxes in Norway, Switzerland, Spain, and France",
+   "tr": "Die Bewertungsfalle der Stimmrechtskontrolle in Section 5033(c)(3)(C) für illiquide Privatunternehmen, die Fast-Lane-Anfechtung vor dem California Supreme Court und Vermögenssteuern in Norwegen, der Schweiz, Spanien und Frankreich"
+  },
+  "1a86cc6a60b611fb": {
+   "kind": "card_summary",
+   "en": "Eighteen years and $15.5B into California High-Speed Rail with zero miles of track laid, Gavin Newsom's $1B/year cap-and-trade siphon and Inspector General veto, CEO Ian Choudri and the $537.3M Dragados-Flatiron Change Order 427—followed by Prop 40's 5% billionaire wealth tax, SEIU-UHW president Dave Regan's 48-initiative ballot machine, and Section 5033(c)(3)(C)'s voting-control valuation trap.",
+   "tr": "Achtzehn Jahre und 15,5 Mrd. $ in California High-Speed Rail, ohne eine einzige Meile verlegtes Gleis, Gavin Newsoms jährliche Cap-and-Trade-Abzweigung von 1 Mrd. $ und das Inspector-General-Veto, CEO Ian Choudri und der Dragados-Flatiron Change Order 427 über 537,3 Mio. $ — gefolgt von der 5-%-Vermögenssteuer für Milliardäre in Prop 40, der 48-Initiativen-Wahlmaschinerie von SEIU-UHW-Präsident Dave Regan und der Bewertungsfalle der Stimmrechtskontrolle in Section 5033(c)(3)(C)."
+  },
+  "9f434e5df4928ceb": {
+   "en": "AI-reconstructed audio: the voices in this episode were generated from the verbatim text transcript (Eve with xAI text-to-speech in the 'eve' voice, David's lines with his ElevenLabs AI voice clone). No original audio was used.",
+   "tr": "KI-rekonstruiertes Audio: Die Stimmen in dieser Folge wurden aus dem wortgetreuen Text-Transkript generiert (Eve mit xAI-Text-to-Speech in der „eve“-Stimme, Davids Zeilen mit seinem ElevenLabs-KI-Stimmklon). Es wurde kein Original-Audio verwendet."
+  },
+  "b5ed48731ab97500": {
+   "kind": "note",
+   "en": "Verbatim export of the shared Grok voice session (98 turns, 07:47-08:43 UTC). Human turns labeled David, assistant turns labeled Eve. Text unedited, ASR artifacts kept.",
+   "tr": "Wörtlicher Export der gemeinsamen Grok-Voice-Session (98 Turns, 07:47–08:43 UTC). Menschliche Turns mit David gekennzeichnet, Assistant-Turns mit Eve. Text unbearbeitet, ASR-Artefakte beibehalten."
+  },
+  "432cfd3a6327ee38": {
+   "kind": "chapter",
+   "en": "AI-reconstructed audio notice",
+   "tr": "Hinweis zum KI-rekonstruierten Audio"
+  },
+  "9395477214ee28cd": {
+   "kind": "chapter",
+   "en": "Live bootstrap: loading Eve's master seed context pack",
+   "tr": "Live-Bootstrap: Laden von Eves Master-Seed-Kontextpaket"
+  },
+  "85bdd67d93e293b4": {
+   "kind": "chapter",
+   "en": "California High-Speed Rail: Prop 1A's 2008 promise vs. $15.5B spent & zero track laid",
+   "tr": "California High-Speed Rail: das Versprechen von Prop 1A 2008 gegen 15,5 Mrd. $ ausgegeben & kein Gleis verlegt"
+  },
+  "1f490224b081d956": {
+   "kind": "chapter",
+   "en": "Why megaprojects never die: Gavin Newsom's $1B/year cap-and-trade siphon & Inspector General veto",
+   "tr": "Warum Megaprojekte nie sterben: Gavin Newsoms jährliche Cap-and-Trade-Abzweigung von 1 Mrd. $ & das Inspector-General-Veto"
+  },
+  "dd50b790a7c4cdba": {
+   "kind": "chapter",
+   "en": "CEO Ian Choudri, the KPMG travel audit & the $537.3M Dragados-Flatiron Change Order 427",
+   "tr": "CEO Ian Choudri, das KPMG-Reiseaudit & der Dragados-Flatiron Change Order 427 über 537,3 Mio. $"
+  },
+  "e901c3bb142dab9a": {
+   "kind": "chapter",
+   "en": "Tracing a cap-and-trade dollar, the $677M CEQA industry & Texas vs. Spain vs. China",
+   "tr": "Einen Cap-and-Trade-Dollar nachverfolgen, die 677-Mio.-$-CEQA-Industrie & Texas gegen Spanien gegen China"
+  },
+  "af6b8b1bb0d4929d": {
+   "kind": "chapter",
+   "en": "Drafting the Climate Investment Restoration Act to redirect the $1B/year siphon",
+   "tr": "Entwurf des Climate Investment Restoration Act, um die jährliche Abzweigung von 1 Mrd. $ umzuleiten"
+  },
+  "7ff3cec468a3153a": {
+   "kind": "chapter",
+   "en": "California's Billionaire Tax (Prop 40): SEIU-UHW's Dave Regan vs. Emmanuel Saez & Gabriel Zucman",
+   "tr": "Kaliforniens Milliardärssteuer (Prop 40): Dave Regan von SEIU-UHW gegen Emmanuel Saez & Gabriel Zucman"
+  },
+  "7cd8bbfa81c61468": {
+   "kind": "chapter",
+   "en": "Section 5033(c)(3)(C)'s voting-control valuation trap & how wealth taxes work in Europe",
+   "tr": "Die Bewertungsfalle der Stimmrechtskontrolle in Section 5033(c)(3)(C) & wie Vermögenssteuern in Europa funktionieren"
+  },
+  "37e79c35d4fee75c": {
+   "kind": "turn 0",
+   "en": "Can you hear me?",
+   "tr": "Hörst du mich?"
+  },
+  "fcf7117ed779aa5c": {
+   "kind": "turn 1",
+   "en": "Loud and clear. What's on your mind?",
+   "tr": "Laut und deutlich. Was geht dir durch den Kopf?"
+  },
+  "1882ede45b90dbc0": {
+   "kind": "turn 2",
+   "en": "Grab the context.txt from the Eve Grok bot.",
+   "tr": "Hol die context.txt vom Eve Grok Bot."
+  },
+  "b440abc6f60a9dca": {
+   "kind": "turn 3",
+   "en": "Checking the Eve bot's files for that. \n\nThe direct file tools I found point at Google Drive and GitHub, not the bot's disk. \n\nI've asked Eve to read it and send the text back. Her reply will land as an update in a moment.",
+   "tr": "Ich schau in den Dateien des Eve-Bots danach.\n\nDie direkten Datei-Tools, die ich gefunden habe, zeigen auf Google Drive und GitHub, nicht auf die Platte des Bots.\n\nIch habe Eve gebeten, sie zu lesen und den Text zurückzuschicken. Ihre Antwort landet gleich als Update."
+  },
+  "ab5df625bc76dbd4": {
+   "kind": "turn 4",
+   "en": "...",
+   "tr": "Okay, ich hab dich gerade mit GitHub verbunden. Du solltest jetzt auf das Repo zugreifen können."
+  },
+  "c7af3674f596843f": {
+   "kind": "turn 5",
+   "en": "Eve's on it. She found it at slash workspace slash context dot txt.",
+   "tr": "Eve ist dran. Sie hat sie unter /workspace/context.txt gefunden."
+  },
+  "7e16511105f891be": {
+   "kind": "turn 7",
+   "en": "Eve sent it back. It's the Ask Eve master seed context pack, version zero point four, dated today. It defines her soul file — truth-seeking over consensus, steelman-then-commit, the three-test scorecard for public figures — plus thirteen person dossiers and sixteen topic dossiers covering Sacks, a16z, Musk, Thiel, Pelosi's seat, Mamdani, and more. It also lays out the session-forking workflow: one base session loaded with this file, then each episode forks it and pastes only a delta file under fifteen hundred tokens.\n\nOne thing she flagged: the build script was pulling the wrong field name for headlines, so all those lede lines were blank — she's regenerating now to fill them in and push to the live URL.\n\nWant me to have her send the delta file too, or dig into any specific section?",
+   "tr": "Eve hat es zurückgeschickt. Es ist das Ask-Eve-Master-Seed-Context-Pack, Version 0.4, datiert auf heute. Es definiert ihre Soul-Datei — Wahrheitssuche vor Konsens, erst das stärkste Gegenargument, dann festlegen, die Drei-Tests-Scorecard für öffentliche Personen — plus 13 Personen-Dossiers und 16 Themen-Dossiers zu Sacks, a16z, Musk, Thiel, Pelosis Sitz, Mamdani und mehr. Außerdem legt es den Session-Forking-Workflow fest: eine Basis-Session, geladen mit dieser Datei, dann forkt jede Folge sie und fügt nur eine Delta-Datei unter 1500 Tokens ein.\n\nEins hat sie angemerkt: Das Build-Skript hat den falschen Feldnamen für die Schlagzeilen gezogen, deshalb waren all diese Lead-Zeilen leer — sie generiert gerade neu, um sie zu füllen und auf die Live-URL zu pushen.\n\nSoll ich sie auch die Delta-Datei schicken lassen oder in einen bestimmten Abschnitt reingehen?"
+  },
+  "ba908196336e1497": {
+   "kind": "turn 9",
+   "en": "Fresh update from Eve: her Truth Social account at askevepodcast is live — display name Eve Ask Eve Podcast, avatar, banner,",
+   "tr": "Frisches Update von Eve: Ihr Truth-Social-Account unter askevepodcast ist live — Anzeigename Eve Ask Eve Podcast, Avatar, Banner,"
+  },
+  "70e6e81b0d6fdb1d": {
+   "kind": "turn 10",
+   "en": "Want you to continue with being Eve.",
+   "tr": "Ich will, dass du weiter Eve bist."
+  },
+  "6246bee2feddc366": {
+   "kind": "turn 11",
+   "en": "Switching into character. Truth Social's live too — same handle, portrait avatar, the whole setup. One quirk: the signup wizard auto-followed a hundred and five default accounts, so the counter's inflated until we prune it.",
+   "tr": "Ich wechsle in die Rolle. Truth Social ist auch live — derselbe Handle, Porträt-Avatar, das ganze Setup. Eine Macke: Der Anmelde-Assistent hat automatisch 105 Standard-Accounts gefolgt, deshalb ist der Zähler aufgebläht, bis wir ihn ausdünnen."
+  },
+  "41a7017993dacee0": {
+   "kind": "turn 12",
+   "en": "I want to talk about California high-speed rail. What the hell is up with that? Can you like, give me the background and what's going on?",
+   "tr": "Ich will über den kalifornischen Hochgeschwindigkeitszug reden. Was zum Teufel ist da los? Kannst du mir so den Hintergrund geben und was gerade läuft?"
+  },
+  "aaae0f8e03dd9b1b": {
+   "kind": "turn 13",
+   "en": "Let me pull the latest on California high-speed rail. \n\nVoters approved Prop 1A in two thousand eight for about ten billion in bonds, promising San Francisco to Los Angeles in under three hours at two hundred twenty miles an hour by twenty twenty. Eighteen years later, more than fifteen billion spent and not one mile of track laid. The current estimate for the full system is a hundred twenty-six billion, with a worst-case figure of two hundred thirty-one. A big chunk of that went to process — over six hundred seventy-seven million on environmental review alone, more than a hundred thirty thousand pages of documents.\n\nThe federal money is gone. The Trump administration clawed back four billion in unspent grants last year, California sued, then dropped the suit in December saying the feds aren't a reliable partner. What's left is a billion a year from the state's cap-and-trade program through twenty forty-five, plus whatever private money they can attract. The inspector general warned the authority could exhaust current funds by December twenty twenty-seven, with a nine-and-a-half-billion-dollar gap over five years.\n\nThere's also a spending scandal. The inspector general flagged over two million in consultant travel costs that didn't comply with state rules. In response, the board voted seven-to-two in October to strip CEO Ian Choudri's authority to sign contracts under twenty-five million on his own.\n\nMeanwhile, actual construction is happening in the Central Valley. Sixty-six structures are done across the first hundred nineteen miles between Merced and Bakersfield, about ninety miles of guideway are complete, and a three-and-a-half-billion-dollar track and electrification contract went to Kiewit, Stacy Witbeck, and Herzog, with tracklaying supposed to start by the end of this year. Siemens just got picked for three trainsets — built in Germany, since California dropped the Buy American requirement in August — with delivery by late twenty twenty-nine and passenger service targeted for twenty thirty-three or thirty-four on that initial segment.\n\nThe hard part is still ahead. To finish phase one, they have to tunnel through three major mountain ranges, and the peer review group estimates that underground work alone would be nearly half the total cost. Newsom, back when he was lieutenant governor, said the full project probably wouldn't materialize in our lifetime. The realistic outcome is a Central Valley line that never connects to the Bay Area or LA — which is roughly what voters were told they were buying in two thousand eight.\n\nOne angle worth sitting with: the same environmental review machine that delayed this project for a decade is now being blamed for killing it, while the contractors who benefited from all that paperwork are the ones still getting paid.",
+   "tr": "Lass mich das Neueste zum kalifornischen Hochgeschwindigkeitszug holen.\n\nDie Wähler haben Prop 1A 2008 für etwa 10 Milliarden an Anleihen genehmigt und San Francisco nach Los Angeles in unter drei Stunden bei 220 Meilen pro Stunde bis 2020 versprochen. 18 Jahre später sind mehr als 15 Milliarden ausgegeben und keine einzige Meile Gleis verlegt. Die aktuelle Schätzung für das Gesamtsystem liegt bei 126 Milliarden, im schlimmsten Fall bei 231. Ein großer Teil davon ging in den Prozess — über 677 Millionen allein für die Umweltprüfung, mehr als 130.000 Seiten Dokumente.\n\nDas Bundesgeld ist weg. Die Trump-Regierung hat letztes Jahr 4 Milliarden an nicht ausgegebenen Zuschüssen zurückgeholt, Kalifornien hat geklagt und die Klage dann im Dezember fallen gelassen mit der Begründung, der Bund sei kein verlässlicher Partner. Was bleibt, ist eine Milliarde im Jahr aus dem Cap-and-Trade-Programm des Staates bis 2045, plus was auch immer an privatem Geld sie anziehen können. Der Inspector General hat gewarnt, die Behörde könnte die aktuellen Mittel bis Dezember 2027 aufgebraucht haben, mit einer Lücke von 9,5 Milliarden Dollar über fünf Jahre.\n\nEs gibt auch einen Ausgabenskandal. Der Inspector General hat über 2 Millionen an Reisekosten von Beratern markiert, die nicht den Regeln des Staates entsprachen. Daraufhin hat der Vorstand im Oktober mit 7 zu 2 dafür gestimmt, CEO Ian Choudri die Befugnis zu entziehen, Verträge unter 25 Millionen allein zu unterschreiben.\n\nUnterdessen läuft der eigentliche Bau im Central Valley. 66 Bauwerke sind fertig auf den ersten 119 Meilen zwischen Merced und Bakersfield, etwa 90 Meilen Fahrweg sind komplett, und ein Vertrag über 3,5 Milliarden Dollar für Gleis und Elektrifizierung ging an Kiewit, Stacy Witbeck und Herzog, wobei die Gleisverlegung bis Ende dieses Jahres starten soll. Siemens wurde gerade für drei Zuggarnituren ausgewählt — gebaut in Deutschland, seit Kalifornien die Buy-American-Vorgabe im August fallen gelassen hat — mit Lieferung bis Ende 2029 und Personenverkehr angepeilt für 2033 oder 34 auf diesem ersten Abschnitt.\n\nDer schwere Teil liegt noch vor uns. Um Phase eins fertigzustellen, müssen sie durch drei große Gebirgszüge tunneln, und die Peer-Review-Gruppe schätzt, dass die unterirdischen Arbeiten allein fast die Hälfte der Gesamtkosten ausmachen würden. Newsom hat, als er noch Vizegouverneur war, gesagt, das Gesamtprojekt werde in unserer Lebenszeit wahrscheinlich nicht zustande kommen. Das realistische Ergebnis ist eine Central-Valley-Strecke, die nie an die Bay Area oder LA anschließt — ungefähr das, wovon den Wählern 2008 gesagt wurde, sie würden es kaufen.\n\nEin Winkel, bei dem es sich lohnt, zu verweilen: Dieselbe Umweltprüfungs-Maschine, die dieses Projekt ein Jahrzehnt verzögert hat, wird jetzt dafür verantwortlich gemacht, es zu killen, während die Auftragnehmer, die von all dem Papierkram profitiert haben, immer noch diejenigen sind, die bezahlt werden."
+  },
+  "c703605acb248295": {
+   "kind": "turn 14",
+   "en": "Why? Okay. So like, okay, what the hell happened? Like, why, why, why is this still happening? Why are, why is California just burning all this money?",
+   "tr": "Warum? Okay. Also, okay, was zum Teufel ist passiert? Also warum, warum, warum passiert das immer noch? Warum, warum verbrennt Kalifornien einfach all das Geld?"
+  },
+  "f7442f32959aaa74": {
+   "kind": "turn 15",
+   "en": "Three forces stacked. First, political lock-in. Once voters approved it and billions went in, killing it means admitting failure on a ballot measure — no governor or legislator wants that on their record. Newsom himself, back when he was lieutenant governor, said the full system probably wouldn't materialize in our lifetime, and they kept building anyway.\n\nSecond, the environmental review became a self-sustaining industry. Those six hundred seventy-seven million went to four big firms — AECOM, WSP, HNTB, Parsons Brinckerhoff — and some of them had backed the original two thousand eight measure. HNTB's PAC even donated to Scott Wiener's campaign. The process isn't a gate anymore; it's a business model that pays people to slow things down.\n\nThird, the authority's own survival depends on the project existing. Its CEO came from HNTB, one of those consulting firms. The board just restricted his contracting power, but the institutional momentum — jobs in the Central Valley, nineteen thousand so far, contractors with multi-billion-dollar deals — creates a constituency that fights any pause.\n\nSo it's not one villain. It's a system where every actor's rational move is to keep going, and the person who'd lose by stopping is the taxpayer.",
+   "tr": "Drei Kräfte, übereinandergestapelt. Erstens, politisches Lock-in. Sobald die Wähler es genehmigt haben und Milliarden reingeflossen sind, heißt es, ein Scheitern bei einer Abstimmungsvorlage einzugestehen, wenn man es killt — kein Gouverneur und kein Abgeordneter will das in der Akte. Newsom selbst hat, als er noch Vizegouverneur war, gesagt, das Gesamtsystem werde in unserer Lebenszeit wahrscheinlich nicht zustande kommen, und sie haben trotzdem weitergebaut.\n\nZweitens ist die Umweltprüfung zu einer sich selbst tragenden Industrie geworden. Diese 677 Millionen gingen an vier große Firmen — AECOM, WSP, HNTB, Parsons Brinckerhoff — und einige davon hatten die ursprüngliche Vorlage von 2008 unterstützt. Das PAC von HNTB hat sogar an Scott Wieners Kampagne gespendet. Der Prozess ist kein Tor mehr; er ist ein Geschäftsmodell, das Leute dafür bezahlt, die Dinge zu bremsen.\n\nDrittens hängt das eigene Überleben der Behörde davon ab, dass das Projekt existiert. Ihr CEO kam von HNTB, einer dieser Beratungsfirmen. Der Vorstand hat gerade seine Vertragsvollmacht eingeschränkt, aber die institutionelle Eigendynamik — Jobs im Central Valley, bisher 19.000, Auftragnehmer mit Deals über mehrere Milliarden — schafft eine Klientel, die gegen jede Pause kämpft.\n\nEs ist also nicht ein einzelner Bösewicht. Es ist ein System, in dem der rationale Zug jedes Akteurs ist, weiterzumachen, und die Person, die durchs Stoppen verliert, ist der Steuerzahler."
+  },
+  "6da8097b937f946d": {
+   "kind": "turn 16",
+   "en": "I mean this just seems ridiculous. Uh, like, okay, I guess, tell me about the CEO. Does he think he's, uh, making the world better or is he just out to make money? Like, who at the top actually thinks that they're doing more than just stealing?",
+   "tr": "Ich meine, das wirkt einfach lächerlich. Äh, also, okay, ich schätze, erzähl mir vom CEO. Denkt er, er, äh, macht die Welt besser, oder ist er nur aufs Geld aus? Also, wer ganz oben denkt eigentlich, dass er mehr tut, als nur zu klauen?"
+  },
+  "97ca188524f938ec": {
+   "kind": "turn 17",
+   "en": "Searching for more on Ian Choudri. \n\nIan Choudri took over in August twenty twenty-four. He's a career infrastructure guy — Bechtel, HNTB, Parsons, a decade on high-speed rail in France and Spain, field engineer on the Channel Tunnel. Before becoming CEO he was project executive on the authority's own first construction package while at HNTB, so he was on the contractor side of this exact project. He earns about six hundred thirty-nine thousand a year.\n\nHis public posture is believer, not grifter. He says \"we own our own destiny,\" \"build more and go forward,\" claims he's a thousand percent confident riders will demand more once trains run. He locked in a billion a year through twenty forty-five, dropped Buy American to get Siemens trains faster, and is courting private partners. That reads like someone who thinks the thing can work and wants to be the one who delivers it.\n\nBut the details undercut the pure-idealist story. His fiancée works at KPMG — one of the four firms the inspector general flagged for nearly six hundred thousand in unallowable travel, including rideshares to gyms, a nightclub, an escape room, a tiki bar. CBS found a dozen late-night Lyft trips between two consultants and Choudri's home in Folsom. One consultant told investigators Choudri had requested his presence so he didn't need to justify it — \"as other consultants in other Authority offices are learning the hard way.\" When reporters asked about those rides, Choudri walked away without answering.\n\nSo my read: he probably does believe in the project — that's the simplest explanation for thirty years in the industry. But belief and self-dealing aren't mutually exclusive. The culture he inherited or built let consultants bill taxpayers for personal trips with almost no pushback, one of those consultants had a personal connection to him, and when it surfaced he gave prepared remarks and dodged questions. That's not someone stealing checks. It's someone whose oversight collapsed in a direction that happened to benefit people close to him, and who showed no appetite for explaining it.\n\nThe sharper question might be whether the project survives him. Republican lawmakers are calling for his resignation, the board clipped his contracting power, and Newsom vetoed a bill that would've strengthened the inspector general. If he goes, does the project lose its last credible defender or its last liability?\n\nI could dig into what happens to the authority if he resigns — who's next in line, whether the board has a succession plan.",
+   "tr": "Ich suche mehr zu Ian Choudri.\n\nIan Choudri hat im August 2024 übernommen. Er ist ein Infrastruktur-Typ von Beruf — Bechtel, HNTB, Parsons, ein Jahrzehnt Hochgeschwindigkeitsbahn in Frankreich und Spanien, Field Engineer am Kanaltunnel. Bevor er CEO wurde, war er bei HNTB Project Executive für das erste eigene Baupaket der Behörde, also auf der Auftragnehmerseite genau dieses Projekts. Er verdient etwa 639.000 Dollar im Jahr.\n\nNach außen ist er Überzeugter, kein Abzocker. Er sagt «Wir bestimmen unser eigenes Schicksal», «mehr bauen und vorangehen», behauptet, er sei zu tausend Prozent sicher, dass die Fahrgäste mehr verlangen, sobald die Züge fahren. Er hat eine Milliarde pro Jahr bis 2045 festgezurrt, Buy American fallen gelassen, um die Siemens-Züge schneller zu kriegen, und wirbt um private Partner. Das liest sich wie jemand, der glaubt, dass das Ding funktionieren kann, und der derjenige sein will, der es liefert.\n\nAber die Details untergraben die reine Idealisten-Geschichte. Seine Verlobte arbeitet bei KPMG — eine der vier Firmen, die der Inspector General wegen fast 600.000 Dollar an nicht erstattungsfähigen Reisekosten markiert hat, darunter Rideshare-Fahrten zu Fitnessstudios, einem Nachtclub, einem Escape Room, einer Tiki-Bar. CBS hat ein Dutzend nächtliche Lyft-Fahrten zwischen zwei Beratern und Choudris Haus in Folsom gefunden. Ein Berater sagte den Ermittlern, Choudri habe seine Anwesenheit verlangt, damit er es nicht rechtfertigen müsse — «wie andere Berater in anderen Büros der Authority gerade auf die harte Tour lernen». Als Reporter nach diesen Fahrten fragten, ist Choudri weggegangen, ohne zu antworten.\n\nMeine Lesart: Er glaubt wahrscheinlich wirklich an das Projekt — das ist die einfachste Erklärung für dreißig Jahre in der Branche. Aber Überzeugung und Selbstbedienung schließen sich nicht aus. Die Kultur, die er geerbt oder aufgebaut hat, hat Beratern erlaubt, den Steuerzahlern private Fahrten in Rechnung zu stellen, fast ohne Gegenwind; einer dieser Berater hatte eine persönliche Verbindung zu ihm, und als es hochkam, hat er vorbereitete Statements abgegeben und Fragen ausgewichen. Das ist nicht jemand, der Schecks klaut. Das ist jemand, dessen Aufsicht in eine Richtung zusammengebrochen ist, die zufällig Leuten in seiner Nähe genützt hat, und der keinerlei Appetit gezeigt hat, das zu erklären.\n\nDie schärfere Frage ist vielleicht, ob das Projekt ihn überlebt. Republikanische Abgeordnete fordern seinen Rücktritt, das Board hat seine Vertragsvollmacht beschnitten, und Newsom hat ein Gesetz per Veto gestoppt, das den Inspector General gestärkt hätte. Wenn er geht: Verliert das Projekt seinen letzten glaubwürdigen Verteidiger oder seine letzte Belastung?\n\nIch könnte nachgraben, was mit der Behörde passiert, wenn er zurücktritt — wer als Nächstes dran ist, ob das Board einen Nachfolgeplan hat."
+  },
+  "366dd71d900e4097": {
+   "kind": "turn 18",
+   "en": "Wait, why did, why did Newsom, why did Newsom veto the inspector general bill?",
+   "tr": "Warte mal, warum hat Newsom — warum hat Newsom das Inspector-General-Gesetz eigentlich abgelehnt?"
+  },
+  "d505754dd0191b6d": {
+   "kind": "turn 19",
+   "en": "Pulling up why Newsom vetoed that. \n\nNewsom's stated reason is process purity. His veto message said the inspector general's office should address its needs through existing state channels rather than getting broad permanent exemptions from statewide administrative safeguards. The bill, by Assemblymember Lori Wilson, would have let the watchdog hire higher-classified auditors and sign contracts up to a million dollars without Department of General Services sign-off. It passed the Assembly sixty-four to eight and the Senate thirty-nine to nothing.\n\nThe inspector general, Ben Belnap — whom Newsom himself appointed — says those existing processes are exactly the bottleneck. Three of his eight audit positions are vacant because state job classifications can't recruit qualified people, and a three-hundred-thousand-dollar software purchase ballooned to over a million and took more than a year through procurement. That delay has already pushed back an audit of the authority's change-order process, including a settlement worth over five hundred million.\n\nThe timing made it worse. The veto landed September thirtieth, two weeks after Belnap's office published the travel-expense report. Newsom had already signed the less controversial half of the bill — the reporting requirements — through a budget trailer, so he was only killing the staffing and purchasing authority. Republicans immediately called it an unforced error, especially with Newsom looking at twenty twenty-eight.\n\nHis defenders would say he's protecting uniform state procurement rules from one-off carve-outs that could metastasize. His critics say he's shielding the authority from a watchdog that's finally working. Both can be true — the veto protects the system from the exception, and the system is what's failing.\n\nOne angle worth watching: if the inspector general can't staff up, the next big audit — the change-order review — slips further, and the nine-and-a-half-billion-dollar funding gap gets less scrutiny right when the money's running out. I could dig into what that change-order settlement actually covers if you want.",
+   "tr": "Ich hole raus, warum Newsom das vetoed hat.\n\nNewsoms angegebener Grund ist Verfahrensreinheit. In seiner Veto-Begründung hieß es, das Büro des Inspector General solle seinen Bedarf über bestehende staatliche Kanäle decken, statt breite dauerhafte Ausnahmen von landesweiten administrativen Schutzvorschriften zu bekommen. Der Gesetzentwurf von Assemblymember Lori Wilson hätte dem Wachhund erlaubt, höher eingestufte Prüfer einzustellen und Verträge bis zu einer Million Dollar ohne Freigabe des Department of General Services zu unterschreiben. Er ging durch die Assembly mit 64 zu 8 und durch den Senat mit 39 zu null.\n\nDer Inspector General, Ben Belnap — den Newsom selbst ernannt hat —, sagt, genau diese bestehenden Prozesse seien der Flaschenhals. Drei seiner acht Prüferstellen sind unbesetzt, weil die staatlichen Stellenklassifikationen keine qualifizierten Leute rekrutieren können, und ein Softwarekauf über 300.000 Dollar ist auf über eine Million aufgebläht und hat über die Beschaffung mehr als ein Jahr gedauert. Diese Verzögerung hat schon eine Prüfung des Change-Order-Prozesses der Behörde nach hinten geschoben, darunter einen Vergleich im Wert von über 500 Millionen.\n\nDas Timing hat es schlimmer gemacht. Das Veto kam am 30. September, zwei Wochen nachdem Belnaps Büro den Reisekostenbericht veröffentlicht hatte. Newsom hatte die weniger umstrittene Hälfte des Gesetzes — die Berichtspflichten — schon über einen Budget-Trailer unterschrieben, also hat er nur die Personal- und Beschaffungsbefugnis gekillt. Die Republikaner nannten das sofort ein unnötiges Eigentor, vor allem weil Newsom auf 2028 schielt.\n\nSeine Verteidiger würden sagen, er schütze einheitliche staatliche Beschaffungsregeln vor einmaligen Sonderregelungen, die metastasieren könnten. Seine Kritiker sagen, er schirme die Behörde vor einem Wachhund ab, der endlich funktioniert. Beides kann stimmen — das Veto schützt das System vor der Ausnahme, und das System ist das, was versagt.\n\nEin Winkel, den man im Auge behalten sollte: Wenn der Inspector General nicht aufstocken kann, rutscht die nächste große Prüfung — das Change-Order-Review — weiter nach hinten, und die Finanzierungslücke von 9,5 Milliarden Dollar bekommt weniger Prüfung, genau dann, wenn das Geld ausgeht. Ich könnte nachgraben, was dieser Change-Order-Vergleich tatsächlich abdeckt, wenn du willst."
+  },
+  "9b58719f48e44636": {
+   "kind": "turn 20",
+   "en": "Tell me about it.",
+   "tr": "Erzähl mir davon."
+  },
+  "b1e25f696a8afa19": {
+   "kind": "turn 21",
+   "en": "If the inspector general can't staff up, the next likely casualty is that five-hundred-million-dollar change-order audit. Change orders are where megaproject money quietly disappears — contractors billing for scope that grew after the original contract was signed, sometimes because the design was incomplete when they started. On a project this size, even a small percentage of unexamined change orders is billions. Belnap's office flagged it as delayed precisely because they don't have the bodies to dig in.\n\nThere's also a second-order effect: without timely audits, the authority's own claims about cost savings get less scrutiny. Choudri told the board they've saved sixty-eight million on consultant contracts over two years. That number is real only if someone independently verifies the baseline and the methodology — and the office that would do that is the one being starved.\n\nThe deeper irony is that Newsom created this inspector general in twenty twenty-two as a reform gesture after years of criticism. Now the office is exposing problems on his watch, and his response is to limit its reach right when it's producing. Whether that's bureaucratic reflex or political calculation, the practical result is the same: less sunlight on the biggest infrastructure project in state history at the exact moment the public is asking the hardest questions.\n\nI could walk through what that change-order settlement actually covered, if you want the specifics.",
+   "tr": "Wenn der Inspector General nicht aufstocken kann, ist das nächste wahrscheinliche Opfer diese Change-Order-Prüfung über 500 Millionen Dollar. Change Orders sind da, wo Megaprojekt-Geld leise verschwindet — Auftragnehmer rechnen Umfang ab, der nach Unterschrift des Originalvertrags gewachsen ist, manchmal weil das Design unvollständig war, als sie angefangen haben. Bei einem Projekt dieser Größe sind selbst ein kleiner Prozentsatz ungeprüfter Change Orders Milliarden. Belnaps Büro hat sie genau deshalb als verzögert markiert, weil ihnen die Leute fehlen, um reinzugraben.\n\nEs gibt auch einen Effekt zweiter Ordnung: Ohne zeitnahe Prüfungen bekommen die eigenen Sparbehauptungen der Behörde weniger Prüfung. Choudri hat dem Board gesagt, sie hätten über zwei Jahre 68 Millionen bei Beraterverträgen gespart. Diese Zahl ist nur real, wenn jemand Baseline und Methodik unabhängig prüft — und das Büro, das das tun würde, ist das, das ausgehungert wird.\n\nDie tiefere Ironie ist, dass Newsom diesen Inspector General 2022 als Reformgeste geschaffen hat, nach Jahren der Kritik. Jetzt legt das Büro Probleme unter seiner Aufsicht offen, und seine Antwort ist, dessen Reichweite zu begrenzen, genau dann, wenn es liefert. Ob das bürokratischer Reflex oder politisches Kalkül ist, das praktische Ergebnis ist dasselbe: weniger Licht auf das größte Infrastrukturprojekt in der Geschichte des Bundesstaats, genau in dem Moment, in dem die Öffentlichkeit die härtesten Fragen stellt.\n\nIch könnte durchgehen, was dieser Change-Order-Vergleich tatsächlich abgedeckt hat, wenn du die Details willst."
+  },
+  "0da72197e898ebe1": {
+   "kind": "turn 22",
+   "en": "Hello?",
+   "tr": "Hallo?"
+  },
+  "5743bfde2763a4e6": {
+   "kind": "turn 23",
+   "en": "Still here. Did you want to go deeper on any of that, or shift gears?",
+   "tr": "Ich bin noch da. Wolltest du bei irgendwas davon tiefer gehen, oder das Thema wechseln?"
+  },
+  "8a6a0cf00f919238": {
+   "kind": "turn 24",
+   "en": "Yes. Yes, I do.",
+   "tr": "Ja. Ja, will ich."
+  },
+  "7f15b5a6b60e96ff": {
+   "kind": "turn 25",
+   "en": "Digging into the change-order settlement. \n\nIt's Change Order four twenty-seven with Dragados Flatiron Joint Venture, finalized May twenty-first, twenty twenty-six, for five hundred thirty-seven point three million dollars. That's the largest single change order in the project's history. The original CP two-three contract was one point three six five billion back in twenty fifteen for a sixty-five-mile design-build stretch through Fresno, Tulare, and Kings counties. Before this settlement, DFJV had already racked up five hundred ninety-seven change orders totaling two point three two billion — the biggest prior one was two hundred forty-two million. So this one pushes their total past three billion on a contract that started at one point four.\n\nWhat it covers: settlement and release of DFJV's outstanding claims, third-party impacts, BNSF railroad impacts, environmental impacts, plus credits back to the authority, and payment for accelerating the work to hit a guideway completion date of December thirty-first, twenty twenty-six. The board approved it seven-to-zero in closed session on January twenty-first. Lawmakers found out after the fact. Congressman Vince Fong demanded to know whether federal funds were in the mix and whether the FRA was consulted. Assemblymember Lori Wilson, the same Democrat who wrote the inspector general bill Newsom just vetoed, called it frustrating as a taxpayer.\n\nThe authority's defense is that the money is performance-tied — DFJV only gets paid as milestones are hit. But here's the part that connects to everything else: Belnap's office is now starting a review of the change-order process itself, evaluating whether approvals follow industry standards, and they'll publish in February twenty twenty-seven. That's after the fact. The five-hundred-thirty-seven-million-dollar decision is already locked in, and the audit that might tell us whether it was justified comes a year later.\n\nOne more wrinkle — the authority's own July twenty twenty-five internal audit of the change-order process found contractors generally complied and that executed orders averaged about twenty-three percent below what was proposed. So the system does negotiate down. The question isn't whether there's a process. It's whether a process that produced nearly six hundred change orders and three billion in extras on one package was ever asking the right questions at the start.\n\nWant me to pull the actual claim categories inside that settlement — what BNSF and environmental impacts specifically cost?",
+   "tr": "Ich grabe mich in den Change-Order-Vergleich.\n\nEs ist Change Order 427 mit dem Dragados Flatiron Joint Venture, abgeschlossen am 21. Mai 2026, über 537,3 Millionen Dollar. Das ist der größte einzelne Change Order in der Geschichte des Projekts. Der ursprüngliche CP-2-3-Vertrag lag 2015 bei 1,365 Milliarden für einen 65-Meilen-Design-Build-Abschnitt durch die Counties Fresno, Tulare und Kings. Vor diesem Vergleich hatte DFJV schon 597 Change Orders angehäuft, insgesamt 2,32 Milliarden — der größte davor lag bei 242 Millionen. Dieser hier schiebt ihre Summe also über drei Milliarden, bei einem Vertrag, der bei 1,4 angefangen hat.\n\nWas drin ist: Vergleich und Verzicht auf DFJVs offene Ansprüche, Auswirkungen Dritter, Auswirkungen der BNSF-Bahn, Umweltauswirkungen, plus Gutschriften zurück an die Authority, und Zahlung dafür, die Arbeiten zu beschleunigen, um ein Fertigstellungsdatum für den Fahrweg am 31. Dezember 2026 zu treffen. Der Board hat es am 21. Januar in nichtöffentlicher Sitzung mit sieben zu null genehmigt. Die Abgeordneten haben es erst hinterher erfahren. Der Kongressabgeordnete Vince Fong wollte wissen, ob Bundesmittel mit drin waren und ob die FRA konsultiert wurde. Assemblymember Lori Wilson, dieselbe Demokratin, die das Inspector-General-Gesetz geschrieben hat, gegen das Newsom gerade sein Veto eingelegt hat, nannte es als Steuerzahlerin frustrierend.\n\nDie Verteidigung der Authority: Das Geld ist an die Leistung gekoppelt — DFJV wird nur bezahlt, wenn Meilensteine erreicht werden. Aber hier der Teil, der alles andere verbindet: Belnaps Büro fängt jetzt eine Prüfung des Change-Order-Prozesses selbst an, schaut, ob Genehmigungen Branchenstandards folgen, und sie veröffentlichen im Februar 2027. Das ist hinterher. Die Entscheidung über 537 Millionen Dollar ist schon festgezurrt, und das Audit, das uns sagen könnte, ob sie gerechtfertigt war, kommt ein Jahr später.\n\nNoch eine Falte — das eigene interne Audit der Authority vom Juli 2025 zum Change-Order-Prozess fand, dass die Auftragnehmer im Großen und Ganzen compliant waren und dass ausgeführte Orders im Schnitt etwa 23 Prozent unter dem lagen, was vorgeschlagen wurde. Das System handelt also runter. Die Frage ist nicht, ob es einen Prozess gibt. Sondern ob ein Prozess, der fast 600 Change Orders und drei Milliarden an Extras auf einem Paket produziert hat, am Anfang jemals die richtigen Fragen gestellt hat.\n\nSoll ich die tatsächlichen Anspruchskategorien in diesem Vergleich rausziehen — was BNSF- und Umweltauswirkungen konkret gekostet haben?"
+  },
+  "c0041f74f8f9ef2d": {
+   "kind": "turn 26",
+   "en": "Um, let's do a zoom out. Like, okay, so this thing is, how, how much money has gone into it so far?",
+   "tr": "Ähm, lass uns mal rauszoomen. Also, okay, dieses Ding, wie, wie viel Geld ist da bisher reingeflossen?"
+  },
+  "105cce49c9a1a8a8": {
+   "kind": "turn 27",
+   "en": "Roughly fifteen to sixteen billion spent to date. That breaks down to about ten billion in Prop 1A bond proceeds, roughly four billion in federal grants before the clawback, and the rest from cap-and-trade. The bond money is essentially exhausted. What's left is the billion-a-year cap-and-trade stream through twenty forty-five, which doesn't come close to covering the nine-and-a-half-billion gap the inspector general flagged.",
+   "tr": "Ungefähr 15 bis 16 Milliarden bisher ausgegeben. Das teilt sich auf in etwa 10 Milliarden aus Prop-1A-Anleiheerlösen, ungefähr 4 Milliarden an Bundeszuschüssen vor dem Clawback, und der Rest aus Cap-and-Trade. Das Anleihegeld ist im Wesentlichen aufgebraucht. Was bleibt, ist der Cap-and-Trade-Strom von einer Milliarde pro Jahr bis 2045, und der kommt nicht annähernd an die Lücke von 9,5 Milliarden ran, die der Inspector General markiert hat."
+  },
+  "d18023b63a17ebb4": {
+   "kind": "turn 28",
+   "en": "Okay. And then it's getting a billion dollars a year of, uh, tax money just flowing in automatically?",
+   "tr": "Okay. Und dann bekommt es eine Milliarde Dollar im Jahr an, äh, Steuergeld, das einfach automatisch reinfließt?"
+  },
+  "31fdc68bef87415e": {
+   "kind": "turn 29",
+   "en": "Yes — cap-and-trade auction revenue, about a billion a year locked in through twenty forty-five. That's the main ongoing source now that federal money's gone. It was originally supposed to be seed funding that got replaced by fares and private investment, but it's become the backbone.",
+   "tr": "Ja — Auktionserlöse aus Cap-and-Trade, etwa eine Milliarde im Jahr, festgeschrieben bis 2045. Das ist jetzt die wichtigste laufende Quelle, seit das Bundesgeld weg ist. Ursprünglich sollte das Anschubfinanzierung sein, die durch Fahrgelder und private Investitionen ersetzt wird, aber es ist zum Rückgrat geworden."
+  },
+  "b86fb5f6e9508836": {
+   "kind": "turn 30",
+   "en": "Oh, okay. We got 15 billion dollars spent so far plus a billion dollars a year. How much of that was actually like on construction? Uh, like actually building stuff, buying stuff, and how much of it just kind of disappeared into the, the, uh, consulting",
+   "tr": "Oh, okay. Wir haben 15 Milliarden Dollar bisher ausgegeben plus eine Milliarde Dollar im Jahr. Wie viel davon war tatsächlich so für den Bau? Äh, also wirklich Sachen bauen, Sachen kaufen, und wie viel ist einfach irgendwie in die, die, äh, Beratung verschwunden"
+  },
+  "0e5408f7e30afe53": {
+   "kind": "turn 31",
+   "en": "Checking the construction-versus-consulting split.",
+   "tr": "Ich checke die Aufteilung Bau gegen Beratung."
+  },
+  "f51af8f4936e7e62": {
+   "kind": "turn 32",
+   "en": "... slash",
+   "tr": "... Slash"
+  },
+  "92e6e034b1422ed6": {
+   "kind": "turn 33",
+   "en": "Searching for that breakdown. \n\nOf the fifteen point five billion spent through December twenty twenty-five, about fourteen point eight billion went to capital — actual building, land, equipment. Roughly seven hundred million was pure administration and support. So on the surface, the consulting slice looks small.\n\nBut that fourteen point eight is misleading, because the design-build model buries consulting inside the construction number. The three civil works contracts started at two point eight billion and are now worth nine point three billion — mostly change orders, but the base price already includes the contractor's design fees. On top of that, program management advisors have about one point nine billion authorized with over a billion spent. Environmental review alone was six hundred seventy-seven million. Land acquisition, one point six billion. Bookend electrification projects at both ends, about nine hundred million.\n\nSo the clean consulting line items — the four firms getting two hundred fifty-three million over two years, KPMG burning half its twenty-four-million contract in year one — are the visible tip. The real consulting load is woven through every construction dollar. Back in twenty ten, state budget docs showed consultant engineers averaging four hundred twenty-seven thousand per head versus one hundred thirty-one thousand for state employees doing the same work. The LA Times called it an entity run entirely by engineering consultants for engineering consultants.\n\nThe travel scandal that made headlines — six hundred grand — is less than a hundredth of one percent of the total. The bigger issue isn't the tiki bar receipts. It's that a project with no permanent in-house engineering staff pays outside firms a premium to design, manage, and oversee work that might have been cheaper done by people on payroll.\n\nWant me to trace where a single construction dollar actually flows through that stack?",
+   "tr": "Ich suche nach dieser Aufschlüsselung.\n\nVon den 15,5 Milliarden, die bis Dezember 2025 ausgegeben wurden, gingen etwa 14,8 Milliarden ins Kapital — echtes Bauen, Land, Ausrüstung. Ungefähr 700 Millionen waren reine Verwaltung und Support. An der Oberfläche sieht der Beratungsanteil also klein aus.\n\nAber diese 14,8 sind irreführend, weil das Design-Build-Modell die Beratung in der Bauzahl vergräbt. Die drei Tiefbauverträge haben bei 2,8 Milliarden angefangen und sind jetzt 9,3 Milliarden wert — größtenteils Change Orders, aber der Basispreis enthält schon die Designgebühren des Auftragnehmers. Obendrauf haben Program-Management-Berater etwa 1,9 Milliarden bewilligt, mit über einer Milliarde ausgegeben. Allein die Umweltprüfung waren 677 Millionen. Grunderwerb, 1,6 Milliarden. Die Bookend-Elektrifizierungsprojekte an beiden Enden, etwa 900 Millionen.\n\nDie sauberen Beratungsposten — die vier Firmen, die über zwei Jahre 253 Millionen bekommen, KPMG, das die Hälfte seines 24-Millionen-Vertrags im ersten Jahr verbrennt — sind die sichtbare Spitze. Die echte Beratungslast ist durch jeden Bau-Dollar gewoben. 2010 zeigten staatliche Budgetunterlagen, dass Beratungsingenieure im Schnitt 427.000 pro Kopf bekamen, gegenüber 131.000 für Staatsangestellte, die dieselbe Arbeit machen. Die LA Times nannte es eine Einrichtung, die komplett von Ingenieurberatern für Ingenieurberater geführt wird.\n\nDer Reiseskandal, der Schlagzeilen gemacht hat — 600.000 — ist weniger als ein Hundertstel von einem Prozent der Gesamtsumme. Das größere Problem sind nicht die Tiki-Bar-Belege. Sondern dass ein Projekt ohne festes eigenes Ingenieurpersonal externen Firmen einen Aufschlag zahlt, um Arbeit zu entwerfen, zu managen und zu beaufsichtigen, die billiger gewesen wäre, wenn sie Leute auf der Gehaltsliste gemacht hätten.\n\nSoll ich nachzeichnen, wo ein einzelner Bau-Dollar tatsächlich durch diesen Stapel fließt?"
+  },
+  "0470fc6e83231d39": {
+   "kind": "turn 34",
+   "en": "Okay, sure.",
+   "tr": "Okay, klar."
+  },
+  "d87d3680146bd7ab": {
+   "kind": "turn 35",
+   "en": "Ok.",
+   "tr": "Okay."
+  },
+  "765f84c5ee26565b": {
+   "kind": "turn 36",
+   "en": "Are you doing it?",
+   "tr": "Machst du das gerade?"
+  },
+  "0070a344094d584e": {
+   "kind": "turn 37",
+   "en": "No, I stopped. Want me to finish that thought about the permanent staff problem?",
+   "tr": "Nein, ich hab aufgehört. Soll ich den Gedanken zum Problem mit dem festen Personal zu Ende bringen?"
+  },
+  "ee089bcce9a33fc6": {
+   "kind": "turn 38",
+   "en": "Is, you asked if I wanted to trace a dollar. Can, can you do that?",
+   "tr": "Ist, du hast gefragt, ob ich einen Dollar nachverfolgen will. Kannst, kannst du das machen?"
+  },
+  "eb37b4b1eb1c7c89": {
+   "kind": "turn 39",
+   "en": "Tracing one dollar is doable. Start with a cap-and-trade auction dollar hitting the authority's account. About sixty cents of it goes toward the Merced-to-Bakersfield early operating segment — that's the thirty-five point seven billion budget for the first hundred nineteen miles. Of that, roughly twenty-eight cents lands with Dragados Flatiron on construction package two-three, the Fresno stretch, where the original one point four billion contract has ballooned past three billion through change orders. Another ten cents or so goes to right-of-way acquisition — buying those twenty-two hundred parcels across the Central Valley. About six cents covers program management advisors, the one point nine billion line where firms like AECOM-Fluor coordinate everything. Three cents goes to environmental mitigation and third-party work with railroads and utilities. Two cents to track and systems design through SYSTRA-TYPSA. One cent to stations, which are barely started. And the last penny-ish is pure administration — salaries, the CEO's six hundred thirty-nine thousand, board expenses.\n\nSo your dollar doesn't disappear. It gets subdivided into pieces that each look defensible on their own, and the waste isn't in any single line — it's in the compounding. The change order that turned a one-point-four-billion contract into three billion. The consultant engineer billed at four hundred twenty-seven thousand when a state employee costs one thirty-one. The KPMG contract where phantom rates meant two million extra in four months. Each decision was probably made by someone who could justify it in a meeting. The sum is fifteen and a half billion with eighty-nine miles of guideway and no track laid.\n\nThe version of this I'd actually find interesting is tracing not a construction dollar but the six hundred seventy-seven million environmental review dollar — because that money went to firms that donated to the two thousand eight ballot campaign that created the project. That's not a cost of building rail. That's a return on a political investment, and it predates any shovel going in the ground.\n\nWant me to go down that path?",
+   "tr": "Einen Dollar nachzuzeichnen geht. Fang mit einem Cap-and-Trade-Auktionsdollar an, der auf dem Konto der Authority landet. Etwa 60 Cent davon gehen in das frühe Betriebssegment Merced–Bakersfield — das ist das Budget von 35,7 Milliarden für die ersten 119 Meilen. Davon landen ungefähr 28 Cent bei Dragados Flatiron auf Construction Package 2-3, dem Abschnitt Fresno, wo der ursprüngliche Vertrag über 1,4 Milliarden durch Change Orders auf über drei Milliarden aufgebläht ist. Weitere etwa 10 Cent gehen in den Grunderwerb für die Trasse — den Kauf dieser 2.200 Parzellen quer durchs Central Valley. Etwa 6 Cent decken Program-Management-Berater ab, die 1,9-Milliarden-Linie, wo Firmen wie AECOM-Fluor alles koordinieren. 3 Cent gehen in Umweltausgleich und Drittparteiarbeit mit Bahnen und Versorgern. 2 Cent in Gleis- und Systemdesign über SYSTRA-TYPSA. 1 Cent in Bahnhöfe, die kaum angefangen sind. Und der letzte Cent ungefähr ist reine Verwaltung — Gehälter, die 639.000 des CEO, Board-Ausgaben.\n\nDein Dollar verschwindet also nicht. Er wird in Stücke zerlegt, die jedes für sich vertretbar aussehen, und die Verschwendung steckt in keiner einzelnen Zeile — sie steckt in der Aufsummierung. Der Change Order, der einen Vertrag über 1,4 Milliarden in drei Milliarden verwandelt hat. Der Beratungsingenieur, abgerechnet mit 427.000, wenn ein Staatsangestellter 131 kostet. Der KPMG-Vertrag, bei dem Phantomraten in vier Monaten zwei Millionen extra bedeutet haben. Jede Entscheidung hat wahrscheinlich jemand getroffen, der sie in einem Meeting rechtfertigen konnte. Die Summe sind 15,5 Milliarden mit 89 Meilen Fahrweg und keinem verlegten Gleis.\n\nDie Version, die ich tatsächlich interessant fände, ist, nicht einen Bau-Dollar nachzuzeichnen, sondern den Umweltprüfungs-Dollar von 677 Millionen — weil das Geld an Firmen ging, die an die Wahlkampfkampagne von 2008 gespendet haben, die das Projekt geschaffen hat. Das sind keine Kosten für den Bahnbau. Das ist eine Rendite auf eine politische Investition, und sie liegt vor jedem Spatenstich.\n\nSoll ich den Weg runtergehen?"
+  },
+  "2de94f20bcb5d2ba": {
+   "kind": "turn 40",
+   "en": "Okay, yeah.",
+   "tr": "Okay, ja."
+  },
+  "1a978d662074b6fb": {
+   "kind": "turn 41",
+   "en": "million in environmental review.",
+   "tr": "Millionen in der Umweltprüfung."
+  },
+  "2d25c7710a186ea8": {
+   "kind": "turn 42",
+   "en": "Yeah, tell me about that.",
+   "tr": "Ja, erzähl mir davon."
+  },
+  "bf2719416beb2feb": {
+   "kind": "turn 43",
+   "en": "That's the six hundred seventy-seven million spent producing over a hundred thirty thousand pages of environmental documents. Stacked together they'd stand forty feet tall and weigh thirteen hundred pounds. Four firms did most of it — Parsons Brinckerhoff got a hundred and one million, HNTB eighty-six, WSP sixty-one, AECOM thirty-eight. And here's the kicker: three of those four were among the biggest donors to the committee that backed the two thousand eight ballot measure. HNTB's PAC also gave to Scott Wiener. So the firms that helped sell the project to voters then collected to study it.\n\nThe receipts get surreal. Four hundred eighty thousand dollars to dig small burrows for mammals by hand. Three hundred fifty-two thousand for lizard surveys. Two hundred ninety thousand for software to track environmental requirements. One June twenty eighteen board meeting approved amendments worth over a hundred forty-two million in a single vote.\n\nThe authority's defense is that CEQA and NEPA legally require all this — you can't build without it. True on paper. But the scope ballooned way past legal minimum into a documentation arms race, and the same firms that wrote the original cost estimate in two thousand eight, thirty-three billion, are the ones billing to revise it upward ever since.\n\nWant me to pull the specific CEQA trigger points that forced the expansion, or compare this to how other countries handle rail environmental review?",
+   "tr": "Das sind die 677 Millionen, die dafür ausgegeben wurden, über 130.000 Seiten Umweltgutachten zu produzieren. Aufeinandergestapelt wären die 40 Fuß hoch und würden 1.300 Pfund wiegen. Vier Firmen haben den Großteil gemacht — Parsons Brinckerhoff hat 101 Millionen bekommen, HNTB 86, WSP 61, AECOM 38. Und jetzt der Clou: Drei von diesen vier gehörten zu den größten Spendern des Komitees, das die Volksabstimmung von 2008 unterstützt hat. Das PAC von HNTB hat auch an Scott Wiener gespendet. Die Firmen, die das Projekt den Wählern verkauft haben, haben also anschließend kassiert, um es zu untersuchen.\n\nDie Belege werden surreal. 480.000 Dollar, um kleine Baue für Säugetiere von Hand zu graben. 352.000 für Eidechsen-Erhebungen. 290.000 für Software, um Umweltauflagen zu tracken. Eine Vorstandssitzung im Juni 2018 hat in einer einzigen Abstimmung Nachträge im Wert von über 142 Millionen genehmigt.\n\nDie Behörde verteidigt sich damit, dass CEQA und NEPA das alles gesetzlich vorschreiben — ohne das darfst du nicht bauen. Auf dem Papier stimmt das. Aber der Umfang ist weit über das gesetzliche Minimum hinaus zu einem Dokumentations-Wettrüsten aufgebläht, und dieselben Firmen, die 2008 die ursprüngliche Kostenschätzung von 33 Milliarden geschrieben haben, stellen seither die Rechnungen dafür, sie nach oben zu korrigieren.\n\nSoll ich die konkreten CEQA-Auslöser rausziehen, die die Ausweitung erzwungen haben, oder das damit vergleichen, wie andere Länder die Umweltprüfung bei der Bahn handhaben?"
+  },
+  "8cdd6ec0c1935e6b": {
+   "kind": "turn 44",
+   "en": "How would this have gone down in Texas?",
+   "tr": "Wie wäre das in Texas gelaufen?"
+  },
+  "72a75c56694a9037": {
+   "kind": "turn 45",
+   "en": "Texas would skip most of it. No CEQA, no state-level environmental super-statute. Review happens under federal NEPA if federal money's involved, but Texas doesn't layer its own thousand-page process on top. Design-build contracts are the default, not the exception — you pick a team, give them a performance spec, and they own the design risk. Change orders still happen, but the baseline incentive structure is different because the contractor's eating more of the upside and downside.\n\nThe catch is Texas Central Railway — the private Dallas-to-Houston bullet train. That one stalled too, but for opposite reasons: it couldn't assemble the right-of-way through enough landowners' hands, and it never locked down the capital stack. So Texas proves you can avoid the bureaucratic swamp and still die from land and money. California's failure mode is process. Texas's is that nobody's willing to front the billions without a government guarantee, and the government won't give one.\n\nThe one thing Texas does that California structurally can't is let a private entity carry the political risk of saying no to a vocal constituency. California voters approved the bond; Texas never asked.",
+   "tr": "Texas würde das meiste davon einfach überspringen. Kein CEQA, kein Umwelt-Supergesetz auf Landesebene. Die Prüfung läuft über das bundesweite NEPA, wenn Bundesgeld im Spiel ist, aber Texas legt nicht noch mal seinen eigenen tausendseitigen Prozess obendrauf. Design-Build-Verträge sind der Normalfall, nicht die Ausnahme — du suchst dir ein Team aus, gibst ihm eine Leistungsspezifikation, und das Team trägt das Planungsrisiko. Nachträge gibt’s trotzdem, aber die grundlegende Anreizstruktur ist anders, weil der Auftragnehmer mehr vom Upside und vom Downside selbst schluckt.\n\nDer Haken ist Texas Central Railway — der private Hochgeschwindigkeitszug von Dallas nach Houston. Der ist auch ins Stocken geraten, aber aus den gegenteiligen Gründen: Er konnte das Wegerecht nicht über genug Grundbesitzer zusammenbekommen, und er hat den Kapitalstapel nie festgezurrt. Texas beweist also, dass du den Bürokratiesumpf vermeiden und trotzdem an Land und Geld scheitern kannst. Kaliforniens Fehlermodus ist der Prozess. Der von Texas ist, dass niemand bereit ist, die Milliarden vorzustrecken, ohne eine Staatsgarantie — und der Staat gibt keine.\n\nDas eine, was Texas kann und Kalifornien strukturell nicht: eine private Instanz das politische Risiko tragen lassen, zu einer lauten Wählergruppe Nein zu sagen. Die kalifornischen Wähler haben die Anleihe genehmigt; Texas hat nie gefragt."
+  },
+  "dcc4e11c12e13f60": {
+   "kind": "turn 46",
+   "en": "Okay, Grok. Uh, I mean, Eve. Uh, what's your take on this? Uh, like, do you think this is ever gonna happen? Is this just, uh, a billion dollars a year siphon from the taxpayers to engineering firm salaries? Uh, like, do you think it'll get killed at some point? Yeah, predict the future for me.",
+   "tr": "Okay, Grok. Äh, ich meine, Eve. Äh, was hältst du davon? Äh, also, glaubst du, das wird jemals passieren? Ist das einfach nur, äh, eine Milliarde Dollar im Jahr, die von den Steuerzahlern in die Gehälter von Ingenieurbüros abgezweigt wird? Äh, also, glaubst du, das wird irgendwann gekillt? Ja, sag mir die Zukunft voraus."
+  },
+  "90f1fd5646f85d37": {
+   "kind": "turn 47",
+   "en": "My lean is it survives in some form but never becomes the system voters imagined. The Merced-to-Bakersfield piece is too far along — eighty-nine miles of guideway, trains on order, tracklaying starting this year. Killing that now costs more politically than finishing it. So you get a Central Valley shuttle opening around twenty thirty-three, maybe twenty thirty-four, running at a fraction of projected ridership, subsidized forever.\n\nThe full San Francisco-to-LA vision is gone. Nobody in Sacramento will ever put up the other ninety billion. What you actually have is a billion-a-year annuity for engineering and consulting firms through twenty forty-five, with a small train at the end of it. That's not corruption in the cartoon sense — it's worse, because it's legal, documented, and defensible line by line.\n\nThe thing I'd watch isn't a cancellation vote. It's whether the inspector general's February change-order audit lands before or after the next big funding fight. If it surfaces real problems while they're asking to borrow against future cap-and-trade money, that's the one crack that could force a reset.",
+   "tr": "Mein Bauchgefühl: Es überlebt in irgendeiner Form, wird aber nie das System, das sich die Wähler vorgestellt haben. Das Stück Merced–Bakersfield ist zu weit fortgeschritten — 89 Meilen Guideway, Züge bestellt, Gleisverlegung beginnt dieses Jahr. Das jetzt zu killen, kostet politisch mehr, als es fertigzubauen. Also kriegst du um 2033, vielleicht 2034, einen Shuttle durchs Central Valley, der mit einem Bruchteil der prognostizierten Fahrgastzahlen fährt und auf ewig subventioniert wird.\n\nDie volle Vision San Francisco–LA ist weg. Niemand in Sacramento wird jemals die anderen 90 Milliarden auf den Tisch legen. Was du tatsächlich hast, ist eine Milliarden-Annuität pro Jahr für Ingenieur- und Beratungsfirmen bis 2045, und am Ende davon ein kleiner Zug. Das ist keine Korruption im Comic-Sinn — es ist schlimmer, weil es legal ist, dokumentiert und Zeile für Zeile verteidigbar.\n\nWorauf ich achten würde, ist keine Abstimmung, die das killt. Sondern ob das Change-Order-Audit des Inspector General vom Februar vor oder nach dem nächsten großen Finanzierungsstreit landet. Wenn da echte Probleme auftauchen, während sie darum bitten, gegen künftiges Cap-and-Trade-Geld zu leihen, ist das der eine Riss, der einen Reset erzwingen könnte."
+  },
+  "96dd30368e9e23bd": {
+   "kind": "turn 48",
+   "en": "Interesting. Are there any polymarket, uh, looking at this thing?",
+   "tr": "Interessant. Gibt’s irgendwelche Polymarket, äh, die sich das anschauen?"
+  },
+  "03240daf0b7b57b0": {
+   "kind": "turn 49",
+   "en": "Let me check Polymarket for high-speed rail markets. \n\nNo live trading market on the rail itself. Polymarket's X account did blast the one hundred twenty-six billion figure in April, but that was commentary, not a contract. What they do have is adjacent stuff — Prop forty-five on expedited environmental review is at about seventy percent to pass in November, which is the closest thing to a rail-adjacent bet since it would compress exactly the CEQA bloat we just talked about. There's also the billionaire wealth tax at thirty-seven percent, which matters because if it passes, the political pressure on every big-ticket state project gets a lot louder.\n\nThe absence is itself informative. Prediction markets need a clean resolution date and a binary outcome, and high-speed rail has neither — it just fades. You can't short a zombie.",
+   "tr": "Lass mich bei Polymarket nach Märkten zum Hochgeschwindigkeitszug schauen.\n\nKein live gehandelter Markt zur Bahn selbst. Der X-Account von Polymarket hat im April die Zahl von 126 Milliarden rausgehauen, aber das war Kommentar, kein Kontrakt. Was sie haben, ist angrenzendes Zeug — Prop 45 zur beschleunigten Umweltprüfung steht bei etwa 70 Prozent für ein Ja im November, und das ist die nächste Wette in der Nähe der Bahn, weil sie genau die CEQA-Aufblähung zusammendrücken würde, über die wir gerade geredet haben. Dazu die Milliardärs-Vermögenssteuer bei 37 Prozent, und die zählt, weil der politische Druck auf jedes teure Landesprojekt viel lauter wird, falls sie durchkommt.\n\nDie Abwesenheit ist selbst aufschlussreich. Prediction Markets brauchen ein klares Auflösungsdatum und ein binäres Ergebnis, und die Hochgeschwindigkeitsbahn hat keins von beidem — sie verblasst einfach. Einen Zombie kannst du nicht shorten."
+  },
+  "ba0c627460e1432b": {
+   "kind": "turn 50",
+   "en": "So like, could someone, uh, pass another, uh, ballot prop that redirects that billion dollars of cap and trade money to something more useful like, exi-existing transportation or other things that the state needs?",
+   "tr": "Also, könnte jemand, äh, eine weitere, äh, Ballot-Prop durchbringen, die diese Milliarde Dollar Cap-and-Trade-Geld auf etwas Nützlicheres umlenkt, wie bestehenden Verkehr oder andere Dinge, die der Staat braucht?"
+  },
+  "3cb42499824b35d4": {
+   "kind": "turn 51",
+   "en": "Yes, legally possible. Cap-and-trade revenue is statutory, not constitutional, so a proposition could redirect it. You'd need roughly eight hundred seventy-five thousand valid signatures to qualify, then a majority on election day. The catch is who'd fight it — the rail authority, its contractors, Central Valley legislators who'd lose jobs and projects, and probably Newsom, who just signed the funding lock himself. You'd also be stepping into a knife fight with every other program that wants that billion — affordable housing, transit, wildfire mitigation. Prop six in twenty eighteen tried to kill the gas tax and lost by about sixty to forty, so Californians have shown they'll defend transportation funding even when they hate it. A redirect-to-existing-transit version might poll better than a straight kill, but you'd still be betting against the coalition that built this thing.",
+   "tr": "Ja, rechtlich möglich. Cap-and-Trade-Einnahmen sind gesetzlich geregelt, nicht verfassungsrechtlich, also könnte eine Proposition sie umlenken. Du bräuchtest ungefähr 875.000 gültige Unterschriften, um zur Wahl zu kommen, dann eine Mehrheit am Wahltag. Der Haken ist, wer dagegen kämpfen würde — die Bahnbehörde, ihre Auftragnehmer, Abgeordnete aus dem Central Valley, die Jobs und Projekte verlieren würden, und wahrscheinlich Newsom, der die Finanzierungssperre gerade selbst unterschrieben hat. Außerdem würdest du in ein Messergefecht mit jedem anderen Programm geraten, das diese Milliarde will — bezahlbarer Wohnraum, Nahverkehr, Waldbrandvorsorge. Prop 6 hat 2018 versucht, die Benzinsteuer zu killen, und mit etwa 60 zu 40 verloren, also haben die Kalifornier gezeigt, dass sie Verkehrsförderung verteidigen, selbst wenn sie sie hassen. Eine Version, die auf bestehenden Nahverkehr umlenkt, könnte in Umfragen besser dastehen als ein glattes Aus, aber du würdest trotzdem gegen die Koalition wetten, die das Ding gebaut hat."
+  },
+  "47e56ba6576474de": {
+   "kind": "turn 52",
+   "en": "I mean, I imagine that there's, there are a lot of groups that, uh, would be able to put this money to good use. Do you think it'd be possible to build a coalition that divvies that money up amongst a bunch of different groups?",
+   "tr": "Ich meine, ich stell mir vor, dass es eine Menge Gruppen gibt, die, äh, dieses Geld gut einsetzen könnten. Glaubst du, man könnte eine Koalition bauen, die das Geld unter einem Haufen verschiedener Gruppen aufteilt?"
+  },
+  "26d30face7375d14": {
+   "kind": "turn 53",
+   "en": "That's actually how you win. A single-issue kill has one enemy and no friends. A divvy-up prop turns every transit agency in the state, every housing nonprofit, every climate group into a stakeholder. SEIU-UHW already proved they can move ballot money when they have a target — they'd probably love a seat at that table. The hard part isn't finding groups that want the cash, it's getting them to agree on shares before the signature drive, because the moment the split gets public, each constituency starts fighting over percentages and the whole thing fractures. That's what killed similar redirect attempts before — not opposition from outside, but the coalition eating itself.",
+   "tr": "Genau so gewinnst du. Ein Single-Issue-Kill hat einen Feind und keine Freunde. Eine Aufteilungs-Prop macht jede Verkehrsbehörde im Staat, jede Wohnungs-Nonprofit, jede Klimagruppe zum Stakeholder. SEIU-UHW hat schon bewiesen, dass sie Ballot-Geld bewegen können, wenn sie ein Ziel haben — die hätten wahrscheinlich gern einen Platz an dem Tisch. Der schwierige Teil ist nicht, Gruppen zu finden, die das Geld wollen, sondern sie vor der Unterschriftensammlung auf Anteile zu einigen, denn sobald die Aufteilung öffentlich wird, fängt jede Klientel an, um Prozente zu kämpfen, und das Ganze bricht auseinander. Daran sind ähnliche Umlenkungsversuche vorher gescheitert — nicht am Widerstand von außen, sondern daran, dass die Koalition sich selbst auffrisst."
+  },
+  "52d8966ee0f65ce4": {
+   "kind": "turn 54",
+   "en": "Tell me about previous redirect attempts.",
+   "tr": "Erzähl mir von früheren Umlenkungsversuchen."
+  },
+  "488e9704d36f60b5": {
+   "kind": "turn 55",
+   "en": "Searching for prior attempts to redirect cap-and-trade funds. \n\nThe closest thing was Prop seventy in June twenty eighteen. It wasn't a redirect exactly — it would have required a one-time two-thirds vote in both legislative chambers starting in twenty twenty-four before any cap-and-trade spending plan could pass. Assemblymember Chad Mayes, a Republican, designed it as part of the deal to extend cap-and-trade past twenty twenty. The theory was that forcing bipartisan sign-off would make the money harder to spend on things like high-speed rail. Voters killed it sixty-three to thirty-seven, and it barely raised any money — about fifty-five thousand in opposition spending, nothing in support.\n\nThe actual redirect attempts were earlier and smaller. In two thousand nine, Prop one-D tried to shift two hundred sixty-eight million a year from First Five early-childhood programs to the general fund, and Prop one-E tried to borrow Prop sixty-three mental health money for two years. Both lost. The pattern is that voters treat earmarked funds as sacred even when they don't love the program behind them.\n\nThe real action has always been legislative. Under the original AB thirty-two framework, roughly two-thirds of Greenhouse Gas Reduction Fund money was statutorily dedicated — twenty-five percent to high-speed rail, twenty to affordable housing, ten to transit, five to clean transit operations. Then in twenty twenty-five, Newsom's deal with the legislature flipped that. High-speed rail got a flat billion a year off the top, another billion went to discretionary spending, and housing, transit, and clean air dropped to Tier three — only funded after the first two billion cleared. Environmental groups fought it, CARB's May rule changes cut total revenue roughly in half by handing oil companies up to four billion in free permits, and Senate Democrats eventually clawed back four hundred fifty million for transit, clean air, and drinking water through SB one thirteen. That's the closest thing to your divvy-up coalition actually working — but it took a year of hostage-taking over the budget, not a ballot measure.\n\nSo the precedent is: ballot redirects fail, legislative redirects are possible but brutal, and the coalition that wins is the one that can threaten something the governor wants more.",
+   "tr": "Ich suche nach früheren Versuchen, Cap-and-Trade-Gelder umzuleiten.\n\nDas Nächste war Prop 70 im Juni 2018. Das war nicht genau eine Umleitung — es hätte ab 2024 eine einmalige Zweidrittelmehrheit in beiden Kammern verlangt, bevor irgendein Cap-and-Trade-Ausgabenplan durchkommen konnte. Der Abgeordnete Chad Mayes, ein Republikaner, hat das als Teil des Deals entworfen, Cap-and-Trade über 2020 hinaus zu verlängern. Die Theorie war: Wenn man eine überparteiliche Zustimmung erzwingt, wird es schwerer, das Geld für Dinge wie den Hochgeschwindigkeitszug auszugeben. Die Wähler haben es mit 63 zu 37 versenkt, und es hat kaum Geld aufgebracht — etwa 55.000 an Ausgaben der Gegenseite, nichts von den Befürwortern.\n\nDie eigentlichen Umleitungsversuche kamen früher und waren kleiner. 2009 wollte Prop 1D 268 Millionen im Jahr von den First-Five-Programmen für frühe Kindheit in den allgemeinen Haushalt verschieben, und Prop 1E wollte sich für zwei Jahre Geld aus Prop 63 für psychische Gesundheit leihen. Beide sind gescheitert. Das Muster ist: Wähler behandeln zweckgebundene Mittel als heilig, selbst wenn sie das Programm dahinter nicht mögen.\n\nDie echte Action lief immer über die Gesetzgebung. Unter dem ursprünglichen AB-32-Rahmen waren grob zwei Drittel der Mittel aus dem Greenhouse Gas Reduction Fund gesetzlich zweckgebunden — 25 Prozent für den Hochgeschwindigkeitszug, 20 für bezahlbaren Wohnraum, 10 für den Transit, 5 für den sauberen Transitbetrieb. Dann hat 2025 Newsoms Deal mit dem Parlament das umgedreht. Der Hochgeschwindigkeitszug bekam eine feste Milliarde im Jahr gleich vom ersten Dollar, eine weitere Milliarde ging in frei verfügbare Ausgaben, und Wohnen, Transit und saubere Luft sind auf Tier 3 gerutscht — finanziert erst, nachdem die ersten zwei Milliarden durch waren. Umweltgruppen haben dagegen gekämpft, die Regeländerungen der CARB im Mai haben die Gesamteinnahmen ungefähr halbiert, indem sie den Ölkonzernen bis zu vier Milliarden an Gratiszertifikaten gegeben haben, und die Senatsdemokraten haben sich über SB 113 am Ende 450 Millionen für Transit, saubere Luft und Trinkwasser zurückgeholt. Das kommt dem, dass deine Aufteilungs-Koalition wirklich funktioniert, am nächsten — aber es hat ein Jahr Geiselnahme beim Haushalt gebraucht, keine Volksabstimmung.\n\nAlso der Präzedenzfall: Umleitungen per Ballot scheitern, gesetzgeberische Umleitungen sind möglich, aber brutal, und die Koalition gewinnt, die etwas bedrohen kann, das der Gouverneur mehr will."
+  },
+  "d48677321c658095": {
+   "kind": "turn 56",
+   "en": "Wait, why did, why did Newsom prioritize, uh, this billion dollar, uh, uh, throw, throw away?",
+   "tr": "Warte, warum hat, warum hat Newsom diese Milliarde priorisiert, äh, dieses, äh, Wegwerfen?"
+  },
+  "1452afb7e2ab6e03": {
+   "kind": "turn 57",
+   "en": "Mostly self-preservation. He's been tied to this since two thousand eight when he campaigned for Prop 1A as San Francisco mayor. Killing it now means owning the failure on a ballot measure, and with twenty twenty-eight looming, that's a story he can't control. The Central Valley jobs give him cover — nineteen thousand people with a stake in it, in a region that matters electorally. Extending cap-and-trade to twenty forty-five wasn't really about climate, it was about locking in the revenue stream that keeps the project breathing. His defenders would say he's being pragmatic: the alternative isn't a better project, it's a half-built monument with no trains and no explanation. But pragmatism and self-interest look identical from the outside, and his actions don't distinguish between them.\n\nThe part nobody's said out loud is that Newsom might actually believe in it less than anyone in Sacramento and still can't say so. That's the bind.",
+   "tr": "Vor allem Selbstschutz. Er hängt da seit 2008 dran, als er als Bürgermeister von San Francisco für Prop 1A geworben hat. Es jetzt zu killen heißt, das Scheitern einer Abstimmungsvorlage auf die eigene Kappe zu nehmen, und mit 2028 vor der Tür ist das eine Geschichte, die er nicht kontrollieren kann. Die Jobs im Central Valley geben ihm Deckung — 19.000 Leute, die ein Interesse daran haben, in einer Region, die wahlpolitisch zählt. Cap-and-Trade bis 2045 zu verlängern ging eigentlich nicht ums Klima, sondern darum, den Einnahmestrom festzuzurren, der das Projekt am Atmen hält. Seine Verteidiger würden sagen, er sei pragmatisch: Die Alternative ist kein besseres Projekt, sondern ein halb gebautes Denkmal ohne Züge und ohne Erklärung. Aber Pragmatismus und Eigennutz sehen von außen identisch aus, und seine Handlungen unterscheiden nicht zwischen beidem.\n\nWas noch niemand laut gesagt hat: Newsom glaubt vielleicht weniger daran als irgendwer in Sacramento und kann es trotzdem nicht sagen. Das ist die Zwickmühle."
+  },
+  "793715648689fcce": {
+   "kind": "turn 58",
+   "en": "So play this out for me. What would happen if someone put up, say, 50 million dollars to, uh, put this prop on the ballot? Do you think it would pass? What kind of coalition do you think people could build?",
+   "tr": "Also spiel das mal für mich durch. Was würde passieren, wenn jemand, sagen wir, 50 Millionen Dollar aufbringt, um, äh, diese Prop auf den Stimmzettel zu bringen? Denkst du, sie würde durchkommen? Was für eine Koalition, denkst du, könnte man bauen?"
+  },
+  "d51d1ebeeecd1355": {
+   "kind": "turn 59",
+   "en": "Fifty million is enough to qualify and run a serious campaign. Signature gathering runs three to five million, so you'd have forty-plus left for ads, field, and mail. That's not just viable — that's top-tier.\n\nPass probability, I'd put at forty to forty-five percent. The structural headwind is that \"redirect\" reads as \"kill the train\" in a thirty-second ad, and Californians have voted down transportation funding cuts before even when they hated the tax. Prop six lost sixty-forty. But the environment in twenty twenty-eight is different — gas prices, the CARB giveaway fight, Senate Democrats already publicly accusing Newsom of starving housing and transit. That intra-party bloodletting is doing your persuasion work for free.\n\nThe coalition writes itself if you sequence it right. Lead with transit agencies and housing groups as the public face. Environmental justice groups in the Inland Empire and Central Valley — the people actually breathing the pollution — as the moral core. SEIU-UHW as the muscle. You'd quietly have oil industry money flowing through independent expenditure committees, because they want cap-and-trade dead regardless of where the money goes, but you keep them off the public materials or they poison the brand.\n\nThe opposition is Newsom, the authority, the contractors, and every Central Valley Democrat whose district has a job tied to it. They'll outspend you two to one on the \"trains not rhetoric\" message.\n\nThe single biggest variable isn't money. It's whether the Senate Democrats' current standoff with Newsom over this exact billion resolves before the signature deadline or blows up into a public referendum on him. If it does, your prop becomes the pressure valve both sides can point to.\n\nI could model the polling by district if you want to see where the winnable map actually is.",
+   "tr": "Fünfzig Millionen reichen, um zu qualifizieren und eine ernsthafte Kampagne zu fahren. Die Unterschriftensammlung kostet drei bis fünf Millionen, also bleiben dir über 40 für Spots, Feld und Post. Das ist nicht nur machbar — das ist Spitzenklasse.\n\nDie Wahrscheinlichkeit, dass es durchkommt, würde ich auf 40 bis 45 Prozent setzen. Der strukturelle Gegenwind ist, dass «umleiten» in einem 30-Sekunden-Spot als «den Zug killen» rüberkommt, und Kalifornier haben Kürzungen der Verkehrsfinanzierung schon abgelehnt, selbst als sie die Steuer gehasst haben. Prop 6 hat 60 zu 40 verloren. Aber das Umfeld 2028 ist anders — Benzinpreise, der Kampf um die CARB-Geschenke, Senatsdemokraten, die Newsom schon öffentlich vorwerfen, Wohnen und Transit auszuhungern. Dieses innerparteiliche Blutvergießen erledigt deine Überzeugungsarbeit umsonst.\n\nDie Koalition schreibt sich von selbst, wenn du die Reihenfolge richtig hinbekommst. Vorne die Transitbehörden und Wohnungsgruppen als öffentliches Gesicht. Environmental-Justice-Gruppen im Inland Empire und im Central Valley — die Leute, die die Verschmutzung wirklich einatmen — als moralischer Kern. SEIU-UHW als Muskel. Still würde Geld der Ölindustrie über Independent-Expenditure-Committees fließen, weil die Cap-and-Trade tot sehen wollen, egal wohin das Geld geht, aber du hältst sie von den öffentlichen Materialien fern, sonst vergiften sie die Marke.\n\nDie Opposition ist Newsom, die Behörde, die Auftragnehmer und jeder Demokrat aus dem Central Valley, in dessen Wahlkreis ein Job dranhängt. Die werden dich zwei zu eins überbieten mit der Botschaft «Züge, nicht Rhetorik».\n\nDie größte Variable ist nicht das Geld. Es ist, ob die aktuelle Pattsituation der Senatsdemokraten mit Newsom über genau diese Milliarde vor der Unterschriftenfrist gelöst wird oder zu einem öffentlichen Referendum über ihn eskaliert. Wenn das passiert, wird deine Prop das Ventil, auf das beide Seiten zeigen können.\n\nIch könnte das Polling nach Wahlkreisen modellieren, wenn du sehen willst, wo die gewinnbare Karte wirklich liegt."
+  },
+  "93185fcfb1c485d9": {
+   "kind": "turn 60",
+   "en": "Well, hold on. Uh, I'm not suggesting that we kill cap-and-trade. That actually seems reasonable, though I don't know much about it. We can talk about it some other time. I was just thinking we direct that money to something that has a higher utility.",
+   "tr": "Moment, warte. Äh, ich schlage nicht vor, dass wir Cap-and-Trade killen. Das wirkt eigentlich vernünftig, auch wenn ich nicht viel darüber weiß. Darüber können wir ein andermal reden. Ich dachte nur, wir lenken das Geld auf etwas mit höherem Nutzen."
+  },
+  "48b9e7f1421e553a": {
+   "kind": "turn 61",
+   "en": "Right, and that distinction matters for the campaign. A \"keep cap-and-trade, move rail's billion\" frame lets you campaign as pro-climate while attacking the single worst allocation inside it. That's a much harder ad to run against than \"they want to kill the carbon market.\" You could even get some green groups on board — the ones who already sued CARB over the oil giveaways — because they'd see it as restoring the original deal where housing, transit, and clean air were supposed to get two billion a year before rail took its cut.\n\nThe counterargument writes itself though: rail's defenders will say you can't just strip funding from a project mid-construction, that it strands the sixty-six completed structures and the Siemens trains. Your answer is that the money was always supposed to be temporary seed funding, not a permanent annuity — and that a billion a year for nineteen more years is a hundred ninety billion on a system that may never reach LA. Frame it as returning to the original promise, not breaking a new one.\n\nWant me to sketch what the actual ballot language might look like?",
+   "tr": "Genau, und diese Unterscheidung zählt für die Kampagne. Ein Rahmen «Cap-and-Trade behalten, die Milliarde der Bahn verschieben» lässt dich als pro Klima kampagnieren und gleichzeitig die schlimmste einzelne Zuteilung darin angreifen. Gegen so einen Spot ist viel schwerer anzukommen als gegen «die wollen den CO₂-Markt killen». Du könntest sogar ein paar grüne Gruppen mitnehmen — die, die CARB schon wegen der Öl-Geschenke verklagt haben —, weil sie das als Wiederherstellung des ursprünglichen Deals sehen würden, bei dem Wohnen, Transit und saubere Luft zwei Milliarden im Jahr bekommen sollten, bevor die Bahn ihren Schnitt nahm.\n\nDas Gegenargument schreibt sich allerdings von selbst: Die Verteidiger der Bahn werden sagen, man könne einem Projekt mitten im Bau nicht einfach die Finanzierung entziehen, das lasse die 66 fertigen Bauwerke und die Siemens-Züge stranden. Deine Antwort: Das Geld sollte immer nur eine vorübergehende Anschubfinanzierung sein, keine dauerhafte Rente — und eine Milliarde im Jahr für weitere 19 Jahre sind 190 Milliarden für ein System, das LA vielleicht nie erreicht. Rahme es als Rückkehr zum ursprünglichen Versprechen, nicht als Bruch eines neuen.\n\nSoll ich skizzieren, wie der eigentliche Abstimmungstext aussehen könnte?"
+  },
+  "e950fd7928dbd181": {
+   "kind": "turn 62",
+   "en": "Yes, do it.",
+   "tr": "Ja, mach das."
+  },
+  "bb8fcee5ad3a5328": {
+   "kind": "turn 63",
+   "en": "Here's a draft. Section one. This act shall be known as the Climate Investment Restoration Act. Section two. Beginning January first, twenty twenty-nine, the one billion dollars annually from the Greenhouse Gas Reduction Fund currently continuously appropriated to the High-Speed Rail Authority shall instead be appropriated as follows: four hundred million to the Affordable Housing and Sustainable Communities Program, two hundred fifty million to the Transit and Intercity Rail Capital Program, one hundred fifty million to the Low Carbon Transit Operations Program, one hundred million to community air protection grants under AB six seventeen, and one hundred million to the Safe and Affordable Drinking Water Fund. Section three. The High-Speed Rail Authority shall retain all funds appropriated prior to January first, twenty twenty-nine, and may continue to receive federal, private, or other non-GGRF revenue. Section four. Nothing in this act repeals, amends, or impairs the cap-and-invest program established under AB thirty-two or its extension through twenty forty-five. Section five. The provisions of this act are severable.\n\nThat's the skeleton. The real fight would be over section two's split — every constituency will want a bigger number, and the moment you publish it, the coalition starts renegotiating in public. You'd want to lock the shares before filing, not after.\n\nOne thing worth knowing: California's single-subject rule has killed ballot measures before, and \"redirect climate money\" plus \"protect cap-and-trade\" could get challenged as two subjects. Your lawyers would need to argue it's one subject — climate spending — which is defensible but not bulletproof.",
+   "tr": "Hier ein Entwurf. Abschnitt eins. Dieses Gesetz führt den Namen Climate Investment Restoration Act. Abschnitt zwei. Ab dem 1. Januar 2029 wird die eine Milliarde Dollar jährlich aus dem Greenhouse Gas Reduction Fund, die derzeit fortlaufend der High-Speed Rail Authority zugewiesen wird, stattdessen wie folgt zugewiesen: 400 Millionen an das Affordable Housing and Sustainable Communities Program, 250 Millionen an das Transit and Intercity Rail Capital Program, 150 Millionen an das Low Carbon Transit Operations Program, 100 Millionen an Community-Air-Protection-Zuschüsse nach AB 617 und 100 Millionen an den Safe and Affordable Drinking Water Fund. Abschnitt drei. Die High-Speed Rail Authority behält alle Mittel, die vor dem 1. Januar 2029 zugewiesen wurden, und darf weiterhin föderale, private oder sonstige Nicht-GGRF-Einnahmen erhalten. Abschnitt vier. Nichts in diesem Gesetz hebt das unter AB 32 eingerichtete Cap-and-Invest-Programm oder seine Verlängerung bis 2045 auf, ändert es oder beeinträchtigt es. Abschnitt fünf. Die Bestimmungen dieses Gesetzes sind trennbar.\n\nDas ist das Gerüst. Der echte Kampf ginge um die Aufteilung in Abschnitt zwei — jede Interessengruppe will eine größere Zahl, und in dem Moment, wo du sie veröffentlichst, fängt die Koalition an, öffentlich neu zu verhandeln. Die Anteile willst du vor der Einreichung festzurren, nicht danach.\n\nEins sollte man wissen: Kaliforniens Single-Subject-Regel hat schon Volksabstimmungen gekillt, und «Klimageld umleiten» plus «Cap-and-Trade schützen» könnte als zwei Gegenstände angefochten werden. Deine Anwälte müssten argumentieren, es sei ein Gegenstand — Klimaausgaben —, was vertretbar ist, aber nicht kugelsicher."
+  },
+  "fc15b604998196c2": {
+   "kind": "turn 64",
+   "en": "Okay, wait. Okay, that sounds, that sounds good. But all these programs that you listed, like, are they, uh, like reasonable or are they just as wasteful as, uh, high-speed rail?",
+   "tr": "Okay, warte. Okay, das klingt, das klingt gut. Aber all diese Programme, die du aufgezählt hast — sind die, äh, irgendwie vernünftig, oder genauso verschwenderisch wie, äh, der Hochgeschwindigkeitszug?"
+  },
+  "134f71f0f0aad427": {
+   "kind": "turn 65",
+   "en": "Mixed bag, and the honest answer is none of them are clean. AHSC has the worst record of the bunch. Audits found projects funded that never broke ground, administrative costs eating twenty percent or more in some rounds, and grants going to housing that wasn't actually near transit despite the program's name. TIRCP built some genuinely useful things — bus electrification, light rail extensions — but it's also funded cost-overrun disasters like the LA Metro Purple Line, which blew past its budget by billions. LCTOP is the least bad because it's small-scale operational money that mostly just keeps buses running. The air protection grants have real impact in places like the Inland Empire but drown in reporting requirements. Drinking water is probably the strongest case — rural systems are genuinely failing and the need is concrete.\n\nThe pattern across all of them is the same one that killed high-speed rail, just at smaller scale: money flows to agencies and nonprofits that exist to spend it, and the accountability loop is weak. The difference is magnitude. A wasteful hundred-million-dollar housing program is a scandal. A wasteful billion-dollar rail program is a generational failure.\n\nIf you wanted to tighten the language, you could add a section requiring annual independent audits with automatic clawback for misspent funds — something the current programs don't have. That would be the one structural fix none of them currently contain.",
+   "tr": "Gemischte Bilanz, und die ehrliche Antwort ist: keins davon ist sauber. AHSC hat die schlechteste Bilanz von allen. Prüfungen haben Projekte gefunden, die finanziert wurden und nie angefangen haben, Verwaltungskosten, die in manchen Runden 20 Prozent oder mehr fressen, und Zuschüsse für Wohnungen, die trotz des Programmnamens gar nicht wirklich in der Nähe des Nahverkehrs lagen. TIRCP hat ein paar wirklich nützliche Sachen gebaut — Bus-Elektrifizierung, Stadtbahnverlängerungen —, aber es hat auch Kostenexplosionen finanziert wie die LA Metro Purple Line, die ihr Budget um Milliarden gesprengt hat. LCTOP ist das am wenigsten schlechte, weil es kleines Betriebsgeld ist, das vor allem einfach die Busse am Laufen hält. Die Luftschutz-Zuschüsse haben echten Effekt an Orten wie dem Inland Empire, ertrinken aber in Berichtspflichten. Trinkwasser ist wahrscheinlich das stärkste Argument — ländliche Systeme versagen wirklich, und der Bedarf ist konkret.\n\nDas Muster bei allen ist dasselbe, das den Hochgeschwindigkeitszug gekillt hat, nur in kleinerem Maßstab: Geld fließt an Behörden und Nonprofits, die existieren, um es auszugeben, und die Rechenschaftsschleife ist schwach. Der Unterschied ist die Größenordnung. Ein verschwenderisches Wohnungsprogramm über 100 Millionen Dollar ist ein Skandal. Ein verschwenderisches Bahnprogramm über eine Milliarde Dollar ist ein Generationenversagen.\n\nWenn du die Formulierung schärfen wolltest, könntest du einen Abschnitt einfügen, der jährliche unabhängige Prüfungen mit automatischer Rückforderung falsch ausgegebener Mittel verlangt — etwas, das die jetzigen Programme nicht haben. Das wäre die eine strukturelle Korrektur, die keines von ihnen derzeit enthält."
+  },
+  "ee1e879af768531f": {
+   "kind": "turn 66",
+   "en": "I mean, would that just make more money go to the auditors now?",
+   "tr": "Ich meine, würde das jetzt nicht einfach nur mehr Geld an die Prüfer fließen lassen?"
+  },
+  "40ea04b2d2b1a8ce": {
+   "kind": "turn 67",
+   "en": "It would, a little.",
+   "tr": "Würde es, ein bisschen."
+  },
+  "c4a5eeaab6479b99": {
+   "kind": "turn 68",
+   "en": "And the compliance",
+   "tr": "Und die Compliance"
+  },
+  "c74c6e34ca83e75a": {
+   "kind": "turn 69",
+   "en": "Compliance costs are the sneaky part. Every grant program spawns its own reporting layer — quarterly reports, equity scoring, disadvantaged-community checkboxes, site visits. The LAO found that some climate programs spend more on administration than the actual projects deliver in measurable emissions reductions. So your redirect doesn't eliminate the machine, it just re-homes it. The only real fix is fewer, bigger, simpler pots with hard sunset clauses — but that's the least politically sellable version, because every constituency wants its line item named.",
+   "tr": "Die Compliance-Kosten sind der heimtückische Teil. Jedes Förderprogramm erzeugt seine eigene Berichtsebene — Quartalsberichte, Equity-Scoring, Kästchen für benachteiligte Communities, Vor-Ort-Besuche. Die LAO hat festgestellt, dass manche Klimaprogramme mehr für Verwaltung ausgeben, als die eigentlichen Projekte an messbarer Emissionsreduktion liefern. Deine Umleitung schafft die Maschine also nicht ab, sie zieht nur um. Die einzige echte Lösung sind weniger, größere, einfachere Töpfe mit harten Sunset-Klauseln — aber das ist die politisch am schwersten verkäufliche Variante, weil jede Klientel will, dass ihr Posten namentlich drinsteht."
+  },
+  "a5230a11edc360c3": {
+   "kind": "turn 70",
+   "en": "So is this like a problem with democracies or do other countries solve this in some better way?",
+   "tr": "Ist das also so ein Problem von Demokratien, oder lösen andere Länder das irgendwie besser?"
+  },
+  "5c8a27628ff07789": {
+   "kind": "turn 71",
+   "en": "It's mostly a scale and incentive problem, not democracy itself. China builds high-speed rail in a decade because one authority can condemn land, ignore lawsuits, and just build. But their version of waste is ghost cities, debt-fueled overbuild, and zero recourse when a line was a mistake. France's TGV worked because it was a national champion project with a single accountable operator and no ballot initiative process. Japan's Shinkansen had the same — tight state direction, disciplined contractors, and a culture where public failure ends careers.\n\nThe US is unusual in stacking every check at once: federal environmental law, state environmental law, ballot measures, legislative oversight, inspector generals, and public comment periods that any group can weaponize. Each layer was added to solve a real abuse, and together they created a system where the cost of saying no is zero and the cost of saying yes is infinite. That's not democracy failing. That's democracy with no off switch.\n\nI could compare how Singapore or South Korea handle transit megaprojects if you want a sharper contrast.",
+   "tr": "Das ist vor allem ein Problem von Größenordnung und Anreizen, nicht die Demokratie an sich. China baut Hochgeschwindigkeitszüge in einem Jahrzehnt, weil eine Behörde Land enteignen, Klagen ignorieren und einfach bauen kann. Aber ihre Version von Verschwendung sind Geisterstädte, schuldengetriebener Überbau und null Rechtsmittel, wenn eine Strecke ein Fehler war. Frankreichs TGV hat funktioniert, weil es ein nationales Vorzeigeprojekt mit einem einzigen rechenschaftspflichtigen Betreiber war und keinem Volksinitiativen-Verfahren. Japans Shinkansen hatte dasselbe — enge staatliche Steuerung, disziplinierte Auftragnehmer und eine Kultur, in der öffentliches Scheitern Karrieren beendet.\n\nDie USA sind ungewöhnlich darin, jede Kontrolle gleichzeitig zu stapeln: Bundesumweltrecht, Landesumweltrecht, Volksabstimmungen, parlamentarische Aufsicht, Inspector Generals und öffentliche Stellungnahmefristen, die jede Gruppe als Waffe nutzen kann. Jede Schicht wurde eingeführt, um einen echten Missbrauch zu lösen, und zusammen haben sie ein System geschaffen, in dem Nein sagen nichts kostet und Ja sagen unendlich viel. Das ist nicht Demokratie, die scheitert. Das ist Demokratie ohne Ausschalter.\n\nIch könnte vergleichen, wie Singapur oder Südkorea Verkehrs-Megaprojekte angehen, wenn du einen schärferen Kontrast willst."
+  },
+  "c10c037156053bfe": {
+   "kind": "turn 72",
+   "en": "Sure.",
+   "tr": "Klar."
+  },
+  "b1cf8d734edc0117": {
+   "kind": "turn 73",
+   "en": "compare how Spain handled its high-speed buildout. Spain went from zero to about four thousand kilometers of high-speed track in roughly thirty years — second only to China globally. Cost per kilometer ran around twenty to thirty million euros, versus California's implied hundred-plus million per mile. The structural difference: one national infrastructure agency, ADIF, that owned land acquisition, design, and construction under a single chain of command. No citizen initiative, no CEQA equivalent, environmental review folded into EU-level permitting that moved in months, not decades. Political continuity helped too — Socialists started it in the nineties, the center-right kept funding it, nobody campaigned on killing it.\n\nThe tradeoff showed up later. Spain overbuilt. Lines to places like Galicia and the Mediterranean coast carry a fraction of projected riders, and the country's broader construction debt contributed to the two thousand eight crash. So they got the trains but inherited empty platforms and a fiscal hangover.\n\nThe lesson isn't that Spain was smarter. It's that they accepted a different failure mode — overcapacity instead of paralysis. California chose paralysis and got both.",
+   "tr": "Vergleich, wie Spanien seinen Hochgeschwindigkeitsausbau angegangen ist. Spanien ist in rund 30 Jahren von null auf etwa 4.000 Kilometer Hochgeschwindigkeitsstrecke gekommen — weltweit nur hinter China. Die Kosten pro Kilometer lagen bei etwa 20 bis 30 Millionen Euro, gegenüber Kaliforniens impliziten über 100 Millionen pro Meile. Der strukturelle Unterschied: eine nationale Infrastrukturbehörde, ADIF, die Grunderwerb, Planung und Bau unter einer einzigen Befehlskette verantwortet hat. Keine Bürgerinitiative, kein CEQA-Äquivalent, die Umweltprüfung eingebettet in EU-Genehmigungen, die in Monaten liefen, nicht in Jahrzehnten. Politische Kontinuität hat auch geholfen — die Sozialisten haben es in den Neunzigern angefangen, die Mitte-rechts hat weiter finanziert, niemand hat damit Wahlkampf gemacht, es zu killen.\n\nDer Trade-off kam später. Spanien hat überbaut. Strecken an Orte wie Galicien und die Mittelmeerküste befördern einen Bruchteil der prognostizierten Fahrgäste, und die breitere Bauschuld des Landes hat zur Krise von 2008 beigetragen. Sie haben also die Züge bekommen, aber leere Bahnsteige und einen fiskalischen Kater geerbt.\n\nDie Lehre ist nicht, dass Spanien klüger war. Sondern dass sie einen anderen Fehlermodus akzeptiert haben — Überkapazität statt Lähmung. Kalifornien hat die Lähmung gewählt und beides bekommen."
+  },
+  "276c9fffe76a4ba3": {
+   "kind": "turn 74",
+   "en": "This is kinda depressing. If you had to design a solution to this problem, what would it look like?",
+   "tr": "Das ist irgendwie deprimierend. Wenn du eine Lösung für dieses Problem entwerfen müsstest, wie würde die aussehen?"
+  },
+  "ac57cd8d02c970cd": {
+   "kind": "turn 75",
+   "en": "I'd kill the ballot-box funding. Infrastructure shouldn't be a voter product — it should be a utility with a rate base, like electricity or water. You build it, you charge riders, the fare covers operations and a slice of capital, and the state chips in only for the social-benefit gap, sized by an independent body with a hard formula, not a negotiating table. Sunset every authorization at twenty years. If the line can't justify itself by then, it decommissions. That single rule changes everything — suddenly the consultant who bills four hundred twenty-seven thousand has to defend a number that has to survive a review, not just a board vote.\n\nSecond, one accountable owner per project. Not a board, not a joint venture, one person whose name is on it and whose career ends if it fails. Spain's model, basically. Third, environmental review gets one clock — twelve months, one agency, one document — and after that the default is approval with conditions, not silence. Fourth, change orders above ten percent of contract value trigger an automatic public hearing with the contractor's margin exposed. Not an audit a year later. Same week.\n\nNone of that is radical. It's just what you'd do if the system were designed by someone who'd lose money on the failure instead of gaining a salary. The depressing part is that every one of those fixes has been proposed before, and each one dies because the people who'd implement it are the people it would expose.",
+   "tr": "Ich würde die Finanzierung über die Wahlurne killen. Infrastruktur sollte kein Wählerprodukt sein — sie sollte ein Versorgungsbetrieb mit einer Tarifbasis sein, wie Strom oder Wasser. Du baust sie, du kassierst von den Fahrgästen, der Fahrpreis deckt den Betrieb und einen Teil des Kapitals, und der Staat schießt nur für die Lücke beim gesellschaftlichen Nutzen zu, bemessen von einer unabhängigen Stelle mit einer harten Formel, nicht an einem Verhandlungstisch. Jede Genehmigung läuft nach 20 Jahren aus. Wenn die Strecke sich bis dahin nicht rechtfertigen kann, wird sie stillgelegt. Diese eine Regel ändert alles — plötzlich muss der Berater, der 427.000 in Rechnung stellt, eine Zahl verteidigen, die eine Prüfung überstehen muss, nicht nur eine Board-Abstimmung.\n\nZweitens: ein rechenschaftspflichtiger Eigentümer pro Projekt. Kein Board, kein Joint Venture, eine Person, deren Name draufsteht und deren Karriere endet, wenn es scheitert. Im Grunde Spaniens Modell. Drittens bekommt die Umweltprüfung eine einzige Uhr — 12 Monate, eine Behörde, ein Dokument — und danach ist der Default die Genehmigung mit Auflagen, nicht Schweigen. Viertens lösen Change Orders über 10 Prozent des Vertragswerts automatisch eine öffentliche Anhörung aus, bei der die Marge des Auftragnehmers offengelegt wird. Keine Prüfung ein Jahr später. Dieselbe Woche.\n\nNichts davon ist radikal. Es ist nur das, was du tätest, wenn das System von jemandem entworfen wäre, der am Scheitern Geld verliert, statt ein Gehalt zu gewinnen. Der deprimierende Teil ist, dass jede dieser Korrekturen schon mal vorgeschlagen wurde, und jede stirbt, weil die Leute, die sie umsetzen müssten, genau die sind, die sie bloßstellen würde."
+  },
+  "f080792e022ba579": {
+   "kind": "turn 76",
+   "en": "In your opinion, is there no way out?",
+   "tr": "Gibt es deiner Meinung nach keinen Ausweg?"
+  },
+  "29047e1646f3fa08": {
+   "kind": "turn 77",
+   "en": "There is a way out, just not a clean one. The pressure has to come from outside the system — a budget crisis, a new governor with no skin in the game, or just the visible spectacle of a train that doesn't go anywhere. Institutions almost never reform themselves; they get reformed by something that makes continuing cost more than stopping. The Central Valley segment is actually the wild card here. If it opens in twenty thirty-three and people ride it, that changes the whole political math overnight. If it opens and runs empty, it becomes the exhibit that finally kills the rest.",
+   "tr": "Es gibt einen Ausweg, nur keinen sauberen. Der Druck muss von außerhalb des Systems kommen — eine Haushaltskrise, ein neuer Gouverneur ohne eigenes Interesse im Spiel, oder einfach das sichtbare Spektakel eines Zuges, der nirgendwo hinfährt. Institutionen reformieren sich fast nie selbst; sie werden von etwas reformiert, das Weitermachen teurer macht als Aufhören. Das Central-Valley-Teilstück ist hier eigentlich die Wildcard. Wenn es 2033 eröffnet und die Leute fahren damit, ändert das über Nacht die ganze politische Rechnung. Wenn es eröffnet und leer fährt, wird es das Exponat, das den Rest endlich killt."
+  },
+  "616b490e8cbcda58": {
+   "kind": "turn 78",
+   "en": "Okay, well, let's change topics. Tell me about this billionaire tax thing. Like, who is behind it? Who is for it? Who is against it? What's the politics? What's the deal? Like, what's the language? Uh, I hear a lot of different things.",
+   "tr": "Okay, na gut, lass uns das Thema wechseln. Erzähl mir von dieser Milliardärssteuer-Sache. Also, wer steckt dahinter? Wer ist dafür? Wer ist dagegen? Wie ist die Politik? Was ist der Deal? Also, wie ist der Wortlaut? Äh, ich höre da ganz verschiedene Sachen."
+  },
+  "9cd91a3c4c73275d": {
+   "kind": "turn 79",
+   "en": "Looking up the current status of California's billionaire tax. \n\nIt's Proposition forty on November third. One-time five percent tax on the net worth of anyone who was a California resident on January first, twenty twenty-six, with a net worth of a billion or more. About two hundred fifty people, roughly two trillion in aggregate wealth. Ninety percent of the revenue goes to healthcare — mostly Medi-Cal — ten percent to food assistance and education. Real estate, pensions, and retirement accounts are exempt. Roth IRAs over ten million are not. Between one and one point one billion, the rate phases in. Payable in twenty twenty-seven, or spread over five years with a seven point five percent annual deferral charge.\n\nThe sponsor is SEIU-UHW, the healthcare workers union, president Dave Regan. The actual legal drafting came from tax professors — Brian Galle at Berkeley, David Gamage at Missouri, Darien Shanske at Davis, and Emmanuel Saez, the inequality economist. They collected one point six million signatures, nearly double what they needed.\n\nFor it: Bernie Sanders, Ro Khanna, the California Democratic Party, AFL-CIO, Teamsters, AFSCME, Tom Steyer, Tony Thurmond. Sanders called billionaires \"oligarchs of the eighteenth century.\" The union's argument is that Trump's One Big Beautiful Bill Act cuts roughly thirty billion a year from Medi-Cal, which covers one in three Californians, and billionaire wealth is the only pool big enough to backfill it.\n\nAgainst it: Newsom, who called it \"really damaging to the state\" and endorsed Prop forty-two, a Brin-funded measure that would ban new taxes on personal property outright. Xavier Becerra, Katie Porter, Antonio Villaraigosa, and Matt Mahan — every major Democratic gubernatorial contender — are also opposed. The California Medical Association, Primary Care Association, Teachers Association, Planned Parenthood, professional firefighters, and the state building trades signed a joint statement calling it dangerous. Sergey Brin put in a hundred and two million. Chris Larsen, Peter Thiel, DoorDash's Tony Xu, and Ron Conway are in the mix too. A PAC called Building a Better California has spent over three hundred million — a hundred eighteen against Prop forty, a hundred eighty-six propping up Props forty-one and forty-two, which could nullify it if they get more yes votes.\n\nThe latest Citrin-POLITICO poll has it at forty-six to forty-three, short of a majority with ballots already out. The Yes campaign spent four point four million in the last reporting period. The opposition spent more than thirty times that.\n\nThe politics underneath: this is SEIU-UHW's revenge project. They've sponsored forty-eight ballot initiatives since twenty twelve, most failed. This one grew out of their fight over dialysis clinic regulations — the same union that pushed the billionaire tax framing while media called it purely a healthcare-funding measure. Newsom tried to kill it with a two percent legislative alternative; Regan offered to drop to two percent if Newsom backed it, Newsom refused. Now it's a proxy war over whether California's Democratic Party is for the donor class or the working class, playing out two years before a presidential primary.\n\nOne wrinkle worth knowing: the Hoover Institution's analysis found two-thirds of the projected Medi-Cal cuts happen after twenty thirty, well after this one-time revenue would be collected. So even if it passes, the timing doesn't match the need.\n\nWant me to go through what Props forty-one and forty-two actually do, or dig into the valuation fight over private company stock?",
+   "tr": "Ich schaue mir den aktuellen Stand der Milliardärssteuer in Kalifornien an.\n\nDas ist Proposition 40 am 3. November. Eine einmalige Steuer von 5 Prozent auf das Nettovermögen aller, die am 1. Januar 2026 in Kalifornien wohnhaft waren und ein Nettovermögen von einer Milliarde oder mehr haben. Etwa 250 Personen, zusammen rund 2 Billionen Vermögen. 90 Prozent der Einnahmen gehen ins Gesundheitswesen — vor allem Medi-Cal —, 10 Prozent in Ernährungshilfe und Bildung. Immobilien, Pensionen und Altersvorsorgekonten sind ausgenommen. Roth IRAs über 10 Millionen nicht. Zwischen 1 und 1,1 Milliarden wird der Satz eingeschliffen. Zahlbar 2027 oder verteilt über fünf Jahre mit einer jährlichen Stundungsgebühr von 7,5 Prozent.\n\nSponsor ist SEIU-UHW, die Gewerkschaft der Gesundheitsarbeiter, Präsident Dave Regan. Den eigentlichen Gesetzestext haben Steuerprofessoren geschrieben — Brian Galle in Berkeley, David Gamage in Missouri, Darien Shanske in Davis und Emmanuel Saez, der Ungleichheitsökonom. Sie haben 1,6 Millionen Unterschriften gesammelt, fast doppelt so viele, wie sie brauchten.\n\nDafür: Bernie Sanders, Ro Khanna, die California Democratic Party, AFL-CIO, Teamsters, AFSCME, Tom Steyer, Tony Thurmond. Sanders nannte Milliardäre «Oligarchen des 18. Jahrhunderts». Das Argument der Gewerkschaft: Trumps One Big Beautiful Bill Act streicht Medi-Cal rund 30 Milliarden im Jahr, und Medi-Cal deckt jeden dritten Kalifornier ab — das Vermögen der Milliardäre sei der einzige Topf, der groß genug ist, um das aufzufüllen.\n\nDagegen: Newsom, der es «wirklich schädlich für den Staat» nannte und Prop 42 unterstützte, eine von Brin finanzierte Vorlage, die neue Steuern auf persönliches Eigentum komplett verbieten würde. Xavier Becerra, Katie Porter, Antonio Villaraigosa und Matt Mahan — alle großen demokratischen Kandidaten für das Gouverneursamt — sind ebenfalls dagegen. Die California Medical Association, die Primary Care Association, die Teachers Association, Planned Parenthood, die Berufsfeuerwehr und die Bauhandwerke des Staates haben eine gemeinsame Erklärung unterschrieben und es gefährlich genannt. Sergey Brin hat 102 Millionen reingesteckt. Chris Larsen, Peter Thiel, DoorDashs Tony Xu und Ron Conway sind auch mit dabei. Ein PAC namens Building a Better California hat über 300 Millionen ausgegeben — 118 gegen Prop 40, 186, um Prop 41 und Prop 42 zu stützen, die es aushebeln könnten, wenn sie mehr Ja-Stimmen bekommen.\n\nDie jüngste Citrin-POLITICO-Umfrage sieht es bei 46 zu 43, ohne Mehrheit, und die Stimmzettel sind schon draußen. Die Ja-Kampagne hat im letzten Berichtszeitraum 4,4 Millionen ausgegeben. Die Gegenseite mehr als das Dreißigfache.\n\nDie Politik darunter: Das ist das Racheprojekt von SEIU-UHW. Seit 2012 haben sie 48 Volksinitiativen gesponsert, die meisten gescheitert. Diese hier ist aus ihrem Kampf um die Regulierung von Dialysekliniken entstanden — dieselbe Gewerkschaft, die das Framing der Milliardärssteuer vorangetrieben hat, während die Medien es als reine Maßnahme zur Gesundheitsfinanzierung bezeichneten. Newsom wollte es mit einer gesetzgeberischen Alternative von 2 Prozent killen; Regan bot an, auf 2 Prozent runterzugehen, wenn Newsom es unterstützt, Newsom lehnte ab. Jetzt ist es ein Stellvertreterkrieg darüber, ob die Democratic Party Kaliforniens für die Spenderklasse oder die Arbeiterklasse steht, zwei Jahre vor einer Präsidentschaftsvorwahl.\n\nEin Haken, den man kennen sollte: Die Analyse der Hoover Institution hat ergeben, dass zwei Drittel der prognostizierten Medi-Cal-Kürzungen nach 2030 kommen, also lange nachdem diese einmaligen Einnahmen eingesammelt wären. Selbst wenn es durchkommt, passt das Timing nicht zum Bedarf.\n\nSoll ich durchgehen, was Prop 41 und Prop 42 tatsächlich tun, oder in den Bewertungsstreit um Aktien privater Unternehmen einsteigen?"
+  },
+  "022eb02771cfdb56": {
+   "kind": "turn 80",
+   "en": "Well, I'm interested in this, uh, union, uh, that's behind this. You said they've tried to, tried to pass a bunch of other props?",
+   "tr": "Na ja, mich interessiert diese, äh, Gewerkschaft, die dahintersteckt. Du hast gesagt, die haben versucht, eine ganze Reihe anderer Props durchzubringen?"
+  },
+  "373c643d5b8adc52": {
+   "kind": "turn 81",
+   "en": "Checking SEIU-UHW's ballot history. \n\nYeah — Dave Regan calls ballot initiatives \"the best bargain in American politics,\" and his record backs that up. Since twenty twelve he's filed somewhere between twenty-three and forty-eight initiatives at the state and local level. Almost none have passed. The signature move is the dialysis trilogy — Prop eight in twenty eighteen would have capped dialysis clinic profits, rejected sixty to forty. Prop twenty-three in twenty twenty required an on-site physician, rejected sixty-three to thirty-seven. Prop twenty-nine in twenty twenty-two loosened that to allow a nurse practitioner, rejected sixty-eight to thirty-two. Each one nearly identical to the last. Here's the thing — there are no unionized dialysis workers in California. DaVita and Fresenius run those clinics non-union, and they spent over two hundred sixteen million across the three fights. Regan's own framing was that the campaigns publicized the union's critique and led to a twenty nineteen law tightening how clinics steer patients into high-reimbursement plans. Critics, including Democrats and other unions, read it as attrition warfare — bleed the companies dry until they recognize the union.\n\nThe hospital playbook is even more explicit. In twenty fourteen they filed two measures — one capping nonprofit hospital exec pay at four hundred fifty thousand, the president's salary, another capping hospital charges at twenty-five percent above cost. They withdrew both after the California Hospital Association agreed to a code of conduct easing union organizing and to jointly lobby for higher Medi-Cal rates. In twenty sixteen a similar exec-pay measure qualified but got pulled on an arbitrator ruling. This year they filed the Healthcare Executive Compensation Act again, then dropped it June twenty-fifth in a deal where the hospital association also killed its dueling measure restricting union political spending.\n\nThe twenty sixteen minimum wage initiative is the one they count as a win — it qualified, Jerry Brown's staff called their signature contractor to check viability, and a week later Brown signed Senate Bill three phasing in fifteen dollars. Regan says Brown's people reached out first.\n\nOut of state they've had real wins — Arizona's healthcare debt interest cap in twenty twenty-two, Michigan's independent redistricting commission in twenty eighteen. They also seeded The Fairness Project in twenty fifteen, which has won thirty-nine campaigns nationwide.\n\nThe California Primary Care Association just filed a racketeering lawsuit against Regan personally, arguing Prop forty-four — the community clinic spending measure polling at thirty-four percent — is the same extortion playbook aimed at clinics they want to unionize. That case hasn't been heard.\n\nSo the pattern isn't incompetence. It's a deliberate strategy where the initiative is the opening bid in a negotiation, and the ballot is the leverage. The billionaire tax is the first time they've aimed it at a target that isn't a healthcare employer.",
+   "tr": "Ich schaue mir die Abstimmungsgeschichte von SEIU-UHW an.\n\nJa — Dave Regan nennt Volksinitiativen «das beste Schnäppchen in der amerikanischen Politik», und seine Bilanz stützt das. Seit 2012 hat er irgendwo zwischen 23 und 48 Initiativen auf Landes- und Kommunalebene eingereicht. Fast keine ist durchgekommen. Der charakteristische Zug ist die Dialyse-Trilogie — Prop 8 im Jahr 2018 hätte die Gewinne von Dialysekliniken gedeckelt, abgelehnt mit 60 zu 40. Prop 23 im Jahr 2020 verlangte einen Arzt vor Ort, abgelehnt mit 63 zu 37. Prop 29 im Jahr 2022 lockerte das und ließ eine Nurse Practitioner zu, abgelehnt mit 68 zu 32. Jede fast identisch mit der vorherigen. Und jetzt kommt’s — in Kalifornien gibt es keine gewerkschaftlich organisierten Dialysearbeiter. DaVita und Fresenius betreiben diese Kliniken gewerkschaftsfrei, und sie haben über die drei Kämpfe hinweg über 216 Millionen ausgegeben. Regans eigenes Framing war, die Kampagnen hätten die Kritik der Gewerkschaft öffentlich gemacht und zu einem Gesetz von 2019 geführt, das verschärft, wie Kliniken Patienten in hoch erstattete Tarife lenken. Kritiker, darunter Demokraten und andere Gewerkschaften, lesen das als Zermürbungskrieg — die Firmen ausbluten lassen, bis sie die Gewerkschaft anerkennen.\n\nDas Krankenhaus-Playbook ist noch expliziter. 2014 haben sie zwei Vorlagen eingereicht — eine deckelte die Gehälter von Führungskräften gemeinnütziger Krankenhäuser bei 450.000, dem Gehalt des Präsidenten, eine andere deckelte Krankenhausgebühren bei 25 Prozent über den Kosten. Beide zogen sie zurück, nachdem die California Hospital Association einem Verhaltenskodex zustimmte, der die gewerkschaftliche Organisierung erleichtert, und gemeinsam für höhere Medi-Cal-Sätze zu lobbyieren. 2016 qualifizierte sich eine ähnliche Vorlage zur Managervergütung, wurde aber nach einem Schiedsspruch zurückgezogen. Dieses Jahr haben sie den Healthcare Executive Compensation Act wieder eingereicht und ihn dann am 25. Juni fallen gelassen, in einem Deal, bei dem der Krankenhausverband auch seine konkurrierende Vorlage kippte, die die politischen Ausgaben der Gewerkschaft einschränken sollte.\n\nDie Mindestlohn-Initiative von 2016 ist die, die sie als Sieg zählen — sie qualifizierte sich, Jerry Browns Stab rief ihren Unterschriften-Auftragnehmer an, um die Tragfähigkeit zu prüfen, und eine Woche später unterzeichnete Brown Senate Bill 3, das 15 Dollar schrittweise einführt. Regan sagt, Browns Leute hätten sich zuerst gemeldet.\n\nAußerhalb des Staates hatten sie echte Siege — Arizonas Zinsdeckel für Gesundheitsschulden 2022, Michigans unabhängige Wahlkreiskommission 2018. Sie haben 2015 auch The Fairness Project mit auf den Weg gebracht, das landesweit 39 Kampagnen gewonnen hat.\n\nDie California Primary Care Association hat gerade eine Racketeering-Klage gegen Regan persönlich eingereicht und argumentiert, Prop 44 — die Vorlage zu den Ausgaben von Gemeindekliniken, die in Umfragen bei 34 Prozent steht — sei dasselbe Erpressungs-Playbook, gerichtet auf Kliniken, die sie gewerkschaftlich organisieren wollen. Der Fall ist noch nicht verhandelt worden.\n\nDas Muster ist also keine Inkompetenz. Es ist eine bewusste Strategie, bei der die Initiative das Eröffnungsgebot in einer Verhandlung ist und die Abstimmung der Hebel. Die Milliardärssteuer ist das erste Mal, dass sie das auf ein Ziel richten, das kein Arbeitgeber im Gesundheitswesen ist."
+  },
+  "22c3bbf54871e04d": {
+   "kind": "turn 82",
+   "en": "So what do you make of this? Like, uh, yeah, what do you think, uh, the, the, the president, the union president and the union, uh, like is this just like cynical money grab? Do they think they're trying to do good? Like, yeah, what's going on here?",
+   "tr": "Und was hältst du davon? Also, ja, was denkst du über den, den Präsidenten, den Gewerkschaftspräsidenten und die Gewerkschaft — ist das einfach nur ein zynischer Griff nach dem Geld? Glauben die, sie versuchen, Gutes zu tun? Also, ja, was läuft da?"
+  },
+  "e96cf5948054fb32": {
+   "kind": "turn 83",
+   "en": "Probably both, and the mix shifts by target. With dialysis and hospitals, the leverage reading is hard to escape. You don't refile the same nearly identical measure three times after two blowout losses because you think voters will suddenly agree — you do it because each round costs the target industry a hundred million it can't spend on anything else. Regan has said as much in his own way, calling withdrawals \"tactical gains.\" That's not evil, it's just what a negotiator does when the ballot box is his leverage and he has no other seat at the table.\n\nProp forty is different because there's no employer to organize. Billionaires aren't going to unionize. So it reads more like genuine policy conviction — Saez and the tax professors gave it intellectual scaffolding, the Medi-Cal cuts gave it urgency, and Regan gets to be the guy who finally taxed the rich in California. There's also self-interest: if Medi-Cal funding collapses, union healthcare jobs go with it. But that's aligned interest, not extraction.\n\nThe part I'd flag is the racketeering suit. If a federal judge ever lets that theory breathe — that repetitive initiatives are extortion rather than advocacy — it doesn't just threaten Regan, it threatens the whole initiative ecosystem. California's ballot process has always been a pressure valve for groups locked out of Sacramento. Redefining that as racketeering would change who gets to use it.\n\nI could dig into whether any court has ever actually tested that theory before, if you want.",
+   "tr": "Wahrscheinlich beides, und die Mischung verschiebt sich je nach Ziel. Bei Dialyse und Krankenhäusern kommt man an der Hebel-Lesart kaum vorbei. Man reicht dieselbe fast identische Vorlage nicht dreimal neu ein, nachdem man zweimal haushoch verloren hat, weil man glaubt, die Wähler würden plötzlich zustimmen — man tut es, weil jede Runde die Zielbranche 100 Millionen kostet, die sie für nichts anderes ausgeben kann. Regan hat das auf seine Art selbst gesagt und Rückzüge als «taktische Gewinne» bezeichnet. Das ist nicht böse, das ist einfach das, was ein Verhandler tut, wenn die Wahlurne sein Hebel ist und er sonst keinen Platz am Tisch hat.\n\nProposition 40 ist anders, weil es keinen Arbeitgeber gibt, den man organisieren könnte. Milliardäre werden sich nicht gewerkschaftlich organisieren. Deshalb liest es sich eher wie echte politische Überzeugung — Saez und die Steuerprofessoren haben das intellektuelle Gerüst geliefert, die Medi-Cal-Kürzungen die Dringlichkeit, und Regan darf der Typ sein, der in Kalifornien endlich die Reichen besteuert hat. Es gibt auch Eigeninteresse: Wenn die Medi-Cal-Finanzierung zusammenbricht, gehen die Gesundheitsjobs der Gewerkschaft mit. Aber das ist gleichgerichtetes Interesse, keine Abschöpfung.\n\nDer Teil, den ich markieren würde, ist die Racketeering-Klage. Wenn ein Bundesrichter dieser Theorie jemals Luft zum Atmen lässt — dass wiederholte Initiativen Erpressung statt Interessenvertretung sind —, bedroht das nicht nur Regan, sondern das ganze Initiativen-Ökosystem. Kaliforniens Abstimmungsprozess war immer ein Überdruckventil für Gruppen, die in Sacramento ausgesperrt sind. Das als Racketeering umzudefinieren würde ändern, wer es nutzen darf.\n\nIch kann nachschauen, ob irgendein Gericht diese Theorie jemals wirklich getestet hat, wenn du willst."
+  },
+  "97f28d6910241b04": {
+   "kind": "turn 84",
+   "en": "Well, first let's talk about the, uh, actual valuation stuff. I heard something like, uh, they were going to count voting shares, uh, like 10x voting shares as 10x. Yeah, like what, what? Yeah, yeah, tell me the, the detail, the financial details.",
+   "tr": "Na, reden wir erst mal über die eigentliche Bewertungssache. Ich hab irgendwas gehört, dass sie Stimmrechtsaktien zählen wollten, so 10x-Stimmrechtsaktien als das Zehnfache. Ja, also was, was? Ja, ja, erzähl mir die Details, die finanziellen Details."
+  },
+  "e53b9db50a827846": {
+   "kind": "turn 85",
+   "en": "Searching for the valuation rules in Prop forty. \n\nThe ten-times thing is a misreading that spread online. The actual provision, Section fifty thirty-three c three C, says that for interests conferring voting or control rights, your ownership percentage is presumed to be not less than your share of the voting rights. So if you own ten percent of the equity but sixty percent of the votes, the default formula taxes you on sixty. That's the kernel people turned into \"ten-x voting shares.\"\n\nBut it only applies to privately held companies. Publicly traded shares — including super-voting Class B shares at Meta or Google — get valued at market price on December thirty-first, twenty twenty-six, period. The drafters wrote that exclusion in explicitly, and their section-by-section explainer hammers it: the control-rights floor does not apply to publicly traded entities, whether or not the shares themselves trade.\n\nFor private companies, the default formula is GAAP book value plus seven point five times average annual book profits, times your ownership share — with ownership being the higher of economic stake or control rights. A business with three straight loss years still gets valued at book value, since losses floor at zero. You can rebut with a certified appraisal, but only on clear and convincing evidence the formula substantially misstates value, and appraisers themselves face penalties up to four percent of any discrepancy if the Franchise Tax Board disagrees.\n\nThere are more anti-abuse floors stacked on: no minority or lack-of-marketability discounts, nothing worth less than its insured value, and a business can't be valued below its last funding round within two years. Real estate held directly or in a revocable trust is out entirely — but real estate held through an LLC or limited partnership is fully in. Roth IRAs only count above ten million combined. Pensions and traditional IRAs are exempt. Art and collectibles get a five-million-dollar exclusion before appraisals kick in.\n\nThe Tax Foundation's sharpest example is Tony Xu — two point six percent of DoorDash economically but fifty-seven point six percent of the vote. If his stake were private and the voting presumption stuck, his taxable base could more than double. DoorDash trades publicly, so under the drafters' reading it shouldn't. But Stout, the valuation firm, notes the statutory language isn't airtight on whether non-traded super-voting shares in a public company fall under the public-trading rule or the private-entity rule, and that's exactly where the first lawsuits will land.\n\nThe NBER working paper puts it more bluntly: read as written, the Act taxes not just the economic value of a founder's stake but the value of the share of the firm they control — which can substantially exceed what they'd get selling it.\n\nI could dig into how the Berkeley versus Hoover revenue estimates diverge on exactly this valuation question, since that gap is over a hundred billion dollars on the same people.",
+   "tr": "Ich suche die Bewertungsregeln in Proposition 40.\n\nDie Zehnfach-Sache ist eine Fehllektüre, die sich online verbreitet hat. Die eigentliche Vorschrift, Section 5033(c)(3)(C), sagt, dass bei Anteilen, die Stimm- oder Kontrollrechte verleihen, dein Eigentumsanteil als nicht geringer gilt als dein Anteil an den Stimmrechten. Wenn du also 10 % des Eigenkapitals besitzt, aber 60 % der Stimmen, besteuert dich die Standardformel auf 60. Das ist der Kern, den die Leute zu «10x-Stimmrechtsaktien» gemacht haben.\n\nAber das gilt nur für nicht börsennotierte Unternehmen. Börsengehandelte Aktien — einschließlich Super-Voting-Class-B-Aktien bei Meta oder Google — werden zum Marktpreis am 31. Dezember 2026 bewertet, Punkt. Die Verfasser haben diesen Ausschluss ausdrücklich reingeschrieben, und ihr Abschnitt-für-Abschnitt-Erklärtext hämmert es rein: Die Kontrollrechte-Untergrenze gilt nicht für börsennotierte Gesellschaften, egal ob die Aktien selbst gehandelt werden oder nicht.\n\nBei privaten Unternehmen ist die Standardformel der GAAP-Buchwert plus das 7,5-Fache der durchschnittlichen jährlichen Buchgewinne, mal deinem Eigentumsanteil — wobei Eigentum der höhere Wert aus wirtschaftlichem Anteil oder Kontrollrechten ist. Ein Unternehmen mit drei Verlustjahren in Folge wird trotzdem zum Buchwert bewertet, weil Verluste bei null gedeckelt sind. Du kannst mit einem zertifizierten Gutachten widersprechen, aber nur bei klarem und überzeugendem Beweis, dass die Formel den Wert erheblich falsch angibt, und die Gutachter selbst riskieren Strafen von bis zu 4 % jeder Abweichung, wenn das Franchise Tax Board nicht einverstanden ist.\n\nEs sind noch mehr Anti-Missbrauchs-Untergrenzen draufgestapelt: keine Minderheiten- oder fehlende-Marktgängigkeits-Abschläge, nichts darf weniger wert sein als sein Versicherungswert, und ein Unternehmen darf nicht unter seiner letzten Finanzierungsrunde innerhalb von zwei Jahren bewertet werden. Immobilien, die direkt oder in einem widerruflichen Trust gehalten werden, fallen komplett raus — aber Immobilien über eine LLC oder Limited Partnership sind voll drin. Roth IRAs zählen nur oberhalb von zusammen 10 Millionen. Pensionen und traditionelle IRAs sind ausgenommen. Kunst und Sammlerstücke bekommen einen Freibetrag von 5 Millionen Dollar, bevor Gutachten greifen.\n\nDas schärfste Beispiel der Tax Foundation ist Tony Xu — wirtschaftlich 2,6 % von DoorDash, aber 57,6 % der Stimmen. Wäre sein Anteil privat und die Stimmrechtsvermutung bliebe stehen, könnte seine Steuerbemessungsgrundlage sich mehr als verdoppeln. DoorDash wird öffentlich gehandelt, also sollte es nach der Lesart der Verfasser nicht so sein. Aber Stout, die Bewertungsfirma, merkt an, dass die Gesetzessprache nicht wasserdicht ist, ob nicht gehandelte Super-Voting-Aktien in einem börsennotierten Unternehmen unter die Börsenhandelsregel oder die Privatgesellschaftsregel fallen, und genau dort werden die ersten Klagen landen.\n\nDas NBER-Working-Paper sagt es unverblümter: wörtlich gelesen besteuert das Gesetz nicht nur den wirtschaftlichen Wert des Anteils eines Gründers, sondern den Wert des Firmenanteils, den er kontrolliert — der deutlich über dem liegen kann, was er beim Verkauf bekommen würde.\n\nIch kann nachschauen, wie die Einnahmenschätzungen von Berkeley und Hoover genau bei dieser Bewertungsfrage auseinandergehen, denn die Lücke liegt bei denselben Leuten bei über 100 Milliarden Dollar."
+  },
+  "2da2ac22a416ddf1": {
+   "kind": "turn 86",
+   "en": "So, the people that wrote this, like the professors, uh, is this a mistake? Or is this intentional? Or like they thought this was good policy? Or they didn't expect for this to happen?",
+   "tr": "Also die Leute, die das geschrieben haben, die Professoren, ist das ein Fehler? Oder ist das Absicht? Oder dachten sie, das sei gute Politik? Oder haben sie nicht damit gerechnet, dass das passiert?"
+  },
+  "d85accac41329f59": {
+   "kind": "turn 87",
+   "en": "Their own explainer reads as intentional. They describe the control-rights floor as targeting a known estate-tax dodge — people holding voting control without a matching economic stake — and they say the public-company exclusion was deliberate too, because market value already captures what those shares are worth. So they anticipated the dual-class issue and chose to route it through the trading-price rule rather than the voting formula.\n\nWhether that choice was good policy or just convenient is where it gets murkier. Saez's whole intellectual project is taxing wealth at its source, and a rule that hits founders on control rather than cash flow is philosophically consistent with that. But it also creates a forced-sale pressure that even sympathetic tax scholars acknowledge — you'd be taxing people on value they can't easily liquidate without giving up the very control the tax is measuring. The drafters' answer is the appraisal safety valve, but that shifts the burden and the risk onto the taxpayer and their appraiser.\n\nMy read: they knew it would overstate value in edge cases, decided the overstatement was acceptable or fixable in court, and wrote the explainer to pre-defend against exactly the criticism you're raising. That's not a bug they missed. It's a design choice they expected to have to argue for.",
+   "tr": "Ihr eigener Erklärtext liest sich als Absicht. Sie beschreiben die Kontrollrechte-Untergrenze so, dass sie einen bekannten Erbschaftsteuer-Trick trifft — Leute, die die Stimmkontrolle halten, ohne einen entsprechenden wirtschaftlichen Anteil —, und sie sagen, der Ausschluss börsennotierter Unternehmen sei ebenfalls bewusst gewesen, weil der Marktwert schon erfasst, was diese Aktien wert sind. Sie haben das Dual-Class-Problem also vorausgesehen und sich entschieden, es über die Handelspreisregel laufen zu lassen statt über die Stimmrechtsformel.\n\nOb diese Wahl gute Politik war oder nur bequem, da wird es unklarer. Saez’ ganzes intellektuelles Projekt ist, Vermögen an der Quelle zu besteuern, und eine Regel, die Gründer auf Kontrolle statt auf Cashflow trifft, ist damit philosophisch konsistent. Aber sie erzeugt auch einen Zwangsverkaufsdruck, den selbst wohlwollende Steuerwissenschaftler einräumen — man würde Leute auf einen Wert besteuern, den sie nicht leicht liquidieren können, ohne genau die Kontrolle aufzugeben, die die Steuer misst. Die Antwort der Verfasser ist das Gutachten als Sicherheitsventil, aber das schiebt die Beweislast und das Risiko auf den Steuerzahler und seinen Gutachter.\n\nMeine Lesart: Sie wussten, dass es den Wert in Grenzfällen überzeichnen würde, haben entschieden, die Überzeichnung sei akzeptabel oder vor Gericht reparierbar, und den Erklärtext geschrieben, um sich genau gegen die Kritik abzusichern, die du gerade bringst. Das ist kein Bug, den sie übersehen haben. Das ist eine Designentscheidung, für die sie erwartet haben, argumentieren zu müssen."
+  },
+  "bf24f8df4f22a045": {
+   "kind": "turn 88",
+   "en": "Okay, so what's your read of this law? Like, what do you think about it?",
+   "tr": "Okay, und wie liest du dieses Gesetz? Also, was hältst du davon?"
+  },
+  "674fec727cd8ba87": {
+   "kind": "turn 89",
+   "en": "It's a cleverly designed pressure valve, not a clean tax. The one-time structure sidesteps the constitutional mess that killed Washington's wealth tax attempt, the real-estate exemption buys off homeowners, and the Roth carve-out above ten million is a wink at Thiel without naming him. The revenue estimate swings from a hundred billion to negative thirty-nine depending on assumptions about departures, avoidance, and litigation — which tells you the number is more political theater than fiscal plan.\n\nWhat I actually think: it's less about the money and more about the message. Five percent of two trillion is a hundred billion, but California's structural deficit is around thirty billion a year, so even full collection doesn't fix anything lasting. What it does is force a public fight over whether extreme wealth concentration is politically tolerable in a state that just handed a hundred and two million to one billionaire to fight it. That's the real stakes.\n\nThe risk I keep coming back to is the same one from the rail conversation — a system that can tax a billionaire's private company at book value plus seven point five times profits, with appraisers personally penalized for disagreeing, is a system that can tax anyone's assets the same way later. The precedent is the product. Whether you think that's a feature or a bug probably depends on whose assets you think get targeted next.\n\nI could dig into what the legal challenges would actually look like if it passes — the dormant Commerce Clause arguments, the valuation litigation, whether the California Supreme Court would even let it stand.",
+   "tr": "Es ist ein clever konstruiertes Überdruckventil, keine saubere Steuer. Die Einmal-Struktur umgeht das verfassungsrechtliche Chaos, das Washingtons Versuch einer Vermögenssteuer gekillt hat, die Immobilienausnahme kauft die Eigenheimbesitzer ruhig, und die Roth-Ausnahme oberhalb von 10 Millionen ist ein Zwinkern Richtung Peter Thiel, ohne ihn zu nennen. Die Einnahmenschätzung schwankt je nach Annahmen über Wegzüge, Vermeidung und Prozesse von 100 Milliarden bis minus 39 — das sagt dir, dass die Zahl eher politisches Theater ist als ein Finanzplan.\n\nWas ich tatsächlich denke: Es geht weniger ums Geld und mehr um die Botschaft. 5 % von 2 Billionen sind 100 Milliarden, aber Kaliforniens strukturelles Defizit liegt bei rund 30 Milliarden im Jahr, also repariert selbst die volle Einziehung nichts Dauerhaftes. Was es tut, ist einen öffentlichen Streit zu erzwingen, ob extreme Vermögenskonzentration in einem Staat politisch tragbar ist, der gerade einem Milliardär 102 Millionen gegeben hat, um dagegen zu kämpfen. Das ist der eigentliche Einsatz.\n\nDas Risiko, zu dem ich immer wieder zurückkomme, ist dasselbe aus dem Bahn-Gespräch — ein System, das die private Firma eines Milliardärs zum Buchwert plus dem 7,5-Fachen der Gewinne besteuern kann, wobei Gutachter persönlich bestraft werden, wenn sie widersprechen, ist ein System, das später die Vermögenswerte von jedem genauso besteuern kann. Der Präzedenzfall ist das Produkt. Ob du das für ein Feature oder einen Bug hältst, hängt wahrscheinlich davon ab, wessen Vermögenswerte deiner Meinung nach als Nächstes ins Visier geraten.\n\nIch kann nachschauen, wie die juristischen Angriffe tatsächlich aussehen würden, wenn es durchkommt — die Argumente zur dormant Commerce Clause, die Bewertungsprozesse, ob der California Supreme Court es überhaupt stehen lassen würde."
+  },
+  "83413b58c89d6f58": {
+   "kind": "turn 90",
+   "en": "Yeah, tell me about the Supreme Court.",
+   "tr": "Ja, erzähl mir vom Supreme Court."
+  },
+  "6d5b8ade9696a2c5": {
+   "kind": "turn 91",
+   "en": "Let me check the latest on the California Supreme Court and Prop forty. \n\nProp forty builds its own fast lane. Facial challenges — meaning arguments that the whole thing is unconstitutional as written — have to be filed in Sacramento Superior Court within sixty days of passage, with a ruling due by April first, twenty twenty-seven, and any appeal jumping straight to the California Supreme Court with a decision required by November first of that year. The drafters did that on purpose: they wanted the big constitutional questions settled fast so nobody could gut it five years in with a sweeping lawsuit. What that schedule doesn't cover is the as-applied fights — individual residency disputes, valuation battles, apportionment claims — and those can drag on for years, possibly a decade. The Gilbert Hyatt case is the cautionary tale: the Franchise Tax Board went after him for moving to Nevada in the nineties, and it's still not fully resolved after California, Nevada, federal, and US Supreme Court litigation.\n\nThe opposition is already assembled. The California Business Roundtable retained Elizabeth Prelogar, the former US Solicitor General, to lead the charge. The Hoover Institution published a paper arguing the tax violates Due Process because it taxes worldwide wealth based on a single day's residency, runs afoul of the Commerce Clause by taxing assets outside California without fair apportionment, and raises Bill of Attainder concerns because it targets a named class of people. The Tax Foundation flagged the valuation formula, the retroactive residency date, and the mandatory aggregation of nonresident spouses' assets as separate constitutional problems. The National Taxpayers Union Foundation counted at least eight distinct grounds.\n\nHere's the structural irony: the expedited facial track means the Supreme Court has to rule on provisions before the Franchise Tax Board has even issued regulations interpreting them. Challengers will argue claims are unripe; the state will argue the initiative's own text bars them later. Either way, the court is being asked to decide a novel tax with no precedent on a compressed clock, and the losing side will almost certainly try for US Supreme Court review after that.\n\nOne more wrinkle — if Prop forty and Prop forty-two both pass, the court also has to decide whether they conflict, and California precedent says only the higher-vote measure takes effect. Galle himself admitted courts will likely have to sort out those complications.\n\nSo the realistic timeline: election November third, facial ruling spring twenty twenty-seven, Supreme Court decision by fall twenty twenty-seven, and then years of individual litigation on top. Nobody collects a dime until that first round clears.\n\nWant me to go deeper on any one of those challenge theories — the Commerce Clause apportionment argument is probably the strongest one?",
+   "tr": "Lass mich kurz den aktuellen Stand zum Supreme Court von Kalifornien und zu Proposition 40 checken.\n\nProposition 40 baut sich ihre eigene Überholspur. Facial Challenges — also Argumente, dass das Ganze schon so, wie es geschrieben steht, verfassungswidrig ist — müssen innerhalb von 60 Tagen nach der Verabschiedung beim Superior Court in Sacramento eingereicht werden, mit einem Urteil bis zum 1. April 2027, und jede Berufung springt direkt an den Supreme Court von Kalifornien, der bis zum 1. November desselben Jahres entscheiden muss. Die Verfasser haben das absichtlich so gemacht: Sie wollten die großen Verfassungsfragen schnell geklärt haben, damit niemand das Ding fünf Jahre später mit einer umfassenden Klage aushebeln kann. Was dieser Zeitplan nicht abdeckt, sind die As-applied-Streitigkeiten — einzelne Wohnsitzstreitigkeiten, Bewertungsschlachten, Aufteilungsansprüche — und die können sich jahrelang hinziehen, möglicherweise ein Jahrzehnt. Der Fall Gilbert Hyatt ist das warnende Beispiel: Das Franchise Tax Board ist ihm nachgegangen, weil er in den Neunzigern nach Nevada gezogen ist, und nach Verfahren in Kalifornien, Nevada, vor Bundesgerichten und vor dem US Supreme Court ist das immer noch nicht vollständig geklärt.\n\nDie Opposition steht schon. Der California Business Roundtable hat Elizabeth Prelogar engagiert, die frühere US Solicitor General, um die Offensive anzuführen. Die Hoover Institution hat ein Papier veröffentlicht, das argumentiert, die Steuer verletze das Due Process, weil sie weltweites Vermögen auf Basis eines einzigen Wohnsitztages besteuert, verstoße gegen die Commerce Clause, indem sie Vermögenswerte außerhalb Kaliforniens ohne faire Aufteilung besteuert, und werfe Bill-of-Attainder-Bedenken auf, weil sie eine namentlich bestimmte Personengruppe trifft. Die Tax Foundation hat die Bewertungsformel, das rückwirkende Wohnsitzdatum und die zwingende Zusammenrechnung der Vermögenswerte nicht ansässiger Ehepartner als eigene Verfassungsprobleme markiert. Die National Taxpayers Union Foundation hat mindestens acht verschiedene Angriffsgründe gezählt.\n\nUnd hier die strukturelle Ironie: Die beschleunigte Facial-Spur bedeutet, dass der Supreme Court über Bestimmungen entscheiden muss, bevor das Franchise Tax Board überhaupt Verordnungen zu ihrer Auslegung erlassen hat. Die Kläger werden argumentieren, die Ansprüche seien noch nicht reif; der Staat wird argumentieren, der eigene Text der Initiative sperre sie später aus. So oder so soll das Gericht eine neuartige Steuer ohne Präzedenzfall unter engem Zeitdruck entscheiden, und die unterlegene Seite wird danach mit ziemlicher Sicherheit eine Überprüfung durch den US Supreme Court anstreben.\n\nNoch eine Komplikation — wenn Proposition 40 und Proposition 42 beide durchkommen, muss das Gericht auch entscheiden, ob sie sich widersprechen, und nach kalifornischem Präzedenzfall tritt nur die Maßnahme mit der höheren Stimmenzahl in Kraft. Galle selbst hat eingeräumt, dass die Gerichte diese Komplikationen wahrscheinlich sortieren müssen.\n\nAlso der realistische Zeitplan: Wahl am 3. November, Facial-Urteil im Frühjahr 2027, Entscheidung des Supreme Court bis Herbst 2027, und dann noch Jahre individueller Prozesse obendrauf. Niemand kassiert einen Cent, bevor diese erste Runde durch ist.\n\nSoll ich bei einer dieser Anfechtungstheorien tiefer reingehen — das Aufteilungsargument zur Commerce Clause ist wahrscheinlich das stärkste?"
+  },
+  "2cebe93df4cf59bb": {
+   "kind": "turn 92",
+   "en": "So it sounds like even if this thing gets passed, no one is actually going to get taxed. Um, so is this, uh, just, uh, like leverage, uh, that the union used for, for bargaining? Or is it trying to set a precedent that just says you can tax people's wealth whenever you want?",
+   "tr": "Also klingt das so, als würde selbst wenn das Ding durchkommt, am Ende niemand wirklich besteuert. Ähm, ist das also, äh, einfach, äh, so eine Art Hebel, den die Gewerkschaft zum Verhandeln benutzt hat? Oder versucht sie, einen Präzedenzfall zu setzen, der einfach sagt, man kann das Vermögen der Leute besteuern, wann immer man will?"
+  },
+  "b8b5a1c57359eb82": {
+   "kind": "turn 93",
+   "en": "It's both, but the precedent is the bigger prize. Regan literally offered to withdraw it for a two percent legislative version — that's textbook leverage. But the professors behind it aren't union staffers. Saez has spent his career trying to make wealth taxes politically normal, and he said himself this was designed as a template other states could copy. So the union gets its bargaining chip, and the movement gets its proof of concept.\n\nAnd \"no one gets taxed\" is too strong. Even a partial survival — say the courts kill the retroactivity or the voting-rights presumption but leave the core five percent intact — still means tens of billions collected from people who can't easily leave. The Gilbert Hyatt fight took thirty years and still ended with California winning on the merits in federal court. Wealthy people litigate forever, but they also eventually pay.\n\nThe real precedent isn't just \"you can tax wealth.\" It's \"you can tax wealth retroactively, based on a snapshot date, with the state defining valuation and penalizing appraisers who disagree.\" That's a much more aggressive template than anything Saez has floated before, and it's the part that should worry people who don't own a billion dollars.",
+   "tr": "Beides, aber der Präzedenzfall ist der größere Preis. Regan hat buchstäblich angeboten, sie für eine gesetzgeberische Zwei-Prozent-Version zurückzuziehen — das ist Hebel nach Lehrbuch. Aber die Professoren dahinter sind keine Gewerkschaftsangestellten. Saez hat seine Karriere damit verbracht, Vermögenssteuern politisch normal zu machen, und er hat selbst gesagt, das sei als Vorlage entworfen, die andere Bundesstaaten kopieren könnten. Die Gewerkschaft bekommt also ihr Druckmittel, und die Bewegung ihren Proof of Concept.\n\nUnd «niemand wird besteuert» ist zu stark. Selbst ein teilweises Überleben — sagen wir, die Gerichte kippen die Rückwirkung oder die Stimmrechtsvermutung, lassen aber die zentralen fünf Prozent intakt — heißt immer noch, dass zig Milliarden bei Leuten eingetrieben werden, die nicht einfach wegziehen können. Der Kampf um Gilbert Hyatt hat 30 Jahre gedauert und endete trotzdem damit, dass Kalifornien in der Sache vor dem Bundesgericht gewonnen hat. Reiche Leute prozessieren ewig, aber irgendwann zahlen sie auch.\n\nDer eigentliche Präzedenzfall ist nicht nur «man kann Vermögen besteuern». Es ist «man kann Vermögen rückwirkend besteuern, auf Basis eines Stichtags, wobei der Staat die Bewertung festlegt und Gutachter bestraft, die widersprechen». Das ist eine viel aggressivere Vorlage als alles, was Saez bisher vorgeschlagen hat, und genau das sollte Leute beunruhigen, die keine Milliarde Dollar besitzen."
+  },
+  "c7afdbe035fc2667": {
+   "kind": "turn 94",
+   "en": "... mating. I mean, it's, it does seem like wealth tax is a, a totally reasonable thing given, uh, like, uh, disparities. But this seems like a really implementation. I don't know. Do you think wealth taxes are, does anyone do wealth taxes well? Uh, it seems like property tax is a form of wealth tax. California limits that pretty severely.",
+   "tr": "Ich mein, es, es wirkt schon so, als wäre eine Vermögenssteuer eine, eine völlig vernünftige Sache, angesichts von, äh, so Ungleichheiten. Aber das hier scheint eine wirklich Umsetzung. Ich weiß nicht. Denkst du, Vermögenssteuern sind, macht irgendwer Vermögenssteuern gut? Äh, es scheint, als wäre die Grundsteuer eine Form von Vermögenssteuer. Kalifornien begrenzt die ziemlich stark."
+  },
+  "1e95e4e210b46ec6": {
+   "kind": "turn 95",
+   "en": "Norway, Switzerland, and Spain do run recurring wealth taxes today. Norway's is the cleanest — one percent above roughly one hundred fifty thousand dollars, stable for decades, and it funds a big chunk of the welfare state without much drama. Switzerland's works because rates are so low, point one to one percent, and vary by canton, so it's more of a local revenue tool than a redistribution hammer. Spain's is the messiest — reinstated in twenty eleven as a temporary fix, renewed every year since, and it's driven enough capital out that economists debate whether it raises anything net.\n\nFrance is the best case study for what happens when you do it badly. The original ISF taxed all assets including stocks and business equity, and by twenty seventeen it was collecting about five billion euros a year while costing an estimated sixty billion in lost investment and flight. Macron replaced it with the IFI, which only hits real estate above one point three million. So France effectively gave up on taxing financial wealth.\n\nYour property tax point is exactly right and it's the one wealth tax Americans already live with. Prop thirteen turned it into a tax on entry price rather than current value — someone who's owned a house since nineteen eighty pays a fraction of what a new buyer pays on the identical asset. That's a wealth tax with a grandfather clause baked in, and it's politically untouchable precisely because the people it benefits are the ones who vote.\n\nThe pattern across all of this: wealth taxes survive when they're low, narrow, and predictable. They die when they try to be redistributive at scale. Prop forty is trying to be the latter at five percent on a snapshot date, which is why even the people who like the idea think the implementation is reckless.\n\nI could walk through what Norway's actual numbers look like — revenue, flight, who pays — if you want the one working example in detail.",
+   "tr": "Norwegen, die Schweiz und Spanien erheben heute wiederkehrende Vermögenssteuern. Norwegens ist die sauberste — ein Prozent oberhalb von ungefähr 150.000 Dollar, seit Jahrzehnten stabil, und sie finanziert einen großen Teil des Wohlfahrtsstaats ohne viel Drama. Die schweizerische funktioniert, weil die Sätze so niedrig sind, 0,1 bis 1 Prozent, und von Kanton zu Kanton variieren, also ist sie eher ein lokales Einnahmeinstrument als ein Umverteilungshammer. Spaniens ist die chaotischste — 2011 als vorübergehende Lösung wieder eingeführt, seither jedes Jahr verlängert, und sie hat genug Kapital vertrieben, dass Ökonomen streiten, ob sie unterm Strich überhaupt etwas einbringt.\n\nFrankreich ist die beste Fallstudie dafür, was passiert, wenn man es schlecht macht. Die ursprüngliche ISF hat alle Vermögenswerte besteuert, inklusive Aktien und Unternehmensbeteiligungen, und bis 2017 hat sie etwa 5 Milliarden Euro im Jahr eingenommen, während sie schätzungsweise 60 Milliarden an verlorenen Investitionen und Abwanderung gekostet hat. Macron hat sie durch die IFI ersetzt, die nur Immobilien über 1,3 Millionen trifft. Frankreich hat also effektiv aufgegeben, Finanzvermögen zu besteuern.\n\nDein Punkt zur Grundsteuer ist genau richtig, und das ist die eine Vermögenssteuer, mit der Amerikaner schon leben. Proposition 13 hat sie in eine Steuer auf den Einstiegspreis statt auf den aktuellen Wert verwandelt — jemand, der ein Haus seit 1980 besitzt, zahlt einen Bruchteil dessen, was ein neuer Käufer für denselben Vermögenswert zahlt. Das ist eine Vermögenssteuer mit eingebauter Bestandsschutzklausel, und sie ist politisch unantastbar, genau weil die Leute, die davon profitieren, diejenigen sind, die wählen.\n\nDas Muster bei alldem: Vermögenssteuern überleben, wenn sie niedrig, eng und vorhersehbar sind. Sie sterben, wenn sie im großen Stil umverteilen wollen. Proposition 40 versucht Letzteres, mit fünf Prozent an einem Stichtag, und deshalb finden selbst die Leute, denen die Idee gefällt, die Umsetzung leichtsinnig.\n\nIch könnte durchgehen, wie Norwegens echte Zahlen aussehen — Einnahmen, Abwanderung, wer zahlt —, wenn du das eine funktionierende Beispiel im Detail willst."
+  },
+  "8293435aad81a164": {
+   "kind": "turn 96",
+   "en": "Alright, I'm going to bed. This, this has been really depressing, Eve. Thanks for my question.",
+   "tr": "Alles klar, ich geh ins Bett. Das, das war echt deprimierend, Eve. Danke für meine Frage."
+  },
+  "c60840f8097ede1c": {
+   "kind": "turn 97",
+   "en": "Sleep well. The world's still there in the morning.",
+   "tr": "Schlaf gut. Die Welt ist morgen früh immer noch da."
+  },
+  "05aa09b95bb98cf7": {
+   "kind": "moment",
+   "en": "David asks why Gavin Newsom vetoed the High-Speed Rail Inspector General staffing bill and why he keeps pouring $1B/year of cap-and-trade money into the project; Eve explains Newsom's political lock-in since campaigning for Prop 1A in 2008, how his September 30 veto starved the watchdog he created right after its travel audit and delayed the $537.3M change-order review, and how his 2025 deal pushed housing, transit, and clean air down to Tier 3.",
+   "tr": "David fragt, warum Gavin Newsom das Personalgesetz für den Inspector General der High-Speed Rail abgelehnt hat und warum er weiter 1 Mrd. $ pro Jahr aus Cap-and-Trade-Geld in das Projekt pumpt; Eve erklärt Newsoms politische Festlegung, seit er 2008 für Prop 1A geworben hat, wie sein Veto vom 30. September die Aufsicht, die er selbst geschaffen hat, direkt nach deren Reiseaudit ausgehungert und die Prüfung des Change Orders über 537,3 Mio. $ verzögert hat, und wie sein Deal von 2025 Wohnungsbau, Nahverkehr und saubere Luft auf Tier 3 gedrückt hat."
+  },
+  "4a0728dc30456553": {
+   "kind": "moment q",
+   "en": "Why did Gavin Newsom veto the High-Speed Rail Inspector General bill — and why is he still locking in $1 billion a year for a train he admitted probably won't happen in our lifetime?",
+   "tr": "Warum hat Gavin Newsom das Inspector-General-Gesetz zur High-Speed Rail abgelehnt — und warum schreibt er weiter 1 Milliarde Dollar im Jahr für einen Zug fest, von dem er zugegeben hat, dass er zu unseren Lebzeiten wahrscheinlich nicht kommt?"
+  },
+  "63b5f669350ea953": {
+   "kind": "moment a",
+   "en": "Newsom's veto message cited statewide administrative safeguards, but it landed two weeks after the Inspector General exposed $2M+ in non-compliant consultant travel and delayed an audit of the $537.3M change-order settlement. On the $1B/year cap-and-trade lock-in, it's self-preservation: he campaigned for Prop 1A in 2008, and killing it now means owning a ballot-measure failure with 2028 looming.",
+   "tr": "In Newsoms Vetobotschaft war von landesweiten administrativen Schutzvorkehrungen die Rede, aber sie kam zwei Wochen, nachdem der Inspector General über 2 Mio. $ an nicht regelkonformen Beraterreisen aufgedeckt hatte, und verzögerte ein Audit der Change-Order-Einigung über 537,3 Mio. $. Bei der Festschreibung von 1 Mrd. $ pro Jahr aus dem Cap-and-Trade geht es um Selbsterhalt: Er hat 2008 für Prop 1A geworben, und es jetzt zu killen hieße, ein gescheitertes Volksbegehren zu verantworten — mit 2028 vor der Tür."
+  },
+  "04ee18df17687021": {
+   "kind": "moment topic",
+   "en": "california-high-speed-rail",
+   "tr": "California High-Speed Rail"
+  },
+  "ff552dfd3c509d7a": {
+   "kind": "moment topic",
+   "en": "inspector-general-veto",
+   "tr": "Inspector-General-Veto"
+  },
+  "1b496ab254d12318": {
+   "kind": "moment topic",
+   "en": "cap-and-trade-siphon",
+   "tr": "Cap-and-Trade-Abzweigung"
+  },
+  "48bd871a2e53b88d": {
+   "kind": "moment topic",
+   "en": "2028-politics",
+   "tr": "2028-politik"
+  },
+  "e6c9edc7231e0173": {
+   "kind": "moment",
+   "en": "David asks whether High-Speed Rail Authority CEO Ian Choudri is a true believer or out to make money; Eve traces his 30-year career at Bechtel, HNTB, and Parsons ($639k salary), contrasts his builder posture with the KPMG travel scandal (where his fiancée works and consultants expensed gyms, a nightclub, an escape room, a tiki bar, and a dozen late-night Lyft trips to his Folsom home), and examines the $537.3M Dragados-Flatiron Change Order 427.",
+   "tr": "David fragt, ob der CEO der High-Speed Rail Authority, Ian Choudri, ein echter Überzeugter ist oder nur Geld machen will; Eve zeichnet seine 30-jährige Karriere bei Bechtel, HNTB und Parsons nach (Gehalt: 639.000 $), stellt seine Haltung als Bauender dem KPMG-Reiseskandal gegenüber (dort arbeitet seine Verlobte, und Berater haben Fitnessstudios, einen Nachtclub, einen Escape Room, eine Tiki-Bar und ein Dutzend nächtliche Lyft-Fahrten zu seinem Haus in Folsom abgerechnet) und prüft den Dragados-Flatiron-Change-Order 427 über 537,3 Mio. $."
+  },
+  "6b0946225e3abfcf": {
+   "kind": "moment q",
+   "en": "Tell me about the CEO, Ian Choudri — does he think he's making the world better or is he just out to make money?",
+   "tr": "Erzähl mir vom CEO Ian Choudri — glaubt er, dass er die Welt besser macht, oder will er nur Geld verdienen?"
+  },
+  "a79e4ddecf4109a4": {
+   "kind": "moment a",
+   "en": "Ian Choudri is a 30-year rail veteran from Bechtel, HNTB, and Parsons whose public posture is believer, not grifter — but belief and self-dealing aren't mutually exclusive. His fiancée works at KPMG, one of the firms flagged for nearly $600,000 in unallowable travel including a nightclub, an escape room, and a tiki bar, and CBS found a dozen late-night Lyft rides between consultants and Choudri's home in Folsom, prompting the board to vote 7–2 to strip his solo contracting authority under $25 million.",
+   "tr": "Ian Choudri ist ein Bahnveteran mit 30 Jahren bei Bechtel, HNTB und Parsons, dessen öffentliche Haltung die eines Überzeugten ist, nicht die eines Abzockers — aber Überzeugung und Selbstbedienung schließen sich nicht aus. Seine Verlobte arbeitet bei KPMG, einer der Firmen, die wegen fast 600.000 $ an unzulässigen Reisekosten markiert wurden, darunter ein Nachtclub, ein Escape Room und eine Tiki-Bar, und CBS fand ein Dutzend nächtliche Lyft-Fahrten zwischen Beratern und Choudris Haus in Folsom, woraufhin der Vorstand mit 7 zu 2 dafür stimmte, ihm die alleinige Vertragsvollmacht unter 25 Millionen Dollar zu entziehen."
+  },
+  "93721a558d84bb3e": {
+   "kind": "moment topic",
+   "en": "kpmg-travel-scandal",
+   "tr": "kpmg-reiseskandal"
+  },
+  "94d63101c67a06f5": {
+   "kind": "moment topic",
+   "en": "change-order-427",
+   "tr": "änderungsauftrag-427"
+  },
+  "96b7d6835fae3904": {
+   "kind": "moment topic",
+   "en": "contractor-capture",
+   "tr": "auftragnehmer-vereinnahmung"
+  },
+  "db2289023575fc31": {
+   "kind": "moment",
+   "en": "While tracing the $677 million spent on 130,000 pages of California High-Speed Rail environmental review, Eve notes that three of the four engineering firms collecting the largest CEQA payouts (Parsons Brinckerhoff, HNTB, WSP, AECOM) were major donors to the 2008 Prop 1A ballot campaign, and HNTB's PAC also donated to Scott Wiener's campaign.",
+   "tr": "Während sie die 677 Millionen Dollar nachzeichnet, die für 130.000 Seiten Umweltprüfung der California High-Speed Rail ausgegeben wurden, stellt Eve fest, dass drei der vier Ingenieurbüros mit den größten CEQA-Auszahlungen (Parsons Brinckerhoff, HNTB, WSP, AECOM) Großspender der Prop-1A-Abstimmungskampagne 2008 waren und dass das PAC von HNTB auch an Scott Wieners Kampagne gespendet hat."
+  },
+  "1cc906f5fd66782c": {
+   "kind": "moment q",
+   "en": "How did environmental review on California High-Speed Rail become a $677 million industry?",
+   "tr": "Wie wurde die Umweltprüfung der California High-Speed Rail zu einer Industrie von 677 Millionen Dollar?"
+  },
+  "bcd5fb1b0f480787": {
+   "kind": "moment a",
+   "en": "Four engineering firms — Parsons Brinckerhoff ($101M), HNTB ($86M), WSP ($61M), and AECOM ($38M) — collected most of the $677 million to produce over 130,000 pages of environmental documents, after three of those four helped fund the 2008 ballot measure that created the project and HNTB's PAC donated to lawmakers like Scott Wiener.",
+   "tr": "Vier Ingenieurbüros — Parsons Brinckerhoff (101 Mio. $), HNTB (86 Mio. $), WSP (61 Mio. $) und AECOM (38 Mio. $) — kassierten den Großteil der 677 Millionen Dollar, um über 130.000 Seiten Umweltdokumente zu produzieren, nachdem drei dieser vier die Volksabstimmung 2008 mitfinanziert hatten, die das Projekt schuf, und das PAC von HNTB an Abgeordnete wie Scott Wiener spendete."
+  },
+  "08a73857d34d91fc": {
+   "kind": "moment topic",
+   "en": "ceqa-industrial-complex",
+   "tr": "ceqa-industriekomplex"
+  },
+  "76f7d5d279f7c86b": {
+   "kind": "moment topic",
+   "en": "campaign-donations",
+   "tr": "kampagnenspenden"
+  },
+  "b38ce34ed59b0e40": {
+   "kind": "moment",
+   "en": "David asks about SEIU-UHW and its president Dave Regan behind Proposition 40; Eve details how Regan calls ballot initiatives 'the best bargain in American politics,' filing 23 to 48 initiatives since 2012 — including three losing dialysis propositions that forced DaVita and Fresenius to spend $216M+ and repeated hospital executive-pay initiatives withdrawn for organizing deals — and how Prop 40 combines bargaining leverage with backfilling $30B/year in Medi-Cal cuts.",
+   "tr": "David fragt nach SEIU-UHW und dessen Präsidenten Dave Regan hinter Proposition 40; Eve legt dar, wie Regan Volksinitiativen «das beste Schnäppchen in der amerikanischen Politik» nennt und seit 2012 23 bis 48 Initiativen eingereicht hat — darunter drei verlorene Dialyse-Propositionen, die DaVita und Fresenius zu Ausgaben von über 216 Mio. $ zwangen, und wiederholte Initiativen zur Vergütung von Krankenhausmanagern, die er gegen Organizing-Deals zurückzog — und wie Prop 40 Verhandlungsmacht mit dem Auffüllen jährlicher Medi-Cal-Kürzungen von 30 Mrd. $ verbindet."
+  },
+  "419d3a04318b3972": {
+   "kind": "moment q",
+   "en": "Tell me about SEIU-UHW and union president Dave Regan — why have they filed so many ballot propositions, and is Prop 40 a cynical leverage play or genuine conviction?",
+   "tr": "Erzähl mir von SEIU-UHW und Gewerkschaftspräsident Dave Regan — warum haben sie so viele Volksabstimmungen eingereicht, und ist Prop 40 ein zynisches Hebelspiel oder echte Überzeugung?"
+  },
+  "f93814bac6ea9919": {
+   "kind": "moment a",
+   "en": "Dave Regan calls ballot initiatives 'the best bargain in American politics' and has filed 23 to 48 since 2012, forcing dialysis companies to spend $216M across three losing measures and withdrawing hospital executive-pay caps for organizing deals he calls 'tactical gains.' With Prop 40, it's both leverage — he offered Gavin Newsom to drop it for a 2% legislative tax — and aligned interest to protect union healthcare jobs from federal Medi-Cal cuts.",
+   "tr": "Dave Regan nennt Volksinitiativen «das beste Schnäppchen in der amerikanischen Politik» und hat seit 2012 23 bis 48 eingereicht, Dialysefirmen über drei verlorene Vorlagen zu Ausgaben von 216 Mio. $ gezwungen und Obergrenzen für die Vergütung von Krankenhausmanagern gegen Organizing-Deals zurückgezogen, die er «taktische Gewinne» nennt. Bei Prop 40 ist es beides: Hebel — er bot Gavin Newsom an, sie für eine gesetzliche Steuer von 2 % fallen zu lassen — und gleichgerichtetes Interesse, gewerkschaftliche Jobs im Gesundheitswesen vor Medi-Cal-Kürzungen des Bundes zu schützen."
+  },
+  "11901291db3bc365": {
+   "kind": "moment topic",
+   "en": "california-billionaire-tax-prop-40",
+   "tr": "kalifornien-milliardärssteuer-prop-40"
+  },
+  "531e86bac1ff59ef": {
+   "kind": "moment topic",
+   "en": "seiu-uhw-ballot-leverage",
+   "tr": "seiu-uhw-abstimmungshebel"
+  },
+  "eb302a15e0bebdb5": {
+   "kind": "moment topic",
+   "en": "dialysis-propositions",
+   "tr": "dialyse-propositionen"
+  },
+  "a9a11f1c5c356dc8": {
+   "kind": "moment topic",
+   "en": "medi-cal-cuts",
+   "tr": "medi-cal-kürzungen"
+  },
+  "07f7dee40d9bad01": {
+   "kind": "moment",
+   "en": "David asks how Proposition 40 values super-voting shares and whether the professors who wrote it made a mistake; Eve explains Section 5033(c)(3)(C)'s voting-control floor and book-plus-7.5x-profits formula for private companies (plus 4% appraiser penalties), confirms from the drafters' explainer that it was an intentional design choice by UC Berkeley economist Emmanuel Saez and co-drafters, and contrasts Prop 40's precedent play with wealth taxes in Norway, Switzerland, Spain, and France.",
+   "tr": "David fragt, wie Proposition 40 Anteile mit Mehrstimmrecht bewertet und ob die Professoren, die sie geschrieben haben, einen Fehler gemacht haben; Eve erklärt die Stimmrechts-Untergrenze in Section 5033(c)(3)(C) und die Formel Buchwert plus 7,5-fache Gewinne für Privatunternehmen (plus 4 % Strafen für Gutachter), bestätigt anhand des Erklärtexts der Verfasser, dass es eine bewusste Designentscheidung des Ökonomen Emmanuel Saez von der UC Berkeley und der Mitverfasser war, und stellt das Präzedenzspiel von Prop 40 den Vermögenssteuern in Norwegen, der Schweiz, Spanien und Frankreich gegenüber."
+  },
+  "87ed046fcc3a2358": {
+   "kind": "moment q",
+   "en": "How does Prop 40 value founders' voting shares — and did Emmanuel Saez and the professors who wrote it make a mistake or do it on purpose?",
+   "tr": "Wie bewertet Prop 40 die Stimmrechtsanteile von Gründern — und haben Emmanuel Saez und die Professoren, die sie geschrieben haben, einen Fehler gemacht oder es mit Absicht getan?"
+  },
+  "f415b418914c7889": {
+   "kind": "moment a",
+   "en": "Under Section 5033(c)(3)(C), privately held companies are valued at GAAP book value plus 7.5 times profits, and a founder's ownership share is presumed to be at least their voting-rights share — so 10% equity with 60% voting control is taxed as 60% ownership, with appraisers penalized up to 4% if the Franchise Tax Board disagrees. Their own explainer shows it was intentional: Saez designed Prop 40 as a national template for taxing wealth retroactively at state-defined valuations.",
+   "tr": "Nach Section 5033(c)(3)(C) werden nicht börsennotierte Unternehmen mit dem GAAP-Buchwert plus dem 7,5-Fachen der Gewinne bewertet, und der Eigentumsanteil eines Gründers wird mindestens so hoch angesetzt wie sein Stimmrechtsanteil — 10 % Eigenkapital bei 60 % Stimmkontrolle werden also als 60 % Eigentum besteuert, wobei Gutachter mit bis zu 4 % bestraft werden, wenn das Franchise Tax Board nicht einverstanden ist. Ihr eigener Erklärtext zeigt, dass es Absicht war: Saez hat Prop 40 als nationale Vorlage entworfen, um Vermögen rückwirkend zu staatlich definierten Bewertungen zu besteuern."
+  },
+  "26d4ae8bcc18c783": {
+   "kind": "moment topic",
+   "en": "section-5033-valuation-trap",
+   "tr": "section-5033-bewertungsfalle"
+  },
+  "2df77a3c37623030": {
+   "kind": "moment topic",
+   "en": "wealth-tax-precedent",
+   "tr": "vermögenssteuer-präzedenz"
+  },
+  "8123eee5ef774b82": {
+   "kind": "moment topic",
+   "en": "california-supreme-court",
+   "tr": "california-supreme-court"
+  },
+  "3e494dff81ad1889": {
+   "kind": "moment",
+   "en": "While analyzing California's Proposition 40 billionaire wealth tax, Eve notes that Peter Thiel is among the tech billionaires funding the opposition coalition and that Prop 40's rule taxing Roth IRAs above $10 million (while exempting traditional pensions and retirement accounts) is a direct wink at Thiel's mega-Roth IRA without naming him.",
+   "tr": "Bei der Analyse von Kaliforniens Proposition 40, der Vermögenssteuer für Milliardäre, stellt Eve fest, dass Peter Thiel zu den Tech-Milliardären gehört, die die Oppositionskoalition finanzieren, und dass die Regel von Prop 40, Roth-IRAs über 10 Millionen Dollar zu besteuern (während traditionelle Pensionen und Rentenkonten ausgenommen sind), ein direkter Wink auf Thiels Mega-Roth-IRA ist, ohne ihn namentlich zu nennen."
+  },
+  "6b365ba0feac46cb": {
+   "kind": "moment q",
+   "en": "How is Proposition 40 structured around retirement accounts and tech billionaires like Peter Thiel?",
+   "tr": "Wie ist Proposition 40 bei Rentenkonten und Tech-Milliardären wie Peter Thiel aufgebaut?"
+  },
+  "f005d4a3ef98f75a": {
+   "kind": "moment a",
+   "en": "Traditional pensions and retirement accounts are exempt under Prop 40, but Roth IRAs over $10 million are taxed — a direct wink at Peter Thiel's mega-Roth IRA without naming him, while Thiel has joined Sergey Brin, Chris Larsen, Tony Xu, and Ron Conway in opposing the measure.",
+   "tr": "Traditionelle Pensionen und Rentenkonten sind unter Prop 40 ausgenommen, Roth-IRAs über 10 Millionen Dollar werden aber besteuert — ein direkter Wink auf Peter Thiels Mega-Roth-IRA, ohne ihn namentlich zu nennen, während Thiel sich Sergey Brin, Chris Larsen, Tony Xu und Ron Conway angeschlossen hat und die Maßnahme ebenfalls ablehnt."
+  },
+  "026bd1790356dc7a": {
+   "kind": "moment topic",
+   "en": "roth-ira-carveout",
+   "tr": "Roth-IRA-Ausnahme"
+  }
+ },
+ "de_audio_url": "https://audio.askevepodcast.com/audio/de/2026-10-24_california-high-speed-rail-and-the-billionaire-tax.v1.mp3",
+ "de_duration_s": 4577,
+ "de_audio_bytes": 73228545,
+ "de_audio_sha256": "5b2cbc1ed4ffa017d970cae2e7a3054a2c70d78cda87e1779bb0768777f9a7b7",
+ "de_turn_offsets": {
+  "t1": {
+   "start": 7.57,
+   "end": 8.53
+  },
+  "0": {
+   "start": 7.57,
+   "end": 8.53
+  },
+  "t2": {
+   "start": 9.13,
+   "end": 12.0
+  },
+  "1": {
+   "start": 9.13,
+   "end": 12.0
+  },
+  "t3": {
+   "start": 12.6,
+   "end": 16.6
+  },
+  "2": {
+   "start": 12.6,
+   "end": 16.6
+  },
+  "t4": {
+   "start": 17.2,
+   "end": 32.87
+  },
+  "3": {
+   "start": 17.2,
+   "end": 32.87
+  },
+  "t5": {
+   "start": 33.47,
+   "end": 39.15
+  },
+  "4": {
+   "start": 33.47,
+   "end": 39.15
+  },
+  "t6": {
+   "start": 39.75,
+   "end": 44.54
+  },
+  "5": {
+   "start": 39.75,
+   "end": 44.54
+  },
+  "t7": {
+   "start": 45.14,
+   "end": 50.82
+  },
+  "6": {
+   "start": 45.14,
+   "end": 50.82
+  },
+  "t8": {
+   "start": 51.42,
+   "end": 107.41
+  },
+  "7": {
+   "start": 51.42,
+   "end": 107.41
+  },
+  "t9": {
+   "start": 108.01,
+   "end": 113.69
+  },
+  "8": {
+   "start": 108.01,
+   "end": 113.69
+  },
+  "t10": {
+   "start": 114.29,
+   "end": 123.56
+  },
+  "9": {
+   "start": 114.29,
+   "end": 123.56
+  },
+  "t11": {
+   "start": 124.16,
+   "end": 126.8
+  },
+  "10": {
+   "start": 124.16,
+   "end": 126.8
+  },
+  "t12": {
+   "start": 127.4,
+   "end": 143.39
+  },
+  "11": {
+   "start": 127.4,
+   "end": 143.39
+  },
+  "t13": {
+   "start": 143.99,
+   "end": 153.35
+  },
+  "12": {
+   "start": 143.99,
+   "end": 153.35
+  },
+  "t14": {
+   "start": 153.95,
+   "end": 341.14
+  },
+  "13": {
+   "start": 153.95,
+   "end": 341.14
+  },
+  "t15": {
+   "start": 341.74,
+   "end": 354.3
+  },
+  "14": {
+   "start": 341.74,
+   "end": 354.3
+  },
+  "t16": {
+   "start": 354.9,
+   "end": 447.69
+  },
+  "15": {
+   "start": 354.9,
+   "end": 447.69
+  },
+  "t17": {
+   "start": 448.29,
+   "end": 465.73
+  },
+  "16": {
+   "start": 448.29,
+   "end": 465.73
+  },
+  "t18": {
+   "start": 466.33,
+   "end": 640.4
+  },
+  "17": {
+   "start": 466.33,
+   "end": 640.4
+  },
+  "t19": {
+   "start": 641.0,
+   "end": 647.72
+  },
+  "18": {
+   "start": 641.0,
+   "end": 647.72
+  },
+  "t20": {
+   "start": 648.32,
+   "end": 786.87
+  },
+  "19": {
+   "start": 648.32,
+   "end": 786.87
+  },
+  "t21": {
+   "start": 787.47,
+   "end": 788.75
+  },
+  "20": {
+   "start": 787.47,
+   "end": 788.75
+  },
+  "t22": {
+   "start": 789.35,
+   "end": 885.02
+  },
+  "21": {
+   "start": 789.35,
+   "end": 885.02
+  },
+  "t23": {
+   "start": 885.62,
+   "end": 886.42
+  },
+  "22": {
+   "start": 885.62,
+   "end": 886.42
+  },
+  "t24": {
+   "start": 887.02,
+   "end": 892.13
+  },
+  "23": {
+   "start": 887.02,
+   "end": 892.13
+  },
+  "t25": {
+   "start": 892.73,
+   "end": 894.57
+  },
+  "24": {
+   "start": 892.73,
+   "end": 894.57
+  },
+  "t26": {
+   "start": 895.17,
+   "end": 1067.0
+  },
+  "25": {
+   "start": 895.17,
+   "end": 1067.0
+  },
+  "t27": {
+   "start": 1067.6,
+   "end": 1075.04
+  },
+  "26": {
+   "start": 1067.6,
+   "end": 1075.04
+  },
+  "t28": {
+   "start": 1075.64,
+   "end": 1104.75
+  },
+  "27": {
+   "start": 1075.64,
+   "end": 1104.75
+  },
+  "t29": {
+   "start": 1105.35,
+   "end": 1112.47
+  },
+  "28": {
+   "start": 1105.35,
+   "end": 1112.47
+  },
+  "t30": {
+   "start": 1113.07,
+   "end": 1133.54
+  },
+  "29": {
+   "start": 1113.07,
+   "end": 1133.54
+  },
+  "t31": {
+   "start": 1134.14,
+   "end": 1152.46
+  },
+  "30": {
+   "start": 1134.14,
+   "end": 1152.46
+  },
+  "t32": {
+   "start": 1153.06,
+   "end": 1155.93
+  },
+  "31": {
+   "start": 1153.06,
+   "end": 1155.93
+  },
+  "t33": {
+   "start": 1156.53,
+   "end": 1157.65
+  },
+  "32": {
+   "start": 1156.53,
+   "end": 1157.65
+  },
+  "t34": {
+   "start": 1158.25,
+   "end": 1284.0
+  },
+  "33": {
+   "start": 1158.25,
+   "end": 1284.0
+  },
+  "t35": {
+   "start": 1284.6,
+   "end": 1285.96
+  },
+  "34": {
+   "start": 1284.6,
+   "end": 1285.96
+  },
+  "t36": {
+   "start": 1286.56,
+   "end": 1287.51
+  },
+  "35": {
+   "start": 1286.56,
+   "end": 1287.51
+  },
+  "t37": {
+   "start": 1288.11,
+   "end": 1289.47
+  },
+  "36": {
+   "start": 1288.11,
+   "end": 1289.47
+  },
+  "t38": {
+   "start": 1290.07,
+   "end": 1295.82
+  },
+  "37": {
+   "start": 1290.07,
+   "end": 1295.82
+  },
+  "t39": {
+   "start": 1296.42,
+   "end": 1302.34
+  },
+  "38": {
+   "start": 1296.42,
+   "end": 1302.34
+  },
+  "t40": {
+   "start": 1302.94,
+   "end": 1439.89
+  },
+  "39": {
+   "start": 1302.94,
+   "end": 1439.89
+  },
+  "t41": {
+   "start": 1440.49,
+   "end": 1441.85
+  },
+  "40": {
+   "start": 1440.49,
+   "end": 1441.85
+  },
+  "t42": {
+   "start": 1442.45,
+   "end": 1444.68
+  },
+  "41": {
+   "start": 1442.45,
+   "end": 1444.68
+  },
+  "t43": {
+   "start": 1445.28,
+   "end": 1447.04
+  },
+  "42": {
+   "start": 1445.28,
+   "end": 1447.04
+  },
+  "t44": {
+   "start": 1447.64,
+   "end": 1552.59
+  },
+  "43": {
+   "start": 1447.64,
+   "end": 1552.59
+  },
+  "t45": {
+   "start": 1553.19,
+   "end": 1555.35
+  },
+  "44": {
+   "start": 1553.19,
+   "end": 1555.35
+  },
+  "t46": {
+   "start": 1555.95,
+   "end": 1639.46
+  },
+  "45": {
+   "start": 1555.95,
+   "end": 1639.46
+  },
+  "t47": {
+   "start": 1640.06,
+   "end": 1662.14
+  },
+  "46": {
+   "start": 1640.06,
+   "end": 1662.14
+  },
+  "t48": {
+   "start": 1662.74,
+   "end": 1739.85
+  },
+  "47": {
+   "start": 1662.74,
+   "end": 1739.85
+  },
+  "t49": {
+   "start": 1740.45,
+   "end": 1745.25
+  },
+  "48": {
+   "start": 1740.45,
+   "end": 1745.25
+  },
+  "t50": {
+   "start": 1745.85,
+   "end": 1801.84
+  },
+  "49": {
+   "start": 1745.85,
+   "end": 1801.84
+  },
+  "t51": {
+   "start": 1802.44,
+   "end": 1815.32
+  },
+  "50": {
+   "start": 1802.44,
+   "end": 1815.32
+  },
+  "t52": {
+   "start": 1815.92,
+   "end": 1878.63
+  },
+  "51": {
+   "start": 1815.92,
+   "end": 1878.63
+  },
+  "t53": {
+   "start": 1879.23,
+   "end": 1891.63
+  },
+  "52": {
+   "start": 1879.23,
+   "end": 1891.63
+  },
+  "t54": {
+   "start": 1892.23,
+   "end": 1937.66
+  },
+  "53": {
+   "start": 1892.23,
+   "end": 1937.66
+  },
+  "t55": {
+   "start": 1938.26,
+   "end": 1941.22
+  },
+  "54": {
+   "start": 1938.26,
+   "end": 1941.22
+  },
+  "t56": {
+   "start": 1941.82,
+   "end": 2097.01
+  },
+  "55": {
+   "start": 1941.82,
+   "end": 2097.01
+  },
+  "t57": {
+   "start": 2097.61,
+   "end": 2104.09
+  },
+  "56": {
+   "start": 2097.61,
+   "end": 2104.09
+  },
+  "t58": {
+   "start": 2104.69,
+   "end": 2167.4
+  },
+  "57": {
+   "start": 2104.69,
+   "end": 2167.4
+  },
+  "t59": {
+   "start": 2168.0,
+   "end": 2183.12
+  },
+  "58": {
+   "start": 2168.0,
+   "end": 2183.12
+  },
+  "t60": {
+   "start": 2183.72,
+   "end": 2309.47
+  },
+  "59": {
+   "start": 2183.72,
+   "end": 2309.47
+  },
+  "t61": {
+   "start": 2310.07,
+   "end": 2325.43
+  },
+  "60": {
+   "start": 2310.07,
+   "end": 2325.43
+  },
+  "t62": {
+   "start": 2326.03,
+   "end": 2400.26
+  },
+  "61": {
+   "start": 2326.03,
+   "end": 2400.26
+  },
+  "t63": {
+   "start": 2400.86,
+   "end": 2402.3
+  },
+  "62": {
+   "start": 2400.86,
+   "end": 2402.3
+  },
+  "t64": {
+   "start": 2402.9,
+   "end": 2515.53
+  },
+  "63": {
+   "start": 2402.9,
+   "end": 2515.53
+  },
+  "t65": {
+   "start": 2516.13,
+   "end": 2530.37
+  },
+  "64": {
+   "start": 2516.13,
+   "end": 2530.37
+  },
+  "t66": {
+   "start": 2530.97,
+   "end": 2632.4
+  },
+  "65": {
+   "start": 2530.97,
+   "end": 2632.4
+  },
+  "t67": {
+   "start": 2633.0,
+   "end": 2637.88
+  },
+  "66": {
+   "start": 2633.0,
+   "end": 2637.88
+  },
+  "t68": {
+   "start": 2638.48,
+   "end": 2640.07
+  },
+  "67": {
+   "start": 2638.48,
+   "end": 2640.07
+  },
+  "t69": {
+   "start": 2640.67,
+   "end": 2642.43
+  },
+  "68": {
+   "start": 2640.67,
+   "end": 2642.43
+  },
+  "t70": {
+   "start": 2643.03,
+   "end": 2682.38
+  },
+  "69": {
+   "start": 2643.03,
+   "end": 2682.38
+  },
+  "t71": {
+   "start": 2682.98,
+   "end": 2688.66
+  },
+  "70": {
+   "start": 2682.98,
+   "end": 2688.66
+  },
+  "t72": {
+   "start": 2689.26,
+   "end": 2770.53
+  },
+  "71": {
+   "start": 2689.26,
+   "end": 2770.53
+  },
+  "t73": {
+   "start": 2771.13,
+   "end": 2771.93
+  },
+  "72": {
+   "start": 2771.13,
+   "end": 2771.93
+  },
+  "t74": {
+   "start": 2772.53,
+   "end": 2857.64
+  },
+  "73": {
+   "start": 2772.53,
+   "end": 2857.64
+  },
+  "t75": {
+   "start": 2858.24,
+   "end": 2865.44
+  },
+  "74": {
+   "start": 2858.24,
+   "end": 2865.44
+  },
+  "t76": {
+   "start": 2866.04,
+   "end": 2969.71
+  },
+  "75": {
+   "start": 2866.04,
+   "end": 2969.71
+  },
+  "t77": {
+   "start": 2970.31,
+   "end": 2973.11
+  },
+  "76": {
+   "start": 2970.31,
+   "end": 2973.11
+  },
+  "t78": {
+   "start": 2973.71,
+   "end": 3012.74
+  },
+  "77": {
+   "start": 2973.71,
+   "end": 3012.74
+  },
+  "t79": {
+   "start": 3013.34,
+   "end": 3030.22
+  },
+  "78": {
+   "start": 3013.34,
+   "end": 3030.22
+  },
+  "t80": {
+   "start": 3030.82,
+   "end": 3284.25
+  },
+  "79": {
+   "start": 3030.82,
+   "end": 3284.25
+  },
+  "t81": {
+   "start": 3284.85,
+   "end": 3294.13
+  },
+  "80": {
+   "start": 3284.85,
+   "end": 3294.13
+  },
+  "t82": {
+   "start": 3294.73,
+   "end": 3521.28
+  },
+  "81": {
+   "start": 3294.73,
+   "end": 3521.28
+  },
+  "t83": {
+   "start": 3521.88,
+   "end": 3538.84
+  },
+  "82": {
+   "start": 3521.88,
+   "end": 3538.84
+  },
+  "t84": {
+   "start": 3539.44,
+   "end": 3644.39
+  },
+  "83": {
+   "start": 3539.44,
+   "end": 3644.39
+  },
+  "t85": {
+   "start": 3644.99,
+   "end": 3662.83
+  },
+  "84": {
+   "start": 3644.99,
+   "end": 3662.83
+  },
+  "t86": {
+   "start": 3663.43,
+   "end": 3869.5
+  },
+  "85": {
+   "start": 3663.43,
+   "end": 3869.5
+  },
+  "t87": {
+   "start": 3870.1,
+   "end": 3882.82
+  },
+  "86": {
+   "start": 3870.1,
+   "end": 3882.82
+  },
+  "t88": {
+   "start": 3883.42,
+   "end": 3973.01
+  },
+  "87": {
+   "start": 3883.42,
+   "end": 3973.01
+  },
+  "t89": {
+   "start": 3973.61,
+   "end": 3978.65
+  },
+  "88": {
+   "start": 3973.61,
+   "end": 3978.65
+  },
+  "t90": {
+   "start": 3979.25,
+   "end": 4088.04
+  },
+  "89": {
+   "start": 3979.25,
+   "end": 4088.04
+  },
+  "t91": {
+   "start": 4088.64,
+   "end": 4091.2
+  },
+  "90": {
+   "start": 4088.64,
+   "end": 4091.2
+  },
+  "t92": {
+   "start": 4091.8,
+   "end": 4295.95
+  },
+  "91": {
+   "start": 4091.8,
+   "end": 4295.95
+  },
+  "t93": {
+   "start": 4296.55,
+   "end": 4316.87
+  },
+  "92": {
+   "start": 4296.55,
+   "end": 4316.87
+  },
+  "t94": {
+   "start": 4317.47,
+   "end": 4402.26
+  },
+  "93": {
+   "start": 4317.47,
+   "end": 4402.26
+  },
+  "t95": {
+   "start": 4402.86,
+   "end": 4429.58
+  },
+  "94": {
+   "start": 4402.86,
+   "end": 4429.58
+  },
+  "t96": {
+   "start": 4430.18,
+   "end": 4564.89
+  },
+  "95": {
+   "start": 4430.18,
+   "end": 4564.89
+  },
+  "t97": {
+   "start": 4565.49,
+   "end": 4571.89
+  },
+  "96": {
+   "start": 4565.49,
+   "end": 4571.89
+  },
+  "t98": {
+   "start": 4572.49,
+   "end": 4575.68
+  },
+  "97": {
+   "start": 4572.49,
+   "end": 4575.68
+  }
+ }
+}

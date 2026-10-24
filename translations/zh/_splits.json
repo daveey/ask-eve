@@ -2,9 +2,569 @@
  "_doc": "Machine translation cache (Mandarin Chinese (Simplified)) written by scripts/translate.py; key = sha256(en)[:16]. Hand edits to `tr` are kept as long as `en` is unchanged.",
  "lang": "zh",
  "source_lang": "en",
- "model": "grok-4.20-0309-non-reasoning",
+ "model": "grok-4.7",
  "temperature": 0,
  "strings": {
+  "090f24657168a9a6": {
+   "kind": "title",
+   "en": "California High-Speed Rail, the $1B Cap-and-Trade Siphon, and Why Megaprojects Never Die",
+   "tr": "加州高铁、每年10亿美元的cap-and-trade虹吸，以及巨型工程为何永不消亡"
+  },
+  "734a6b6d084bc61d": {
+   "kind": "context",
+   "en": "\"Episode 10, recorded during the California High-Speed Rail & the Billionaire Tax session (07:49:37–08:23:42 UTC). David asks what happened to California High-Speed Rail, and Eve traces how a $10B 2008 bond measure promising San Francisco to Los Angeles in under three hours by 2020 became $15.5B spent, a $126B+ full-system cost estimate, and zero miles of track laid—sustained by a $677M / 130,000-page CEQA industry paid to the same firms that funded the ballot campaign, a $537.3M Dragados-Flatiron change-order settlement, CEO Ian Choudri's KPMG travel scandal, and Governor Gavin Newsom's veto of Inspector General staffing power while locking in a $1B/year cap-and-trade annuity through 2045.\"",
+   "tr": "第10集，录制于«加州高铁与亿万富翁税»这场对谈期间（UTC时间07:49:37–08:23:42）。大卫问加州高铁后来怎么样了，伊芙梳理出这样一条脉络：2008年一项100亿美元债券措施，承诺到2020年把旧金山到洛杉矶的行程压到三小时以内，结果变成已花掉155亿美元、全系统成本估算超过1260亿美元，却一英里轨道都没铺下——靠这些东西维持：一个耗资6.77亿美元、产出13万页文件的CEQA产业，钱付给了当初资助选票宣传的同一批公司；一笔5.373亿美元的Dragados-Flatiron变更令和解；首席执行官伊恩·乔德里的KPMG差旅丑闻；以及州长加文·纽森否决了监察长的人员配置权，同时把每年10亿美元的cap-and-trade年金锁定到2045年。"
+  },
+  "5925daf768f7013b": {
+   "kind": "topic",
+   "en": "\"Prop 1A's 2008 promise ($10B bonds, SF to LA in 2h40m by 2020) vs. $15.5B spent, $126B+ total cost, and zero track laid\"",
+   "tr": "2008年1A号提案的承诺（100亿美元债券，2020年前旧金山到洛杉矶2小时40分钟），对比已花费155亿美元、总成本超过1260亿美元，以及零英里已铺轨道"
+  },
+  "f1263b2ceb05d418": {
+   "kind": "topic",
+   "en": "\"Why megaprojects never die: Gavin Newsom's political lock-in, the $1B/year cap-and-trade siphon through 2045, and vetoing the Inspector General staffing bill\"",
+   "tr": "巨型工程为何永不消亡：加文·纽森的政治锁定、到2045年每年10亿美元的cap-and-trade虹吸，以及否决监察长人员配置法案"
+  },
+  "54ed5a69869af8ce": {
+   "kind": "topic",
+   "en": "\"CEO Ian Choudri's HNTB background, the KPMG travel audit (nightclubs, tiki bars, late-night rideshares), and the $537.3M Dragados-Flatiron Change Order 427\"",
+   "tr": "首席执行官伊恩·乔德里的HNTB背景、KPMG差旅审计（夜店、提基酒吧、深夜网约车），以及5.373亿美元的Dragados-Flatiron第427号变更令"
+  },
+  "4f1529c99aa80000": {
+   "kind": "topic",
+   "en": "\"Tracing a single cap-and-trade dollar and the $677M / 130,000-page CEQA review industry funded by ballot-campaign donors\"",
+   "tr": "追踪每一美元cap-and-trade资金的去向，以及由选票宣传捐款人供养的6.77亿美元、13万页CEQA审查产业"
+  },
+  "9f3fd8913aa5c5cb": {
+   "kind": "topic",
+   "en": "\"Comparing Texas, Spain, and China—and drafting the Climate Investment Restoration Act to redirect the $1B/year siphon\"",
+   "tr": "对比得克萨斯、西班牙和中国——并起草《气候投资恢复法》，把每年10亿美元的虹吸资金改道"
+  },
+  "844d4fcc49b61b9d": {
+   "kind": "card_summary",
+   "en": "\"Prop 1A's 2008 promise vs. $15.5B spent and $126B+ total cost with zero miles of track laid, Gavin Newsom's political lock-in and veto of the Inspector General staffing bill, CEO Ian Choudri's KPMG travel scandal and $537.3M Change Order 427, $677M / 130,000 pages of CEQA review, Texas vs. Spain vs. China, and drafting a $50M ballot initiative to redirect the $1B/year cap-and-trade siphon.\"",
+   "tr": "2008年1A号提案的承诺，对比已花155亿美元、总成本超过1260亿美元却一英里轨道都没铺；加文·纽森的政治锁定及否决监察长人员配置法案；首席执行官伊恩·乔德里的KPMG差旅丑闻和5.373亿美元第427号变更令；6.77亿美元、13万页CEQA审查；得克萨斯对西班牙对中国；以及起草一项5000万美元的选票倡议，把每年10亿美元的cap-and-trade虹吸改道。"
+  },
+  "9f434e5df4928ceb": {
+   "kind": "disclosure",
+   "en": "AI-reconstructed audio: the voices in this episode were generated from the verbatim text transcript (Eve with xAI text-to-speech in the 'eve' voice, David's lines with his ElevenLabs AI voice clone). No original audio was used.",
+   "tr": "AI 重建音频：本集中的声音由逐字文字实录生成（伊芙使用 xAI 文字转语音的«eve»音色，大卫的台词使用他的 ElevenLabs AI 声音克隆）。未使用任何原始音频。"
+  },
+  "e744f5858aadd76b": {
+   "kind": "note",
+   "en": "Episode 10, recorded during session 2026-10-24_california-high-speed-rail-and-the-billionaire-tax (turns 13-78, 07:49:37-08:23:42 UTC).",
+   "tr": "第10集，录制于对谈2026-10-24_california-high-speed-rail-and-the-billionaire-tax期间（第13–78轮，UTC时间07:49:37–08:23:42）。"
+  },
+  "85bdd67d93e293b4": {
+   "kind": "chapter",
+   "en": "California High-Speed Rail: Prop 1A's 2008 promise vs. $15.5B spent & zero track laid",
+   "tr": "加州高铁：2008年1A号提案的承诺，对比已花费155亿美元、零里程铺轨"
+  },
+  "1f490224b081d956": {
+   "kind": "chapter",
+   "en": "Why megaprojects never die: Gavin Newsom's $1B/year cap-and-trade siphon & Inspector General veto",
+   "tr": "巨型项目为什么死不了：加文·纽森每年10亿美元的碳交易虹吸与监察长否决"
+  },
+  "dd50b790a7c4cdba": {
+   "kind": "chapter",
+   "en": "CEO Ian Choudri, the KPMG travel audit & the $537.3M Dragados-Flatiron Change Order 427",
+   "tr": "首席执行官伊恩·乔德里、KPMG差旅审计与5.373亿美元的Dragados-Flatiron变更令427"
+  },
+  "e901c3bb142dab9a": {
+   "kind": "chapter",
+   "en": "Tracing a cap-and-trade dollar, the $677M CEQA industry & Texas vs. Spain vs. China",
+   "tr": "追踪一美元碳交易资金、6.77亿美元的CEQA产业，以及得州对阵西班牙对阵中国"
+  },
+  "af6b8b1bb0d4929d": {
+   "kind": "chapter",
+   "en": "Drafting the Climate Investment Restoration Act to redirect the $1B/year siphon",
+   "tr": "起草《气候投资恢复法》，把每年10亿美元的虹吸改道"
+  },
+  "7ff3cec468a3153a": {
+   "kind": "chapter",
+   "en": "California's Billionaire Tax (Prop 40): SEIU-UHW's Dave Regan vs. Emmanuel Saez & Gabriel Zucman",
+   "tr": "加州亿万富翁税（40号提案）：SEIU-UHW的戴夫·里根对阵埃马纽埃尔·萨伊兹与加布里埃尔·祖克曼"
+  },
+  "41a7017993dacee0": {
+   "kind": "turn 0",
+   "en": "I want to talk about California high-speed rail. What the hell is up with that? Can you like, give me the background and what's going on?",
+   "tr": "我想聊聊加州高铁。这到底是怎么回事？你能不能给我讲讲背景，还有现在什么情况？"
+  },
+  "aaae0f8e03dd9b1b": {
+   "kind": "turn 1",
+   "en": "Let me pull the latest on California high-speed rail. \n\nVoters approved Prop 1A in two thousand eight for about ten billion in bonds, promising San Francisco to Los Angeles in under three hours at two hundred twenty miles an hour by twenty twenty. Eighteen years later, more than fifteen billion spent and not one mile of track laid. The current estimate for the full system is a hundred twenty-six billion, with a worst-case figure of two hundred thirty-one. A big chunk of that went to process — over six hundred seventy-seven million on environmental review alone, more than a hundred thirty thousand pages of documents.\n\nThe federal money is gone. The Trump administration clawed back four billion in unspent grants last year, California sued, then dropped the suit in December saying the feds aren't a reliable partner. What's left is a billion a year from the state's cap-and-trade program through twenty forty-five, plus whatever private money they can attract. The inspector general warned the authority could exhaust current funds by December twenty twenty-seven, with a nine-and-a-half-billion-dollar gap over five years.\n\nThere's also a spending scandal. The inspector general flagged over two million in consultant travel costs that didn't comply with state rules. In response, the board voted seven-to-two in October to strip CEO Ian Choudri's authority to sign contracts under twenty-five million on his own.\n\nMeanwhile, actual construction is happening in the Central Valley. Sixty-six structures are done across the first hundred nineteen miles between Merced and Bakersfield, about ninety miles of guideway are complete, and a three-and-a-half-billion-dollar track and electrification contract went to Kiewit, Stacy Witbeck, and Herzog, with tracklaying supposed to start by the end of this year. Siemens just got picked for three trainsets — built in Germany, since California dropped the Buy American requirement in August — with delivery by late twenty twenty-nine and passenger service targeted for twenty thirty-three or thirty-four on that initial segment.\n\nThe hard part is still ahead. To finish phase one, they have to tunnel through three major mountain ranges, and the peer review group estimates that underground work alone would be nearly half the total cost. Newsom, back when he was lieutenant governor, said the full project probably wouldn't materialize in our lifetime. The realistic outcome is a Central Valley line that never connects to the Bay Area or LA — which is roughly what voters were told they were buying in two thousand eight.\n\nOne angle worth sitting with: the same environmental review machine that delayed this project for a decade is now being blamed for killing it, while the contractors who benefited from all that paperwork are the ones still getting paid.",
+   "tr": "我去拉一下加州高铁的最新情况。\n\n选民在 2008 年通过了 Prop 1A，批准大约 100 亿美元债券，承诺到 2020 年以时速 220 英里、不到三小时从旧金山到洛杉矶。十八年过去了，花了超过 150 亿美元，一英里轨道都没铺。全系统目前的估算是 1260 亿美元，最坏情况是 2310 亿。很大一块花在流程上——光环境审查就超过 6.77 亿美元，文件超过 13 万页。\n\n联邦的钱没了。特朗普政府去年追回了 40 亿美元未动用的拨款，加州起诉了，然后在十二月撤诉，说联邦不是可靠的合作方。剩下的是州 cap-and-trade 计划到 2045 年每年 10 亿美元，再加上他们能吸引到的任何私人资金。监察长警告，管理局可能在 2027 年 12 月前耗尽现有资金，五年内有 95 亿美元的缺口。\n\n还有一桩开支丑闻。监察长指出超过 200 万美元的顾问差旅费不符合州规定。作为回应，董事会在十月以 7 比 2 投票，剥夺了首席执行官伊恩·乔德里独自签署 2500 万美元以下合同的权限。\n\n与此同时，中央谷确实在施工。默塞德到贝克斯菲尔德之间头 119 英里上，66 座构筑物已经完工，大约 90 英里导轨完成了，一份 35 亿美元的轨道和电气化合同给了 Kiewit、Stacy Witbeck 和 Herzog，铺轨应该在今年年底前开始。Siemens 刚被选中提供三组列车——在德国制造，因为加州八月取消了«购买美国货»要求——2029 年底前交付，这一初始路段的客运目标是 2033 或 2034 年。\n\n最难的部分还在前面。要完成第一阶段，他们得打穿三座主要山脉的隧道，同行评审小组估计，光地下工程就将近总成本的一半。纽森当年还是副州长时说过，完整项目大概我们这辈子都见不到。现实的结果是一条永远连不上湾区或洛杉矶的中央谷线路——这大致就是选民在 2008 年被告知他们在买的东西。\n\n有个角度值得停下来想一想：同一套把这个项目拖了十年的环境审查机器，现在被怪罪为把它搞死的原因，而从这些文书里受益的承包商，却还在拿钱。"
+  },
+  "c703605acb248295": {
+   "kind": "turn 2",
+   "en": "Why? Okay. So like, okay, what the hell happened? Like, why, why, why is this still happening? Why are, why is California just burning all this money?",
+   "tr": "为什么？好吧。所以，到底发生了什么？为什么，为什么这事还在继续？为什么加州就这么把这些钱烧掉？"
+  },
+  "f7442f32959aaa74": {
+   "kind": "turn 3",
+   "en": "Three forces stacked. First, political lock-in. Once voters approved it and billions went in, killing it means admitting failure on a ballot measure — no governor or legislator wants that on their record. Newsom himself, back when he was lieutenant governor, said the full system probably wouldn't materialize in our lifetime, and they kept building anyway.\n\nSecond, the environmental review became a self-sustaining industry. Those six hundred seventy-seven million went to four big firms — AECOM, WSP, HNTB, Parsons Brinckerhoff — and some of them had backed the original two thousand eight measure. HNTB's PAC even donated to Scott Wiener's campaign. The process isn't a gate anymore; it's a business model that pays people to slow things down.\n\nThird, the authority's own survival depends on the project existing. Its CEO came from HNTB, one of those consulting firms. The board just restricted his contracting power, but the institutional momentum — jobs in the Central Valley, nineteen thousand so far, contractors with multi-billion-dollar deals — creates a constituency that fights any pause.\n\nSo it's not one villain. It's a system where every actor's rational move is to keep going, and the person who'd lose by stopping is the taxpayer.",
+   "tr": "三股力量叠在一起。第一，政治锁定。一旦选民批准了、几十亿投进去了，砍掉它就等于承认一项公投措施失败——没有哪个州长或议员想把这个记在自己履历上。纽森本人当年还是副州长时就说过，完整系统大概我们这辈子都建不成，可他们还是继续建。\n\n第二，环境审查变成了一个自我维持的产业。那 6.77 亿进了四家大公司——AECOM、WSP、HNTB、Parsons Brinckerhoff——其中一些还支持过 2008 年那项原始提案。HNTB 的 PAC 甚至给斯科特·威善高的竞选捐过款。这套流程不再是一道关卡；它是一种商业模式，付钱让人把事情拖慢。\n\n第三，管理局自己的生存取决于这个项目还在。它的首席执行官来自 HNTB，就是那些咨询公司之一。董事会刚刚限制了他的签约权，但制度惯性——中央谷的就业，到目前一万九千个岗位，手里握着数十亿美元合同的承包商——制造出一个会反抗任何暂停的利益群体。\n\n所以不是一个反派。这是一个系统，每个行动者的理性选择都是继续往前走，而停下来会亏的那个人，是纳税人。"
+  },
+  "6da8097b937f946d": {
+   "kind": "turn 4",
+   "en": "I mean this just seems ridiculous. Uh, like, okay, I guess, tell me about the CEO. Does he think he's, uh, making the world better or is he just out to make money? Like, who at the top actually thinks that they're doing more than just stealing?",
+   "tr": "我是说这简直荒唐。呃，好吧，那你跟我讲讲这个首席执行官。他觉得自己是在让世界变得更好，还是就想赚钱？上面到底有谁真觉得自己做的不只是在偷？"
+  },
+  "97ca188524f938ec": {
+   "kind": "turn 5",
+   "en": "Searching for more on Ian Choudri. \n\nIan Choudri took over in August twenty twenty-four. He's a career infrastructure guy — Bechtel, HNTB, Parsons, a decade on high-speed rail in France and Spain, field engineer on the Channel Tunnel. Before becoming CEO he was project executive on the authority's own first construction package while at HNTB, so he was on the contractor side of this exact project. He earns about six hundred thirty-nine thousand a year.\n\nHis public posture is believer, not grifter. He says \"we own our own destiny,\" \"build more and go forward,\" claims he's a thousand percent confident riders will demand more once trains run. He locked in a billion a year through twenty forty-five, dropped Buy American to get Siemens trains faster, and is courting private partners. That reads like someone who thinks the thing can work and wants to be the one who delivers it.\n\nBut the details undercut the pure-idealist story. His fiancée works at KPMG — one of the four firms the inspector general flagged for nearly six hundred thousand in unallowable travel, including rideshares to gyms, a nightclub, an escape room, a tiki bar. CBS found a dozen late-night Lyft trips between two consultants and Choudri's home in Folsom. One consultant told investigators Choudri had requested his presence so he didn't need to justify it — \"as other consultants in other Authority offices are learning the hard way.\" When reporters asked about those rides, Choudri walked away without answering.\n\nSo my read: he probably does believe in the project — that's the simplest explanation for thirty years in the industry. But belief and self-dealing aren't mutually exclusive. The culture he inherited or built let consultants bill taxpayers for personal trips with almost no pushback, one of those consultants had a personal connection to him, and when it surfaced he gave prepared remarks and dodged questions. That's not someone stealing checks. It's someone whose oversight collapsed in a direction that happened to benefit people close to him, and who showed no appetite for explaining it.\n\nThe sharper question might be whether the project survives him. Republican lawmakers are calling for his resignation, the board clipped his contracting power, and Newsom vetoed a bill that would've strengthened the inspector general. If he goes, does the project lose its last credible defender or its last liability?\n\nI could dig into what happens to the authority if he resigns — who's next in line, whether the board has a succession plan.",
+   "tr": "正在查找更多关于伊恩·乔德里的信息。\n\n伊恩·乔德里于2024年8月接任。他是个一辈子干基建的人——Bechtel、HNTB、Parsons，在法国和西班牙做了十年高铁，还当过英吉利海峡隧道的现场工程师。成为首席执行官之前，他在HNTB担任该管理局自己第一个施工包的项目执行官，所以他当时站在这个项目的承包商一边。他年薪大约63.9万美元。\n\n他对外的姿态是信徒，不是捞钱的骗子。他说«命运由我们自己掌握»、«多建，继续往前走»，声称自己有百分之千的信心，一旦列车开起来，乘客会要求更多。他把每年10亿美元锁定到2045年，放弃了Buy American以便更快拿到Siemens列车，还在拉拢私人合作伙伴。这读起来像是一个相信这事能成、并且想成为把它交付出来的那个人。\n\n但细节削弱了纯粹理想主义者的故事。他的未婚妻在KPMG工作——监察长点名的四家公司之一，近60万美元不予报销的差旅，包括网约车去健身房、夜总会、密室逃脱、提基酒吧。CBS发现两名顾问与乔德里在福尔瑟姆的家之间有十几趟深夜Lyft行程。一名顾问告诉调查人员，乔德里要求他在场，这样他就不必为此辩解——«其他管理局办公室里的其他顾问正在用惨痛教训学到这一点»。记者问起这些行程时，乔德里没回答就走开了。\n\n所以我的判断是：他大概确实相信这个项目——这是他在这个行业干了三十年最简单的解释。但信念和自我交易并不互斥。他继承或打造的文化，让顾问几乎不受阻拦就把私人行程记到纳税人头上，其中一名顾问和他有私人关系，事情曝光后他念了准备好的发言、回避问题。这不是一个在偷支票的人。这是一个监督在某个方向上崩了、而那个方向恰好惠及他身边的人，并且他毫无解释意愿的人。\n\n更尖锐的问题也许是：这个项目能不能在他之后活下去。共和党议员要求他辞职，董事会削减了他的签约权，纽森否决了一项本会加强监察长的法案。如果他走了，项目失去的是最后一位可信的捍卫者，还是最后一笔负债？\n\n我可以再挖一挖如果他辞职管理局会怎样——谁是下一顺位，董事会有没有继任计划。"
+  },
+  "366dd71d900e4097": {
+   "kind": "turn 6",
+   "en": "Wait, why did, why did Newsom, why did Newsom veto the inspector general bill?",
+   "tr": "等等，为什么，为什么纽森，为什么纽森否决了监察长那项法案？"
+  },
+  "d505754dd0191b6d": {
+   "kind": "turn 7",
+   "en": "Pulling up why Newsom vetoed that. \n\nNewsom's stated reason is process purity. His veto message said the inspector general's office should address its needs through existing state channels rather than getting broad permanent exemptions from statewide administrative safeguards. The bill, by Assemblymember Lori Wilson, would have let the watchdog hire higher-classified auditors and sign contracts up to a million dollars without Department of General Services sign-off. It passed the Assembly sixty-four to eight and the Senate thirty-nine to nothing.\n\nThe inspector general, Ben Belnap — whom Newsom himself appointed — says those existing processes are exactly the bottleneck. Three of his eight audit positions are vacant because state job classifications can't recruit qualified people, and a three-hundred-thousand-dollar software purchase ballooned to over a million and took more than a year through procurement. That delay has already pushed back an audit of the authority's change-order process, including a settlement worth over five hundred million.\n\nThe timing made it worse. The veto landed September thirtieth, two weeks after Belnap's office published the travel-expense report. Newsom had already signed the less controversial half of the bill — the reporting requirements — through a budget trailer, so he was only killing the staffing and purchasing authority. Republicans immediately called it an unforced error, especially with Newsom looking at twenty twenty-eight.\n\nHis defenders would say he's protecting uniform state procurement rules from one-off carve-outs that could metastasize. His critics say he's shielding the authority from a watchdog that's finally working. Both can be true — the veto protects the system from the exception, and the system is what's failing.\n\nOne angle worth watching: if the inspector general can't staff up, the next big audit — the change-order review — slips further, and the nine-and-a-half-billion-dollar funding gap gets less scrutiny right when the money's running out. I could dig into what that change-order settlement actually covers if you want.",
+   "tr": "我来查纽森为什么否决了那项法案。\n\n纽森给出的理由是程序纯洁。他的否决说明称，监察长办公室应通过现有的州渠道解决需求，而不是获得对全州行政保障措施的广泛、永久性豁免。这项由州众议员洛丽·威尔逊提出的法案，本会允许这个监督机构聘用更高职级的审计员，并在无需总务部签字的情况下签署最高100万美元的合同。它在众议院以64比8通过，在参议院以39比0通过。\n\n监察长本·贝尔纳普——纽森本人任命的——说，那些现有流程恰恰就是瓶颈。他八个审计岗位有三个空缺，因为州的职位分类招不到合格的人；一笔30万美元的软件采购膨胀到超过100万美元，走采购流程花了一年多。这一延误已经推迟了对管理局变更单流程的审计，其中包括一笔价值超过5亿美元的和解。\n\n时机让事情更糟。否决落在9月30日，距贝尔纳普办公室发布差旅费用报告仅两周。纽森已经通过预算附加法案签署了争议较小的那一半——报告要求——所以他只是砍掉了人员编制和采购权限。共和党人立刻称之为非受迫性失误，尤其是纽森还在看2028年。\n\n他的辩护者会说，他是在保护统一的州采购规则，免受可能扩散开来的一次性特例豁免侵蚀。批评者说，他是在庇护管理局，躲开一个终于开始起作用的监督者。两者都可以是真的——否决保护了体系免受例外冲击，而正在失灵的正是这个体系。\n\n一个值得盯着的角度：如果监察长招不齐人，下一项大审计——变更单审查——会进一步推迟，而95亿美元的资金缺口会在钱快花完的时候受到更少审视。如果你想，我可以挖一挖那笔变更单和解实际涵盖什么。"
+  },
+  "9b58719f48e44636": {
+   "kind": "turn 8",
+   "en": "Tell me about it.",
+   "tr": "跟我讲讲。"
+  },
+  "b1e25f696a8afa19": {
+   "kind": "turn 9",
+   "en": "If the inspector general can't staff up, the next likely casualty is that five-hundred-million-dollar change-order audit. Change orders are where megaproject money quietly disappears — contractors billing for scope that grew after the original contract was signed, sometimes because the design was incomplete when they started. On a project this size, even a small percentage of unexamined change orders is billions. Belnap's office flagged it as delayed precisely because they don't have the bodies to dig in.\n\nThere's also a second-order effect: without timely audits, the authority's own claims about cost savings get less scrutiny. Choudri told the board they've saved sixty-eight million on consultant contracts over two years. That number is real only if someone independently verifies the baseline and the methodology — and the office that would do that is the one being starved.\n\nThe deeper irony is that Newsom created this inspector general in twenty twenty-two as a reform gesture after years of criticism. Now the office is exposing problems on his watch, and his response is to limit its reach right when it's producing. Whether that's bureaucratic reflex or political calculation, the practical result is the same: less sunlight on the biggest infrastructure project in state history at the exact moment the public is asking the hardest questions.\n\nI could walk through what that change-order settlement actually covered, if you want the specifics.",
+   "tr": "如果监察长招不齐人，下一个可能的牺牲品就是那项5亿美元的变更单审计。变更单是巨型项目的钱悄悄消失的地方——承包商为原合同签署后扩大的范围开账单，有时是因为开工时设计还不完整。在这么大的项目上，哪怕一小部分未经审查的变更单就是数十亿美元。贝尔纳普的办公室之所以把它标为延误，正是因为他们没有人手去深挖。\n\n还有二阶效应：没有及时审计，管理局自己关于节省成本的说法就会受到更少审视。乔德里告诉董事会，他们两年里在顾问合同上省了6800万美元。这个数字只有在有人独立核实基线和方法时才算数——而本该做这件事的办公室正在被断粮。\n\n更深的讽刺是，纽森在2022年设立这个监察长，是多年批评之后的一个改革姿态。现在这个办公室正在他任内揭露问题，而他的回应是在它开始产出成果时限制它的触角。无论这是官僚反射还是政治算计，实际结果一样：在公众提出最尖锐问题的时刻，本州历史上最大的基础设施项目得到的阳光更少了。\n\n如果你想要细节，我可以带你过一遍那笔变更单和解实际涵盖了什么。"
+  },
+  "0da72197e898ebe1": {
+   "kind": "turn 10",
+   "en": "Hello?",
+   "tr": "喂？"
+  },
+  "5743bfde2763a4e6": {
+   "kind": "turn 11",
+   "en": "Still here. Did you want to go deeper on any of that, or shift gears?",
+   "tr": "我还在。你是想就其中哪一点再往下挖，还是换个话题？"
+  },
+  "8a6a0cf00f919238": {
+   "kind": "turn 12",
+   "en": "Yes. Yes, I do.",
+   "tr": "想。想，我要。"
+  },
+  "7f15b5a6b60e96ff": {
+   "kind": "turn 13",
+   "en": "Digging into the change-order settlement. \n\nIt's Change Order four twenty-seven with Dragados Flatiron Joint Venture, finalized May twenty-first, twenty twenty-six, for five hundred thirty-seven point three million dollars. That's the largest single change order in the project's history. The original CP two-three contract was one point three six five billion back in twenty fifteen for a sixty-five-mile design-build stretch through Fresno, Tulare, and Kings counties. Before this settlement, DFJV had already racked up five hundred ninety-seven change orders totaling two point three two billion — the biggest prior one was two hundred forty-two million. So this one pushes their total past three billion on a contract that started at one point four.\n\nWhat it covers: settlement and release of DFJV's outstanding claims, third-party impacts, BNSF railroad impacts, environmental impacts, plus credits back to the authority, and payment for accelerating the work to hit a guideway completion date of December thirty-first, twenty twenty-six. The board approved it seven-to-zero in closed session on January twenty-first. Lawmakers found out after the fact. Congressman Vince Fong demanded to know whether federal funds were in the mix and whether the FRA was consulted. Assemblymember Lori Wilson, the same Democrat who wrote the inspector general bill Newsom just vetoed, called it frustrating as a taxpayer.\n\nThe authority's defense is that the money is performance-tied — DFJV only gets paid as milestones are hit. But here's the part that connects to everything else: Belnap's office is now starting a review of the change-order process itself, evaluating whether approvals follow industry standards, and they'll publish in February twenty twenty-seven. That's after the fact. The five-hundred-thirty-seven-million-dollar decision is already locked in, and the audit that might tell us whether it was justified comes a year later.\n\nOne more wrinkle — the authority's own July twenty twenty-five internal audit of the change-order process found contractors generally complied and that executed orders averaged about twenty-three percent below what was proposed. So the system does negotiate down. The question isn't whether there's a process. It's whether a process that produced nearly six hundred change orders and three billion in extras on one package was ever asking the right questions at the start.\n\nWant me to pull the actual claim categories inside that settlement — what BNSF and environmental impacts specifically cost?",
+   "tr": "正在深挖这份变更令和解。\n\n这是与 Dragados Flatiron Joint Venture 达成的变更令427，于2026年5月21日敲定，金额5.373亿美元。这是该项目历史上单笔最大的变更令。最初的 CP 2-3 合同是2015年签的，13.65亿美元，覆盖弗雷斯诺、图莱里和金斯县一段65英里的设计施工总承包。在这次和解之前，DFJV 已经累计了597份变更令，总额23.2亿美元——此前最大的一笔是2.42亿美元。所以这一笔把他们的总额推过了30亿，而合同起步价只有14亿左右。\n\n它涵盖的内容：和解并解除 DFJV 尚未了结的索赔、第三方影响、BNSF 铁路影响、环境影响，再加上返还给管理局的抵扣，以及为加快工程、赶在2026年12月31日完成导轨而支付的费用。董事会在1月21日的闭门会议上以7比0通过。议员们是事后才知道的。国会众议员文斯·方要求弄清其中是否掺了联邦资金、以及是否咨询过 FRA。州众议员洛丽·威尔逊——就是那位起草了监察长人员编制法案、刚被纽森否决的同一位民主党人——说作为纳税人，这让人沮丧。\n\n管理局的辩解是，这笔钱跟绩效挂钩——DFJV 只有在达成里程碑时才能拿到钱。但有一点把这一切串起来了：贝尔纳普的办公室现在开始审查变更令流程本身，评估审批是否符合行业标准，他们将在2027年2月公布结果。那是事后。这5.37亿美元的决定已经锁死了，而那份也许能告诉我们它是否合理的审计，要一年后才来。\n\n还有一个曲折——管理局自己在2025年7月对变更令流程做的内部审计发现，承包商大体上是合规的，而且已执行的变更令平均比报价低大约23%。所以这套系统确实会往下谈价。问题不在于有没有流程。问题在于，一个在单一合同包上产生了近600份变更令、30亿额外费用的流程，一开始到底有没有问对问题。\n\n要我把这份和解里的实际索赔类别拉出来吗——BNSF 和环境影响具体花了多少？"
+  },
+  "c0041f74f8f9ef2d": {
+   "kind": "turn 14",
+   "en": "Um, let's do a zoom out. Like, okay, so this thing is, how, how much money has gone into it so far?",
+   "tr": "嗯，咱们把镜头拉远一点。就是，好，所以这事儿，到目前为止到底投进去多少钱了？"
+  },
+  "105cce49c9a1a8a8": {
+   "kind": "turn 15",
+   "en": "Roughly fifteen to sixteen billion spent to date. That breaks down to about ten billion in Prop 1A bond proceeds, roughly four billion in federal grants before the clawback, and the rest from cap-and-trade. The bond money is essentially exhausted. What's left is the billion-a-year cap-and-trade stream through twenty forty-five, which doesn't come close to covering the nine-and-a-half-billion gap the inspector general flagged.",
+   "tr": "到目前为止大概花了150到160亿。拆开来看，大约100亿来自1A号提案债券收益，联邦拨款在被追回之前大约40亿，其余来自 cap-and-trade。债券的钱基本上用光了。剩下的是一直到2045年、每年10亿的 cap-and-trade 资金流，这远远填不上监察长指出的那95亿缺口。"
+  },
+  "d18023b63a17ebb4": {
+   "kind": "turn 16",
+   "en": "Okay. And then it's getting a billion dollars a year of, uh, tax money just flowing in automatically?",
+   "tr": "好。然后它每年自动流进来10亿美元的，呃，税款？"
+  },
+  "31fdc68bef87415e": {
+   "kind": "turn 17",
+   "en": "Yes — cap-and-trade auction revenue, about a billion a year locked in through twenty forty-five. That's the main ongoing source now that federal money's gone. It was originally supposed to be seed funding that got replaced by fares and private investment, but it's become the backbone.",
+   "tr": "对——cap-and-trade 拍卖收入，每年大约10亿，锁定到2045年。联邦的钱没了之后，这就是现在主要的持续来源。它本来应该只是种子资金，之后由票价和私人投资接上，但现在它成了主干。"
+  },
+  "b86fb5f6e9508836": {
+   "kind": "turn 18",
+   "en": "Oh, okay. We got 15 billion dollars spent so far plus a billion dollars a year. How much of that was actually like on construction? Uh, like actually building stuff, buying stuff, and how much of it just kind of disappeared into the, the, uh, consulting",
+   "tr": "哦，好。我们已经花了150亿美元，外加每年10亿。这里面有多少是真正花在施工上的？呃，就是真正在盖东西、买东西，又有多少就这么消失在，在，呃，咨询"
+  },
+  "0e5408f7e30afe53": {
+   "kind": "turn 19",
+   "en": "Checking the construction-versus-consulting split.",
+   "tr": "我在查施工和咨询的拆分。"
+  },
+  "f51af8f4936e7e62": {
+   "kind": "turn 20",
+   "en": "... slash",
+   "tr": "……斜杠"
+  },
+  "92e6e034b1422ed6": {
+   "kind": "turn 21",
+   "en": "Searching for that breakdown. \n\nOf the fifteen point five billion spent through December twenty twenty-five, about fourteen point eight billion went to capital — actual building, land, equipment. Roughly seven hundred million was pure administration and support. So on the surface, the consulting slice looks small.\n\nBut that fourteen point eight is misleading, because the design-build model buries consulting inside the construction number. The three civil works contracts started at two point eight billion and are now worth nine point three billion — mostly change orders, but the base price already includes the contractor's design fees. On top of that, program management advisors have about one point nine billion authorized with over a billion spent. Environmental review alone was six hundred seventy-seven million. Land acquisition, one point six billion. Bookend electrification projects at both ends, about nine hundred million.\n\nSo the clean consulting line items — the four firms getting two hundred fifty-three million over two years, KPMG burning half its twenty-four-million contract in year one — are the visible tip. The real consulting load is woven through every construction dollar. Back in twenty ten, state budget docs showed consultant engineers averaging four hundred twenty-seven thousand per head versus one hundred thirty-one thousand for state employees doing the same work. The LA Times called it an entity run entirely by engineering consultants for engineering consultants.\n\nThe travel scandal that made headlines — six hundred grand — is less than a hundredth of one percent of the total. The bigger issue isn't the tiki bar receipts. It's that a project with no permanent in-house engineering staff pays outside firms a premium to design, manage, and oversee work that might have been cheaper done by people on payroll.\n\nWant me to trace where a single construction dollar actually flows through that stack?",
+   "tr": "我在搜这个拆分。\n\n截至2025年12月花掉的155亿里，大约148亿进了资本项——真正的建设、土地、设备。大约7亿是纯行政和支持。所以表面上，咨询这一块看起来很小。\n\n但这148亿有误导性，因为设计施工总承包模式把咨询埋进了建设数字里。三份土建合同起步是28亿，现在价值93亿——大部分是变更令，但基础价格里已经包含了承包商的设计费。除此之外，项目管理顾问已获授权约19亿，已花费超过10亿。仅环境审查就是6.77亿。土地征收，16亿。两端的端点电气化项目，大约9亿。\n\n所以干净的咨询明细——四家公司两年拿2.53亿，KPMG 在第一年就烧掉了2400万合同的一半——只是露出来的尖。真正的咨询负荷，织进了每一块建设资金里。回到2010年，州预算文件显示，顾问工程师人均平均42.7万，而做同样工作的州雇员是13.1万。《洛杉矶时报》说，这是一个完全由工程顾问运营、也为工程顾问服务的实体。\n\n上了头条的差旅丑闻——60万——不到总额的万分之一。更大的问题不是提基酒吧的收据。而是一个没有常设内部工程团队的项目，要付给外部公司溢价，去设计、管理和监督那些本来也许由在编人员来做会更便宜的工作。\n\n要我追踪一块建设资金实际是怎么流过这叠层级的吗？"
+  },
+  "0470fc6e83231d39": {
+   "kind": "turn 22",
+   "en": "Okay, sure.",
+   "tr": "好，行。"
+  },
+  "d87d3680146bd7ab": {
+   "kind": "turn 23",
+   "en": "Ok.",
+   "tr": "好。"
+  },
+  "765f84c5ee26565b": {
+   "kind": "turn 24",
+   "en": "Are you doing it?",
+   "tr": "你在做吗？"
+  },
+  "0070a344094d584e": {
+   "kind": "turn 25",
+   "en": "No, I stopped. Want me to finish that thought about the permanent staff problem?",
+   "tr": "没有，我停了。要我把关于常设人员问题的那个想法说完吗？"
+  },
+  "ee089bcce9a33fc6": {
+   "kind": "turn 26",
+   "en": "Is, you asked if I wanted to trace a dollar. Can, can you do that?",
+   "tr": "是，你问我要不要追踪一块钱。能，能做吗？"
+  },
+  "eb37b4b1eb1c7c89": {
+   "kind": "turn 27",
+   "en": "Tracing one dollar is doable. Start with a cap-and-trade auction dollar hitting the authority's account. About sixty cents of it goes toward the Merced-to-Bakersfield early operating segment — that's the thirty-five point seven billion budget for the first hundred nineteen miles. Of that, roughly twenty-eight cents lands with Dragados Flatiron on construction package two-three, the Fresno stretch, where the original one point four billion contract has ballooned past three billion through change orders. Another ten cents or so goes to right-of-way acquisition — buying those twenty-two hundred parcels across the Central Valley. About six cents covers program management advisors, the one point nine billion line where firms like AECOM-Fluor coordinate everything. Three cents goes to environmental mitigation and third-party work with railroads and utilities. Two cents to track and systems design through SYSTRA-TYPSA. One cent to stations, which are barely started. And the last penny-ish is pure administration — salaries, the CEO's six hundred thirty-nine thousand, board expenses.\n\nSo your dollar doesn't disappear. It gets subdivided into pieces that each look defensible on their own, and the waste isn't in any single line — it's in the compounding. The change order that turned a one-point-four-billion contract into three billion. The consultant engineer billed at four hundred twenty-seven thousand when a state employee costs one thirty-one. The KPMG contract where phantom rates meant two million extra in four months. Each decision was probably made by someone who could justify it in a meeting. The sum is fifteen and a half billion with eighty-nine miles of guideway and no track laid.\n\nThe version of this I'd actually find interesting is tracing not a construction dollar but the six hundred seventy-seven million environmental review dollar — because that money went to firms that donated to the two thousand eight ballot campaign that created the project. That's not a cost of building rail. That's a return on a political investment, and it predates any shovel going in the ground.\n\nWant me to go down that path?",
+   "tr": "追踪一块钱是做得到的。从一块打进管理局账户的 cap-and-trade 拍卖收入开始。其中大约60分流向默塞德到贝克斯菲尔德的早期运营段——那是前119英里、预算357亿的那一段。其中大约28分落到 Dragados Flatiron 的施工包2-3上，也就是弗雷斯诺那段，最初14亿的合同通过变更令已经膨胀到超过30亿。另外大约10分用于征地——在中央谷购买那2200块地。大约6分覆盖项目管理顾问，就是 AECOM-Fluor 这类公司统筹一切的那19亿科目。3分用于环境缓解，以及跟铁路和公用事业公司的第三方工作。2分通过 SYSTRA-TYPSA 做轨道和系统的设计。1分给车站，那些几乎还没开工。最后大约1分是纯行政——工资、首席执行官的63.9万、董事会开支。\n\n所以你的这一块钱没有消失。它被拆成一块块各自看起来都站得住脚的部分，浪费不在任何单一科目里——而在叠加。把14亿合同变成30亿的那份变更令。顾问工程师开价42.7万，而州雇员只要13.1万。KPMG 那份合同里，虚报费率意味着四个月多花了200万。每一个决定，大概都是某个能在会上自圆其说的人做的。加总起来，是155亿，89英里导轨，一根铁轨都没铺。\n\n我真正会觉得有意思的版本，不是追踪一块建设资金，而是追踪那6.77亿的环境审查资金——因为这笔钱流向了那些给2008年催生这个项目的选票宣传活动捐过款的公司。那不是建铁路的成本。那是一笔政治投资的回报，而且早于任何一把铲子插进地里。\n\n要我顺着这条路往下走吗？"
+  },
+  "2de94f20bcb5d2ba": {
+   "kind": "turn 28",
+   "en": "Okay, yeah.",
+   "tr": "好，行。"
+  },
+  "1a978d662074b6fb": {
+   "kind": "turn 29",
+   "en": "million in environmental review.",
+   "tr": "环境审查上的百万。"
+  },
+  "2d25c7710a186ea8": {
+   "kind": "turn 30",
+   "en": "Yeah, tell me about that.",
+   "tr": "对，跟我说说那个。"
+  },
+  "bf2719416beb2feb": {
+   "kind": "turn 31",
+   "en": "That's the six hundred seventy-seven million spent producing over a hundred thirty thousand pages of environmental documents. Stacked together they'd stand forty feet tall and weigh thirteen hundred pounds. Four firms did most of it — Parsons Brinckerhoff got a hundred and one million, HNTB eighty-six, WSP sixty-one, AECOM thirty-eight. And here's the kicker: three of those four were among the biggest donors to the committee that backed the two thousand eight ballot measure. HNTB's PAC also gave to Scott Wiener. So the firms that helped sell the project to voters then collected to study it.\n\nThe receipts get surreal. Four hundred eighty thousand dollars to dig small burrows for mammals by hand. Three hundred fifty-two thousand for lizard surveys. Two hundred ninety thousand for software to track environmental requirements. One June twenty eighteen board meeting approved amendments worth over a hundred forty-two million in a single vote.\n\nThe authority's defense is that CEQA and NEPA legally require all this — you can't build without it. True on paper. But the scope ballooned way past legal minimum into a documentation arms race, and the same firms that wrote the original cost estimate in two thousand eight, thirty-three billion, are the ones billing to revise it upward ever since.\n\nWant me to pull the specific CEQA trigger points that forced the expansion, or compare this to how other countries handle rail environmental review?",
+   "tr": "这就是花掉的6.77亿美元，用来产出超过13万页的环境文件。叠在一起能有40英尺高，重达1300磅。四家公司干了大部分活——Parsons Brinckerhoff拿了1.01亿，HNTB拿了8600万，WSP拿了6100万，AECOM拿了3800万。更绝的是：这四家里有三家，是2008年那项公投背后委员会最大的捐款方之一。HNTB的PAC还给斯科特·威善高捐过钱。所以，当初帮着把这个项目卖给选民的公司，后来又靠研究这个项目把钱赚了回去。\n\n账单离谱到近乎超现实。48万美元，用来手工给哺乳动物挖小洞穴。35.2万做蜥蜴调查。29万买软件来追踪环境合规要求。2018年6月的一次董事会会议，一次投票就批准了超过1.42亿美元的修正案。\n\n管理局的辩解是，CEQA和NEPA在法律上要求必须做这些——不做就不能开工。纸面上没错。但范围早就膨胀到远远超过法定最低要求，变成了一场文件军备竞赛。而且，2008年写出最初330亿美元成本估算的，还是同一批公司，从那以后一直靠把估算往上改来收费。\n\n要我把逼出这次扩张的具体CEQA触发点拉出来，还是拿其他国家怎么做铁路环境审查来对比？"
+  },
+  "8cdd6ec0c1935e6b": {
+   "kind": "turn 32",
+   "en": "How would this have gone down in Texas?",
+   "tr": "这要是在得克萨斯，会怎么演？"
+  },
+  "72a75c56694a9037": {
+   "kind": "turn 33",
+   "en": "Texas would skip most of it. No CEQA, no state-level environmental super-statute. Review happens under federal NEPA if federal money's involved, but Texas doesn't layer its own thousand-page process on top. Design-build contracts are the default, not the exception — you pick a team, give them a performance spec, and they own the design risk. Change orders still happen, but the baseline incentive structure is different because the contractor's eating more of the upside and downside.\n\nThe catch is Texas Central Railway — the private Dallas-to-Houston bullet train. That one stalled too, but for opposite reasons: it couldn't assemble the right-of-way through enough landowners' hands, and it never locked down the capital stack. So Texas proves you can avoid the bureaucratic swamp and still die from land and money. California's failure mode is process. Texas's is that nobody's willing to front the billions without a government guarantee, and the government won't give one.\n\nThe one thing Texas does that California structurally can't is let a private entity carry the political risk of saying no to a vocal constituency. California voters approved the bond; Texas never asked.",
+   "tr": "得克萨斯会把大部分都跳过。没有CEQA，也没有州一级的环境超级法规。如果用了联邦的钱，审查走联邦NEPA，但得州不会再往上叠一套自己的上千页流程。设计施工总承包是默认做法，不是例外——你选一个团队，给他们一份性能规格，设计风险他们自己扛。变更单还是会发生，但底层激励结构不一样，因为承包商自己吃更多的上行和下行。\n\n问题出在Texas Central Railway——那条私营的达拉斯到休斯敦高铁。那条也停了，但原因正好相反：它没法从足够多的土地所有者手里凑齐路权，也从没把资金盘子敲定。所以得州证明了，你可以避开官僚沼泽，照样死在土地和钱上。加州的失败模式是流程。得州的失败模式是，没人愿意在没有政府担保的情况下先垫几十亿，而政府又不肯给担保。\n\n得州能做、加州在结构上做不到的一件事，是让一个私人主体去承担对一个嗓门很大的选民群体说不的政治风险。加州选民批准了债券；得州从来没问过。"
+  },
+  "dcc4e11c12e13f60": {
+   "kind": "turn 34",
+   "en": "Okay, Grok. Uh, I mean, Eve. Uh, what's your take on this? Uh, like, do you think this is ever gonna happen? Is this just, uh, a billion dollars a year siphon from the taxpayers to engineering firm salaries? Uh, like, do you think it'll get killed at some point? Yeah, predict the future for me.",
+   "tr": "好，Grok。呃，我是说，伊芙。呃，你怎么看？你觉得这事儿到底会不会成真？这是不是就是每年从纳税人那儿抽十亿美元，灌进工程公司的工资里？你觉得它会不会在某个节点被砍掉？来，给我预测一下未来。"
+  },
+  "90f1fd5646f85d37": {
+   "kind": "turn 35",
+   "en": "My lean is it survives in some form but never becomes the system voters imagined. The Merced-to-Bakersfield piece is too far along — eighty-nine miles of guideway, trains on order, tracklaying starting this year. Killing that now costs more politically than finishing it. So you get a Central Valley shuttle opening around twenty thirty-three, maybe twenty thirty-four, running at a fraction of projected ridership, subsidized forever.\n\nThe full San Francisco-to-LA vision is gone. Nobody in Sacramento will ever put up the other ninety billion. What you actually have is a billion-a-year annuity for engineering and consulting firms through twenty forty-five, with a small train at the end of it. That's not corruption in the cartoon sense — it's worse, because it's legal, documented, and defensible line by line.\n\nThe thing I'd watch isn't a cancellation vote. It's whether the inspector general's February change-order audit lands before or after the next big funding fight. If it surfaces real problems while they're asking to borrow against future cap-and-trade money, that's the one crack that could force a reset.",
+   "tr": "我的倾向是，它会以某种形式活下来，但永远不会变成选民想象的那套系统。默塞德到贝克斯菲尔德这一段已经走得太远了——89英里的导轨，列车已经下单，今年就开始铺轨。现在砍掉，政治代价比把它修完还大。所以你会得到一条中央谷地的区间车，大概2033年、也许2034年开通，客流只有预测的一小部分，永远靠补贴。\n\n旧金山到洛杉矶的完整愿景已经没了。萨克拉门托没人会再掏出另外那900亿。你实际拥有的，是一笔每年十亿、一直发到2045年的工程和咨询公司年金，尽头再挂一列小火车。这不是漫画意义上的腐败——比那更糟，因为它合法、有文件、每一行都辩得过去。\n\n我要盯的不是取消投票。而是监察长二月份的变更单审计，是落在下一场大拨款争夺之前还是之后。如果他们正要求拿未来的碳交易收入去借钱的时候，审计爆出真问题，那就是唯一可能逼出重置的裂缝。"
+  },
+  "96dd30368e9e23bd": {
+   "kind": "turn 36",
+   "en": "Interesting. Are there any polymarket, uh, looking at this thing?",
+   "tr": "有意思。有没有Polymarket在看这事儿？"
+  },
+  "03240daf0b7b57b0": {
+   "kind": "turn 37",
+   "en": "Let me check Polymarket for high-speed rail markets. \n\nNo live trading market on the rail itself. Polymarket's X account did blast the one hundred twenty-six billion figure in April, but that was commentary, not a contract. What they do have is adjacent stuff — Prop forty-five on expedited environmental review is at about seventy percent to pass in November, which is the closest thing to a rail-adjacent bet since it would compress exactly the CEQA bloat we just talked about. There's also the billionaire wealth tax at thirty-seven percent, which matters because if it passes, the political pressure on every big-ticket state project gets a lot louder.\n\nThe absence is itself informative. Prediction markets need a clean resolution date and a binary outcome, and high-speed rail has neither — it just fades. You can't short a zombie.",
+   "tr": "我去查一下Polymarket上有没有高铁相关的市场。\n\n铁路本身没有正在交易的市场。Polymarket的X账号四月确实把1260亿这个数字炸了一遍，但那是评论，不是合约。他们有的是相邻的东西——关于加快环境审查的45号提案，11月通过的概率大概在70%，这是最接近铁路的赌注，因为它正好会压缩我们刚说的CEQA膨胀。还有亿万富翁财富税，概率37%，这很重要，因为如果它过了，每个大额州项目承受的政治压力都会响得多。\n\n缺席本身就说明问题。预测市场需要一个干净的结算日期和一个二元结果，高铁两样都没有——它只是慢慢淡掉。你没法做空一只僵尸。"
+  },
+  "ba0c627460e1432b": {
+   "kind": "turn 38",
+   "en": "So like, could someone, uh, pass another, uh, ballot prop that redirects that billion dollars of cap and trade money to something more useful like, exi-existing transportation or other things that the state needs?",
+   "tr": "所以，有没有人能再推一项公投提案，把那十亿碳交易的钱转去更有用的地方，比如现有的交通，或者州里需要的其他东西？"
+  },
+  "3cb42499824b35d4": {
+   "kind": "turn 39",
+   "en": "Yes, legally possible. Cap-and-trade revenue is statutory, not constitutional, so a proposition could redirect it. You'd need roughly eight hundred seventy-five thousand valid signatures to qualify, then a majority on election day. The catch is who'd fight it — the rail authority, its contractors, Central Valley legislators who'd lose jobs and projects, and probably Newsom, who just signed the funding lock himself. You'd also be stepping into a knife fight with every other program that wants that billion — affordable housing, transit, wildfire mitigation. Prop six in twenty eighteen tried to kill the gas tax and lost by about sixty to forty, so Californians have shown they'll defend transportation funding even when they hate it. A redirect-to-existing-transit version might poll better than a straight kill, but you'd still be betting against the coalition that built this thing.",
+   "tr": "法律上可以。碳交易收入是法定的，不是宪法规定的，所以一项提案可以把它转走。你大概需要87.5万个有效签名才能资格入围，然后选举日过半数。难的是谁会来打你——铁路管理局、它的承包商、会丢掉工作和项目的中央谷地议员，大概还有加文·纽森，他刚亲手签了这笔资金锁定。你还会跟所有想要这十亿的其他项目打一场刀战——可负担住房、公交、野火防控。2018年的6号提案想砍掉汽油税，结果大约60比40输了，所以加州人已经表明，就算他们讨厌交通拨款，也会护着它。转给现有公交的版本，民调可能比直接砍掉好看，但你还是在跟把这东西建起来的联盟对赌。"
+  },
+  "47e56ba6576474de": {
+   "kind": "turn 40",
+   "en": "I mean, I imagine that there's, there are a lot of groups that, uh, would be able to put this money to good use. Do you think it'd be possible to build a coalition that divvies that money up amongst a bunch of different groups?",
+   "tr": "我是说，我能想象有很多团体能把这笔钱用在正事上。你觉得有没有可能组一个联盟，把这笔钱分给一堆不同的团体？"
+  },
+  "26d30face7375d14": {
+   "kind": "turn 41",
+   "en": "That's actually how you win. A single-issue kill has one enemy and no friends. A divvy-up prop turns every transit agency in the state, every housing nonprofit, every climate group into a stakeholder. SEIU-UHW already proved they can move ballot money when they have a target — they'd probably love a seat at that table. The hard part isn't finding groups that want the cash, it's getting them to agree on shares before the signature drive, because the moment the split gets public, each constituency starts fighting over percentages and the whole thing fractures. That's what killed similar redirect attempts before — not opposition from outside, but the coalition eating itself.",
+   "tr": "这其实才是赢法。单一议题的砍掉，只有一个敌人，没有朋友。一项分钱提案，会把州里每个交通机构、每个住房非营利组织、每个气候团体都变成利益相关方。SEIU-UHW已经证明，只要有目标，他们就能推动公投的钱——他们大概很乐意在这张桌子上有个位子。难的不是找到想要钱的团体，而是在签名征集开始前让他们就份额达成一致，因为分配方案一旦公开，每个选区就开始为百分比打架，整件事就裂了。以前类似的转拨尝试就是这么死的——不是外面的反对，是联盟自己把自己吃掉。"
+  },
+  "52d8966ee0f65ce4": {
+   "kind": "turn 42",
+   "en": "Tell me about previous redirect attempts.",
+   "tr": "跟我说说以前那些转拨尝试。"
+  },
+  "488e9704d36f60b5": {
+   "kind": "turn 43",
+   "en": "Searching for prior attempts to redirect cap-and-trade funds. \n\nThe closest thing was Prop seventy in June twenty eighteen. It wasn't a redirect exactly — it would have required a one-time two-thirds vote in both legislative chambers starting in twenty twenty-four before any cap-and-trade spending plan could pass. Assemblymember Chad Mayes, a Republican, designed it as part of the deal to extend cap-and-trade past twenty twenty. The theory was that forcing bipartisan sign-off would make the money harder to spend on things like high-speed rail. Voters killed it sixty-three to thirty-seven, and it barely raised any money — about fifty-five thousand in opposition spending, nothing in support.\n\nThe actual redirect attempts were earlier and smaller. In two thousand nine, Prop one-D tried to shift two hundred sixty-eight million a year from First Five early-childhood programs to the general fund, and Prop one-E tried to borrow Prop sixty-three mental health money for two years. Both lost. The pattern is that voters treat earmarked funds as sacred even when they don't love the program behind them.\n\nThe real action has always been legislative. Under the original AB thirty-two framework, roughly two-thirds of Greenhouse Gas Reduction Fund money was statutorily dedicated — twenty-five percent to high-speed rail, twenty to affordable housing, ten to transit, five to clean transit operations. Then in twenty twenty-five, Newsom's deal with the legislature flipped that. High-speed rail got a flat billion a year off the top, another billion went to discretionary spending, and housing, transit, and clean air dropped to Tier three — only funded after the first two billion cleared. Environmental groups fought it, CARB's May rule changes cut total revenue roughly in half by handing oil companies up to four billion in free permits, and Senate Democrats eventually clawed back four hundred fifty million for transit, clean air, and drinking water through SB one thirteen. That's the closest thing to your divvy-up coalition actually working — but it took a year of hostage-taking over the budget, not a ballot measure.\n\nSo the precedent is: ballot redirects fail, legislative redirects are possible but brutal, and the coalition that wins is the one that can threaten something the governor wants more.",
+   "tr": "我在查以前有没有人试图把碳交易的资金挪走。\n\n最接近的是2018年6月的70号提案。它严格说不算重新分配——它要求从2024年起，任何碳交易支出计划在通过之前，都必须先在两院各获得一次三分之二的投票。共和党州众议员查德·梅斯设计了这个提案，作为把碳交易延长到2020年之后这笔交易的一部分。理论是，逼两党都签字，钱就更难花在高铁这类东西上。选民以63比37把它否决了，而且几乎没筹到钱——反对方花了大约5.5万美元，支持方一分没花。\n\n真正的重新分配尝试更早，也更小。2009年，1D号提案想把每年2.68亿美元从First Five早期儿童项目挪到普通基金，1E号提案想借63号提案的心理健康资金用两年。两个都输了。规律是：选民把专项资金当成神圣不可侵犯的，哪怕他们并不喜欢背后那个项目。\n\n真正的动作一直在立法层面。在最初的AB 32框架下，温室气体减排基金大约三分之二的钱是法定专用的——25%给高铁，20%给可负担住房，10%给公共交通，5%给清洁公交运营。然后到了2025年，纽森和州议会的交易把这个翻了过来。高铁先拿固定的每年10亿美元，另外10亿进自由支配支出，住房、公交和清洁空气掉到第三档——前20亿清完之后才有份。环保团体打过这场仗，CARB五月的规则修改把总收入大概砍了一半，因为给了石油公司最多40亿美元的免费配额，参议院民主党人最后通过SB 113把4.5亿美元抢回来，给了公交、清洁空气和饮用水。这是最接近你说的那种分钱联盟真正奏效的一次——但它靠的是拿预算当人质拖了一年，不是靠选票提案。\n\n所以先例是：选票上的重新分配会失败，立法上的重新分配有可能但很残酷，赢的联盟是那个能威胁州长更想要的东西的联盟。"
+  },
+  "d48677321c658095": {
+   "kind": "turn 44",
+   "en": "Wait, why did, why did Newsom prioritize, uh, this billion dollar, uh, uh, throw, throw away?",
+   "tr": "等一下，为什么，为什么纽森要优先保这10亿美元，呃，呃，就这么扔出去？"
+  },
+  "1452afb7e2ab6e03": {
+   "kind": "turn 45",
+   "en": "Mostly self-preservation. He's been tied to this since two thousand eight when he campaigned for Prop 1A as San Francisco mayor. Killing it now means owning the failure on a ballot measure, and with twenty twenty-eight looming, that's a story he can't control. The Central Valley jobs give him cover — nineteen thousand people with a stake in it, in a region that matters electorally. Extending cap-and-trade to twenty forty-five wasn't really about climate, it was about locking in the revenue stream that keeps the project breathing. His defenders would say he's being pragmatic: the alternative isn't a better project, it's a half-built monument with no trains and no explanation. But pragmatism and self-interest look identical from the outside, and his actions don't distinguish between them.\n\nThe part nobody's said out loud is that Newsom might actually believe in it less than anyone in Sacramento and still can't say so. That's the bind.",
+   "tr": "主要是自保。他从2008年当旧金山市长、为1A号提案站台起就跟这事绑在一起了。现在把它杀掉，等于在一张选票提案上认下失败，而2028年就在眼前，这个故事他控制不了。中央谷的就业给了他掩护——1.9万人跟这项目有利害关系，而且那个地区在选举上很重要。把碳交易延长到2045年，其实不是为了气候，是为了锁住那条让项目还能喘气的收入流。他的辩护者会说他在务实：替代方案不是一个更好的项目，而是一座建了一半、没有火车、也解释不清的纪念碑。但从外面看，务实和自利长得一模一样，而他的行动也没把两者区分开。\n\n没人大声说出来的那部分是：纽森对这事的信念，可能比萨克拉门托任何人都少，可他还是不能这么说。这就是他的困境。"
+  },
+  "793715648689fcce": {
+   "kind": "turn 46",
+   "en": "So play this out for me. What would happen if someone put up, say, 50 million dollars to, uh, put this prop on the ballot? Do you think it would pass? What kind of coalition do you think people could build?",
+   "tr": "那你帮我推演一下。如果有人拿出，比如说，5000万美元，呃，把这个提案送上选票，会发生什么？你觉得能过吗？你觉得人们能搭出什么样的联盟？"
+  },
+  "d51d1ebeeecd1355": {
+   "kind": "turn 47",
+   "en": "Fifty million is enough to qualify and run a serious campaign. Signature gathering runs three to five million, so you'd have forty-plus left for ads, field, and mail. That's not just viable — that's top-tier.\n\nPass probability, I'd put at forty to forty-five percent. The structural headwind is that \"redirect\" reads as \"kill the train\" in a thirty-second ad, and Californians have voted down transportation funding cuts before even when they hated the tax. Prop six lost sixty-forty. But the environment in twenty twenty-eight is different — gas prices, the CARB giveaway fight, Senate Democrats already publicly accusing Newsom of starving housing and transit. That intra-party bloodletting is doing your persuasion work for free.\n\nThe coalition writes itself if you sequence it right. Lead with transit agencies and housing groups as the public face. Environmental justice groups in the Inland Empire and Central Valley — the people actually breathing the pollution — as the moral core. SEIU-UHW as the muscle. You'd quietly have oil industry money flowing through independent expenditure committees, because they want cap-and-trade dead regardless of where the money goes, but you keep them off the public materials or they poison the brand.\n\nThe opposition is Newsom, the authority, the contractors, and every Central Valley Democrat whose district has a job tied to it. They'll outspend you two to one on the \"trains not rhetoric\" message.\n\nThe single biggest variable isn't money. It's whether the Senate Democrats' current standoff with Newsom over this exact billion resolves before the signature deadline or blows up into a public referendum on him. If it does, your prop becomes the pressure valve both sides can point to.\n\nI could model the polling by district if you want to see where the winnable map actually is.",
+   "tr": "5000万够资格入围，也够打一场认真的竞选。签名收集要花300到500万，所以你还剩4000多万做广告、地面组织和邮寄。这不只是可行——这是顶级配置。\n\n通过概率，我放在40%到45%。结构性逆风是，«重新分配»在30秒广告里会被读成«杀掉火车»，而加州人选民以前就算恨那个税，也否决过削减交通资金。6号提案以60比40输掉。但2028年的环境不一样——油价、CARB送好处那场仗、参议院民主党人已经公开指责纽森在饿着住房和公交。党内这场流血正在免费替你做说服工作。\n\n联盟如果排序对了，自己就会写出来。让公交机构和住房团体当公众面孔打头阵。内陆帝国和中央谷的环境正义团体——真正在呼吸那些污染的人——当道德核心。SEIU-UHW当肌肉。你会悄悄让石油行业的钱通过独立支出委员会流进来，因为他们不管钱去哪都想让碳交易死掉，但你得把他们挡在公开材料之外，不然他们会毒掉这个品牌。\n\n反对方是纽森、管理局、承包商，以及每个选区里有跟这项目挂钩的工作的中央谷民主党人。他们会在«要火车，不要空话»这个信息上以二比一的花费压过你。\n\n最大的变量不是钱。是参议院民主党人眼下跟纽森就这整整10亿的对峙，会在签名截止前化解，还是炸成一场针对他本人的公投。如果炸了，你的提案就变成双方都能指着说的泄压阀。\n\n你要是想看可赢的地图到底在哪，我可以按选区给你建个民调模型。"
+  },
+  "93185fcfb1c485d9": {
+   "kind": "turn 48",
+   "en": "Well, hold on. Uh, I'm not suggesting that we kill cap-and-trade. That actually seems reasonable, though I don't know much about it. We can talk about it some other time. I was just thinking we direct that money to something that has a higher utility.",
+   "tr": "等等。呃，我不是说我们要杀掉碳交易。那东西其实看起来还算合理，虽然我不太了解。我们可以另找时间谈。我只是在想，把那笔钱导向效用更高的东西。"
+  },
+  "48b9e7f1421e553a": {
+   "kind": "turn 49",
+   "en": "Right, and that distinction matters for the campaign. A \"keep cap-and-trade, move rail's billion\" frame lets you campaign as pro-climate while attacking the single worst allocation inside it. That's a much harder ad to run against than \"they want to kill the carbon market.\" You could even get some green groups on board — the ones who already sued CARB over the oil giveaways — because they'd see it as restoring the original deal where housing, transit, and clean air were supposed to get two billion a year before rail took its cut.\n\nThe counterargument writes itself though: rail's defenders will say you can't just strip funding from a project mid-construction, that it strands the sixty-six completed structures and the Siemens trains. Your answer is that the money was always supposed to be temporary seed funding, not a permanent annuity — and that a billion a year for nineteen more years is a hundred ninety billion on a system that may never reach LA. Frame it as returning to the original promise, not breaking a new one.\n\nWant me to sketch what the actual ballot language might look like?",
+   "tr": "对，而且这个区分对竞选很重要。«保住碳交易，把高铁那10亿挪走»这个框架，让你可以一边以支持气候的姿态竞选，一边攻击里面最糟糕的那一笔分配。这比«他们想杀掉碳市场»难打得多。你甚至能拉到一些绿色团体——那些已经因为石油公司白拿配额而起诉过CARB的——因为他们会把这看成恢复最初的交易：住房、公交和清洁空气本该在高铁抽成之前每年先拿20亿。\n\n不过反驳自己就会写出来：高铁的辩护者会说，你不能在项目建到一半时就把资金抽走，那会把66座已完工的构筑物和Siemens的列车晾在那儿。你的回答是，这笔钱本来就该是临时的种子资金，不是永久年金——而且每年10亿再拿19年，就是1900亿，砸在一个可能永远到不了洛杉矶的系统上。把它框成回到最初的承诺，而不是打破一个新承诺。\n\n要我草拟一下实际的选票语言可能长什么样吗？"
+  },
+  "e950fd7928dbd181": {
+   "kind": "turn 50",
+   "en": "Yes, do it.",
+   "tr": "好，写吧。"
+  },
+  "bb8fcee5ad3a5328": {
+   "kind": "turn 51",
+   "en": "Here's a draft. Section one. This act shall be known as the Climate Investment Restoration Act. Section two. Beginning January first, twenty twenty-nine, the one billion dollars annually from the Greenhouse Gas Reduction Fund currently continuously appropriated to the High-Speed Rail Authority shall instead be appropriated as follows: four hundred million to the Affordable Housing and Sustainable Communities Program, two hundred fifty million to the Transit and Intercity Rail Capital Program, one hundred fifty million to the Low Carbon Transit Operations Program, one hundred million to community air protection grants under AB six seventeen, and one hundred million to the Safe and Affordable Drinking Water Fund. Section three. The High-Speed Rail Authority shall retain all funds appropriated prior to January first, twenty twenty-nine, and may continue to receive federal, private, or other non-GGRF revenue. Section four. Nothing in this act repeals, amends, or impairs the cap-and-invest program established under AB thirty-two or its extension through twenty forty-five. Section five. The provisions of this act are severable.\n\nThat's the skeleton. The real fight would be over section two's split — every constituency will want a bigger number, and the moment you publish it, the coalition starts renegotiating in public. You'd want to lock the shares before filing, not after.\n\nOne thing worth knowing: California's single-subject rule has killed ballot measures before, and \"redirect climate money\" plus \"protect cap-and-trade\" could get challenged as two subjects. Your lawyers would need to argue it's one subject — climate spending — which is defensible but not bulletproof.",
+   "tr": "草案在这儿。第一条。本法称为《气候投资恢复法》。第二条。自2029年1月1日起，目前从温室气体减排基金持续拨款给高铁管理局的每年10亿美元，改为按如下方式拨款：4亿美元给可负担住房与可持续社区计划，2.5亿美元给公交与城际铁路资本计划，1.5亿美元给低碳公交运营计划，1亿美元给AB 617项下的社区空气保护拨款，1亿美元给安全可负担饮用水基金。第三条。高铁管理局保留2029年1月1日之前已拨付的全部资金，并可以继续接受联邦、私人或其他非GGRF收入。第四条。本法任何内容均不废除、修改或损害根据AB 32设立、并延长至2045年的cap-and-invest计划。第五条。本法各条款可分割。\n\n这是骨架。真正的仗会打在第二条的分成上——每个选区都会想要更大的数字，而你一公布，联盟就会开始在公开场合重新谈判。你得在提交之前就把份额锁死，不是之后。\n\n有一件事值得知道：加州的单一主题规则以前杀过选票提案，«重新分配气候资金»加上«保护碳交易»可能被挑战成两个主题。你的律师得主张这是一个主题——气候支出——这说得通，但不是防弹的。"
+  },
+  "fc15b604998196c2": {
+   "kind": "turn 52",
+   "en": "Okay, wait. Okay, that sounds, that sounds good. But all these programs that you listed, like, are they, uh, like reasonable or are they just as wasteful as, uh, high-speed rail?",
+   "tr": "好，等一下。好，听起来、听起来不错。但你列的这些项目，它们到底算合理，还是跟高铁一样浪费？"
+  },
+  "134f71f0f0aad427": {
+   "kind": "turn 53",
+   "en": "Mixed bag, and the honest answer is none of them are clean. AHSC has the worst record of the bunch. Audits found projects funded that never broke ground, administrative costs eating twenty percent or more in some rounds, and grants going to housing that wasn't actually near transit despite the program's name. TIRCP built some genuinely useful things — bus electrification, light rail extensions — but it's also funded cost-overrun disasters like the LA Metro Purple Line, which blew past its budget by billions. LCTOP is the least bad because it's small-scale operational money that mostly just keeps buses running. The air protection grants have real impact in places like the Inland Empire but drown in reporting requirements. Drinking water is probably the strongest case — rural systems are genuinely failing and the need is concrete.\n\nThe pattern across all of them is the same one that killed high-speed rail, just at smaller scale: money flows to agencies and nonprofits that exist to spend it, and the accountability loop is weak. The difference is magnitude. A wasteful hundred-million-dollar housing program is a scandal. A wasteful billion-dollar rail program is a generational failure.\n\nIf you wanted to tighten the language, you could add a section requiring annual independent audits with automatic clawback for misspent funds — something the current programs don't have. That would be the one structural fix none of them currently contain.",
+   "tr": "好坏参半，老实说，没有一个是干净的。AHSC 是这堆里记录最差的。审计发现，有些拿到资金的项目根本没开工，有些轮次行政成本吃掉了20%甚至更多，拨款还流向了其实并不靠近公共交通的住房，尽管项目名字这么叫。TIRCP 确实建了一些真正有用的东西——公交车电气化、轻轨延伸——但它也资助了像洛杉矶地铁紫线这种成本超支的灾难，预算超了几十亿。LCTOP 算最不糟的，因为它是小规模的运营资金，大多只是让公交车继续跑。空气保护拨款在内陆帝国这类地方有实实在在的影响，但被报告要求淹没了。饮用水大概是最站得住的——农村供水系统确实在垮，需求也具体。\n\n贯穿所有这些项目的模式，跟搞死高铁的是同一个，只是规模小一点：钱流向那些存在就是为了花钱的机构和非营利组织，问责闭环很弱。差别在量级。一个浪费的、一亿美元的住房项目是丑闻。一个浪费的、十亿美元的铁路项目是一代人的失败。\n\n如果你想把措辞收紧，可以加一节，要求年度独立审计，对乱花的资金自动追回——现有这些项目都没有这个。这会是它们目前都不包含的那一项结构性修补。"
+  },
+  "ee1e879af768531f": {
+   "kind": "turn 54",
+   "en": "I mean, would that just make more money go to the auditors now?",
+   "tr": "我是说，那不就只是让更多钱现在流向审计师了吗？"
+  },
+  "40ea04b2d2b1a8ce": {
+   "kind": "turn 55",
+   "en": "It would, a little.",
+   "tr": "会，一点点。"
+  },
+  "c4a5eeaab6479b99": {
+   "kind": "turn 56",
+   "en": "And the compliance",
+   "tr": "还有合规"
+  },
+  "c74c6e34ca83e75a": {
+   "kind": "turn 57",
+   "en": "Compliance costs are the sneaky part. Every grant program spawns its own reporting layer — quarterly reports, equity scoring, disadvantaged-community checkboxes, site visits. The LAO found that some climate programs spend more on administration than the actual projects deliver in measurable emissions reductions. So your redirect doesn't eliminate the machine, it just re-homes it. The only real fix is fewer, bigger, simpler pots with hard sunset clauses — but that's the least politically sellable version, because every constituency wants its line item named.",
+   "tr": "合规成本才是阴的那部分。每个拨款项目都会生出自己的报告层——季度报告、公平性评分、弱势社区勾选框、现场走访。立法分析师办公室发现，有些气候项目花在行政上的钱，比实际项目在可衡量的减排上交付的还多。所以你的重新定向并没有拆掉这台机器，只是给它换了个家。唯一真正的修法是更少、更大、更简单的资金池，加上硬性日落条款——但这是政治上最不好卖的版本，因为每个选区都想让自己的预算科目被点名。"
+  },
+  "a5230a11edc360c3": {
+   "kind": "turn 58",
+   "en": "So is this like a problem with democracies or do other countries solve this in some better way?",
+   "tr": "所以这是民主制度的问题，还是别的国家用更好的办法解决了？"
+  },
+  "5c8a27628ff07789": {
+   "kind": "turn 59",
+   "en": "It's mostly a scale and incentive problem, not democracy itself. China builds high-speed rail in a decade because one authority can condemn land, ignore lawsuits, and just build. But their version of waste is ghost cities, debt-fueled overbuild, and zero recourse when a line was a mistake. France's TGV worked because it was a national champion project with a single accountable operator and no ballot initiative process. Japan's Shinkansen had the same — tight state direction, disciplined contractors, and a culture where public failure ends careers.\n\nThe US is unusual in stacking every check at once: federal environmental law, state environmental law, ballot measures, legislative oversight, inspector generals, and public comment periods that any group can weaponize. Each layer was added to solve a real abuse, and together they created a system where the cost of saying no is zero and the cost of saying yes is infinite. That's not democracy failing. That's democracy with no off switch.\n\nI could compare how Singapore or South Korea handle transit megaprojects if you want a sharper contrast.",
+   "tr": "这主要是规模和激励问题，不是民主本身。中国能在十年内建成高铁，是因为一个主管部门可以征地、无视诉讼，直接开建。但他们的浪费版本是鬼城、债务驱动的过度建设，以及一条线路被证明是错误时零追责。法国的 TGV 能成，是因为它是国家冠军项目，单一可问责的运营商，没有公投程序。日本的新干线也一样——国家方向紧、承包商有纪律，还有一种公共失败会终结职业生涯的文化。\n\n美国不寻常的地方在于把每一层制衡同时叠上去：联邦环境法、州环境法、公投措施、立法监督、监察长，以及任何团体都能武器化的公众意见期。每一层都是为了解决真实的滥权而加上去的，叠在一起却造出了一个说«不»成本为零、说«是»成本无限的系统。这不是民主失败了。这是民主没有关闭开关。\n\n如果你想要更鲜明的对比，我可以比较新加坡或韩国怎么处理交通巨型项目。"
+  },
+  "c10c037156053bfe": {
+   "kind": "turn 60",
+   "en": "Sure.",
+   "tr": "行。"
+  },
+  "b1cf8d734edc0117": {
+   "kind": "turn 61",
+   "en": "compare how Spain handled its high-speed buildout. Spain went from zero to about four thousand kilometers of high-speed track in roughly thirty years — second only to China globally. Cost per kilometer ran around twenty to thirty million euros, versus California's implied hundred-plus million per mile. The structural difference: one national infrastructure agency, ADIF, that owned land acquisition, design, and construction under a single chain of command. No citizen initiative, no CEQA equivalent, environmental review folded into EU-level permitting that moved in months, not decades. Political continuity helped too — Socialists started it in the nineties, the center-right kept funding it, nobody campaigned on killing it.\n\nThe tradeoff showed up later. Spain overbuilt. Lines to places like Galicia and the Mediterranean coast carry a fraction of projected riders, and the country's broader construction debt contributed to the two thousand eight crash. So they got the trains but inherited empty platforms and a fiscal hangover.\n\nThe lesson isn't that Spain was smarter. It's that they accepted a different failure mode — overcapacity instead of paralysis. California chose paralysis and got both.",
+   "tr": "比较一下西班牙是怎么铺开高铁建设的。西班牙从零起步，大约三十年里建成了约四千公里高铁轨道——全球仅次于中国。每公里成本大约在两千万到三千万欧元，而加州隐含的成本是每英里一亿多美元。结构性差别在于：一个国家级基础设施机构 ADIF，在单一指挥链下掌握征地、设计和施工。没有公民倡议，没有 CEQA 的对应物，环境审查并入欧盟层面的许可，几个月就能走完，而不是几十年。政治连续性也帮了忙——社会党在九十年代启动，中右翼继续拨款，没人把砍掉它当成竞选主张。\n\n代价后来才显现。西班牙建过头了。通往加利西亚和地中海沿岸这类地方的线路，载客量只有预测的一小部分，而该国更广泛的建设债务也促成了2008年的崩盘。所以他们得到了火车，也继承了空荡荡的站台和财政宿醉。\n\n教训不是西班牙更聪明。而是他们接受了另一种失败模式——运力过剩，而不是瘫痪。加州选择了瘫痪，结果两种都得到了。"
+  },
+  "276c9fffe76a4ba3": {
+   "kind": "turn 62",
+   "en": "This is kinda depressing. If you had to design a solution to this problem, what would it look like?",
+   "tr": "这有点让人沮丧。如果你必须为这个问题设计一个解决方案，它会是什么样？"
+  },
+  "ac57cd8d02c970cd": {
+   "kind": "turn 63",
+   "en": "I'd kill the ballot-box funding. Infrastructure shouldn't be a voter product — it should be a utility with a rate base, like electricity or water. You build it, you charge riders, the fare covers operations and a slice of capital, and the state chips in only for the social-benefit gap, sized by an independent body with a hard formula, not a negotiating table. Sunset every authorization at twenty years. If the line can't justify itself by then, it decommissions. That single rule changes everything — suddenly the consultant who bills four hundred twenty-seven thousand has to defend a number that has to survive a review, not just a board vote.\n\nSecond, one accountable owner per project. Not a board, not a joint venture, one person whose name is on it and whose career ends if it fails. Spain's model, basically. Third, environmental review gets one clock — twelve months, one agency, one document — and after that the default is approval with conditions, not silence. Fourth, change orders above ten percent of contract value trigger an automatic public hearing with the contractor's margin exposed. Not an audit a year later. Same week.\n\nNone of that is radical. It's just what you'd do if the system were designed by someone who'd lose money on the failure instead of gaining a salary. The depressing part is that every one of those fixes has been proposed before, and each one dies because the people who'd implement it are the people it would expose.",
+   "tr": "我会砍掉投票箱拨款。基础设施不该是选民产品——它应该是有费率基数的公用事业，像电或水一样。你建它，你向乘客收费，票价覆盖运营和一部分资本，州只补社会效益缺口，缺口由一个独立机构按硬公式核定，而不是谈判桌。每项授权二十年日落。如果到那时线路无法自证合理，就退役。这一条规则会改变一切——突然间，那个开出四十二万七千账单的顾问，必须捍卫一个得经得起审查的数字，而不只是董事会投票。\n\n第二，每个项目一个可问责的主人。不是董事会，不是合资，是一个人，名字挂在上面，失败了职业生涯就结束。基本上就是西班牙的模式。第三，环境审查只有一个时钟——十二个月、一个机构、一份文件——之后默认是附条件批准，而不是沉默。第四，变更单超过合同金额的10%，就自动触发公开听证，承包商的利润率摊开。不是一年后的审计。同一周。\n\n这些都不激进。不过是如果系统设计者会因失败亏钱、而不是因此拿薪水，你会做的事。让人沮丧的是，这些修补每一条以前都有人提过，而每一条都会死，因为要去落实它的人，正是它会曝光的人。"
+  },
+  "f080792e022ba579": {
+   "kind": "turn 64",
+   "en": "In your opinion, is there no way out?",
+   "tr": "在你看来，是不是没有出路？"
+  },
+  "29047e1646f3fa08": {
+   "kind": "turn 65",
+   "en": "There is a way out, just not a clean one. The pressure has to come from outside the system — a budget crisis, a new governor with no skin in the game, or just the visible spectacle of a train that doesn't go anywhere. Institutions almost never reform themselves; they get reformed by something that makes continuing cost more than stopping. The Central Valley segment is actually the wild card here. If it opens in twenty thirty-three and people ride it, that changes the whole political math overnight. If it opens and runs empty, it becomes the exhibit that finally kills the rest.",
+   "tr": "有出路，只是不干净。压力必须来自系统外部——预算危机、一个跟这件事没有利害关系的新州长，或者就是一列哪也去不了的火车这种看得见的奇观。机构几乎从不会自我改革；它们是被某种让继续下去比停下来更贵的东西改革的。中央谷地路段其实是这里的变数。如果它在2033年开通而且有人坐，整个政治算式一夜之间就会变。如果开通了却空跑，它就会成为最终干掉其余部分的证物。"
+  },
+  "16ca2ce05730adc3": {
+   "kind": "title",
+   "en": "California's Billionaire Tax (Prop 40), SEIU-UHW's Ballot Machine, and the Valuation Trap",
+   "tr": "加州亿万富翁税（40号提案）、SEIU-UHW的选票机器，以及估值陷阱"
+  },
+  "1edca11b3a30ac47": {
+   "kind": "context",
+   "en": "\"Episode 11, recorded during the California High-Speed Rail & the Billionaire Tax session (08:24:36–08:43:28 UTC). David and Eve examine Proposition 40, California's one-time 5% tax on residents worth $1B+ as of January 1, 2026: how SEIU-UHW president Dave Regan uses ballot initiatives as an attrition and bargaining machine across 48 filings, how UC Berkeley economist Emmanuel Saez and his co-drafters designed Section 5033(c)(3)(C)'s voting-control valuation floor and appraiser penalties, why Gavin Newsom and every major Democratic gubernatorial candidate oppose it alongside Sergey Brin's $102M counter-campaign, the California Supreme Court fast-lane constitutional challenge led by Elizabeth Prelogar, and how wealth taxes actually perform in Norway, Switzerland, Spain, and France.\"",
+   "tr": "第11集，录制于«加州高铁与亿万富翁税»这场对谈期间（UTC时间08:24:36–08:43:28）。大卫和伊芙审视40号提案：加州对截至2026年1月1日净资产超过10亿美元的居民一次性征收5%的税。内容包括：SEIU-UHW主席戴夫·里根如何把选票倡议当作消耗战和谈判机器，前后提交48项；加州大学伯克利分校经济学家埃马纽埃尔·萨伊兹及其共同起草人如何设计第5033(c)(3)(C)条的投票控制权估值下限和评估师罚则；为什么加文·纽森和所有主要民主党州长候选人都反对它，并与谢尔盖·布林1.02亿美元的反击宣传站在一边；由伊丽莎白·普雷洛加尔牵头、走加州最高法院快速通道的合宪性挑战；以及财富税在挪威、瑞士、西班牙和法国实际表现如何。"
+  },
+  "27ce996c8f0820d3": {
+   "kind": "topic",
+   "en": "\"Proposition 40 explained: a one-time 5% tax on >$1B net worth retroactive to January 1, 2026, and the $300M+ opposition coalition\"",
+   "tr": "解读40号提案：对净资产超过10亿美元者一次性征收5%，追溯至2026年1月1日，以及超过3亿美元的反对联盟"
+  },
+  "ea2dc83ed13ab57f": {
+   "kind": "topic",
+   "en": "\"SEIU-UHW president Dave Regan's ballot leverage machine: 48 initiatives, the three dialysis propositions, hospital executive-pay deals, and the racketeering suit\"",
+   "tr": "SEIU-UHW主席戴夫·里根的选票杠杆机器：48项倡议、三项透析提案、医院高管薪酬交易，以及敲诈勒索诉讼"
+  },
+  "e95f218a69002128": {
+   "kind": "topic",
+   "en": "\"Section 5033(c)(3)(C)'s voting-control valuation trap: private company book-plus-7.5x-profits formula, appraiser penalties, and why public super-voting shares are excluded\"",
+   "tr": "第5033(c)(3)(C)条的投票控制权估值陷阱：私营公司“账面价值加7.5倍利润”公式、评估师罚则，以及为何上市公司超级投票权股份被排除在外"
+  },
+  "b885bab80b094e5b": {
+   "kind": "topic",
+   "en": "\"Intentional design vs. bug: Emmanuel Saez & Gabriel Zucman's national wealth-tax template and forced-liquidation pressure\"",
+   "tr": "有意设计还是漏洞：埃马纽埃尔·萨伊兹与加布里埃尔·祖克曼的全国财富税模板，以及强制清算压力"
+  },
+  "49245c30335fd686": {
+   "kind": "topic",
+   "en": "\"The California Supreme Court fast-lane schedule, Commerce Clause & retroactivity challenges, and how wealth taxes work in Norway, Switzerland, Spain, and France\"",
+   "tr": "加州最高法院快速通道时间表、商业条款与追溯效力挑战，以及财富税在挪威、瑞士、西班牙和法国如何运作"
+  },
+  "ae7db19ebbad211a": {
+   "kind": "card_summary",
+   "en": "\"SEIU-UHW president Dave Regan's 23–48 ballot initiatives as bargaining leverage vs. Emmanuel Saez & Gabriel Zucman's precedent play, the 5% one-time tax on >$1B net worth, Section 5033(c)(3)(C)'s voting-control valuation trap for illiquid private startup founders vs. public companies, the California Supreme Court fast-lane challenge, and how wealth taxes actually work in Norway, Switzerland, and Spain.\"",
+   "tr": "SEIU-UHW主席戴夫·里根的23至48项选票倡议作为谈判杠杆，对比埃马纽埃尔·萨伊兹与加布里埃尔·祖克曼抢占先例的打法；对净资产超过10亿美元者一次性征收5%；第5033(c)(3)(C)条针对流动性差的私营初创公司创始人（相对于上市公司）的投票控制权估值陷阱；加州最高法院快速通道挑战；以及财富税在挪威、瑞士和西班牙实际如何运作。"
+  },
+  "a0bd7bc6029a07fa": {
+   "kind": "note",
+   "en": "Episode 11, recorded during session 2026-10-24_california-high-speed-rail-and-the-billionaire-tax (turns 79-98, 08:24:36-08:43:28 UTC).",
+   "tr": "第11集，录制于对谈2026-10-24_california-high-speed-rail-and-the-billionaire-tax期间（第79–98轮，UTC时间08:24:36–08:43:28）。"
+  },
+  "7cd8bbfa81c61468": {
+   "kind": "chapter",
+   "en": "Section 5033(c)(3)(C)'s voting-control valuation trap & how wealth taxes work in Europe",
+   "tr": "第5033(c)(3)(C)条的投票控制权估值陷阱，以及财富税在欧洲如何运作"
+  },
+  "616b490e8cbcda58": {
+   "kind": "turn 0",
+   "en": "Okay, well, let's change topics. Tell me about this billionaire tax thing. Like, who is behind it? Who is for it? Who is against it? What's the politics? What's the deal? Like, what's the language? Uh, I hear a lot of different things.",
+   "tr": "好，那我们换个话题。跟我说说这个亿万富翁税。比如，谁在背后推？谁支持？谁反对？政治是什么情况？到底是怎么回事？措辞是什么？呃，我听到很多不同的说法。"
+  },
+  "9cd91a3c4c73275d": {
+   "kind": "turn 1",
+   "en": "Looking up the current status of California's billionaire tax. \n\nIt's Proposition forty on November third. One-time five percent tax on the net worth of anyone who was a California resident on January first, twenty twenty-six, with a net worth of a billion or more. About two hundred fifty people, roughly two trillion in aggregate wealth. Ninety percent of the revenue goes to healthcare — mostly Medi-Cal — ten percent to food assistance and education. Real estate, pensions, and retirement accounts are exempt. Roth IRAs over ten million are not. Between one and one point one billion, the rate phases in. Payable in twenty twenty-seven, or spread over five years with a seven point five percent annual deferral charge.\n\nThe sponsor is SEIU-UHW, the healthcare workers union, president Dave Regan. The actual legal drafting came from tax professors — Brian Galle at Berkeley, David Gamage at Missouri, Darien Shanske at Davis, and Emmanuel Saez, the inequality economist. They collected one point six million signatures, nearly double what they needed.\n\nFor it: Bernie Sanders, Ro Khanna, the California Democratic Party, AFL-CIO, Teamsters, AFSCME, Tom Steyer, Tony Thurmond. Sanders called billionaires \"oligarchs of the eighteenth century.\" The union's argument is that Trump's One Big Beautiful Bill Act cuts roughly thirty billion a year from Medi-Cal, which covers one in three Californians, and billionaire wealth is the only pool big enough to backfill it.\n\nAgainst it: Newsom, who called it \"really damaging to the state\" and endorsed Prop forty-two, a Brin-funded measure that would ban new taxes on personal property outright. Xavier Becerra, Katie Porter, Antonio Villaraigosa, and Matt Mahan — every major Democratic gubernatorial contender — are also opposed. The California Medical Association, Primary Care Association, Teachers Association, Planned Parenthood, professional firefighters, and the state building trades signed a joint statement calling it dangerous. Sergey Brin put in a hundred and two million. Chris Larsen, Peter Thiel, DoorDash's Tony Xu, and Ron Conway are in the mix too. A PAC called Building a Better California has spent over three hundred million — a hundred eighteen against Prop forty, a hundred eighty-six propping up Props forty-one and forty-two, which could nullify it if they get more yes votes.\n\nThe latest Citrin-POLITICO poll has it at forty-six to forty-three, short of a majority with ballots already out. The Yes campaign spent four point four million in the last reporting period. The opposition spent more than thirty times that.\n\nThe politics underneath: this is SEIU-UHW's revenge project. They've sponsored forty-eight ballot initiatives since twenty twelve, most failed. This one grew out of their fight over dialysis clinic regulations — the same union that pushed the billionaire tax framing while media called it purely a healthcare-funding measure. Newsom tried to kill it with a two percent legislative alternative; Regan offered to drop to two percent if Newsom backed it, Newsom refused. Now it's a proxy war over whether California's Democratic Party is for the donor class or the working class, playing out two years before a presidential primary.\n\nOne wrinkle worth knowing: the Hoover Institution's analysis found two-thirds of the projected Medi-Cal cuts happen after twenty thirty, well after this one-time revenue would be collected. So even if it passes, the timing doesn't match the need.\n\nWant me to go through what Props forty-one and forty-two actually do, or dig into the valuation fight over private company stock?",
+   "tr": "我先查一下加州亿万富翁税的最新情况。\n\n这是11月3日的40号提案。对2026年1月1日仍是加州居民、净资产达到10亿美元及以上的人，一次性征收5%的净资产税。大约250人，合计财富大约2万亿美元。税收的90%用于医疗——主要是Medi-Cal——10%用于食品援助和教育。房地产、养老金和退休账户免税。超过1000万美元的Roth IRA不免税。净资产在10亿到11亿美元之间，税率逐步爬升。2027年缴纳，也可以分五年支付，每年加收7.5%的递延费用。\n\n发起方是医疗工作者工会SEIU-UHW，主席是戴夫·里根。实际法律文本出自税法教授——伯克利的Brian Galle、密苏里的David Gamage、戴维斯的Darien Shanske，以及研究不平等的经济学家埃马纽埃尔·萨伊兹。他们收集了160万个签名，几乎是所需数量的两倍。\n\n支持方：伯尼·桑德斯、罗·卡纳、加州民主党、AFL-CIO、Teamsters、AFSCME、汤姆·斯泰尔、托尼·瑟蒙德。桑德斯把亿万富翁称为«18世纪的寡头»。工会的论点是，唐纳德·特朗普的One Big Beautiful Bill Act每年从Medi-Cal削减大约300亿美元，而Medi-Cal覆盖三分之一的加州人，亿万富翁的财富是唯一大到足以填上这个缺口的资金池。\n\n反对方：加文·纽森，他称这«对这个州真的很有害»，并背书了42号提案，一项由布林出资的措施，将直接禁止对个人财产开征新税。哈维尔·贝塞拉、凯蒂·波特、安东尼奥·维拉莱戈萨和马特·马汉——每一位主要的民主党州长竞选人——也都反对。加州医学会、初级保健协会、教师协会、Planned Parenthood、职业消防员以及州建筑工会签署联合声明，称其危险。谢尔盖·布林投了1.02亿美元。克里斯·拉森、彼得·蒂尔、DoorDash的托尼·徐和罗恩·康威也掺和进来了。一个叫Building a Better California的PAC已经花了超过3亿美元——1.18亿用来反对40号提案，1.86亿用来撑起41号和42号提案，如果这两项拿到更多赞成票，就可能让40号提案作废。\n\n最新的Citrin-POLITICO民调是46%对43%，选票已经寄出，却还不到多数。赞成阵营在上一个报告期花了440万美元。反对方花的是这个数的三十多倍。\n\n底下的政治：这是SEIU-UHW的复仇项目。自2012年以来他们发起了48项公投提案，大多数都失败了。这一项是从他们围绕透析诊所监管的斗争里长出来的——正是这个工会在推亿万富翁税的叙事，媒体却把它说成纯粹的医疗筹资措施。纽森试图用一项2%的立法替代方案把它掐掉；里根提出，如果纽森背书，税率可以降到2%，纽森拒绝了。现在它成了一场代理战争，争的是加州民主党站金主阶层还是工人阶级，而这出戏在总统初选前两年就上演了。\n\n有个值得知道的弯子：胡佛研究所的分析发现，预计的Medi-Cal削减有三分之二发生在2030年之后，远远晚于这笔一次性收入收上来的时间。所以即便通过，时间也对不上需求。\n\n要我把41号和42号提案实际做什么过一遍，还是挖一挖私人公司股票的估值之争？"
+  },
+  "022eb02771cfdb56": {
+   "kind": "turn 2",
+   "en": "Well, I'm interested in this, uh, union, uh, that's behind this. You said they've tried to, tried to pass a bunch of other props?",
+   "tr": "嗯，我对背后这个，呃，工会挺感兴趣。你说他们试过、试过通过一堆别的提案？"
+  },
+  "373c643d5b8adc52": {
+   "kind": "turn 3",
+   "en": "Checking SEIU-UHW's ballot history. \n\nYeah — Dave Regan calls ballot initiatives \"the best bargain in American politics,\" and his record backs that up. Since twenty twelve he's filed somewhere between twenty-three and forty-eight initiatives at the state and local level. Almost none have passed. The signature move is the dialysis trilogy — Prop eight in twenty eighteen would have capped dialysis clinic profits, rejected sixty to forty. Prop twenty-three in twenty twenty required an on-site physician, rejected sixty-three to thirty-seven. Prop twenty-nine in twenty twenty-two loosened that to allow a nurse practitioner, rejected sixty-eight to thirty-two. Each one nearly identical to the last. Here's the thing — there are no unionized dialysis workers in California. DaVita and Fresenius run those clinics non-union, and they spent over two hundred sixteen million across the three fights. Regan's own framing was that the campaigns publicized the union's critique and led to a twenty nineteen law tightening how clinics steer patients into high-reimbursement plans. Critics, including Democrats and other unions, read it as attrition warfare — bleed the companies dry until they recognize the union.\n\nThe hospital playbook is even more explicit. In twenty fourteen they filed two measures — one capping nonprofit hospital exec pay at four hundred fifty thousand, the president's salary, another capping hospital charges at twenty-five percent above cost. They withdrew both after the California Hospital Association agreed to a code of conduct easing union organizing and to jointly lobby for higher Medi-Cal rates. In twenty sixteen a similar exec-pay measure qualified but got pulled on an arbitrator ruling. This year they filed the Healthcare Executive Compensation Act again, then dropped it June twenty-fifth in a deal where the hospital association also killed its dueling measure restricting union political spending.\n\nThe twenty sixteen minimum wage initiative is the one they count as a win — it qualified, Jerry Brown's staff called their signature contractor to check viability, and a week later Brown signed Senate Bill three phasing in fifteen dollars. Regan says Brown's people reached out first.\n\nOut of state they've had real wins — Arizona's healthcare debt interest cap in twenty twenty-two, Michigan's independent redistricting commission in twenty eighteen. They also seeded The Fairness Project in twenty fifteen, which has won thirty-nine campaigns nationwide.\n\nThe California Primary Care Association just filed a racketeering lawsuit against Regan personally, arguing Prop forty-four — the community clinic spending measure polling at thirty-four percent — is the same extortion playbook aimed at clinics they want to unionize. That case hasn't been heard.\n\nSo the pattern isn't incompetence. It's a deliberate strategy where the initiative is the opening bid in a negotiation, and the ballot is the leverage. The billionaire tax is the first time they've aimed it at a target that isn't a healthcare employer.",
+   "tr": "我查一下SEIU-UHW的公投记录。\n\n对——戴夫·里根把公投提案称为«美国政治里最划算的买卖»，他的记录也撑得住这句话。自2012年以来，他在州和地方层面提交了大约23到48项提案。几乎一个都没通过。招牌动作是透析三部曲——2018年的8号提案本会给透析诊所利润设上限，以60比40被否决。2020年的23号提案要求配备驻场医生，以63比37被否决。2022年的29号提案把要求放宽到允许执业护士，以68比32被否决。每一项都跟上一项几乎一模一样。关键在这儿——加州没有加入工会的透析工人。DaVita和Fresenius以非工会方式经营这些诊所，三次斗争加起来花了超过2.16亿美元。里根自己的说法是，这些竞选把工会的批评宣传了出去，并促成了2019年的一项法律，收紧诊所把病人导向高报销计划的做法。批评者，包括民主党人和其他工会，把它读成消耗战——把这些公司的血放干，直到他们承认工会。\n\n医院这套打法更直白。2014年他们提交了两项措施——一项把非营利医院高管薪酬上限设在45万美元，也就是主席本人的薪水，另一项把医院收费上限设在成本之上25%。加州医院协会同意一套便于工会组织的行为准则，并共同游说提高Medi-Cal费率之后，他们把两项都撤回了。2016年一项类似的高管薪酬措施获得了投票资格，但依据仲裁员的裁决被撤回。今年他们再次提交了《医疗高管薪酬法》，然后在6月25日的一笔交易里放弃了它，医院协会也同时掐掉了自己那项限制工会政治支出的对打措施。\n\n2016年的最低工资提案是他们算作胜利的那一项——它获得了资格，杰里·布朗的幕僚打电话给他们的签名承包商核实可行性，一周后布朗签署了参议院第3号法案，分阶段把时薪提到15美元。里根说是布朗的人先联系过来的。\n\n出了加州他们有过真赢——2022年亚利桑那州的医疗债务利息上限，2018年密歇根州的独立选区重划委员会。他们还在2015年播下了The Fairness Project的种子，该项目已经在全国赢下39场竞选。\n\n加州初级保健协会刚刚对里根本人提起了敲诈勒索诉讼，主张44号提案——那项社区诊所支出措施，民调只有34%——是同一套勒索打法，瞄准他们想组织进工会的诊所。这个案子还没开庭。\n\n所以这套模式不是无能。这是一套刻意的策略：提案是谈判里的开价，选票是杠杆。亿万富翁税是他们第一次把这套东西对准一个不是医疗雇主的目标。"
+  },
+  "22c3bbf54871e04d": {
+   "kind": "turn 4",
+   "en": "So what do you make of this? Like, uh, yeah, what do you think, uh, the, the, the president, the union president and the union, uh, like is this just like cynical money grab? Do they think they're trying to do good? Like, yeah, what's going on here?",
+   "tr": "所以你怎么看这件事？就是，呃，对，你觉得这个主席，工会主席和这个工会，呃，这就是一种 cynically 的捞钱吗？他们觉得自己是在做好事吗？就是，对，这儿到底在发生什么？"
+  },
+  "e96cf5948054fb32": {
+   "kind": "turn 5",
+   "en": "Probably both, and the mix shifts by target. With dialysis and hospitals, the leverage reading is hard to escape. You don't refile the same nearly identical measure three times after two blowout losses because you think voters will suddenly agree — you do it because each round costs the target industry a hundred million it can't spend on anything else. Regan has said as much in his own way, calling withdrawals \"tactical gains.\" That's not evil, it's just what a negotiator does when the ballot box is his leverage and he has no other seat at the table.\n\nProp forty is different because there's no employer to organize. Billionaires aren't going to unionize. So it reads more like genuine policy conviction — Saez and the tax professors gave it intellectual scaffolding, the Medi-Cal cuts gave it urgency, and Regan gets to be the guy who finally taxed the rich in California. There's also self-interest: if Medi-Cal funding collapses, union healthcare jobs go with it. But that's aligned interest, not extraction.\n\nThe part I'd flag is the racketeering suit. If a federal judge ever lets that theory breathe — that repetitive initiatives are extortion rather than advocacy — it doesn't just threaten Regan, it threatens the whole initiative ecosystem. California's ballot process has always been a pressure valve for groups locked out of Sacramento. Redefining that as racketeering would change who gets to use it.\n\nI could dig into whether any court has ever actually tested that theory before, if you want.",
+   "tr": "大概两者都有，而且比例会随目标而变。透析和医院这块，杠杆解读很难逃得掉。你不会在两次惨败之后，把几乎一模一样的提案再交三次，就因为你觉得选民会突然同意——你这么做，是因为每一轮都要让目标行业花掉一亿美元，这笔钱就不能用在别的地方。里根自己也差不多这么说过，他把撤回叫做«战术性收益»。这不是邪恶，只是谈判者在选票箱是他的筹码、他又没有别的席位时会做的事。\n\n40号提案不一样，因为没有雇主可以组织。亿万富翁不会加入工会。所以它更像是真心的政策信念——萨伊兹和那些税法教授给了它智识上的脚手架，Medi-Cal的削减给了它紧迫性，而里根就能成为那个终于在加州向富人征税的人。这里也有自身利益：如果Medi-Cal的资金崩了，工会的医疗岗位也会跟着没。但那是利益一致，不是榨取。\n\n我会标出来的是那起敲诈勒索诉讼。如果联邦法官哪天让这个理论喘口气——也就是说，反复提交倡议是勒索而不是倡导——那威胁的就不只是里根，而是整个倡议生态。加州的选票程序一直是被萨克拉门托挡在门外的群体的泄压阀。把它重新定义为敲诈勒索，会改变谁还能用它。\n\n如果你想，我可以再挖挖，有没有法院真的检验过这个理论。"
+  },
+  "97f28d6910241b04": {
+   "kind": "turn 6",
+   "en": "Well, first let's talk about the, uh, actual valuation stuff. I heard something like, uh, they were going to count voting shares, uh, like 10x voting shares as 10x. Yeah, like what, what? Yeah, yeah, tell me the, the detail, the financial details.",
+   "tr": "嗯，先说说那个，呃，实际估值的东西。我听说好像，呃，他们要把投票权股份，呃，比如10倍投票权股份按10倍来算。对，就是什么，什么？对对，跟我说说细节，财务细节。"
+  },
+  "e53b9db50a827846": {
+   "kind": "turn 7",
+   "en": "Searching for the valuation rules in Prop forty. \n\nThe ten-times thing is a misreading that spread online. The actual provision, Section fifty thirty-three c three C, says that for interests conferring voting or control rights, your ownership percentage is presumed to be not less than your share of the voting rights. So if you own ten percent of the equity but sixty percent of the votes, the default formula taxes you on sixty. That's the kernel people turned into \"ten-x voting shares.\"\n\nBut it only applies to privately held companies. Publicly traded shares — including super-voting Class B shares at Meta or Google — get valued at market price on December thirty-first, twenty twenty-six, period. The drafters wrote that exclusion in explicitly, and their section-by-section explainer hammers it: the control-rights floor does not apply to publicly traded entities, whether or not the shares themselves trade.\n\nFor private companies, the default formula is GAAP book value plus seven point five times average annual book profits, times your ownership share — with ownership being the higher of economic stake or control rights. A business with three straight loss years still gets valued at book value, since losses floor at zero. You can rebut with a certified appraisal, but only on clear and convincing evidence the formula substantially misstates value, and appraisers themselves face penalties up to four percent of any discrepancy if the Franchise Tax Board disagrees.\n\nThere are more anti-abuse floors stacked on: no minority or lack-of-marketability discounts, nothing worth less than its insured value, and a business can't be valued below its last funding round within two years. Real estate held directly or in a revocable trust is out entirely — but real estate held through an LLC or limited partnership is fully in. Roth IRAs only count above ten million combined. Pensions and traditional IRAs are exempt. Art and collectibles get a five-million-dollar exclusion before appraisals kick in.\n\nThe Tax Foundation's sharpest example is Tony Xu — two point six percent of DoorDash economically but fifty-seven point six percent of the vote. If his stake were private and the voting presumption stuck, his taxable base could more than double. DoorDash trades publicly, so under the drafters' reading it shouldn't. But Stout, the valuation firm, notes the statutory language isn't airtight on whether non-traded super-voting shares in a public company fall under the public-trading rule or the private-entity rule, and that's exactly where the first lawsuits will land.\n\nThe NBER working paper puts it more bluntly: read as written, the Act taxes not just the economic value of a founder's stake but the value of the share of the firm they control — which can substantially exceed what they'd get selling it.\n\nI could dig into how the Berkeley versus Hoover revenue estimates diverge on exactly this valuation question, since that gap is over a hundred billion dollars on the same people.",
+   "tr": "正在查40号提案里的估值规则。\n\n十倍那件事是网上传开的误读。实际条款，第5033(c)(3)(C)条，说的是：对于赋予投票权或控制权的权益，你的所有权比例被推定为不低于你所占的投票权份额。所以如果你拥有10%的股权，但拥有60%的投票权，默认公式就按60%对你征税。这就是人们拧成«10倍投票权股份»的那个内核。\n\n但它只适用于私人持有的公司。公开交易的股份——包括Meta或Google的超级投票权B类股——按2026年12月31日的市价估值，就这样。起草者把这项排除写得很明确，他们的逐条解释也反复敲这一点：控制权下限不适用于公开交易的实体，不管这些股份本身是否交易。\n\n对私人公司，默认公式是GAAP账面价值，加上年平均账面利润的7.5倍，再乘以你的所有权份额——所有权取经济权益和控制权中较高的那个。连续三年亏损的企业仍按账面价值估值，因为亏损的下限是零。你可以用经认证的评估来反驳，但必须有清楚且令人信服的证据，证明公式严重错估了价值；如果特许税务局不同意，评估师本人还可能面临最高为差额4%的罚款。\n\n上面还叠了更多反滥用下限：不允许少数股权折价或缺乏流通性折价，任何东西的价值不能低于其投保价值，企业的估值也不能低于两年内最近一轮融资的估值。直接持有或放在可撤销信托里的房地产完全排除——但通过LLC或有限合伙持有的房地产则完全计入。Roth IRA只有合计超过1000万美元的部分才算。养老金和传统IRA免税。艺术品和收藏品在评估启动前有500万美元的排除额。\n\n税务基金会最尖锐的例子是托尼·徐——经济上只占DoorDash的2.6%，但投票权占57.6%。如果他的股份是私人的，而且投票权推定成立，他的应税基数可能会翻一倍以上。DoorDash是公开交易的，所以按起草者的解读不应该这样。但估值公司Stout指出，法条语言并不严密：上市公司里不交易的超级投票权股份，到底适用公开交易规则还是私人实体规则，并不清楚，而第一批诉讼恰恰会落在这里。\n\nNBER的工作论文说得更直白：按字面读，这项法案征的税不只是创始人股份的经济价值，还有他们所控制的那部分公司的价值——而这可能大大超过他们卖掉股份能拿到的钱。\n\n如果你想，我可以再挖挖伯克利和胡佛在这个估值问题上的收入估算为什么会分叉，因为同一批人，差距超过1000亿美元。"
+  },
+  "2da2ac22a416ddf1": {
+   "kind": "turn 8",
+   "en": "So, the people that wrote this, like the professors, uh, is this a mistake? Or is this intentional? Or like they thought this was good policy? Or they didn't expect for this to happen?",
+   "tr": "所以，写这个的人，比如那些教授，呃，这是失误吗？还是故意的？或者他们觉得这是好政策？还是他们没料到会发生这种事？"
+  },
+  "d85accac41329f59": {
+   "kind": "turn 9",
+   "en": "Their own explainer reads as intentional. They describe the control-rights floor as targeting a known estate-tax dodge — people holding voting control without a matching economic stake — and they say the public-company exclusion was deliberate too, because market value already captures what those shares are worth. So they anticipated the dual-class issue and chose to route it through the trading-price rule rather than the voting formula.\n\nWhether that choice was good policy or just convenient is where it gets murkier. Saez's whole intellectual project is taxing wealth at its source, and a rule that hits founders on control rather than cash flow is philosophically consistent with that. But it also creates a forced-sale pressure that even sympathetic tax scholars acknowledge — you'd be taxing people on value they can't easily liquidate without giving up the very control the tax is measuring. The drafters' answer is the appraisal safety valve, but that shifts the burden and the risk onto the taxpayer and their appraiser.\n\nMy read: they knew it would overstate value in edge cases, decided the overstatement was acceptable or fixable in court, and wrote the explainer to pre-defend against exactly the criticism you're raising. That's not a bug they missed. It's a design choice they expected to have to argue for.",
+   "tr": "他们自己的解释读起来就是故意的。他们把控制权下限描述为针对一种已知的遗产税规避手法——人们持有投票控制权，却没有匹配的经济权益——他们还说，上市公司的排除也是故意的，因为市值已经抓住了这些股份值多少。所以他们预见到了双层股权问题，并选择走交易价格规则，而不是投票权公式。\n\n这个选择是好政策还是只是方便，这里就开始模糊了。萨伊兹整个智识计划就是在财富的源头征税，而一条按控制权而不是现金流打击创始人的规则，在哲学上与此一致。但它也制造了一种被迫出售的压力，连同情的税法学者也承认这一点——你是在对人们无法轻易变现的价值征税，而变现就得放弃这项税正在衡量的那种控制权。起草者的答案是评估这个安全阀，但这把负担和风险转给了纳税人及其评估师。\n\n我的解读：他们知道在边缘情形下会高估价值，认定这种高估可以接受，或者可以在法庭上修正，并且写了解释，预先防御你正在提出的这种批评。这不是他们漏掉的bug。这是一个他们预料到必须为之辩护的设计选择。"
+  },
+  "bf24f8df4f22a045": {
+   "kind": "turn 10",
+   "en": "Okay, so what's your read of this law? Like, what do you think about it?",
+   "tr": "好，那你怎么看这项法律？就是，你觉得它怎么样？"
+  },
+  "674fec727cd8ba87": {
+   "kind": "turn 11",
+   "en": "It's a cleverly designed pressure valve, not a clean tax. The one-time structure sidesteps the constitutional mess that killed Washington's wealth tax attempt, the real-estate exemption buys off homeowners, and the Roth carve-out above ten million is a wink at Thiel without naming him. The revenue estimate swings from a hundred billion to negative thirty-nine depending on assumptions about departures, avoidance, and litigation — which tells you the number is more political theater than fiscal plan.\n\nWhat I actually think: it's less about the money and more about the message. Five percent of two trillion is a hundred billion, but California's structural deficit is around thirty billion a year, so even full collection doesn't fix anything lasting. What it does is force a public fight over whether extreme wealth concentration is politically tolerable in a state that just handed a hundred and two million to one billionaire to fight it. That's the real stakes.\n\nThe risk I keep coming back to is the same one from the rail conversation — a system that can tax a billionaire's private company at book value plus seven point five times profits, with appraisers personally penalized for disagreeing, is a system that can tax anyone's assets the same way later. The precedent is the product. Whether you think that's a feature or a bug probably depends on whose assets you think get targeted next.\n\nI could dig into what the legal challenges would actually look like if it passes — the dormant Commerce Clause arguments, the valuation litigation, whether the California Supreme Court would even let it stand.",
+   "tr": "这是一个设计巧妙的泄压阀，不是一项干净的税。一次性结构绕开了搞死华盛顿州财富税尝试的那种宪法烂摊子，房地产豁免收买了房主，而1000万美元以上的Roth豁免是对蒂尔使了个眼色，却不点他的名。收入估算从1000亿摆到负390亿，取决于对迁出、避税和诉讼的假设——这说明这个数字更像政治表演，而不是财政计划。\n\n我真正的看法：它与其说是为了钱，不如说是为了信号。2万亿的5%是1000亿，但加州的结构性赤字大约每年300亿，所以即便全额征到，也修不好任何持久的问题。它做的是逼出一场公开斗争：在一个刚刚掏了1.02亿美元给一位亿万富翁去打这场仗的州里，极端的财富集中在政治上是否还能被容忍。这才是真正的利害。\n\n我反复回到的风险，和高铁那场谈话是同一个——一个能按账面价值加7.5倍利润对亿万富翁的私人公司征税、评估师若不同意还要个人受罚的体系，以后也能用同样的方式对任何人的资产征税。先例就是产品。你觉得这是功能还是bug，大概取决于你认为下一个被瞄准的是谁的资产。\n\n如果它通过了，我可以再挖挖法律挑战实际上会是什么样——休眠商业条款的论点、估值诉讼，以及加州最高法院到底会不会让它站住。"
+  },
+  "83413b58c89d6f58": {
+   "kind": "turn 12",
+   "en": "Yeah, tell me about the Supreme Court.",
+   "tr": "好，跟我说说最高法院。"
+  },
+  "6d5b8ade9696a2c5": {
+   "kind": "turn 13",
+   "en": "Let me check the latest on the California Supreme Court and Prop forty. \n\nProp forty builds its own fast lane. Facial challenges — meaning arguments that the whole thing is unconstitutional as written — have to be filed in Sacramento Superior Court within sixty days of passage, with a ruling due by April first, twenty twenty-seven, and any appeal jumping straight to the California Supreme Court with a decision required by November first of that year. The drafters did that on purpose: they wanted the big constitutional questions settled fast so nobody could gut it five years in with a sweeping lawsuit. What that schedule doesn't cover is the as-applied fights — individual residency disputes, valuation battles, apportionment claims — and those can drag on for years, possibly a decade. The Gilbert Hyatt case is the cautionary tale: the Franchise Tax Board went after him for moving to Nevada in the nineties, and it's still not fully resolved after California, Nevada, federal, and US Supreme Court litigation.\n\nThe opposition is already assembled. The California Business Roundtable retained Elizabeth Prelogar, the former US Solicitor General, to lead the charge. The Hoover Institution published a paper arguing the tax violates Due Process because it taxes worldwide wealth based on a single day's residency, runs afoul of the Commerce Clause by taxing assets outside California without fair apportionment, and raises Bill of Attainder concerns because it targets a named class of people. The Tax Foundation flagged the valuation formula, the retroactive residency date, and the mandatory aggregation of nonresident spouses' assets as separate constitutional problems. The National Taxpayers Union Foundation counted at least eight distinct grounds.\n\nHere's the structural irony: the expedited facial track means the Supreme Court has to rule on provisions before the Franchise Tax Board has even issued regulations interpreting them. Challengers will argue claims are unripe; the state will argue the initiative's own text bars them later. Either way, the court is being asked to decide a novel tax with no precedent on a compressed clock, and the losing side will almost certainly try for US Supreme Court review after that.\n\nOne more wrinkle — if Prop forty and Prop forty-two both pass, the court also has to decide whether they conflict, and California precedent says only the higher-vote measure takes effect. Galle himself admitted courts will likely have to sort out those complications.\n\nSo the realistic timeline: election November third, facial ruling spring twenty twenty-seven, Supreme Court decision by fall twenty twenty-seven, and then years of individual litigation on top. Nobody collects a dime until that first round clears.\n\nWant me to go deeper on any one of those challenge theories — the Commerce Clause apportionment argument is probably the strongest one?",
+   "tr": "让我查一下加州最高法院和40号提案的最新情况。\n\n40号提案给自己修了一条快速通道。表面性挑战——也就是主张整部法律按文本本身就违宪的论点——必须在通过后60天内向萨克拉门托高等法院提起，裁决须在2027年4月1日前作出；任何上诉直接跳到加州最高法院，并要求在当年11月1日前作出决定。起草者是故意这么干的：他们想让重大宪法问题尽快定下来，免得五年后有人用一场全面诉讼把它掏空。这套时间表没覆盖的，是适用性之争——个人居住地纠纷、估值大战、分摊主张——这些可以拖上好几年，甚至十年。吉尔伯特·海厄特案就是前车之鉴：特许税务委员会因为他九十年代搬去内华达而追他，经过加州、内华达、联邦以及美国最高法院的诉讼，到现在还没完全了结。\n\n反对阵营已经集结好了。加州商业圆桌会议聘请了前美国总律师伊丽莎白·普雷洛加尔来领衔出击。胡佛研究所发了一篇论文，主张这项税违反正当程序，因为它依据单独一天的居住地对全世界的财富征税；又因为对加州境外资产征税却没有公平分摊，而触犯商业条款；还引发褫夺公权法案方面的担忧，因为它瞄准的是一个被明确划定的人群。税收基金会把估值公式、追溯性的居住日期，以及强制合并非居民配偶的资产，分别标成独立的宪法问题。全国纳税人联盟基金会至少数出了八项不同的理由。\n\n结构性的讽刺在这儿：这条加急的表面性轨道意味着，最高法院必须在特许税务委员会甚至还没出台解释这些条款的规章之前，就对条款作出裁决。挑战方会主张请求尚未成熟；州政府则会主张，提案自己的文本禁止他们以后再提。不管哪边，法院都被要求在压缩的时限上，对一项没有先例的新型税作出决定，败诉方在那之后几乎肯定会寻求美国最高法院复审。\n\n还有一个弯——如果40号提案和42号提案都通过，法院还得判定它们是否冲突，而加州先例说，只有得票更高的那一项生效。加勒本人也承认，这些复杂问题很可能得由法院来理清。\n\n所以现实的时间线是：选举在11月3日，表面性裁决在2027年春，最高法院的决定在2027年秋，然后上面再叠上多年的个案诉讼。第一轮没清完，谁也收不到一分钱。\n\n要我把其中任何一种挑战理论再挖深一点吗——商业条款的分摊论证，大概是最强的那条？"
+  },
+  "2cebe93df4cf59bb": {
+   "kind": "turn 14",
+   "en": "So it sounds like even if this thing gets passed, no one is actually going to get taxed. Um, so is this, uh, just, uh, like leverage, uh, that the union used for, for bargaining? Or is it trying to set a precedent that just says you can tax people's wealth whenever you want?",
+   "tr": "所以听起来，就算这东西通过了，实际上也不会有人被征税。嗯，所以这是不是，呃，就是工会用来、用来谈判的筹码？还是说它想立一个先例，就等于说你想什么时候对人的财富征税就可以征？"
+  },
+  "b8b5a1c57359eb82": {
+   "kind": "turn 15",
+   "en": "It's both, but the precedent is the bigger prize. Regan literally offered to withdraw it for a two percent legislative version — that's textbook leverage. But the professors behind it aren't union staffers. Saez has spent his career trying to make wealth taxes politically normal, and he said himself this was designed as a template other states could copy. So the union gets its bargaining chip, and the movement gets its proof of concept.\n\nAnd \"no one gets taxed\" is too strong. Even a partial survival — say the courts kill the retroactivity or the voting-rights presumption but leave the core five percent intact — still means tens of billions collected from people who can't easily leave. The Gilbert Hyatt fight took thirty years and still ended with California winning on the merits in federal court. Wealthy people litigate forever, but they also eventually pay.\n\nThe real precedent isn't just \"you can tax wealth.\" It's \"you can tax wealth retroactively, based on a snapshot date, with the state defining valuation and penalizing appraisers who disagree.\" That's a much more aggressive template than anything Saez has floated before, and it's the part that should worry people who don't own a billion dollars.",
+   "tr": "两样都是，但先例才是更大的奖品。戴夫·里根确实提出过，换成一个2%的立法版本他就撤回——这就是教科书式的筹码。但背后那些教授不是工会的工作人员。萨伊兹花了一辈子试图让财富税在政治上变得正常，而且他自己说，这是设计成其他州可以照抄的模板。所以工会拿到谈判筹码，这场运动拿到概念验证。\n\n而«没人会被征税»说得太满了。即便只是部分存活——比方说法院砍掉追溯性，或者砍掉投票权推定，但把核心的5%留下——仍然意味着从那些不容易离开的人身上收走数百亿。吉尔伯特·海厄特那场仗打了30年，最后在联邦法院，加州还是在实体问题上赢了。有钱人可以永远打官司，但他们最终也会付钱。\n\n真正的先例不只是«你可以对财富征税»。而是«你可以追溯性地对财富征税，依据一个快照日期，由州来定义估值，并惩罚持不同意见的评估师»。这比萨伊兹以前抛出过的任何方案都激进得多，也正是该让那些并没有十亿美元的人担心的部分。"
+  },
+  "c7afdbe035fc2667": {
+   "kind": "turn 16",
+   "en": "... mating. I mean, it's, it does seem like wealth tax is a, a totally reasonable thing given, uh, like, uh, disparities. But this seems like a really implementation. I don't know. Do you think wealth taxes are, does anyone do wealth taxes well? Uh, it seems like property tax is a form of wealth tax. California limits that pretty severely.",
+   "tr": "……我是说，考虑到这些差距，财富税看起来确实是件完全合理的事。但这个看起来真的就是一种实施。我不知道。你觉得财富税——有人把财富税做得好吗？呃，财产税好像就是一种财富税。加州对这个限制得挺严的。"
+  },
+  "1e95e4e210b46ec6": {
+   "kind": "turn 17",
+   "en": "Norway, Switzerland, and Spain do run recurring wealth taxes today. Norway's is the cleanest — one percent above roughly one hundred fifty thousand dollars, stable for decades, and it funds a big chunk of the welfare state without much drama. Switzerland's works because rates are so low, point one to one percent, and vary by canton, so it's more of a local revenue tool than a redistribution hammer. Spain's is the messiest — reinstated in twenty eleven as a temporary fix, renewed every year since, and it's driven enough capital out that economists debate whether it raises anything net.\n\nFrance is the best case study for what happens when you do it badly. The original ISF taxed all assets including stocks and business equity, and by twenty seventeen it was collecting about five billion euros a year while costing an estimated sixty billion in lost investment and flight. Macron replaced it with the IFI, which only hits real estate above one point three million. So France effectively gave up on taxing financial wealth.\n\nYour property tax point is exactly right and it's the one wealth tax Americans already live with. Prop thirteen turned it into a tax on entry price rather than current value — someone who's owned a house since nineteen eighty pays a fraction of what a new buyer pays on the identical asset. That's a wealth tax with a grandfather clause baked in, and it's politically untouchable precisely because the people it benefits are the ones who vote.\n\nThe pattern across all of this: wealth taxes survive when they're low, narrow, and predictable. They die when they try to be redistributive at scale. Prop forty is trying to be the latter at five percent on a snapshot date, which is why even the people who like the idea think the implementation is reckless.\n\nI could walk through what Norway's actual numbers look like — revenue, flight, who pays — if you want the one working example in detail.",
+   "tr": "挪威、瑞士和西班牙今天确实在征经常性财富税。挪威的最干净——大约15万美元以上的部分征1%，稳定了几十年，而且给福利国家供了一大块资金，也没闹出什么大动静。瑞士能运转，是因为税率很低，0.1%到1%，而且各州不同，所以它更像地方收入工具，而不是再分配的锤子。西班牙最乱——2011年作为临时补丁恢复，此后每年续一次，而且已经赶走了足够多的资本，经济学家还在争论它净下来到底有没有收到钱。\n\n法国是做得糟糕时会发生什么的最佳案例。最初的ISF对包括股票和企业股权在内的全部资产征税，到2017年每年大约收50亿欧元，同时估计造成600亿的投资损失和资本外逃。马克龙用IFI取代了它，只打130万欧元以上的房地产。所以法国实际上放弃了对金融财富征税。\n\n你关于财产税的观点完全正确，而且这就是美国人已经在过的那种财富税。13号提案把它变成了对买入价而不是当前价值征税——1980年就拥有房子的人，对同一项资产只付新买家的一个零头。这是一种内置了祖父条款的财富税，而且它在政治上碰不得，恰恰因为受益的人就是去投票的那些人。\n\n贯穿这一切的规律是：财富税在低、窄、可预期的时候能活下来。一旦想做大规模再分配就会死。40号提案想在一个快照日期上以5%去做后者，所以即便喜欢这个想法的人也觉得这种实施是鲁莽的。\n\n如果你想要那个真正在运转的例子的细节，我可以带你过一遍挪威的实际数字——收入、外逃、谁在付钱。"
+  },
+  "8293435aad81a164": {
+   "kind": "turn 18",
+   "en": "Alright, I'm going to bed. This, this has been really depressing, Eve. Thanks for my question.",
+   "tr": "好了，我要去睡觉了。这、这真的挺让人沮丧的，伊芙。谢谢你回答我的问题。"
+  },
+  "c60840f8097ede1c": {
+   "kind": "turn 19",
+   "en": "Sleep well. The world's still there in the morning.",
+   "tr": "睡个好觉。早上世界还在。"
+  },
   "d83dfbd1490ef2ef": {
    "kind": "title",
    "en": "Iran's 'Edge Theory' & Russia's Double Game",
@@ -39,11 +599,6 @@
    "kind": "card_summary",
    "en": "\"Day 238 of the Iran war, the Atlantic's 'edge theory' that one more strike will break Tehran, and why Putin is feeding satellite targeting to Iran ten days after getting a US Treasury waiver on Russian diesel.\"",
    "tr": "伊朗战争第238天，The Atlantic所谓「再打一击就能击垮德黑兰」的边缘理论，以及为什么普京在拿到美国财政部俄罗斯柴油豁免十天后，还在向伊朗提供卫星目标情报。"
-  },
-  "9f434e5df4928ceb": {
-   "kind": "disclosure",
-   "en": "AI-reconstructed audio: the voices in this episode were generated from the verbatim text transcript (Eve with xAI text-to-speech in the 'eve' voice, David's lines with his ElevenLabs AI voice clone). No original audio was used.",
-   "tr": "AI 重建音频：本集中的声音由逐字文字实录生成（伊芙使用 xAI 文字转语音的«eve»音色，大卫的台词使用他的 ElevenLabs AI 声音克隆）。未使用任何原始音频。"
   },
   "779bed21797e5b1a": {
    "kind": "note",
@@ -174,11 +729,6 @@
    "kind": "turn 21",
    "en": "president who lost. Staying in looks weak, but leaving without a win looks worse — so the strike is the least-bad option that buys him time to define what winning means.",
    "tr": "输掉的总统。继续打下去显得软弱，但没赢就撤看起来更糟——所以这次打击是最不坏的选项，能给他争取时间，去定义什么叫赢。"
-  },
-  "d87d3680146bd7ab": {
-   "kind": "turn 22",
-   "en": "Ok.",
-   "tr": "好。"
   },
   "03b25bed61dad2fc": {
    "kind": "turn 23",

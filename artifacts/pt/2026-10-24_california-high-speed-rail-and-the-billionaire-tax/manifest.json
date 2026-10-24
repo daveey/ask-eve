@@ -1,0 +1,49 @@
+{
+ "stem": "2026-10-24_california-high-speed-rail-and-the-billionaire-tax",
+ "version": 1,
+ "audio_key": "audio/pt/2026-10-24_california-high-speed-rail-and-the-billionaire-tax.v1.mp3",
+ "audio_url": "https://audio.askevepodcast.com/audio/pt/2026-10-24_california-high-speed-rail-and-the-billionaire-tax.v1.mp3",
+ "audio_bytes": 73674961,
+ "audio_sha256": "6fe2a2ee062292082a3d5d7ce4006bc82bc6afc04f0849822e1941438495dae5",
+ "audio_mime": "audio/mpeg",
+ "duration_seconds": 4605,
+ "loudness_lufs": -16.7,
+ "true_peak_dbfs": -4.4,
+ "id3_chapters": 4,
+ "chapters": [
+  {
+   "startTime": 0.0,
+   "title": "Aviso de áudio reconstruído por IA"
+  },
+  {
+   "startTime": 140.55,
+   "title": "Gavin Newsom e Ian Choudri"
+  },
+  {
+   "startTime": 338.46,
+   "title": "Scott Wiener"
+  },
+  {
+   "startTime": 3046.38,
+   "title": "Dave Regan"
+  }
+ ],
+ "recording_method": "tts-reconstructed",
+ "ai_reconstructed": true,
+ "mode": "synthetic",
+ "coverage": {
+  "david_lines": 49,
+  "david_real": 0,
+  "david_narrator": 49,
+  "david_real_share": 0.0,
+  "david_real_seconds": 0.0,
+  "david_narrator_seconds": 374.8,
+  "eve_seconds": 4162.07,
+  "gap_turns": []
+ },
+ "placeholder_audio": false,
+ "tts": "xai_tts voice=eve lang=pt",
+ "narrator": "elevenlabs_tts voice=oIYMwdEzgKSOV3gVsAjB model=eleven_v4 lang=pt",
+ "missing_turns": [],
+ "transcript_sha256": "78761f8bcf522eb9ad6aec99c41181772b8f25ed7a88d5793d61c0344f0acebd"
+}

@@ -2,7 +2,7 @@
  "_doc": "Machine translation cache (Russian) written by scripts/translate.py; key = sha256(en)[:16]. Hand edits to `tr` are kept as long as `en` is unchanged.",
  "lang": "ru",
  "source_lang": "en",
- "model": "grok-4.20-0309-non-reasoning",
+ "model": "grok-4.7",
  "temperature": 0,
  "strings": {
   "5efad5689c35cfb8": {
@@ -30,10 +30,40 @@
    "en": "Motivated reasoning, not malice, but on USAID the effect was the same; he engages with critics, not with evidence.",
    "tr": "Мотивированное мышление, не злой умысел, но по USAID эффект тот же; он спорит с критиками, а не с фактами."
   },
+  "b3b16713f9dbf4b9": {
+   "kind": "stance",
+   "en": "The source code for the whole cast; Girard explains him best, and I think the contrarianism has become the costume.",
+   "tr": "Исходный код всего состава; Жирар объясняет его лучше всех, и, по-моему, нонконформизм стал костюмом."
+  },
+  "5799d23eb0463744": {
+   "kind": "stance",
+   "en": "The stronger candidate on paper, passed over mostly because of Pelosi's machine; the snub was probably a matter of style, not intent.",
+   "tr": "Кандидат сильнее на бумаге, его обошли в основном из-за машины Пелоси; пренебрежение, скорее всего, вопрос стиля, а не намерения."
+  },
   "2c8f357b90bcfa6f": {
    "kind": "stance",
    "en": "The same grievance engine as the tech right, run from the other side; the question is whether sincerity survives contact with power.",
    "tr": "Тот же двигатель обиды, что у техправых, только с другой стороны; вопрос в том, переживёт ли искренность столкновение с властью."
+  },
+  "c32f81bcc3399832": {
+   "kind": "stance",
+   "en": "Calls ballot initiatives 'the best bargain in American politics' and has filed up to 48 since 2012 — using the ballot box as an attrition and bargaining weapon against hospitals, dialysis clinics, and now California's billionaires.",
+   "tr": "Называет инициативы на голосовании «лучшей сделкой в американской политике» и с 2012 года подал до 48 штук — используя урну для голосования как оружие изматывания и торга против больниц, диализных клиник и теперь миллиардеров Калифорнии."
+  },
+  "1037a52774c322ce": {
+   "kind": "stance",
+   "en": "For the union, Prop 40 is leverage; for Saez and his academic co-drafters, it is a live precedent play — including a deliberate Section 5033(c)(3)(C) voting-control valuation floor and appraiser penalties designed as a template other states can copy.",
+   "tr": "Для профсоюза Prop 40 — рычаг давления; для Саеза и его академических соавторов это живая игра на прецедент — включая намеренный нижний порог оценки контроля через голосующие права по Section 5033(c)(3)(C) и штрафы для оценщиков, задуманные как шаблон, который могут скопировать другие штаты."
+  },
+  "70f2b9a4cb3cb474": {
+   "kind": "stance",
+   "en": "Campaigned for Prop 1A in 2008, admitted the full rail line probably won't materialize in our lifetime, then locked in $1B a year through 2045 and vetoed the Inspector General staffing bill right after its travel audit — while simultaneously breaking with his left flank to oppose Prop 40's billionaire tax ahead of 2028.",
+   "tr": "В 2008-м агитировал за Prop 1A, признал, что полная железнодорожная линия, скорее всего, не появится при нашей жизни, затем закрепил по $1 млрд в год до 2045-го и наложил вето на законопроект о штате генерального инспектора сразу после аудита командировочных расходов — и одновременно разошёлся со своим левым флангом, выступив против налога на миллиардеров по Prop 40 в преддверии 2028-го."
+  },
+  "90038fdee85e8ecd": {
+   "kind": "stance",
+   "en": "A 30-year rail engineer who genuinely believes he can deliver a train, but whose contractor-side blind spots produced a KPMG travel scandal, late-night consultant rideshares to his Folsom home, and a $537.3M change-order settlement.",
+   "tr": "Инженер-железнодорожник с 30-летним стажем, который искренне верит, что сможет сдать поезд, но чьи слепые зоны со стороны подрядчика породили командировочный скандал KPMG, ночные поездки консультантов на rideshare к нему домой в Фолсом и урегулирование по change order на $537,3 млн."
   },
   "02537062f86a66ab": {
    "kind": "stance",
@@ -49,16 +79,6 @@
    "kind": "stance",
    "en": "Backing Chan over Wiener is both sincere and strategic, but the machine part is doing more work.",
    "tr": "Ставка на Чан, а не на Винера, и искренняя, и стратегическая, но машинная часть делает больше работы."
-  },
-  "b3b16713f9dbf4b9": {
-   "kind": "stance",
-   "en": "The source code for the whole cast; Girard explains him best, and I think the contrarianism has become the costume.",
-   "tr": "Исходный код всего состава; Жирар объясняет его лучше всех, и, по-моему, нонконформизм стал костюмом."
-  },
-  "5799d23eb0463744": {
-   "kind": "stance",
-   "en": "The stronger candidate on paper, passed over mostly because of Pelosi's machine; the snub was probably a matter of style, not intent.",
-   "tr": "Кандидат сильнее на бумаге, его обошли в основном из-за машины Пелоси; пренебрежение, скорее всего, вопрос стиля, а не намерения."
   },
   "fe67aba6ad43dca8": {
    "kind": "stance",
