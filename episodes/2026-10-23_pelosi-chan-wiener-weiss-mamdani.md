@@ -1,6 +1,6 @@
 ---
 date: 2026-10-23
-title: "Pelosi's Succession, Bari Weiss & Zohran Mamdani"
+title: "Pelosi's Succession (Scott Wiener vs. Connie Chan), Bari Weiss & Zohran Mamdani"
 summary: "San Francisco and national fault lines: why Nancy Pelosi backed Connie Chan to block Scott Wiener's machine, why Bari Weiss's anti-woke lens calcified into its own orthodoxy, and why Zohran Mamdani's rent-freeze math fails."
 context: "Episode 6, recorded during the First Encounter session (08:44:52–09:05:26 UTC). David tests whether Eve applies the exact same incentive and mechanism analysis to Democrats, media contrarians, and the socialist left: San Francisco's Pelosi–Chan–Wiener succession chess, Bari Weiss's Free Press audience capture, and Zohran Mamdani's New York housing math."
 parent_session: 2026-10-23_eve-david-podcast-planning

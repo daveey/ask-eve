@@ -108,3 +108,36 @@ def test_clip_videos_and_posters_use_content_hashed_urls(built_site):
             assert m_poster and re.match(r'^/assets/clips/[a-z0-9-]+\.[0-9a-f]{10}\.webp$', m_poster.group(1)), (
                 f"Unhashed clip poster in {rel}: {v}"
             )
+
+
+def test_no_cyrillic_in_non_russian_translation_files(built_site):
+    """Non-Russian translation JSON files and rendered person/topic pages must never contain Cyrillic text."""
+    import json
+    cyr = re.compile(r"[\u0400-\u04FF]")
+    for lang in ("zh", "es", "de", "pt", "fa", "fr"):
+        for fp in sorted((ROOT / "translations" / lang).glob("*.json")):
+            data = json.loads(fp.read_text())
+            for k, v in data.get("strings", data).items():
+                if isinstance(v, dict):
+                    tr = v.get("tr", "")
+                    en = v.get("en", "")
+                    assert not (cyr.search(tr) and not cyr.search(en)), (
+                        f"Cyrillic leak in {fp.relative_to(ROOT)} key={k}: {tr[:80]!r}"
+                    )
+        # Also verify rendered /<lang>/people/david-sacks/index.html has zero Cyrillic outside the language switcher autonym "Русский"
+        sacks_html = (built_site / lang / "people/david-sacks/index.html").read_text()
+        stripped = sacks_html.replace("Русский", "")
+        assert not cyr.search(stripped), f"Cyrillic text leaked onto /{lang}/people/david-sacks/index.html"
+
+
+def test_clip_jump_links_use_standalone_split_offsets_within_episode_duration():
+    """Every clip in index/clips.json must have split_start_sec strictly inside its standalone split duration."""
+    import json
+    splits = {s["slug"]: s for s in json.loads((ROOT / "index/splits.json").read_text())["splits"]}
+    clips = json.loads((ROOT / "index/clips.json").read_text())["clips"]
+    for c in clips:
+        sp = splits[c["episode_slug"]]
+        t_sec = c.get("split_start_sec", c["start_sec"])
+        assert 0 <= t_sec < sp["duration_seconds"], (
+            f"Clip {c['id']} jump offset {t_sec}s is outside {c['episode_slug']} duration {sp['duration_seconds']}s"
+        )

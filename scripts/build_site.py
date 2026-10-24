@@ -486,12 +486,12 @@ _PERSON_EPISODE_LINKS = {
     "jason-calacanis": ("Standalone episode: Chamath, SPACs, Calacanis & All-In", "/episodes/chamath-calacanis-and-the-all-in-orbit/"),
     "peter-thiel": ("Standalone episode: Peter Thiel, Girard & Monopoly", "/episodes/peter-thiel-girard-and-monopoly/"),
     "rene-girard": ("Standalone episode: Peter Thiel, Girard & Monopoly", "/episodes/peter-thiel-girard-and-monopoly/"),
-    "nancy-pelosi": ("Standalone episode: Pelosi's Succession Math & Mamdani", "/episodes/pelosi-chan-wiener-weiss-mamdani/"),
-    "christine-pelosi": ("Standalone episode: Pelosi's Succession Math & Mamdani", "/episodes/pelosi-chan-wiener-weiss-mamdani/"),
-    "connie-chan": ("Standalone episode: Pelosi's Succession Math & Mamdani", "/episodes/pelosi-chan-wiener-weiss-mamdani/"),
-    "scott-wiener": ("Standalone episode: Pelosi's Succession Math & Mamdani", "/episodes/pelosi-chan-wiener-weiss-mamdani/"),
-    "bari-weiss": ("Standalone episode: Pelosi's Succession Math & Mamdani", "/episodes/pelosi-chan-wiener-weiss-mamdani/"),
-    "zohran-mamdani": ("Standalone episode: Pelosi's Succession Math & Mamdani", "/episodes/pelosi-chan-wiener-weiss-mamdani/"),
+    "nancy-pelosi": ("Standalone episode: Pelosi vs. Scott Wiener, Bari Weiss & Mamdani", "/episodes/pelosi-chan-wiener-weiss-mamdani/"),
+    "christine-pelosi": ("Standalone episode: Pelosi vs. Scott Wiener, Bari Weiss & Mamdani", "/episodes/pelosi-chan-wiener-weiss-mamdani/"),
+    "connie-chan": ("Standalone episode: Pelosi vs. Scott Wiener, Bari Weiss & Mamdani", "/episodes/pelosi-chan-wiener-weiss-mamdani/"),
+    "scott-wiener": ("Standalone episode: Pelosi vs. Scott Wiener, Bari Weiss & Mamdani", "/episodes/pelosi-chan-wiener-weiss-mamdani/"),
+    "bari-weiss": ("Standalone episode: Pelosi vs. Scott Wiener, Bari Weiss & Mamdani", "/episodes/pelosi-chan-wiener-weiss-mamdani/"),
+    "zohran-mamdani": ("Standalone episode: Pelosi vs. Scott Wiener, Bari Weiss & Mamdani", "/episodes/pelosi-chan-wiener-weiss-mamdani/"),
 }
 
 
@@ -955,7 +955,7 @@ def player_html(ep: dict, idle: bool = False, all_eps: list[dict] | None = None)
             fb_attr = f' data-fallback-src="{e(fb_v2)}"'
     cat_script = _episodes_catalog_script(all_eps)
     return f"""<div class="player{' is-idle' if idle else ''}" id="player" data-slug="{e(ep['slug'])}" data-title="{e(ep['title'])}" data-duration="{dur}"{en_dur_attr}{clip_attr} role="region" aria-label="Audio player">
-  <audio preload="none" src="{e(ep['audio_url'])}"{fb_attr}><source src="{e(ep['audio_url'])}" type="audio/mpeg">{f'<source src="{e(ep["fallback_audio_url"])}" type="audio/mpeg">' if ep.get("fallback_audio_url") else ""}</audio>
+  <audio preload="none" src="{e(ep['audio_url'])}"{fb_attr}><source src="{e(ep['audio_url'])}" type="audio/mpeg"></audio>
   <div class="player__in wrap">
     <a class="player__info" href="/episodes/{e(ep['slug'])}/">{mark_svg("mark player__mark", "p")}<span class="player__text"><span class="player__title">{e(ep['title'])}</span><span class="player__sub" data-chapter>{e(ep_label(ep))}</span></span></a>
     <div class="player__controls">
@@ -1177,24 +1177,83 @@ def home(A: Assets, eps: list[dict], people: list[dict], splits: list[dict] | No
     full = [x for x in eps if not is_bonus(x)]
     bonus = [x for x in eps if is_bonus(x)]
     ordered_splits = sorted(splits or [], key=lambda x: int(x.get("episode_number") or x.get("part_number") or 0), reverse=True)
-    # the featured slot is the latest standalone Episode (or fallback to full if no splits)
-    latest = next((x for x in ordered_splits if x.get("audio_url")), ordered_splits[0] if ordered_splits else (full[0] if full else None))
+    HERO_TOPIC_LABELS = {
+        "california-billionaire-tax-prop-40-and-seiu-uhw": "Ep 11 · Billionaire Tax",
+        "california-high-speed-rail-and-cap-and-trade": "Ep 10 · High-Speed Rail",
+        "starshield-musk-and-the-anthropic-mirror": "Ep 9 · Starshield & Anthropic",
+        "iran-edge-theory-and-russias-double-game": "Ep 8 · Iran & Russia",
+        "how-grok-became-eve": "Ep 7 · How Grok Became Eve",
+        "pelosi-chan-wiener-weiss-mamdani": "Ep 6 · Pelosi, Scott Wiener & Mamdani",
+        "peter-thiel-girard-and-monopoly": "Ep 5 · Thiel & Girard",
+        "chamath-calacanis-and-the-all-in-orbit": "Ep 4 · Chamath & All-In",
+        "david-sacks-and-the-anthropic-war": "Ep 3 · David Sacks",
+        "elon-musk-usaid-and-the-blind-spot": "Ep 2 · Musk & USAID",
+        "andreessen-horowitz-rightward-turn": "Ep 1 · Andreessen & Horowitz",
+    }
+    carousel_eps = [x for x in ordered_splits if x.get("audio_url")] or (ordered_splits[:1] if ordered_splits else (full[:1] if full else []))
+    latest = carousel_eps[0] if carousel_eps else None
     hero = ""
     if latest:
-        kind, label = ai_kind(latest)
-        play = (f'<button class="btn btn--primary" type="button" data-play aria-label="Play {e(latest["title"])}">'
-                f'{icon("play")}<span>Play episode</span><span class="btn__meta">{human_duration(latest["duration_seconds"])}</span></button>'
-                if latest["audio_url"] else "")
-        hero = f"""<section class="hero">
-  <div class="wrap hero__in">
-    <div class="hero__text">
-      <p class="eyebrow eyebrow--accent">Latest · {e(ep_label(latest))} · {human_date(latest['date'])}</p>
-      <h1 class="hero__title"><a href="/episodes/{e(latest['slug'])}/">{e(latest['title'])}</a></h1>
-      <p class="hero__blurb">{e(clean_session_prose(latest['blurb'], bool(latest.get('is_split'))))}</p>
-      <div class="hero__actions">{play}<a class="btn btn--ghost" href="/episodes/{e(latest['slug'])}/">{icon("doc")}<span>Transcript &amp; chapters</span></a></div>
-      {f'<p class="hero__ai">{icon("spark")}<span>{e(label)}. Every AI voice is labeled, line by line.</span></p>' if kind else ''}
-    </div>
-    <div class="hero__art">{cover_svg(latest['key'], cover_mark(latest), "cover cover--hero", f"Cover art for {latest['title']}")}</div>
+        slides_html = []
+        pills_html = []
+        for idx, ep in enumerate(carousel_eps):
+            is_first = (idx == 0)
+            kind, label = ai_kind(ep)
+            ep_href = f"/episodes/{e(ep['slug'])}/"
+            play = (
+                f'<button class="btn btn--primary" type="button" data-play '
+                f'data-ep-slug="{e(ep["slug"])}" '
+                f'data-audio-url="{e(ep["audio_url"])}" '
+                f'data-en-audio-url="{e(ep.get("fallback_audio_url") or "")}" '
+                f'data-ep-title="{e(ep["title"])}" '
+                f'data-ep-num="{e(ep_label(ep))}" '
+                f'data-ep-url="{e(I.localize("/episodes/" + ep["slug"] + "/"))}" '
+                f'aria-label="Play {e(ep["title"])}">'
+                f'{icon("play")}<span>Play episode</span><span class="btn__meta">{human_duration(ep["duration_seconds"])}</span></button>'
+                if ep.get("audio_url") else ""
+            )
+            eyebrow_prefix = "Latest" if is_first else "Featured"
+            h_tag = "h1" if is_first else "h2"
+            slide_cls = "hero__slide is-active" if is_first else "hero__slide"
+            hidden_attr = "" if is_first else " hidden"
+            slides_html.append(
+                f'<article class="{slide_cls}" data-hero-slide="{idx}" data-ep-slug="{e(ep["slug"])}" '
+                f'id="hero-slide-{idx}" role="tabpanel" aria-label="{idx + 1} / {len(carousel_eps)}"{hidden_attr}>'
+                f'<div class="hero__in">'
+                f'<div class="hero__text">'
+                f'<p class="eyebrow eyebrow--accent">{eyebrow_prefix} · {e(ep_label(ep))} · {human_date(ep["date"])}</p>'
+                f'<{h_tag} class="hero__title"><a href="{ep_href}">{e(ep["title"])}</a></{h_tag}>'
+                f'<p class="hero__blurb">{e(clean_session_prose(ep["blurb"], bool(ep.get("is_split"))))}</p>'
+                f'<div class="hero__actions">{play}<a class="btn btn--ghost" href="{ep_href}">{icon("doc")}<span>Transcript &amp; chapters</span></a></div>'
+                f'{f'<p class="hero__ai">{icon("spark")}<span>{e(label)}. Every AI voice is labeled, line by line.</span></p>' if kind else ""}'
+                f'</div>'
+                f'<div class="hero__art">{cover_svg(ep["key"], cover_mark(ep), "cover cover--hero", f"Cover art for {ep['title']}")}</div>'
+                f'</div>'
+                f'</article>'
+            )
+            pill_label = HERO_TOPIC_LABELS.get(ep["slug"], ep_label(ep))
+            pill_cls = "hero__pill is-active" if is_first else "hero__pill"
+            aria_sel = "true" if is_first else "false"
+            tab_idx = "0" if is_first else "-1"
+            pills_html.append(
+                f'<button type="button" class="{pill_cls} tnum" role="tab" '
+                f'aria-selected="{aria_sel}" aria-controls="hero-slide-{idx}" tabindex="{tab_idx}" '
+                f'data-hero-tab="{idx}" data-ep-slug="{e(ep["slug"])}">{e(pill_label)}</button>'
+            )
+        nav_bar = (
+            f'<div class="hero__carousel-bar">'
+            f'<div class="hero__pills" role="tablist" aria-label="Featured episodes">{"".join(pills_html)}</div>'
+            f'<div class="hero__arrows">'
+            f'<button type="button" class="hero__arrow" data-hero-prev aria-label="Previous episode" title="Previous episode">‹</button>'
+            f'<button type="button" class="hero__arrow" data-hero-next aria-label="Next episode" title="Next episode">›</button>'
+            f'</div>'
+            f'</div>'
+            if len(carousel_eps) > 1 else ""
+        )
+        hero = f"""<section class="hero" data-hero-carousel aria-label="Featured episodes">
+  <div class="wrap hero__carousel">
+    {nav_bar}
+    <div class="hero__slides">{"".join(slides_html)}</div>
   </div>
 </section>"""
     clips_html = f'<div class="wrap">{RF.clips_strip_html(A, RF.load_clips())}</div>' if RF.load_clips() else ""
@@ -1205,7 +1264,7 @@ def home(A: Assets, eps: list[dict], people: list[dict], splits: list[dict] | No
     <div>
       <h2 class="h2">The show</h2>
       <p class="lede">{e(F.SHOW['description'])}</p>
-      <p>Eve is sharp, curious and opinionated, and she says so when she isn't sure. David brings the questions. Expect <a class="ep-inline-link" href="/episodes/david-sacks-and-the-anthropic-war/">Sacks</a>, <a class="ep-inline-link" href="/episodes/andreessen-horowitz-rightward-turn/">Andreessen</a>, <a class="ep-inline-link" href="/episodes/elon-musk-usaid-and-the-blind-spot/">Musk</a>, <a class="ep-inline-link" href="/episodes/peter-thiel-girard-and-monopoly/">Thiel</a>, <a class="ep-inline-link" href="/episodes/chamath-calacanis-and-the-all-in-orbit/">the All-In crowd</a>, <a class="ep-inline-link" href="/episodes/pelosi-chan-wiener-weiss-mamdani/">Pelosi's succession math</a> and whatever moved this week.</p>
+      <p>Eve is sharp, curious and opinionated, and she says so when she isn't sure. David brings the questions. Expect <a class="ep-inline-link" href="/episodes/david-sacks-and-the-anthropic-war/">Sacks</a>, <a class="ep-inline-link" href="/episodes/andreessen-horowitz-rightward-turn/">Andreessen</a>, <a class="ep-inline-link" href="/episodes/elon-musk-usaid-and-the-blind-spot/">Musk</a>, <a class="ep-inline-link" href="/episodes/peter-thiel-girard-and-monopoly/">Thiel</a>, <a class="ep-inline-link" href="/episodes/chamath-calacanis-and-the-all-in-orbit/">the All-In crowd</a>, <a class="ep-inline-link" href="/episodes/pelosi-chan-wiener-weiss-mamdani/">Pelosi vs. Scott Wiener</a> and whatever moved this week.</p>
       {subscribe_links(cfg)}
     </div>
     <ul class="hosts">
@@ -1226,7 +1285,7 @@ def home(A: Assets, eps: list[dict], people: list[dict], splits: list[dict] | No
     ld = {"@context": "https://schema.org", "@type": "PodcastSeries", "name": "Ask Eve", "url": SITE,
           "description": F.SHOW["description"], "webFeed": F.FEED, "author": {"@type": "Person", "name": F.SHOW["author"]}}
     return page(A, title="Ask Eve", desc=F.SHOW["description"], path="/", body=body, active="/", ld=ld,
-                player=player_html(latest, idle=True) if latest else "", body_cls="has-player-idle")
+                player=player_html(latest, idle=True, all_eps=ordered_splits + eps) if latest else "", body_cls="has-player-idle")
 
 
 def chapter_parts(title: str) -> tuple[str, str]:
@@ -2120,7 +2179,7 @@ def about_page(A: Assets, cfg: dict) -> str:
 <p class="lede">{e(F.SHOW['description'])}</p></div></section>
 <section class="wrap prose">
 <h2>What the show is</h2>
-<p>Ask Eve is a conversation between David and Eve, an AI host built on a Grok agent. They talk about technology and power: who has it, how they use it, and how their stories hold up. Regulars include <a class="ep-inline-link" href="/episodes/david-sacks-and-the-anthropic-war/">David Sacks</a>, <a class="ep-inline-link" href="/episodes/andreessen-horowitz-rightward-turn/">Marc Andreessen and Ben Horowitz</a>, <a class="ep-inline-link" href="/episodes/elon-musk-usaid-and-the-blind-spot/">Elon Musk</a>, <a class="ep-inline-link" href="/episodes/chamath-calacanis-and-the-all-in-orbit/">Chamath Palihapitiya, Jason Calacanis</a>, <a class="ep-inline-link" href="/episodes/peter-thiel-girard-and-monopoly/">Peter Thiel</a>, <a class="ep-inline-link" href="/episodes/pelosi-chan-wiener-weiss-mamdani/">Nancy Pelosi, Bari Weiss and Zohran Mamdani</a>. See the <a href="/people/">people index</a>.</p>
+<p>Ask Eve is a conversation between David and Eve, an AI host built on a Grok agent. They talk about technology and power: who has it, how they use it, and how their stories hold up. Regulars include <a class="ep-inline-link" href="/episodes/david-sacks-and-the-anthropic-war/">David Sacks</a>, <a class="ep-inline-link" href="/episodes/andreessen-horowitz-rightward-turn/">Marc Andreessen and Ben Horowitz</a>, <a class="ep-inline-link" href="/episodes/elon-musk-usaid-and-the-blind-spot/">Elon Musk</a>, <a class="ep-inline-link" href="/episodes/chamath-calacanis-and-the-all-in-orbit/">Chamath Palihapitiya, Jason Calacanis</a>, <a class="ep-inline-link" href="/episodes/peter-thiel-girard-and-monopoly/">Peter Thiel</a>, <a class="ep-inline-link" href="/episodes/pelosi-chan-wiener-weiss-mamdani/">Nancy Pelosi, Scott Wiener, Bari Weiss and Zohran Mamdani</a>. See the <a href="/people/">people index</a>.</p>
 <p>Eve is meant to be sharp, curious and truth-seeking. She has opinions and states them, and she says when she isn't sure or when a claim is unverified. She is still an AI and can be wrong. Treat her takes as arguments to check, not as facts.</p>
 
 <h2>How Eve works</h2>

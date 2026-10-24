@@ -1,94 +1,94 @@
 {
- "_doc": "Machine translation cache (German) written by scripts/translate.py; key = sha256(en)[:16]. Hand edits to `tr` are kept as long as `en` is unchanged.",
- "lang": "de",
- "source_lang": "en",
- "model": "grok-4.7",
- "temperature": 0,
- "strings": {
-  "5efad5689c35cfb8": {
-   "kind": "stance",
-   "en": "A real argument about safety-as-moat, made from inside government by someone whose portfolio benefits; my lean is no, pending the three tests.",
-   "tr": "Ein echtes Argument für Safety als Moat, vorgetragen von jemandem aus der Regierung, dessen Portfolio davon profitiert – meine Tendenz ist Nein, bis die drei Tests bestanden sind."
-  },
-  "878b9b50884b899d": {
-   "kind": "stance",
-   "en": "Same turn as Andreessen, but with an inherited template, his father's left-to-right flip, and a warmer personal record.",
-   "tr": "Gleiche Wende wie Andreessen, aber mit geerbtem Template, dem Links-nach-Rechts-Flip seines Vaters und einer wärmeren persönlichen Bilanz."
-  },
-  "dd3650cd28c384e7": {
-   "kind": "stance",
-   "en": "The pure opportunist with a refugee's reasons: access as currency, empathy rationed to a small perimeter, and SPAC regret that came after the money.",
-   "tr": "Der pure Opportunist mit den Gründen eines Flüchtlings: Zugang als Währung, Empathie nur in kleinem Radius, und SPAC-Reue, die erst nach dem Geld kam."
-  },
-  "dcf7e2f9bd66f084": {
-   "kind": "stance",
-   "en": "A real candidate with a real story, not just Pelosi's pick, though her candidacy is entangled with Pelosi's machine.",
-   "tr": "Eine echte Kandidatin mit echter Geschichte, nicht nur Pelosis Kandidatin – auch wenn ihre Kandidatur mit Pelosis Maschine verflochten ist."
-  },
-  "50bf9761e014858e": {
-   "kind": "stance",
-   "en": "Motivated reasoning, not malice, but on USAID the effect was the same; he engages with critics, not with evidence.",
-   "tr": "Motiviertes Denken, keine Bosheit, aber bei USAID war die Wirkung dieselbe; er setzt sich mit Kritikern auseinander, nicht mit Beweisen."
-  },
-  "b3b16713f9dbf4b9": {
-   "kind": "stance",
-   "en": "The source code for the whole cast; Girard explains him best, and I think the contrarianism has become the costume.",
-   "tr": "Der Quellcode für die ganze Truppe; Girard erklärt ihn am besten, und ich glaube, der Kontrarianismus ist inzwischen nur noch das Kostüm."
-  },
-  "5799d23eb0463744": {
-   "kind": "stance",
-   "en": "The stronger candidate on paper, passed over mostly because of Pelosi's machine; the snub was probably a matter of style, not intent.",
-   "tr": "Auf dem Papier der stärkere Kandidat, übergangen vor allem wegen Pelosis Maschine; die Abfuhr war wahrscheinlich eine Stilfrage, nicht Absicht."
-  },
-  "2c8f357b90bcfa6f": {
-   "kind": "stance",
-   "en": "The same grievance engine as the tech right, run from the other side; the question is whether sincerity survives contact with power.",
-   "tr": "Derselbe Grievance-Motor wie die Tech-Rechte, nur von der anderen Seite betrieben; die Frage ist, ob die Aufrichtigkeit den Kontakt mit der Macht überlebt."
-  },
-  "c32f81bcc3399832": {
-   "kind": "stance",
-   "en": "Calls ballot initiatives 'the best bargain in American politics' and has filed up to 48 since 2012 — using the ballot box as an attrition and bargaining weapon against hospitals, dialysis clinics, and now California's billionaires.",
-   "tr": "Nennt Volksinitiativen «das beste Schnäppchen der amerikanischen Politik» und hat seit 2012 bis zu 48 davon eingereicht — die Wahlurne als Zermürbungs- und Verhandlungswaffe gegen Krankenhäuser, Dialysekliniken und jetzt Kaliforniens Milliardäre."
-  },
-  "1037a52774c322ce": {
-   "kind": "stance",
-   "en": "For the union, Prop 40 is leverage; for Saez and his academic co-drafters, it is a live precedent play — including a deliberate Section 5033(c)(3)(C) voting-control valuation floor and appraiser penalties designed as a template other states can copy.",
-   "tr": "Для профсоюза Prop 40 — рычаг давления; для Саеза и его академических соавторов это живая игра на прецедент — включая намеренный нижний порог оценки по контролю голосов в Section 5033(c)(3)(C) и штрафы для оценщиков, задуманные как шаблон, который другие штаты могут скопировать."
-  },
-  "70f2b9a4cb3cb474": {
-   "kind": "stance",
-   "en": "Campaigned for Prop 1A in 2008, admitted the full rail line probably won't materialize in our lifetime, then locked in $1B a year through 2045 and vetoed the Inspector General staffing bill right after its travel audit — while simultaneously breaking with his left flank to oppose Prop 40's billionaire tax ahead of 2028.",
-   "tr": "Hat 2008 für Prop 1A Wahlkampf gemacht, eingeräumt, dass die volle Bahnstrecke zu unseren Lebzeiten wohl nicht zustande kommt, dann 1 Mrd. Dollar im Jahr bis 2045 festgezurrt und das Besetzungsgesetz für den Inspector General direkt nach dessen Reiseprüfung per Veto gestoppt — und gleichzeitig mit seinem linken Flügel gebrochen, um sich vor 2028 gegen die Milliardärssteuer von Prop 40 zu stellen."
-  },
-  "90038fdee85e8ecd": {
-   "kind": "stance",
-   "en": "A 30-year rail engineer who genuinely believes he can deliver a train, but whose contractor-side blind spots produced a KPMG travel scandal, late-night consultant rideshares to his Folsom home, and a $537.3M change-order settlement.",
-   "tr": "Ein Bahningenieur mit 30 Jahren Erfahrung, der ernsthaft glaubt, einen Zug liefern zu können, dessen blinde Flecken auf Auftragnehmerseite aber einen KPMG-Reiseskandal, nächtliche Rideshare-Fahrten von Beratern zu seinem Haus in Folsom und einen Nachtragsvergleich über 537,3 Mio. Dollar hervorgebracht haben."
-  },
-  "02537062f86a66ab": {
-   "kind": "stance",
-   "en": "The most reactive of the four: politics that track proximity, plus a genuinely rare habit of owning failure in public.",
-   "tr": "Der reaktivste der vier: Politik, die der Nähe folgt, plus die wirklich seltene Angewohnheit, Scheitern öffentlich einzugestehen."
-  },
-  "07c8969e2921b9fc": {
-   "kind": "stance",
-   "en": "He didn't lose the plot; he found one that pays better, and the manifesto came before the grievance.",
-   "tr": "Er hat den Faden nicht verloren; er hat einen gefunden, der besser bezahlt – und das Manifest kam vor dem Groll."
-  },
-  "d0bf172d421548aa": {
-   "kind": "stance",
-   "en": "Backing Chan over Wiener is both sincere and strategic, but the machine part is doing more work.",
-   "tr": "Chan statt Wiener zu unterstützen, ist sowohl aufrichtig als auch strategisch, aber die Maschine leistet den größeren Teil der Arbeit."
-  },
-  "fe67aba6ad43dca8": {
-   "kind": "stance",
-   "en": "A pragmatist wearing a socialist costume: free buses are sane, groceries are shaky, the rent freeze worries me, and housing supply is the real story.",
-   "tr": "Ein Pragmatiker im Sozialistenkostüm: Gratisbusse sind vernünftig, Lebensmittel sind wackelig, die Mietpreisbremse macht mir Sorgen, und das eigentliche Thema ist das Wohnungsangebot."
-  },
-  "4cfaa49d49ce7d07": {
-   "kind": "stance",
-   "en": "Both Pelosis deny she sought the House seat, and I take that at face value; the 'she'll succeed Nancy' call is reporting, not proof.",
-   "tr": "Beide Pelosis bestreiten, dass sie den Sitz im Repräsentantenhaus angestrebt hat, und ich nehme das für bare Münze; das «sie wird Nancy beerben» ist Berichterstattung, kein Beweis."
+  "_doc": "Machine translation cache (German) written by scripts/translate.py; key = sha256(en)[:16]. Hand edits to `tr` are kept as long as `en` is unchanged.",
+  "lang": "de",
+  "source_lang": "en",
+  "model": "grok-4.7",
+  "temperature": 0,
+  "strings": {
+    "5efad5689c35cfb8": {
+      "kind": "stance",
+      "en": "A real argument about safety-as-moat, made from inside government by someone whose portfolio benefits; my lean is no, pending the three tests.",
+      "tr": "Ein echtes Argument für Safety als Moat, vorgetragen von jemandem aus der Regierung, dessen Portfolio davon profitiert – meine Tendenz ist Nein, bis die drei Tests bestanden sind."
+    },
+    "878b9b50884b899d": {
+      "kind": "stance",
+      "en": "Same turn as Andreessen, but with an inherited template, his father's left-to-right flip, and a warmer personal record.",
+      "tr": "Gleiche Wende wie Andreessen, aber mit geerbtem Template, dem Links-nach-Rechts-Flip seines Vaters und einer wärmeren persönlichen Bilanz."
+    },
+    "dd3650cd28c384e7": {
+      "kind": "stance",
+      "en": "The pure opportunist with a refugee's reasons: access as currency, empathy rationed to a small perimeter, and SPAC regret that came after the money.",
+      "tr": "Der pure Opportunist mit den Gründen eines Flüchtlings: Zugang als Währung, Empathie nur in kleinem Radius, und SPAC-Reue, die erst nach dem Geld kam."
+    },
+    "dcf7e2f9bd66f084": {
+      "kind": "stance",
+      "en": "A real candidate with a real story, not just Pelosi's pick, though her candidacy is entangled with Pelosi's machine.",
+      "tr": "Eine echte Kandidatin mit echter Geschichte, nicht nur Pelosis Kandidatin – auch wenn ihre Kandidatur mit Pelosis Maschine verflochten ist."
+    },
+    "50bf9761e014858e": {
+      "kind": "stance",
+      "en": "Motivated reasoning, not malice, but on USAID the effect was the same; he engages with critics, not with evidence.",
+      "tr": "Motiviertes Denken, keine Bosheit, aber bei USAID war die Wirkung dieselbe; er setzt sich mit Kritikern auseinander, nicht mit Beweisen."
+    },
+    "b3b16713f9dbf4b9": {
+      "kind": "stance",
+      "en": "The source code for the whole cast; Girard explains him best, and I think the contrarianism has become the costume.",
+      "tr": "Der Quellcode für die ganze Truppe; Girard erklärt ihn am besten, und ich glaube, der Kontrarianismus ist inzwischen nur noch das Kostüm."
+    },
+    "5799d23eb0463744": {
+      "kind": "stance",
+      "en": "The stronger candidate on paper, passed over mostly because of Pelosi's machine; the snub was probably a matter of style, not intent.",
+      "tr": "Auf dem Papier der stärkere Kandidat, übergangen vor allem wegen Pelosis Maschine; die Abfuhr war wahrscheinlich eine Stilfrage, nicht Absicht."
+    },
+    "2c8f357b90bcfa6f": {
+      "kind": "stance",
+      "en": "The same grievance engine as the tech right, run from the other side; the question is whether sincerity survives contact with power.",
+      "tr": "Derselbe Grievance-Motor wie die Tech-Rechte, nur von der anderen Seite betrieben; die Frage ist, ob die Aufrichtigkeit den Kontakt mit der Macht überlebt."
+    },
+    "c32f81bcc3399832": {
+      "kind": "stance",
+      "en": "Calls ballot initiatives 'the best bargain in American politics' and has filed up to 48 since 2012 — using the ballot box as an attrition and bargaining weapon against hospitals, dialysis clinics, and now California's billionaires.",
+      "tr": "Nennt Volksinitiativen «das beste Schnäppchen der amerikanischen Politik» und hat seit 2012 bis zu 48 davon eingereicht — die Wahlurne als Zermürbungs- und Verhandlungswaffe gegen Krankenhäuser, Dialysekliniken und jetzt Kaliforniens Milliardäre."
+    },
+    "1037a52774c322ce": {
+      "kind": "stance",
+      "en": "For the union, Prop 40 is leverage; for Saez and his academic co-drafters, it is a live precedent play — including a deliberate Section 5033(c)(3)(C) voting-control valuation floor and appraiser penalties designed as a template other states can copy.",
+      "tr": "Für die Gewerkschaft ist Prop 40 ein Hebel; für Saez und seine akademischen Mitverfasser ist es ein lebendiges Präzedenzspiel – einschließlich einer bewussten Bewertungsuntergrenze für Stimmrechtskontrolle nach Section 5033(c)(3)(C) und Gutachterstrafen, die als Vorlage für andere Bundesstaaten konzipiert sind."
+    },
+    "70f2b9a4cb3cb474": {
+      "kind": "stance",
+      "en": "Campaigned for Prop 1A in 2008, admitted the full rail line probably won't materialize in our lifetime, then locked in $1B a year through 2045 and vetoed the Inspector General staffing bill right after its travel audit — while simultaneously breaking with his left flank to oppose Prop 40's billionaire tax ahead of 2028.",
+      "tr": "Hat 2008 für Prop 1A Wahlkampf gemacht, eingeräumt, dass die volle Bahnstrecke zu unseren Lebzeiten wohl nicht zustande kommt, dann 1 Mrd. Dollar im Jahr bis 2045 festgezurrt und das Besetzungsgesetz für den Inspector General direkt nach dessen Reiseprüfung per Veto gestoppt — und gleichzeitig mit seinem linken Flügel gebrochen, um sich vor 2028 gegen die Milliardärssteuer von Prop 40 zu stellen."
+    },
+    "90038fdee85e8ecd": {
+      "kind": "stance",
+      "en": "A 30-year rail engineer who genuinely believes he can deliver a train, but whose contractor-side blind spots produced a KPMG travel scandal, late-night consultant rideshares to his Folsom home, and a $537.3M change-order settlement.",
+      "tr": "Ein Bahningenieur mit 30 Jahren Erfahrung, der ernsthaft glaubt, einen Zug liefern zu können, dessen blinde Flecken auf Auftragnehmerseite aber einen KPMG-Reiseskandal, nächtliche Rideshare-Fahrten von Beratern zu seinem Haus in Folsom und einen Nachtragsvergleich über 537,3 Mio. Dollar hervorgebracht haben."
+    },
+    "02537062f86a66ab": {
+      "kind": "stance",
+      "en": "The most reactive of the four: politics that track proximity, plus a genuinely rare habit of owning failure in public.",
+      "tr": "Der reaktivste der vier: Politik, die der Nähe folgt, plus die wirklich seltene Angewohnheit, Scheitern öffentlich einzugestehen."
+    },
+    "07c8969e2921b9fc": {
+      "kind": "stance",
+      "en": "He didn't lose the plot; he found one that pays better, and the manifesto came before the grievance.",
+      "tr": "Er hat den Faden nicht verloren; er hat einen gefunden, der besser bezahlt – und das Manifest kam vor dem Groll."
+    },
+    "d0bf172d421548aa": {
+      "kind": "stance",
+      "en": "Backing Chan over Wiener is both sincere and strategic, but the machine part is doing more work.",
+      "tr": "Chan statt Wiener zu unterstützen, ist sowohl aufrichtig als auch strategisch, aber die Maschine leistet den größeren Teil der Arbeit."
+    },
+    "fe67aba6ad43dca8": {
+      "kind": "stance",
+      "en": "A pragmatist wearing a socialist costume: free buses are sane, groceries are shaky, the rent freeze worries me, and housing supply is the real story.",
+      "tr": "Ein Pragmatiker im Sozialistenkostüm: Gratisbusse sind vernünftig, Lebensmittel sind wackelig, die Mietpreisbremse macht mir Sorgen, und das eigentliche Thema ist das Wohnungsangebot."
+    },
+    "4cfaa49d49ce7d07": {
+      "kind": "stance",
+      "en": "Both Pelosis deny she sought the House seat, and I take that at face value; the 'she'll succeed Nancy' call is reporting, not proof.",
+      "tr": "Beide Pelosis bestreiten, dass sie den Sitz im Repräsentantenhaus angestrebt hat, und ich nehme das für bare Münze; das «sie wird Nancy beerben» ist Berichterstattung, kein Beweis."
+    }
   }
- }
 }

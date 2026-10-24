@@ -120,7 +120,21 @@ mark{background:linear-gradient(transparent 45%,rgba(255,106,61,.32) 45%);color:
 .hero__actions{display:flex;flex-wrap:wrap;gap:.7rem}
 .hero__ai{display:flex;gap:.45rem;align-items:center;margin:1.25rem 0 0;color:var(--muted);font-size:.9rem}
 .hero__ai .ico{color:var(--eve)}
-@media (min-width:820px){.hero__in{grid-template-columns:1.25fr .75fr;align-items:center;padding-block:4.5rem 4.5rem;gap:3.5rem}.hero__art{order:0;max-width:none}}
+.hero__carousel{position:relative;z-index:1;padding-block:1.5rem 2.25rem}
+.hero__carousel-bar{display:flex;align-items:center;gap:.75rem;margin-bottom:1.35rem;padding-bottom:.85rem;border-bottom:1px solid var(--line)}
+.hero__pills{display:flex;gap:.45rem;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;flex:1;padding-block:.15rem}
+.hero__pills::-webkit-scrollbar{display:none}
+.hero__pill{flex:none;display:inline-flex;align-items:center;gap:.4rem;padding:.38rem .75rem;border-radius:999px;border:1px solid var(--line2);background:var(--surface);color:var(--muted);font:600 .8rem/1.2 var(--sans);cursor:pointer;transition:border-color .15s ease,background-color .15s ease,color .15s ease;white-space:nowrap}
+.hero__pill:hover{background:var(--surface2);color:var(--text)}
+.hero__pill.is-active{background:color-mix(in srgb,var(--eve) 16%,var(--surface));border-color:color-mix(in srgb,var(--eve) 55%,var(--line2));color:var(--text)}
+.hero__pill-num{font:700 .72rem/1 var(--mono);color:var(--eve);text-transform:uppercase;letter-spacing:.03em}
+.hero__pill-title{max-width:13rem;overflow:hidden;text-overflow:ellipsis}
+.hero__arrows{display:flex;gap:.35rem;flex:none}
+.hero__arrow{display:inline-grid;place-items:center;width:2.1rem;height:2.1rem;border-radius:999px;border:1px solid var(--line2);background:var(--surface);color:var(--text);font:650 .95rem/1 var(--sans);cursor:pointer;transition:background-color .15s ease,border-color .15s ease}
+.hero__arrow:hover{background:var(--surface2);border-color:color-mix(in srgb,var(--eve) 45%,var(--line2))}
+.hero__slide[hidden]{display:none!important}
+.hero__carousel .hero__in{padding-block:.5rem .5rem}
+@media (min-width:820px){.hero__in{grid-template-columns:1.25fr .75fr;align-items:center;padding-block:4.5rem 4.5rem;gap:3.5rem}.hero__carousel{padding-block:2rem 3rem}.hero__carousel .hero__in{padding-block:1rem 1rem}.hero__art{order:0;max-width:none}}
 
 /* show */
 .show{padding-block:3rem;border-bottom:1px solid var(--line);background:var(--bg2)}
@@ -380,7 +394,8 @@ body.has-player-idle.is-playing{padding-bottom:calc(8.2rem + env(safe-area-inset
 .ep-topics li::marker{color:var(--eve)}
 /* person pages: one block per discussion (index/moments) */
 .pms{list-style:none;margin:0;padding:0;display:grid;gap:.6rem}
-.pm{border:1px solid var(--line);border-radius:16px;padding:.85rem 1rem;background:var(--bg)}
+.pm{border:1px solid var(--line);border-radius:16px;padding:.85rem 1rem;background:var(--bg);cursor:pointer;transition:border-color .15s ease,background-color .15s ease}
+.pm:hover{border-color:color-mix(in srgb,var(--eve) 45%,var(--line2));background:var(--surface)}
 .pm__meta{display:flex;flex-wrap:wrap;gap:.35rem .75rem;align-items:baseline;margin:0 0 .35rem;font-size:.8rem;color:var(--muted)}
 .pm__ep{font-weight:650}
 .pm__t{font:600 .78rem/1.4 var(--mono);padding:.1rem .5rem;border-radius:999px;border:1px solid var(--line2)}
@@ -615,7 +630,7 @@ a.cite:focus-visible{outline:2px solid var(--eve);outline-offset:2px;border-radi
 .qa-spk--david{color:var(--david,#2f6fde)}
 .qa-spk--eve{color:var(--eve)}
 .take__qa{display:grid;gap:1.25rem}
-.qa-turn{display:grid;gap:.65rem;padding-bottom:1.2rem;border-bottom:1px solid var(--line)}
+.qa-turn{display:grid;gap:.65rem;padding-bottom:1.2rem;border-bottom:1px solid var(--line);cursor:pointer}
 .qa-turn:last-child{padding-bottom:0;border-bottom:0}
 .take__body .qa-q{margin:0;padding:.65rem .9rem;border-radius:12px;background:color-mix(in srgb,var(--david,#2f6fde) 8%,var(--surface2));border-left:3px solid var(--david,#2f6fde);font:600 1.02rem/1.5 var(--sans);color:var(--text)}
 .qa-a{display:grid;gap:.35rem;padding-left:.85rem;border-left:3px solid var(--eve)}

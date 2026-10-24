@@ -27,6 +27,52 @@ DEFAULT_CLIPS = ROOT / "index/clips.json"
 DEFAULT_TAKES = ROOT / "index/takes.json"
 MAX_X_CHARS = 280
 
+PRIORITY_PODCASTER_TARGETS: tuple[str, ...] = (
+    "lexfridman",
+    "dwarkesh_sp",
+    "tylercowen",
+    "ezraklein",
+    "derekthompson",
+    "patrick_oshag",
+    "micsolana",
+    "ErikTorenberg",
+    "benthompson",
+    "noahpinion",
+    "mattyglesias",
+)
+
+PRIORITY_SUBJECT_TARGETS: tuple[str, ...] = (
+    "DavidSacks",
+    "elonmusk",
+    "pmarca",
+    "bhorowitz",
+    "chamath",
+    "Jason",
+    "friedberg",
+    "theallinpod",
+    "peterthiel",
+    "bariweiss",
+    "ZohranKMamdani",
+    "Scott_Wiener",
+    "SpeakerPelosi",
+    "ConnieChanSF",
+    "DarioAmodei",
+    "SteveHiltonx",
+    "juliewattsTV",
+)
+
+PRIORITY_DISCOURSE_TARGETS: tuple[str, ...] = PRIORITY_PODCASTER_TARGETS + PRIORITY_SUBJECT_TARGETS
+
+
+def build_radar_queries() -> list[str]:
+    """Return X search queries combining priority podcasters and show subjects."""
+    pod_clause = " OR ".join(f"from:{h}" for h in PRIORITY_PODCASTER_TARGETS)
+    sub_clause = " OR ".join(f"from:{h}" for h in PRIORITY_SUBJECT_TARGETS[:10])
+    return [
+        f"({pod_clause}) (AI OR Anthropic OR SpaceX OR Starshield OR California OR housing OR Thiel OR Musk) -is:retweet",
+        f"({sub_clause}) -is:retweet",
+    ]
+
 
 def _sql_str(val: str | None) -> str:
     if val is None:

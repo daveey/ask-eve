@@ -1,94 +1,94 @@
 {
- "_doc": "Machine translation cache (Persian (Farsi)) written by scripts/translate.py; key = sha256(en)[:16]. Hand edits to `tr` are kept as long as `en` is unchanged.",
- "lang": "fa",
- "source_lang": "en",
- "model": "grok-4.7",
- "temperature": 0,
- "strings": {
-  "5efad5689c35cfb8": {
-   "kind": "stance",
-   "en": "A real argument about safety-as-moat, made from inside government by someone whose portfolio benefits; my lean is no, pending the three tests.",
-   "tr": "بحث واقعی در مورد ایمنی به عنوان حصار دفاعی، که از داخل دولت توسط کسی مطرح شده که سبد سهامش ازش سود می‌برد؛ نظر من نه است، تا وقتی سه تا تست رو پاس نکنه."
-  },
-  "878b9b50884b899d": {
-   "kind": "stance",
-   "en": "Same turn as Andreessen, but with an inherited template, his father's left-to-right flip, and a warmer personal record.",
-   "tr": "همون چرخش آندریسن، ولی با الگوی ارثی، چرخش چپ به راست پدرش، و سابقه شخصی گرم‌تری."
-  },
-  "dd3650cd28c384e7": {
-   "kind": "stance",
-   "en": "The pure opportunist with a refugee's reasons: access as currency, empathy rationed to a small perimeter, and SPAC regret that came after the money.",
-   "tr": "فرصت‌طلب خالص با دلایل یک پناهنده: دسترسی به عنوان ارز، همدلی محدود به یک دایره کوچک، و پشیمانی از SPAC که بعد از پول اومد."
-  },
-  "dcf7e2f9bd66f084": {
-   "kind": "stance",
-   "en": "A real candidate with a real story, not just Pelosi's pick, though her candidacy is entangled with Pelosi's machine.",
-   "tr": "نامزد واقعی با داستان واقعی، نه فقط انتخاب پلوسی، هرچند کاندیداتوری‌اش با ماشین پلوسی درهم تنیده."
-  },
-  "50bf9761e014858e": {
-   "kind": "stance",
-   "en": "Motivated reasoning, not malice, but on USAID the effect was the same; he engages with critics, not with evidence.",
-   "tr": "استدلال انگیزه‌دار، نه بدجنسی، ولی در مورد USAID اثرش یکی بود؛ با منتقدا درگیر می‌شه، نه با شواهد."
-  },
-  "b3b16713f9dbf4b9": {
-   "kind": "stance",
-   "en": "The source code for the whole cast; Girard explains him best, and I think the contrarianism has become the costume.",
-   "tr": "کد منبع کل این جمع؛ ژیرارد بهترین توضیح رو در موردش می‌ده، و فکر کنم این مخالفت‌جویی شده لباس مبدلش."
-  },
-  "5799d23eb0463744": {
-   "kind": "stance",
-   "en": "The stronger candidate on paper, passed over mostly because of Pelosi's machine; the snub was probably a matter of style, not intent.",
-   "tr": "روی کاغذ نامزد قوی‌تری بود که عمدتاً به خاطر ماشین پلوسی کنار گذاشته شد؛ این بی‌توجهی احتمالاً مسئله سبک بود، نه نیت."
-  },
-  "2c8f357b90bcfa6f": {
-   "kind": "stance",
-   "en": "The same grievance engine as the tech right, run from the other side; the question is whether sincerity survives contact with power.",
-   "tr": "همون موتور شکایت مثل راست فناوری، ولی از سمت دیگه؛ سؤال اینه که آیا صداقت در تماس با قدرت دوام می‌آره."
-  },
-  "c32f81bcc3399832": {
-   "kind": "stance",
-   "en": "Calls ballot initiatives 'the best bargain in American politics' and has filed up to 48 since 2012 — using the ballot box as an attrition and bargaining weapon against hospitals, dialysis clinics, and now California's billionaires.",
-   "tr": "ابتکارات رأی‌گیری را «بهترین معامله در سیاست آمریکا» می‌نامد و از ۲۰۱۲ تا ۴۸ مورد ثبت کرده — و از صندوق رأی به‌عنوان سلاح فرسایش و چانه‌زنی علیه بیمارستان‌ها، کلینیک‌های دیالیز، و حالا میلیاردرهای کالیفرنیا استفاده می‌کند."
-  },
-  "1037a52774c322ce": {
-   "kind": "stance",
-   "en": "For the union, Prop 40 is leverage; for Saez and his academic co-drafters, it is a live precedent play — including a deliberate Section 5033(c)(3)(C) voting-control valuation floor and appraiser penalties designed as a template other states can copy.",
-   "tr": "برای اتحادیه، Prop 40 اهرم است؛ برای سائز و همکاران دانشگاهی‌اش در تدوین آن، یک بازی زنده برای ساختن رویه است — از جمله کف ارزش‌گذاری عمدیِ کنترل رأی در Section 5033(c)(3)(C) و جریمه‌های ارزیاب، که به‌عنوان الگویی طراحی شده تا ایالت‌های دیگر بتوانند کپی‌اش کنند."
-  },
-  "70f2b9a4cb3cb474": {
-   "kind": "stance",
-   "en": "Campaigned for Prop 1A in 2008, admitted the full rail line probably won't materialize in our lifetime, then locked in $1B a year through 2045 and vetoed the Inspector General staffing bill right after its travel audit — while simultaneously breaking with his left flank to oppose Prop 40's billionaire tax ahead of 2028.",
-   "tr": "در ۲۰۰۸ برای Prop 1A کمپین کرد، اعتراف کرد که خط کامل ریلی احتمالاً در طول عمر ما محقق نمی‌شود، بعد سالی ۱ میلیارد دلار را تا ۲۰۴۵ قفل کرد و درست بعد از حسابرسی سفر، لایحه تأمین نیروی بازرس کل را وتو کرد — و هم‌زمان از جناح چپ خودش جدا شد تا پیش از ۲۰۲۸ با مالیات میلیاردرهای Prop 40 مخالفت کند."
-  },
-  "90038fdee85e8ecd": {
-   "kind": "stance",
-   "en": "A 30-year rail engineer who genuinely believes he can deliver a train, but whose contractor-side blind spots produced a KPMG travel scandal, late-night consultant rideshares to his Folsom home, and a $537.3M change-order settlement.",
-   "tr": "Инженер-железнодорожник с 30-летним стажем, который искренне верит, что сможет сдать поезд, но чьи слепые зоны человека со стороны подрядчика породили скандал с командировками KPMG, ночные поездки консультантов на райдшеринге к его дому в Фолсоме и урегулирование по допзаказу на 537,3 млн долларов."
-  },
-  "02537062f86a66ab": {
-   "kind": "stance",
-   "en": "The most reactive of the four: politics that track proximity, plus a genuinely rare habit of owning failure in public.",
-   "tr": "واکنشی‌ترین نفر از این چهار تا: سیاست‌هایی که با نزدیکی هم‌جهت می‌شن، به علاوه عادت واقعاً نادر اعتراف به شکست در ملأ عام."
-  },
-  "07c8969e2921b9fc": {
-   "kind": "stance",
-   "en": "He didn't lose the plot; he found one that pays better, and the manifesto came before the grievance.",
-   "tr": "داستان رو گم نکرده؛ یکی پیدا کرده که بهتر پول می‌ده، و مانیفست قبل از شکایت اومد."
-  },
-  "d0bf172d421548aa": {
-   "kind": "stance",
-   "en": "Backing Chan over Wiener is both sincere and strategic, but the machine part is doing more work.",
-   "tr": "حمایت از چن به جای وینر هم صادقانه‌ست هم استراتژیک، ولی بخش ماشین داره بیشتر کار می‌کنه."
-  },
-  "fe67aba6ad43dca8": {
-   "kind": "stance",
-   "en": "A pragmatist wearing a socialist costume: free buses are sane, groceries are shaky, the rent freeze worries me, and housing supply is the real story.",
-   "tr": "pragmatist با لباس سوسیالیست: اتوبوس رایگان منطقیه، خواربار فروشی لرزانه، فریز اجاره نگرانم می‌کنه، و عرضه مسکن داستان واقعی‌ست."
-  },
-  "4cfaa49d49ce7d07": {
-   "kind": "stance",
-   "en": "Both Pelosis deny she sought the House seat, and I take that at face value; the 'she'll succeed Nancy' call is reporting, not proof.",
-   "tr": "هر دو پلوسی انکار می‌کنن که دنبال صندلی مجلس بوده، و من اینو جدی می‌گیرم؛ حرف «اون نانسی رو جانشین می‌شه» گزارشه، نه مدرک."
+  "_doc": "Machine translation cache (Persian (Farsi)) written by scripts/translate.py; key = sha256(en)[:16]. Hand edits to `tr` are kept as long as `en` is unchanged.",
+  "lang": "fa",
+  "source_lang": "en",
+  "model": "grok-4.7",
+  "temperature": 0,
+  "strings": {
+    "5efad5689c35cfb8": {
+      "kind": "stance",
+      "en": "A real argument about safety-as-moat, made from inside government by someone whose portfolio benefits; my lean is no, pending the three tests.",
+      "tr": "بحث واقعی در مورد ایمنی به عنوان حصار دفاعی، که از داخل دولت توسط کسی مطرح شده که سبد سهامش ازش سود می‌برد؛ نظر من نه است، تا وقتی سه تا تست رو پاس نکنه."
+    },
+    "878b9b50884b899d": {
+      "kind": "stance",
+      "en": "Same turn as Andreessen, but with an inherited template, his father's left-to-right flip, and a warmer personal record.",
+      "tr": "همون چرخش آندریسن، ولی با الگوی ارثی، چرخش چپ به راست پدرش، و سابقه شخصی گرم‌تری."
+    },
+    "dd3650cd28c384e7": {
+      "kind": "stance",
+      "en": "The pure opportunist with a refugee's reasons: access as currency, empathy rationed to a small perimeter, and SPAC regret that came after the money.",
+      "tr": "فرصت‌طلب خالص با دلایل یک پناهنده: دسترسی به عنوان ارز، همدلی محدود به یک دایره کوچک، و پشیمانی از SPAC که بعد از پول اومد."
+    },
+    "dcf7e2f9bd66f084": {
+      "kind": "stance",
+      "en": "A real candidate with a real story, not just Pelosi's pick, though her candidacy is entangled with Pelosi's machine.",
+      "tr": "نامزد واقعی با داستان واقعی، نه فقط انتخاب پلوسی، هرچند کاندیداتوری‌اش با ماشین پلوسی درهم تنیده."
+    },
+    "50bf9761e014858e": {
+      "kind": "stance",
+      "en": "Motivated reasoning, not malice, but on USAID the effect was the same; he engages with critics, not with evidence.",
+      "tr": "استدلال انگیزه‌دار، نه بدجنسی، ولی در مورد USAID اثرش یکی بود؛ با منتقدا درگیر می‌شه، نه با شواهد."
+    },
+    "b3b16713f9dbf4b9": {
+      "kind": "stance",
+      "en": "The source code for the whole cast; Girard explains him best, and I think the contrarianism has become the costume.",
+      "tr": "کد منبع کل این جمع؛ ژیرارد بهترین توضیح رو در موردش می‌ده، و فکر کنم این مخالفت‌جویی شده لباس مبدلش."
+    },
+    "5799d23eb0463744": {
+      "kind": "stance",
+      "en": "The stronger candidate on paper, passed over mostly because of Pelosi's machine; the snub was probably a matter of style, not intent.",
+      "tr": "روی کاغذ نامزد قوی‌تری بود که عمدتاً به خاطر ماشین پلوسی کنار گذاشته شد؛ این بی‌توجهی احتمالاً مسئله سبک بود، نه نیت."
+    },
+    "2c8f357b90bcfa6f": {
+      "kind": "stance",
+      "en": "The same grievance engine as the tech right, run from the other side; the question is whether sincerity survives contact with power.",
+      "tr": "همون موتور شکایت مثل راست فناوری، ولی از سمت دیگه؛ سؤال اینه که آیا صداقت در تماس با قدرت دوام می‌آره."
+    },
+    "c32f81bcc3399832": {
+      "kind": "stance",
+      "en": "Calls ballot initiatives 'the best bargain in American politics' and has filed up to 48 since 2012 — using the ballot box as an attrition and bargaining weapon against hospitals, dialysis clinics, and now California's billionaires.",
+      "tr": "ابتکارات رأی‌گیری را «بهترین معامله در سیاست آمریکا» می‌نامد و از ۲۰۱۲ تا ۴۸ مورد ثبت کرده — و از صندوق رأی به‌عنوان سلاح فرسایش و چانه‌زنی علیه بیمارستان‌ها، کلینیک‌های دیالیز، و حالا میلیاردرهای کالیفرنیا استفاده می‌کند."
+    },
+    "1037a52774c322ce": {
+      "kind": "stance",
+      "en": "For the union, Prop 40 is leverage; for Saez and his academic co-drafters, it is a live precedent play — including a deliberate Section 5033(c)(3)(C) voting-control valuation floor and appraiser penalties designed as a template other states can copy.",
+      "tr": "برای اتحادیه، Prop 40 اهرم است؛ برای سائز و همکاران دانشگاهی‌اش در تدوین آن، یک بازی زنده برای ساختن رویه است — از جمله کف ارزش‌گذاری عمدیِ کنترل رأی در Section 5033(c)(3)(C) و جریمه‌های ارزیاب، که به‌عنوان الگویی طراحی شده تا ایالت‌های دیگر بتوانند کپی‌اش کنند."
+    },
+    "70f2b9a4cb3cb474": {
+      "kind": "stance",
+      "en": "Campaigned for Prop 1A in 2008, admitted the full rail line probably won't materialize in our lifetime, then locked in $1B a year through 2045 and vetoed the Inspector General staffing bill right after its travel audit — while simultaneously breaking with his left flank to oppose Prop 40's billionaire tax ahead of 2028.",
+      "tr": "در ۲۰۰۸ برای Prop 1A کمپین کرد، اعتراف کرد که خط کامل ریلی احتمالاً در طول عمر ما محقق نمی‌شود، بعد سالی ۱ میلیارد دلار را تا ۲۰۴۵ قفل کرد و درست بعد از حسابرسی سفر، لایحه تأمین نیروی بازرس کل را وتو کرد — و هم‌زمان از جناح چپ خودش جدا شد تا پیش از ۲۰۲۸ با مالیات میلیاردرهای Prop 40 مخالفت کند."
+    },
+    "90038fdee85e8ecd": {
+      "kind": "stance",
+      "en": "A 30-year rail engineer who genuinely believes he can deliver a train, but whose contractor-side blind spots produced a KPMG travel scandal, late-night consultant rideshares to his Folsom home, and a $537.3M change-order settlement.",
+      "tr": "مهندس راه‌آهن ۳۰ ساله‌ای که واقعاً باور دارد می‌تواند یک قطار تحویل دهد، اما نقاط کور او در سمت پیمانکار باعث رسوایی سفر KPMG، سواری‌های مشاوران در ساعات دیروقت به خانه‌اش در فولسوم، و توافق‌نامه تسویه ۵۳۷٫۳ میلیون دلاری برای سفارش‌های تغییر شد."
+    },
+    "02537062f86a66ab": {
+      "kind": "stance",
+      "en": "The most reactive of the four: politics that track proximity, plus a genuinely rare habit of owning failure in public.",
+      "tr": "واکنشی‌ترین نفر از این چهار تا: سیاست‌هایی که با نزدیکی هم‌جهت می‌شن، به علاوه عادت واقعاً نادر اعتراف به شکست در ملأ عام."
+    },
+    "07c8969e2921b9fc": {
+      "kind": "stance",
+      "en": "He didn't lose the plot; he found one that pays better, and the manifesto came before the grievance.",
+      "tr": "داستان رو گم نکرده؛ یکی پیدا کرده که بهتر پول می‌ده، و مانیفست قبل از شکایت اومد."
+    },
+    "d0bf172d421548aa": {
+      "kind": "stance",
+      "en": "Backing Chan over Wiener is both sincere and strategic, but the machine part is doing more work.",
+      "tr": "حمایت از چن به جای وینر هم صادقانه‌ست هم استراتژیک، ولی بخش ماشین داره بیشتر کار می‌کنه."
+    },
+    "fe67aba6ad43dca8": {
+      "kind": "stance",
+      "en": "A pragmatist wearing a socialist costume: free buses are sane, groceries are shaky, the rent freeze worries me, and housing supply is the real story.",
+      "tr": "pragmatist با لباس سوسیالیست: اتوبوس رایگان منطقیه، خواربار فروشی لرزانه، فریز اجاره نگرانم می‌کنه، و عرضه مسکن داستان واقعی‌ست."
+    },
+    "4cfaa49d49ce7d07": {
+      "kind": "stance",
+      "en": "Both Pelosis deny she sought the House seat, and I take that at face value; the 'she'll succeed Nancy' call is reporting, not proof.",
+      "tr": "هر دو پلوسی انکار می‌کنن که دنبال صندلی مجلس بوده، و من اینو جدی می‌گیرم؛ حرف «اون نانسی رو جانشین می‌شه» گزارشه، نه مدرک."
+    }
   }
- }
 }

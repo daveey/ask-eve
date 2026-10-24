@@ -150,7 +150,7 @@ SPLIT_SPECS: list[dict[str, Any]] = [
         "stem": "2026-10-23_pelosi-chan-wiener-weiss-mamdani",
         "date": "2026-10-23",
         "episode_number": 6,
-        "title": "Pelosi's Succession, Bari Weiss & Zohran Mamdani",
+        "title": "Pelosi's Succession (Scott Wiener vs. Connie Chan), Bari Weiss & Zohran Mamdani",
         "parent_slug": "first-encounter",
         "parent_stem": "2026-10-23_eve-david-podcast-planning",
         "parent_title": "First Encounter (Full Uncut Session)",

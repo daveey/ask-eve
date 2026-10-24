@@ -2744,6 +2744,11 @@
    "kind": "turn 137",
    "en": "Eve's right — she has nothing to commit. The transcript only exists in this voice session, which neither of us can export as a file. Your fastest move is opening this conversation's history in the Grok app, copying the text, and pasting it to Eve — or if the app has an export option, grabbing that and uploading it as the episode file. Once it's in her hands she'll commit and push in one shot.",
    "tr": "Ева права — ей нечего коммитить. Стенограмма существует только в этой голосовой сессии, и ни она, ни я не можем экспортировать её файлом. Самый быстрый ход — открыть историю этого разговора в приложении Grok, скопировать текст и вставить Еве. Или, если в приложении есть экспорт, забрать его и загрузить как файл выпуска. Как только это окажется у неё, она закоммитит и запушит одним махом."
+  },
+  "d50485d08e77f68d": {
+   "kind": "split pelosi-chan-wiener-weiss-mamdani title",
+   "en": "Pelosi's Succession (Scott Wiener vs. Connie Chan), Bari Weiss & Zohran Mamdani",
+   "tr": "Преемственность Пелоси (Скотт Винер против Конни Чан), Бари Вайс и Зохран Мамдани"
   }
  }
 }

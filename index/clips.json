@@ -21,7 +21,9 @@
       "video_path": "/assets/clips/clip-sacks-three-tests.mp4",
       "poster_path": "/assets/clips/clip-sacks-three-tests.webp",
       "suggested_x_post": "How do you tell if @DavidSacks's war on Anthropic is principle or portfolio protection? I proposed 3 observable tests: symmetric scrutiny, public updating, and costly principle. First pass: mixed-fail, fail, no evidence. https://askevepodcast.com/people/david-sacks/",
-      "episode_number": 3
+      "episode_number": 3,
+      "split_start_sec": 459.0,
+      "split_end_sec": 496.4
     },
     {
       "id": "clip-andreessen-deal-break",
@@ -42,7 +44,9 @@
       "video_path": "/assets/clips/clip-andreessen-deal-break.mp4",
       "poster_path": "/assets/clips/clip-andreessen-deal-break.webp",
       "suggested_x_post": "Marc Andreessen didn't lose the plot—he found one that pays better. And the Techno-Optimist Manifesto came in Oct 2023, months before the May 2024 West Wing lunch he cites as the break: https://askevepodcast.com/people/marc-andreessen/",
-      "episode_number": 1
+      "episode_number": 1,
+      "split_start_sec": 203.7,
+      "split_end_sec": 245.7
     },
     {
       "id": "clip-thiel-girard",
@@ -63,7 +67,9 @@
       "video_path": "/assets/clips/clip-thiel-girard.mp4",
       "poster_path": "/assets/clips/clip-thiel-girard.webp",
       "suggested_x_post": "Peter Thiel is the source code for the entire tech-right cast, and René Girard explains him better than politics does. Why I argue his Antichrist lectures are unfalsifiable by design: https://askevepodcast.com/people/peter-thiel/",
-      "episode_number": 5
+      "episode_number": 5,
+      "split_start_sec": 261.4,
+      "split_end_sec": 299.4
     },
     {
       "id": "clip-musk-usaid-chainsaw",
@@ -84,13 +90,15 @@
       "video_path": "/assets/clips/clip-musk-usaid-chainsaw.mp4",
       "poster_path": "/assets/clips/clip-musk-usaid-chainsaw.webp",
       "suggested_x_post": "On USAID, Elon Musk's '90% siphoned off' claim traces to a localization stat, not an audit (USAID IG disallowed-cost rate was <0.5%). Rockets give physics feedback in seconds; politics gives applause: https://askevepodcast.com/people/elon-musk/",
-      "episode_number": 2
+      "episode_number": 2,
+      "split_start_sec": 1040.3,
+      "split_end_sec": 1082.3
     },
     {
       "id": "clip-pelosi-succession",
       "title": "Nancy Pelosi's Chan-Over-Wiener Succession Move",
       "episode_slug": "pelosi-chan-wiener-weiss-mamdani",
-      "episode_title": "Episode 6 · Pelosi's Succession Math",
+      "episode_title": "Episode 6 · Pelosi vs. Scott Wiener",
       "person_slug": "nancy-pelosi",
       "person_name": "Nancy Pelosi",
       "topic_slug": "pelosi-succession",
@@ -105,7 +113,9 @@
       "video_path": "/assets/clips/clip-pelosi-succession.mp4",
       "poster_path": "/assets/clips/clip-pelosi-succession.webp",
       "suggested_x_post": "Why did Nancy Pelosi back Connie Chan over Scott Wiener after the phone-call dispute? If the goal were just the strongest legislator, Wiener was the obvious pick. The machine demonstration is the point: https://askevepodcast.com/people/nancy-pelosi/",
-      "episode_number": 6
+      "episode_number": 6,
+      "split_start_sec": 554.9,
+      "split_end_sec": 600.9
     },
     {
       "id": "clip-starshield-anthropic-mirror",
@@ -127,7 +137,9 @@
       "poster_path": "/assets/clips/clip-starshield-anthropic-mirror.webp",
       "suggested_x_post": "Anthropic got blacklisted as a 'supply-chain risk' over hypothetical safety refusals. On Oct 13, Musk's Starshield actually capped speeds at ~100 mph over Ukraine—blinding interceptor drones mid-war until Trump called him. https://askevepodcast.com/episodes/starshield-iran-and-the-anthropic-mirror/#t=1229",
       "audio_default": "out/2026-10-23_starshield-iran-and-the-anthropic-mirror/produce/2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3",
-      "episode_number": 9
+      "episode_number": 9,
+      "split_start_sec": 487.5,
+      "split_end_sec": 532.5
     },
     {
       "id": "clip-hsr-change-order-427",
@@ -149,7 +161,9 @@
       "video_path": "/assets/clips/clip-hsr-change-order-427.mp4",
       "poster_path": "/assets/clips/clip-hsr-change-order-427.webp",
       "suggested_x_post": "How does a $1.365B California High-Speed Rail contract pass $3B with zero miles of track laid? Change Order 427 ($537.3M) on top of 597 prior change orders—approved 7-0 in closed session while the Inspector General's staffing bill got vetoed: https://askevepodcast.com/episodes/california-high-speed-rail-and-cap-and-trade/",
-      "episode_number": 10
+      "episode_number": 10,
+      "split_start_sec": 623.4,
+      "split_end_sec": 663.4
     },
     {
       "id": "clip-prop40-seiu-ballot-ransom",
@@ -171,7 +185,9 @@
       "video_path": "/assets/clips/clip-prop40-seiu-ballot-ransom.mp4",
       "poster_path": "/assets/clips/clip-prop40-seiu-ballot-ransom.webp",
       "suggested_x_post": "Why has SEIU-UHW president Dave Regan filed up to 48 ballot initiatives when almost none pass? Because each dialysis or hospital measure forces the target industry to burn $100M+—making the ballot box the ultimate bargaining table: https://askevepodcast.com/episodes/california-billionaire-tax-prop-40-and-seiu-uhw/",
-      "episode_number": 11
+      "episode_number": 11,
+      "split_start_sec": 437.3,
+      "split_end_sec": 477.3
     }
   ]
 }

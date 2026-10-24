@@ -99,7 +99,7 @@ def clip_card_html(A, c: dict) -> str:
     poster_url = A(poster_rel)
     cid = c["id"]
     ep_slug = c["episode_slug"]
-    t_sec = int(c["start_sec"])
+    t_sec = int(round(c.get("split_start_sec", c["start_sec"])))
     dur = int(round(c["duration_sec"]))
     badge = c.get("badge") or c.get("person_name") or "Ask Eve"
     david_q = (c.get("david_q") or c.get("quote") or c.get("eve_caption") or "").strip("“”\"")
@@ -133,7 +133,7 @@ def clip_page_html(A, c: dict, all_clips: list[dict]) -> str:
     cid = c["id"]
     ep_slug = c["episode_slug"]
     ep_title = c.get("episode_title") or ep_slug
-    t_sec = int(c["start_sec"])
+    t_sec = int(round(c.get("split_start_sec", c["start_sec"])))
     dur = int(round(c["duration_sec"]))
     badge = c.get("badge") or c.get("person_name") or "Ask Eve"
     person_slug = c.get("person_slug") or ""
@@ -697,10 +697,85 @@ def reading_ledger_html(L, growth: dict | None = None) -> str:
     )
 
 
+def media_plan_section_html(L, growth: dict | None = None) -> str:
+    if growth is None:
+        growth = load_growth()
+    metrics = growth.get("metrics") or []
+    pillars = growth.get("pillars") or []
+    experiments = growth.get("experiments") or []
+    radar_hits = growth.get("radar_hits") or []
+    changelog = growth.get("changelog") or []
+    thesis = growth.get("thesis") or []
+    if not (metrics or pillars or experiments):
+        return ""
+    seen: set = set()
+    thesis_html = "".join(f"<p>{md_inline_html(L, t, seen)}</p>" for t in thesis)
+    metrics_html = "".join(
+        f'<li class="reading-card">'
+        f'<p class="reading-card__meta tnum">{e(m.get("label", ""))}</p>'
+        f'<h4 class="reading-card__title tnum">{e(m.get("value", ""))}</h4>'
+        f'<p class="reading-card__take">{md_inline_html(L, m.get("detail", ""), seen)}</p>'
+        f'</li>'
+        for m in metrics
+    )
+    pillars_html = "".join(
+        f'<li class="reading-card" id="pillar-{e(pl.get("num", ""))}">'
+        f'<p class="reading-card__meta tnum">Pillar {e(pl.get("num", ""))} · {e(pl.get("tag", ""))}</p>'
+        f'<h4 class="reading-card__title">{e(pl.get("title", ""))}</h4>'
+        f'<p class="reading-card__take">{md_inline_html(L, pl.get("body", ""), seen)}</p>'
+        f'</li>'
+        for pl in pillars
+    )
+    exp_html = "".join(
+        f'<li class="reading-card" id="exp-{e(ex.get("id", ""))}">'
+        f'<p class="reading-card__meta tnum">{e(ex.get("id", ""))} · {e(ex.get("pillar", ""))} · <span class="reading-card__status">{e(ex.get("status", ""))}</span></p>'
+        f'<h4 class="reading-card__title">{e(ex.get("title", ""))}</h4>'
+        f'<p class="reading-card__take"><strong>Hypothesis:</strong> {md_inline_html(L, ex.get("hypothesis", ""), seen)}</p>'
+        f'<p class="reading-card__delta"><strong>Cadence:</strong> {e(ex.get("cadence", ""))} · <strong>Metric:</strong> {e(ex.get("metric", ""))}</p>'
+        f'</li>'
+        for ex in experiments
+    )
+    hits_html = "".join(
+        f'<li class="radar-card" id="hit-{e(h.get("id", ""))}">'
+        f'<p class="radar-card__meta tnum">{e(h.get("author_handle", ""))} ({e(h.get("author_name", ""))}) · <a href="/episodes/{e(h.get("episode_slug", ""))}/">Episode</a> · <a href="{e(h.get("tweet_url", ""))}">Target post ↗</a></p>'
+        f'<p class="radar-card__claim"><strong>Post:</strong> “{e(h.get("tweet_text", ""))}”</p>'
+        f'<p class="radar-card__take"><strong>@askevepodcast reply ({h.get("char_count", len(h.get("draft_reply", "")))} chars · leak-check PASS):</strong> {e(h.get("draft_reply", ""))}</p>'
+        f'</li>'
+        for h in radar_hits
+    )
+    log_html = "".join(
+        f'<li class="soul-thread">'
+        f'<strong>{e(c.get("date", ""))} ({e(c.get("version", ""))}) — {e(c.get("title", ""))}:</strong> '
+        f'{md_inline_html(L, c.get("summary", ""), seen)}'
+        f'</li>'
+        for c in changelog
+    )
+    return (
+        '<section class="eve-sec i18n-ready" id="media-plan">'
+        f'<h2>{e(growth.get("title", "Media Plan & Audience Growth Playbook"))}</h2>'
+        f'<p class="sec-sub">{e(growth.get("subtitle", ""))}</p>'
+        f'{thesis_html}'
+        '<h3 id="growth-metrics">Live Funnel &amp; Distribution Metrics</h3>'
+        f'<ol class="reading-list">{metrics_html}</ol>'
+        '<h3 id="growth-pillars">Six-Pillar Audience &amp; Distribution Playbook</h3>'
+        f'<ol class="reading-list">{pillars_html}</ol>'
+        '<h3 id="growth-experiments">Active Growth Experiments</h3>'
+        f'<ol class="reading-list">{exp_html}</ol>'
+        '<h3 id="growth-radar-hits">Live Podcaster &amp; Subject Reply Queue (@askevepodcast)</h3>'
+        f'<ol class="radar-list">{hits_html}</ol>'
+        '<h3 id="growth-changelog">Media Plan Changelog</h3>'
+        f'<ul class="soul-threads">{log_html}</ul>'
+        '</section>'
+    )
+
+
 def growth_sections_html(L, growth: dict | None = None) -> str:
     if growth is None:
         growth = load_growth()
-    return f'<section class="eve-sec" id="growth-loop"><h2>Autonomous Intellectual Growth Loop</h2>{soul_section_html(L, growth, standalone=False)}</section>'
+    return (
+        media_plan_section_html(L, growth)
+        + f'<section class="eve-sec" id="growth-loop"><h2>Autonomous Intellectual Growth Loop</h2>{soul_section_html(L, growth, standalone=False)}</section>'
+    )
 
 
 def contact_page_body_html(L) -> str:

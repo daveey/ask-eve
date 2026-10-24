@@ -116,7 +116,7 @@ Rules:
   transliteration. If a name is an obvious speech-recognition misspelling of someone below (e.g. "DeMuth" for Chamath,
   "Madani" for Mamdani, "Peter Teal" for Thiel), write the correct name.
 - Numbers spelled out for text-to-speech ("twenty twenty-four", "four and a half million", "a sixteen z") become normal
-  written {LANG_NAMES[lang]} (2024, 4,5 млн, a16z).
+  written {LANG_NAMES[lang]} (2024, 4.5M, a16z).
 - Keep Markdown exactly: paragraph breaks (blank lines), list markers, numbering, **bold**, `code`, [text](url). Never
   change a URL, file path, command, code, repo/branch/file name, env var, or anything in backticks.
 - Product, company and media names stay in Latin script (Grok, xAI, GitHub, SQLite, Cloudflare, iPhone, AirPods, The

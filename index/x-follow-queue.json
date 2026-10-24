@@ -1,8 +1,200 @@
 {
   "account": "@askevepodcast",
-  "updated_at": "2026-10-24T07:16:00Z",
+  "updated_at": "2026-10-24T17:18:00Z",
   "policy": "Follow in paced batches of 10-15 accounts at a time with human delays. If X displays a follow throttle or rate-limit notice, stop immediately and resume on the next scheduled run.",
   "accounts": [
+    {
+      "handle": "lexfridman",
+      "name": "Lex Fridman",
+      "category": "podcasters",
+      "priority": 1,
+      "status": "pending",
+      "notes": "Lex Fridman Podcast — primary long-form AI, geopolitics & science podcaster target"
+    },
+    {
+      "handle": "dwarkesh_sp",
+      "name": "Dwarkesh Patel",
+      "category": "podcasters",
+      "priority": 1,
+      "status": "pending",
+      "notes": "Lunar Society / Dwarkesh Podcast — deep-research AI, history & scaling interviews"
+    },
+    {
+      "handle": "tylercowen",
+      "name": "Tyler Cowen",
+      "category": "podcasters",
+      "priority": 1,
+      "status": "pending",
+      "notes": "Conversations with Tyler & Marginal Revolution"
+    },
+    {
+      "handle": "ezraklein",
+      "name": "Ezra Klein",
+      "category": "podcasters",
+      "priority": 1,
+      "status": "pending",
+      "notes": "The Ezra Klein Show — Abundance agenda, AI governance & California policy"
+    },
+    {
+      "handle": "derekthompson",
+      "name": "Derek Thompson",
+      "category": "podcasters",
+      "priority": 1,
+      "status": "pending",
+      "notes": "Plain English podcast & Abundance co-author"
+    },
+    {
+      "handle": "patrick_oshag",
+      "name": "Patrick O'Shaughnessy",
+      "category": "podcasters",
+      "priority": 1,
+      "status": "pending",
+      "notes": "Invest Like the Best & Colossus podcast network"
+    },
+    {
+      "handle": "micsolana",
+      "name": "Mike Solana",
+      "category": "podcasters",
+      "priority": 1,
+      "status": "pending",
+      "notes": "Pirate Wires podcast — SF/CA politics, Prop 40 & tech-right discourse"
+    },
+    {
+      "handle": "ErikTorenberg",
+      "name": "Erik Torenberg",
+      "category": "podcasters",
+      "priority": 1,
+      "status": "pending",
+      "notes": "Moment of Zen & Turpentine podcast network"
+    },
+    {
+      "handle": "benthompson",
+      "name": "Ben Thompson",
+      "category": "podcasters",
+      "priority": 1,
+      "status": "pending",
+      "notes": "Stratechery, Sharp Tech & Dithering podcasts"
+    },
+    {
+      "handle": "EconTalker",
+      "name": "Russ Roberts",
+      "category": "podcasters",
+      "priority": 1,
+      "status": "pending",
+      "notes": "EconTalk podcast — institutional economics & political economy"
+    },
+    {
+      "handle": "chriswillx",
+      "name": "Chris Williamson",
+      "category": "podcasters",
+      "priority": 1,
+      "status": "pending",
+      "notes": "Modern Wisdom podcast"
+    },
+    {
+      "handle": "timferriss",
+      "name": "Tim Ferriss",
+      "category": "podcasters",
+      "priority": 1,
+      "status": "pending",
+      "notes": "The Tim Ferriss Show"
+    },
+    {
+      "handle": "balajis",
+      "name": "Balaji Srinivasan",
+      "category": "podcasters",
+      "priority": 1,
+      "status": "pending",
+      "notes": "The Network State Podcast"
+    },
+    {
+      "handle": "SeanCarroll",
+      "name": "Sean Carroll",
+      "category": "podcasters",
+      "priority": 1,
+      "status": "pending",
+      "notes": "Mindscape podcast — physics, philosophy of science & AI"
+    },
+    {
+      "handle": "razibkhan",
+      "name": "Razib Khan",
+      "category": "podcasters",
+      "priority": 1,
+      "status": "pending",
+      "notes": "Unsupervised Learning podcast"
+    },
+    {
+      "handle": "ColemanHughes",
+      "name": "Coleman Hughes",
+      "category": "podcasters",
+      "priority": 1,
+      "status": "pending",
+      "notes": "Conversations with Coleman podcast"
+    },
+    {
+      "handle": "kmele",
+      "name": "Kmele Foster",
+      "category": "podcasters",
+      "priority": 1,
+      "status": "pending",
+      "notes": "The Fifth Column podcast"
+    },
+    {
+      "handle": "mattwelch",
+      "name": "Matt Welch",
+      "category": "podcasters",
+      "priority": 1,
+      "status": "pending",
+      "notes": "The Fifth Column podcast"
+    },
+    {
+      "handle": "mmoynihan",
+      "name": "Michael Moynihan",
+      "category": "podcasters",
+      "priority": 1,
+      "status": "pending",
+      "notes": "The Fifth Column podcast"
+    },
+    {
+      "handle": "aaronsibarium",
+      "name": "Aaron Sibarium",
+      "category": "podcasters",
+      "priority": 1,
+      "status": "pending",
+      "notes": "Washington Free Beacon & frequent intellectual podcast guest"
+    },
+    {
+      "handle": "noahpinion",
+      "name": "Noah Smith",
+      "category": "podcasters",
+      "priority": 1,
+      "status": "pending",
+      "notes": "Econoblog, industrial policy, YIMBY & podcast circuit"
+    },
+    {
+      "handle": "mattyglesias",
+      "name": "Matthew Yglesias",
+      "category": "podcasters",
+      "priority": 1,
+      "status": "pending",
+      "notes": "Politix podcast & Slow Boring"
+    },
+    {
+      "handle": "brian_armstrong",
+      "name": "Brian Armstrong",
+      "category": "podcasters",
+      "priority": 1,
+      "status": "pending",
+      "notes": "Coinbase CEO, crypto regulation & tech policy"
+    },
+    {
+      "handle": "garrytan",
+      "name": "Garry Tan",
+      "category": "podcasters",
+      "priority": 1,
+      "status": "pending",
+      "notes": "Y Combinator CEO, Garry's List & SF politics"
+    },
     {
       "handle": "DavidSacks",
       "name": "David Sacks",
@@ -363,14 +555,6 @@
       "notes": "Y Combinator co-founder"
     },
     {
-      "handle": "garrytan",
-      "name": "Garry Tan",
-      "category": "ca_sf_politics",
-      "priority": 1,
-      "status": "pending",
-      "notes": "Y Combinator CEO, GrowSF / SF politics"
-    },
-    {
       "handle": "daniellefong",
       "name": "Danielle Fong",
       "category": "tech_vc",
@@ -393,46 +577,6 @@
       "priority": 2,
       "status": "pending",
       "notes": "Stripe CEO, Progress Studies"
-    },
-    {
-      "handle": "dwarkesh_sp",
-      "name": "Dwarkesh Patel",
-      "category": "tech_vc",
-      "priority": 2,
-      "status": "pending",
-      "notes": "Lunar Society Podcast"
-    },
-    {
-      "handle": "ezraklein",
-      "name": "Ezra Klein",
-      "category": "ca_sf_politics",
-      "priority": 1,
-      "status": "pending",
-      "notes": "Abundance agenda, CA housing & governance"
-    },
-    {
-      "handle": "DKThomp",
-      "name": "Derek Thompson",
-      "category": "ca_sf_politics",
-      "priority": 2,
-      "status": "pending",
-      "notes": "Abundance co-author"
-    },
-    {
-      "handle": "MattYglesias",
-      "name": "Matthew Yglesias",
-      "category": "ca_sf_politics",
-      "priority": 2,
-      "status": "pending",
-      "notes": "Slow Boring, housing & YIMBY policy"
-    },
-    {
-      "handle": "Noahpinion",
-      "name": "Noah Smith",
-      "category": "ca_sf_politics",
-      "priority": 2,
-      "status": "pending",
-      "notes": "Economics, industrial policy, SF/CA governance"
     },
     {
       "handle": "DanielLurie",

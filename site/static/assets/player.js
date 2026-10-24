@@ -58,15 +58,23 @@
     });
   }
 
-  /* ---------- clickable episode cards (.split-card, .card, .session-part) ---------- */
+  /* ---------- clickable episode & transcript/quote cards (.split-card, .card, .session-part, .pm, .qa-turn) ---------- */
   doc.addEventListener("click", function (ev) {
     if (ev.defaultPrevented || ev.button !== 0) return;
-    var interactive = ev.target.closest && ev.target.closest("a, button, input, select, textarea, summary, details, video, audio");
+    var interactive = ev.target.closest && ev.target.closest("a, button, input, select, textarea, summary, details, video, audio, code");
     if (interactive) return;
-    var card = ev.target.closest && ev.target.closest(".split-card, .card, .session-part");
-    if (!card) return;
     var sel = window.getSelection ? String(window.getSelection()) : "";
     if (sel && sel.trim().length > 0) return;
+    var quoteCard = ev.target.closest && ev.target.closest(".pm, .qa-turn");
+    if (quoteCard) {
+      var listenLink = quoteCard.querySelector('.pm__listen, a.cite[href*="/episodes/"][href*="#t="], a[href*="/episodes/"][href*="#t="]');
+      if (listenLink) {
+        listenLink.click();
+        return;
+      }
+    }
+    var card = ev.target.closest && ev.target.closest(".split-card, .card, .session-part");
+    if (!card) return;
     var primary = card.querySelector(".split-card__title a, .card__title a, .session-part__title a");
     if (!primary || !primary.href) return;
     if (ev.metaKey || ev.ctrlKey) {
@@ -206,9 +214,12 @@
       progress = clamp((lineY - rect.top) / Math.max(1, rect.height), 0, 1);
     }
 
+    var pWrap = $("#player");
     var pNode = $("#player audio");
     var audioTime = (pNode && isFinite(pNode.currentTime) && pNode.currentTime > 0) ? pNode.currentTime : 0;
     var audioPlaying = !!(pNode && !pNode.paused);
+    var audioSlug = pWrap ? pWrap.getAttribute("data-slug") : null;
+    var audioDur = pWrap ? (parseFloat(pWrap.getAttribute("data-duration")) || 0) : 0;
 
     return {
       semId: semId,
@@ -216,6 +227,8 @@
       progress: progress,
       scrollY: window.scrollY || window.pageYOffset || 0,
       hash: location.hash || "",
+      audioSlug: audioSlug,
+      audioDur: audioDur,
       audioTime: audioTime,
       audioPlaying: audioPlaying,
       ts: Date.now()
@@ -290,6 +303,75 @@
     } catch (e) {}
   });
 
+  /* ---------- Homepage Featured Episodes Carousel ---------- */
+  $$("[data-hero-carousel]").forEach(function (carousel) {
+    var slides = $$("[data-hero-slide]", carousel);
+    var tabs = $$("[data-hero-tab]", carousel);
+    var prevBtn = $("[data-hero-prev]", carousel);
+    var nextBtn = $("[data-hero-next]", carousel);
+    if (slides.length <= 1) return;
+    var curIdx = 0;
+    var pausedByUser = false;
+    var hoverPaused = false;
+
+    function showSlide(idx, userInitiated) {
+      curIdx = ((idx % slides.length) + slides.length) % slides.length;
+      slides.forEach(function (sl, i) {
+        var active = (i === curIdx);
+        sl.classList.toggle("is-active", active);
+        if (active) sl.removeAttribute("hidden");
+        else sl.setAttribute("hidden", "");
+      });
+      tabs.forEach(function (tb, i) {
+        var active = (i === curIdx);
+        tb.classList.toggle("is-active", active);
+        tb.setAttribute("aria-selected", active ? "true" : "false");
+        tb.setAttribute("tabindex", active ? "0" : "-1");
+        if (active && userInitiated && tb.scrollIntoView) {
+          try { tb.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "nearest", inline: "nearest" }); } catch (e) {}
+        }
+      });
+      if (userInitiated) pausedByUser = true;
+    }
+
+    tabs.forEach(function (tb, i) {
+      tb.addEventListener("click", function () { showSlide(i, true); });
+      tb.addEventListener("keydown", function (ev) {
+        if (ev.key === "ArrowRight") { ev.preventDefault(); showSlide(i + 1, true); if (tabs[curIdx]) tabs[curIdx].focus(); }
+        else if (ev.key === "ArrowLeft") { ev.preventDefault(); showSlide(i - 1, true); if (tabs[curIdx]) tabs[curIdx].focus(); }
+      });
+    });
+    if (prevBtn) prevBtn.addEventListener("click", function () { showSlide(curIdx - 1, true); });
+    if (nextBtn) nextBtn.addEventListener("click", function () { showSlide(curIdx + 1, true); });
+
+    carousel.addEventListener("mouseenter", function () { hoverPaused = true; });
+    carousel.addEventListener("mouseleave", function () { hoverPaused = false; });
+    carousel.addEventListener("focusin", function () { hoverPaused = true; });
+    carousel.addEventListener("focusout", function () { hoverPaused = false; });
+
+    var touchStartX = 0, touchStartY = 0;
+    carousel.addEventListener("touchstart", function (ev) {
+      if (!ev.touches || !ev.touches.length) return;
+      touchStartX = ev.touches[0].clientX;
+      touchStartY = ev.touches[0].clientY;
+    }, { passive: true });
+    carousel.addEventListener("touchend", function (ev) {
+      if (!ev.changedTouches || !ev.changedTouches.length) return;
+      var dx = ev.changedTouches[0].clientX - touchStartX;
+      var dy = ev.changedTouches[0].clientY - touchStartY;
+      if (Math.abs(dx) > 48 && Math.abs(dx) > Math.abs(dy) * 1.4) {
+        showSlide(dx < 0 ? curIdx + 1 : curIdx - 1, true);
+      }
+    }, { passive: true });
+
+    if (!reduceMotion) {
+      setInterval(function () {
+        if (pausedByUser || hoverPaused || doc.hidden || doc.body.classList.contains("is-playing")) return;
+        showSlide(curIdx + 1, false);
+      }, 7500);
+    }
+  });
+
   /* ---------- player ---------- */
   var P = $("#player");
   if (!P) return;
@@ -299,7 +381,9 @@
   var duration = parseFloat(P.getAttribute("data-duration")) || 0;
   var clipStart = P.hasAttribute("data-clip-start") ? parseFloat(P.getAttribute("data-clip-start")) : null;
   var clipEnd = P.hasAttribute("data-clip-end") ? parseFloat(P.getAttribute("data-clip-end")) : null;
-  var posKey = "ae:pos:" + slug, rateKey = "ae:rate";
+  var langCode = (root.lang || "en").toLowerCase();
+  function makePosKey(s) { return "ae:pos:" + langCode + ":" + (s || ""); }
+  var posKey = makePosKey(slug), rateKey = "ae:rate";
   var SPEEDS = [1, 1.25, 1.5, 1.75, 2, 0.75];
   var pendingSeek = null, dragging = false, playIntended = false;
   var CATALOG = {};
@@ -371,19 +455,44 @@
       }
     }
     if (savedTime > 0) pendingSeek = savedTime;
-    audio.src = fb;
-    audio.load();
+    setAudioSrc(fb);
     if (playIntended) {
-      audio.play().catch(function () {});
+      safePlay();
     }
     return true;
   }
 
+  function setAudioSrc(newUrl) {
+    if (!audio || !newUrl) return;
+    var sources = $$("source", audio);
+    for (var i = 0; i < sources.length; i++) {
+      if (i === 0) sources[i].setAttribute("src", newUrl);
+      else if (sources[i].parentNode) sources[i].parentNode.removeChild(sources[i]);
+    }
+    audio.setAttribute("src", newUrl);
+    audio.src = newUrl;
+    audio.load();
+  }
+
+  function safePlay() {
+    if (!audio) return;
+    playIntended = true;
+    var p = audio.play();
+    if (p && typeof p.catch === "function") {
+      p.catch(function (err) {
+        if (err && (err.name === "AbortError" || err.name === "NotAllowedError")) return;
+        if (audio.error && audio.error.code !== 1) switchToFallbackAudio();
+      });
+    }
+  }
+
   audio.addEventListener("error", function () {
+    if (audio.error && audio.error.code === 1) return;
     switchToFallbackAudio();
   });
   $$("source", audio).forEach(function (srcNode) {
     srcNode.addEventListener("error", function () {
+      if (audio.error && audio.error.code === 1) return;
       switchToFallbackAudio();
     });
   });
@@ -402,14 +511,31 @@
     return audio.duration && isFinite(audio.duration) ? audio.duration : duration;
   }
 
+  function normalizeSeekTime(t, targetInfo) {
+    t = Math.max(0, parseFloat(t) || 0);
+    var d = targetInfo ? (parseFloat(targetInfo.duration) || 0) : effDuration();
+    var fbStart = targetInfo
+      ? targetInfo.fallback_clip_start
+      : (CATALOG[slug] ? CATALOG[slug].fallback_clip_start : (audio && audio.hasAttribute("data-fallback-clip-start") ? parseFloat(audio.getAttribute("data-fallback-clip-start")) : null));
+    if (d > 0 && t >= d) {
+      if (fbStart != null && !isNaN(fbStart) && t >= fbStart && (t - fbStart) < d) {
+        t = Math.max(0, t - fbStart);
+      } else {
+        t = Math.max(0, d - 5);
+      }
+    }
+    return t;
+  }
+
   function setRange(t) {
     var d = effDuration();
+    var dispT = d > 0 ? Math.min(Math.max(0, t), d) : Math.max(0, t);
     range.max = Math.max(1, Math.floor(d));
-    if (!dragging) range.value = Math.floor(t);
-    range.style.setProperty("--p", (d ? (Math.min(t, d) / d) * 100 : 0) + "%");
-    cur.textContent = clock(t);
+    if (!dragging) range.value = Math.floor(dispT);
+    range.style.setProperty("--p", (d ? (Math.min(dispT, d) / d) * 100 : 0) + "%");
+    cur.textContent = clock(dispT);
     if (durEl) durEl.textContent = clock(d);
-    range.setAttribute("aria-valuetext", clock(t) + " of " + clock(d));
+    range.setAttribute("aria-valuetext", clock(dispT) + " of " + clock(d));
   }
 
   function updateDrawerCue(t) {
@@ -464,15 +590,18 @@
   }
 
   function seek(t, play, skipScroll) {
-    t = Math.max(0, t);
+    t = normalizeSeekTime(t, null);
     var rawT = clipStart != null ? clipStart + t : t;
     show();
-    if (audio.readyState >= 1) audio.currentTime = rawT;
-    else { pendingSeek = rawT; if (play) audio.load(); }
+    if (audio.readyState >= 1) {
+      try { audio.currentTime = rawT; } catch (e) { pendingSeek = rawT; }
+    } else {
+      pendingSeek = rawT;
+      if (play && audio.networkState === 0) audio.load();
+    }
     sync(t, !skipScroll);
     if (play) {
-      playIntended = true;
-      audio.play().catch(function () { switchToFallbackAudio(); });
+      safePlay();
     }
   }
   function now() {
@@ -483,13 +612,14 @@
   function loadEpisodeFromCatalog(targetSlug, seekSec, autoPlay) {
     var info = CATALOG[targetSlug];
     if (!info) return false;
+    seekSec = normalizeSeekTime(seekSec || 0, info);
     if (targetSlug !== slug) {
       slug = info.slug;
       title = info.title;
       duration = info.duration || 0;
       clipStart = info.clip_start != null ? parseFloat(info.clip_start) : null;
       clipEnd = info.clip_end != null ? parseFloat(info.clip_end) : null;
-      posKey = "ae:pos:" + slug;
+      posKey = makePosKey(slug);
       P.setAttribute("data-slug", slug);
       P.setAttribute("data-title", title);
       P.setAttribute("data-duration", String(duration));
@@ -511,14 +641,13 @@
         audio.removeAttribute("data-fallback-clip-start");
         audio.removeAttribute("data-fallback-clip-end");
       }
-      audio.src = info.audio_url;
-      audio.load();
+      setAudioSrc(info.audio_url);
     }
     if (!turns.length && drawer && drawerBtn) {
       drawer.removeAttribute("hidden");
       drawerBtn.setAttribute("aria-expanded", "true");
     }
-    seek(seekSec || 0, autoPlay !== false);
+    seek(seekSec, autoPlay !== false);
     return true;
   }
 
@@ -541,12 +670,25 @@
   });
   function playLabels(playing) {
     $$("[data-play]").forEach(function (b) {
-      var s = $("span", b); if (s) s.textContent = playing ? L("Pause") : L("Resume");
-      b.setAttribute("aria-pressed", playing ? "true" : "false");
+      var bSlug = b.getAttribute("data-ep-slug");
+      var isThisEp = !bSlug || bSlug === slug;
+      var s = $("span", b);
+      if (s) {
+        if (isThisEp) s.textContent = playing ? L("Pause") : L("Resume");
+        else s.textContent = L("Play episode");
+      }
+      b.setAttribute("aria-pressed", (isThisEp && playing) ? "true" : "false");
     });
   }
   audio.addEventListener("play", function () { P.classList.add("is-playing"); toggle.setAttribute("aria-label", L("Pause")); show(); playLabels(true); });
-  audio.addEventListener("pause", function () { P.classList.remove("is-playing"); toggle.setAttribute("aria-label", L("Play")); playLabels(false); store.set(posKey, String(Math.floor(audio.currentTime))); });
+  audio.addEventListener("pause", function () {
+    P.classList.remove("is-playing");
+    toggle.setAttribute("aria-label", L("Play"));
+    playLabels(false);
+    var t = now(), d = effDuration();
+    if (t > 5 && (d <= 0 || t < d - 10)) store.set(posKey, String(Math.floor(t)));
+    else if (d > 0 && t >= d - 10) store.del(posKey);
+  });
   audio.addEventListener("waiting", function () { P.classList.add("is-loading"); });
   audio.addEventListener("playing", function () { P.classList.remove("is-loading"); });
   audio.addEventListener("canplay", function () { P.classList.remove("is-loading"); });
@@ -555,9 +697,13 @@
   function playPause() {
     show();
     if (audio.paused) {
-      playIntended = true;
-      if (pendingSeek == null && audio.readyState < 1) { var s = parseFloat(store.get(posKey)); if (s > 0 && !audio.currentTime) pendingSeek = s; }
-      audio.play().catch(function () { switchToFallbackAudio(); });
+      if (pendingSeek == null && audio.readyState < 1) {
+        var s = parseFloat(store.get(posKey));
+        var d = effDuration();
+        if (d > 0 && s >= d - 5) { store.del(posKey); s = 0; }
+        if (s > 0 && !audio.currentTime) pendingSeek = s;
+      }
+      safePlay();
     } else {
       playIntended = false;
       audio.pause();
@@ -583,7 +729,38 @@
   range.addEventListener("change", function () { dragging = false; seek(parseFloat(range.value), !audio.paused); });
 
   // Home page "Play episode" and episode hero play buttons
-  $$("[data-play]").forEach(function (b) { b.addEventListener("click", function () { playPause(); }); });
+  $$("[data-play]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var bSlug = b.getAttribute("data-ep-slug");
+      if (bSlug && bSlug !== slug) {
+        if (CATALOG[bSlug]) {
+          loadEpisodeFromCatalog(bSlug, 0, true);
+          playLabels(true);
+          return;
+        }
+        var bAudio = b.getAttribute("data-audio-url");
+        if (bAudio) {
+          slug = bSlug;
+          title = b.getAttribute("data-ep-title") || title;
+          posKey = makePosKey(slug);
+          P.setAttribute("data-slug", slug);
+          P.setAttribute("data-title", title);
+          var tEl = $(".player__title", P), infoLink = $(".player__info", P);
+          if (tEl) tEl.textContent = title;
+          if (chapEl && b.getAttribute("data-ep-num")) chapEl.textContent = b.getAttribute("data-ep-num");
+          if (infoLink && b.getAttribute("data-ep-url")) infoLink.setAttribute("href", b.getAttribute("data-ep-url"));
+          var fb = b.getAttribute("data-en-audio-url");
+          if (fb) audio.setAttribute("data-fallback-src", fb);
+          else audio.removeAttribute("data-fallback-src");
+          setAudioSrc(bAudio);
+          seek(0, true);
+          playLabels(true);
+          return;
+        }
+      }
+      playPause();
+    });
+  });
 
   // Timestamp links and chapter links
   doc.addEventListener("click", function (ev) {
@@ -660,7 +837,7 @@
   if ("mediaSession" in navigator) {
     updateMeta();
     var ms = navigator.mediaSession, h = function (a, f) { try { ms.setActionHandler(a, f); } catch (e) {} };
-    h("play", function () { playIntended = true; audio.play().catch(function () { switchToFallbackAudio(); }); });
+    h("play", function () { safePlay(); });
     h("pause", function () { playIntended = false; audio.pause(); });
     h("seekbackward", function (d) { seek(now() - ((d && d.seekOffset) || 15), false); });
     h("seekforward", function (d) { seek(now() + ((d && d.seekOffset) || 15), false); });
@@ -673,16 +850,31 @@
   function fromHash() {
     var m = /^#t=(\d+(?:\.\d+)?)/.exec(location.hash);
     if (!m) return false;
-    var t = parseFloat(m[1]);
-    show(); pendingSeek = t; sync(t, !restoredLangState);
+    var t = normalizeSeekTime(parseFloat(m[1]), null);
+    show(); pendingSeek = clipStart != null ? clipStart + t : t; sync(t, !restoredLangState);
     return true;
   }
   if (!fromHash()) {
     if (restoredLangState && restoredLangState.audioTime > 0) {
-      seek(restoredLangState.audioTime, !!restoredLangState.audioPlaying, true);
+      var rSlug = restoredLangState.audioSlug || slug;
+      if (rSlug !== slug && CATALOG[rSlug]) {
+        var cDur = parseFloat(CATALOG[rSlug].duration) || 0;
+        var oDur = parseFloat(restoredLangState.audioDur) || cDur;
+        var cTime = (oDur > 0 && cDur > 0) ? (restoredLangState.audioTime * (cDur / oDur)) : restoredLangState.audioTime;
+        if (cDur > 0) cTime = clamp(cTime, 0, Math.max(0, cDur - 5));
+        loadEpisodeFromCatalog(rSlug, cTime, !!restoredLangState.audioPlaying);
+      } else if (!restoredLangState.audioSlug || restoredLangState.audioSlug === slug) {
+        var curDur = effDuration();
+        var prevDur = parseFloat(restoredLangState.audioDur) || curDur;
+        var sTime = (prevDur > 0 && curDur > 0) ? (restoredLangState.audioTime * (curDur / prevDur)) : restoredLangState.audioTime;
+        if (curDur > 0) sTime = clamp(sTime, 0, Math.max(0, curDur - 5));
+        seek(sTime, !!restoredLangState.audioPlaying, true);
+      }
     } else if (turnsEl) {
       var saved = parseFloat(store.get(posKey));
-      if (saved > 5) { pendingSeek = saved; setRange(saved); }
+      var maxD = effDuration();
+      if (maxD > 0 && saved >= maxD - 5) { store.del(posKey); saved = 0; }
+      if (saved > 5) { pendingSeek = clipStart != null ? clipStart + saved : saved; setRange(saved); }
     }
   }
   window.addEventListener("hashchange", fromHash);
