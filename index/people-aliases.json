@@ -11,5 +11,6 @@
   "chan": {"name": "Connie Chan", "aliases": ["Connie Chan", "Connie", "Chan"], "notes": "Connie Chan, the San Francisco supervisor Nancy Pelosi backed over Scott Wiener. 'Connie' in the transcript is this Connie Chan, NOT Christine Pelosi."},
   "scott-wiener": {"aliases": ["Wiener", "Weiner", "Scott Weiner"], "notes": ""},
   "bari-weiss": {"aliases": ["Bari", "Weiss", "Barry Weiss", "Free Press"], "notes": "Free Press mentions count only when Weiss or her outlet is the subject."},
-  "zohran-mamdani": {"aliases": ["Mamdani", "Madani", "Zohran", "Mumdani"], "notes": "ASR often renders Mamdani as Madani."}
+  "zohran-mamdani": {"aliases": ["Mamdani", "Madani", "Zohran", "Mumdani"], "notes": "ASR often renders Mamdani as Madani."},
+  "christine-pelosi": {"aliases": ["Christine Pelosi", "Christine"], "notes": "Nancy Pelosi's daughter, a candidate for the California State Senate seat Scott Wiener is leaving. Not Connie Chan, and not Nancy herself."}
 }
