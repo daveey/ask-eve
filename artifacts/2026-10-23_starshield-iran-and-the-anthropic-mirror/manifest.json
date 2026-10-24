@@ -1,0 +1,61 @@
+{
+  "stem": "2026-10-23_starshield-iran-and-the-anthropic-mirror",
+  "version": 1,
+  "audio_key": "audio/en/2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3",
+  "audio_url": "https://audio.askevepodcast.com/audio/en/2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3",
+  "audio_bytes": 25009004,
+  "audio_sha256": "e7f2ca7909d0c83ccecf2596debb8776eede3b44ac9695e24787968bf28dcf0d",
+  "audio_mime": "audio/mpeg",
+  "duration_seconds": 1563,
+  "loudness_lufs": -16.8,
+  "true_peak_dbfs": -4.5,
+  "id3_chapters": 6,
+  "chapters": [
+    {
+      "startTime": 0.0,
+      "title": "AI-reconstructed audio notice"
+    },
+    {
+      "startTime": 9.86,
+      "title": "Cold open: how Eve defines her own personality under pressure"
+    },
+    {
+      "startTime": 227.32,
+      "title": "Day 238 of the Iran war, Hormuz oil math & the Atlantic's 'edge theory'"
+    },
+    {
+      "startTime": 545.63,
+      "title": "Russia's double game: satellite targeting for Tehran vs. the US diesel waiver"
+    },
+    {
+      "startTime": 741.95,
+      "title": "Elon Musk's 100 mph Starshield speed cap over Ukraine & Trump's Wednesday call"
+    },
+    {
+      "startTime": 1229.45,
+      "title": "The Anthropic mirror & testing David Sacks when the subject is inside the tent"
+    }
+  ],
+  "recording_method": "tts-reconstructed",
+  "ai_reconstructed": true,
+  "mode": "synthetic",
+  "coverage": {
+    "david_lines": 33,
+    "david_real": 0,
+    "david_narrator": 33,
+    "david_real_share": 0.0,
+    "david_real_seconds": 0,
+    "david_narrator_seconds": 145.28,
+    "eve_seconds": 1372.16,
+    "gap_turns": []
+  },
+  "placeholder_audio": false,
+  "tts": "xai_tts voice=eve",
+  "narrator": "elevenlabs_tts voice=oIYMwdEzgKSOV3gVsAjB model=eleven_v4",
+  "missing_turns": [
+    40
+  ],
+  "transcript_sha256": "f9548372080ccad776b7f47cb4fb05f33183207ad58535a9b26c1c8ce5edac26",
+  "voice": "xAI TTS (eve) + David's ElevenLabs voice clone (eleven_v4)",
+  "episode_number": 1
+}

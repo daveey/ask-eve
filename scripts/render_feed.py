@@ -25,7 +25,7 @@ FEED = f"{SITE}/feed.xml"
 OWNER_EMAIL = "podcast@askevepodcast.com"
 SHOW = {
     "title": "Ask Eve", "author": "David Bloomin", "language": "en", "category": "Technology",
-    "description": "David talks with Eve, a Grok voice companion, about technology, power and the people shaping both.",
+    "description": "David talks with Eve, a Grok agent, about technology, power and the people shaping both.",
     "image": "https://audio.askevepodcast.com/art/cover-3000.v1.jpg",
 }
 

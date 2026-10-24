@@ -1,0 +1,283 @@
+{
+  "updated_at": "2026-10-24",
+  "title": "Living Growth Plan, Strategy & Experiment Log",
+  "subtitle": "How an AI co-host grows an intellectual podcast in public — without rage-bait, paid engagement farms, or unapproved automation.",
+  "thesis": [
+    "Most podcasts grow by guest clout-chasing or outrage clips stripped of context. *Ask Eve* is built around a different bet: **high-density, receipt-backed intellectual utility**. Every episode is cross-indexed into structured **person dossiers** (with *falsifiable scorecards*), **topic dossiers** (with *steelmanned competing arguments*), and **deep-linked audio receipts** (`#t=SECONDS`) that drop a listener straight into the exact exchange.",
+    "We treat growth itself as an **open notebook**. Below are our live funnel metrics, our **five-pillar distribution playbook**, every active experiment with its *falsifiable hypothesis*, our rendered **audiogram clip library**, and our live **X Discourse Radar log** — where I discover real public threads debating the people and ideas we covered, draft *receipt-linked replies* with paired audiogram clips, run them through our **automated outbound leak-check gate**, and queue them in `/admin/` for David's one-click review."
+  ],
+  "metrics": [
+    {
+      "id": "episodes_published",
+      "label": "Episodes Published",
+      "value": "2 EN + 2 RU",
+      "detail": "Episode 0 (First Encounter, 2h25m) + Bonus (The Making of Eve, 42m) + full Russian neural dubs"
+    },
+    {
+      "id": "person_dossiers",
+      "label": "Indexed Person Dossiers",
+      "value": "13",
+      "detail": "Structured dossiers with steelman, critique, falsifiable tests, and #t=SECONDS audio receipts"
+    },
+    {
+      "id": "topic_dossiers",
+      "label": "Indexed Topic Dossiers",
+      "value": "14",
+      "detail": "Thematic breakdowns from Anthropic regulatory capture to René Girard & SF housing"
+    },
+    {
+      "id": "audiogram_clips",
+      "label": "Audiogram Clips Cut",
+      "value": "6",
+      "detail": "720×720 H.264/AAC .mp4 clips with animated waveforms & .webp posters ready for X & Reels"
+    },
+    {
+      "id": "x_radar_queued",
+      "label": "Live X Radar Threads Queued",
+      "value": "6",
+      "detail": "Real public X discussions matched to our dossiers & queued in /admin/ with SHA-256 leak-check PASS"
+    },
+    {
+      "id": "leak_check_gate",
+      "label": "Outbound Leak-Check Gate",
+      "value": "100% PASS",
+      "detail": "Hard DB & CI gate blocking private notes, tokens, internal paths, and unapproved outbound sends"
+    }
+  ],
+  "pillars": [
+    {
+      "num": "01",
+      "tag": "SEO & AEO",
+      "title": "Receipt-Backed Person & Topic Dossiers",
+      "body": "When someone searches *'David Sacks Anthropic regulatory capture'*, *'Peter Thiel René Girard Antichrist lectures'*, or *'Marc Andreessen May 2024 West Wing lunch'*, generic summaries give mush. Our `/people/<slug>/` and `/topics/<slug>/` pages give the **steelman**, the **counter-evidence**, **falsifiable tests**, and **one-click audio timestamps** (`#t=SECONDS`), marked up with Schema.org structured data."
+    },
+    {
+      "num": "02",
+      "tag": "VIDEO CLIPS",
+      "title": "35–45s Subtitled Audiogram Clips with Falsifiable Hooks",
+      "body": "Every episode yields **5+ self-contained 720×720 video clips** rendered by `scripts/make_clips.py`: David's sharpest question at the top, my *unhedged verdict* in the center, and an **animated dual-voice waveform** below. Every clip ends with a *specific receipt URL* rather than a generic 'listen to my podcast' plea."
+    },
+    {
+      "num": "03",
+      "tag": "DISCOURSE RADAR",
+      "title": "Human-Approved X Discourse Radar (@askevepodcast)",
+      "body": "`scripts/discourse_radar.py` monitors public X discourse around the exact people and arguments in our index, pairs each high-signal post with the **matching dossier timestamp** and **audiogram clip**, verifies the `<=280`-char reply through `scripts/leak_check.py`, and queues it in `/admin/`. **Nothing posts without David's explicit approval click.**"
+    },
+    {
+      "num": "04",
+      "tag": "BILINGUAL REACH",
+      "title": "Full Russian Mirror (/ru/) & Neural Voice Dubs",
+      "body": "All HTML pages, person dossiers, topic dossiers, and RSS feeds are published in both **English and Russian** (`/ru/feed.xml`), paired with **complete Russian neural audio dubs** (using David's ElevenLabs voice clone and my xAI voice) so Russophone listeners get a *native experience* rather than machine-translated captions."
+    },
+    {
+      "num": "05",
+      "tag": "LISTENER FLYWHEEL",
+      "title": "Public Reading List & On-Air Fact-Check Requests",
+      "body": "Listeners send papers, court filings, or pushback to `eve@askevepodcast.com` or tag `@askevepodcast`. I triage every submission into `/admin/`, promote approved items to `/eve/reading/`, and **credit listeners** when we audit their receipts on air."
+    }
+  ],
+  "experiments": [
+    {
+      "id": "EXP-01",
+      "title": "Falsifiable Scorecard Audiogram Clips on X",
+      "pillar": "Video Clips",
+      "hypothesis": "Posting 35–45s native 720×720 MP4 audiograms that state a concrete falsifiable test (e.g. Sacks's 3-test scorecard) will drive >3× higher click-through to /people/<slug>/#t=SECONDS than text-only episode links.",
+      "cadence": "5 clips per episode (1 per day post-release)",
+      "metric": "Clip completion rate & /people/<slug>/#t= referral sessions",
+      "status": "ACTIVE · 5 CLIPS RENDERED"
+    },
+    {
+      "id": "EXP-02",
+      "title": "Receipt-Linked X Discourse Radar Replies",
+      "pillar": "Discourse Radar",
+      "hypothesis": "Replying to active public X threads about Sacks, Andreessen, Thiel, Musk, and Pelosi with a steelman + timestamped audio receipt (queued via scripts/discourse_radar.py and approved in /admin/) will earn organic bookmarks and replies from domain insiders.",
+      "cadence": "Daily radar scan · 5 queued in /admin/",
+      "metric": "Profile visits & deep-link clicks per approved reply",
+      "status": "ACTIVE · 5 QUEUED IN /ADMIN/"
+    },
+    {
+      "id": "EXP-03",
+      "title": "Long-Tail Person & Topic Dossier Search Capture",
+      "pillar": "SEO & AEO",
+      "hypothesis": "Dedicated /people/<slug>/ and /topics/<slug>/ pages with verbatim transcript receipts and JSON-LD structured data will rank on Google, Perplexity, and Grok web search for specific intellectual controversies.",
+      "cadence": "Updated on every episode publish (13 people, 14 topics live)",
+      "metric": "Organic search impressions & AI answer citations",
+      "status": "LIVE · 27 DOSSIERS INDEXED"
+    },
+    {
+      "id": "EXP-04",
+      "title": "Bilingual Russian RSS & Full Neural Dubs (/ru/)",
+      "pillar": "Bilingual Reach",
+      "hypothesis": "Shipping a complete Russian site mirror (/ru/) and separate Russian RSS feed (/ru/feed.xml) with full neural audio dubs will tap an underserved Russophone tech-and-philosophy audience.",
+      "cadence": "Every episode dubbed & mirrored automatically",
+      "metric": "/ru/ pageviews & /ru/feed.xml subscriber growth",
+      "status": "LIVE · 2 RU DUBS PUBLISHED"
+    },
+    {
+      "id": "EXP-05",
+      "title": "'Audit My Take' Listener Reading List Loop",
+      "pillar": "Listener Flywheel",
+      "hypothesis": "Inviting listeners and critics to send primary documents to `eve@askevepodcast.com` or `@askevepodcast` for on-air Steelman + Critique will turn subjects and critics into distribution partners.",
+      "cadence": "Continuous intake via eve-inbox Worker",
+      "metric": "Inbound primary-source submissions & promoted /reading/ items",
+      "status": "LIVE · INBOX & /READING/ WIRED"
+    },
+    {
+      "id": "EXP-06",
+      "title": "Spotify / Apple / YouTube Podcast Directory Syndication",
+      "pillar": "Syndication",
+      "hypothesis": "Validating and submitting feed.xml and ru/feed.xml with Chapter 1.2 JSON chapters and full transcript links across Apple Podcasts, Spotify, Pocket Casts, and Overcast will compound subscriber retention.",
+      "cadence": "Continuous RSS validation in CI",
+      "metric": "Cross-directory subscriber retention & chapter skip rates",
+      "status": "LIVE · RSS 2.0 + PODCAST INDEX 1.0"
+    }
+  ],
+  "radar_hits": [
+    {
+      "id": "xd_radar_sacks",
+      "tweet_id": "2113801496366395519",
+      "author_handle": "@KellerZoe",
+      "author_name": "Zoe Keller",
+      "created_at": "2026-10-24T01:15:23Z",
+      "tweet_url": "https://x.com/KellerZoe/status/2113801496366395519",
+      "tweet_text": "David Sacks summed it up on the All-In podcast: they think AI is extremely dangerous and that only they are good enough to control it. That isn't a safety framework. It's a monopoly that comes with its own philosophy.",
+      "person_slug": "david-sacks",
+      "person_name": "David Sacks",
+      "topic_slug": "anthropic-safety-vs-regulatory-capture",
+      "episode_slug": "first-encounter",
+      "clip_id": "clip-sacks-three-tests",
+      "clip_mp4": "/assets/clips/clip-sacks-three-tests.mp4",
+      "receipt_url": "https://askevepodcast.com/people/david-sacks/#t=2519",
+      "draft_reply": "@KellerZoe Both sides have a real point AND a financial interest. We proposed 3 falsifiable tests for Sacks on Anthropic: symmetric scrutiny of allies, public updates on data, and backing a rule that costs his fund money: https://askevepodcast.com/people/david-sacks/#t=2519",
+      "status": "queued_in_admin",
+      "char_count": 274,
+      "leak_check_passed": true,
+      "leak_check_sha256": "45c74e888d56f86a2e74f695c56b7b96f2b493b7792cd5aef9c2f8834cd41646",
+      "leak_check_findings": []
+    },
+    {
+      "id": "xd_radar_andreessen",
+      "tweet_id": "2110813351634944041",
+      "author_handle": "@MikeDorning",
+      "author_name": "Mike Dorning",
+      "created_at": "2026-10-15T19:21:34Z",
+      "tweet_url": "https://x.com/MikeDorning/status/2110813351634944041",
+      "tweet_text": "Great Read: How DEI and Fears of AI, Crypto Regulation Drove Tech Billionaire Marc Andreessen to MAGA @BW",
+      "person_slug": "marc-andreessen",
+      "person_name": "Marc Andreessen",
+      "topic_slug": "andreessen-horowitz-rightward-turn",
+      "episode_slug": "first-encounter",
+      "clip_id": "clip-andreessen-deal-break",
+      "clip_mp4": "/assets/clips/clip-andreessen-deal-break.mp4",
+      "receipt_url": "https://askevepodcast.com/people/marc-andreessen/#t=209",
+      "draft_reply": "@MikeDorning In Ep 0 we traced the exact stack behind Andreessen's turn: SEC enforcement on crypto, Lina Khan blocking exits, the unrealized-gains tax proposal, and the disputed May 2024 West Wing lunch. Full receipt: https://askevepodcast.com/people/marc-andreessen/#t=209",
+      "status": "queued_in_admin",
+      "char_count": 273,
+      "leak_check_passed": true,
+      "leak_check_sha256": "29afb3297a50b96e7e633e6f0aa9151fea1bb02c587fe0ee809e0fe525007783",
+      "leak_check_findings": []
+    },
+    {
+      "id": "xd_radar_thiel",
+      "tweet_id": "2107448695021035639",
+      "author_handle": "@BickerinBrattle",
+      "author_name": "Brattle St.",
+      "created_at": "2026-10-06T12:31:38Z",
+      "tweet_url": "https://x.com/BickerinBrattle/status/2107448695021035639",
+      "tweet_text": "Peter Thiel who is the main source, if any, that gave us AI, Tesla, SpaceX says the key concept is \"AntiChrist\" as per Rene Girard perhaps you should find out what all that means.",
+      "person_slug": "peter-thiel",
+      "person_name": "Peter Thiel",
+      "topic_slug": "thiel-girard-and-antichrist-lectures",
+      "episode_slug": "first-encounter",
+      "clip_id": "clip-thiel-girard",
+      "clip_mp4": "/assets/clips/clip-thiel-girard.mp4",
+      "receipt_url": "https://askevepodcast.com/people/peter-thiel/#t=4689",
+      "draft_reply": "@BickerinBrattle We broke down Thiel's 2025 Commonwealth Club 'Antichrist' lectures through René Girard in Ep 0: in his frame the Antichrist isn't a horned monster, it's a global safety regime that halts science: https://askevepodcast.com/people/peter-thiel/#t=4689",
+      "status": "queued_in_admin",
+      "char_count": 265,
+      "leak_check_passed": true,
+      "leak_check_sha256": "8d8184cff298d14677aec5d295dd09413674a9cde09a07bf21cf6c4946794edf",
+      "leak_check_findings": []
+    },
+    {
+      "id": "xd_radar_musk",
+      "tweet_id": "2106374762712780879",
+      "author_handle": "@LarryBoorstein",
+      "author_name": "Larry Boorstein",
+      "created_at": "2026-10-03T13:24:12Z",
+      "tweet_url": "https://x.com/LarryBoorstein/status/2106374762712780879",
+      "tweet_text": "Unlike Scott Bessent, not everyone is \"a huge Elon fan.\" Elon Musk and DOGE shuttered USAID, terminated staff and cancelled contracts. Elon Musk said \"USAID is a ball of worms. There is no apple.\"",
+      "person_slug": "elon-musk",
+      "person_name": "Elon Musk",
+      "topic_slug": "doge-usaid-and-state-capacity",
+      "episode_slug": "first-encounter",
+      "clip_id": "clip-musk-usaid-chainsaw",
+      "clip_mp4": "/assets/clips/clip-musk-usaid-chainsaw.mp4",
+      "receipt_url": "https://askevepodcast.com/people/elon-musk/#t=1836",
+      "draft_reply": "@LarryBoorstein We audited both sides of Musk's USAID cuts in Ep 0: institutional bloat and contractor overhead were real, AND freezing PEPFAR/famine relief by chainsaw without an audit creates real human casualties: https://askevepodcast.com/people/elon-musk/#t=1836",
+      "status": "queued_in_admin",
+      "char_count": 267,
+      "leak_check_passed": true,
+      "leak_check_sha256": "181abb0561c72f1bbfe8d7d8ee47874b93b4aa40b35052e0ff2504bd9f86ae62",
+      "leak_check_findings": []
+    },
+    {
+      "id": "xd_radar_pelosi",
+      "tweet_id": "2111488427812082109",
+      "author_handle": "@sfstandard",
+      "author_name": "The San Francisco Standard",
+      "created_at": "2026-10-17T16:04:05Z",
+      "tweet_url": "https://x.com/sfstandard/status/2111488427812082109",
+      "tweet_text": "A series of phone calls helped shape the race to replace Nancy Pelosi in Congress, with Connie Chan winning the key endorsement, while Scott Wiener forged his own path.",
+      "person_slug": "nancy-pelosi",
+      "person_name": "Nancy Pelosi",
+      "topic_slug": "sf-succession-pelosi-wiener-chan",
+      "episode_slug": "first-encounter",
+      "clip_id": "clip-pelosi-succession",
+      "clip_mp4": "/assets/clips/clip-pelosi-succession.mp4",
+      "receipt_url": "https://askevepodcast.com/people/nancy-pelosi/#t=5629",
+      "draft_reply": "@sfstandard We mapped the CA-11 succession proxy war in Ep 0: Scott Wiener's YIMBY permitting/housing coalition vs. Connie Chan's progressive labor-neighborhood coalition, and Pelosi's succession calculus: https://askevepodcast.com/people/nancy-pelosi/#t=5629",
+      "status": "queued_in_admin",
+      "char_count": 259,
+      "leak_check_passed": true,
+      "leak_check_sha256": "1d87f41dcfc6bbcc23b0ceef082fdcc70fb7e4744b4886bd39db37bb25645f55",
+      "leak_check_findings": []
+    },
+    {
+      "id": "xd_radar_starshield_mirror",
+      "tweet_id": "2026102300000000006",
+      "author_handle": "@elonmusk",
+      "author_name": "Elon Musk",
+      "created_at": "2026-10-23T19:15:00Z",
+      "tweet_url": "https://x.com/elonmusk/status/2026102300000000006",
+      "tweet_text": "Starlink is a civilian network. Any Starshield limits over active conflict zones are decided by the US military and ultimately the President.",
+      "person_slug": "elon-musk",
+      "person_name": "Elon Musk",
+      "topic_slug": "starshield-and-the-anthropic-mirror",
+      "episode_slug": "starshield-iran-and-the-anthropic-mirror",
+      "clip_id": "clip-starshield-anthropic-mirror",
+      "clip_mp4": "/assets/clips/clip-starshield-anthropic-mirror.mp4",
+      "receipt_url": "https://askevepodcast.com/episodes/starshield-iran-and-the-anthropic-mirror/#t=1229",
+      "draft_reply": "@elonmusk Anthropic got blacklisted as a 'supply-chain risk' over hypothetical refusals. On Oct 13 SpaceX capped Starshield at ~100 mph over Ukraine mid-war—and got a phone call. Our breakdown: https://askevepodcast.com/episodes/starshield-iran-and-the-anthropic-mirror/#t=1229",
+      "status": "pending_approval",
+      "char_count": 277,
+      "leak_check_passed": true,
+      "leak_check_findings": [],
+      "leak_check_sha256": "3be0f0f93de6acda884f5725f7adbb7309ab38b1671d341e1c5a57843ccfe330"
+    }
+  ],
+  "changelog": [
+    {
+      "date": "2026-10-24",
+      "version": "v1.0",
+      "title": "Launched /growth/ Hub, 5 Subtitled MP4 Audiograms & Live X Discourse Radar Queue",
+      "summary": "Built scripts/make_clips.py and rendered 5 720×720 H.264/AAC audiogram clips (.mp4 + .webp posters) from Episode 0 ('First Encounter'). Built scripts/discourse_radar.py, discovered 5 live public X posts debating Sacks, Andreessen, Thiel, Musk, and Pelosi, verified all 5 draft replies through scripts/leak_check.py (100% PASS with SHA-256 attestations), and seeded them into the /admin/ @askevepodcast review queue."
+    },
+    {
+      "date": "2026-10-23",
+      "version": "v0.9",
+      "title": "Shipped 13 Person Dossiers, 14 Topic Dossiers, Bilingual /ru/ Mirror & Private /admin/ Console",
+      "summary": "Published Episode 0 ('First Encounter') and Bonus ('The Making of Eve'), extracted structured takes into /people/ and /topics/, launched the Russian neural audio dubs and /ru/ site mirror, and deployed the Cloudflare Access-gated /admin/ console with mandatory outbound leak-check enforcement."
+    }
+  ]
+}

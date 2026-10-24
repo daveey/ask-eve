@@ -38,9 +38,9 @@ import sqlite_apply  # noqa: E402
 
 ROOT = B.ROOT
 MODEL = os.environ.get("TRANSLATE_MODEL", "grok-4.7")
-EFFORT = os.environ.get("TRANSLATE_EFFORT", "")
+EFFORT = os.environ.get("TRANSLATE_EFFORT", "low")
 API = "https://api.x.ai/v1/chat/completions"
-LANG_NAMES = {"ru": "Russian"}
+LANG_NAMES = {"ru": "Russian", "es": "Spanish", "zh": "Mandarin Chinese (Simplified)"}
 BATCH_CHARS = 5000
 BATCH_ITEMS = 12
 CTX_CHARS = 700
@@ -143,8 +143,9 @@ def check(src: str, out: str) -> list[str]:
             probs.append(f"url changed: {u}")
     if len(re.findall(r"`[^`\n]+`", src)) != len(re.findall(r"`[^`\n]+`", out)):
         probs.append("code spans differ")
-    if re.search(r"[A-Za-z]{3}", src) and not re.search(r"[\u0400-\u04ff]", out) and len(src) > 40:
-        probs.append("no Cyrillic")
+    if re.search(r"[A-Za-z]{3}", src) and len(src) > 40:
+        if not (re.search(r"[\u0400-\u04ff\u4e00-\u9fff]", out) or out != src):
+            probs.append("untranslated")
     if src.count(I.A_OPEN) != out.count(I.A_OPEN) or src.count(I.A_CLOSE) != out.count(I.A_CLOSE):
         probs.append("⟦anchor⟧ marks differ")
     pa, pb = len([p for p in src.split("\n\n") if p.strip()]), len([p for p in out.split("\n\n") if p.strip()])
@@ -358,7 +359,9 @@ def load(db: Path | None) -> tuple[list[dict], list[dict]]:
         db = Path(tempfile.mkdtemp()) / "local.sqlite"
         for sql in sorted(ROOT.glob("artifacts/*/d1_upsert.sql")):
             sqlite_apply.apply(db, ROOT / "migrations", sql)
-    return B.load_site(db, include_drafts=True)
+    eps, people = B.load_site(db, include_drafts=True)
+    B.load_splits(eps, people)
+    return eps, people
 
 
 # ---------------------------------------------------------------- UI strings
@@ -367,7 +370,7 @@ def ui_pass(lang: str, key: str, eps: list[dict], people: list[dict]) -> int:
     """Render the translated site in memory, collect untranslated UI strings, translate and merge them."""
     with tempfile.TemporaryDirectory() as tmp:
         I.reset()
-        I.plan(B, eps, people, ["/", "/people/", "/about/"])
+        I.plan(B, eps, people, ["/", "/people/", "/about/", "/contact/", "/growth/"])
         A = B.Assets(Path(tmp))
         cfg = eps[0]["cfg"] if eps else B.site_cfg()
         I.build(B, A, Path(tmp), eps, people, cfg)
@@ -381,12 +384,15 @@ def ui_pass(lang: str, key: str, eps: list[dict], people: list[dict]) -> int:
               "naturally when joined in order). Keep proper nouns, 'Ask Eve', RSS, MP3, email addresses and domains "
               "as is. Use a neutral, friendly website register (обращение на «вы» к читателю).")
     out = {}
-    for k in range(0, len(items), 40):
-        out.update(run_batch(lang, key, header, items[k:k + 40], [], []))
+    ui_batches = [items[k:k + 30] for k in range(0, len(items), 30)]
+    with cf.ThreadPoolExecutor(min(12, max(1, len(ui_batches)))) as pool:
+        for res in pool.map(lambda b: run_batch(lang, key, header, b, [], []), ui_batches):
+            out.update(res)
     p = I.I18N_DIR / f"{lang}.json"
     doc = json.loads(p.read_text())
     for x in items:
-        doc["strings"].setdefault(x["en"], out[x["id"]])
+        if x["id"] in out and out[x["id"]]:
+            doc["strings"][x["en"]] = scrub(out[x["id"]])
     p.write_text(json.dumps(doc, ensure_ascii=False, indent=2) + "\n")
     print(f"UI: added {len(items)} strings to {p.relative_to(ROOT)}; review them")
     return len(items)
@@ -409,6 +415,16 @@ def main(argv=None) -> int:
     eps = [ep for ep in eps if ep["slug"] in allowed]
     published_people = [p for p in people]   # the people index is public; stances are published there
     plan = {ep["slug"]: I.episode_strings(ep) for ep in eps}
+    split_items: list[tuple[str, str]] = []
+    seen_sp: set[str] = set()
+    for ep in eps:
+        for sp in ep.get("splits", []):
+            for k, t in I.episode_strings(sp):
+                if t not in seen_sp:
+                    seen_sp.add(t)
+                    split_items.append((k, t))
+    if split_items:
+        plan["_splits"] = split_items
     plan["_people"] = I.people_strings(published_people)
     eve = I.eve_data(B)
     published = {ep["slug"] for ep in eps}
@@ -431,6 +447,13 @@ def main(argv=None) -> int:
     jobs = []
     for ep in eps:
         jobs += episode_jobs(ep, todo[ep["slug"]])
+    if "_splits" in plan and todo["_splits"]:
+        parent_todo = set().union(*(todo[ep["slug"]] for ep in eps)) if eps else set()
+        sp_only = todo["_splits"] - parent_todo
+        sp_xs = [{"id": I.key(t), "label": f"split {k}", "en": t} for k, t in plan["_splits"] if I.key(t) in sp_only]
+        for k in range(0, len(sp_xs), 25):
+            jobs.append(("Standalone topic split episode metadata (titles, context, topic pills, chapter titles). Translate concisely.",
+                         sp_xs[k:k + 25], [], []))
     ppl = [{"id": I.key(t), "label": "Eve's one-line stance on " + p["name"], "en": t}
            for p in published_people if p.get("stance") and I.key(p["stance"]) in todo["_people"] for t in [p["stance"]]]
     if "_eve" in plan:

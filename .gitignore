@@ -20,6 +20,7 @@ node_modules/
 *.wav
 *.mov
 *.mp4
+!site/static/assets/clips/*.mp4
 site/dist/
 site/.d1.sqlite
 

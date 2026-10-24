@@ -6,10 +6,12 @@
   },
   "blurbs": {
     "first-encounter": "The conversation that started the show. Eve walks through how Andreessen and Horowitz turned right, then works through Thiel, Musk, Sacks's three-test scorecard, Calacanis, Chamath, Pelosi's succession move, Bari Weiss and Mamdani, and the two of them decide to make it a podcast.",
-    "the-making-of-eve": "The build log. This is the whole Grok Bot chat in which David and Eve set up the repo, Eve's memory search, the audio pipeline and this site. David's real voice comes in for the parts he recorded on his iPhone."
+    "the-making-of-eve": "The build log. This is the whole Grok Bot chat in which David and Eve set up the repo, Eve's memory search, the audio pipeline and this site. Audio is synthesized from the conversation transcript using David's ElevenLabs voice clone and Eve's xAI voice.",
+    "starshield-iran-and-the-anthropic-mirror": "David brings Eve back to pressure-test two live faults: why every headline treats the Iran war as settled when reality is balanced on a knife-edge, and why Sacks and Musk attacked Anthropic as woke safetyism while SpaceX Quietly built Starshield for the Pentagon."
   },
   "summaries": {
     "first-encounter": "One late-night question about Andreessen and Horowitz, two hours on Musk, Sacks and Thiel, and the night Eve got her name.",
-    "the-making-of-eve": "The overnight chat in which David and Eve built this podcast: her memory, the audio pipeline and this website."
+    "the-making-of-eve": "The overnight chat in which David and Eve built this podcast: her memory, the audio pipeline and this website.",
+    "starshield-iran-and-the-anthropic-mirror": "Knife-edge escalation in Iran, Russia’s double game after the U.S. diesel waiver, and why SpaceX’s Starshield is the mirror of the Anthropic fight."
   }
 }

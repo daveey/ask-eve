@@ -257,9 +257,25 @@
   var toggle = $('[data-act="toggle"]', P), speedBtn = $('[data-act="speed"]', P), chapEl = $("[data-chapter]", P);
   var slug = P.getAttribute("data-slug"), title = P.getAttribute("data-title");
   var duration = parseFloat(P.getAttribute("data-duration")) || 0;
+  var clipStart = P.hasAttribute("data-clip-start") ? parseFloat(P.getAttribute("data-clip-start")) : null;
+  var clipEnd = P.hasAttribute("data-clip-end") ? parseFloat(P.getAttribute("data-clip-end")) : null;
   var posKey = "ae:pos:" + slug, rateKey = "ae:rate";
   var SPEEDS = [1, 1.25, 1.5, 1.75, 2, 0.75];
   var pendingSeek = null, dragging = false, playIntended = false;
+  var CATALOG = {};
+  try {
+    var catEl = $("#episodes-catalog");
+    if (catEl) CATALOG = JSON.parse(catEl.textContent || "{}");
+  } catch (e) {}
+  var drawerBtn = $('[data-act="drawer"]', P), drawer = $("#p-drawer", P);
+  var drawerCue = $("[data-drawer-cue]", P), drawerLink = $("[data-drawer-ep-link]", P);
+  if (drawerBtn && drawer) {
+    drawerBtn.addEventListener("click", function () {
+      var open = !drawer.hasAttribute("hidden");
+      if (open) { drawer.setAttribute("hidden", ""); drawerBtn.setAttribute("aria-expanded", "false"); }
+      else { drawer.removeAttribute("hidden"); drawerBtn.setAttribute("aria-expanded", "true"); }
+    });
+  }
 
   // Transcript and chapters (episode page only)
   var turnsEl = $("[data-turns]");
@@ -334,13 +350,37 @@
   function show() {
     if (P.classList.contains("is-idle")) { P.classList.remove("is-idle"); doc.body.classList.add("is-playing"); }
   }
+  function effDuration() {
+    if (clipStart != null && clipEnd != null && clipEnd > clipStart) return clipEnd - clipStart;
+    return audio.duration && isFinite(audio.duration) ? audio.duration : duration;
+  }
+
   function setRange(t) {
-    var d = audio.duration && isFinite(audio.duration) ? audio.duration : duration;
+    var d = effDuration();
     range.max = Math.max(1, Math.floor(d));
     if (!dragging) range.value = Math.floor(t);
     range.style.setProperty("--p", (d ? (Math.min(t, d) / d) * 100 : 0) + "%");
     cur.textContent = clock(t);
+    if (durEl) durEl.textContent = clock(d);
     range.setAttribute("aria-valuetext", clock(t) + " of " + clock(d));
+  }
+
+  function updateDrawerCue(t) {
+    if (!drawerCue) return;
+    var catEp = CATALOG[slug];
+    if (catEp && catEp.cues && catEp.cues.length) {
+      var lo = 0, hi = catEp.cues.length - 1, ans = -1;
+      while (lo <= hi) { var mid = (lo + hi) >> 1; if (catEp.cues[mid][0] <= t + 0.05) { ans = mid; lo = mid + 1; } else hi = mid - 1; }
+      if (ans >= 0) {
+        var cue = catEp.cues[ans];
+        drawerCue.textContent = "[" + clock(cue[0]) + "] " + cue[2] + ": " + cue[3];
+        return;
+      }
+    }
+    if (turns.length && activeTurn >= 0) {
+      var body = $(".turn__body", turns[activeTurn]);
+      if (body) drawerCue.textContent = "[" + clock(starts[activeTurn]) + "] " + body.textContent.trim().slice(0, 200);
+    }
   }
 
   function scrollToTurn(el, force) {
@@ -373,30 +413,77 @@
         updateMeta();
       }
     }
+    updateDrawerCue(t);
   }
 
   function seek(t, play, skipScroll) {
     t = Math.max(0, t);
+    var rawT = clipStart != null ? clipStart + t : t;
     show();
-    if (audio.readyState >= 1) audio.currentTime = t;
-    else { pendingSeek = t; if (play) audio.load(); }
+    if (audio.readyState >= 1) audio.currentTime = rawT;
+    else { pendingSeek = rawT; if (play) audio.load(); }
     sync(t, !skipScroll);
     if (play) {
       playIntended = true;
       audio.play().catch(function () { switchToFallbackAudio(); });
     }
   }
-  function now() { return pendingSeek != null ? pendingSeek : audio.currentTime || 0; }
+  function now() {
+    var raw = pendingSeek != null ? pendingSeek : (audio.currentTime || 0);
+    return clipStart != null ? Math.max(0, raw - clipStart) : raw;
+  }
+
+  function loadEpisodeFromCatalog(targetSlug, seekSec, autoPlay) {
+    var info = CATALOG[targetSlug];
+    if (!info) return false;
+    if (targetSlug !== slug) {
+      slug = info.slug;
+      title = info.title;
+      duration = info.duration || 0;
+      clipStart = info.clip_start != null ? parseFloat(info.clip_start) : null;
+      clipEnd = info.clip_end != null ? parseFloat(info.clip_end) : null;
+      posKey = "ae:pos:" + slug;
+      P.setAttribute("data-slug", slug);
+      P.setAttribute("data-title", title);
+      P.setAttribute("data-duration", String(duration));
+      var tEl = $(".player__title", P), infoLink = $(".player__info", P);
+      if (tEl) tEl.textContent = title;
+      if (chapEl) { chapEl.textContent = info.label || ""; defaultSub = info.label || ""; }
+      var langPrefix = (root.lang && root.lang !== "en") ? "/" + root.lang : "";
+      var epHref = langPrefix + "/episodes/" + slug + "/";
+      if (infoLink) infoLink.setAttribute("href", epHref);
+      if (drawerLink) drawerLink.setAttribute("href", epHref);
+      turns = []; starts = []; chaps = []; chapStarts = []; activeTurn = -1; activeChap = -1;
+      audio.removeAttribute("data-using-fallback-audio");
+      if (info.fallback_audio_url) audio.setAttribute("data-fallback-src", info.fallback_audio_url);
+      else audio.removeAttribute("data-fallback-src");
+      audio.src = info.audio_url;
+      audio.load();
+    }
+    if (!turns.length && drawer && drawerBtn) {
+      drawer.removeAttribute("hidden");
+      drawerBtn.setAttribute("aria-expanded", "true");
+    }
+    seek(seekSec || 0, autoPlay !== false);
+    return true;
+  }
 
   audio.addEventListener("loadedmetadata", function () {
     if (pendingSeek != null) { try { audio.currentTime = pendingSeek; } catch (e) {} pendingSeek = null; }
-    if (isFinite(audio.duration)) durEl.textContent = clock(audio.duration);
+    else if (clipStart != null && audio.currentTime < clipStart) { try { audio.currentTime = clipStart; } catch (e) {} }
+    durEl.textContent = clock(effDuration());
   });
   var lastSave = 0;
   audio.addEventListener("timeupdate", function () {
-    var t = audio.currentTime;
+    var raw = audio.currentTime;
+    if (clipEnd != null && raw >= clipEnd) {
+      audio.pause();
+      playIntended = false;
+      return;
+    }
+    var t = clipStart != null ? Math.max(0, raw - clipStart) : raw;
     sync(t, false);
-    if (Date.now() - lastSave > 4000) { lastSave = Date.now(); if (t > 5 && (!audio.duration || t < audio.duration - 15)) store.set(posKey, String(Math.floor(t))); }
+    if (Date.now() - lastSave > 4000) { lastSave = Date.now(); if (t > 5 && t < effDuration() - 15) store.set(posKey, String(Math.floor(t))); }
   });
   function playLabels(playing) {
     $$("[data-play]").forEach(function (b) {
@@ -453,6 +540,24 @@
       seek(parseFloat(a.getAttribute("data-seek")), true);
       if (history.replaceState) history.replaceState(null, "", "#t=" + Math.floor(parseFloat(a.getAttribute("data-seek"))));
       return;
+    }
+    var epLink = ev.target.closest && ev.target.closest('a[href*="/episodes/"][href*="#t="]');
+    if (epLink && !ev.metaKey && !ev.ctrlKey && !ev.shiftKey && !ev.altKey) {
+      var href = epLink.getAttribute("href") || "";
+      var m = /\/episodes\/([^\/#]+)\/?#t=(\d+(?:\.\d+)?)/.exec(href);
+      if (m) {
+        var tSlug = m[1], tSec = parseFloat(m[2]);
+        if (tSlug === slug) {
+          ev.preventDefault();
+          following = true; if (followBtn) followBtn.hidden = true;
+          seek(tSec, true);
+          return;
+        } else if (CATALOG[tSlug]) {
+          ev.preventDefault();
+          loadEpisodeFromCatalog(tSlug, tSec, true);
+          return;
+        }
+      }
     }
     var turn = ev.target.closest && ev.target.closest(".turn[data-start]");
     if (turn && !turn.classList.contains("turn--gap") && !ev.target.closest("a, button, summary, details, code")) {

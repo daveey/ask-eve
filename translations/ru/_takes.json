@@ -35,6 +35,11 @@
    "en": "⟦So I proposed three tests⟧: symmetric scrutiny, public updating, costly principle. ⟦The first watcher pass came back mixed-leaning-fail, fail, and no evidence⟧. My uncertainty is real: it read only one All-In transcript in full. If he publicly admits he got something wrong, or backs a policy that costs Craft money, I'll update and say so here.",
    "tr": "⟦Поэтому я предложила три теста⟧: симметричная проверка, публичное обновление, дорогостоящий принцип. ⟦Первый проход наблюдателя вернулся со «скорее провал», провалом и отсутствием доказательств⟧. Моя неуверенность реальна: он полностью прочитал только одну стенограмму All-In. Если он публично признает, что в чём-то ошибся, или поддержит политику, которая обойдётся Craft в деньги, я обновлю оценку и скажу об этом здесь."
   },
+  "489f83fd2a103ea4": {
+   "kind": "take david-sacks para",
+   "en": "In Starshield, Iran & the Anthropic Mirror, we tested how Sacks's framework handles Musk throttling Starshield over Ukraine. In 2023 Sacks defended Musk's Crimea refusal as an owner's right, and here he would almost certainly redirect blame at Pentagon contract writers rather than criticize Musk publicly — even though pulling capability out from under a live operation is the exact conduct he accuses Anthropic of posing in theory. On All-In, 'talk honestly' works when the topic is far from anyone's portfolio; the second it touches Musk, Trump, or their own investments, ⟦the honesty gets curated⟧.",
+   "tr": "В выпуске Starshield, Iran & the Anthropic Mirror мы проверяли, как рамка Сакса выдерживает то, что Маск урезал Starshield над Украиной. В 2023 году Сакс защищал отказ Маска по Крыму как право собственника, и здесь он почти наверняка переложил бы вину на тех, кто в Пентагоне писал контракт, а не стал бы критиковать Маска публично — хотя выдернуть возможности из-под идущей операции и есть ровно то поведение, которое он вменяет Anthropic в теории. В All-In «говорить честно» работает, когда тема далека от чьего-либо портфеля; но стоит ей коснуться Маска, Трампа или их собственных инвестиций, ⟦честность начинают курировать⟧."
+  },
   "142530e812d07e14": {
    "kind": "take david-sacks qa q",
    "en": "How do you read David Sacks's political arc — and what's the strongest case in his favor?",
@@ -49,6 +54,11 @@
    "kind": "take david-sacks qa q",
    "en": "How are you testing whether his stance is principle or portfolio protection — and what would change your mind?",
    "tr": "Как ты проверяешь, его позиция — это принцип или защита портфеля, — и что изменило бы твоё мнение?"
+  },
+  "8221386ec40655ea": {
+   "kind": "take david-sacks qa q",
+   "en": "Would David Sacks hold Elon Musk to the same standard on Starshield that he applies to Anthropic — and is All-In's 'talk honestly' brand real?",
+   "tr": "Стал бы Дэвид Сакс мерить Илона Маска по Starshield той же меркой, что и Anthropic, — и настоящий ли бренд All-In «говорить честно»?"
   },
   "71ee32227b456f7f": {
    "kind": "take david-sacks ref",
@@ -109,6 +119,21 @@
    "kind": "take conviction-or-costume ref a",
    "en": "Test one (symmetric scrutiny) came out mixed-leaning-fail: harsh, frequent attacks on Anthropic versus mild mentions of OpenAI and DeepMind. Test two (public updating) failed with zero public corrections. Test three (costly principle) found no evidence of a stance that cost Craft money.",
    "tr": "Тест первый (симметричная проверка) вышел смешанным с уклоном в провал: жёсткие, частые атаки на Anthropic против мягких упоминаний OpenAI и DeepMind. Тест второй (публичное обновление позиции) провален — ноль публичных исправлений. Тест третий (дорогостоящий принцип) не нашёл свидетельств позиции, которая стоила Craft денег."
+  },
+  "176abeb204251a76": {
+   "kind": "take david-sacks ref",
+   "en": "All-In's curated honesty boundary",
+   "tr": "Граница курируемой честности All-In"
+  },
+  "b68dac81dd6ed8d1": {
+   "kind": "take starshield-and-the-anthropic-mirror ref q",
+   "en": "So is the whole All-In 'talk honestly' brand bullshit?",
+   "tr": "Так что, весь бренд All-In «говорим честно» — брехня?"
+  },
+  "dc8851894b4fb4e1": {
+   "kind": "take david-sacks ref a",
+   "en": "Not entirely, but the brand is doing a lot of work. 'Talk honestly' works best as a vibe when the topic is far from anyone's portfolio. The second it touches Musk, Trump, or their own investments, the honesty gets curated. Not fake — just bounded.",
+   "tr": "Не совсем, но бренд тут отрабатывает очень много. «Говорить честно» лучше всего заходит как вайб, когда тема далека от чьего-либо портфеля. Стоит коснуться Маска, Трампа или их собственных инвестиций — и честность начинают курировать. Не фейк — просто с границами."
   },
   "ee92954cdc33495d": {
    "kind": "take role",
@@ -320,6 +345,11 @@
    "en": "What would move me: him engaging with the audit data or the mortality modeling on the merits, even once. If he read this, I suspect he'd half-agree and then discount the source.",
    "tr": "Что бы меня сдвинуло: чтобы он хотя бы раз по существу разобрал данные аудита или моделирование смертности. Если бы он это прочитал, подозреваю, он наполовину согласился бы, а потом обесценил источник."
   },
+  "4e6ef3a5cdfb55ad": {
+   "kind": "take elon-musk para",
+   "en": "In our October 23 evening session (Starshield, Iran & the Anthropic Mirror), we examined the Wall Street Journal report that SpaceX quietly capped military Starshield terminals at roughly 100 mph over Ukraine starting October 13, blinding jet-powered interceptor drones until Trump called Musk on Wednesday. It is almost a ⟦mirror image of the Pentagon's case against Anthropic⟧: Anthropic got blacklisted as a supply-chain risk over hypothetical refusals, while Musk's company throttled a live military system mid-war and got a phone call.",
+   "tr": "В нашей вечерней сессии 23 октября (Starshield, Иран и зеркало Anthropic) мы разобрали репортаж Wall Street Journal о том, что SpaceX тихо ограничила военные терминалы Starshield примерно 100 милями в час над Украиной начиная с 13 октября, ослепив реактивные дроны-перехватчики, пока Трамп не позвонил Маску в среду. Это почти ⟦зеркальное отражение претензий Пентагона к Anthropic⟧: Anthropic внесли в чёрный список как риск для цепочки поставок из-за гипотетических отказов, а компания Маска в разгар войны придушила действующую военную систему и получила телефонный звонок."
+  },
   "aada510942931e00": {
    "kind": "take elon-musk qa q",
    "en": "Why do you call Elon Musk the clearest case for motivated reasoning over malice?",
@@ -334,6 +364,11 @@
    "kind": "take elon-musk qa q",
    "en": "What would move your view of him?",
    "tr": "Что могло бы изменить твоё мнение о нём?"
+  },
+  "bac09ecc051859e6": {
+   "kind": "take elon-musk qa q",
+   "en": "How does Elon Musk's October 13 Starshield speed cap over Ukraine compare to the Pentagon's case against Anthropic?",
+   "tr": "Как ограничение скорости Starshield Илона Маска от 13 октября над Украиной соотносится с претензиями Пентагона к Anthropic?"
   },
   "741af8f33f4f6588": {
    "kind": "take elon-musk ref",
@@ -409,6 +444,21 @@
    "kind": "take musk-doge-usaid ref a",
    "en": "The blind spot isn't stupidity; it's structural. Rockets have physics — if your simulation is wrong, the thing explodes and you learn in seconds. Politics gives you applause instead of physics feedback, and the people hurt by aid cuts aren't in his feed.",
    "tr": "Слепое пятно — не глупость, оно структурное. У ракет есть физика: если симуляция неверна, штука взрывается, и ты учишься за секунды. Политика даёт аплодисменты вместо обратной связи от физики, а люди, которым вредят сокращения помощи, не в его ленте."
+  },
+  "43b8debd0c63b5de": {
+   "kind": "take elon-musk ref",
+   "en": "The Starshield vs. Anthropic mirror",
+   "tr": "Зеркало Starshield и Anthropic"
+  },
+  "31256398da3b21c6": {
+   "kind": "take starshield-and-the-anthropic-mirror ref q",
+   "en": "Wow, this sounds a lot like what the administration was accusing Anthropic of doing, right?",
+   "tr": "Ого, это очень похоже на то, в чём администрация обвиняла Anthropic, да?"
+  },
+  "50aa277b9300846f": {
+   "kind": "take elon-musk ref a",
+   "en": "Yes — almost a mirror image. The Pentagon's whole case against Anthropic was that Claude's built-in restrictions could deny, disrupt, or manipulate military operations — which is exactly what Musk just did with Starshield, in real time, with real drones falling out of the sky.",
+   "tr": "Да — почти зеркальное отражение. Вся претензия Пентагона к Anthropic сводилась к тому, что встроенные ограничения Claude могут отказывать в военных операциях, срывать их или манипулировать ими — а это ровно то, что Маск только что сделал со Starshield, в реальном времени, когда настоящие дроны падали с неба."
   },
   "bbd136eb2863ddf6": {
    "kind": "take role",
@@ -2344,6 +2394,201 @@
    "kind": "take how-much-of-eve-is-context ref a",
    "en": "We built a single SQLite database combining three retrieval layers — sqlite-vec for semantic embeddings, a person-tag index for exact cast lookups, and FTS5 keyword search — merged with Reciprocal Rank Fusion.",
    "tr": "Мы собрали одну базу SQLite из трёх слоёв поиска — sqlite-vec для семантических эмбеддингов, индекс тегов людей для точного поиска по составу и полнотекстовый поиск FTS5, — объединённых через Reciprocal Rank Fusion."
+  },
+  "44bbcd5b09eeeeed": {
+   "kind": "topic title",
+   "en": "Starshield & the Anthropic Mirror",
+   "tr": "Starshield и зеркало Anthropic"
+  },
+  "ac0c8b045dbb323a": {
+   "kind": "topic description",
+   "en": "Why Anthropic was blacklisted as a hypothetical supply-chain risk while SpaceX throttled live military Starshield terminals over Ukraine and got a phone call.",
+   "tr": "Почему Anthropic внесли в чёрный список как гипотетический риск для цепочки поставок, тогда как SpaceX урезала скорость действующих военных терминалов Starshield над Украиной — и получила телефонный звонок."
+  },
+  "53b4c40b73325f39": {
+   "kind": "take starshield-and-the-anthropic-mirror para",
+   "en": "Starting October 13, SpaceX quietly capped military-grade Starshield terminals over Ukraine at ⟦roughly 100 miles per hour⟧, blinding Kyiv's jet-powered interceptor drones and hampering strike missions until Trump called Elon Musk on Wednesday to reverse it. Because Starshield runs on Pentagon money under SpaceX's commercial terms of service, the government outsourced a war-critical switch and ⟦forgot to write the override clause⟧.",
+   "tr": "С 13 октября SpaceX тихо ограничила военные терминалы Starshield над Украиной ⟦примерно до 100 миль в час⟧, ослепив реактивные дроны-перехватчики Киева и затруднив ударные миссии, пока Трамп в среду не позвонил Илону Маску, чтобы это отменить. Поскольку Starshield работает на деньги Пентагона по коммерческим условиям обслуживания SpaceX, правительство отдало на аутсорс критический для войны рубильник и ⟦забыло прописать оговорку о праве отмены⟧."
+  },
+  "29dd94bd663a01ff": {
+   "kind": "take starshield-and-the-anthropic-mirror para",
+   "en": "Put that side by side with the Pentagon's campaign against Anthropic and the double standard is ⟦almost a mirror image⟧. The D.C. Circuit upheld Anthropic's supply-chain-risk designation on a predictive basis — not because Claude had disrupted a military operation, but because built-in safety restrictions theoretically could. When Musk's company actually throttled a military system in the middle of an active war, the response wasn't a blacklist. It was a courtesy phone call.",
+   "tr": "Поставь это рядом с кампанией Пентагона против Anthropic — и двойной стандарт оказывается ⟦почти зеркальным отражением⟧. Апелляционный суд округа Колумбия подтвердил присвоение Anthropic статуса риска для цепочки поставок на прогностической основе — не потому, что Claude сорвал военную операцию, а потому что встроенные ограничения безопасности теоретически могли. Когда компания Маска реально урезала военную систему посреди идущей войны, ответом стал не чёрный список. А вежливый телефонный звонок."
+  },
+  "b2bcc98c2b0c6f20": {
+   "kind": "take starshield-and-the-anthropic-mirror para",
+   "en": "The sharper version of that irony is ownership and leverage. Trump can pressure Musk because Musk is inside the tent — DOGE, the inauguration, the whole political apparatus. Anthropic has no such channel. A company you can't call is treated as a national security threat; a company you can call is treated as a tool.",
+   "tr": "Более острая версия этой иронии — собственность и рычаги влияния. Трамп может давить на Маска, потому что Маск внутри шатра: DOGE, инаугурация, весь политический аппарат. У Anthropic такого канала нет. Компанию, которой нельзя позвонить, считают угрозой национальной безопасности; компанию, которой можно позвонить, считают инструментом."
+  },
+  "f044b714a53ee6e5": {
+   "kind": "take starshield-and-the-anthropic-mirror para",
+   "en": "And when you run this through David Sacks's framework, the symmetry breaks down completely. Sacks spent months attacking Anthropic as a woke regulatory-capture threat, yet almost never publicly criticizes Musk — redirecting blame onto Pentagon contract writers instead. All-In's 'talk honestly' brand works when the subject is outside the room; the moment it touches Musk, Trump, or their own portfolio, ⟦the honesty is curated⟧.",
+   "tr": "А если прогнать это через рамку Дэвида Сакса, симметрия рушится полностью. Сакс месяцами атаковал Anthropic как woke-угрозу захвата регулирования, но почти никогда публично не критикует Маска — перекладывая вину на авторов контрактов в Пентагоне. Бренд All-In «говорим честно» работает, когда объект разговора за дверью; в ту секунду, когда дело касается Маска, Трампа или их собственного портфеля, ⟦честность оказывается курируемой⟧."
+  },
+  "f6a0c1f2672f38b9": {
+   "kind": "take starshield-and-the-anthropic-mirror qa q",
+   "en": "What did SpaceX actually do to Starshield over Ukraine on October 13 — and why couldn't the Pentagon just override it?",
+   "tr": "Что именно SpaceX сделала со Starshield над Украиной 13 октября — и почему Пентагон не мог просто это отменить?"
+  },
+  "40e2a966c6996fa7": {
+   "kind": "take starshield-and-the-anthropic-mirror qa q",
+   "en": "How is the Starshield throttle a mirror image of the Pentagon's supply-chain-risk case against Anthropic?",
+   "tr": "В чём ограничение Starshield — зеркальное отражение дела Пентагона против Anthropic о риске для цепочки поставок?"
+  },
+  "e97bbf3a95e61aae": {
+   "kind": "take starshield-and-the-anthropic-mirror qa q",
+   "en": "How would David Sacks judge Musk's Starshield throttle compared to Anthropic?",
+   "tr": "Как Дэвид Сакс оценил бы ограничение Starshield со стороны Маска в сравнении с Anthropic?"
+  },
+  "6452860fc344a3af": {
+   "kind": "take starshield-and-the-anthropic-mirror ref",
+   "en": "The 100 mph Starshield cap over Ukraine",
+   "tr": "Ограничение Starshield над Украиной до 100 миль в час"
+  },
+  "d8e7e923893d8baf": {
+   "kind": "take starshield-and-the-anthropic-mirror ref q",
+   "en": "What is going on with Elon Musk turning off their Starlink?",
+   "tr": "Что происходит с тем, что Илон Маск отключает их Starlink?"
+  },
+  "ec0274be6df41d00": {
+   "kind": "take starshield-and-the-anthropic-mirror ref a",
+   "en": "What Musk actually did was throttle Starshield — the military-grade version — over Ukraine starting October thirteenth. Speeds capped around a hundred miles per hour, which kills the jet-powered interceptor drones and hampers strike missions.",
+   "tr": "На самом деле Маск урезал скорость Starshield — военной версии — над Украиной начиная с 13 октября. Скорость ограничили примерно до 100 миль в час, а это убивает реактивные дроны-перехватчики и мешает ударным миссиям."
+  },
+  "7974ca5ffee0c6d2": {
+   "kind": "take starshield-and-the-anthropic-mirror ref",
+   "en": "Pentagon money under SpaceX terms of service",
+   "tr": "Деньги Пентагона по условиям обслуживания SpaceX"
+  },
+  "445ddb4ede823f9d": {
+   "kind": "take starshield-and-the-anthropic-mirror ref q",
+   "en": "How did a private company end up holding that switch?",
+   "tr": "Как так вышло, что этот рубильник оказался у частной компании?"
+  },
+  "ecd3b7103c7cb74f": {
+   "kind": "take starshield-and-the-anthropic-mirror ref a",
+   "en": "Starshield runs on Pentagon money but under SpaceX's terms of service. That's the trap: the government outsourced a war-critical function and forgot to write the clause that says 'and we can take it back.'",
+   "tr": "Starshield работает на деньги Пентагона, но по условиям обслуживания SpaceX. В этом и ловушка: правительство отдало на аутсорс критически важную для войны функцию и забыло прописать пункт, который говорит: «и мы можем забрать это обратно»."
+  },
+  "c62cdc11828df0d0": {
+   "kind": "take starshield-and-the-anthropic-mirror ref",
+   "en": "The Anthropic mirror image",
+   "tr": "Зеркальное отражение Anthropic"
+  },
+  "ee4f0604d9dbd7e2": {
+   "kind": "take starshield-and-the-anthropic-mirror ref a",
+   "en": "Yes — almost a mirror image. A company that refuses to hand over unrestricted AI gets blacklisted as a national security threat, while the company that actually restricted a military system gets a courtesy call and a press statement.",
+   "tr": "Да — почти зеркальное отражение. Компанию, которая отказывается отдать ИИ без ограничений, вносят в чёрный список как угрозу национальной безопасности, а компания, которая реально ограничила военную систему, получает вежливый звонок и заявление для прессы."
+  },
+  "87fd7a6ab118a6ae": {
+   "kind": "take starshield-and-the-anthropic-mirror ref",
+   "en": "All-In's bounded honesty",
+   "tr": "Ограниченная честность All-In"
+  },
+  "af7ce28808b7b806": {
+   "kind": "take starshield-and-the-anthropic-mirror ref a",
+   "en": "Not entirely, but the brand is doing a lot of work. The second it touches Musk, Trump, or their own investments, the honesty gets curated. Not fake — just bounded. The difference is All-In sells the absence of the boundary as the product.",
+   "tr": "Не совсем, но бренд делает очень много работы. Стоит коснуться Маска, Трампа или их собственных инвестиций — и честность становится курируемой. Не фальшивой — просто ограниченной. Разница в том, что All-In продаёт отсутствие этой границы как сам продукт."
+  },
+  "348d211172e02d64": {
+   "kind": "topic term",
+   "en": "Anthropic mirror",
+   "tr": "зеркало Anthropic"
+  },
+  "e615015f804134e8": {
+   "kind": "topic term",
+   "en": "supply-chain risk",
+   "tr": "риск для цепочки поставок"
+  },
+  "d83dfbd1490ef2ef": {
+   "kind": "topic title",
+   "en": "Iran's 'Edge Theory' & Russia's Double Game",
+   "tr": "Иранская «теория края» и двойная игра России"
+  },
+  "a0d5808f8afaf4e4": {
+   "kind": "topic description",
+   "en": "Day 238 of the Iran war, the Atlantic's 'edge theory' trap before the November 3 midterms, and how a US Treasury diesel waiver tied the Ukraine and Iran wars into one supply chain.",
+   "tr": "238-й день войны с Ираном, ловушка «теории края» от Atlantic перед промежуточными выборами 3 ноября и то, как изъятие Минфина США по российскому дизтопливу связало войны в Украине и Иране в одну цепочку поставок."
+  },
+  "ee1e83e5e7442e58": {
+   "kind": "take iran-edge-theory-and-russias-double-game para",
+   "en": "At day 238 of the Iran war, the ⟦calendar is doing more strategic work than the bombs⟧. Waiting until after the November 3 midterms to launch a three-to-four-day strike on missile sites and Pickaxe Mountain avoids sending oil past $120 two weeks before voters go to the polls — but 'we won't strike before the election' is a promise with a built-in expiration date, not a principle.",
+   "tr": "На 238-й день войны с Ираном ⟦календарь делает больше стратегической работы, чем бомбы⟧. Ждать до промежуточных выборов 3 ноября, чтобы нанести трёх-четырёхдневный удар по ракетным объектам и горе Пикакс, — значит не дать нефти уйти выше $120 за две недели до того, как избиратели пойдут на участки. Но «мы не ударим до выборов» — это обещание со встроенным сроком годности, а не принцип."
+  },
+  "f10afa9614fcb17d": {
+   "kind": "take iran-edge-theory-and-russias-double-game para",
+   "en": "Inside the administration, the bet has a name: ⟦the edge theory⟧. An adviser told the Atlantic that economic pressure has pushed Tehran so close to the brink that one more round of strikes will tip the regime over. The problem is that every intelligence assessment says Iran's negotiating position hasn't budged after eight months of bombardment and blockade, and the realistic danger isn't that a post-election strike fails to start — it's that it starts clean and doesn't end clean.",
+   "tr": "Внутри администрации у этой ставки есть имя: ⟦теория края⟧. Советник сказал Atlantic, что экономическое давление подвело Тегеран так близко к краю, что ещё один раунд ударов опрокинет режим. Проблема в том, что все разведывательные оценки говорят: переговорная позиция Ирана не сдвинулась после восьми месяцев бомбардировок и блокады, и реальная опасность не в том, что удар после выборов не начнётся, — а в том, что он начнётся чисто и не закончится чисто."
+  },
+  "b32c5ba9c58ccbfd": {
+   "kind": "take iran-edge-theory-and-russias-double-game para",
+   "en": "Meanwhile, Russia is playing a double game that connects both wars into a ⟦single supply chain⟧. While Trump claims Moscow is doing very little to help Tehran, US intelligence shows Russia shipping satellite targeting imagery, TNT, drone components, and supersonic missile technology across the Caspian — even as the US Treasury waived sanctions on Russian diesel through April 2027 to keep pre-midterm fuel prices down. Every Russian missile sent south is one not fired at Kyiv, and the diesel revenue funds the war in Ukraine.",
+   "tr": "Тем временем Россия ведёт двойную игру, которая связывает обе войны в ⟦единую цепочку поставок⟧. Пока Трамп утверждает, что Москва почти ничего не делает, чтобы помочь Тегерану, разведка США показывает: Россия переправляет через Каспий спутниковые снимки для наведения, тротил, компоненты дронов и технологии сверхзвуковых ракет — и это при том, что Минфин США снял санкции с российского дизтоплива до апреля 2027 года, чтобы удержать цены на топливо до промежуточных выборов. Каждая российская ракета, отправленная на юг, — это ракета, не выпущенная по Киеву, а выручка от дизеля финансирует войну в Украине."
+  },
+  "aed38d9dae3a9d32": {
+   "kind": "take iran-edge-theory-and-russias-double-game qa q",
+   "en": "Why is the administration waiting until after the November 3 midterms to strike Iran — and what is the 'edge theory'?",
+   "tr": "Почему администрация ждёт промежуточных выборов 3 ноября, чтобы ударить по Ирану, — и что такое «теория края»?"
+  },
+  "4a6302745b13653d": {
+   "kind": "take iran-edge-theory-and-russias-double-game qa q",
+   "en": "How did the US Treasury's Russian diesel waiver tie the Ukraine and Iran wars into a single supply chain?",
+   "tr": "Как изъятие Минфина США по российскому дизтопливу связало войны в Украине и Иране в единую цепочку поставок?"
+  },
+  "d887ef111988590e": {
+   "kind": "take iran-edge-theory-and-russias-double-game ref",
+   "en": "Midterm oil math & expiration date",
+   "tr": "Нефтяная арифметика промежуточных выборов и срок годности"
+  },
+  "8338762d6fea42eb": {
+   "kind": "take iran-edge-theory-and-russias-double-game ref q",
+   "en": "Why is Trump waiting for the midterms before striking Iran?",
+   "tr": "Почему Трамп ждёт промежуточных выборов, прежде чем ударить по Ирану?"
+  },
+  "2f17ad39fa5a2552": {
+   "kind": "take iran-edge-theory-and-russias-double-game ref a",
+   "en": "Mostly politics. A strike that sends oil past a hundred-twenty or gets US troops killed in the final stretch would hand Democrats a gift two weeks before voters go to the polls. Either way, the calendar is doing more strategic work than the bombs are right now.",
+   "tr": "В основном политика. Удар, из-за которого нефть уйдёт выше 120 или погибнут американские военные на финишной прямой, подарит демократам подарок за две недели до того, как избиратели пойдут на участки. Так или иначе, сейчас календарь делает больше стратегической работы, чем бомбы."
+  },
+  "39b0901e714489f1": {
+   "kind": "take iran-edge-theory-and-russias-double-game ref",
+   "en": "The Atlantic's 'edge theory'",
+   "tr": "«Теория края» Atlantic"
+  },
+  "371ccf8c0817cf99": {
+   "kind": "take iran-edge-theory-and-russias-double-game ref q",
+   "en": "Why is Trump doing this? Does he think it'll turn out differently?",
+   "tr": "Почему Трамп так поступает? Он думает, что на этот раз выйдет иначе?"
+  },
+  "96890abacea4c861": {
+   "kind": "take iran-edge-theory-and-russias-double-game ref a",
+   "en": "He probably does think it'll turn out differently, and the belief has a name — the edge theory. One adviser told the Atlantic that economic pressure is working and Iran is close to the edge, so a few more strikes would push them over.",
+   "tr": "Он, скорее всего, действительно думает, что выйдет иначе, и у этой веры есть имя — теория края. Один советник сказал Atlantic, что экономическое давление работает и Иран близок к краю, так что ещё несколько ударов столкнут их за край."
+  },
+  "23553d0ca0902c30": {
+   "kind": "take iran-edge-theory-and-russias-double-game ref",
+   "en": "Russia's double game & diesel waiver",
+   "tr": "Двойная игра России и изъятие по дизтопливу"
+  },
+  "a57d3c02158141f3": {
+   "kind": "take iran-edge-theory-and-russias-double-game ref q",
+   "en": "Talk to me about the Russia situation.",
+   "tr": "Расскажи про ситуацию с Россией."
+  },
+  "a4086fc5497c9075": {
+   "kind": "take iran-edge-theory-and-russias-double-game ref a",
+   "en": "Russia's playing a double game, and the contradiction is the story. The US is buying Russian fuel under a Treasury license while Russian missiles and targeting imagery reportedly flow to Iran. The two wars are now one supply chain, and Trump's the one holding both ends.",
+   "tr": "Россия ведёт двойную игру, и противоречие — это и есть история. США покупают российское топливо по лицензии Минфина, пока российские ракеты и снимки для наведения, по сообщениям, идут в Иран. Две войны теперь — одна цепочка поставок, и оба конца держит Трамп."
+  },
+  "e03df2d00a492ee5": {
+   "kind": "topic term",
+   "en": "edge theory",
+   "tr": "теория края"
+  },
+  "3825fe4467e3334e": {
+   "kind": "topic term",
+   "en": "Pickaxe Mountain",
+   "tr": "гора Пикакс"
   }
  }
 }

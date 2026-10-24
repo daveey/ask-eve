@@ -3,7 +3,7 @@
 **[askevepodcast.com](https://askevepodcast.com)** · [RSS feed](https://askevepodcast.com/feed.xml) · [How it works](https://askevepodcast.com/about/#how-it-works)
 
 "Ask Eve" is a podcast about tech, power and the people shaping both. David brings the questions and
-Eve, an AI co-host built on a Grok voice companion, gives real takes: she states opinions, says when
+Eve, an AI co-host built on a Grok agent, gives real takes: she states opinions, says when
 she isn't sure, and can be wrong. Every AI voice on the show is labeled.
 
 This repo is the whole show except the audio: verbatim transcripts, the people index, the audio
@@ -13,7 +13,7 @@ pipeline, the static site and feed generator, and Eve's local retrieval memory.
 | | |
 |---|---|
 | Record | David talks with Eve in Grok's voice mode; his iPhone records his side and uploads it |
-| Ingest | faster-whisper + fuzzy alignment, Eve re-voiced with xAI TTS (labeled), loudnorm, MP3 with ID3 chapters |
+| Ingest | Verbatim transcript synthesis: David voiced with his ElevenLabs voice clone (`eleven_v4`), Eve voiced with xAI TTS (`eve`), loudnorm, MP3 with ID3 chapters |
 | Review | every episode arrives as a pull request; nothing ships until it is merged |
 | Publish | audio to Cloudflare R2 (`audio.askevepodcast.com`), metadata to Cloudflare D1 |
 | Site + feed | `scripts/build_site.py` + `scripts/render_feed.py` → Cloudflare Pages → askevepodcast.com and `/feed.xml` (Apple Podcasts, Spotify, any app) |
@@ -48,7 +48,7 @@ Worker workers/upload/ (upload.askevepodcast.com)                       │
   /presign → phone PUTs straight to R2 ask-eve-masters/raw/<stem>/…     │
   /ingest  → GitHub workflow_dispatch ─────────────────────────────────┤
         ▼                                                               ▼
-.github/workflows/ingest.yml: ingest_share → stitch → align (faster-whisper) → revoice Eve (xAI TTS)
+.github/workflows/ingest.yml: ingest_share → synthesize turns (ElevenLabs voice clone + xAI TTS)
   → produce (loudnorm, MP3, chapters) → verify placement → d1_upsert.sql
   → MP3 to ask-eve-masters/staging/  → PR on ingest/<stem> (transcript + artifacts/<stem>/)
         ▼  David reviews and merges the PR (the only way an episode reaches main)
@@ -57,7 +57,7 @@ Worker workers/upload/ (upload.askevepodcast.com)                       │
         ▼
 site.yml: scripts/build_site.py + render_feed.py read D1 → Cloudflare Pages → askevepodcast.com, /feed.xml → Apple Podcasts, Spotify
 ```
-Recording methods: `mic-plus-tts` (primary: David's real voice, Eve re-voiced by TTS), `grok-share-export`
+Recording methods: `tts-reconstructed` (primary: David's ElevenLabs voice clone + Eve's xAI TTS `eve` voice), `grok-share-export`
 (check only), `lav-plus-tts`, `reread-plus-tts`, `tts-reconstructed` (text only, both voices AI). Any AI
 voice sets `ai_reconstructed` and a disclosure that the feed, site, chapters, and show notes repeat.
 

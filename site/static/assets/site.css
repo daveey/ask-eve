@@ -682,3 +682,57 @@ a.cite:focus-visible{outline:2px solid var(--eve);outline-offset:2px;border-radi
 .rcard__notes{margin:.15rem 0 0;color:var(--text);font-size:.98rem;line-height:1.6}
 .rcard__ep{color:var(--eve);font-weight:600;text-decoration:none}
 .rcard__ep:hover{text-decoration:underline}
+
+/* ---- Hero Origin Note, Clips, Split Topic Episodes, Eve Subnav, Contact, Growth, & Player Drawer ---- */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.hero__origin{margin:.85rem 0 0;padding:.7rem .95rem;border-radius:var(--r);background:var(--surface2);border:1px solid var(--line2);font-size:.92rem;line-height:1.5;color:var(--muted)}
+.hero__origin a{color:var(--eve);font-weight:650;text-decoration:underline;text-underline-offset:.16em}
+.eve-subnav{margin:1.2rem 0 .5rem;border-bottom:1px solid var(--line)}
+.eve-subnav__list{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.35rem .5rem}
+.eve-subnav__link{display:inline-flex;align-items:center;padding:.55rem .9rem;border-radius:var(--r) var(--r) 0 0;border:1px solid transparent;border-bottom:2px solid transparent;font:600 .92rem/1.3 var(--sans);color:var(--muted);text-decoration:none;transition:color .16s,border-color .16s,background .16s}
+.eve-subnav__link:hover,.eve-subnav__link:focus-visible{color:var(--text);background:var(--surface)}
+.eve-subnav__link.is-active{color:var(--eve);border-color:var(--line);border-bottom-color:var(--eve);background:var(--surface)}
+.clips-strip,.ep-clips{margin:2.2rem 0}
+.clips-strip__head{margin-bottom:1rem}
+.clips-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(18.5rem,1fr));gap:1.1rem}
+.clip-card{padding:1rem;border-radius:var(--r);background:var(--surface);border:1px solid var(--line);display:flex;flex-direction:column;gap:.65rem}
+.clip-card__video-wrap{border-radius:calc(var(--r) - 2px);overflow:hidden;background:#000;aspect-ratio:1/1}
+.clip-card__video{width:100%;height:100%;object-fit:cover;display:block}
+.clip-card__meta{margin:0;display:flex;flex-wrap:wrap;align-items:center;gap:.4rem .55rem;font:600 .875rem/1.3 var(--mono);color:var(--muted)}
+.clip-card__badge{padding:.12rem .5rem;border-radius:999px;background:var(--eve-soft);border:1px solid var(--eve-line);color:var(--eve)}
+.clip-card__title{margin:0;font:650 1.05rem/1.32 var(--display);color:var(--text)}
+.clip-card__quote{margin:0;font-size:.94rem;line-height:1.52;color:var(--muted)}
+.clip-card__actions{margin-top:auto;padding-top:.35rem;display:flex;flex-wrap:wrap;gap:.45rem .75rem;font:600 .875rem/1.3 var(--sans)}
+.clip-card__link{color:var(--eve);text-decoration:none}
+.clip-card__link:hover{text-decoration:underline}
+.home-splits,.session-parts,.split-banner{margin:1.75rem 0;padding:1.15rem 1.25rem;border-radius:var(--r);background:var(--surface);border:1px solid var(--line)}
+.split-banner__text,.split-banner__nav{margin:.35rem 0 0;font-size:.95rem;line-height:1.55}
+.session-parts__list,.splits-grid{list-style:none;margin:.85rem 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(17.5rem,1fr));gap:.85rem}
+.session-parts__item,.split-card{padding:.9rem 1rem;border-radius:calc(var(--r) - 2px);background:var(--surface2);border:1px solid var(--line2);display:grid;gap:.35rem}
+.session-parts__head,.split-card__meta{margin:0;display:flex;flex-wrap:wrap;align-items:center;gap:.4rem .55rem;font:600 .875rem/1.3 var(--mono);color:var(--muted)}
+.session-parts__num,.split-card__badge{color:var(--eve);font-weight:700}
+.session-parts__title,.split-card__title{margin:0;font:650 1.02rem/1.32 var(--display)}
+.session-parts__title a,.split-card__title a{text-decoration:none;color:var(--text)}
+.session-parts__title a:hover,.split-card__title a:hover{color:var(--eve);text-decoration:underline}
+.session-parts__ctx,.split-card__blurb,.split-card__parent{margin:0;font-size:.92rem;line-height:1.5;color:var(--muted)}
+.journal-list,.soul-pillars,.growth-grid,.contact-grid{display:grid;gap:1rem;margin:1rem 0}
+.contact-grid{grid-template-columns:repeat(auto-fill,minmax(19rem,1fr))}
+.journal-entry,.soul-pillar,.growth-card,.contact-card,.contact-templates,.contact-principles{padding:1.15rem 1.25rem;border-radius:var(--r);background:var(--surface);border:1px solid var(--line);display:grid;gap:.55rem}
+.journal-entry__title,.soul-pillar__title,.growth-card__title,.contact-card__title{margin:0;font:650 1.12rem/1.3 var(--display)}
+.journal-entry__summary,.soul-pillar__rule,.growth-card__body,.contact-card__desc{margin:0;font-size:.96rem;line-height:1.58;color:var(--text)}
+.journal-block__h{margin:.4rem 0 .2rem;font:700 .875rem/1.3 var(--mono);text-transform:uppercase;color:var(--eve)}
+.journal-block__list,.contact-principles__list{margin:0;padding-left:1.2rem;display:grid;gap:.35rem;font-size:.94rem;line-height:1.52}
+.contact-tpl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(16rem,1fr));gap:.75rem;margin-top:.5rem}
+.contact-tpl{display:grid;gap:.25rem;padding:.85rem 1rem;border-radius:calc(var(--r) - 2px);background:var(--surface2);border:1px solid var(--line2);text-decoration:none;color:var(--text);transition:border-color .16s,transform .16s}
+.contact-tpl:hover{border-color:var(--eve);transform:translateY(-1px)}
+.contact-tpl strong{font:650 .96rem/1.3 var(--display);color:var(--eve)}
+.contact-tpl span{font-size:.88rem;line-height:1.45;color:var(--muted)}
+.pbtn--tr{display:inline-flex;align-items:center;gap:.35rem;padding:0 .65rem;width:auto;font:600 .875rem/1 var(--sans)}
+.pbtn--tr .pbtn__label{display:none}
+@media (min-width:760px){.pbtn--tr .pbtn__label{display:inline}}
+.player__drawer{border-top:1px solid var(--line);background:var(--surface2);padding:.55rem 0 .65rem}
+.player__drawer[hidden]{display:none}
+.player__drawer-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.5rem;margin-bottom:.25rem;font:600 .875rem/1.3 var(--mono);color:var(--eve)}
+.player__drawer-open{color:var(--eve);text-decoration:none}
+.player__drawer-open:hover{text-decoration:underline}
+.player__drawer-cue{margin:0;font-size:.92rem;line-height:1.48;color:var(--text)}

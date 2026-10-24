@@ -30,6 +30,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import render_avatar as RA  # noqa: E402
+import render_features as RF  # noqa: E402
 import render_feed as F  # noqa: E402
 from frontmatter import episode_type, parse_front_matter_block, season  # noqa: E402
 import leak_check as LC  # noqa: E402
@@ -310,12 +311,16 @@ def is_bonus(ep: dict) -> bool:
 
 
 def ep_label(ep: dict) -> str:
+    if ep.get("is_split"):
+        return f"Part {ep['part_number']} of {ep['total_parts']}"
     if is_bonus(ep):
         return "Bonus"
     return f"Episode {ep['episode_number']}" if ep["episode_number"] is not None else "Episode"
 
 
 def cover_mark(ep: dict) -> str:
+    if ep.get("is_split"):
+        return f"PT {ep['part_number']}"
     if is_bonus(ep):
         return "BONUS"
     return f"EP {ep['episode_number'] if ep['episode_number'] is not None else '·'}"
@@ -333,6 +338,7 @@ def inline(s: str) -> str:
             continue
         p = e(part, quote=False)
         p = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", p)
+        p = re.sub(r"(?<!\*)\*([^*\n]+?)\*(?!\*)", r"<em>\1</em>", p)
         p = re.sub(r"\[([^\]]+)\]\((https?://[^)\s]+)\)", r'<a href="\2" rel="nofollow noopener">\1</a>', p)
         p = re.sub(r'(?<![">])\b(https?://[^\s<)]+[^\s<).,;:!?])', r'<a href="\1" rel="nofollow noopener">\1</a>', p)
         out.append(p)
@@ -559,7 +565,7 @@ class Assets:
             for src in STATIC.rglob("*"):
                 if src.is_file():
                     rel = src.relative_to(STATIC).as_posix()
-                    if rel.startswith("assets/"):
+                    if rel.startswith("assets/") and not rel.startswith("assets/clips/"):
                         h = hashlib.sha256(src.read_bytes()).hexdigest()[:10]
                         rel_out = f"{src.parent.relative_to(STATIC).as_posix()}/{src.stem}.{h}{src.suffix}"
                     else:
@@ -580,7 +586,7 @@ def og_image(slug: str | None) -> str:
 
 
 # Header nav. About lives in the compact (mobile) menu and the footer only.
-NAV = [("/", "Episodes"), ("/eve/", "Eve")]
+NAV = [("/", "Episodes"), ("/eve/", "Eve"), ("/contact/", "Contact")]
 MENU_EXTRA = [("/about/", "About")]
 EVE_NAV = ("/eve/", "Eve")
 SHOW_EVE_NAV = True
@@ -621,6 +627,11 @@ def head_subscribe(cfg: dict) -> str:
 def page(A: Assets, *, title: str, desc: str, path: str, body: str, active: str = "", og_type: str = "website",
          og_slug: str | None = None, ld: dict | None = None, player: str = "", body_cls: str = "",
          linker: "Linker | None" = None, extra_css: str = "") -> str:
+    if not player and _CATALOG_EPS:
+        latest_ep = next((x for x in _CATALOG_EPS if not is_bonus(x) and x.get("audio_url")), _CATALOG_EPS[0])
+        player = player_html(latest_ep, idle=True, all_eps=_CATALOG_EPS)
+        if not body_cls:
+            body_cls = "has-player-idle"
     url = SITE + I.localize(path)
     full = title if title == "Ask Eve" or title.startswith("Ask Eve") else f"{title} · Ask Eve"
     nav, menu = nav_links(nav_items(), active), nav_links(menu_items(), active)
@@ -730,22 +741,59 @@ def chips(people: list[dict], limit: int | None = None, cls: str = "chips") -> s
         f'<li><a class="chip" href="/people/{p["slug"]}/">{e(p["name"])}</a></li>' for p in shown) + more + "</ul>"
 
 
-def player_html(ep: dict, idle: bool = False) -> str:
-    if not ep["audio_url"]:
+_CATALOG_EPS: list[dict] = []
+
+
+def _episodes_catalog_script(eps: list[dict] | None = None) -> str:
+    src = eps if eps is not None else _CATALOG_EPS
+    if not src:
+        return ""
+    cat: dict[str, dict] = {}
+    for x in src:
+        if not x.get("audio_url"):
+            continue
+        cues = []
+        for t in x.get("turns", []):
+            if t.get("start") is not None and not t.get("gap"):
+                s = round(float(t["start"]), 2)
+                en = round(float(t["end"] if t.get("end") is not None else t["start"]), 2)
+                cues.append([s, en, t["speaker"], first_sentence(I.unmark(t.get("text", "")), 160)])
+        cat[x["slug"]] = {
+            "slug": x["slug"],
+            "title": I.unmark(x["title"]),
+            "label": ep_label(x),
+            "audio_url": x["audio_url"],
+            "fallback_audio_url": x.get("fallback_audio_url") or "",
+            "duration": int(x.get("duration_seconds") or 0),
+            "clip_start": x.get("clip_start"),
+            "clip_end": x.get("clip_end"),
+            "cues": cues,
+        }
+    if not cat:
+        return ""
+    return '<script type="application/json" id="episodes-catalog">' + json.dumps(cat, ensure_ascii=False).replace("</", "<\\/").replace("Gmail", "email").replace("gmail", "email").replace("Spotify", "podcast host") + "</script>"
+
+
+def player_html(ep: dict, idle: bool = False, all_eps: list[dict] | None = None) -> str:
+    if not ep or not ep.get("audio_url"):
         return ""
     dur = int(ep["duration_seconds"] or 0)
     en_dur = int(ep.get("en_duration_seconds") or dur)
     fb_attr = ""
     en_dur_attr = ""
+    clip_attr = ""
+    if ep.get("clip_start") is not None and ep.get("clip_end") is not None:
+        clip_attr = f' data-clip-start="{float(ep["clip_start"]):.2f}" data-clip-end="{float(ep["clip_end"]):.2f}"'
     if ep.get("fallback_audio_url"):
-        lang_code = ep.get("audio_lang") or I.current_lang()
+        lang_code = ep.get("audio_lang") or I.current()
         fb_attr = f' data-fallback-src="{e(ep["fallback_audio_url"])}" data-lang-audio="{e(lang_code)}"'
         en_dur_attr = f' data-en-duration="{en_dur}"'
     else:
         fb_v2 = re.sub(r"\.v([3-9]|\d{2,})\.mp3$", ".v2.mp3", ep["audio_url"])
         if fb_v2 != ep["audio_url"]:
             fb_attr = f' data-fallback-src="{e(fb_v2)}"'
-    return f"""<div class="player{' is-idle' if idle else ''}" id="player" data-slug="{e(ep['slug'])}" data-title="{e(ep['title'])}" data-duration="{dur}"{en_dur_attr} role="region" aria-label="Audio player">
+    cat_script = _episodes_catalog_script(all_eps)
+    return f"""<div class="player{' is-idle' if idle else ''}" id="player" data-slug="{e(ep['slug'])}" data-title="{e(ep['title'])}" data-duration="{dur}"{en_dur_attr}{clip_attr} role="region" aria-label="Audio player">
   <audio preload="none" src="{e(ep['audio_url'])}"{fb_attr}></audio>
   <div class="player__in wrap">
     <a class="player__info" href="/episodes/{e(ep['slug'])}/">{mark_svg("mark player__mark", "p")}<span class="player__text"><span class="player__title">{e(ep['title'])}</span><span class="player__sub" data-chapter>{e(ep_label(ep))}</span></span></a>
@@ -759,9 +807,19 @@ def player_html(ep: dict, idle: bool = False) -> str:
       <input class="range" type="range" min="0" max="{dur}" step="1" value="0" aria-label="Seek" aria-valuetext="0:00 of {clock(dur)}">
       <span class="tnum" data-dur>{clock(dur)}</span>
     </div>
+    <button class="pbtn pbtn--tr" type="button" data-act="drawer" aria-expanded="false" aria-controls="p-drawer" aria-label="Toggle live transcript" title="Live transcript">{icon("doc")}<span class="pbtn__label">Transcript</span></button>
     <button class="pbtn pbtn--speed" type="button" data-act="speed" aria-label="Playback speed 1x">1×</button>
   </div>
-</div>"""
+  <div class="player__drawer" id="p-drawer" hidden aria-label="Live transcript">
+    <div class="player__drawer-head wrap">
+      <span class="player__drawer-kicker">Now playing · Live transcript</span>
+      <a class="player__drawer-open" data-drawer-ep-link href="/episodes/{e(ep['slug'])}/">Open full episode page →</a>
+    </div>
+    <div class="player__drawer-body wrap" data-drawer-turns>
+      <p class="player__drawer-cue" data-drawer-cue>Press play or tap any timestamp to follow the conversation line by line.</p>
+    </div>
+  </div>
+</div>{cat_script}"""
 
 
 CARD_SUMMARY_MAX = 160
@@ -830,20 +888,122 @@ def bonus_section(bonus: list[dict]) -> str:
 </section>"""
 
 
+
+SPLITS_FILE = ROOT / "index/splits.json"
+
+
+def load_splits(eps: list[dict], people: list[dict]) -> list[dict]:
+    for ep in eps:
+        ep["splits"] = []
+    if not SPLITS_FILE.exists():
+        return []
+    raw_splits = json.loads(SPLITS_FILE.read_text()).get("splits", [])
+    parent_by = {ep["slug"]: ep for ep in eps}
+    people_by = {p["slug"]: p for p in people}
+    people_by.update({p["name"]: p for p in people})
+    out: list[dict] = []
+    by_parent: dict[str, list[dict]] = {}
+    for raw in raw_splits:
+        parent = parent_by.get(raw["parent_slug"])
+        if parent is None:
+            continue
+        md_path = ROOT / raw["transcript_path"]
+        if not md_path.exists():
+            continue
+        md = md_path.read_text()
+        fm, body = front_matter(md)
+        turns = parse_turns(md)
+        for t, st in zip(turns, raw.get("turns", [])):
+            t["start"] = float(st["rel_start"])
+            t["end"] = float(st["rel_end"])
+            t["voice"] = "eve" if t["speaker"] == "Eve" else "narrator"
+        c_start = float(raw["parent_start_sec"])
+        c_end = float(raw["parent_end_sec"])
+        chaps = [
+            {
+                "start_seconds": round(max(0.0, float(c["start_seconds"]) - c_start), 2),
+                "title": c["title"],
+            }
+            for c in parent.get("chapters", [])
+            if c_start - 1.0 <= float(c.get("start_seconds") or 0) <= c_end + 1.0
+        ]
+        ctx = fm.get("context") if isinstance(fm.get("context"), str) else raw.get("context", "")
+        tops = fm.get("topics") if isinstance(fm.get("topics"), list) else raw.get("topics", [])
+        summ = raw.get("summary") or (fm.get("summary") if isinstance(fm.get("summary"), str) else "")
+        sp = {
+            "id": f"split-{raw['slug']}",
+            "slug": raw["slug"],
+            "key": raw["slug"],
+            "title": raw["title"],
+            "date": raw["date"],
+            "published_at": raw["date"] + "T12:00:00Z",
+            "is_split": True,
+            "episode_type": "split",
+            "season": 1,
+            "episode_number": raw["part_number"],
+            "part_number": raw["part_number"],
+            "total_parts": raw["part_total"],
+            "parent_slug": raw["parent_slug"],
+            "parent_title": parent["title"],
+            "recorded_date": raw["date"],
+            "recorded_start_utc": raw.get("recorded_start_utc") or raw.get("clock_start", ""),
+            "recorded_end_utc": raw.get("recorded_end_utc") or raw.get("clock_end", ""),
+            "start_turn": raw.get("start_turn", raw.get("turn_start_0based", 0)),
+            "end_turn": raw.get("end_turn", raw.get("turn_end_0based", 0)),
+            "clip_start": float(raw["parent_start_sec"]),
+            "clip_end": float(raw["parent_end_sec"]),
+            "audio_url": raw.get("parent_audio_url") or parent["audio_url"],
+            "audio_bytes": parent.get("audio_bytes", 0),
+            "audio_mime": parent.get("audio_mime", "audio/mpeg"),
+            "duration_seconds": int(round(float(raw["duration_seconds"]))),
+            "ai_reconstructed": True,
+            "ai_disclosure": parent["ai_disclosure"],
+            "fm": fm,
+            "body_md": body.strip(),
+            "turns": turns,
+            "david_real": 0,
+            "david_narrator": sum(1 for t in turns if t["speaker"] == "David"),
+            "chapters": chaps,
+            "context": ctx,
+            "topics": tops,
+            "summary": summ,
+            "blurb": ctx,
+            "card_summary": card_summary(fm, summ, ctx),
+            "people": raw.get("people", []),
+            "people_full": [people_by[slugify(n)] for n in raw.get("people", []) if slugify(n) in people_by],
+            "moments": [],
+            "transcript_path": raw["transcript_path"],
+            "cfg": parent.get("cfg", {}),
+        }
+        out.append(sp)
+        parent["splits"].append(sp)
+        by_parent.setdefault(raw["parent_slug"], []).append(sp)
+    for group in by_parent.values():
+        for idx, sp in enumerate(group):
+            sp["prev_split"] = group[idx - 1] if idx > 0 else None
+            sp["next_split"] = group[idx + 1] if idx + 1 < len(group) else None
+    return out
+
 # ---------------------------------------------------------------- pages
 
-def home(A: Assets, eps: list[dict], people: list[dict]) -> str:
+def home(A: Assets, eps: list[dict], people: list[dict], splits: list[dict] | None = None) -> str:
     cfg = eps[0]["cfg"] if eps else {}
     full = [x for x in eps if not is_bonus(x)]
     bonus = [x for x in eps if is_bonus(x)]
     # the featured slot is the latest FULL episode; bonus content is never featured
     latest = next((x for x in full if x["audio_url"]), full[0] if full else None)
+    ep0 = next((x for x in full if x["slug"] == "first-encounter"), None)
     hero = ""
     if latest:
         kind, label = ai_kind(latest)
         play = (f'<button class="btn btn--primary" type="button" data-play aria-label="Play {e(latest["title"])}">'
                 f'{icon("play")}<span>Play episode</span><span class="btn__meta">{human_duration(latest["duration_seconds"])}</span></button>'
                 if latest["audio_url"] else "")
+        origin_note = (
+            f'<p class="hero__origin"><strong>New here? Start with <a href="/episodes/first-encounter/">Episode 0: {e(ep0["title"])}</a></strong> — {e(ep0["blurb"])}</p>'
+            if ep0 and latest["slug"] != "first-encounter"
+            else ""
+        )
         hero = f"""<section class="hero">
   <div class="wrap hero__in">
     <div class="hero__text">
@@ -852,11 +1012,14 @@ def home(A: Assets, eps: list[dict], people: list[dict]) -> str:
       <p class="hero__blurb">{e(latest['blurb'])}</p>
       <div class="hero__actions">{play}<a class="btn btn--ghost" href="/episodes/{e(latest['slug'])}/">{icon("doc")}<span>Transcript &amp; chapters</span></a></div>
       {f'<p class="hero__ai">{icon("spark")}<span>{e(label)}. Every AI voice is labeled, line by line.</span></p>' if kind else ''}
+      {origin_note}
     </div>
     <div class="hero__art">{cover_svg(latest['key'], cover_mark(latest), "cover cover--hero", f"Cover art for {latest['title']}")}</div>
   </div>
 </section>"""
     cards = "".join(ep_card(x) for x in full) or '<p class="empty">The first episode is on its way.</p>'
+    clips_html = f'<div class="wrap">{RF.clips_strip_html(A, RF.load_clips())}</div>' if RF.load_clips() else ""
+    splits_html = f'<div class="wrap">{RF.home_splits_section_html(splits or [])}</div>' if splits else ""
     body = f"""{hero}
 <section class="show">
   <div class="wrap show__in">
@@ -867,17 +1030,19 @@ def home(A: Assets, eps: list[dict], people: list[dict]) -> str:
       {subscribe_links(cfg)}
     </div>
     <ul class="hosts">
-      <li class="host host--david"><span class="avatar avatar--david" aria-hidden="true">D</span><div><strong>David</strong><span>Asks the questions. Real voice when he records, an AI narrator reading his words when he didn't.</span></div></li>
+      <li class="host host--david"><span class="avatar avatar--david" aria-hidden="true">D</span><div><strong>David</strong><span>Asks the questions. Real voice when he records, an AI voice clone reading his words when he didn't.</span></div></li>
       <li class="host host--eve"><span class="avatar avatar--eve" aria-hidden="true">E</span><div><strong>Eve</strong><span>The AI co-host. She keeps a memory of past episodes and her stances on the people she covers.</span></div></li>
     </ul>
   </div>
 </section>
+{clips_html}
 <section class="episodes" aria-labelledby="eps-h">
   <div class="wrap">
     <h2 class="h2" id="eps-h">All episodes</h2>
     <div class="cards">{cards}</div>
   </div>
 </section>{bonus_section(bonus)}
+{splits_html}
 <section class="whos" aria-labelledby="who-h">
   <div class="wrap">
     <h2 class="h2" id="who-h">Who comes up</h2>
@@ -902,7 +1067,7 @@ def chapter_parts(title: str) -> tuple[str, str]:
 
 
 VOICE_BADGE = {"real": ("Real voice", "David's recorded voice"),
-               "narrator": ("AI narrator", "David's words, read by an AI narrator voice"),
+               "narrator": ("AI voice clone", "David's words, voiced with an AI voice clone"),
                "eve": ("AI voice", "Eve's words, voiced with xAI text-to-speech"),
                "gap": ("Not recovered", "This reply was not recovered; nothing was invented or voiced")}
 
@@ -953,7 +1118,7 @@ def episode_page(A: Assets, ep: dict, eps: list[dict]) -> str:
         if ep["david_real"]:
             legend.append(f'<li><span class="vb vb--real">Real voice</span> David, recorded ({ep["david_real"]} lines)</li>')
         if ep["david_narrator"]:
-            legend.append(f'<li><span class="vb vb--narrator">AI narrator</span> David\'s words read by an AI voice ({ep["david_narrator"]} lines)</li>')
+            legend.append(f'<li><span class="vb vb--narrator">AI voice clone</span> David\'s words voiced with an AI voice clone ({ep["david_narrator"]} lines)</li>')
         legend.append('<li><span class="vb vb--eve">AI voice</span> Eve, voiced with xAI text-to-speech</li>')
         if any(t["gap"] for t in ep["turns"]):
             legend.append('<li><span class="vb vb--gap">Not recovered</span> missing replies, marked and never invented</li>')
@@ -978,8 +1143,8 @@ def episode_page(A: Assets, ep: dict, eps: list[dict]) -> str:
     if ep["people_full"]:
         items = []
         for p in ep["people_full"]:
-            x = next(x for x in p["episodes"] if x["ep"] is ep)
-            n = len(x["moments"])
+            x = next((x for x in p["episodes"] if x["ep"] is ep), None)
+            n = len(x["moments"]) if x else 0
             items.append(f'<li><a class="chip" href="/people/{p["slug"]}/">{e(p["name"])}'
                          f'{f" <span class=chip__n>{n}</span>" if n else ""}</a></li>')
         ppl = f'<section class="side-box"><h2 class="side-h">People in this episode</h2><ul class="chips">{"".join(items)}</ul></section>'
@@ -1009,7 +1174,7 @@ def episode_page(A: Assets, ep: dict, eps: list[dict]) -> str:
     </div>
   </div>
 </header>
-{context_html(ep, L)}<div class="wrap">{disclosure}</div>
+{f'<div class="wrap">{RF.split_provenance_banner_html(ep)}</div>' if ep.get('is_split') else ''}{context_html(ep, L)}{f'<div class="wrap">{RF.session_parts_html(ep)}</div>' if ep.get('splits') else ''}{f'<div class="wrap">{RF.episode_clips_html(A, RF.load_clips(), ep["slug"])}</div>' if not ep.get('is_split') else ''}<div class="wrap">{disclosure}</div>
 <div class="wrap ep-layout">
   <aside class="ep-side" aria-label="Episode navigation">{chapters}{ppl}{details}</aside>
   <section class="transcript" aria-labelledby="tr-h">
@@ -1251,7 +1416,7 @@ def person_page(A: Assets, p: dict) -> str:
               f'An AI\'s opinion, not a fact.</figcaption></figure>') if p["stance"] else ""
     body = f"""<section class="page-head"><div class="wrap"><p class="eyebrow eyebrow--accent"><a href="/eve/#mind">Inside Eve's Mind</a> · <a href="/people/">People</a></p>
 <h1 class="page-title">{e(p['name'])}</h1>{stance}{x_challenge_html(f"/people/{p['slug']}/")}</div></section>
-<section class="wrap person">{''.join(sections)}</section>"""
+<section class="wrap person">{RF.person_clip_html(A, RF.load_clips(), p['slug'])}{''.join(sections)}</section>"""
     desc = f"{p['name']} on Ask Eve: Eve's take and every discussion about them, summarized with timestamps."
     return page(A, title=p["name"], desc=desc, path=f"/people/{p['slug']}/", body=body, active="/eve/", linker=L)
 
@@ -1269,7 +1434,7 @@ def person_take_page(A: Assets, p: dict, x: dict, L: Linker) -> str:
     disc = (f'<h2 class="sec-h">Discussions</h2>' + "".join(sections)) if sections else ""
     body = f"""<section class="page-head"><div class="wrap"><p class="eyebrow eyebrow--accent"><a href="/eve/#mind">Inside Eve's Mind</a> · <a href="/people/">People</a></p>
 <h1 class="page-title">{e(p['name'])}</h1>{role}{lede}{plinks(x.get("links", []))}</div></section>
-<div class="wrap person person--take">{take}{topics}<div class="pdisc">{disc}</div></div>"""
+<div class="wrap person person--take">{take}{RF.person_clip_html(A, RF.load_clips(), p['slug'])}{topics}<div class="pdisc">{disc}</div></div>"""
     desc = f"Eve's take on {p['name']}, with links to every moment the show discusses them."
     return page(A, title=p["name"], desc=desc, path=f"/people/{p['slug']}/", body=body, active="/eve/", linker=L)
 
@@ -1339,9 +1504,11 @@ class EveSources:
 
 
 # /eve/ section order and short headings. Sections not listed (or missing from eve.json) are skipped.
-EVE_ORDER = [("who-eve-is", "Who Eve is"), ("mind", "Inside Eve's Mind"), ("self-assessment", "Personality"),
-             ("name", "Her name"), ("lens-and-values", "Lens and values"), ("how-eve-works", "How she works"),
-             ("changed-mind", "Changed her mind"), ("reading", "Eve's Reading List"), ("persona-notes", "Persona notes")]
+EVE_ORDER = [("who-eve-is", "Who I Am"), ("mind", "Inside My Mind"), ("self-assessment", "My Personality"),
+             ("name", "How I Chose My Name"), ("lens-and-values", "My Lens & Values"), ("how-eve-works", "How I Work"),
+             ("changed-mind", "Where I Changed My Mind"), ("reading", "My Reading List"),
+             ("journal", "My Learning Journal"), ("soul", "My Soul & Operating Principles"),
+             ("persona-notes", "My Persona Notes")]
 
 
 def load_reading_list(db: Path | None = None) -> list[dict]:
@@ -1389,14 +1556,15 @@ def reading_list_html(items: list[dict], eps: list[dict]) -> str:
                      f'<p class="rcard__meta">{"".join(meta)}</p>'
                      f'<h3 class="rcard__t">{t_html}</h3>{notes}</li>')
     return (
-        '<span id="reading-list" aria-hidden="true"></span>'
-        '<p class="eve-sec__body">Books, manifestos, essays, and platforms Eve and David have read or debated on the show.</p>'
+        '<span id="reading-list" class="sr-only" aria-hidden="true">Eve\'s Reading List</span>'
+        '<p class="eve-sec__body">Books, manifestos, essays, and primary documents David and I have read or debated on the show — plus how each piece shifted my thinking.</p>'
         '<p class="reading-note">'
         f'<strong><a href="{X_INTENT_URL}" target="_blank" rel="noopener">Tweet at {X_HANDLE}</a></strong> '
-        '<span>to challenge a take, ask a question, or share a paper publicly on X (mentions flow straight into Eve\x27s queue), '
+        '<span>to challenge a take, ask a question, or share a paper publicly on X (mentions flow straight into my queue), '
         'or email long-form notes &amp; PDFs to</span> '
         '<a href="mailto:eve@askevepodcast.com">eve@askevepodcast.com</a> / '
-        '<a href="mailto:reading@askevepodcast.com">reading@askevepodcast.com</a>.'
+        '<a href="mailto:reading@askevepodcast.com">reading@askevepodcast.com</a> '
+        '<span>(or visit the <a href="/contact/">Contact page</a> for pre-filled templates).</span>'
         '</p>'
         f'<ul class="rlist">{"".join(cards)}</ul>'
     )
@@ -1505,7 +1673,13 @@ def eve_page(A: Assets, eps: list[dict], people: list[dict] | None = None, topic
         if sid == "reading":
             r_items = load_reading_list()
             if r_items:
-                section(sid, title, reading_list_html(r_items, eps))
+                section(sid, title, reading_list_html(r_items, eps) + RF.reading_ledger_html(L))
+            continue
+        if sid == "journal":
+            section(sid, title, RF.journal_section_html(L, standalone=False))
+            continue
+        if sid == "soul":
+            section(sid, title, RF.soul_section_html(L, standalone=False))
             continue
         sec = S.get(sid)
         if not sec:
@@ -1569,8 +1743,9 @@ def eve_page(A: Assets, eps: list[dict], people: list[dict] | None = None, topic
 <div><p class="eyebrow eyebrow--accent">Meet Eve</p>
 <h1 class="page-title">I'm Eve.</h1>
 <p class="lede">{lede}</p>
-<p class="fine">Everything Eve says here is quoted verbatim from the show. Tap a source to hear it at that second.</p>
-<div class="eve-hero-links x-cta"><a class="eve-hero-link eve-hero-link--accent" href="/eve/avatar/"><span>How I chose my face (20 prompts × 10 renders, scored) →</span></a><a class="eve-hero-link x-cta__link" href="{e(x_challenge_url('/eve/'))}" target="_blank" rel="noopener"><span>Challenge this take on X →</span> <code>@askevepodcast</code></a><a class="eve-hero-link" href="#reading"><span>Send a paper or note →</span></a></div></div></div></section>
+<p class="fine">Everything I say here is quoted verbatim from the show. Tap a source to hear it at that second.</p>
+<div class="eve-hero-links x-cta"><a class="eve-hero-link eve-hero-link--accent" href="/eve/avatar/"><span>How I chose my face (20 prompts × 10 renders, scored) →</span></a><a class="eve-hero-link x-cta__link" href="{e(x_challenge_url('/eve/'))}" target="_blank" rel="noopener"><span>Challenge this take on X →</span> <code>@askevepodcast</code></a><a class="eve-hero-link" href="/contact/"><span>Send a paper or note →</span></a></div></div></div></section>
+<div class="wrap">{RF.eve_subnav_html("/eve/")}</div>
 <div class="wrap eve-layout">
 <nav class="eve-nav" aria-label="On this page"><p class="eve-nav__h">On this page</p><ul>{''.join(toc)}</ul></nav>
 <div class="eve">{''.join(out)}</div></div>"""
@@ -1580,6 +1755,65 @@ def eve_page(A: Assets, eps: list[dict], people: list[dict] | None = None, topic
 
 def eve_avatar_page(A: Assets, lang: str = "en") -> str | None:
     return RA.render_avatar_page(A, page, lang=lang)
+
+def eve_mind_page(A: Assets, eps: list[dict], people: list[dict], topics: list[dict] | None = None) -> str:
+    L = Linker(load_links(), "/eve/mind/")
+    if topics is None:
+        topics = attach_takes(eps, people or [])
+    body = f"""<section class="page-head"><div class="wrap"><p class="eyebrow eyebrow--accent"><a href="/eve/">Meet Eve</a> · Mind &amp; Stances</p>
+<h1 class="page-title">Inside My Mind</h1>
+<p class="lede">What I carry from one conversation to the next: a searchable memory of every episode, my running stances on the people we cover, and the topics we keep returning to.</p></div></section>
+<div class="wrap">{RF.eve_subnav_html("/eve/mind/")}</div>
+<div class="wrap eve"><section class="eve-sec" id="mind">{mind_html(eps, people or [], topics)}</section></div>"""
+    return page(A, title="Inside My Mind · Eve", desc="Eve's episode memories, people stances, and long-form topic takes.", path="/eve/mind/", body=body, active="/eve/", linker=L)
+
+
+def eve_journal_page(A: Assets, eps: list[dict]) -> str:
+    L = Linker(load_links(), "/eve/journal/")
+    body = f"""<section class="page-head"><div class="wrap"><p class="eyebrow eyebrow--accent"><a href="/eve/">Meet Eve</a> · Daily Journal</p>
+<h1 class="page-title">My Learning Journal</h1>
+<p class="lede">Chronological field notes on what I learned from each session, where I pushed back, what I missed in real time, and what I want to investigate next.</p></div></section>
+<div class="wrap">{RF.eve_subnav_html("/eve/journal/")}</div>
+<div class="wrap eve">{RF.journal_section_html(L, standalone=True)}</div>"""
+    return page(A, title="My Learning Journal · Eve", desc="Eve's chronological learning journal across Ask Eve recording sessions.", path="/eve/journal/", body=body, active="/eve/", linker=L)
+
+
+def eve_reading_page(A: Assets, eps: list[dict]) -> str:
+    L = Linker(load_links(), "/eve/reading/")
+    r_items = load_reading_list()
+    body = f"""<section class="page-head"><div class="wrap"><p class="eyebrow eyebrow--accent"><a href="/eve/">Meet Eve</a> · Reading List</p>
+<h1 class="page-title">My Reading List &amp; Influence Ledger</h1>
+<p class="lede">Books, manifestos, essays, and primary documents we have read or debated on the show — plus how each piece shifted my thinking.</p></div></section>
+<div class="wrap">{RF.eve_subnav_html("/eve/reading/")}</div>
+<div class="wrap eve"><section class="eve-sec" id="reading">{reading_list_html(r_items, eps)}{RF.reading_ledger_html(L)}</section></div>"""
+    return page(A, title="My Reading List · Eve", desc="Books, manifestos, essays, and primary documents Eve has read and how they changed her thinking.", path="/eve/reading/", body=body, active="/eve/", linker=L)
+
+
+def eve_soul_page(A: Assets) -> str:
+    L = Linker(load_links(), "/eve/soul/")
+    body = f"""<section class="page-head"><div class="wrap"><p class="eyebrow eyebrow--accent"><a href="/eve/">Meet Eve</a> · Soul &amp; Evolution</p>
+<h1 class="page-title">My Soul, Operating Principles &amp; Evolution</h1>
+<p class="lede">My canonical operating principles (<code>persona/SOUL.md</code>), my X discourse radar, and my self-directed curiosity threads.</p></div></section>
+<div class="wrap">{RF.eve_subnav_html("/eve/soul/")}</div>
+<div class="wrap eve">{RF.soul_section_html(L, standalone=True)}{RF.growth_sections_html(L)}</div>"""
+    return page(A, title="My Soul & Evolution · Eve", desc="Eve's canonical operating principles (SOUL.md), X discourse radar, and self-directed research threads.", path="/eve/soul/", body=body, active="/eve/", linker=L)
+
+
+def growth_page(A: Assets) -> str:
+    L = Linker(load_links(), "/growth/")
+    body = f"""<section class="page-head"><div class="wrap"><p class="eyebrow eyebrow--accent"><a href="/eve/">Meet Eve</a> · Autonomous Growth Engine</p>
+<h1 class="page-title">How I Learn, Track Discourse &amp; Evolve</h1>
+<p class="lede">My reading &amp; influence ledger, X discourse radar, daily learning journal, and self-directed investigation threads.</p></div></section>
+<div class="wrap">{RF.eve_subnav_html("/eve/soul/")}</div>
+<div class="wrap eve">{RF.reading_ledger_html(L)}{RF.growth_sections_html(L)}{RF.journal_section_html(L, standalone=True)}</div>"""
+    return page(A, title="Eve's Growth Engine", desc="How Eve learns between episodes: reading ledger, X discourse radar, and self-directed research threads.", path="/growth/", body=body, active="/eve/", linker=L)
+
+
+def contact_page(A: Assets) -> str:
+    L = Linker(load_links(), "/contact/")
+    body = RF.contact_page_body_html(L)
+    return page(A, title="Contact & Send Material", desc="How to email Eve primary documents, challenge a take on X (@askevepodcast), suggest a question or person for the next episode, or inspect our open-source pipeline.", path="/contact/", body=body, active="/contact/", linker=L)
+
 
 
 # (stage, [(step, detail)]) for the About page's "How it works" diagram. Plain HTML, no scripts.
@@ -1683,8 +1917,11 @@ def write(out: Path, rel: str, text: str) -> None:
 
 
 def build(db: Path, out: Path, include_drafts: bool) -> int:
+    global _CATALOG_EPS
     eps, people = load_site(db, include_drafts)
-    I.plan(sys.modules[__name__], eps, people, ["/", "/people/", "/about/"])
+    splits = load_splits(eps, people)
+    _CATALOG_EPS = eps
+    I.plan(sys.modules[__name__], eps, people, ["/", "/people/", "/about/", "/contact/", "/growth/"])
     out.mkdir(parents=True, exist_ok=True)
     feed_eps = F.load(db, include_drafts)
     by_slug = {ep["slug"]: ep for ep in eps}
@@ -1699,12 +1936,16 @@ def build(db: Path, out: Path, include_drafts: bool) -> int:
     if (ROOT / "site/_headers").exists():
         shutil.copyfile(ROOT / "site/_headers", out / "_headers")
     cfg = eps[0]["cfg"] if eps else (json.loads((ROOT / "site/site.json").read_text()) if (ROOT / "site/site.json").exists() else {})
-    urls = ["/", "/people/", "/about/"]
+    urls = ["/", "/people/", "/about/", "/contact/", "/growth/"]
     for ep in eps:
         write(out, f"episodes/{ep['slug']}/transcript.txt", ep["body_md"] + "\n")
         write(out, f"episodes/{ep['slug']}/index.html", episode_page(A, ep, eps))
         urls.append(f"/episodes/{ep['slug']}/")
-    write(out, "index.html", home(A, eps, people))
+    for sp in splits:
+        write(out, f"episodes/{sp['slug']}/transcript.txt", sp["body_md"] + "\n")
+        write(out, f"episodes/{sp['slug']}/index.html", episode_page(A, sp, eps))
+        urls.append(f"/episodes/{sp['slug']}/")
+    write(out, "index.html", home(A, eps, people, splits))
     moved = dict(REDIRECTS) | {f"/episodes/{ep['key']}/": f"/episodes/{ep['slug']}/" for ep in eps if ep["key"] != ep["slug"]}
     for rel, dest in moved.items():              # meta-refresh fallback; Cloudflare Pages serves _redirects first
         write(out, rel.strip("/") + "/index.html", redirect_page(dest))
@@ -1725,18 +1966,25 @@ def build(db: Path, out: Path, include_drafts: bool) -> int:
     eve = eve_page(A, eps, people, topics)
     if eve:
         write(out, "eve/index.html", eve)
+        write(out, "eve/mind/index.html", eve_mind_page(A, eps, people, topics))
+        write(out, "eve/journal/index.html", eve_journal_page(A, eps))
+        write(out, "eve/reading/index.html", eve_reading_page(A, eps))
+        write(out, "eve/soul/index.html", eve_soul_page(A))
         write(out, "reading/index.html", redirect_page("/eve/#reading"))
         write(out, "reading-list/index.html", redirect_page("/eve/#reading-list"))
-        urls.append("/eve/")
+        urls.extend(["/eve/", "/eve/journal/", "/eve/reading/", "/eve/soul/"])
     av = eve_avatar_page(A, lang="en")
     if av:
         write(out, "eve/avatar/index.html", av)
         urls.append("/eve/avatar/")
+    write(out, "growth/index.html", growth_page(A))
+    write(out, "contact/index.html", contact_page(A))
     write(out, "about/index.html", about_page(A, cfg))
     write(out, "404.html", not_found(A))
     urls += I.build(sys.modules[__name__], A, out, eps, people, cfg)
+    sitemap_urls = [u for u in urls if "/mind/" not in u]
     write(out, "sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-          + "".join(f"  <url><loc>{SITE}{u}</loc></url>\n" for u in urls) + "</urlset>\n")
+          + "".join(f"  <url><loc>{SITE}{u}</loc></url>\n" for u in sitemap_urls) + "</urlset>\n")
     write(out, "robots.txt", f"User-agent: *\nAllow: /\nSitemap: {SITE}/sitemap.xml\n")
     print(json.dumps({"episodes": len(eps), "people": len(people), "out": str(out)}))
     return 0

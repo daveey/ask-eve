@@ -608,6 +608,14 @@ export function renderAdminHtml({ adminEmail }) {
       }).join("");
     }
 
+    const RADAR_CLIP_MAP = {
+      "xd_radar_sacks": "/assets/clips/clip-sacks-three-tests.mp4",
+      "xd_radar_andreessen": "/assets/clips/clip-andreessen-deal-break.mp4",
+      "xd_radar_thiel": "/assets/clips/clip-thiel-girard.mp4",
+      "xd_radar_musk": "/assets/clips/clip-musk-usaid-chainsaw.mp4",
+      "xd_radar_pelosi": "/assets/clips/clip-pelosi-succession.mp4"
+    };
+
     function renderXDrafts(xDrafts) {
       document.getElementById("x-drafts-count").textContent = String(xDrafts.length);
       const container = document.getElementById("x-drafts-list");
@@ -635,7 +643,8 @@ export function renderAdminHtml({ adminEmail }) {
                 </h3>
                 <div class="meta-line">
                   Created: \${esc(xd.created_at)}
-                  \${xd.reply_to_tweet_id ? ' &middot; In reply to: <code>' + esc(xd.reply_to_tweet_id) + '</code>' : ''}
+                  \${xd.reply_to_tweet_id ? ' &middot; In reply to: <a href="https://x.com/i/web/status/' + esc(xd.reply_to_tweet_id) + '" target="_blank" rel="noopener" style="color:var(--x-ink)"><code>' + esc(xd.reply_to_tweet_id) + '</code></a>' : ''}
+                  \${RADAR_CLIP_MAP[xd.id] ? ' &middot; Audiogram Clip: <a href="' + esc(RADAR_CLIP_MAP[xd.id]) + '" target="_blank" rel="noopener" download style="color:var(--eve)">' + esc(RADAR_CLIP_MAP[xd.id]) + '</a>' : ''}
                   \${xd.tweet_id ? ' &middot; Posted Tweet ID: <code>' + esc(xd.tweet_id) + '</code>' : ''}
                 </div>
               </div>

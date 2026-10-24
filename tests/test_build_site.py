@@ -16,7 +16,7 @@ def unlink(h: str) -> str:
 
 import sqlite_apply  # noqa: E402
 
-EP0, EP1 = "first-encounter", "the-making-of-eve"
+EP0, EP1, EP2 = "first-encounter", "the-making-of-eve", "starshield-iran-and-the-anthropic-mirror"
 
 
 @pytest.fixture(scope="module")
@@ -59,7 +59,7 @@ def test_head_seo(site):
 def test_home(site):
     h = read(site, "index.html")
     assert 'class="hero"' in h and "data-play" in h and 'id="player"' in h and "is-idle" in h
-    assert h.count('class="card"') == 1 and h.count('class="card card--bonus"') == 0   # main list: full episodes only
+    assert h.count('class="card"') == 2 and h.count('class="card card--bonus"') == 0   # main list: full episodes only
     assert f'href="/episodes/{EP0}/"' in h and f'href="/episodes/{EP1}/"' in h
     assert 'href="/feed.xml"' in h and "Spotify" not in h          # Spotify slot hidden until configured
     assert 'href="/people/david-sacks/"' in h
@@ -105,7 +105,7 @@ def test_person_page_one_block_per_moment(site):
     ms = [m for m in _moments(EP0) if m["person"] == "david-sacks"]
     assert ms
     p = read(site, "people/david-sacks/index.html")
-    assert p.count('<li class="pm">') == sum(1 for slug in (EP0, EP1) for m in _moments(slug) if m["person"] == "david-sacks")
+    assert p.count('<li class="pm">') == sum(1 for slug in (EP0, EP1, EP2) for m in _moments(slug) if m["person"] == "david-sacks")
     import html as _h
     u = unlink(p)
     assert 'class="take__body take__qa"' in p and 'class="pm__qa"' in p
@@ -119,7 +119,7 @@ def test_person_page_one_block_per_moment(site):
 
 
 def test_people_only_link_episodes_with_moments(site):
-    by_ep = {slug: {m["person"] for m in _moments(slug)} for slug in (EP0, EP1)}
+    by_ep = {slug: {m["person"] for m in _moments(slug)} for slug in (EP0, EP1, EP2)}
     for f in (site / "people").glob("*/index.html"):
         slug, h = f.parent.name, f.read_text()
         if not any(slug in s for s in by_ep.values()) and "person--take" in h:
@@ -257,7 +257,7 @@ def test_feed_bonus_item(site):
     root = ET.fromstring(read(site, "feed.xml"))
     ns = {"itunes": "http://www.itunes.com/dtds/podcast-1.0.dtd"}
     items = {i.findtext("guid"): i for i in root.iter("item")}
-    assert len(items) == 2
+    assert len(items) == 3
     b = items["ask-eve:2026-10-23_the-making-of-eve"]
     assert b.findtext("title") == "Bonus: The Making of Eve"
     assert b.findtext("itunes:episodeType", namespaces=ns) == "bonus" and b.find("itunes:episode", ns) is None
@@ -322,8 +322,8 @@ def test_head_subscribe_spotify_when_configured():
     import build_site as B
     h = B.head_subscribe({"subscribe": {"spotify": "https://open.spotify.com/show/x", "apple_podcasts": ""}})
     assert 'aria-label="Follow on Spotify"' in h and "hsub--apple" not in h and "hsub--rss" in h
-    assert [x for x, _ in B.nav_items()] == ["/", "/eve/"]
-    assert [x for x, _ in B.menu_items()] == ["/", "/eve/", "/about/"]
+    assert [x for x, _ in B.nav_items()] == ["/", "/eve/", "/contact/"]
+    assert [x for x, _ in B.menu_items()] == ["/", "/eve/", "/contact/", "/about/"]
 
 
 # ---------------------------------------------------------------- auto-linking (silent links + menus)
@@ -522,7 +522,7 @@ def test_person_take_and_citations(site):
     for para in sacks["take"]:                       # every paragraph, verbatim (cite links stripped)
         assert _h.escape(para) in re.sub(r'<a class="cite"[^>]*>(.*?)</a>', r"\1", body)
     cites = re.findall(r'<a class="cite" href="/episodes/([^/]+)/#t=([\d.]+)"', p)
-    assert len(cites) == len([r for r in sacks["refs"] if r.get("anchor")]) and all(s == EP0 for s, _ in cites)
+    assert len(cites) == len([r for r in sacks["refs"] if r.get("anchor")]) and all(s in (EP0, EP2) for s, _ in cites)
     assert 'href="/episodes/first-encounter/#t=2554.5"' in p     # "three tests" = 08:06:53 -> the turn's exact start
     assert 'class="plinks"' in p and 'href="https://x.com/DavidSacks"' in p
     assert 'href="/topics/sacks-vs-anthropic/"' in p
@@ -533,10 +533,10 @@ def test_takes_resolve_and_drop_pending(site):
     import build_site as B
     eps, people = B.load_site(site.parent / "d.sqlite", True)
     topics = B.attach_takes(eps, people)
-    assert len(topics) == 14 and sum(1 for p in people if p.get("take")) == 13
+    assert len(topics) == 16 and sum(1 for p in people if p.get("take")) == 13
     assert next(p for p in people if p["slug"] == "chan")["take"]
     for x in [p["take"] for p in people if p.get("take")] + topics:
-        assert all(r["href"].startswith(("/episodes/first-encounter/#t=", "/episodes/the-making-of-eve/#t=", "/episodes/the-making-of-eve/#turn-")) for r in x["refs"])
+        assert all(r["href"].startswith(("/episodes/first-encounter/#t=", "/episodes/the-making-of-eve/#t=", "/episodes/the-making-of-eve/#turn-", "/episodes/starshield-iran-and-the-anthropic-mirror/#t=")) for r in x["refs"])
     raw = (ROOT / "index/takes.json").read_text()
     assert "eve-cant-find-andreessen" not in raw and "pending publication" not in raw and "Episode 2" not in raw
     assert not re.search(r"grok\.com/share|@gmail|canvas", raw)
@@ -544,7 +544,7 @@ def test_takes_resolve_and_drop_pending(site):
 
 def test_topic_pages(site):
     idx = read(site, "topics/index.html")
-    assert idx.count('class="tcard"') == 14
+    assert idx.count('class="tcard"') == 16
     t = read(site, "topics/sacks-vs-anthropic/index.html")
     assert 'class="take"' in t and 'href="/people/david-sacks/"' in t
     assert re.search(r'<a class="pm__listen" href="/episodes/first-encounter/#t=[\d.]+"', t)

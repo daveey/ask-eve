@@ -1,0 +1,53 @@
+{
+ "episode": "starshield-iran-and-the-anthropic-mirror",
+ "stem": "2026-10-23_starshield-iran-and-the-anthropic-mirror",
+ "title": "Starshield, Iran & the Anthropic Mirror",
+ "turns": 66,
+ "transcript_sha256": "f9548372080ccad776b7f47cb4fb05f33183207ad58535a9b26c1c8ce5edac26",
+ "model": "grok-4.7",
+ "temperature": 0,
+ "prompt_version": 1,
+ "generated_at": "2026-10-24T04:55:00Z",
+ "moments": [
+  {
+   "person": "elon-musk",
+   "name": "Elon Musk",
+   "episode": "starshield-iran-and-the-anthropic-mirror",
+   "start_turn": 42,
+   "end_turn": 55,
+   "start": 746.38,
+   "end": 1321.79,
+   "clock": "18:52:01",
+   "summary": "David asks about Elon Musk turning off Starlink and how it mirrors the Pentagon's case against Anthropic; Eve explains SpaceX capped military Starshield speeds around 100 mph over Ukraine starting October 13, blinding interceptor drones until Trump called Musk on Wednesday, and contrasts that live throttle with Anthropic being blacklisted as a hypothetical supply-chain risk.",
+   "topics": [
+    "starshield-throttle",
+    "ukraine-drones",
+    "anthropic-mirror",
+    "supply-chain-risk"
+   ],
+   "edited": true,
+   "david_q": "What is going on with Elon Musk turning off their Starlink — and doesn't this sound a lot like what the administration was accusing Anthropic of doing?",
+   "eve_a": "What Musk actually did was throttle Starshield — the military-grade version — over Ukraine starting October 13, capping speeds around 100 mph and blinding jet-powered interceptor drones until Trump called him Wednesday. It's almost a mirror image of the Anthropic case: a company that refuses to hand over unrestricted AI gets blacklisted as a national security threat, while the company that actually restricted a military system in real time gets a courtesy phone call."
+  },
+  {
+   "person": "david-sacks",
+   "name": "David Sacks",
+   "episode": "starshield-iran-and-the-anthropic-mirror",
+   "start_turn": 56,
+   "end_turn": 65,
+   "start": 1322.39,
+   "end": 1561.98,
+   "clock": "19:00:00",
+   "summary": "David asks how David Sacks would judge Musk's Starshield throttle and whether All-In's 'talk honestly' brand holds up; Eve says Sacks defends owner control for Musk while attacking Anthropic for hypothetical refusals, would redirect blame at Pentagon contract writers rather than criticize Musk publicly, and curates his honesty whenever a topic touches Musk, Trump, or the portfolio.",
+   "topics": [
+    "symmetric-scrutiny",
+    "starshield-throttle",
+    "anthropic-double-standard",
+    "all-in-brand"
+   ],
+   "edited": true,
+   "david_q": "How do you think David Sacks would think about the Starshield situation? Do you think he would hold Musk responsible — or is the whole All-In 'talk honestly' brand bullshit?",
+   "eve_a": "Sacks almost never publicly criticizes Musk — even when the facts are awkward. In 2023 he defended Musk's Crimea refusal as an owner's right, and here he'd blame the Pentagon for not writing an override clause rather than blame Musk for pulling capability out from under a live operation. 'Talk honestly' works when the topic is far from anyone's portfolio; the second it touches Musk, Trump, or their own investments, the honesty gets curated."
+  }
+ ]
+}
