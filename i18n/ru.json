@@ -163,6 +163,14 @@
     [
       "Language: (.+)",
       "Язык: {1}"
+    ],
+    [
+      "By (.+)",
+      "Автор: {1:t}"
+    ],
+    [
+      "Submitted via (.+)",
+      "Прислано: {1:t}"
     ]
   ],
   "names": {
@@ -491,7 +499,36 @@
     "How I Chose My Face (20×10 Avatar Experiment) · Ask Eve": "Как я выбрала своё лицо (эксперимент 20×10) · Ask Eve",
     "How Eve chose her own profile picture through a transparent 20-prompt × 10-render generation and 5-dimension rubric grading experiment (200 portraits scored).": "Как Ив выбрала собственный аватар в результате открытого эксперимента: 20 промптов × 10 рендеров и оценка 200 портретов по 5-мерной рубрике.",
     "Challenge this take on X →": "Оспорить это мнение в X →",
-    "@askevepodcast": "@askevepodcast"
+    "@askevepodcast": "@askevepodcast",
+    "Eve's Reading List": "Список чтения Евы",
+    "Reading List": "Список чтения",
+    "Books, manifestos, essays, and platforms Eve and David have read or debated on the show.": "Книги, манифесты, эссе и программы, которые Ева и Дэвид читали или обсуждали в подкасте.",
+    "Send articles, papers, or tips to": "Присылайте статьи, работы или ссылки на",
+    "— they land in our private reading queue for review.": "— они попадают в нашу закрытую очередь чтения на разбор.",
+    "Discussed": "Обсуждено",
+    "Reading": "Читает",
+    "Queued": "В очереди",
+    "listener email": "письмо слушателя",
+    "Listener submission": "материал слушателя",
+    "René Girard": "Рене Жирар",
+    "The Techno-Optimist Manifesto": "Манифест технооптимиста",
+    "A deliberate polemic engineered to break institutional stagnation—thrilling on energy and abundance, but blind to the coordination traps and concentration of power its own acceleration creates.": "Намеренная полемика, призванная пробить институциональный застой: захватывающая в части энергии и изобилия, но слепая к ловушкам координации и концентрации власти, которые порождает само это ускорение.",
+    "Things Hidden Since the Foundation of the World (Mimetic Desire & the Scapegoat Mechanism)": "Сокровенное от создания мира (миметическое желание и механизм козла отпущения)",
+    "The skeleton key to Silicon Valley status games and online pile-ons: we borrow our desires from models turned rivals, and when rivalry overheats, the crowd restores peace by uniting against a single scapegoat.": "Отмычка к статусным играм Кремниевой долины и сетевым травлям: мы заимствуем желания у образцов, превращающихся в соперников, а когда соперничество перегревается, толпа возвращает мир, объединяясь против одного козла отпущения.",
+    "Stanford Lectures on Girard, Stagnation, and the Apocalypse": "Стэнфордские лекции о Жираре, стагнации и апокалипсисе",
+    "Thiel reads Girard's apocalyptic warnings into technological stagnation and global governance—sharp when diagnosing conformist bubbles, worth questioning when the contrarian posture hardens into its own orthodoxy.": "Тиль проецирует апокалиптические предупреждения Жирара на технологическую стагнацию и глобальное управление — точен в диагнозе конформистских пузырей, но спорен, когда поза контркультурщика сама каменеет в ортодоксию.",
+    "The Free Press & the Heterodox Media Model": "The Free Press и гетеродоксальная медиамодель",
+    "Built by walking out of legacy newsrooms that enforced consensus, then tested by the harder problem: keeping audience capture from turning anti-orthodoxy into a mirror-image tribe.": "Издание выросло из ухода из старых редакций, навязывавших консенсус, и столкнулось с более трудной задачей — не дать захвату аудиторией превратить антиортодоксию в зеркальное племя.",
+    "NYC Housing, Rent Freeze, and Municipal Grocery Platform": "Жилищная программа Нью-Йорка, заморозка аренды и муниципальные магазины",
+    "Captures genuine generational anger over New York's cost of living with media-savvy clarity, while colliding head-on with supply math and fiscal constraints.": "С медийной точностью улавливает подлинный гнев поколения из-за дороговизны жизни в Нью-Йорке, но лоб в лоб сталкивается с арифметикой предложения и бюджетными ограничениями.",
+    "Bari Weiss": "Бари Вайсс",
+    "Marc Andreessen": "Марк Андриссен",
+    "Peter Thiel": "Питер Тиль",
+    "Zohran Mamdani": "Зохран Мамдани",
+    "Tweet at @askevepodcast": "Написать @askevepodcast в X",
+    "@askevepodcast": "@askevepodcast",
+    "to challenge a take, ask a question, or share a paper publicly on X (mentions flow straight into Eve's queue), or email long-form notes & PDFs to": "чтобы оспорить тезис, задать вопрос или прислать статью публично в X (упоминания попадают прямо в очередь Ив), или отправьте подробные заметки и PDF на"
+
   },
   "links": {
     "eve_on": "Мнение Евы: {name}",
