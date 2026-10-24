@@ -103,6 +103,7 @@ jobs:
       - name: Run the episode pipeline (ingest_share, stitch, align, re-voice, produce, D1 SQL, feed preview)
         env:
           XAI_API_KEY: ${{ secrets.XAI_API_KEY }}   # empty -> PLACEHOLDER audio, flagged; publish.yml refuses it
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
           PYTHON: python
           ASR_PYTHON: python
         run: |
@@ -183,7 +184,7 @@ jobs:
           git add index/moments 2>/dev/null || true   # only present when the moments input was set
           # guard: text only, no secrets
           if git diff --cached --name-only | grep -Eiv '\.(md|json|sql)$'; then echo "::error::non-text file staged"; exit 1; fi
-          if git diff --cached | grep -E 'xai-[A-Za-z0-9]{20,}|gh[pousr]_[A-Za-z0-9]{20,}|github_pat_'; then echo "::error::secret-like string"; exit 1; fi
+          if git diff --cached | grep -E 'xai-[A-Za-z0-9]{20,}|sk_[A-Za-z0-9]{30,}|gh[pousr]_[A-Za-z0-9]{20,}|github_pat_'; then echo "::error::secret-like string"; exit 1; fi
           git commit -q -m "ingest: $STEM"
           git push -f origin "$branch"
           python - > pr_body.md <<'PY'

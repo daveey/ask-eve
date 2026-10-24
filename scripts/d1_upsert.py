@@ -21,6 +21,9 @@ from frontmatter import episode_type, parse_front_matter_block  # noqa: E402
 AUDIO_BASE = "https://audio.askevepodcast.com/"
 AI_DISCLOSURE = ("AI-reconstructed audio: the voices in this episode were generated with xAI text-to-speech from the "
                  "verbatim text transcript (Eve in the 'eve' voice, David's lines in a narrator voice). No original audio was used.")
+CLONE_AI_DISCLOSURE = ("AI-reconstructed audio: the voices in this episode were generated from the verbatim text transcript "
+                       "(Eve with xAI text-to-speech in the 'eve' voice, David's lines with his ElevenLabs AI voice clone). "
+                       "No original audio was used.")
 
 
 def q(v) -> str:
@@ -94,7 +97,9 @@ def build_sql(transcript: Path, repo_root: Path, slug: str, alignment: dict | No
         ep["recording_method"] = manifest.get("recording_method", ep.get("recording_method"))
     if ep.get("recording_method") == "tts-reconstructed":
         ep["ai_reconstructed"] = 1
-        ep.setdefault("ai_disclosure", AI_DISCLOSURE)
+        nar_v = (ep.get("narrator_voice") or "").lower()
+        default_disc = CLONE_AI_DISCLOSURE if ("elevenlabs" in nar_v or "clone" in nar_v) else AI_DISCLOSURE
+        ep.setdefault("ai_disclosure", default_disc)
         if alignment is None:      # every turn was placed by the synthesizer: offsets are exact
             ep["alignment_method"], ep["alignment_coverage"] = "tts-exact", 1.0
     for k, v in rec.items():
