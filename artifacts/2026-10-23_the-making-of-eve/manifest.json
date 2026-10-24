@@ -1,10 +1,10 @@
 {
  "stem": "2026-10-23_the-making-of-eve",
- "version": 1,
- "audio_key": "audio/en/2026-10-23_the-making-of-eve.v1.mp3",
- "audio_url": "https://audio.askevepodcast.com/audio/en/2026-10-23_the-making-of-eve.v1.mp3",
- "audio_bytes": 39762998,
- "audio_sha256": "4ace00410909d151b4615ae0eef7195f2f301eb18c7e67a9240379d76c218a83",
+ "version": 2,
+ "audio_key": "audio/en/2026-10-23_the-making-of-eve.v2.mp3",
+ "audio_url": "https://audio.askevepodcast.com/audio/en/2026-10-23_the-making-of-eve.v2.mp3",
+ "audio_bytes": 39762950,
+ "audio_sha256": "1d26ff031d9c5fcb868ff71ce11f271373f4efd4ee40c1e1dac7c19ffa68cafe",
  "audio_mime": "audio/mpeg",
  "duration_seconds": 2485,
  "loudness_lufs": -16.8,
@@ -193,5 +193,5 @@
  "tts": "xai_tts voice=eve",
  "narrator": "xai_tts voice=rex",
  "missing_turns": [],
- "transcript_sha256": "165aab4f9d232315fb6a4d7f648b61b4579e6d808cb4e6c837139edca4b97d58"
+ "transcript_sha256": "3da6590b32864df246c37f613f9df638181db310ebab04b24138aa812a3a5fa0"
 }

@@ -47,6 +47,39 @@ Status in the table below is maintained by David's side; your log entry is the r
 | D-011 | todo | **Upload the show cover to `ask-eve-public`** (details below the table). The feed's `<itunes:image>` is https://audio.askevepodcast.com/art/cover-3000.v1.jpg, which returns 404 because nothing uploaded it. The site redesign (PR #17, merged) added the 3000x3000 cover at `site/static/art/cover-3000.jpg`, now also live at https://askevepodcast.com/art/cover-3000.jpg. | D-002, PR #17 merged |
 | D-012 | done (deploy-log) | **Commit identity: GitHub noreply** (details below the table). On every machine that commits to this repo (your box and Hermes), commit as `452472+daveey@users.noreply.github.com`, never a personal or host address. | – |
 | D-013 | **todo, do first** | **History was rewritten: re-sync every clone; never push from an old clone** (details below the table). On 2026-10-24 ~00:10 UTC every branch was force-pushed after `git filter-repo` removed private links, IDs and personal emails from all history. Every commit SHA changed (old main `e3bb848` is now `9b2ebfb`; trees are identical). Pushing from a clone made before that would bring the old history back. | – |
+| D-014 | todo | **Stage and publish the v2 MP3s for episodes 0 and 1** (details below the table). v2 of First Encounter mutes the two spoken agent IDs (soft tone at ~1:10:27 and ~2:15:58; same pipeline: two-pass loudnorm, 128k, ID3 chapters); v2 of The Making of Eve is the same audio with the 15:25 chapter title fixed (it read a Grok share link; now `[link removed]`). Manifests and `d1_upsert.sql` on main already point at `.v2.mp3`; guids are unchanged, so podcast apps treat them as the same episodes. Until this runs, the site and feed keep serving v1. | D-013, PR (audio v2) merged |
+
+**D-014 steps.** This task names the objects you write: the two v2 staging keys below (publish.yml then writes the public v2 MP3s and chapters). Nothing else is created; **don't delete anything** (the v1 objects stay until David says otherwise).
+1. Download the 3 files from David's Google Drive folder `Ask Eve/_publish-handoff-2026-10-23` (find them by name; ids are not kept in git):
+   - `2026-10-23_eve-david-podcast-planning.v2.mp3.part00`: 70,000,000 bytes
+   - `2026-10-23_eve-david-podcast-planning.v2.mp3.part01`: 67,334,489 bytes
+   - `2026-10-23_the-making-of-eve.v2.mp3`: 39,762,950 bytes
+
+   Same as D-010: episode 0 is split only for an upload size limit. If you can't read the folder, mark D-014 `blocked: can't read the Drive handoff` and stop.
+2. Rebuild episode 0 and verify both against the manifests on main:
+   ```
+   cat 2026-10-23_eve-david-podcast-planning.v2.mp3.part00 2026-10-23_eve-david-podcast-planning.v2.mp3.part01 > 2026-10-23_eve-david-podcast-planning.v2.mp3
+   printf '%s  %s\n' f9c6f70b0af4afde0b6f98bdebec007b0c1af64dd7c5f92525e3c63859d91f28 2026-10-23_eve-david-podcast-planning.v2.mp3 \
+                     1d26ff031d9c5fcb868ff71ce11f271373f4efd4ee40c1e1dac7c19ffa68cafe 2026-10-23_the-making-of-eve.v2.mp3 | sha256sum -c -
+   ```
+   Expect: both `OK` (they equal `audio_sha256` in `artifacts/<stem>/manifest.json`); otherwise stop and report.
+3. Stage each in `ask-eve-masters` (private) at `staging/<stem>/<stem>.v2.mp3`:
+   ```
+   for s in 2026-10-23_eve-david-podcast-planning 2026-10-23_the-making-of-eve; do
+     npx wrangler@4 r2 object put "ask-eve-masters/staging/$s/$s.v2.mp3" --file "$s.v2.mp3" --content-type audio/mpeg --remote
+   done
+   ```
+4. Publish one at a time and wait for each run (and the site.yml run it dispatches) to succeed. The D1 SQL carries the current titles, summaries and chapter titles, so nothing reverts.
+   ```
+   gh workflow run publish.yml -R daveey/ask-eve --ref main -f stem=2026-10-23_eve-david-podcast-planning
+   gh workflow run publish.yml -R daveey/ask-eve --ref main -f stem=2026-10-23_the-making-of-eve
+   ```
+5. Expect:
+   - `curl -sI` of https://audio.askevepodcast.com/audio/en/2026-10-23_eve-david-podcast-planning.v2.mp3 gives `200`, `audio/mpeg`, `content-length: 137334489`.
+   - `curl -sI` of …/audio/en/2026-10-23_the-making-of-eve.v2.mp3 gives `200`, `audio/mpeg`, `content-length: 39762950`.
+   - `curl -s https://askevepodcast.com/feed.xml | grep -o 'audio/en/[^"]*\.mp3'` lists only the two `.v2.mp3` URLs (plus any other episode), and the guids are unchanged.
+   - `curl -s https://askevepodcast.com/first-encounter/ | grep -c 'v2.mp3'` is at least 1.
+6. Report the run URLs and curl output. Then **ask David** whether to delete the v1 objects (`ask-eve-public/audio/en/<stem>.v1.mp3`, `chapters/en/<stem>.v1.json`, and `ask-eve-masters/staging/<stem>/<stem>.v1.mp3`); the v1 episode-0 MP3 still speaks the two IDs. Don't delete without his yes.
 
 **D-013 steps (do before any other git work).** Nothing in Cloudflare or GitHub is created or deleted; this only touches local clones.
 1. In every clone of this repo on your box **and** on Hermes, first save anything uncommitted or unpushed (`git status`, `git log origin/<branch>..<branch>`); copy it aside as a patch (`git format-patch`), don't push it.

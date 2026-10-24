@@ -1,14 +1,14 @@
 {
  "stem": "2026-10-23_eve-david-podcast-planning",
- "version": 1,
- "audio_key": "audio/en/2026-10-23_eve-david-podcast-planning.v1.mp3",
- "audio_url": "https://audio.askevepodcast.com/audio/en/2026-10-23_eve-david-podcast-planning.v1.mp3",
- "audio_bytes": 137334508,
- "audio_sha256": "6cf5a294685aad400ae46bfde38622894b77ceb3b37ef2e5c37a84d0ea8ddbd1",
+ "version": 2,
+ "audio_key": "audio/en/2026-10-23_eve-david-podcast-planning.v2.mp3",
+ "audio_url": "https://audio.askevepodcast.com/audio/en/2026-10-23_eve-david-podcast-planning.v2.mp3",
+ "audio_bytes": 137334489,
+ "audio_sha256": "f9c6f70b0af4afde0b6f98bdebec007b0c1af64dd7c5f92525e3c63859d91f28",
  "audio_mime": "audio/mpeg",
  "duration_seconds": 8583,
- "loudness_lufs": -16.8,
- "true_peak_dbfs": -4.4,
+ "loudness_lufs": -16.4,
+ "true_peak_dbfs": -3.8,
  "id3_chapters": 8,
  "chapters": [
   {
@@ -63,5 +63,5 @@
  "missing_turns": [
   79
  ],
- "transcript_sha256": "e825c95ff7951066a32d9c0b11b132d3814abcaf17d91545a80d0bf119eee62e"
+ "transcript_sha256": "98509d96f62c0893b4e48206ee6164e2b7003c6082ba49559d9f614fbfcca36b"
 }
