@@ -465,7 +465,16 @@
     "a16z author page": "страница автора на a16z",
     "askevepodcast.com: transcripts, chapters, people and the player.": "askevepodcast.com: стенограммы, главы, люди и плеер.",
     "faster-whisper transcribes David's audio, and fuzzy matching pins each of his transcript lines to the second it was said.": "faster-whisper транскрибирует аудио Дэвида, а нечёткое сопоставление привязывает каждую строку его стенограммы к секунде, когда она была сказана.",
-    "or": "или"
+    "or": "или",
+    "David:": "Дэвид:",
+    "Eve:": "Ева:",
+    "Context:": "Контекст:",
+    "Class & Role": "Класс и роль",
+    "Origin": "Происхождение",
+    "Voice Preset": "Голос",
+    "Core Alignment Thesis": "Ключевой тезис",
+    "Self-Assessed Disposition & Attributes": "Самооценка характера и атрибутов",
+    "/100": "/100"
   },
   "links": {
     "eve_on": "Мнение Евы: {name}",

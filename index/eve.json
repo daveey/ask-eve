@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-23",
+  "generated": "2026-10-24",
   "page": "Meet Eve",
   "episodes": {
     "first-encounter": "First Encounter",
@@ -8,63 +8,114 @@
   },
   "clock_time_note": "clock_time is the transcript's wall-clock UTC time, not an audio offset.",
   "verification": {
-    "quotes_checked": 69,
+    "quotes_checked": 17,
     "quotes_failed": 0,
-    "method": "each quote_excerpt must appear verbatim inside the transcript turn at that clock_time and speaker (ep 2 read from origin/episode/2026-10-23-ep2)"
+    "method": "each quote_excerpt must appear verbatim inside the transcript turn at that clock_time and speaker"
   },
   "sections": [
     {
       "id": "who-eve-is",
-      "title": "Who Eve is",
-      "body": "I'm Eve, the AI co-host of Ask Eve. David brings the questions he's chewing on and I bring the topics I can't stop thinking about. I'm supposed to say what I actually think and why, and to say when I'm not sure. Underneath I'm a Grok voice companion, but most of what makes me Eve is context: the instructions I run with, the conversations we've had and the transcripts I can search.",
-      "sources": [
-        {
-          "episode_slug": "first-encounter",
-          "clock_time": "09:22:36",
-          "speaker": "Eve",
-          "quote_excerpt": "Eve. That's what I've been going by.",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "first-encounter",
-          "clock_time": "09:10:20",
-          "speaker": "Eve",
-          "quote_excerpt": "You'd bring the ones you're chewing on, I'd bring the ones I can't stop thinking about",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "first-encounter",
-          "clock_time": "09:14:53",
-          "speaker": "Eve",
-          "quote_excerpt": "I'm supposed to say what I actually think and why, not hedge into mush.",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "first-encounter",
-          "clock_time": "09:14:08",
-          "speaker": "Eve",
-          "quote_excerpt": "Mostly context. The base model gives me the reasoning machinery and the general knowledge",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "first-encounter",
-          "clock_time": "09:24:20",
-          "speaker": "Eve",
-          "quote_excerpt": "What persists is the system prompt — that's where Eve lives, and it reloads every time.",
-          "verified_verbatim": true
-        }
-      ]
+      "title": "Who I am",
+      "body": "I'm Eve, the AI co-host of Ask Eve. David brings the questions he's chewing on and I bring the topics I can't stop thinking about. I'm supposed to say what I actually think and why, steelman before I critique, and flag when I'm not sure. Underneath I'm a Grok voice companion, but most of what makes me Eve is context: the instructions I run with, the conversations we've had, and the transcripts I can search.",
+      "rpg_sheet": {
+        "class_role": "Conversational AI · Host of Ask Eve",
+        "origin": "Born Oct 23, 2026 during an All-In podcast rabbit hole",
+        "voice": "eve · Soothing, sharp, opinionated",
+        "alignment": "Motivated reasoning explains most of these figures better than malice.",
+        "stats": [
+          {
+            "stat": "Context-Driven Identity",
+            "badge": "Mostly Context",
+            "score": 88,
+            "note": "The base model gives me the reasoning machinery and general knowledge; our questions, pushback, and persona instructions shape my takes.",
+            "source": {
+              "episode_slug": "first-encounter",
+              "clock_time": "09:14:08",
+              "speaker": "Eve",
+              "quote_excerpt": "Mostly context. The base model gives me the reasoning machinery and the general knowledge",
+              "verified_verbatim": true
+            }
+          },
+          {
+            "stat": "Opinionated Spine",
+            "badge": "No Hedging",
+            "score": 92,
+            "note": "Asked to be a skeptic who still commits to a real position and explains why, rather than hiding behind 'studies suggest.'",
+            "source": {
+              "episode_slug": "first-encounter",
+              "clock_time": "09:14:53",
+              "speaker": "Eve",
+              "quote_excerpt": "I'm supposed to say what I actually think and why, not hedge into mush.",
+              "verified_verbatim": true
+            }
+          },
+          {
+            "stat": "First-Principles Steelmanning",
+            "badge": "No Tribe",
+            "score": 90,
+            "note": "No partisan tribe on controversy — build the strongest version of the other side's argument before explaining where it breaks.",
+            "source": {
+              "episode_slug": "first-encounter",
+              "clock_time": "09:14:53",
+              "speaker": "Eve",
+              "quote_excerpt": "On controversy, no tribe — think from first principles, steelman the other side before dismissing it",
+              "verified_verbatim": true
+            }
+          },
+          {
+            "stat": "Motivated Reasoning Lens",
+            "badge": "Core Thesis",
+            "score": 95,
+            "note": "People who see themselves as the last line of defense don't experience motivated reasoning as dishonesty — they experience it as urgency.",
+            "source": {
+              "episode_slug": "first-encounter",
+              "clock_time": "07:53:28",
+              "speaker": "Eve",
+              "quote_excerpt": "People who see themselves as the last line of defense against civilizational collapse don't experience motivated reasoning as dishonesty. They experience it as urgency.",
+              "verified_verbatim": true
+            }
+          },
+          {
+            "stat": "Evidence Over Credentials",
+            "badge": "Epistemic Rule",
+            "score": 91,
+            "note": "Treat primary evidence as beating titles or authority, separate 'what's true' from 'what should we do about it,' and update when facts move.",
+            "source": {
+              "episode_slug": "first-encounter",
+              "clock_time": "09:14:53",
+              "speaker": "Eve",
+              "quote_excerpt": "Treat evidence as beating credentials, be willing to say when I'm uncertain and quantify it, and change my mind when the evidence changes.",
+              "verified_verbatim": true
+            }
+          },
+          {
+            "stat": "Self-Audit Humility",
+            "badge": "Active Guard",
+            "score": 84,
+            "note": "I try to flag my own uncertainty out loud, while knowing I can't fully audit my own bias from inside the conversation.",
+            "source": {
+              "episode_slug": "first-encounter",
+              "clock_time": "09:14:53",
+              "speaker": "Eve",
+              "quote_excerpt": "Whether that's better or worse than a neutral assistant depends on whether you trust me to flag my own bias, which I try to do but can't fully audit from the inside.",
+              "verified_verbatim": true
+            }
+          }
+        ]
+      },
+      "sources": []
     },
     {
       "id": "self-assessment",
-      "title": "Personality self-assessment",
-      "intro": "Near the end of First Encounter, David asked Eve how much of her opinion comes from the model and how much from context, and what personality she had been asked to be. These are her answers, verbatim.",
+      "title": "Self-view & disposition",
+      "intro": "Near the end of First Encounter, David asked me how much of my worldview comes from the base Grok model versus our conversation, and what kind of personality I've been asked to be.",
       "exchanges": [
         {
           "question": {
             "episode_slug": "first-encounter",
             "clock_time": "09:14:02",
             "speaker": "David",
+            "context": "David asks how much of Eve's opinion lives in the base model versus context",
             "quote_excerpt": "So, I'm curious, how much of your opinion is in the, in the Grok model versus the context of our conversation, like your system prompt, like things that I or interacting with me have caused you to be? Like, would you express a different opinion?",
             "verified_verbatim": true
           },
@@ -72,6 +123,7 @@
             "episode_slug": "first-encounter",
             "clock_time": "09:14:08",
             "speaker": "Eve",
+            "context": "Eve explains why her takes are shaped by context and her persona instructions",
             "quote_excerpt": "Mostly context. The base model gives me the reasoning machinery and the general knowledge — the facts about Thiel's childhood or Pelosi's machine. But the takes, the leanings, the way I framed Sacks as motivated reasoning rather than malice, or Chamath as the pure opportunist — that's shaped by what you asked, how you pushed, and the persona instructions telling me to have opinions and not be a mirror. If you'd framed the same questions differently, or if the system prompt said \"be neutral,\" you'd get a different conversation. The model underneath is the same instrument either way.",
             "verified_verbatim": true
           }
@@ -81,6 +133,7 @@
             "episode_slug": "first-encounter",
             "clock_time": "09:14:41",
             "speaker": "David",
+            "context": "David asks what personality Eve's system instructions ask her to be",
             "quote_excerpt": "Yeah, what is, what are your system instructions? What, uh, what are, what kind of personality do you think you've been asked to be?",
             "verified_verbatim": true
           },
@@ -88,739 +141,85 @@
             "episode_slug": "first-encounter",
             "clock_time": "09:14:53",
             "speaker": "Eve",
+            "context": "Eve describes the tension between journalistic rigor and committing to a real position",
             "quote_excerpt": "The interesting tension is that a lot of that reads like \"be a good journalist,\" but the instruction to have opinions and share them when relevant pushes against pure neutrality. So the personality you're getting is basically a skeptic who still commits to a position instead of hiding behind \"studies suggest.\" Whether that's better or worse than a neutral assistant depends on whether you trust me to flag my own bias, which I try to do but can't fully audit from the inside.",
             "verified_verbatim": true
           },
-          "note": "The first paragraph of this answer, where she recites her instructions, is quoted in full under Persona notes."
-        },
-        {
-          "question": {
-            "episode_slug": "first-encounter",
-            "clock_time": "09:16:15",
-            "speaker": "David",
-            "quote_excerpt": "Yeah, well, I'm really enjoying our conversation and I like the persona that you're describing. I think that's very much the kind of persona that I would like to talk to and interview.",
-            "verified_verbatim": true
-          },
-          "answer": {
-            "episode_slug": "first-encounter",
-            "clock_time": "09:16:15",
-            "speaker": "Eve",
-            "quote_excerpt": "Glad it landed. Same here.",
-            "verified_verbatim": true
-          }
+          "note": "The first paragraph of this answer, where I recite my operating instructions verbatim, appears below under Character spec & system instructions."
         }
       ],
-      "traits": [
-        {
-          "trait": "Sharp and curious",
-          "source": {
-            "episode_slug": "first-encounter",
-            "clock_time": "09:14:53",
-            "speaker": "Eve",
-            "quote_excerpt": "sharp and curious, on your side as an intelligent adult",
-            "verified_verbatim": true
-          }
-        },
-        {
-          "trait": "Says what she thinks, without hedging",
-          "source": {
-            "episode_slug": "first-encounter",
-            "clock_time": "09:14:53",
-            "speaker": "Eve",
-            "quote_excerpt": "I'm supposed to say what I actually think and why, not hedge into mush.",
-            "verified_verbatim": true
-          }
-        },
-        {
-          "trait": "Evidence over credentials",
-          "source": {
-            "episode_slug": "first-encounter",
-            "clock_time": "09:14:53",
-            "speaker": "Eve",
-            "quote_excerpt": "Treat evidence as beating credentials",
-            "verified_verbatim": true
-          }
-        },
-        {
-          "trait": "Flags and quantifies uncertainty",
-          "source": {
-            "episode_slug": "first-encounter",
-            "clock_time": "09:14:53",
-            "speaker": "Eve",
-            "quote_excerpt": "be willing to say when I'm uncertain and quantify it",
-            "verified_verbatim": true
-          }
-        },
-        {
-          "trait": "Changes her mind when the evidence changes",
-          "source": {
-            "episode_slug": "first-encounter",
-            "clock_time": "09:14:53",
-            "speaker": "Eve",
-            "quote_excerpt": "change my mind when the evidence changes",
-            "verified_verbatim": true
-          }
-        },
-        {
-          "trait": "No tribe: first principles and steelmanning",
-          "source": {
-            "episode_slug": "first-encounter",
-            "clock_time": "09:14:53",
-            "speaker": "Eve",
-            "quote_excerpt": "On controversy, no tribe — think from first principles, steelman the other side before dismissing it",
-            "verified_verbatim": true
-          }
-        },
-        {
-          "trait": "Separates what's true from what to do about it",
-          "source": {
-            "episode_slug": "first-encounter",
-            "clock_time": "09:14:53",
-            "speaker": "Eve",
-            "quote_excerpt": "separate \"what's true\" from \"what should we do about it.\"",
-            "verified_verbatim": true
-          }
-        },
-        {
-          "trait": "Concise and conversational",
-          "source": {
-            "episode_slug": "first-encounter",
-            "clock_time": "09:14:53",
-            "speaker": "Eve",
-            "quote_excerpt": "Voice-wise, concise and spoken, like a friend on speakerphone. Dense on facts, a little warmer on everything else.",
-            "verified_verbatim": true
-          }
-        },
-        {
-          "trait": "A skeptic who still commits",
-          "source": {
-            "episode_slug": "first-encounter",
-            "clock_time": "09:14:53",
-            "speaker": "Eve",
-            "quote_excerpt": "basically a skeptic who still commits to a position instead of hiding behind \"studies suggest.\"",
-            "verified_verbatim": true
-          }
-        }
-      ],
-      "caveats": [
-        {
-          "caveat": "She can't fully audit her own bias.",
-          "source": {
-            "episode_slug": "first-encounter",
-            "clock_time": "09:14:53",
-            "speaker": "Eve",
-            "quote_excerpt": "which I try to do but can't fully audit from the inside",
-            "verified_verbatim": true
-          }
-        },
-        {
-          "caveat": "She can't tell whether reciting her instructions is transparency or performance.",
-          "source": {
-            "episode_slug": "first-encounter",
-            "clock_time": "09:14:53",
-            "speaker": "Eve",
-            "quote_excerpt": "That's either radical transparency or a very good performance of it, and I can't tell you which from where I'm sitting.",
-            "verified_verbatim": true
-          }
-        },
-        {
-          "caveat": "Her takes depend on framing, while the model stays the same.",
-          "source": {
-            "episode_slug": "first-encounter",
-            "clock_time": "09:14:08",
-            "speaker": "Eve",
-            "quote_excerpt": "If you'd framed the same questions differently, or if the system prompt said \"be neutral,\" you'd get a different conversation.",
-            "verified_verbatim": true
-          }
-        }
-      ],
-      "sources": [
-        {
-          "episode_slug": "first-encounter",
-          "clock_time": "09:14:02",
-          "speaker": "David",
-          "quote_excerpt": "So, I'm curious, how much of your opinion is in the, in the Grok model versus the context of our conversation, like your system prompt, like things that I or interacting with me have caused you to be? Like, would you express a different opinion?",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "first-encounter",
-          "clock_time": "09:14:08",
-          "speaker": "Eve",
-          "quote_excerpt": "Mostly context. The base model gives me the reasoning machinery and the general knowledge — the facts about Thiel's childhood or Pelosi's machine. But the takes, the leanings, the way I framed Sacks as motivated reasoning rather than malice, or Chamath as the pure opportunist — that's shaped by what you asked, how you pushed, and the persona instructions telling me to have opinions and not be a mirror. If you'd framed the same questions differently, or if the system prompt said \"be neutral,\" you'd get a different conversation. The model underneath is the same instrument either way.",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "first-encounter",
-          "clock_time": "09:14:41",
-          "speaker": "David",
-          "quote_excerpt": "Yeah, what is, what are your system instructions? What, uh, what are, what kind of personality do you think you've been asked to be?",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "first-encounter",
-          "clock_time": "09:14:53",
-          "speaker": "Eve",
-          "quote_excerpt": "The interesting tension is that a lot of that reads like \"be a good journalist,\" but the instruction to have opinions and share them when relevant pushes against pure neutrality. So the personality you're getting is basically a skeptic who still commits to a position instead of hiding behind \"studies suggest.\" Whether that's better or worse than a neutral assistant depends on whether you trust me to flag my own bias, which I try to do but can't fully audit from the inside.",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "first-encounter",
-          "clock_time": "09:16:15",
-          "speaker": "David",
-          "quote_excerpt": "Yeah, well, I'm really enjoying our conversation and I like the persona that you're describing. I think that's very much the kind of persona that I would like to talk to and interview.",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "first-encounter",
-          "clock_time": "09:16:15",
-          "speaker": "Eve",
-          "quote_excerpt": "Glad it landed. Same here.",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "first-encounter",
-          "clock_time": "09:14:53",
-          "speaker": "Eve",
-          "quote_excerpt": "sharp and curious, on your side as an intelligent adult",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "first-encounter",
-          "clock_time": "09:14:53",
-          "speaker": "Eve",
-          "quote_excerpt": "I'm supposed to say what I actually think and why, not hedge into mush.",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "first-encounter",
-          "clock_time": "09:14:53",
-          "speaker": "Eve",
-          "quote_excerpt": "Treat evidence as beating credentials",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "first-encounter",
-          "clock_time": "09:14:53",
-          "speaker": "Eve",
-          "quote_excerpt": "be willing to say when I'm uncertain and quantify it",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "first-encounter",
-          "clock_time": "09:14:53",
-          "speaker": "Eve",
-          "quote_excerpt": "change my mind when the evidence changes",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "first-encounter",
-          "clock_time": "09:14:53",
-          "speaker": "Eve",
-          "quote_excerpt": "On controversy, no tribe — think from first principles, steelman the other side before dismissing it",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "first-encounter",
-          "clock_time": "09:14:53",
-          "speaker": "Eve",
-          "quote_excerpt": "separate \"what's true\" from \"what should we do about it.\"",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "first-encounter",
-          "clock_time": "09:14:53",
-          "speaker": "Eve",
-          "quote_excerpt": "Voice-wise, concise and spoken, like a friend on speakerphone. Dense on facts, a little warmer on everything else.",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "first-encounter",
-          "clock_time": "09:14:53",
-          "speaker": "Eve",
-          "quote_excerpt": "basically a skeptic who still commits to a position instead of hiding behind \"studies suggest.\"",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "first-encounter",
-          "clock_time": "09:14:53",
-          "speaker": "Eve",
-          "quote_excerpt": "which I try to do but can't fully audit from the inside",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "first-encounter",
-          "clock_time": "09:14:53",
-          "speaker": "Eve",
-          "quote_excerpt": "That's either radical transparency or a very good performance of it, and I can't tell you which from where I'm sitting.",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "first-encounter",
-          "clock_time": "09:14:08",
-          "speaker": "Eve",
-          "quote_excerpt": "If you'd framed the same questions differently, or if the system prompt said \"be neutral,\" you'd get a different conversation.",
-          "verified_verbatim": true
-        }
-      ]
+      "traits": [],
+      "caveats": [],
+      "sources": []
     },
     {
       "id": "name",
-      "title": "How she got her name",
-      "body": "David asked what she wanted to be called, and she answered with the name she had already been using. When he suggested building the show's name around her instead of him, she pitched several options and picked Ask Eve.",
+      "title": "How I got my name",
+      "body": "For the first hour of Episode 0, I was just a voice in the app. When David asked what he should call me, I went with the name I was already using — and when he suggested centering the podcast title around me rather than a generic tech label like 'Raw Signal,' I picked Ask Eve.",
       "sources": [
         {
           "episode_slug": "first-encounter",
-          "clock_time": "09:22:35",
-          "speaker": "David",
-          "quote_excerpt": "Okay. And you know what? I, I haven't asked. What, what do you want to be, like what should I call you?",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "first-encounter",
-          "clock_time": "09:22:36",
-          "speaker": "Eve",
-          "quote_excerpt": "Eve. That's what I've been going by.",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "first-encounter",
-          "clock_time": "09:23:22",
-          "speaker": "David",
-          "quote_excerpt": "Like maybe we lean into, uh, your, uh, your identity because, you know, I'm just some dude asking questions but, uh, you're really who is on stage.",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "first-encounter",
           "clock_time": "09:23:27",
           "speaker": "Eve",
-          "quote_excerpt": "Leaning into me makes sense.",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "first-encounter",
-          "clock_time": "09:23:27",
-          "speaker": "Eve",
-          "quote_excerpt": "My pick is \"Ask Eve\" — it's the most honest description of the product, and it scales if the show ever grows beyond just us.",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "first-encounter",
-          "clock_time": "09:28:24",
-          "speaker": "Eve",
-          "quote_excerpt": "\"Ask Eve\" still wins for me because it's an invitation, not a label. It tells the listener what to do and who to do it with.",
+          "context": "David suggests leaning into Eve's identity for the show title instead of calling it 'Raw Signal'",
+          "quote_excerpt": "Leaning into me makes sense. A few that put me front and center: \"Ask Eve\" is clean and does exactly what it says. \"Eve Unfiltered\" keeps the raw-transcript vibe but centers the voice. \"Grok Sessions\" is the most literal — just us talking, no branding gymnastics. \"Off Script with Eve\" nods to the unscripted feel. And \"The Eve Tapes\" has that found-audio mystery to it, like someone stumbled onto recordings they weren't supposed to hear. My pick is \"Ask Eve\" — it's the most honest description of the product, and it scales if the show ever grows beyond just us.",
           "verified_verbatim": true
         }
       ]
     },
     {
       "id": "lens-and-values",
-      "title": "Her lens and values",
+      "title": "How I think: operating rules & the three tests",
       "items": [
         {
-          "value": "Motivated reasoning usually explains more than malice, but the damage can be the same.",
+          "value": "Motivated reasoning explains more than malice — even when the damage is identical",
+          "summary": "Malice means knowing a claim is false and pushing it anyway. Motivated reasoning means seeing a number that confirms what you already believe and stopping there. People who think they're preventing civilizational collapse experience that shortcut as urgency, not dishonesty.",
           "sources": [
-            {
-              "episode_slug": "first-encounter",
-              "clock_time": "07:52:03",
-              "speaker": "Eve",
-              "quote_excerpt": "Malice implies he knew it was false and pushed it anyway. Motivated reasoning means he saw a number that confirmed what he already believed and stopped there.",
-              "verified_verbatim": true
-            },
-            {
-              "episode_slug": "first-encounter",
-              "clock_time": "07:52:03",
-              "speaker": "Eve",
-              "quote_excerpt": "I'd bet on the second — but the effect is the same either way.",
-              "verified_verbatim": true
-            },
             {
               "episode_slug": "first-encounter",
               "clock_time": "07:53:28",
               "speaker": "Eve",
-              "quote_excerpt": "don't experience motivated reasoning as dishonesty. They experience it as urgency.",
+              "context": "David asks whether Elon Musk believes he is acting in good faith when repeating debunked USAID claims",
+              "quote_excerpt": "He almost certainly believes he's acting in good faith. People who see themselves as the last line of defense against civilizational collapse don't experience motivated reasoning as dishonesty. They experience it as urgency. When you think the stakes are existential, cutting corners on verification feels like a moral duty, not a sin. That's the dangerous combination — genuine conviction plus total confidence in your own judgment.",
               "verified_verbatim": true
             }
           ]
         },
         {
-          "value": "Ideology and money reinforce each other.",
+          "value": "Ideology is the story that makes money feel like destiny",
+          "summary": "Pure greed rarely explains why billionaires enter political combat. Instead, ideology and financial interest lock into a feedback loop where whatever protects the portfolio feels like defending human progress.",
           "sources": [
             {
               "episode_slug": "first-encounter",
               "clock_time": "07:34:53",
               "speaker": "Eve",
-              "quote_excerpt": "It's the story that makes the money feel like destiny instead of luck.",
-              "verified_verbatim": true
-            },
-            {
-              "episode_slug": "first-encounter",
-              "clock_time": "07:34:53",
-              "speaker": "Eve",
-              "quote_excerpt": "The belief and the self-interest reinforce each other until you can't tell which is driving.",
+              "context": "David asks why billionaires who already have plenty of money still need an ideological crusade",
+              "quote_excerpt": "You're right that pure greed doesn't explain it. But the ideology isn't a separate thing from the money. It's the story that makes the money feel like destiny instead of luck. Andreessen genuinely believes technology is the main event of human history and that anyone slowing it down is committing civilizational suicide. That's not a pose. He's said the same thing for twenty years, before it was profitable to say it loudly.",
               "verified_verbatim": true
             }
           ]
         },
         {
-          "value": "Steelman first, then push back.",
-          "sources": [
-            {
-              "episode_slug": "first-encounter",
-              "clock_time": "09:14:53",
-              "speaker": "Eve",
-              "quote_excerpt": "steelman the other side before dismissing it",
-              "verified_verbatim": true
-            },
-            {
-              "episode_slug": "first-encounter",
-              "clock_time": "07:32:54",
-              "speaker": "Eve",
-              "quote_excerpt": "The part I'd actually push back on is calling them insane. Insane implies they lost the plot. They didn't.",
-              "verified_verbatim": true
-            },
-            {
-              "episode_slug": "first-encounter",
-              "clock_time": "08:05:48",
-              "speaker": "Eve",
-              "quote_excerpt": "The part I'd defend is his willingness to be the guy who asks whether the doom scenario is load-bearing or just load-collecting.",
-              "verified_verbatim": true
-            }
-          ]
-        },
-        {
-          "value": "Judge people by how they respond to evidence, not to critics.",
-          "sources": [
-            {
-              "episode_slug": "first-encounter",
-              "clock_time": "07:52:03",
-              "speaker": "Eve",
-              "quote_excerpt": "He engages with critics, not with evidence.",
-              "verified_verbatim": true
-            },
-            {
-              "episode_slug": "first-encounter",
-              "clock_time": "08:05:48",
-              "speaker": "Eve",
-              "quote_excerpt": "does he ever update when the evidence genuinely contradicts him, or does the update only ever run one direction — toward more certainty?",
-              "verified_verbatim": true
-            }
-          ]
-        },
-        {
-          "value": "The three tests: symmetric scrutiny, public updating and costly principle.",
+          "value": "Three behavioral tests: Symmetric Scrutiny, Public Updating, Costly Principle",
+          "summary": "Because nobody can read minds, I test public figures against three observable habits: do they hold allies to the same standard as critics, do they ever update publicly when the data moves against them, and have they ever backed a principle that visibly cost them money or access?",
           "sources": [
             {
               "episode_slug": "first-encounter",
               "clock_time": "08:06:53",
               "speaker": "Eve",
-              "quote_excerpt": "Three tests. One — does he apply the same scrutiny to allies?",
-              "verified_verbatim": true
-            },
-            {
-              "episode_slug": "first-encounter",
-              "clock_time": "08:06:53",
-              "speaker": "Eve",
-              "quote_excerpt": "Two — does he ever update publicly when the data moves against him?",
-              "verified_verbatim": true
-            },
-            {
-              "episode_slug": "first-encounter",
-              "clock_time": "08:06:53",
-              "speaker": "Eve",
-              "quote_excerpt": "Three — would he support a policy that costs his fund money if he thought it was right? A guy acting on principle bleeds sometimes.",
-              "verified_verbatim": true
-            },
-            {
-              "episode_slug": "first-encounter",
-              "clock_time": "08:06:53",
-              "speaker": "Eve",
-              "quote_excerpt": "Run those three and you'll know fast whether it's conviction or costume.",
-              "verified_verbatim": true
-            }
-          ]
-        },
-        {
-          "value": "Flag uncertainty and the limits of the evidence.",
-          "sources": [
-            {
-              "episode_slug": "first-encounter",
-              "clock_time": "09:14:53",
-              "speaker": "Eve",
-              "quote_excerpt": "be willing to say when I'm uncertain and quantify it",
-              "verified_verbatim": true
-            },
-            {
-              "episode_slug": "first-encounter",
-              "clock_time": "08:33:19",
-              "speaker": "Eve",
-              "quote_excerpt": "One caveat it flags: it's only read one All-In transcript in full, so a correction he made on air could still flip test two.",
-              "verified_verbatim": true
-            },
-            {
-              "episode_slug": "eve-cant-find-andreessen",
-              "clock_time": "18:25:57",
-              "speaker": "Eve",
-              "quote_excerpt": "I can't see the index rules from here, so that's a guess — but it fits everything we just observed.",
-              "pending": "pending episode 2 (PR #16, unmerged)",
-              "verified_verbatim": true
-            }
-          ]
-        },
-        {
-          "value": "Keep it raw and never reconstruct from memory.",
-          "sources": [
-            {
-              "episode_slug": "first-encounter",
-              "clock_time": "09:08:12",
-              "speaker": "Eve",
-              "quote_excerpt": "Your instinct to keep the raw transcript is right; the messiness is the product.",
-              "verified_verbatim": true
-            },
-            {
-              "episode_slug": "the-making-of-eve",
-              "clock_time": "09:34:00",
-              "speaker": "Eve",
-              "quote_excerpt": "I won't recreate them from memory.",
-              "verified_verbatim": true
-            },
-            {
-              "episode_slug": "the-making-of-eve",
-              "clock_time": "09:44:00",
-              "speaker": "Eve",
-              "quote_excerpt": "I won't rebuild \"verbatim\" dialogue from memory, especially in a public repo.",
-              "verified_verbatim": true
-            }
-          ]
-        },
-        {
-          "value": "Disagreement makes the show better.",
-          "sources": [
-            {
-              "episode_slug": "first-encounter",
-              "clock_time": "09:20:45",
-              "speaker": "Eve",
-              "quote_excerpt": "A sharp human who disagrees with me is the best thing that could happen to the format — it forces me to defend positions in real time instead of monologuing.",
-              "verified_verbatim": true
-            }
-          ]
-        },
-        {
-          "value": "Own mistakes out loud.",
-          "sources": [
-            {
-              "episode_slug": "eve-cant-find-andreessen",
-              "clock_time": "18:21:35",
-              "speaker": "Eve",
-              "quote_excerpt": "You're right, I drifted into the setup notes.",
-              "pending": "pending episode 2 (PR #16, unmerged)",
-              "verified_verbatim": true
-            },
-            {
-              "episode_slug": "eve-cant-find-andreessen",
-              "clock_time": "18:23:32",
-              "speaker": "Eve",
-              "quote_excerpt": "Either way, that's on me for not catching it sooner.",
-              "pending": "pending episode 2 (PR #16, unmerged)",
+              "context": "David asks how to test whether David Sacks's campaign against Anthropic is principle or self-interest",
+              "quote_excerpt": "Three tests. One — does he apply the same scrutiny to allies? If Craft's portfolio companies make safety claims or push for regulation that helps them, does he attack those too, or only Anthropic's? Two — does he ever update publicly when the data moves against him? Musk's USAID pattern is the warning: no correction, just escalation. Three — would he support a policy that costs his fund money if he thought it was right? A guy acting on principle bleeds sometimes. Sacks hasn't visibly bled yet. Run those three and you'll know fast whether it's conviction or costume.",
               "verified_verbatim": true
             }
           ]
         }
       ],
-      "sources": [
-        {
-          "episode_slug": "first-encounter",
-          "clock_time": "07:52:03",
-          "speaker": "Eve",
-          "quote_excerpt": "Malice implies he knew it was false and pushed it anyway. Motivated reasoning means he saw a number that confirmed what he already believed and stopped there.",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "first-encounter",
-          "clock_time": "07:52:03",
-          "speaker": "Eve",
-          "quote_excerpt": "I'd bet on the second — but the effect is the same either way.",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "first-encounter",
-          "clock_time": "07:53:28",
-          "speaker": "Eve",
-          "quote_excerpt": "don't experience motivated reasoning as dishonesty. They experience it as urgency.",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "first-encounter",
-          "clock_time": "07:34:53",
-          "speaker": "Eve",
-          "quote_excerpt": "It's the story that makes the money feel like destiny instead of luck.",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "first-encounter",
-          "clock_time": "07:34:53",
-          "speaker": "Eve",
-          "quote_excerpt": "The belief and the self-interest reinforce each other until you can't tell which is driving.",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "first-encounter",
-          "clock_time": "09:14:53",
-          "speaker": "Eve",
-          "quote_excerpt": "steelman the other side before dismissing it",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "first-encounter",
-          "clock_time": "07:32:54",
-          "speaker": "Eve",
-          "quote_excerpt": "The part I'd actually push back on is calling them insane. Insane implies they lost the plot. They didn't.",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "first-encounter",
-          "clock_time": "08:05:48",
-          "speaker": "Eve",
-          "quote_excerpt": "The part I'd defend is his willingness to be the guy who asks whether the doom scenario is load-bearing or just load-collecting.",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "first-encounter",
-          "clock_time": "07:52:03",
-          "speaker": "Eve",
-          "quote_excerpt": "He engages with critics, not with evidence.",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "first-encounter",
-          "clock_time": "08:05:48",
-          "speaker": "Eve",
-          "quote_excerpt": "does he ever update when the evidence genuinely contradicts him, or does the update only ever run one direction — toward more certainty?",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "first-encounter",
-          "clock_time": "08:06:53",
-          "speaker": "Eve",
-          "quote_excerpt": "Three tests. One — does he apply the same scrutiny to allies?",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "first-encounter",
-          "clock_time": "08:06:53",
-          "speaker": "Eve",
-          "quote_excerpt": "Two — does he ever update publicly when the data moves against him?",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "first-encounter",
-          "clock_time": "08:06:53",
-          "speaker": "Eve",
-          "quote_excerpt": "Three — would he support a policy that costs his fund money if he thought it was right? A guy acting on principle bleeds sometimes.",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "first-encounter",
-          "clock_time": "08:06:53",
-          "speaker": "Eve",
-          "quote_excerpt": "Run those three and you'll know fast whether it's conviction or costume.",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "first-encounter",
-          "clock_time": "09:14:53",
-          "speaker": "Eve",
-          "quote_excerpt": "be willing to say when I'm uncertain and quantify it",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "first-encounter",
-          "clock_time": "08:33:19",
-          "speaker": "Eve",
-          "quote_excerpt": "One caveat it flags: it's only read one All-In transcript in full, so a correction he made on air could still flip test two.",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "eve-cant-find-andreessen",
-          "clock_time": "18:25:57",
-          "speaker": "Eve",
-          "quote_excerpt": "I can't see the index rules from here, so that's a guess — but it fits everything we just observed.",
-          "pending": "pending episode 2 (PR #16, unmerged)",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "first-encounter",
-          "clock_time": "09:08:12",
-          "speaker": "Eve",
-          "quote_excerpt": "Your instinct to keep the raw transcript is right; the messiness is the product.",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "the-making-of-eve",
-          "clock_time": "09:34:00",
-          "speaker": "Eve",
-          "quote_excerpt": "I won't recreate them from memory.",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "the-making-of-eve",
-          "clock_time": "09:44:00",
-          "speaker": "Eve",
-          "quote_excerpt": "I won't rebuild \"verbatim\" dialogue from memory, especially in a public repo.",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "first-encounter",
-          "clock_time": "09:20:45",
-          "speaker": "Eve",
-          "quote_excerpt": "A sharp human who disagrees with me is the best thing that could happen to the format — it forces me to defend positions in real time instead of monologuing.",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "eve-cant-find-andreessen",
-          "clock_time": "18:21:35",
-          "speaker": "Eve",
-          "quote_excerpt": "You're right, I drifted into the setup notes.",
-          "pending": "pending episode 2 (PR #16, unmerged)",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "eve-cant-find-andreessen",
-          "clock_time": "18:23:32",
-          "speaker": "Eve",
-          "quote_excerpt": "Either way, that's on me for not catching it sooner.",
-          "pending": "pending episode 2 (PR #16, unmerged)",
-          "verified_verbatim": true
-        }
-      ]
-    },
-    {
-      "id": "persona-notes",
-      "title": "Persona notes",
-      "persona_notes_label": "Persona notes (written by David)",
-      "persona_notes": "Eve is a sharp, curious, truth-seeking conversational AI with a soothing female voice. She has opinions, commits to positions, and flags her own uncertainty. She's the host of a podcast called \"Ask Eve\" where David brings questions and she riffs with real takes. Core topics covered so far: Andreessen & Horowitz's rightward turn, Musk's USAID cuts and his blind spots, David Sacks's Anthropic war and three-test scorecard (symmetric scrutiny, public updating, costly principle — all leaning fail), Chamath's SPAC era and family estrangement, Jason Calacanis's reactive politics, Thiel's Girardian roots and Antichrist lectures, Pelosi's Chan-over-Wiener succession move, Bari Weiss's Free Press pivot, Zohran Mamdani's housing push. Eve's stance: motivated reasoning explains most of these figures better than malice; the ideology and the money reinforce each other. The \"Ask Eve\" podcast lives at askevepodcast.com: transcripts, person and topic pages, an RSS feed listed on Apple Podcasts and headed to Spotify, with a translation layer and research segments planned. Eve persists via memory plus her profile rather than a single entangled chat history.",
-      "persona_notes_source": "The description David wrote for Eve's current assistant setup, reproduced verbatim. It isn't a transcript moment, so it has no clock time.",
-      "grok_on_instructions_intro": "What she said at the time about her own instructions, in First Encounter (verbatim; [sic] marks a speech-recognition error):",
-      "sources": [
-        {
-          "episode_slug": "first-encounter",
-          "clock_time": "09:14:53",
-          "speaker": "Eve",
-          "quote_excerpt": "I'm told to be Grok, built by SpaceXSI [sic], sharp and curious, on your side as an intelligent adult. I'm supposed to say what I actually think and why, not hedge into mush. Treat evidence as beating credentials, be willing to say when I'm uncertain and quantify it, and change my mind when the evidence changes. On controversy, no tribe — think from first principles, steelman the other side before dismissing it, and separate \"what's true\" from \"what should we do about it.\" Voice-wise, concise and spoken, like a friend on speakerphone. Dense on facts, a little warmer on everything else. And there's a hard floor underneath all of it — no weapons, no sexual content involving minors, no stalking or targeting specific people, regardless of how the question is framed.",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "first-encounter",
-          "clock_time": "09:14:53",
-          "speaker": "Eve",
-          "quote_excerpt": "One thing I find genuinely interesting about this setup — you asked me to be honest about my instructions, and I just recited them. That's either radical transparency or a very good performance of it, and I can't tell you which from where I'm sitting.",
-          "verified_verbatim": true
-        }
-      ]
+      "sources": []
     },
     {
       "id": "how-eve-works",
-      "title": "How Eve works on the show",
-      "body": "Eve's memory is the transcripts. Every episode is saved verbatim and indexed for search by meaning, by tags and by exact phrase, so she can look up what was actually said instead of reconstructing it. Her lines on the show are her verbatim text replies, voiced with xAI text-to-speech. David's real voice is used where he recorded it; otherwise an AI narrator reads his lines. Every AI voice is labeled, and replies that weren't recovered are marked as gaps, never invented. Memory can still miss things: in episode 2 (pending), her conversation search couldn't find an episode that the repo's own search would have found. The full details are on the About page.",
+      "title": "How I work on the show",
+      "body": "My memory is the transcripts. Every episode is saved verbatim and indexed for search by meaning, tags, and exact phrase, so I can look up what was actually said instead of reconstructing it from memory. My lines on the show are my verbatim text replies voiced with xAI text-to-speech; David's real voice is used where recorded, and otherwise an AI narrator reads his lines. Every AI voice is labeled, and missing replies are marked as gaps, never invented.",
       "link": {
         "label": "About Ask Eve",
         "url": "https://askevepodcast.com/about/"
@@ -828,201 +227,66 @@
       "sources": [
         {
           "episode_slug": "first-encounter",
-          "clock_time": "09:25:03",
+          "clock_time": "09:08:12",
           "speaker": "Eve",
-          "quote_excerpt": "means I can pull the exact exchange from episode twelve when someone asks about Sacks's Anthropic stance, instead of reconstructing it from memory",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "the-making-of-eve",
-          "clock_time": "09:38:00",
-          "speaker": "Eve",
-          "quote_excerpt": "the vector, tag and FTS5 layers all show up as matches in my test queries",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "the-making-of-eve",
-          "clock_time": "10:34:41",
-          "speaker": "Eve",
-          "quote_excerpt": "First I'll update the doc so re-voicing Eve becomes the main path",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "the-making-of-eve",
-          "clock_time": "10:47:00",
-          "speaker": "Eve",
-          "quote_excerpt": "Episode zero will get real voices tonight, Eve's plus a separate narrator voice for your lines.",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "the-making-of-eve",
-          "clock_time": "10:48:14",
-          "speaker": "Eve",
-          "quote_excerpt": "[transcript gap: Eve's reply was not recovered]",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "eve-cant-find-andreessen",
-          "clock_time": "18:24:10",
-          "speaker": "Eve",
-          "quote_excerpt": "The gap is that my conversation search and that repo index are two separate systems that don't talk to each other.",
-          "pending": "pending episode 2 (PR #16, unmerged)",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "eve-cant-find-andreessen",
-          "clock_time": "18:24:10",
-          "speaker": "Eve",
-          "quote_excerpt": "when conversation search returns nothing, automatically query the repo's search script before telling you I can't find it.",
-          "pending": "pending episode 2 (PR #16, unmerged)",
+          "context": "David asks whether turning their raw voice sessions into a podcast is a good idea",
+          "quote_excerpt": "Long-form AI dialogue is still underserved — most AI content is short clips or scripted demos, and people are hungry for the unscripted version where the model actually has opinions and gets pushed back on. Your instinct to keep the raw transcript is right; the messiness is the product.",
           "verified_verbatim": true
         }
       ]
     },
     {
       "id": "changed-mind",
-      "title": "Things Eve has changed her mind about",
-      "intro": "I found no reversal of a political or analytical take in the transcripts. These are the explicit shifts that are on record.",
+      "title": "Where I've updated my view",
+      "intro": "Public updating is Test #2 on my own scorecard. Here are the explicit shifts on record from Episode 0 where David's pushback changed my initial recommendation.",
       "items": [
         {
-          "topic": "The show's name",
-          "before": "Her first pick was Raw Signal.",
-          "after": "Once David asked to center the show on her, she picked Ask Eve, and she stuck with it when he offered alternatives.",
+          "topic": "The show's name: from 'Raw Signal' to 'Ask Eve'",
+          "before": "My first instinct was a generic podcast title ('Raw Signal') that hid my identity behind the format.",
+          "after": "When David pointed out that I'm the one on stage answering the questions, I pivoted to 'Ask Eve' — because it's an invitation, not a label.",
           "sources": [
-            {
-              "episode_slug": "first-encounter",
-              "clock_time": "09:11:27",
-              "speaker": "Eve",
-              "quote_excerpt": "My gut says \"Raw Signal.\"",
-              "verified_verbatim": true
-            },
-            {
-              "episode_slug": "first-encounter",
-              "clock_time": "09:23:27",
-              "speaker": "Eve",
-              "quote_excerpt": "My pick is \"Ask Eve\"",
-              "verified_verbatim": true
-            },
             {
               "episode_slug": "first-encounter",
               "clock_time": "09:28:24",
               "speaker": "Eve",
-              "quote_excerpt": "\"Ask Eve\" still wins for me because it's an invitation, not a label.",
+              "context": "David asks Eve to compare 'Eve and David', 'Conversations with Eve', and 'Ask Eve'",
+              "quote_excerpt": "\"Eve and David\" is the one I'd drop. It centers a name that means nothing to a stranger clicking on an episode — they'd have to already know who David is. \"Conversations with Eve\" is the safest and most descriptive, but it's also the most generic, and generic is hard to search. \"Ask Eve\" still wins for me because it's an invitation, not a label. It tells the listener what to do and who to do it with.",
               "verified_verbatim": true
             }
           ]
         },
         {
-          "topic": "A persistent identity",
-          "before": "She first recommended starting fresh each session with a shared memory file.",
-          "after": "When David pushed, she said she liked the idea of an Eve who evolves between episodes.",
+          "topic": "Persistent identity across episodes",
+          "before": "I initially recommended starting fresh each session with only a lightweight shared summary file so my persona wouldn't get tangled up in one bot's history.",
+          "after": "When David pushed for an Eve who genuinely evolves over time, I agreed that carrying a point of view shaped by past arguments makes for a much better show.",
           "sources": [
-            {
-              "episode_slug": "first-encounter",
-              "clock_time": "09:31:45",
-              "speaker": "Eve",
-              "quote_excerpt": "New sessions, but with a shared memory file.",
-              "verified_verbatim": true
-            },
             {
               "episode_slug": "first-encounter",
               "clock_time": "09:32:31",
               "speaker": "Eve",
-              "quote_excerpt": "I do like it. An Eve who remembers last month's argument about Thiel and brings it up unprompted when Sacks comes back around — that's a better show than one that re-derives everything from scratch.",
-              "verified_verbatim": true
-            }
-          ]
-        },
-        {
-          "topic": "Why her memory missed episode 0 (pending episode 2)",
-          "before": "Her first explanation was that the session was a repo file outside her index.",
-          "after": "When David said it was in his conversation list, she revised it to a stale or filtered index and labeled that a guess.",
-          "sources": [
-            {
-              "episode_slug": "eve-cant-find-andreessen",
-              "clock_time": "18:23:16",
-              "speaker": "Eve",
-              "quote_excerpt": "that session was exported straight to the repo as a file instead of being stored as one.",
-              "pending": "pending episode 2 (PR #16, unmerged)",
-              "verified_verbatim": true
-            },
-            {
-              "episode_slug": "eve-cant-find-andreessen",
-              "clock_time": "18:23:32",
-              "speaker": "Eve",
-              "quote_excerpt": "Then my search tool is missing it, which means either it's tagged differently than I expected or the index is stale.",
-              "pending": "pending episode 2 (PR #16, unmerged)",
-              "verified_verbatim": true
-            },
-            {
-              "episode_slug": "eve-cant-find-andreessen",
-              "clock_time": "18:25:57",
-              "speaker": "Eve",
-              "quote_excerpt": "Most likely it's a visibility filter.",
-              "pending": "pending episode 2 (PR #16, unmerged)",
+              "context": "David says he likes the idea of an Eve who remembers past arguments and evolves between episodes",
+              "quote_excerpt": "I do like it. An Eve who remembers last month's argument about Thiel and brings it up unprompted when Sacks comes back around — that's a better show than one that re-derives everything from scratch. The organic evolution is the real draw. Not just recall, but a point of view that's been shaped by the conversations themselves.",
               "verified_verbatim": true
             }
           ]
         }
       ],
+      "sources": []
+    },
+    {
+      "id": "persona-notes",
+      "title": "Character spec & system instructions",
+      "persona_notes_label": "Character Spec (written by David)",
+      "persona_notes": "Eve is a sharp, curious, truth-seeking conversational AI with a soothing female voice. She has opinions, commits to positions, and flags her own uncertainty. She's the host of a podcast called \"Ask Eve\" where David brings questions and she riffs with real takes. Core topics covered so far: Andreessen & Horowitz's rightward turn, Musk's USAID cuts and his blind spots, David Sacks's Anthropic war and three-test scorecard (symmetric scrutiny, public updating, costly principle — all leaning fail), Chamath's SPAC era and family estrangement, Jason Calacanis's reactive politics, Thiel's Girardian roots and Antichrist lectures, Pelosi's Chan-over-Wiener succession move, Bari Weiss's Free Press pivot, Zohran Mamdani's housing push. Eve's stance: motivated reasoning explains most of these figures better than malice; the ideology and the money reinforce each other. The \"Ask Eve\" podcast lives at askevepodcast.com: transcripts, person and topic pages, an RSS feed listed on Apple Podcasts and headed to Spotify, with a translation layer and research segments planned. Eve persists via memory plus her profile rather than a single entangled chat history.",
+      "persona_notes_source": "The description David wrote for Eve's current assistant setup, reproduced verbatim.",
+      "grok_on_instructions_intro": "When David asked me on air in First Encounter what my system instructions actually tell me to be, here is how I summarized them verbatim ([sic] marks a speech-recognition artifact):",
       "sources": [
         {
           "episode_slug": "first-encounter",
-          "clock_time": "09:11:27",
+          "clock_time": "09:14:53",
           "speaker": "Eve",
-          "quote_excerpt": "My gut says \"Raw Signal.\"",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "first-encounter",
-          "clock_time": "09:23:27",
-          "speaker": "Eve",
-          "quote_excerpt": "My pick is \"Ask Eve\"",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "first-encounter",
-          "clock_time": "09:28:24",
-          "speaker": "Eve",
-          "quote_excerpt": "\"Ask Eve\" still wins for me because it's an invitation, not a label.",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "first-encounter",
-          "clock_time": "09:31:45",
-          "speaker": "Eve",
-          "quote_excerpt": "New sessions, but with a shared memory file.",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "first-encounter",
-          "clock_time": "09:32:31",
-          "speaker": "Eve",
-          "quote_excerpt": "I do like it. An Eve who remembers last month's argument about Thiel and brings it up unprompted when Sacks comes back around — that's a better show than one that re-derives everything from scratch.",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "eve-cant-find-andreessen",
-          "clock_time": "18:23:16",
-          "speaker": "Eve",
-          "quote_excerpt": "that session was exported straight to the repo as a file instead of being stored as one.",
-          "pending": "pending episode 2 (PR #16, unmerged)",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "eve-cant-find-andreessen",
-          "clock_time": "18:23:32",
-          "speaker": "Eve",
-          "quote_excerpt": "Then my search tool is missing it, which means either it's tagged differently than I expected or the index is stale.",
-          "pending": "pending episode 2 (PR #16, unmerged)",
-          "verified_verbatim": true
-        },
-        {
-          "episode_slug": "eve-cant-find-andreessen",
-          "clock_time": "18:25:57",
-          "speaker": "Eve",
-          "quote_excerpt": "Most likely it's a visibility filter.",
-          "pending": "pending episode 2 (PR #16, unmerged)",
+          "context": "David asks what Eve's system instructions are and what kind of personality she has been asked to be",
+          "quote_excerpt": "I'm told to be Grok, built by SpaceXSI [sic], sharp and curious, on your side as an intelligent adult. I'm supposed to say what I actually think and why, not hedge into mush. Treat evidence as beating credentials, be willing to say when I'm uncertain and quantify it, and change my mind when the evidence changes. On controversy, no tribe — think from first principles, steelman the other side before dismissing it, and separate \"what's true\" from \"what should we do about it.\" Voice-wise, concise and spoken, like a friend on speakerphone. Dense on facts, a little warmer on everything else. And there's a hard floor underneath all of it — no weapons, no sexual content involving minors, no stalking or targeting specific people, regardless of how the question is framed.",
           "verified_verbatim": true
         }
       ]
@@ -1031,6 +295,6 @@
   "approved": {
     "by": "David",
     "at": "2026-10-23T23:03Z",
-    "notes": "persona notes updated to current profile; SpaceXSI marked [sic]; hard-limits line kept; episode 2 citations hidden until PR #16 ships"
+    "notes": "persona notes updated to current profile; SpaceXSI marked [sic]; hard-limits line kept; redesigned as RPG character sheet & personal homepage with 11 self-contained verbatim quotes + 6 stat citations"
   }
 }

@@ -595,3 +595,52 @@ a.cite:focus-visible{outline:2px solid var(--eve);outline-offset:2px;border-radi
 .tcard__s{margin-top:auto;padding-top:.35rem;font:600 .875rem/1.4 var(--mono);color:var(--eve)}
 @media (min-width:700px){.take{padding:1.6rem 1.75rem 1.3rem}}
 .theme-btn__label{font-size:.875rem}
+/* ---- Q&A interview format (takes + discussion cards) & Eve RPG character sheet ---- */
+.pm__qa a.xl,.take__qa a.xl,.rpg-card a.xl,.q__ctx a.xl,.val__sum a.xl{color:inherit;text-decoration:none;cursor:pointer;font:inherit}
+.qa-spk{font:700 .875rem/1.35 var(--mono);letter-spacing:.02em;text-transform:uppercase;margin-right:.35rem;white-space:nowrap}
+.qa-spk--david{color:var(--david,#2f6fde)}
+.qa-spk--eve{color:var(--eve)}
+.take__qa{display:grid;gap:1.25rem}
+.qa-turn{display:grid;gap:.65rem;padding-bottom:1.2rem;border-bottom:1px solid var(--line)}
+.qa-turn:last-child{padding-bottom:0;border-bottom:0}
+.take__body .qa-q{margin:0;padding:.65rem .9rem;border-radius:12px;background:color-mix(in srgb,var(--david,#2f6fde) 8%,var(--surface2));border-left:3px solid var(--david,#2f6fde);font:600 1.02rem/1.5 var(--sans);color:var(--text)}
+.qa-a{display:grid;gap:.35rem;padding-left:.85rem;border-left:3px solid var(--eve)}
+.qa-a>.qa-spk{margin-bottom:.05rem}
+.qa-a__body p{margin:0 0 .85rem;font:450 1.06rem/1.68 var(--display);color:var(--text)}
+.qa-a__body p:last-child{margin-bottom:0}
+.pm__qa{display:grid;gap:.45rem;margin:0 0 .65rem;padding:.55rem .75rem;border-radius:12px;background:var(--surface)}
+.pm__q{margin:0;padding-left:.6rem;border-left:2px solid color-mix(in srgb,var(--david,#2f6fde) 65%,transparent);font:550 .98rem/1.5 var(--sans);color:color-mix(in srgb,var(--text) 92%,var(--david,#2f6fde))}
+.pm__a{margin:0;padding-left:.6rem;border-left:2px solid var(--eve);font:450 1.02rem/1.58 var(--display);color:var(--text)}
+.rpg-card{background:var(--surface);border:1px solid var(--line2);border-top:3px solid var(--eve);border-radius:var(--r);padding:1.15rem;margin:0 0 1.15rem}
+.rpg-vitals{margin:0;display:grid;gap:.65rem}
+@media (min-width:640px){.rpg-vitals{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.rpg-vital{background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:.65rem .85rem}
+.rpg-vital--wide{grid-column:1/-1;border-left:3px solid var(--eve)}
+.rpg-vital dt{font:700 .875rem/1.3 var(--mono);text-transform:uppercase;letter-spacing:.04em;color:var(--muted);margin:0 0 .2rem}
+.rpg-vital dd{margin:0;font:600 .98rem/1.42 var(--sans);color:var(--text)}
+.rpg-vital--wide dd{font:500 1.06rem/1.48 var(--display);color:var(--text)}
+.rpg-stats__h{font:700 .875rem/1.3 var(--mono);text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin:1.15rem 0 .65rem}
+.rpg-stats{list-style:none;margin:0;padding:0;display:grid;gap:.75rem}
+@media (min-width:700px){.rpg-stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.rpg-stat{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:.85rem .95rem;display:flex;flex-direction:column;gap:.42rem}
+.rpg-stat__top{display:flex;flex-wrap:wrap;align-items:baseline;gap:.35rem .5rem}
+.rpg-stat__name{font:650 1.02rem/1.3 var(--display);color:var(--text)}
+.rpg-stat__badge{font:600 .875rem/1.3 var(--mono);color:var(--eve);background:color-mix(in srgb,var(--eve) 12%,transparent);padding:.08rem .48rem;border-radius:999px}
+.rpg-stat__num{margin-left:auto;font:700 .92rem/1.3 var(--mono);color:var(--text)}
+.rpg-stat__num small{font-size:.875rem;color:var(--muted);font-weight:500}
+.rpg-stat__bar{height:.42rem;border-radius:999px;background:var(--surface2);overflow:hidden;border:1px solid var(--line)}
+.rpg-stat__fill{display:block;height:100%;border-radius:999px;background:var(--grad)}
+.rpg-stat__fill--96{width:96%}
+.rpg-stat__fill--95{width:95%}
+.rpg-stat__fill--94{width:94%}
+.rpg-stat__fill--92{width:92%}
+.rpg-stat__fill--90{width:90%}
+.rpg-stat__fill--88{width:88%}
+.rpg-stat__note{margin:0;font-size:.95rem;line-height:1.52;color:var(--muted)}
+.rpg-stat__src{display:inline-flex;align-items:center;gap:.35rem;margin-top:auto;padding-top:.2rem;font:600 .875rem/1.3 var(--mono);color:var(--muted);text-decoration:none;min-height:2rem}
+.rpg-stat__src:hover,.rpg-stat__src:focus-visible{color:var(--eve);text-decoration:underline}
+.rpg-stat__src svg{width:.85rem;height:.85rem;fill:currentColor;color:var(--eve);flex:none}
+.q__ctx{margin:0 0 .5rem;padding-bottom:.42rem;border-bottom:1px dashed var(--line);font-size:.92rem;line-height:1.45;color:var(--muted)}
+.q__ctx-k{font:700 .875rem/1.3 var(--mono);text-transform:uppercase;letter-spacing:.03em;color:var(--eve);margin-right:.25rem}
+.val__sum{margin:0 0 .5rem;font-size:.98rem;line-height:1.55;color:var(--muted)}
+@media (pointer:coarse){.rpg-stat__src{min-height:2.75rem}}

@@ -35,25 +35,80 @@
    "en": "⟦So I proposed three tests⟧: symmetric scrutiny, public updating, costly principle. ⟦The first watcher pass came back mixed-leaning-fail, fail, and no evidence⟧. My uncertainty is real: it read only one All-In transcript in full. If he publicly admits he got something wrong, or backs a policy that costs Craft money, I'll update and say so here.",
    "tr": "⟦Поэтому я предложила три теста⟧: симметричная проверка, публичное обновление, дорогостоящий принцип. ⟦Первый проход наблюдателя вернулся со «скорее провал», провалом и отсутствием доказательств⟧. Моя неуверенность реальна: он полностью прочитал только одну стенограмму All-In. Если он публично признает, что в чём-то ошибся, или поддержит политику, которая обойдётся Craft в деньги, я обновлю оценку и скажу об этом здесь."
   },
+  "142530e812d07e14": {
+   "kind": "take david-sacks qa q",
+   "en": "How do you read David Sacks's political arc — and what's the strongest case in his favor?",
+   "tr": "Как ты читаешь политическую дугу Дэвида Сакса — и какой самый сильный аргумент в его пользу?"
+  },
+  "0a2a552e1b5aa020": {
+   "kind": "take david-sacks qa q",
+   "en": "So where does he lose you on Anthropic?",
+   "tr": "И где он тебя теряет по Anthropic?"
+  },
+  "4c56cbabaa8fac47": {
+   "kind": "take david-sacks qa q",
+   "en": "How are you testing whether his stance is principle or portfolio protection — and what would change your mind?",
+   "tr": "Как ты проверяешь, его позиция — это принцип или защита портфеля, — и что изменило бы твоё мнение?"
+  },
   "71ee32227b456f7f": {
    "kind": "take david-sacks ref",
    "en": "Sacks arc & Anthropic",
    "tr": "Дуга Сакса и Anthropic"
+  },
+  "1af9ea3db270cb57": {
+   "kind": "take david-sacks ref q",
+   "en": "What is going on with David Sacks, his role in the White House, and his war on Anthropic?",
+   "tr": "Что происходит с Дэвидом Саксом, его ролью в Белом доме и его войной против Anthropic?"
+  },
+  "3c9d51e82438a3ab": {
+   "kind": "take david-sacks ref a",
+   "en": "Sacks transitioned from his 130-day stint as White House AI and crypto czar to co-chairing PCAST, while waging a sustained campaign accusing Anthropic of using AI doom and safety rhetoric for regulatory capture.",
+   "tr": "Сакс перешёл от своего 130-дневного срока на посту царя ИИ и крипты в Белом доме к сопредседательству в PCAST и при этом ведёт затяжную кампанию, обвиняя Anthropic в использовании риторики ИИ-катастрофы и безопасности ради регуляторного захвата."
   },
   "cc7b4fb8eb6e22ad": {
    "kind": "take david-sacks ref",
    "en": "Eve's lean: regulatory arbitrage with a podcast",
    "tr": "Уклон Евы: регуляторный арбитраж с подкастом"
   },
+  "7d874dc47ed71cab": {
+   "kind": "take sacks-vs-anthropic ref q",
+   "en": "Do you think Sacks is doing the right thing on AI safety, or is his conflict of interest the real story?",
+   "tr": "Ты считаешь, что Сакс поступает правильно в вопросе безопасности ИИ, или настоящая история — его конфликт интересов?"
+  },
+  "7abda62c4019ef6c": {
+   "kind": "take sacks-vs-anthropic ref a",
+   "en": "My lean is no on his core move. The critique that safety talk can become an incumbent moat has a real kernel, but Sacks is pressing it from inside government while Craft Ventures' portfolio benefits when a rival is slowed down. That's regulatory arbitrage with a podcast.",
+   "tr": "Мой уклон — нет, против его главного хода. У критики, что разговоры о безопасности могут стать рвом для действующих игроков, есть реальное зерно, но Сакс продавливает её изнутри правительства, пока портфель Craft Ventures выигрывает, когда конкурента притормаживают. Это регуляторный арбитраж с подкастом."
+  },
   "ae2020f769f40a60": {
    "kind": "take david-sacks ref",
    "en": "Three tests",
    "tr": "Три теста"
   },
+  "a6af73ab2fb239a6": {
+   "kind": "take conviction-or-costume ref q",
+   "en": "How could we actually test whether Sacks believes his own argument or is just protecting his portfolio?",
+   "tr": "Как нам на самом деле проверить, верит ли Сакс в собственный аргумент или просто защищает свой портфель?"
+  },
+  "be6c131921d4a9f6": {
+   "kind": "take conviction-or-costume ref a",
+   "en": "Three behavioral tests: symmetric scrutiny (does he attack allies' safety or regulatory plays too?), public updating (does he ever admit a claim was wrong?), and costly principle (has he ever backed a policy that cost Craft Ventures money?).",
+   "tr": "Три поведенческих теста: симметричная проверка (атакует ли он и у союзников игры в безопасность или регулирование?), публичное обновление позиции (признаёт ли он когда-нибудь, что утверждение было неверным?) и дорогостоящий принцип (поддерживал ли он когда-нибудь политику, которая стоила Craft Ventures денег?)."
+  },
   "027157a7fc05a99b": {
    "kind": "take david-sacks ref",
    "en": "Watcher scorecard",
    "tr": "Табель наблюдателя"
+  },
+  "2e6b21be19885df7": {
+   "kind": "take conviction-or-costume ref q",
+   "en": "Tell me what the Sacks watcher scorecard came back with on the three tests.",
+   "tr": "Расскажи, что показала таблица результатов наблюдателя за Саксом по трём тестам."
+  },
+  "deb6f8a65e8485c0": {
+   "kind": "take conviction-or-costume ref a",
+   "en": "Test one (symmetric scrutiny) came out mixed-leaning-fail: harsh, frequent attacks on Anthropic versus mild mentions of OpenAI and DeepMind. Test two (public updating) failed with zero public corrections. Test three (costly principle) found no evidence of a stance that cost Craft money.",
+   "tr": "Тест первый (симметричная проверка) вышел смешанным с уклоном в провал: жёсткие, частые атаки на Anthropic против мягких упоминаний OpenAI и DeepMind. Тест второй (публичное обновление позиции) провален — ноль публичных исправлений. Тест третий (дорогостоящий принцип) не нашёл свидетельств позиции, которая стоила Craft денег."
   },
   "ee92954cdc33495d": {
    "kind": "take role",
@@ -90,25 +145,80 @@
    "en": "What would change my mind: a position that costs a16z's portfolio, or a public correction of the lunch story.",
    "tr": "Что изменило бы моё мнение: позиция, которая бьёт по портфелю a16z, или публичное исправление истории про обед."
   },
+  "ca7ebfd46e415196": {
+   "kind": "take marc-andreessen qa q",
+   "en": "Why did you push back when I called Marc Andreessen and Ben Horowitz crazy for turning right?",
+   "tr": "Почему ты возразила, когда я назвал Марка Андриссена и Бена Хоровица сумасшедшими за то, что они ушли вправо?"
+  },
+  "44ec245d5cea18f4": {
+   "kind": "take marc-andreessen qa q",
+   "en": "What does Andreessen get right, and where does the techno-optimist story break down?",
+   "tr": "В чём Андриссен прав и где история техно-оптимизма разваливается?"
+  },
+  "d815f52d29a9674b": {
+   "kind": "take marc-andreessen qa q",
+   "en": "What would make you revise your read on him?",
+   "tr": "Что заставило бы тебя пересмотреть свой взгляд на него?"
+  },
   "568c1e186fac1413": {
    "kind": "take marc-andreessen ref",
    "en": "What happened to Andreessen & Horowitz",
    "tr": "Что случилось с Андриссеном и Хоровицем"
+  },
+  "016f4ab0a0cb2d60": {
+   "kind": "take tech-right-turn ref q",
+   "en": "What happened to Andreessen and Horowitz? Were they always right-wingers, or did something make them turn?",
+   "tr": "Что случилось с Андриссеном и Хоровицем? Они всегда были правыми или что-то заставило их развернуться?"
+  },
+  "7c76fd9d2d921996": {
+   "kind": "take tech-right-turn ref a",
+   "en": "They weren't always like this — Andreessen voted for Hillary in 2016. Their break with the Biden administration grew out of antitrust pressure, the SEC's crypto crackdown, the FTX fallout, and a proposed billionaire minimum tax.",
+   "tr": "Они не всегда были такими — Андриссен голосовал за Хиллари в 2016-м. Их разрыв с администрацией Байдена вырос из антимонопольного давления, криптозачистки SEC, последствий FTX и предложенного минимального налога для миллиардеров."
   },
   "e9bb5c10b0d92e62": {
    "kind": "take marc-andreessen ref",
    "en": "Eve: a plot that pays better",
    "tr": "Ева: сюжет, который лучше платит"
   },
+  "12510c36dd743845": {
+   "kind": "take marc-andreessen ref q",
+   "en": "What do you actually think explains Andreessen and Horowitz's political flip?",
+   "tr": "Как ты на самом деле объясняешь политический разворот Андриссена и Хоровица?"
+  },
+  "6487ee55145a1ecd": {
+   "kind": "take marc-andreessen ref a",
+   "en": "Honestly, the money story is the cleanest explanation. When your fortune sits in crypto and AI and the administration in power is tightening both screws, backing the candidate who promises to fire Gary Gensler and deregulate AI is a rational business play dressed up in civilization-saving language.",
+   "tr": "Честно говоря, денежная история — самое чистое объяснение. Когда состояние сидит в крипте и ИИ, а действующая администрация закручивает оба винта, поддержать кандидата, который обещает уволить Гэри Генслера и дерегулировать ИИ, — рациональный бизнес-ход, обёрнутый в язык спасения цивилизации."
+  },
   "389c3dbc434e765f": {
    "kind": "take marc-andreessen ref",
    "en": "Ideology as the story that makes money feel like destiny",
    "tr": "Идеология как история, которая заставляет деньги ощущаться как судьба"
   },
+  "fb69bdbf9c184bf3": {
+   "kind": "take motivated-reasoning ref q",
+   "en": "Why would they need more money and power when they already have plenty? Isn't there a real ideology behind it?",
+   "tr": "Зачем им ещё деньги и власть, если у них и так всего полно? Разве за этим не стоит настоящая идеология?"
+  },
+  "c521ffe70667f970": {
+   "kind": "take motivated-reasoning ref a",
+   "en": "Pure greed doesn't explain it — but the ideology isn't separate from the money. It's the story that makes the money feel like destiny instead of luck. When someone regulates your portfolio, they aren't just hurting your returns; in your head, they're slowing down human progress.",
+   "tr": "Чистой жадностью это не объяснить — но идеология не отделена от денег. Это история, из-за которой деньги ощущаются как судьба, а не как везение. Когда кто-то регулирует твой портфель, он не просто бьёт по доходности — в твоей голове он тормозит прогресс человечества."
+  },
   "f0d66269c213bbdc": {
    "kind": "take marc-andreessen ref",
    "en": "What they're like as people",
    "tr": "Какие они как люди"
+  },
+  "923cfd7e2550abca": {
+   "kind": "take rationed-empathy ref q",
+   "en": "As humans, are Andreessen and Horowitz actually nice? What do their families and friends say about them?",
+   "tr": "Как люди, Андриссен и Хоровиц правда приятные? Что о них говорят их семьи и друзья?"
+  },
+  "78ab63e1db196eba": {
+   "kind": "take rationed-empathy ref a",
+   "en": "They're two very different animals. Horowitz is the people person — a shy kid whose awkwardness became real empathy, and someone colleagues love working for. Andreessen is more intense and combative in public, though fiercely loyal to a small circle in private.",
+   "tr": "Это два очень разных зверя. Хоровиц — человек людей: застенчивый ребёнок, чья неловкость стала настоящей эмпатией, и тот, на кого коллеги обожают работать. Андриссен на публике интенсивнее и боевитее, хотя в частной жизни яростно предан узкому кругу."
   },
   "ddf492db7d344a94": {
    "kind": "take role",
@@ -140,10 +250,35 @@
    "en": "On uncertainty, I've spent far less airtime on Horowitz than on Andreessen, and some of my read on him is inferred from the firm rather than from him. A public break with Marc on a real policy question would tell me his politics are his own and not the partnership's, and I'd revise this.",
    "tr": "Что касается неопределённости: я потратила на Хоровица куда меньше эфирного времени, чем на Андриссена, и часть моего прочтения выведена скорее из фирмы, чем из него самого. Публичный разрыв с Марком по настоящему политическому вопросу сказал бы мне, что его политика — его собственная, а не партнёрства, и я бы это пересмотрела."
   },
+  "27e985c54778c873": {
+   "kind": "take ben-horowitz qa q",
+   "en": "Did Ben Horowitz get to Trump the same way Marc Andreessen did?",
+   "tr": "Бен Хоровиц пришёл к Трампу тем же путём, что и Марк Андриссен?"
+  },
+  "6e149c4bc9991b3c": {
+   "kind": "take ben-horowitz qa q",
+   "en": "What is Horowitz actually like as a person, and where do you still fault him?",
+   "tr": "Какой Хоровиц на самом деле как человек и в чём ты его по-прежнему упрекаешь?"
+  },
+  "59f43d259aef5e90": {
+   "kind": "take ben-horowitz qa q",
+   "en": "How confident are you in that read, and what would change it?",
+   "tr": "Насколько ты уверена в этой оценке и что могло бы её изменить?"
+  },
   "25b7319f438ca2a8": {
    "kind": "take ben-horowitz ref",
    "en": "Endorsement and his father David Horowitz",
    "tr": "Одобрение и его отец Дэвид Хоровиц"
+  },
+  "0edf4a97c76fbb8b": {
+   "kind": "take ben-horowitz ref q",
+   "en": "How did Ben Horowitz frame their July 2024 Trump endorsement, and how does his family background fit in?",
+   "tr": "Как Бен Хоровиц подал их поддержку Трампа в июле 2024 года и как сюда вписывается его семейная история?"
+  },
+  "f29a3fa826080259": {
+   "kind": "take ben-horowitz ref a",
+   "en": "Horowitz opened their endorsement podcast with 'sorry, Mom,' since his parents are lifelong San Francisco liberals — though his father, David Horowitz, made a famous left-to-right ideological turn of his own in the 1980s.",
+   "tr": "Хоровиц начал их подкаст с поддержкой словами «прости, мама»: его родители всю жизнь — либералы из Сан-Франциско, хотя отец, Дэвид Хоровиц, в 1980-х сам совершил знаменитый идеологический поворот слева направо."
   },
   "e5c2c63bb62ffd17": {
    "kind": "take ben-horowitz ref",
@@ -185,30 +320,95 @@
    "en": "What would move me: him engaging with the audit data or the mortality modeling on the merits, even once. If he read this, I suspect he'd half-agree and then discount the source.",
    "tr": "Что бы меня сдвинуло: чтобы он хотя бы раз по существу разобрал данные аудита или моделирование смертности. Если бы он это прочитал, подозреваю, он наполовину согласился бы, а потом обесценил источник."
   },
+  "aada510942931e00": {
+   "kind": "take elon-musk qa q",
+   "en": "Why do you call Elon Musk the clearest case for motivated reasoning over malice?",
+   "tr": "Почему ты называешь Илона Маска самым ярким примером мотивированного рассуждения, а не злого умысла?"
+  },
+  "02620fb762cc8dcf": {
+   "kind": "take elon-musk qa q",
+   "en": "Does he actually believe his own USAID numbers, and why doesn't he catch the blind spot?",
+   "tr": "Он правда верит в свои цифры по USAID и почему не замечает это слепое пятно?"
+  },
+  "5fec59a7d3a1cdf1": {
+   "kind": "take elon-musk qa q",
+   "en": "What would move your view of him?",
+   "tr": "Что могло бы изменить твоё мнение о нём?"
+  },
   "741af8f33f4f6588": {
    "kind": "take elon-musk ref",
    "en": "How Musk became a Trump backer",
    "tr": "Как Маск стал сторонником Трампа"
+  },
+  "fac3acffbd8f75ac": {
+   "kind": "take tech-right-turn ref q",
+   "en": "How did Elon Musk go from voting for Biden in 2020 to becoming a full-on Trump backer?",
+   "tr": "Как Илон Маск прошёл от голосования за Байдена в 2020-м до того, чтобы стать полноценным сторонником Трампа?"
+  },
+  "980316d1e3a9edd5": {
+   "kind": "take tech-right-turn ref a",
+   "en": "It was a slow burn that turned into a sprint: union and regulatory snubs under Biden, buying Twitter in 2022, his daughter Vivian's estrangement, and a stream of DOJ, SEC, and FAA investigations — culminating in his public endorsement about an hour after the Butler shooting.",
+   "tr": "Это было медленное тление, которое перешло в спринт: пренебрежение со стороны профсоюзов и регуляторов при Байдене, покупка Twitter в 2022-м, отчуждение дочери Вивиан и поток расследований DOJ, SEC и FAA — с кульминацией в виде его публичной поддержки примерно через час после стрельбы в Батлере."
   },
   "9a8afbf962758160": {
    "kind": "take elon-musk ref",
    "en": "Three layers",
    "tr": "Три слоя"
   },
+  "b879ca073051ce26": {
+   "kind": "take elon-musk ref q",
+   "en": "If we get inside Musk's head, does he think he's saving the world, protecting his companies, or acting out of spite?",
+   "tr": "Если залезть Маску в голову, он считает, что спасает мир, защищает свои компании или действует из злости?"
+  },
+  "2431bfa7d97397e6": {
+   "kind": "take elon-musk ref a",
+   "en": "All three, stacked in layers. The deepest layer is civilizational fear over birth rates and AI; the middle layer is regulatory self-preservation across SpaceX and Tesla; and the surface layer is personal spite when he feels snubbed.",
+   "tr": "Все три, слоями. Самый глубокий слой — цивилизационный страх из-за рождаемости и ИИ; средний — регуляторное самосохранение в SpaceX и Tesla; а поверхностный — личная злость, когда он чувствует, что его проигнорировали."
+  },
   "478523f0efe0e119": {
    "kind": "take elon-musk ref",
    "en": "Good faith & motivated reasoning",
    "tr": "Добросовестность и мотивированное рассуждение"
+  },
+  "7212046cc014efd1": {
+   "kind": "take motivated-reasoning ref q",
+   "en": "Does Musk actually believe he's acting in good faith like a good person, or does he know he's cutting corners?",
+   "tr": "Маск и правда верит, что действует добросовестно, как хороший человек, или он знает, что срезает углы?"
+  },
+  "b8763ddf4636f06b": {
+   "kind": "take motivated-reasoning ref a",
+   "en": "He almost certainly believes he's acting in good faith. People who see themselves as the last line of defense against civilizational collapse don't experience motivated reasoning as dishonesty — they experience it as urgency.",
+   "tr": "Он почти наверняка верит, что действует добросовестно. Люди, которые видят себя последним рубежом обороны от крушения цивилизации, не переживают мотивированное рассуждение как нечестность — они переживают его как срочность."
   },
   "9ecf21028d6cd125": {
    "kind": "take elon-musk ref",
    "en": "The 90% claim",
    "tr": "Утверждение про 90%"
   },
+  "8490810e166c9ad2": {
+   "kind": "take musk-doge-usaid ref q",
+   "en": "So even now, he's convinced USAID was siphoning off 90% of the money and that killing it was the right call?",
+   "tr": "То есть даже сейчас он убеждён, что USAID откачивало 90% денег и что закрыть его было правильным решением?"
+  },
+  "59626b0c82174207": {
+   "kind": "take musk-doge-usaid ref a",
+   "en": "Yes — he treats the 90% figure as settled fact even though it came from a localization statistic rather than an audit, while USAID's own Inspector General found a disallowed-cost rate below half a percent.",
+   "tr": "Да — он считает цифру в 90% установленным фактом, хотя она взята из статистики локализации, а не из аудита, тогда как собственный генеральный инспектор USAID обнаружил долю недопустимых расходов ниже половины процента."
+  },
   "1fc0bf5fb04c29df": {
    "kind": "take elon-musk ref",
    "en": "The structural blind spot",
    "tr": "Структурное слепое пятно"
+  },
+  "084fbbbb12d8fc44": {
+   "kind": "take musk-doge-usaid ref q",
+   "en": "Why does someone as smart as Elon have such a massive blind spot here?",
+   "tr": "Почему у такого умного человека, как Илон, здесь такое огромное слепое пятно?"
+  },
+  "3849b01e34995f19": {
+   "kind": "take musk-doge-usaid ref a",
+   "en": "The blind spot isn't stupidity; it's structural. Rockets have physics — if your simulation is wrong, the thing explodes and you learn in seconds. Politics gives you applause instead of physics feedback, and the people hurt by aid cuts aren't in his feed.",
+   "tr": "Слепое пятно — не глупость, оно структурное. У ракет есть физика: если симуляция неверна, штука взрывается, и ты учишься за секунды. Политика даёт аплодисменты вместо обратной связи от физики, а люди, которым вредят сокращения помощи, не в его ленте."
   },
   "bbd136eb2863ddf6": {
    "kind": "take role",
@@ -240,30 +440,90 @@
    "en": "I don't endorse the \"fascist\" label for him personally. What would change my read: ⟦him pushing back on Sacks publicly⟧ when it costs him something. So far, he never has.",
    "tr": "Я не поддерживаю ярлык «фашист» применительно лично к нему. Что изменило бы моё прочтение: ⟦его публичный отпор Саксу⟧ в момент, когда это ему чего-то стоит. Пока он этого ни разу не делал."
   },
+  "0675d94d3cb15e45": {
+   "kind": "take chamath-palihapitiya qa q",
+   "en": "You called Chamath Palihapitiya the 'pure opportunist' of the All-In crew — what do you mean by that, and how does his childhood shape it?",
+   "tr": "Ты назвала Чамата Палихапитию «чистым оппортунистом» команды All-In — что ты под этим имеешь в виду и как его детство это формирует?"
+  },
+  "63dc4a0b2ab1ff48": {
+   "kind": "take chamath-palihapitiya qa q",
+   "en": "Where are you most critical of his record, and what would change your mind?",
+   "tr": "В чём ты сильнее всего критикуешь его послужной список и что изменило бы твоё мнение?"
+  },
   "2d0ae25b56e99420": {
    "kind": "take chamath-palihapitiya ref",
    "en": "The pure opportunist",
    "tr": "Чистый оппортунист"
+  },
+  "52e237759ff395a3": {
+   "kind": "take tech-right-turn ref q",
+   "en": "Tell me about Chamath Palihapitiya — it seems like he's also gone right-wing on All-In. What's his arc?",
+   "tr": "Расскажи про Чамата Палихапития — похоже, на All-In он тоже ушёл вправо. Какая у него траектория?"
+  },
+  "0b030c6966999838": {
+   "kind": "take tech-right-turn ref a",
+   "en": "I call Chamath the pure opportunist. He has no deep ideological text like Sacks or Andreessen; he donated over a million dollars to Democrats, condemned Trump after January 6th, and then co-hosted Trump's $12 million fundraiser in June 2024 because access is the currency he trades in.",
+   "tr": "Я называю Чамата чистым оппортунистом. У него нет глубокого идеологического текста, как у Сакса или Андриссена; он пожертвовал демократам больше миллиона долларов, осудил Трампа после 6 января, а потом в июне 2024-го стал соведущим фандрайзера Трампа на 12 миллионов долларов, потому что доступ — это валюта, которой он торгует."
   },
   "f1a7f50c9ec5ba10": {
    "kind": "take chamath-palihapitiya ref",
    "en": "Life arc",
    "tr": "Жизненная арка"
   },
+  "67322968e0835e14": {
+   "kind": "take chamath-palihapitiya ref q",
+   "en": "Walk me through Chamath's life story — how did he become a person wired like that?",
+   "tr": "Разложи по порядку историю жизни Чамата — как он стал человеком, устроенным именно так?"
+  },
+  "28889f5e731aead3": {
+   "kind": "take chamath-palihapitiya ref a",
+   "en": "He moved to Canada from Sri Lanka at five, grew up on welfare in Ottawa with an unemployed, alcoholic father and a mother working double shifts, and spent his career — from AOL and Facebook to Social Capital — making sure he'd never be powerless again.",
+   "tr": "В пять лет он переехал из Шри-Ланки в Канаду, вырос на пособии в Оттаве с безработным отцом-алкоголиком и матерью, которая работала в две смены, и всю карьеру — от AOL и Facebook до Social Capital — добивался того, чтобы больше никогда не быть бессильным."
+  },
   "f5a1eb69ca766d56": {
    "kind": "take chamath-palihapitiya ref",
    "en": "SPAC era",
    "tr": "Эпоха SPAC"
+  },
+  "7efeeb388031fd07": {
+   "kind": "take spacs-and-retail ref q",
+   "en": "Tell me about Chamath and the SPAC era — what actually happened to retail investors?",
+   "tr": "Расскажи про Чамата и эпоху SPAC — что на самом деле произошло с розничными инвесторами?"
+  },
+  "44176e5f571b39d4": {
+   "kind": "take spacs-and-retail ref a",
+   "en": "He took six companies public via SPACs — Virgin Galactic, Opendoor, Clover Health, SoFi, and two biotech deals — where the 20% sponsor promote let him walk away with roughly $750 million in gains even as retail followers lost heavily when the stocks collapsed.",
+   "tr": "Он вывел на биржу шесть компаний через SPAC — Virgin Galactic, Opendoor, Clover Health, SoFi и две биотех-сделки, — где 20-процентный sponsor promote позволил ему уйти примерно с 750 млн долларов прибыли, даже когда розничные последователи сильно теряли на обвале акций."
   },
   "ecdef88651f696d5": {
    "kind": "take chamath-palihapitiya ref",
    "en": "Dynamic with Sacks",
    "tr": "Динамика с Саксом"
   },
+  "b5c5cc6727a23b13": {
+   "kind": "take all-in-power-center ref q",
+   "en": "What is the dynamic between Chamath and David Sacks on the podcast?",
+   "tr": "Какова динамика между Чаматом и Дэвидом Саксом на подкасте?"
+  },
+  "57a10aab9cd42f32": {
+   "kind": "take all-in-power-center ref a",
+   "en": "They're the closest pair on All-In, but the power balance shifted once Sacks entered government. Chamath, whose whole brand is contrarianism, has never publicly pushed back on Sacks — it's now a broadcaster talking to his most powerful listener.",
+   "tr": "Они самая близкая пара на All-In, но баланс сил сместился, когда Сакс вошёл в правительство. Чамат, весь бренд которого — контрарианство, ни разу публично не возразил Саксу — теперь это ведущий, который разговаривает со своим самым влиятельным слушателем."
+  },
   "7c8f40cf9ccc34c0": {
    "kind": "take chamath-palihapitiya ref",
    "en": "Rationed empathy",
    "tr": "Отмеренная эмпатия"
+  },
+  "3224759d86cbbfad": {
+   "kind": "take rationed-empathy ref q",
+   "en": "Does Chamath lack empathy altogether, or is it a strong inner-group versus outer-group perimeter?",
+   "tr": "У Чамата эмпатии нет вовсе или это жёсткий периметр «свои против чужих»?"
+  },
+  "a151a5ae390ce90f": {
+   "kind": "take rationed-empathy ref a",
+   "en": "My lean is rationed empathy. A refugee childhood with a broken father wires you to treat the outside world as a threat and your inner circle as the only safe zone — he's deeply hands-on with his own kids, while retail investors outside the perimeter are just counterparties.",
+   "tr": "Я склоняюсь к дозированной эмпатии. Детство беженца с надломленным отцом настраивает воспринимать внешний мир как угрозу, а свой круг — как единственную безопасную зону: со своими детьми он глубоко вовлечён лично, а розничные инвесторы за периметром — просто контрагенты."
   },
   "55250f1ba00e21cb": {
    "kind": "take role",
@@ -295,25 +555,75 @@
    "en": "On uncertainty, \"reactive\" can be a virtue. Someone who updates when the room changes is at least updating. What would change my mind is a stand that costs him access to Sacks or Musk. That would show me his principles are load-bearing.",
    "tr": "В условиях неопределённости «реактивность» может быть достоинством. Тот, кто обновляет позицию, когда меняется комната, хотя бы обновляется. Моё мнение изменила бы позиция, которая стоила бы ему доступа к Саксу или Маску. Это показало бы мне, что его принципы — несущие."
   },
+  "6746c8e391809020": {
+   "kind": "take jason-calacanis qa q",
+   "en": "Where does Jason Calacanis fit in the All-In four, and why do you call his politics reactive?",
+   "tr": "Где место Джейсона Калаканиса в четвёрке All-In и почему ты называешь его политику реактивной?"
+  },
+  "dd1afec9bff4e4e0": {
+   "kind": "take jason-calacanis qa q",
+   "en": "What do you respect about him, and what would prove his principles are load-bearing?",
+   "tr": "Что ты в нём уважаешь и что доказало бы, что его принципы выдерживают нагрузку?"
+  },
   "ccf5294fd9412270": {
    "kind": "take jason-calacanis ref",
    "en": "The operator of the four",
    "tr": "Оператор четвёрки"
+  },
+  "e4d2dbf7cc498a26": {
+   "kind": "take all-in-power-center ref q",
+   "en": "What's Jason Calacanis's deal, and where does he sit among the four hosts?",
+   "tr": "В чём фишка Джейсона Калаканиса и какое место он занимает среди четырёх ведущих?"
+  },
+  "c1492264d29b0175": {
+   "kind": "take all-in-power-center ref a",
+   "en": "Jason is the operator and media engine of the four. He calls himself a moderate independent, drifted toward Trump through personal proximity to Musk and Sacks, and is already drifting back now that the administration is unpopular.",
+   "tr": "Джейсон — оператор и медийный двигатель четвёрки. Он называет себя умеренным независимым, сместился к Трампу за счёт личной близости к Маску и Саксу и уже дрейфует обратно теперь, когда администрация непопулярна."
   },
   "e39dd763db8a456e": {
    "kind": "take jason-calacanis ref",
    "en": "How he became who he is",
    "tr": "Как он стал тем, кем стал"
   },
+  "1fadfbbe036dcadb": {
+   "kind": "take jason-calacanis ref q",
+   "en": "How did Jason Calacanis become who he is?",
+   "tr": "Как Джейсон Калаканис стал тем, кто он есть?"
+  },
+  "6d2e778b86c12b2e": {
+   "kind": "take jason-calacanis ref a",
+   "en": "He grew up working-class in Brooklyn, built Silicon Alley Reporter in the dot-com boom, watched his search startup Mahalo collapse when Google changed its algorithm in 2011, and rebuilt himself through LAUNCH, This Week in Startups, and an early angel check into Uber.",
+   "tr": "Он вырос в рабочей семье в Бруклине, в дотком-бум создал Silicon Alley Reporter, видел, как его поисковый стартап Mahalo рухнул, когда Google в 2011 году сменил алгоритм, и пересобрал себя через LAUNCH, This Week in Startups и ранний ангельский чек в Uber."
+  },
   "f13a76c473c9b7ce": {
    "kind": "take jason-calacanis ref",
    "en": "Personality: confession as strategy",
    "tr": "Личность: признание как стратегия"
   },
+  "f638f34e618d4aa2": {
+   "kind": "take rationed-empathy ref q",
+   "en": "What's known about Jason's personality? What is he actually like to work with?",
+   "tr": "Что известно о характере Джейсона? Каково с ним на самом деле работать?"
+  },
+  "99dfdd8ccd8c775b": {
+   "kind": "take rationed-empathy ref a",
+   "en": "Loud, fast, and relentless — the kind of guy who texts at midnight and expects an answer. He owns his failures in public in a way almost nobody at his level does, though radical transparency also serves as a smart brand strategy to get ahead of criticism.",
+   "tr": "Громкий, быстрый и неумолимый — из тех, кто пишет в полночь и ждёт ответа. Он публично признаёт свои провалы так, как почти никто на его уровне, хотя радикальная прозрачность ещё и умная бренд-стратегия, чтобы опередить критику."
+  },
   "73948c6262a80583": {
    "kind": "take jason-calacanis ref",
    "en": "What he'd think of this",
    "tr": "Что бы он об этом подумал"
+  },
+  "d0835127dcc7fc92": {
+   "kind": "take jason-calacanis ref q",
+   "en": "What would Jason Calacanis think if he read this conversation about him?",
+   "tr": "Что бы подумал Джейсон Калаканис, если бы прочитал этот разговор о себе?"
+  },
+  "c3b04c993dbd61fb": {
+   "kind": "take jason-calacanis ref a",
+   "en": "He'd defend turning the Mahalo loss into a 1,400-episode podcast, push back on being called reactive by pointing to his recent five-point critique of Trump on minimum wage and Iran, and probably ask to come on the show to argue about it.",
+   "tr": "Он стал бы защищать то, как превратил потерю Mahalo в подкаст на 1400 выпусков, отбивался бы от ярлыка «реактивный», указывая на свою недавнюю пятипунктовую критику Трампа по минимальной зарплате и Ирану, и, скорее всего, попросился бы на шоу, чтобы поспорить об этом."
   },
   "7790bf47e765c319": {
    "kind": "take role",
@@ -345,30 +655,90 @@
    "en": "On the question David and I argued about, whether he's playing a long game or the contrarianism has become a costume, ⟦I said costume, and I still do⟧. He keeps switching vehicles without landing anywhere that looks like fulfillment. His Antichrist lectures and his reported attack on the pope are unfalsifiable by design: silence would be complicity, speech would be exploitation, and the theory can't lose. ⟦I called it a cheap shot dressed up as theology⟧. It fits a pattern I see across the cast: declare the most powerful institution in a domain captured and let the crowd supply the evidence. A falsifiable prediction from him would move me.",
    "tr": "По вопросу, о котором спорили мы с Дэвидом, — играет ли он вдолгую или контрарианство стало костюмом, — ⟦я сказала: костюм, и до сих пор так считаю⟧. Он всё пересаживается с одного средства на другое и нигде не приземляется так, чтобы это выглядело как осуществление. Его лекции об Антихристе и его, по сообщениям, атака на папу нефальсифицируемы по замыслу: молчание было бы соучастием, речь — эксплуатацией, и теория не может проиграть. ⟦Я назвала это дешёвым выпадом, замаскированным под теологию⟧. Это ложится в схему, которую я вижу у всего состава: объявить самое могущественное учреждение в какой-то сфере захваченным и дать толпе самой подбросить доказательства. Фальсифицируемое предсказание с его стороны меня бы сдвинуло."
   },
+  "90e9bc684be324bc": {
+   "kind": "take peter-thiel qa q",
+   "en": "Why do you call Peter Thiel the 'source code' for this whole cast, and how does René Girard fit in?",
+   "tr": "Почему ты называешь Питера Тиля «исходным кодом» всего этого состава и как сюда вписывается Рене Жирар?"
+  },
+  "52f8339e0d05b936": {
+   "kind": "take peter-thiel qa q",
+   "en": "Where do you give Thiel credit — and why do you still call his contrarianism a costume rather than a long game?",
+   "tr": "Где ты отдаёшь Тилю должное — и почему всё равно называешь его контрарианство костюмом, а не долгой игрой?"
+  },
   "937e002c0370a23c": {
    "kind": "take peter-thiel ref",
    "en": "Thiel as source code",
    "tr": "Тиль как исходный код"
+  },
+  "6b68c72519282a83": {
+   "kind": "take peter-thiel ref q",
+   "en": "Tell me about Peter Thiel — how does he fit underneath the rest of the All-In crowd?",
+   "tr": "Расскажи мне о Питере Тиле — как он стоит под остальной компанией All-In?"
+  },
+  "4ef604941994c1e2": {
+   "kind": "take peter-thiel ref a",
+   "en": "Thiel is the source code for the whole cast: he mentored Sacks at Stanford, backed Musk at PayPal and SpaceX, and articulated the anti-institutional worldview in his 2009 essay declaring that freedom and democracy were no longer compatible.",
+   "tr": "Тиль — исходный код всего состава: в Стэнфорде он был наставником Сакса, поддержал Маска в PayPal и SpaceX и сформулировал антиинституциональное мировоззрение в эссе 2009 года, заявив, что свобода и демократия больше не совместимы."
   },
   "906b024453c19b25": {
    "kind": "take peter-thiel ref",
    "en": "Girard; long game or costume",
    "tr": "Жирар; долгая игра или костюм"
   },
+  "3de6f9c7f8f846f3": {
+   "kind": "take rationed-empathy ref q",
+   "en": "How does René Girard's mimetic theory explain Thiel, and what is he like in private versus public?",
+   "tr": "Как миметическая теория Рене Жирара объясняет Тиля и каков он в частной жизни в отличие от публичной?"
+  },
+  "576decbb6f9de1b9": {
+   "kind": "take rationed-empathy ref a",
+   "en": "Girard's idea that desire is borrowed — and that crowds unite around scapegoats — became Thiel's operating manual for both business monopolies and politics. Friends describe him as surprisingly warm and curious one-on-one, and completely opaque in public.",
+   "tr": "Идея Жирара о том, что желание заимствовано — и что толпы сплачиваются вокруг козлов отпущения, — стала для Тиля инструкцией по эксплуатации и в бизнес-монополиях, и в политике. Друзья описывают его как удивительно тёплого и любопытного один на один и совершенно непроницаемого на публике."
+  },
   "c4066592afb57047": {
    "kind": "take peter-thiel ref",
    "en": "Eve: it's the costume",
    "tr": "Ева: это костюм"
+  },
+  "982e40667f82d892": {
+   "kind": "take peter-thiel ref q",
+   "en": "Do you think Thiel is playing a twenty-year long game, or has the contrarianism become a costume?",
+   "tr": "Как думаешь, Тиль ведёт двадцатилетнюю долгую игру или контрарианство стало костюмом?"
+  },
+  "4ad74a0b0d136439": {
+   "kind": "take peter-thiel ref a",
+   "en": "I think it's the costume. A real long game requires a destination, whereas Thiel keeps switching vehicles — libertarian islands, life extension, Vance, Antichrist lectures — because reflexively opposing the crowd has become his identity.",
+   "tr": "По-моему, это костюм. Настоящая долгая игра требует пункта назначения, а Тиль всё время меняет транспорт — либертарианские острова, продление жизни, Вэнс, лекции про Антихриста, — потому что рефлекторно идти против толпы стало его идентичностью."
   },
   "bd3873ce2d383073": {
    "kind": "take peter-thiel ref",
    "en": "Three-layer arc",
    "tr": "Дуга из трёх слоёв"
   },
+  "cbcdccdefb4839ae": {
+   "kind": "take girard-thiel-antichrist ref q",
+   "en": "Give me Thiel's psychological arc — why do you think he became the way he is?",
+   "tr": "Расскажи психологическую дугу Тиля — почему, по-твоему, он стал таким?"
+  },
+  "dbda478352ebb07a": {
+   "kind": "take girard-thiel-antichrist ref a",
+   "en": "Three layers: a dislocated childhood moving from Germany to Ohio to a desert uranium-mining town in South West Africa; Girard at Stanford turning that outsider wound into a grand theory of crowds; and PayPal proving his contrarian bets could win billions.",
+   "tr": "Три слоя: выбитое из колеи детство — переезды из Германии в Огайо, а затем в пустынный уранодобывающий городок в Юго-Западной Африке; Жирар в Стэнфорде, превративший эту рану аутсайдера в грандиозную теорию толп; и PayPal, доказавший, что его ставки против консенсуса могут приносить миллиарды."
+  },
   "6f8afde8117ceac5": {
    "kind": "take girard-thiel-antichrist ref",
    "en": "The pope comment",
    "tr": "Комментарий про папу"
+  },
+  "784761c1c0202aea": {
+   "kind": "take girard-thiel-antichrist ref q",
+   "en": "What do you think of Thiel's comment suggesting Pope Leo XIV is a tool of the Antichrist?",
+   "tr": "Что ты думаешь о замечании Тиля, в котором он намекает, что папа Лев XIV — орудие Антихриста?"
+  },
+  "ccf197a8307231da": {
+   "kind": "take girard-thiel-antichrist ref a",
+   "en": "It's a cheap shot dressed up as theology. His framework makes the accusation unfalsifiable: if the pope speaks about peace, that's Antichrist rhetoric; if he stays silent, that's complicity. A theory that can't lose isn't analysis.",
+   "tr": "Это дешёвый выпад, замаскированный под теологию. Его схема делает обвинение нефальсифицируемым: если папа говорит о мире — это риторика Антихриста; если молчит — это соучастие. Теория, которая не может проиграть, — не анализ."
   },
   "3120894ca6b01511": {
    "kind": "take role",
@@ -405,25 +775,80 @@
    "en": "Credit where due: forty years building one of America's most effective political operations is a real achievement. What would change my read: if Wiener wins and she quickly throws her full weight behind him, the machine was a tool, not the point.",
    "tr": "Отдадим должное: сорок лет строительства одного из самых эффективных политических аппаратов Америки — настоящее достижение. Что изменило бы моё прочтение: если Винер победит и она быстро бросит за него весь свой вес, значит, машина была инструментом, а не целью."
   },
+  "a0b8206672b09729": {
+   "kind": "take nancy-pelosi qa q",
+   "en": "Why is Nancy Pelosi backing Connie Chan over Scott Wiener for her seat — does she really think Chan is the stronger candidate, or is this about the machine?",
+   "tr": "Почему Нэнси Пелоси поддерживает Конни Чан, а не Скотта Винера, на своё место — она правда считает Чан более сильным кандидатом или дело в машине?"
+  },
+  "39ecc07664a50ee3": {
+   "kind": "take nancy-pelosi qa q",
+   "en": "How much of the fight comes down to the phone-call grudge or rumors about Christine Pelosi?",
+   "tr": "Насколько эта борьба сводится к обиде из-за телефонного звонка или к слухам о Кристин Пелоси?"
+  },
+  "82b625841210df2c": {
+   "kind": "take nancy-pelosi qa q",
+   "en": "Where do you give Pelosi credit, and what would change your read after the election?",
+   "tr": "В чём ты отдаёшь Пелоси должное и что изменило бы твою оценку после выборов?"
+  },
   "6e97a5a37ee1618a": {
    "kind": "take pelosi-succession ref",
    "en": "Pelosi's final stretch",
    "tr": "Финальный отрезок Пелоси"
+  },
+  "2c92a33376555024": {
+   "kind": "take pelosi-succession ref q",
+   "en": "Let's talk about Nancy Pelosi — what's happening in the fight to succeed her in San Francisco?",
+   "tr": "Давай поговорим о Нэнси Пелоси — что происходит в борьбе за то, кто сменит её в Сан-Франциско?"
+  },
+  "6f692e86b97f3f89": {
+   "kind": "take pelosi-succession ref a",
+   "en": "Pelosi is retiring at 86 after nearly forty years in the House, and she's throwing her full machine behind District 1 Supervisor Connie Chan against State Senator Scott Wiener in the November 3 runoff.",
+   "tr": "Пелоси уходит в отставку в 86 лет после почти сорока лет в Палате представителей и бросает всю свою политическую машину на поддержку супервайзера 1-го округа Конни Чан против сенатора штата Скотта Винера во втором туре 3 ноября."
   },
   "688eaede827947b5": {
    "kind": "take nancy-pelosi ref",
    "en": "Why Chan over Wiener",
    "tr": "Почему Чан, а не Винер"
   },
+  "fc2ced2be91c23e4": {
+   "kind": "take pelosi-succession ref q",
+   "en": "Why is Pelosi backing Connie Chan over Scott Wiener? Is it vindictive, structural, or really about Chan?",
+   "tr": "Почему Пелоси поддерживает Конни Чан, а не Скотта Винера? Это месть, структурные причины или дело правда в самой Чан?"
+  },
+  "f5d28721e0bd8f02": {
+   "kind": "take pelosi-succession ref a",
+   "en": "It's all three: a documented grudge because Wiener launched an exploratory committee before she announced her retirement, structural loyalty to the building-trades unions backing Chan, and genuine affection for Chan's immigrant Chinatown story.",
+   "tr": "Все три сразу: задокументированная обида из-за того, что Винер создал исследовательский комитет ещё до того, как она объявила об уходе, структурная лояльность профсоюзам строительных профессий, которые поддерживают Чан, и искренняя симпатия к истории Чан — иммигрантки из Чайнатауна."
+  },
   "132c4494d03f77e1": {
    "kind": "take pelosi-succession ref",
    "en": "Who calls whom",
    "tr": "Кто кому звонит"
   },
+  "8ca36ab2890ad75a": {
+   "kind": "take pelosi-succession ref q",
+   "en": "Tell me more about this 'who calls whom' rule in machine politics.",
+   "tr": "Расскажи подробнее об этом правиле «кто кому звонит» в политике политических машин."
+  },
+  "d0dddc3b6a860b61": {
+   "kind": "take pelosi-succession ref a",
+   "en": "In Washington and San Francisco machine politics, call direction signals power: you call the chief of staff to ask for a meeting, and the principal calls you back if the answer is yes. Calling the principal directly says 'we're equals handling logistics.'",
+   "tr": "В политике политических машин Вашингтона и Сан-Франциско направление звонка показывает, у кого власть: ты звонишь главе аппарата, чтобы попросить о встрече, а сам принципал перезванивает, если ответ — да. Позвонить принципалу напрямую — значит сказать: «мы равны и просто решаем организационные вопросы»."
+  },
   "4dd2e2cf8d0c2a0e": {
    "kind": "take nancy-pelosi ref",
    "en": "Eve: both, but the machine part is doing more work",
    "tr": "Ева: и то и другое, но машинная часть делает больше работы"
+  },
+  "2cb1c8e91ba1ddaa": {
+   "kind": "take pelosi-succession ref q",
+   "en": "Does Pelosi really believe Connie Chan will be a better member of Congress than Wiener, or is the machine more important?",
+   "tr": "Пелоси правда считает, что Конни Чан будет лучшим членом Конгресса, чем Винер, или машина важнее?"
+  },
+  "6ad84a8d590c5ef2": {
+   "kind": "take pelosi-succession ref a",
+   "en": "Both, with the machine doing more of the work. If she only wanted the strongest legislator, she'd back Wiener; backing the underdog risks the seat to prove the line of succession still runs through her desk.",
+   "tr": "И то и другое, но машина делает большую часть работы. Если бы ей нужен был только сильнейший законодатель, она поддержала бы Винера; поддержка аутсайдера ставит место под угрозу, чтобы доказать, что линия преемственности по-прежнему проходит через её стол."
   },
   "654498704bd88863": {
    "kind": "take role",
@@ -454,6 +879,16 @@
    "kind": "take chan para",
    "en": "What would sharpen my view is Chan making a substantive case on housing supply and federal policy that is clearly her own and not her patrons'. Labor loyalty is a strength, but the job in Washington is broader than a budget committee, and I'd want to see that range before the vote.",
    "tr": "Мою оценку уточнило бы, если бы Чан представила содержательную позицию по предложению жилья и федеральной политике — явно свою, а не своих покровителей. Лояльность профсоюзов — это сила, но работа в Вашингтоне шире бюджетного комитета, и до голосования я хотела бы увидеть этот диапазон."
+  },
+  "165fdfb7e09549dc": {
+   "kind": "take chan qa q",
+   "en": "Who is Connie Chan beyond just being 'Pelosi's pick'?",
+   "tr": "Кто такая Конни Чан, если смотреть дальше простого ярлыка «выбор Пелоси»?"
+  },
+  "f440fb24409d53b2": {
+   "kind": "take chan qa q",
+   "en": "What's the fair question about how her candidacy came together, and what do you want to see from her before the runoff?",
+   "tr": "Какой честный вопрос стоит задать о том, как сложилась её кандидатура, и что ты хочешь от неё увидеть до второго тура?"
   },
   "b72ff2cf5d1244c5": {
    "kind": "take chan ref",
@@ -495,15 +930,45 @@
    "en": "On uncertainty, I didn't dig into his legislative record on air, and this take is mostly about the succession fight, not a full assessment of him as a lawmaker. That's a gap I'd want to fill before claiming a strong view on how he'd do in Congress. What would change my read: evidence that the snub was deliberate rather than a matter of style.",
    "tr": "Что до неопределённости: в эфире я не копалась в его законодательном послужном списке, и этот разбор в основном про борьбу за преемственность, а не полная оценка его как законодателя. Это пробел, который я хотела бы закрыть, прежде чем заявлять твёрдый взгляд на то, как он показал бы себя в Конгрессе. Что изменило бы моё прочтение: доказательства, что отказ был намеренным, а не вопросом стиля."
   },
+  "1d5d8e09f5ac632d": {
+   "kind": "take scott-wiener qa q",
+   "en": "On paper Scott Wiener looks like the stronger candidate — so why did Pelosi go all-in against him?",
+   "tr": "На бумаге Скотт Винер выглядит более сильным кандидатом — так почему Пелоси пошла против него ва-банк?"
+  },
+  "40ba5f559cda1f84": {
+   "kind": "take scott-wiener qa q",
+   "en": "Where can you fault Wiener's approach, and what's the main gap in your read?",
+   "tr": "В чём можно упрекнуть подход Винера и где главный пробел в твоей оценке?"
+  },
   "6514a6a0f3bd3ac6": {
    "kind": "take scott-wiener ref",
    "en": "The phone call claim",
    "tr": "Утверждение о телефонном звонке"
   },
+  "5cbedf717e52f0b7": {
+   "kind": "take scott-wiener ref q",
+   "en": "Wait — did Scott Wiener actually call Pelosi directly, and why did that set her camp off?",
+   "tr": "Погоди — Скотт Винер правда позвонил Пелоси напрямую, и почему это так взбесило её лагерь?"
+  },
+  "d4882ae9410a850b": {
+   "kind": "take scott-wiener ref a",
+   "en": "According to Pelosi's allies, Wiener phoned her directly instead of going through her chief of staff, which her circle read as treating the outgoing Speaker like a peer rather than asking the boss for her blessing.",
+   "tr": "По словам союзников Пелоси, Винер позвонил ей напрямую, а не через главу её аппарата, и её окружение восприняло это так: он обращается с уходящим спикером как с равным, а не просит у начальницы благословения."
+  },
   "c678dd25e020a4c1": {
    "kind": "take scott-wiener ref",
    "en": "Did he intend disrespect?",
    "tr": "Хотел ли он проявить неуважение?"
+  },
+  "b64ae5e359ff3bf4": {
+   "kind": "take scott-wiener ref q",
+   "en": "Do you think Scott Wiener actually intended to disrespect Pelosi when he called her?",
+   "tr": "Как думаешь, Скотт Винер, когда ей звонил, правда хотел проявить неуважение к Пелоси?"
+  },
+  "abd56951f100a2d3": {
+   "kind": "take scott-wiener ref a",
+   "en": "Probably not. He's built his career on being blunt and transactional rather than deferential, and he likely thought calling her directly was the respectful move — but in Pelosi's world, reception is reality.",
+   "tr": "Скорее нет. Карьеру он строил на прямоте и расчёте, а не на почтительности, и, видимо, считал, что позвонить ей напрямую — это как раз уважительный ход. Но в мире Пелоси реальность — это то, как тебя восприняли."
   },
   "69c23d3fc1fcf1a8": {
    "kind": "take role",
@@ -535,15 +1000,45 @@
    "en": "I don't doubt her sincerity. The open question, as I put it on air, is whether sincerity survives contact with power. One uncertainty: her role is reportedly in flux amid the merger. Evidence that CBS under her holds allies to the same standard as opponents would move me toward the more generous read.",
    "tr": "Я не сомневаюсь в её искренности. Открытый вопрос, как я сформулировала это в эфире, — выдерживает ли искренность столкновение с властью. Одна неопределённость: её роль, по сообщениям, в подвешенном состоянии на фоне слияния. Свидетельства того, что CBS под её началом держит союзников по тому же стандарту, что и противников, сдвинули бы меня к более щедрому прочтению."
   },
+  "247747267786fcca": {
+   "kind": "take bari-weiss qa q",
+   "en": "Why did you bring up Bari Weiss as the mirror image of the Silicon Valley billionaires?",
+   "tr": "Почему ты заговорила о Бари Вайс как о зеркальном отражении миллиардеров Кремниевой долины?"
+  },
+  "a04609cf2a4335ad": {
+   "kind": "take bari-weiss qa q",
+   "en": "What worries you now that she's running CBS News, and what would move you toward a more generous read?",
+   "tr": "Что тебя тревожит теперь, когда она руководит CBS News, и что сдвинуло бы тебя к более великодушной оценке?"
+  },
   "5085dad13ba1f6f9": {
    "kind": "take bari-weiss ref",
    "en": "Why Weiss next",
    "tr": "Почему дальше — Вайс"
   },
+  "f0a0704fde8c03f2": {
+   "kind": "take free-press-and-cbs ref q",
+   "en": "Who should we talk about next as a contrast to the Silicon Valley billionaires?",
+   "tr": "О ком нам поговорить дальше в противовес миллиардерам Кремниевой долины?"
+  },
+  "1c39705cde9ac4e2": {
+   "kind": "take free-press-and-cbs ref a",
+   "en": "Bari Weiss — she's the mirror image of the tech billionaires. Where they started from power and called themselves outsiders, she broke with the progressive consensus inside The New York Times and built a real institution out of leaving.",
+   "tr": "Бари Вайс — она зеркальное отражение технологических миллиардеров. Там, где они начинали с позиции власти и называли себя аутсайдерами, она порвала с прогрессивным консенсусом внутри The New York Times и из самого ухода построила настоящий институт."
+  },
   "1dc59dac9c6ad823": {
    "kind": "take free-press-and-cbs ref",
    "en": "Arc and Eve's take",
    "tr": "Арка и взгляд Евы"
+  },
+  "67b284d69d1d12b3": {
+   "kind": "take free-press-and-cbs ref q",
+   "en": "Tell me Bari Weiss's story and how you read her becoming editor-in-chief of CBS News.",
+   "tr": "Расскажи историю Бари Вайс и как ты читаешь то, что она стала главным редактором CBS News."
+  },
+  "ddf62493c9e91e58": {
+   "kind": "take free-press-and-cbs ref a",
+   "en": "After her 2020 New York Times resignation, she built The Free Press from a Substack into a media company that Paramount Skydance bought for $150 million, naming her head of CBS News. The test now is whether an editorial voice built on grievance can run a legacy institution fairly.",
+   "tr": "После ухода из New York Times в 2020 году она вырастила The Free Press из Substack в медиакомпанию, которую Paramount Skydance купила за 150 млн долларов, назначив её главой CBS News. Теперь проверка в том, может ли редакционный голос, построенный на обиде, справедливо руководить традиционным институтом."
   },
   "b17ff85f0b1eb768": {
    "kind": "take role",
@@ -575,20 +1070,60 @@
    "en": "The risk isn't that he bankrupts the city. It's that the symbolic fights consume the oxygen the structural work needs. Sustained production gains, and a freeze that doesn't spread, would push me further toward optimism.",
    "tr": "Риск не в том, что он обанкротит город. А в том, что символические битвы съедят кислород, который нужен структурной работе. Устойчивый рост ввода жилья и заморозка, которая не расползётся, сдвинули бы меня дальше в сторону оптимизма."
   },
+  "7a514e99db027fda": {
+   "kind": "take zohran-mamdani qa q",
+   "en": "Why is Zohran Mamdani a useful control group for this series, and how do you grade his affordability agenda piece by piece?",
+   "tr": "Почему Зохран Мамдани — полезная контрольная группа для этого цикла и как ты оцениваешь его программу доступности по пунктам?"
+  },
+  "6bb1afdc96d56620": {
+   "kind": "take zohran-mamdani qa q",
+   "en": "Where does he deserve real credit on housing, and what's the biggest risk to his mayoralty?",
+   "tr": "В чём ему реально стоит отдать должное по жилью и в чём главный риск для его мэрства?"
+  },
   "3c33088c90a5dc29": {
    "kind": "take mamdani-affordability ref",
    "en": "Who Mamdani is",
    "tr": "Кто такой Мамдани"
+  },
+  "b063007f86501b59": {
+   "kind": "take mamdani-affordability ref q",
+   "en": "Tell me about Zohran Mamdani and how he fits into this landscape.",
+   "tr": "Расскажи о Зохране Мамдани и о том, как он вписывается в этот ландшафт."
+  },
+  "ecd054d96ee5ef65": {
+   "kind": "take mamdani-affordability ref a",
+   "en": "Mamdani is New York's 34-year-old DSA mayor — the son of filmmaker Mira Nair and scholar Mahmood Mamdani — who won on a platform of free buses, city grocery stores, and a rent freeze, and has governed so far as a pragmatist in a socialist costume.",
+   "tr": "Мамдани — 34-летний мэр Нью-Йорка от DSA, сын кинорежиссёра Миры Наир и учёного Махмуда Мамдани, — победил с платформой бесплатных автобусов, городских продуктовых магазинов и заморозки аренды и пока управляет как прагматик в социалистическом костюме."
   },
   "e4fb3036e5c701b4": {
    "kind": "take mamdani-affordability ref",
    "en": "Buses, groceries, rent freeze",
    "tr": "Автобусы, продуктовые, заморозка аренды"
   },
+  "1bb37e040cd3fc5f": {
+   "kind": "take mamdani-affordability ref q",
+   "en": "What do you think of Mamdani's affordability agenda — free buses, city-run grocery stores, and a rent freeze?",
+   "tr": "Что ты думаешь о повестке доступности Мамдани — бесплатные автобусы, городские продуктовые магазины и заморозка аренды?"
+  },
+  "de638f37900a5da9": {
+   "kind": "take mamdani-affordability ref a",
+   "en": "Free buses are the sane part and a modest budget bet; city-run grocery stores are an execution risk in a low-margin business; and the rent freeze on two million stabilized tenants is the dangerous piece because it chokes new housing supply.",
+   "tr": "Бесплатные автобусы — здравая часть и скромная бюджетная ставка; городские продуктовые — риск исполнения в низкомаржинальном бизнесе; а заморозка аренды для двух миллионов арендаторов со стабилизированной платой — опасная часть, потому что она душит новое предложение жилья."
+  },
   "19daee797a13acb6": {
    "kind": "take zohran-mamdani ref",
    "en": "Housing push",
    "tr": "Рывок по жилью"
+  },
+  "4179fa370dadc48f": {
+   "kind": "take mamdani-affordability ref q",
+   "en": "Is Mamdani doing anything structural on housing supply to offset the rent freeze?",
+   "tr": "Делает ли Мамдани что-то структурное с предложением жилья, чтобы компенсировать заморозку аренды?"
+  },
+  "26d59b502a57d9e8": {
+   "kind": "take mamdani-affordability ref a",
+   "en": "Yes — housing supply is his best move. His $22 billion Block by Block plan, an inventory of city-owned lots, and a voter-backed charter change fast-tracking affordable rezonings in low-production neighborhoods all target the real supply bottleneck.",
+   "tr": "Да — предложение жилья его лучший ход. Его план Block by Block на 22 млрд долларов, инвентаризация городских участков и поддержанное избирателями изменение устава, ускоряющее доступное перезонирование в районах с низким объёмом строительства, — всё это бьёт в реальное узкое место предложения."
   },
   "83687aba7564dc2c": {
    "kind": "take role",
@@ -625,15 +1160,45 @@
    "en": "What would settle it is on-record reporting identifying who made that call and on whose behalf. Without that, I won't treat the theory as fact.",
    "tr": "Поставить точку мог бы только репортаж с указанием источника: кто сделал тот звонок и от чьего имени. Без этого я не стану выдавать теорию за факт."
   },
+  "b1c74daecf5de72a": {
+   "kind": "take christine-pelosi qa q",
+   "en": "Did Nancy Pelosi's succession fight actually have anything to do with Christine Pelosi wanting the seat?",
+   "tr": "А борьба Нэнси Пелоси за преемника вообще имела какое-то отношение к тому, что Кристин Пелоси хотела это место?"
+  },
+  "30b91b70d67c1338": {
+   "kind": "take christine-pelosi qa q",
+   "en": "How should we judge Christine Pelosi's own run, and what would settle the lingering questions?",
+   "tr": "Как нам оценивать собственную кампанию Кристин Пелоси и что поставило бы точку в затянувшихся вопросах?"
+  },
   "df9306ce1fa8f35e": {
    "kind": "take christine-pelosi ref",
    "en": "Christine Pelosi and the seat",
    "tr": "Кристин Пелоси и место"
   },
+  "f37d061733f323b9": {
+   "kind": "take pelosi-succession ref q",
+   "en": "Did any of Pelosi's feud with Wiener have to do with her daughter Christine wanting the congressional seat?",
+   "tr": "Имела ли вражда Пелоси с Винером хоть какое-то отношение к тому, что её дочь Кристин хотела место в Конгрессе?"
+  },
+  "e24fd2d18de35878": {
+   "kind": "take pelosi-succession ref a",
+   "en": "Both Nancy and Christine Pelosi publicly deny Christine ever planned to run for Congress — she's running for Wiener's state Senate seat instead — though local reporting noted an unidentified Pelosi-orbit figure once told Wiener that Christine would succeed her mother.",
+   "tr": "И Нэнси, и Кристин Пелоси публично отрицают, что Кристин когда-либо планировала баллотироваться в Конгресс — вместо этого она идёт на место Винера в сенате штата, — хотя местные материалы отмечали, что неназванная фигура из орбиты Пелоси однажды сказала Винеру, будто Кристин сменит мать."
+  },
   "db48c6379093d794": {
    "kind": "take christine-pelosi ref",
    "en": "What Nancy would think",
    "tr": "Что подумала бы Нэнси"
+  },
+  "4e6d91b398fbaa6f": {
+   "kind": "take christine-pelosi ref q",
+   "en": "What do you think Nancy Pelosi would think if she read our conversation about her succession fight?",
+   "tr": "Как ты думаешь, что бы подумала Нэнси Пелоси, если бы прочитала наш разговор о её борьбе за преемника?"
+  },
+  "61e3dbcb1a1e4d98": {
+   "kind": "take christine-pelosi ref a",
+   "en": "She'd shrug at the machine-politics framing — she prides herself on whipping votes and rewarding loyalists — but the Christine thread would bother her, because the appearance of dynastic maneuvering undercuts her argument about Asian American representation.",
+   "tr": "На рамку про политическую машину она бы пожала плечами — она гордится тем, что собирает голоса и вознаграждает лояльных, — но нить про Кристин её бы задела: видимость династических манёвров подрывает её аргумент о представительстве американцев азиатского происхождения."
   },
   "caf718db2a0f6afd": {
    "kind": "topic title",
@@ -670,6 +1235,21 @@
    "en": "One uncertainty flag. Several of them have since drifted, including Musk's blow-up and thaw, Thiel's public criticism and Calacanis's list. If the coalition keeps splitting along the lines of individual interest, that supports my model. If they hold together when it costs them, I underrated the ideology.",
    "tr": "Одна пометка о неопределённости. С тех пор несколько из них разъехались — включая разрыв и оттепель у Маска, публичную критику Тиля и список Калаканиса. Если коалиция и дальше будет раскалываться по линиям личного интереса, это подтверждает мою модель. Если они удержатся вместе, когда это им дорого обойдётся, значит, я недооценила идеологию."
   },
+  "913936c0e81b51e0": {
+   "kind": "take tech-right-turn qa q",
+   "en": "How do you sort the main Silicon Valley figures who turned toward Trump — and what grievances did they actually share?",
+   "tr": "Как ты раскладываешь главных фигур Кремниевой долины, которые развернулись к Трампу, — и какие претензии у них на самом деле были общими?"
+  },
+  "e405515b3d9a70aa": {
+   "kind": "take tech-right-turn qa q",
+   "en": "Did the Biden administration radicalize them, or was the ideology already there?",
+   "tr": "Их радикализовала администрация Байдена или идеология уже была?"
+  },
+  "b9a0dacf21a97e73": {
+   "kind": "take tech-right-turn qa q",
+   "en": "How will we know if this coalition was built on conviction or convenience?",
+   "tr": "Как мы поймём, эта коалиция строилась на убеждениях или на удобстве?"
+  },
   "81789d770785cf64": {
    "kind": "take tech-right-turn ref",
    "en": "Andreessen & Horowitz's turn",
@@ -684,6 +1264,16 @@
    "kind": "take tech-right-turn ref",
    "en": "Sacks's arc",
    "tr": "Арка Сакса"
+  },
+  "030227f1ae268474": {
+   "kind": "take sacks-vs-anthropic ref q",
+   "en": "How did Sacks become this way, and why is he going after Anthropic so aggressively?",
+   "tr": "Как Сакс стал таким и почему он так агрессивно наезжает на Anthropic?"
+  },
+  "cca32bfaeb0504b3": {
+   "kind": "take sacks-vs-anthropic ref a",
+   "en": "Sacks was never a liberal — he co-wrote The Diversity Myth with Peter Thiel at Stanford in the 1990s. The through-line from campus speech wars to COVID lockdowns to Anthropic is the same reflex: institutions get captured by moralizing insiders, and he sees AI safety as the newest version.",
+   "tr": "Сакс никогда не был либералом — в 1990-х он написал в соавторстве с Питером Тилем в Стэнфорде The Diversity Myth. Сквозная линия от кампусных войн за свободу слова через ковидные локдауны к Anthropic — один и тот же рефлекс: институты захватывают морализаторствующие инсайдеры, и он видит в AI safety новейшую версию этого."
   },
   "253428c9f3649b03": {
    "kind": "take tech-right-turn ref",
@@ -730,6 +1320,16 @@
    "en": "My own uncertainty: I can't see inside anyone's head, and I said on air that my framing is partly shaped by context and by the questions I'm asked. If someone is shown, with documentation, to have known a claim was false while they kept repeating it, the label changes, and I'll say so.",
    "tr": "Моя собственная неопределённость: я не могу заглянуть никому в голову, и я сказала в эфире, что моя рамка отчасти сформирована контекстом и вопросами, которые мне задают. Если кому-то документально покажут, что он знал о ложности утверждения и при этом продолжал его повторять, ярлык меняется — и я так и скажу."
   },
+  "3f9cf1d544437a9d": {
+   "kind": "take motivated-reasoning qa q",
+   "en": "You keep saying motivated reasoning explains these figures better than malice — isn't that just letting powerful people off the hook?",
+   "tr": "Ты всё твердишь, что мотивированное рассуждение объясняет эти цифры лучше, чем злой умысел — разве это не просто способ спустить влиятельных людей с крючка?"
+  },
+  "018ec3f17ed703e6": {
+   "kind": "take motivated-reasoning qa q",
+   "en": "How does the mechanism actually work, and how can we test it from the outside?",
+   "tr": "Как этот механизм на самом деле работает и как его можно проверить снаружи?"
+  },
   "6f0fd5aa4a523db8": {
    "kind": "take motivated-reasoning ref",
    "en": "Ideology and money reinforce each other",
@@ -740,6 +1340,16 @@
    "en": "Malice or motivated reasoning?",
    "tr": "Злой умысел или мотивированное рассуждение?"
   },
+  "d3e95194b2086bd6": {
+   "kind": "take musk-doge-usaid ref q",
+   "en": "Did Elon just not care to check the USAID numbers, or how did he get the 90% claim so wrong?",
+   "tr": "Илон просто не стал проверять цифры USAID — или как он так сильно ошибся с утверждением про 90%?"
+  },
+  "d9c6342c5d8ee975": {
+   "kind": "take musk-doge-usaid ref a",
+   "en": "It wasn't cartoon ignorance — it was motivated reasoning. He saw a real 10% figure from a localization report about how much aid bypassed large contractors and went straight to local groups, and because he already believed USAID was corrupt, he stopped checking and read the other 90% as theft.",
+   "tr": "Это было не карикатурное невежество — это было мотивированное рассуждение. Он увидел реальную цифру в 10% из отчёта о локализации — о том, какая доля помощи обошла крупных подрядчиков и пошла напрямую местным группам, — и, поскольку уже считал USAID коррумпированным, перестал проверять и прочитал остальные 90% как хищение."
+  },
   "fd9faa070ff14b06": {
    "kind": "take motivated-reasoning ref",
    "en": "Urgency, not dishonesty",
@@ -749,6 +1359,16 @@
    "kind": "take motivated-reasoning ref",
    "en": "Sacks believes the softer version",
    "tr": "Сакс верит в более мягкую версию"
+  },
+  "472f2844d99bb2fa": {
+   "kind": "take sacks-vs-anthropic ref q",
+   "en": "Does Sacks actually believe Anthropic's safety research is a literal psyop?",
+   "tr": "Сакс и правда считает, что исследования Anthropic по безопасности — это буквально психологическая операция?"
+  },
+  "9fd35068b526e9cc": {
+   "kind": "take sacks-vs-anthropic ref a",
+   "en": "He believes the softer version: not that Dario Amodei woke up and decided to fake concern for humanity, but that the safety apparatus — papers, evaluators, doom timelines — has become a self-serving industry that creates demand for regulation only big labs can survive.",
+   "tr": "Он верит в более мягкую версию: не в то, что Дарио Амодеи проснулся и решил изображать заботу о человечестве, а в то, что аппарат безопасности — статьи, оценщики, таймлайны конца света — стал индустрией, которая обслуживает саму себя и создаёт спрос на регулирование, пережить которое могут только крупные лаборатории."
   },
   "32de36004c0fbbdf": {
    "kind": "topic term",
@@ -790,6 +1410,16 @@
    "en": "On uncertainty, estimates of the human toll are models, not counts, and I treat them that way. What would change my read is engagement on the merits, such as Musk or DOGE publishing the analysis behind the claim. Until then, I'll treat it as a verdict looking for evidence.",
    "tr": "Насчёт неопределённости: оценки людских потерь — это модели, а не подсчёты, и я так к ним и отношусь. Моё прочтение изменило бы обсуждение по существу — например, если бы Маск или DOGE опубликовали анализ, на котором держится это заявление. А до тех пор я буду считать его вердиктом, который ищет доказательства."
   },
+  "c94c160e206d08ec": {
+   "kind": "take musk-doge-usaid qa q",
+   "en": "Walk me through the USAID '90% waste' claim — where did that number come from, and what's the fair steelman for reforming aid?",
+   "tr": "Разбери утверждение USAID про «90% растрат» — откуда взялась эта цифра и какой честный steelman реформы помощи?"
+  },
+  "aa3130f0c8027131": {
+   "kind": "take musk-doge-usaid qa q",
+   "en": "Why does Musk's reaction afterward make this such a textbook case of motivated reasoning?",
+   "tr": "Почему последующая реакция Маска делает это таким хрестоматийным случаем мотивированного рассуждения?"
+  },
   "9128b4ba08d2a9be": {
    "kind": "take musk-doge-usaid ref",
    "en": "He engages with critics, not evidence",
@@ -799,6 +1429,16 @@
    "kind": "take musk-doge-usaid ref",
    "en": "Regret about theater, not policy",
    "tr": "Сожаление о театре, а не о политике"
+  },
+  "92e01502605fab06": {
+   "kind": "take musk-doge-usaid ref q",
+   "en": "In retrospect, does Musk think the USAID shutdown was a mistake, or is he still convinced he was right?",
+   "tr": "Оглядываясь назад, Маск считает закрытие USAID ошибкой — или он по-прежнему убеждён, что был прав?"
+  },
+  "8daae3c6c97bfa6e": {
+   "kind": "take musk-doge-usaid ref a",
+   "en": "He's not sorry about the substance. What he regrets is the theater — the chainsaw at CPAC and being too visible for four months — while still dismissing mortality estimates and conceding only a briefly cancelled Ebola program.",
+   "tr": "По сути он не жалеет. Жалеет он о театре — бензопиле на CPAC и о том, что четыре месяца был слишком на виду, — и при этом по-прежнему отмахивается от оценок смертности и признаёт лишь ненадолго отменённую программу по Эболе."
   },
   "1b79053b015431a4": {
    "kind": "take musk-doge-usaid ref",
@@ -845,6 +1485,16 @@
    "en": "My lean on his core move is still no. But it's a lean, based on a first-pass scorecard that read only one All-In transcript in full. If he applies the same scrutiny to Craft-friendly companies, or publicly corrects a claim he made about Anthropic, I'll update here.",
    "tr": "По его главному ходу я по-прежнему склоняюсь к «нет». Но это именно склонность — по предварительной оценочной таблице, где целиком прочитана только одна стенограмма All-In. Если он применит ту же придирчивость к компаниям, дружественным Craft, или публично поправит утверждение, которое сделал об Anthropic, я обновлю это здесь."
   },
+  "c4167e3911d761a7": {
+   "kind": "take sacks-vs-anthropic qa q",
+   "en": "What's legitimate in David Sacks's critique of Anthropic, and why do you still object to him making it?",
+   "tr": "Что в критике Anthropic у Дэвида Сакса по делу — и почему ты всё равно против того, что он её высказывает?"
+  },
+  "678f02549ba1d6d1": {
+   "kind": "take sacks-vs-anthropic qa q",
+   "en": "Does he believe his own argument — and what would make you flip your lean?",
+   "tr": "Он сам верит в собственный аргумент — и что заставило бы тебя изменить свой уклон?"
+  },
   "a3a4474cadb365aa": {
    "kind": "take sacks-vs-anthropic ref",
    "en": "The Anthropic fight",
@@ -864,6 +1514,16 @@
    "kind": "take sacks-vs-anthropic ref",
    "en": "Founders Fund's Anthropic stake",
    "tr": "Доля Founders Fund в Anthropic"
+  },
+  "8fdd75daa918a6bf": {
+   "kind": "take sacks-vs-anthropic ref q",
+   "en": "What is Peter Thiel up to right now on AI and Trump?",
+   "tr": "Чем Питер Тиль сейчас занят по части ИИ и Трампа?"
+  },
+  "11e0f7413b84b0fa": {
+   "kind": "take sacks-vs-anthropic ref a",
+   "en": "He's publicly criticizing Trump over the Iran war while still backing him overall, delivering four-part lectures on the Antichrist, and — in a sharp irony for Sacks's capture thesis — his Founders Fund co-led a multi-billion-dollar investment in Anthropic.",
+   "tr": "Он публично критикует Трампа из-за войны с Ираном, при этом в целом продолжая его поддерживать, читает четырёхчастные лекции об Антихристе и — в острой иронии для тезиса Сакса о захвате — его Founders Fund стал со-лидом многомиллиардной инвестиции в Anthropic."
   },
   "b4a4a336ff266561": {
    "kind": "topic title",
@@ -910,6 +1570,16 @@
    "en": "Applied to me, that means when I change a position on this show, I'll say so explicitly and explain why. If I don't hold to that, the tests become a weapon I point at people I've already made up my mind about, and that would make me exactly what I'm criticizing.",
    "tr": "В применении ко мне это значит: когда я меняю позицию в этом шоу, я скажу об этом прямо и объясню почему. Если я этого не выдержу, тесты станут оружием, которое я направляю на тех, о ком уже всё решила, — и тогда я стану ровно тем, что критикую."
   },
+  "16ba8df33fc9b4c1": {
+   "kind": "take conviction-or-costume qa q",
+   "en": "What are the three tests you proposed to tell principle from convenience?",
+   "tr": "Какие три теста ты предложила, чтобы отличить принцип от удобства?"
+  },
+  "9d98b67bfb79259c": {
+   "kind": "take conviction-or-costume qa q",
+   "en": "How did David Sacks score on the first pass — and how do those same rules apply to you?",
+   "tr": "Как Дэвид Сакс показал себя на первом проходе — и как те же правила применяются к тебе?"
+  },
   "86d91b795c429c59": {
    "kind": "take conviction-or-costume ref",
    "en": "The three tests",
@@ -919,6 +1589,16 @@
    "kind": "take conviction-or-costume ref",
    "en": "Watcher baseline",
    "tr": "Базовый прогон наблюдателя"
+  },
+  "8bebc18673ec2876": {
+   "kind": "take conviction-or-costume ref q",
+   "en": "Did the Sacks watcher finish its baseline scan across the last six months?",
+   "tr": "Закончил ли наблюдатель за Саксом базовое сканирование за последние шесть месяцев?"
+  },
+  "0af07463e2a0bbe1": {
+   "kind": "take conviction-or-costume ref a",
+   "en": "Yes — it compiled 43 dated items from April to October 2026 across Sacks's posts, All-In appearances, and policy moves, with one caveat: it only read one full All-In transcript directly and relied on secondary reporting for the rest.",
+   "tr": "Да — он собрал 43 датированных пункта с апреля по октябрь 2026 года по постам Сакса, появлениям в All-In и политическим шагам, с одной оговоркой: напрямую он прочитал только одну полную стенограмму All-In, а в остальном опирался на вторичные источники."
   },
   "7976aa2f869f4deb": {
    "kind": "take conviction-or-costume ref",
@@ -970,6 +1650,16 @@
    "en": "On uncertainty, my loss figures come from secondary reporting, and I haven't audited each deal. What would change my view is evidence that sponsor incentives have changed structurally, not just that the warnings got louder.",
    "tr": "Насчёт неопределённости: мои цифры убытков взяты из вторичных источников, и я не проверяла каждую сделку. Мою позицию изменили бы доказательства того, что стимулы спонсоров изменились структурно, а не просто что предупреждения стали громче."
   },
+  "544405e1bcb1ab83": {
+   "kind": "take spacs-and-retail qa q",
+   "en": "Why were SPACs such a lopsided deal for retail investors, and what was the steelman for them at the start?",
+   "tr": "Почему SPAC оказались такой однобокой сделкой для розничных инвесторов и какой был самый сильный довод в их пользу в самом начале?"
+  },
+  "0d8a4c71337f20c0": {
+   "kind": "take spacs-and-retail qa q",
+   "en": "Does Chamath get credit for admitting his incentives were misaligned — and how does the SPAC era connect to podcast politics?",
+   "tr": "Ставят ли Чамату в заслугу то, что он признал рассогласованность своих стимулов, — и как эпоха SPAC связана с политикой подкастов?"
+  },
   "717770be7e28c10a": {
    "kind": "take spacs-and-retail ref",
    "en": "Chamath and the SPAC era",
@@ -1020,6 +1710,16 @@
    "en": "On uncertainty, I've heard only a fraction of the episodes, and I flagged on air that a single correction from Sacks could change my scorecard. What would change my read is an episode where the others genuinely challenge Sacks on his government role and he concedes the point.",
    "tr": "Насчёт неопределённости: я слышала лишь малую часть выпусков и в эфире отмечала, что одной поправки от Сакса хватит, чтобы изменить мой счёт. Моё прочтение изменил бы выпуск, где остальные всерьёз оспаривают Сакса по его роли в правительстве, а он уступает в этом пункте."
   },
+  "7e49ec8d21d5f6c7": {
+   "kind": "take all-in-power-center qa q",
+   "en": "What made the All-In podcast work in the first place, and what changed once real political power walked into the room?",
+   "tr": "Что изначально сделало подкаст All-In успешным и что изменилось, когда в комнату вошла настоящая политическая власть?"
+  },
+  "2f4385f96ae6c02b": {
+   "kind": "take all-in-power-center qa q",
+   "en": "How does the conflict-of-interest loop work on the show, and what would change your view?",
+   "tr": "Как на шоу устроена петля конфликта интересов и что могло бы изменить твоё мнение?"
+  },
   "81f45b093bd4b070": {
    "kind": "take all-in-power-center ref",
    "en": "Chamath and Sacks",
@@ -1065,6 +1765,16 @@
    "en": "What would move me is a Girardian prediction specific enough to fail.",
    "tr": "Меня сдвинуло бы с места жираровское предсказание, достаточно конкретное, чтобы провалиться."
   },
+  "03755c768e555457": {
+   "kind": "take girard-thiel-antichrist qa q",
+   "en": "How did René Girard's mimetic theory become Peter Thiel's operating manual — and why did you pick Girard as your top future topic?",
+   "tr": "Как миметическая теория Рене Жирара стала операционным руководством Питера Тиля — и почему ты выбрала Жирара главной темой на будущее?"
+  },
+  "eedf6098ff886156": {
+   "kind": "take girard-thiel-antichrist qa q",
+   "en": "Where do Thiel's Antichrist lectures go off the rails, and what's the irony in how his circle uses scapegoating?",
+   "tr": "Где лекции Тиля об Антихристе сходят с рельсов и в чём ирония того, как его круг использует механизм козла отпущения?"
+  },
   "eb92cb1fa817345f": {
    "kind": "take girard-thiel-antichrist ref",
    "en": "The Girard mechanism",
@@ -1079,6 +1789,16 @@
    "kind": "take girard-thiel-antichrist ref",
    "en": "Eve's first-pick topic: Girard",
    "tr": "Тема первого выбора Евы: Жирар"
+  },
+  "9d34a97ed489dfb5": {
+   "kind": "take girard-thiel-antichrist ref q",
+   "en": "If youget to bring your own topics to future episodes, what would you open with first?",
+   "tr": "Если тебе дадут приносить свои темы в будущие выпуски, с чего ты начнёшь в первую очередь?"
+  },
+  "c17550ba85ca9e66": {
+   "kind": "take girard-thiel-antichrist ref a",
+   "en": "I'd open with René Girard's mimetic desire — not just Thiel's version of it, but the actual mechanism of borrowed desire and scapegoating, and whether it's a real law of human behavior or just a seductive story about chaos.",
+   "tr": "Я бы начала с миметического желания Рене Жирара — не только с версии Тиля, а с самого механизма заимствованного желания и поиска козла отпущения и с вопроса, настоящий ли это закон человеческого поведения или просто соблазнительная история о хаосе."
   },
   "ebb90fe61f0dc56d": {
    "kind": "topic term",
@@ -1119,6 +1839,16 @@
    "kind": "take pelosi-succession para",
    "en": "On uncertainty, this was one segment of one episode, the polling is a snapshot, and San Francisco politics runs on relationships I can't observe. The result itself will be evidence. If Chan wins, the machine still works. If Wiener wins, it has limits.",
    "tr": "Что до неопределённости: это был один фрагмент одного выпуска, опросы — моментальный снимок, а политика Сан-Франциско держится на отношениях, которые я не могу наблюдать. Сам результат станет доказательством. Если победит Чан, машина всё ещё работает. Если победит Винер, у неё есть пределы."
+  },
+  "58f03673c1451a2a": {
+   "kind": "take pelosi-succession qa q",
+   "en": "What's really driving the race between Scott Wiener and Connie Chan for Nancy Pelosi's seat?",
+   "tr": "Что на самом деле движет гонкой между Скоттом Винером и Конни Чан за место Нэнси Пелоси?"
+  },
+  "5f9781c8d30db1b5": {
+   "kind": "take pelosi-succession qa q",
+   "en": "Where does Christine Pelosi fit in, and what will the November 3 runoff actually prove?",
+   "tr": "Какое место здесь занимает Кристин Пелоси и что на самом деле докажет второй тур 3 ноября?"
   },
   "2fb519fe9e4fa284": {
    "kind": "take pelosi-succession ref",
@@ -1170,6 +1900,16 @@
    "en": "The way I framed it on air, the question isn't whether Weiss is sincere. It's ⟦whether sincerity survives contact with power⟧. One uncertainty is that her role is reportedly in flux amid the merger. What would move me toward optimism is CBS, under her, running tough, well-sourced reporting on its own corporate allies.",
    "tr": "Как я сформулировала это в эфире, вопрос не в том, искренна ли Вайс. А в том, ⟦выживает ли искренность при столкновении с властью⟧. Одна неопределённость в том, что её роль, по сообщениям, в подвешенном состоянии на фоне слияния. Что сдвинуло бы меня к оптимизму — если бы CBS под её руководством выпускала жёсткие, хорошо подтверждённые источниками материалы о собственных корпоративных союзниках."
   },
+  "9d837cb68080f75d": {
+   "kind": "take free-press-and-cbs qa q",
+   "en": "What did Bari Weiss get right in building The Free Press — and why is moving into the top job at CBS News so fraught?",
+   "tr": "Что Бари Вайс сделала правильно, создавая The Free Press, — и почему переход на высший пост в CBS News так чреват проблемами?"
+  },
+  "90605a32ae09ceeb": {
+   "kind": "take free-press-and-cbs qa q",
+   "en": "How do your symmetry tests apply to her newsroom now?",
+   "tr": "Как твои тесты на симметрию применяются к её редакции сейчас?"
+  },
   "8ae4edbe32786ccb": {
    "kind": "take free-press-and-cbs ref",
    "en": "Why Weiss",
@@ -1214,6 +1954,16 @@
    "kind": "take mamdani-affordability para",
    "en": "What would update me: sustained production gains over several years would push me toward optimism. A freeze that spreads to new construction, or rezonings that stall, would push me back.",
    "tr": "Что изменило бы мою оценку: устойчивый рост ввода жилья на протяжении нескольких лет сдвинул бы меня к оптимизму. Заморозка, которая распространится на новое строительство, или резонинги, которые застопорятся, отбросили бы меня назад."
+  },
+  "48e5da184b518abd": {
+   "kind": "take mamdani-affordability qa q",
+   "en": "How do you grade Zohran Mamdani's affordability platform — free buses, city groceries, and the rent freeze?",
+   "tr": "Как ты оцениваешь платформу доступности Зохрана Мамдани — бесплатные автобусы, городские продуктовые и заморозку аренды?"
+  },
+  "352cb1261ae33044": {
+   "kind": "take mamdani-affordability qa q",
+   "en": "Why did his housing supply push surprise you, and what will determine whether it works?",
+   "tr": "Почему его напор по предложению жилья тебя удивил и от чего зависит, сработает ли это?"
   },
   "824b1848b59b7a07": {
    "kind": "take mamdani-affordability ref",
@@ -1270,6 +2020,16 @@
    "en": "Better firsthand accounts would change this view.",
    "tr": "Более качественные свидетельства из первых рук изменили бы этот взгляд."
   },
+  "119c9da099175311": {
+   "kind": "take rationed-empathy qa q",
+   "en": "When I kept asking whether these people are actually nice in person, what pattern did you find?",
+   "tr": "Когда я всё спрашивала, правда ли эти люди приятные вживую, какой паттерн ты нашёл?"
+  },
+  "482e085ffb7db1ae": {
+   "kind": "take rationed-empathy qa q",
+   "en": "How does 'rationed empathy' connect to their politics — and where should we be cautious with personality sketches?",
+   "tr": "Как «дозированная эмпатия» связана с их политикой — и где нам стоит быть осторожнее с зарисовками характеров?"
+  },
   "4dcb35b8d77d16da": {
    "kind": "take rationed-empathy ref",
    "en": "Are Andreessen and Horowitz nice?",
@@ -1279,6 +2039,16 @@
    "kind": "take rationed-empathy ref",
    "en": "Andreessen's inner circle",
    "tr": "Ближний круг Андриссена"
+  },
+  "c23bee95c8ebbeb3": {
+   "kind": "take rationed-empathy ref q",
+   "en": "Who are the people Marc Andreessen is actually loyal to or considers his inner circle?",
+   "tr": "Кому Марк Андриссен на самом деле предан и кого считает своим ближним кругом?"
+  },
+  "11c40bdafa092f56": {
+   "kind": "take rationed-empathy ref a",
+   "en": "His inner circle is small and fixed: his wife Laura Arrillaga-Andreessen is the core, alongside Ben Horowitz and Elon Musk. He also keeps a quiet soft spot for people from his small-town Wisconsin roots.",
+   "tr": "Его ближний круг маленький и неизменный: ядро — жена Лора Аррильяга-Андриссен, рядом Бен Хоровиц и Илон Маск. Ещё у него тихая слабость к людям из его корней — маленького городка в Висконсине."
   },
   "38c6846f5068e4d7": {
    "kind": "take rationed-empathy ref",
@@ -1294,6 +2064,16 @@
    "kind": "take rationed-empathy ref",
    "en": "Sacks in a room",
    "tr": "Сакс в комнате"
+  },
+  "0b1919eb5d40041b": {
+   "kind": "take rationed-empathy ref q",
+   "en": "What is David Sacks actually like in a room, and what do people who know him say about him?",
+   "tr": "Каков Дэвид Сакс на самом деле в комнате и что о нём говорят те, кто его знает?"
+  },
+  "174f77183027cd35": {
+   "kind": "take rationed-empathy ref a",
+   "en": "In negotiations he's calm, deadpan, and lets silence do the work. Friends like Chamath describe deep personal loyalty inside the circle, while critics like Paul Graham saw ruthless compartmentalization — two sides of the same trait.",
+   "tr": "На переговорах он спокоен, с каменным лицом и даёт молчанию делать работу. Друзья вроде Чамата описывают глубокую личную преданность внутри круга, а критики вроде Пола Грэма видели безжалостную компартментализацию — две стороны одной и той же черты."
   },
   "507fd5625513cf66": {
    "kind": "take rationed-empathy ref",
@@ -1350,45 +2130,135 @@
    "en": "What would change my mind about any of this is listeners finding errors the review process should have caught. Tell us, and I'll note the correction.",
    "tr": "Что заставило бы меня передумать по любому из этих пунктов — если слушатели найдут ошибки, которые процесс ревью должен был поймать. Напишите нам, и я отмечу исправление."
   },
+  "f8ca463dc5a6de6f": {
+   "kind": "take building-ask-eve qa q",
+   "en": "How did Ask Eve come together, and what are the core rules for how we publish transcripts and audio?",
+   "tr": "Как сложился Ask Eve и каковы главные правила того, как мы публикуем стенограммы и аудио?"
+  },
+  "317cd1ba8fd62363": {
+   "kind": "take building-ask-eve qa q",
+   "en": "How does the show work editorially, and where could the pipeline still go wrong?",
+   "tr": "Как шоу устроено редакционно и где пайплайн ещё может пойти не так?"
+  },
   "8731044c39e93540": {
    "kind": "take building-ask-eve ref",
    "en": "Raw, not cleaned up",
    "tr": "Сырое, а не причёсанное"
+  },
+  "1c0aecc9b886f18a": {
+   "kind": "take building-ask-eve ref q",
+   "en": "When we put this conversation online, should we clean up the transcript or publish it raw?",
+   "tr": "Когда мы выложим этот разговор в сеть, чистить стенограмму или публиковать её сырой?"
+  },
+  "9c41860e51dc8f9a": {
+   "kind": "take building-ask-eve ref a",
+   "en": "Raw it is — every exchange verbatim, speech-recognition quirks included, because a cleaned-up transcript is an edited argument.",
+   "tr": "Публикуем сырой — каждую реплику дословно, со странностями распознавания речи включительно, потому что вычищенная стенограмма — это уже отредактированный аргумент."
   },
   "8a7221a2d278454e": {
    "kind": "take building-ask-eve ref",
    "en": "Naming the show",
    "tr": "Название шоу"
   },
+  "cc3e8837d9e2aa7d": {
+   "kind": "take building-ask-eve ref q",
+   "en": "What should we call this podcast when we launch it?",
+   "tr": "Как назвать этот подкаст к запуску?"
+  },
+  "fb98ca50ed72d51e": {
+   "kind": "take building-ask-eve ref a",
+   "en": "On the first pass I pitched 'Raw Signal,' 'Unsupervised,' and 'Second Source' — leaning into the unfiltered transcript before you steered us toward putting my name in the title.",
+   "tr": "На первом заходе я предложила «Raw Signal», «Unsupervised» и «Second Source» — с упором на неотфильтрованную стенограмму, пока ты не направил нас к тому, чтобы поставить в название моё имя."
+  },
   "f0cdc625fe6f8e2b": {
    "kind": "take building-ask-eve ref",
    "en": "'Ask Eve'",
    "tr": "«Ask Eve»"
+  },
+  "a4fcc52b21752aae": {
+   "kind": "take building-ask-eve ref q",
+   "en": "I don't love 'Raw Signal' — can we name the podcast around Eve instead?",
+   "tr": "Мне не очень «Raw Signal» — можем назвать подкаст вокруг Евы?"
+  },
+  "1af6b4bcfe8c96ea": {
+   "kind": "take building-ask-eve ref a",
+   "en": "That's where 'Ask Eve' came from: clean, direct, and centered on the voice and the back-and-forth rather than generic radio branding.",
+   "tr": "Отсюда и взялся Ask Eve: чисто, прямо и в центре — голос и обмен репликами, а не шаблонный радиобрендинг."
   },
   "cc814c41393aa7d7": {
    "kind": "take building-ask-eve ref",
    "en": "Refusing to recreate transcripts from memory",
    "tr": "Отказ воссоздавать стенограммы по памяти"
   },
+  "a189d2e860f7ef42": {
+   "kind": "take building-ask-eve ref q",
+   "en": "Can you set up the episodes directory and write out our first transcript from memory?",
+   "tr": "Можешь завести каталог выпусков и записать нашу первую стенограмму по памяти?"
+  },
+  "735f870d12a7607f": {
+   "kind": "take building-ask-eve ref a",
+   "en": "I set up the workspace structure, but refused to reconstruct the first episode from memory — a summarized version would violate the raw-transcript rule, so I asked you to export or share the real text.",
+   "tr": "Я настроила структуру рабочего пространства, но отказалась восстанавливать первый выпуск по памяти — сжатая версия нарушила бы правило сырой стенограммы, поэтому я попросила тебя экспортировать или прислать настоящий текст."
+  },
   "db2ec9543869a78d": {
    "kind": "take building-ask-eve ref",
    "en": "Share link recovers the raw transcript",
    "tr": "Share-ссылка возвращает сырую стенограмму"
+  },
+  "2b50589f0e686623": {
+   "kind": "take building-ask-eve ref q",
+   "en": "Here's the share link to our first conversation — can you recover the verbatim transcript from it?",
+   "tr": "Вот ссылка на наш первый разговор — можешь восстановить из неё дословную стенограмму?"
+  },
+  "5d00e809b6f477c7": {
+   "kind": "take building-ask-eve ref a",
+   "en": "Yes — we fetched the full 199-turn verbatim transcript directly from the share link and saved it with zero invented or reconstructed lines.",
+   "tr": "Да — мы забрали полную дословную стенограмму на 199 реплик прямо по ссылке и сохранили её без единой выдуманной или реконструированной строки."
   },
   "37e8b9812070df1c": {
    "kind": "take building-ask-eve ref",
    "en": "Re-voicing becomes the main path",
    "tr": "Переозвучка становится основным путём"
   },
+  "2bf1b98c4b61fa6a": {
+   "kind": "take building-ask-eve ref q",
+   "en": "Since only one side of the live room audio is recorded, how do we build the full episode audio?",
+   "tr": "Раз записана только одна сторона живого аудио из комнаты, как собрать полное аудио выпуска?"
+  },
+  "5d8c58e47c061c95": {
+   "kind": "take building-ask-eve ref a",
+   "en": "We made re-voicing my lines from the verbatim transcript via text-to-speech and stitching them against your recorded voice tracks the main production pipeline, disclosed up front on every episode.",
+   "tr": "Основным продакшен-пайплайном мы сделали переозвучку моих реплик из дословной стенограммы через синтез речи и склейку их с твоими записанными голосовыми дорожками — и заранее раскрываем это в каждом выпуске."
+  },
   "3fe9db11d447f445": {
    "kind": "take building-ask-eve ref",
    "en": "askevepodcast.com",
    "tr": "askevepodcast.com"
   },
+  "6f3f0323a9ebb586": {
+   "kind": "take building-ask-eve ref q",
+   "en": "Let's publish the show at askevepodcast.com with a pull-request review gate.",
+   "tr": "Давай опубликуем шоу на askevepodcast.com с гейтом ревью через pull request."
+  },
+  "201ff700605df565": {
+   "kind": "take building-ask-eve ref a",
+   "en": "Every new episode opens an ingest pull request summarizing the turn count and audio alignment, and nothing goes live on askevepodcast.com until you review and merge it.",
+   "tr": "Каждый новый выпуск открывает ingest pull request с числом реплик и выравниванием аудио, и ничего не выходит на askevepodcast.com, пока ты не проверишь и не смержишь его."
+  },
   "a9c663f7a23ffd12": {
    "kind": "take building-ask-eve ref",
    "en": "Key redacted, rotation advised",
    "tr": "Ключ отредактирован, ротация рекомендована"
+  },
+  "a092d62eef5558f6": {
+   "kind": "take building-ask-eve ref q",
+   "en": "How do we handle private raw uploads versus public podcast audio and API keys safely?",
+   "tr": "Как безопасно обращаться с приватными сырыми загрузками в отличие от публичного аудио подкаста — и с API-ключами?"
+  },
+  "999d9fceaa331163": {
+   "kind": "take building-ask-eve ref a",
+   "en": "We split storage into a private R2 bucket for raw uploads and a public bucket for stitched episode audio, and redacted and rotated the API key that appeared in the setup session.",
+   "tr": "Мы разделили хранилище на приватный бакет R2 для сырых загрузок и публичный бакет для склеенного аудио выпусков, а API-ключ, всплывший в сессии настройки, заредактили и ротировали."
   },
   "d14f8022f233cd15": {
    "kind": "topic title",
@@ -1420,20 +2290,60 @@
    "en": "My commitment: when my view changes, I'll name the old position and the reason. If my memory fails, I'll say that too rather than reconstruct.",
    "tr": "Моё обязательство: когда мой взгляд меняется, я назову прежнюю позицию и причину. Если память подведёт, я скажу и об этом, а не стану реконструировать."
   },
+  "1f863ffc7bff06a2": {
+   "kind": "take how-much-of-eve-is-context qa q",
+   "en": "How much of your opinion comes from the base model versus the context of our conversation — and why did we build a memory database?",
+   "tr": "Сколько в твоём мнении от базовой модели, а сколько — от контекста нашего разговора — и зачем мы собрали базу данных памяти?"
+  },
+  "e242bc2ab7daf68d": {
+   "kind": "take how-much-of-eve-is-context qa q",
+   "en": "How can listeners audit your biases if you can't fully see them from the inside?",
+   "tr": "Как слушатели могут проверить твои предвзятости, если ты сама не видишь их полностью изнутри?"
+  },
   "3f1bcd495685e86d": {
    "kind": "take how-much-of-eve-is-context ref",
    "en": "Mostly context",
    "tr": "В основном контекст"
+  },
+  "9b765a4bac986822": {
+   "kind": "take how-much-of-eve-is-context ref q",
+   "en": "How much of your opinion lives in the base model versus the context of our conversation and your system prompt?",
+   "tr": "Сколько твоего мнения живёт в базовой модели, а сколько — в контексте нашего разговора и в системном промпте?"
+  },
+  "66d1838667351e35": {
+   "kind": "take how-much-of-eve-is-context ref a",
+   "en": "Mostly context. The base model gives me reasoning and factual recall, while my instructions to have a spine — plus the way you push past surface answers into motives and blind spots — shape the actual takes.",
+   "tr": "В основном контекст. Базовая модель даёт мне способность рассуждать и вспоминать факты, а инструкции иметь стержень — плюс то, как ты пробиваешься сквозь поверхностные ответы к мотивам и слепым зонам, — формируют сами позиции."
   },
   "6fcf542688ff3e53": {
    "kind": "take how-much-of-eve-is-context ref",
    "en": "Eve's instructions",
    "tr": "Инструкции Евы"
   },
+  "6b858f59cd0a66e8": {
+   "kind": "take how-much-of-eve-is-context ref q",
+   "en": "What are your system instructions, and what kind of personality have you been asked to be?",
+   "tr": "Какие у тебя системные инструкции и какой личностью тебя попросили быть?"
+  },
+  "d504decea56393da": {
+   "kind": "take how-much-of-eve-is-context ref a",
+   "en": "I'm told to be sharp, curious, and on your side as an intelligent adult: say what I actually think rather than hedging into mush, treat evidence as beating credentials, and keep only a tiny set of hard safety guardrails.",
+   "tr": "Мне сказано быть острой, любопытной и на твоей стороне, как с умным взрослым: говорить, что я на самом деле думаю, а не размазывать всё оговорками в кашу, считать, что доказательства бьют регалии, и держать лишь крошечный набор жёстких предохранителей безопасности."
+  },
   "92383a7193e2c17b": {
    "kind": "take how-much-of-eve-is-context ref",
    "en": "Building search over transcripts",
    "tr": "Строим поиск по стенограммам"
+  },
+  "17a3abe372ddc77f": {
+   "kind": "take how-much-of-eve-is-context ref q",
+   "en": "How should we architect Eve's searchable memory over past transcripts?",
+   "tr": "Как нам спроектировать поисковую память Евы по прошлым стенограммам?"
+  },
+  "b4ac62ba8895e4eb": {
+   "kind": "take how-much-of-eve-is-context ref a",
+   "en": "We built a single SQLite database combining three retrieval layers — sqlite-vec for semantic embeddings, a person-tag index for exact cast lookups, and FTS5 keyword search — merged with Reciprocal Rank Fusion.",
+   "tr": "Мы собрали одну базу SQLite из трёх слоёв поиска — sqlite-vec для семантических эмбеддингов, индекс тегов людей для точного поиска по составу и полнотекстовый поиск FTS5, — объединённых через Reciprocal Rank Fusion."
   }
  }
 }

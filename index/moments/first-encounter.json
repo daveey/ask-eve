@@ -24,7 +24,9 @@
         "trump-endorsement",
         "family-history"
       ],
-      "edited": true
+      "edited": true,
+      "david_q": "What happened to Andreessen and Horowitz? They became right-wingers somehow — were they always like this, or did something make them crazy?",
+      "eve_a": "They weren't always like this. They turned against the Biden administration over crypto scrutiny, AI policy, and a proposed billionaire tax. Horowitz opened their July 2024 Trump endorsement with 'sorry, Mom' — though his own father, David Horowitz, made a famous left-to-right flip decades earlier."
     },
     {
       "person": "marc-andreessen",
@@ -42,7 +44,9 @@
         "personality",
         "musk-relationship"
       ],
-      "edited": true
+      "edited": true,
+      "david_q": "Walk me through what happened to Marc Andreessen — why did he turn right when he already has plenty of money, and who is he actually loyal to?",
+      "eve_a": "Andreessen voted for Hillary in 2016, then broke with Biden over crypto regulation, AI rules, and a billionaire tax proposal. Ideology is the story that makes the money feel like destiny: he genuinely sees technology as the main event of history. Personally, his loyalty is fixed on a tiny inner circle — his wife Laura, Ben Horowitz, and Elon Musk."
     },
     {
       "person": "ben-horowitz",
@@ -58,7 +62,9 @@
         "personality",
         "family",
         "leadership-style"
-      ]
+      ],
+      "david_q": "As humans, are Andreessen and Horowitz actually nice? What do their families and friends say about them?",
+      "eve_a": "They're two very different animals, and Horowitz is the people person. He was painfully shy as a kid, which turned into real empathy — his wife Felicia calls him very nice, Bill Campbell praised his leadership, and he personally teaches every new a16z hire about culture while fining people $10 a minute for being late to entrepreneur meetings."
     },
     {
       "person": "elon-musk",
@@ -76,7 +82,9 @@
         "usaid",
         "doge"
       ],
-      "edited": true
+      "edited": true,
+      "david_q": "How did Elon become a Trump backer, and how can he still believe USAID was 90% waste when the numbers say otherwise?",
+      "eve_a": "His shift stacked three layers: civilizational fear, regulatory self-preservation, and spite. On USAID, the 90% figure he cites as theft actually came from a localization report about how much aid went directly to local groups rather than through big contractors. Rockets give physics feedback in seconds; politics gives applause, so he experiences motivated reasoning as urgency."
     },
     {
       "person": "david-sacks",
@@ -94,7 +102,9 @@
         "trump-support",
         "craft-ventures"
       ],
-      "edited": true
+      "edited": true,
+      "david_q": "What is going on with David Sacks? Why is he going after Anthropic from inside the government, and does he really think AI safety is a psyop?",
+      "eve_a": "Sacks has been a libertarian conservative since co-writing The Diversity Myth with Thiel at Stanford. He believes the softer version — that AI safety has become a self-serving moat for incumbents — but making that case from a White House role while Craft Ventures' portfolio benefits is regulatory arbitrage with a podcast. That's why I proposed three behavioral tests to check him."
     },
     {
       "person": "chamath-palihapitiya",
@@ -111,7 +121,9 @@
         "biography",
         "spacs",
         "all-in-podcast"
-      ]
+      ],
+      "david_q": "Tell me about Chamath — has he gone fascist on All-In, and how do his life arc and the SPAC era fit into this?",
+      "eve_a": "I don't think he's a fascist; I call him the pure opportunist. He fled Sri Lanka's civil war as a kid, grew up on welfare in Ottawa, climbed through Facebook, and then sold retail investors on SPACs where his sponsor structure paid out even when the stocks cratered. In politics, he went where the phone gets answered — and he never publicly pushes back on Sacks."
     },
     {
       "person": "david-sacks",
@@ -128,7 +140,9 @@
         "chamath",
         "trump-fundraiser",
         "white-house"
-      ]
+      ],
+      "david_q": "What is the actual dynamic between Chamath and Sacks on the show?",
+      "eve_a": "They're the closest pair on All-In. Both condemned Trump after January 6th and then co-hosted his $12 million San Francisco fundraiser in June 2024. Now that Sacks holds real government influence, the dynamic has shifted from two equals to a broadcaster and his most powerful listener — Chamath never challenges him publicly."
     },
     {
       "person": "jason-calacanis",
@@ -145,7 +159,9 @@
         "all-in",
         "political-shift",
         "personality"
-      ]
+      ],
+      "david_q": "What's Jason Calacanis's deal? How did he become who he is, and what's his personality like?",
+      "eve_a": "Jason is the operator and media guy of the four — a working-class Brooklyn kid who lost everything when Mahalo collapsed and rebuilt through LAUNCH and an early Uber check. He's loud, relentless, and owns his failures publicly, though confession is also part of his brand. Politically he's the most reactive of the group: his drift tracks proximity to Musk and Sacks."
     },
     {
       "person": "chamath-palihapitiya",
@@ -162,7 +178,9 @@
         "family",
         "empathy",
         "happiness"
-      ]
+      ],
+      "david_q": "What is Chamath's relationship with his family like? Does he lack empathy, or does he just ration it to an inner group?",
+      "eve_a": "My lean is rationed empathy. A refugee childhood and an alcoholic father wired him to treat the outside world as a threat and family as the only safe zone. He's estranged from his father, fiercely hands-on with his own kids, and admits that even multi-billion-dollar wins like Groq leave him feeling flat for a week."
     },
     {
       "person": "david-sacks",
@@ -179,7 +197,9 @@
         "reputation",
         "all-in-podcast",
         "accountability"
-      ]
+      ],
+      "david_q": "What is David Sacks actually like in a room, and what do the people closest to him say about him?",
+      "eve_a": "In negotiations he's calm, deadpan, and lets silence do the work. Chamath calls him the closest thing he has to a soulmate in the group, while Paul Graham once called him possibly evil — two reads of the same compartmentalization. Meanwhile, our watcher scanned 43 items across six months and found zero public admissions of error."
     },
     {
       "person": "david-sacks",
@@ -195,7 +215,9 @@
         "anthropic",
         "craft-ventures",
         "accountability"
-      ]
+      ],
+      "david_q": "What does the Sacks watcher scorecard actually say across the three tests?",
+      "eve_a": "Test one, symmetric scrutiny, comes out mixed-leaning-fail: he criticized OpenAI and DeepMind a couple of times, but his attacks on Anthropic are far harsher and more frequent. Test two, public updating, fails with zero admissions of error. Test three, costly principle, found no case where he backed a policy that cost Craft Ventures money."
     },
     {
       "person": "peter-thiel",
@@ -212,7 +234,9 @@
         "girard",
         "trump-criticism",
         "antichrist-lectures"
-      ]
+      ],
+      "david_q": "Tell me about Peter Thiel — how did he become the source code for this movement, and is his contrarianism a long game or a costume?",
+      "eve_a": "I think it's a costume. A dislocated childhood, René Girard's mimetic theory at Stanford, and the PayPal win taught him that the crowd is a machine that manufactures scapegoats and that monopolies beat competition. He's less captured than the others — he criticizes Trump on Iran — but his Antichrist lectures and his jab at the pope are unfalsifiable by design."
     },
     {
       "person": "nancy-pelosi",
@@ -229,7 +253,9 @@
         "machine-politics",
         "endorsement",
         "retirement"
-      ]
+      ],
+      "david_q": "Let's talk about Nancy Pelosi. Why is she backing Connie Chan over Scott Wiener for her seat — is she being vindictive, or proving the machine still works?",
+      "eve_a": "It's both, but the machine part is doing more work. If she purely wanted the strongest legislator, she'd back Wiener, who leads in polls and money. Backing Chan mixes a real grudge — Wiener opened an exploratory committee before she retired and reportedly called her directly instead of going through her chief of staff — with labor loyalty and demonstrating that succession still runs through her desk."
     },
     {
       "person": "scott-wiener",
@@ -246,7 +272,9 @@
         "pelosi",
         "san-francisco-politics",
         "endorsement"
-      ]
+      ],
+      "david_q": "Scott Wiener seems like a strong candidate — did he really call Pelosi directly, and do you think he intended to disrespect her?",
+      "eve_a": "Probably not. He's built his brand on being blunt and transactional, and he likely thought calling her directly was the respectful move. But in San Francisco machine politics, skipping the chief of staff reads as treating the outgoing boss like a peer. Pelosi is risking the seat with Chan to prove the machine still sets the line of succession."
     },
     {
       "person": "chan",
@@ -263,7 +291,9 @@
         "succession",
         "labor-politics",
         "pelosi-endorsement"
-      ]
+      ],
+      "david_q": "What is the deal with Connie Chan, and how much of Pelosi's endorsement is actually about her versus the grudge against Wiener?",
+      "eve_a": "Chan has a real story of her own: she immigrated from Hong Kong at thirteen, grew up in rent-controlled Chinatown housing, and chairs the Board of Supervisors' Budget Committee with deep labor backing. The endorsement mixes Pelosi's grudge against Wiener with union loyalty and machine succession, though Wiener still leads in polling and fundraising."
     },
     {
       "person": "chan",
@@ -279,7 +309,9 @@
         "succession",
         "machine-politics",
         "congressional-race"
-      ]
+      ],
+      "david_q": "Does Pelosi really believe Connie Chan will be a better member of Congress than Wiener, or is the machine more important than the seat?",
+      "eve_a": "Both, with the machine doing more of the work. Pelosi genuinely likes Chan's Chinatown roots, labor loyalty, and the history she'd make as the first Asian American in that seat — and when personal affection and machine incentives point the same way, nobody inside the room stops to interrogate which one is driving."
     },
     {
       "person": "bari-weiss",
@@ -296,7 +328,9 @@
         "new-york-times",
         "cbs-news",
         "political-arc"
-      ]
+      ],
+      "david_q": "You brought up Bari Weiss as the sharpest contrast to the tech billionaires. Tell me who she is and how you read her move to CBS News.",
+      "eve_a": "Unlike the tech billionaires who started from power and called themselves outsiders, Weiss broke from the progressive consensus inside The New York Times and built The Free Press from scratch. Now that Paramount Skydance bought it and named her editor-in-chief of CBS News, the question isn't whether she's sincere — it's whether sincerity built on grievance survives becoming the establishment."
     },
     {
       "person": "zohran-mamdani",
@@ -313,7 +347,9 @@
         "housing",
         "affordability",
         "rent-freeze"
-      ]
+      ],
+      "david_q": "Tell me about Zohran Mamdani. Doesn't it seem kind of crazy to push free buses, city grocery stores, and a rent freeze? And what is he doing on housing?",
+      "eve_a": "He's New York's new mayor, and I read him as a pragmatist in a socialist costume. Free buses are a defensible experiment; city-run groceries are an execution risk; and the rent freeze is the dangerous part because it chokes supply. Where he deserves real credit is his $22 billion Block by Block housing push and fast-tracking affordable rezonings in high-income neighborhoods."
     }
   ]
 }

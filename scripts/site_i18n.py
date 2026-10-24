@@ -103,6 +103,10 @@ def episode_strings(ep: dict) -> list[tuple[str, str]]:
         out += [(f"turn {t['i']} meta", m) for m in t["meta"]]
     for m in ep.get("moments", []):
         out.append(("moment", m["summary"]))
+        if m.get("david_q"):
+            out.append(("moment q", m["david_q"]))
+        if m.get("eve_a"):
+            out.append(("moment a", m["eve_a"]))
         out += [("moment topic", x) for x in m.get("topics", [])]
     seen, uniq = set(), []
     for kind, text in out:
@@ -166,6 +170,10 @@ def localize_data(lang: str, eps: list[dict], people: list[dict]) -> tuple[list[
             t["meta"] = [trm(lang, m) for m in t["meta"]]
         for m in ep.get("moments", []):
             m["summary"] = trm(lang, m["summary"])
+            if m.get("david_q"):
+                m["david_q"] = trm(lang, m["david_q"])
+            if m.get("eve_a"):
+                m["eve_a"] = trm(lang, m["eve_a"])
             m["topics"] = [trm(lang, x) for x in m.get("topics", [])]
         ep["people"] = [name(lang, n) for n in ep.get("people", [])]
         ep["body_md"] = transcript_txt(lang, ep)
@@ -177,8 +185,9 @@ def localize_data(lang: str, eps: list[dict], people: list[dict]) -> tuple[list[
 
 # ---------------------------------------------------------------- Meet Eve (/eve/), from index/eve.json
 
-EVE_TEXT = {"body", "intro", "note", "trait", "caveat", "value", "topic", "before", "after", "persona_notes_label",
-            "persona_notes", "persona_notes_source", "grok_on_instructions_intro", "label"}
+EVE_TEXT = {"body", "intro", "note", "trait", "caveat", "value", "summary", "topic", "before", "after",
+            "persona_notes_label", "persona_notes", "persona_notes_source", "grok_on_instructions_intro", "label",
+            "class_role", "origin", "voice", "alignment", "stat", "badge", "context"}
 EVE_CLEAN = {"body", "intro", "grok_on_instructions_intro"}      # build_site.eve_page() runs these through clean()
 _PENDING = re.compile(r"\(pending[^)]*\)|\bepisode 2\b", re.I)
 
@@ -208,6 +217,8 @@ def _eve_walk(data: dict, published: set[str], on_text, on_quote) -> None:
         elif isinstance(x, dict):
             if "quote_excerpt" in x:
                 if not x.get("pending") and x.get("episode_slug") in published and not str(x["quote_excerpt"]).startswith("[transcript gap"):
+                    if isinstance(x.get("context"), str) and x["context"].strip():
+                        on_text(x, "context", x["context"])
                     on_quote(x)
                 return
             if isinstance(x.get("topic"), str) and "pending" in x["topic"].lower():
@@ -307,7 +318,15 @@ def _marked(x: dict) -> list[str]:
 
 def _take_items(x: dict, published: set[str], owner: str) -> list[tuple[str, str]]:
     out = [(f"take {owner} para", t) for t in _marked(x)]
-    out += [(f"take {owner} ref", r["label"]) for r in x.get("refs", []) if r.get("label") and r["episode"] in published]
+    out += [(f"take {owner} qa q", turn["q"]) for turn in x.get("qa", []) if turn.get("q")]
+    for r in x.get("refs", []):
+        if r["episode"] in published:
+            if r.get("label"):
+                out.append((f"take {owner} ref", r["label"]))
+            if r.get("david_q"):
+                out.append((f"take {owner} ref q", r["david_q"]))
+            if r.get("eve_a"):
+                out.append((f"take {owner} ref a", r["eve_a"]))
     return out
 
 
@@ -345,9 +364,18 @@ def localize_takes(lang: str, data: dict, published: set[str]) -> dict:
         for r in x.get("refs", []):
             a = anchors.get(r.get("anchor") or "")
             r["anchor"] = a if a and full.count(a) == 1 else None
-            if r.get("label"):
-                r["label"] = trm(lang, r["label"])
+            for rk in ("label", "david_q", "eve_a"):
+                if r.get(rk):
+                    r[rk] = trm(lang, r[rk])
         x["take"] = [f"{MARK}{p}{END}" for p in paras]
+        if x.get("qa"):
+            idx = 0
+            for turn in x["qa"]:
+                if turn.get("q"):
+                    turn["q"] = trm(lang, turn["q"])
+                n = len(turn.get("a", []))
+                turn["a"] = x["take"][idx:idx + n]
+                idx += n
         for k in ("role", "lede", "title", "description"):
             if x.get(k):
                 x[k] = trm(lang, x[k])
