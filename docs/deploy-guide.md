@@ -45,7 +45,22 @@ Status in the table below is maintained by David's side; your log entry is the r
 | D-008 | superseded by D-010 | ~~Publish episode 0~~: its ingest PR merged, but the audio was redone in PR #13 (the private-URL redaction); don't run this, run D-010 | – |
 | D-010 | done (deploy-log) | **Stage the corrected MP3s and publish episodes 0 and 1** (details below the table). Both ingest PRs are merged (#4, #5) and so is the cleanup PR #13. TTS is real for both (`placeholder_audio: false`). publish.yml run 39999620775 (ep 0) failed with `sha256sum: ep.mp3: FAILED`, because the object in `staging/` is an old render. Run 39999631791 (ep 1) failed with `404 … staging/2026-10-23_the-making-of-eve/2026-10-23_the-making-of-eve.v1.mp3 does not exist`. These MP3s were rendered outside Actions, so nothing staged them. | D-006, PR #13 merged |
 | D-011 | todo | **Upload the show cover to `ask-eve-public`** (details below the table). The feed's `<itunes:image>` is https://audio.askevepodcast.com/art/cover-3000.v1.jpg, which returns 404 because nothing uploaded it. The site redesign (PR #17, merged) added the 3000x3000 cover at `site/static/art/cover-3000.jpg`, now also live at https://askevepodcast.com/art/cover-3000.jpg. | D-002, PR #17 merged |
-| D-012 | todo | **Commit identity: GitHub noreply** (details below the table). On every machine that commits to this repo (your box and Hermes), commit as `452472+daveey@users.noreply.github.com`, never a personal or host address. | – |
+| D-012 | done (deploy-log) | **Commit identity: GitHub noreply** (details below the table). On every machine that commits to this repo (your box and Hermes), commit as `452472+daveey@users.noreply.github.com`, never a personal or host address. | – |
+| D-013 | **todo, do first** | **History was rewritten: re-sync every clone; never push from an old clone** (details below the table). On 2026-10-24 ~00:10 UTC every branch was force-pushed after `git filter-repo` removed private links, IDs and personal emails from all history. Every commit SHA changed (old main `e3bb848` is now `9b2ebfb`; trees are identical). Pushing from a clone made before that would bring the old history back. | – |
+
+**D-013 steps (do before any other git work).** Nothing in Cloudflare or GitHub is created or deleted; this only touches local clones.
+1. In every clone of this repo on your box **and** on Hermes, first save anything uncommitted or unpushed (`git status`, `git log origin/<branch>..<branch>`); copy it aside as a patch (`git format-patch`), don't push it.
+2. Then, in each clone:
+   ```
+   git fetch origin --prune '+refs/heads/*:refs/remotes/origin/*'
+   git checkout -f main && git reset --hard origin/main
+   for b in $(git for-each-ref --format='%(refname:short)' refs/heads | grep -vx main); do git branch -D "$b"; done
+   git reflog expire --expire=now --all && git gc -q --prune=now
+   ```
+   Recreate any branch you need from `origin/<branch>` (`git checkout -b <b> origin/<b>`) and re-apply saved patches with `git am`. Re-cloning (`git clone https://github.com/daveey/ask-eve.git`) is equally fine.
+3. Expect: `git cat-file -e e3bb848 2>/dev/null && echo OLD-HISTORY || echo clean` prints `clean`, and `git rev-parse origin/main` starts with the current main.
+4. **Never `git push --force` or push a branch whose history contains `e3bb848` or any commit dated before the rewrite with an old SHA.** If a push is rejected as non-fast-forward, re-sync; do not force.
+   Report the clones you re-synced as "box: <dir name>" / "Hermes: <dir name>".
 
 **D-012 steps.** Nothing is created or deleted.
 1. On each machine that commits here (David's deploy agent's box **and** the Hermes machine), in every clone of this repo and globally:
