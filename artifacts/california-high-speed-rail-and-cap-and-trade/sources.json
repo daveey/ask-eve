@@ -1,0 +1,174 @@
+[
+  {
+    "url": "https://vig.cdn.sos.ca.gov/2008/general/pdf-guide/suppl-complete-guide.pdf",
+    "title": "Proposition 1A: Safe, Reliable High-Speed Passenger Train Bond Act — Official Voter Information Guide & Text of Proposed Law (2008)",
+    "publisher": "California Secretary of State",
+    "domain": "vig.cdn.sos.ca.gov",
+    "description": "Official November 2008 supplemental voter guide containing the statutory text of AB 3034 (Proposition 1A) authorizing $9.95 billion in general obligation bonds for a 220 mph San Francisco–to–Los Angeles high-speed train system.",
+    "timestamp_seconds": 9,
+    "timestamp_label": "00:09",
+    "turn_index": 1,
+    "people": [],
+    "topics": [
+      "California High-Speed Rail",
+      "Government Efficiency & Spending"
+    ],
+    "sort_order": 1,
+    "http_status": 200,
+    "verified_at": "2026-10-24T18:08:00Z",
+    "spans": [
+      {
+        "turn_index": 1,
+        "start_offset": 56,
+        "end_offset": 247,
+        "quote": "Voters approved Prop 1A in two thousand eight for about ten billion in bonds, promising San Francisco to Los Angeles in under three hours at two hundred twenty miles an hour by twenty twenty."
+      }
+    ]
+  },
+  {
+    "url": "https://hsr.ca.gov/wp-content/uploads/2026/02/2026-HSR-Draft-Business-Plan-02282026.pdf",
+    "title": "California High-Speed Rail 2026 Draft Business Plan",
+    "publisher": "California High-Speed Rail Authority",
+    "domain": "hsr.ca.gov",
+    "description": "The Authority's February 2026 draft business plan detailing $15.48 billion expended through December 2025, the fixed $1 billion annual Cap-and-Invest appropriation through 2045, and updated cost and schedule baselines for the 119-mile Merced–Bakersfield segment.",
+    "timestamp_seconds": 265,
+    "timestamp_label": "04:25",
+    "turn_index": 5,
+    "people": [
+      "Ian Choudri",
+      "Gavin Newsom"
+    ],
+    "topics": [
+      "California High-Speed Rail",
+      "Cap-and-Trade",
+      "Energy & Climate Policy"
+    ],
+    "sort_order": 2,
+    "http_status": 200,
+    "verified_at": "2026-10-24T18:08:00Z",
+    "spans": [
+      {
+        "turn_index": 5,
+        "start_offset": 648,
+        "end_offset": 789,
+        "quote": "He locked in a billion a year through twenty forty-five, dropped Buy American to get Siemens trains faster, and is courting private partners."
+      },
+      {
+        "turn_index": 21,
+        "start_offset": 32,
+        "end_offset": 262,
+        "quote": "Of the fifteen point five billion spent through December twenty twenty-five, about fourteen point eight billion went to capital — actual building, land, equipment. Roughly seven hundred million was pure administration and support."
+      }
+    ]
+  },
+  {
+    "url": "https://hsr.ca.gov/wp-content/uploads/2026/04/2026-04-29-Agenda-Item-7-CP-2-3-Board-Memo-V1-A11Y.pdf",
+    "title": "Board Memo: Construction Package 2-3 Omnibus Settlement & Change Order 427 with Dragados-Flatiron Joint Venture",
+    "publisher": "California High-Speed Rail Authority",
+    "domain": "hsr.ca.gov",
+    "description": "Official April 2026 HSRA board briefing for Agenda Item #7 approving the $537.3 million omnibus Change Order 427 with Dragados-Flatiron Joint Venture on the 65-mile Construction Package 2-3 corridor.",
+    "timestamp_seconds": 623,
+    "timestamp_label": "10:23",
+    "turn_index": 13,
+    "people": [
+      "Ian Choudri"
+    ],
+    "topics": [
+      "California High-Speed Rail",
+      "Government Efficiency & Spending"
+    ],
+    "sort_order": 3,
+    "http_status": 200,
+    "verified_at": "2026-10-24T18:08:00Z",
+    "spans": [
+      {
+        "turn_index": 13,
+        "start_offset": 44,
+        "end_offset": 288,
+        "quote": "It's Change Order four twenty-seven with Dragados Flatiron Joint Venture, finalized May twenty-first, twenty twenty-six, for five hundred thirty-seven point three million dollars. That's the largest single change order in the project's history."
+      }
+    ]
+  },
+  {
+    "url": "https://www.latimes.com/california/story/2023-03-11/new-cost-estimate-for-high-speed-rail-puts-california-bullet-train-100-billion-in-the-red",
+    "title": "New Cost Estimate for California High-Speed Rail Puts Bullet Train $100 Billion in the Red",
+    "publisher": "Los Angeles Times",
+    "domain": "latimes.com",
+    "description": "News coverage examining the escalating $35.3 billion cost estimate and 2030–2033 schedule window for the Merced–to–Bakersfield operating segment alongside the $128 billion Phase 1 price tag.",
+    "timestamp_seconds": 850,
+    "timestamp_label": "14:10",
+    "turn_index": 21,
+    "people": [],
+    "topics": [
+      "California High-Speed Rail",
+      "Government Efficiency & Spending"
+    ],
+    "sort_order": 4,
+    "http_status": 200,
+    "verified_at": "2026-10-24T18:08:00Z",
+    "spans": [
+      {
+        "turn_index": 21,
+        "start_offset": 443,
+        "end_offset": 642,
+        "quote": "The three civil works contracts started at two point eight billion and are now worth nine point three billion — mostly change orders, but the base price already includes the contractor's design fees."
+      }
+    ]
+  },
+  {
+    "url": "https://lao.ca.gov/handouts/transportation/2026/High-Speed-Rail-Draft-2026-Business-Plan-042726.pdf",
+    "title": "High-Speed Rail Draft 2026 Business Plan: Legislative Analyst's Office Review of Cap-and-Trade Funding",
+    "publisher": "California Legislative Analyst's Office (LAO)",
+    "domain": "lao.ca.gov",
+    "description": "Nonpartisan LAO fiscal review evaluating HSRA's reliance on $1 billion annual Greenhouse Gas Reduction Fund (Cap-and-Trade) appropriations, securitization borrowing proposals, and the Merced–Bakersfield funding gap.",
+    "timestamp_seconds": 979,
+    "timestamp_label": "16:19",
+    "turn_index": 27,
+    "people": [],
+    "topics": [
+      "California High-Speed Rail",
+      "Cap-and-Trade",
+      "California Tax & Fiscal Policy"
+    ],
+    "sort_order": 5,
+    "http_status": 200,
+    "verified_at": "2026-10-24T18:08:00Z",
+    "spans": [
+      {
+        "turn_index": 27,
+        "start_offset": 30,
+        "end_offset": 280,
+        "quote": "Start with a cap-and-trade auction dollar hitting the authority's account. About sixty cents of it goes toward the Merced-to-Bakersfield early operating segment — that's the thirty-five point seven billion budget for the first hundred nineteen miles."
+      }
+    ]
+  },
+  {
+    "url": "https://vig.cdn.sos.ca.gov/2024/primary/pdf/topl.pdf",
+    "title": "Proposition 1 (2024): Behavioral Health Services Program and Bond Measure — Official Ballot Text of Proposed Law",
+    "publisher": "California Secretary of State",
+    "domain": "vig.cdn.sos.ca.gov",
+    "description": "Official March 5, 2024 primary election Text of Proposed Law for Proposition 1 authorizing $6.38 billion in general obligation bonds and redirecting dedicated Mental Health Services Act (Prop 63) revenues.",
+    "timestamp_seconds": 1521,
+    "timestamp_label": "25:21",
+    "turn_index": 43,
+    "people": [
+      "Gavin Newsom"
+    ],
+    "topics": [
+      "Cap-and-Trade",
+      "California Tax & Fiscal Policy",
+      "Government Efficiency & Spending"
+    ],
+    "sort_order": 6,
+    "http_status": 200,
+    "verified_at": "2026-10-24T18:08:00Z",
+    "spans": [
+      {
+        "turn_index": 43,
+        "start_offset": 755,
+        "end_offset": 1107,
+        "quote": "In two thousand nine, Prop one-D tried to shift two hundred sixty-eight million a year from First Five early-childhood programs to the general fund, and Prop one-E tried to borrow Prop sixty-three mental health money for two years. Both lost. The pattern is that voters treat earmarked funds as sacred even when they don't love the program behind them."
+      }
+    ]
+  }
+]
