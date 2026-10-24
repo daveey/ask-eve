@@ -236,3 +236,15 @@ def test_takes_keep_their_episode_links(built):
         assert [x.removeprefix(f"/{LANG}") for x in cites(b)] == cites(a), ru
         checked += 1
     assert checked or not (out / LANG / "topics").exists()
+
+
+def test_ru_eve_avatar_page(built):
+    out, _, _ = built
+    ru_eve = (out / LANG / "eve/index.html").read_text()
+    assert f'href="/{LANG}/eve/avatar/"' in ru_eve
+    assert "Как я выбрала своё лицо" in ru_eve
+    ru_av = (out / LANG / "eve/avatar/index.html").read_text()
+    assert "Как я выбирала себе лицо" in ru_av
+    assert f'href="/{LANG}/eve/"' in ru_av
+    assert ru_av.count('class="av-pblock"') == 20
+    assert ru_av.count('<article class="av-rcell') == 200

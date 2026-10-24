@@ -573,6 +573,8 @@ def plan(B, eps: list[dict], people: list[dict], extra: list[str]) -> None:
                 print(f"warning: {lang}: /eve/ has {len(gaps)} untranslated strings; no /{lang}/eve/ page", file=sys.stderr)
             elif all(f"/episodes/{x}/" in paths for x in published) and not tgaps:   # quotes link into every episode
                 paths.add("/eve/")
+                if (ROOT / "index/eve-avatars.json").exists():
+                    paths.add("/eve/avatar/")
         if not any(x.startswith("/episodes/") for x in paths):
             paths = set()                # no translated episode yet: no edition, no switcher
         _paths[lang] = paths
@@ -649,7 +651,7 @@ LATIN = re.compile(r"[A-Za-z]")
 CYRILLIC = re.compile(r"[\u0400-\u04ff]")
 VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "source", "track", "wbr"}
 SKIP_TAGS = {"code", "pre", "style"}
-SKIP_CLASSES = {"turn__body", "xl"}               # translated content and auto-linked names, never UI
+SKIP_CLASSES = {"turn__body", "xl", "i18n-ready"}               # translated content and auto-linked names, never UI
 ATTRS = {"aria-label", "title", "alt", "placeholder", "aria-valuetext"}
 META_CONTENT = {"description", "og:title", "og:description", "twitter:title", "twitter:description"}
 
@@ -874,7 +876,8 @@ def build(B, A, out: Path, eps: list[dict], people: list[dict], cfg: dict) -> li
         saved = B.EVE_FILE, B.EveSources, B.load_links, B.TAKES_FILE
         topics2: list[dict] = []
         pages += [("/topics/", lambda: B.topics_index(A, topics2))]
-        pages += [("/eve/", lambda: B.eve_page(A, eps2, people2, topics2))]
+        pages += [("/eve/", lambda: B.eve_page(A, eps2, people2, topics2)),
+                  ("/eve/avatar/", lambda lang=lang: B.eve_avatar_page(A, lang=lang))]
         _cur = lang
         try:
             if tdata:

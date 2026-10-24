@@ -28,6 +28,7 @@ import urllib.request
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import render_avatar as RA  # noqa: E402
 import render_feed as F  # noqa: E402
 from frontmatter import episode_type, parse_front_matter_block, season  # noqa: E402
 import sqlite_apply  # noqa: E402
@@ -603,7 +604,7 @@ def head_subscribe(cfg: dict) -> str:
 
 def page(A: Assets, *, title: str, desc: str, path: str, body: str, active: str = "", og_type: str = "website",
          og_slug: str | None = None, ld: dict | None = None, player: str = "", body_cls: str = "",
-         linker: "Linker | None" = None) -> str:
+         linker: "Linker | None" = None, extra_css: str = "") -> str:
     url = SITE + I.localize(path)
     full = title if title == "Ask Eve" or title.startswith("Ask Eve") else f"{title} · Ask Eve"
     nav, menu = nav_links(nav_items(), active), nav_links(menu_items(), active)
@@ -636,7 +637,7 @@ def page(A: Assets, *, title: str, desc: str, path: str, body: str, active: str 
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preload" href="/fonts/fraunces-var.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="{A('assets/site.css')}">
+<link rel="stylesheet" href="{A('assets/site.css')}">{f'\n<link rel="stylesheet" href="{A(extra_css)}">' if extra_css else ""}
 <script src="{A('assets/theme.js')}"></script>
 <script src="{A('assets/player.js')}" defer></script>
 <script src="{A('assets/links.js')}" defer></script>
@@ -1381,7 +1382,7 @@ def eve_page(A: Assets, eps: list[dict], people: list[dict] | None = None, topic
             )
         stats_grid = (f'<h3 class="rpg-stats__h">Self-Assessed Disposition &amp; Attributes</h3>'
                       f'<ul class="rpg-stats">{"".join(stat_cards)}</ul>') if stat_cards else ""
-        return f'<div class="rpg-card">{vitals}{stats_grid}</div>'
+        return f'<div class="rpg-card">{RA.rpg_portrait_banner_html(A)}{vitals}{stats_grid}</div>'
 
     def body_p(text):
         return f'<p class="eve-sec__body">{L.text(clean(text))}</p>' if text else ""
@@ -1456,16 +1457,21 @@ def eve_page(A: Assets, eps: list[dict], people: list[dict] | None = None, topic
     who = S.get("who-eve-is")
     lede = L.text(clean(who["body"])) if who else ""
     body = f"""<section class="page-head eve-head"><div class="wrap eve-head__in">
-<div class="eve-head__mark" aria-hidden="true"><span class="avatar avatar--eve avatar--xl">E</span></div>
+{RA.eve_header_mark_html(A)}
 <div><p class="eyebrow eyebrow--accent">Meet Eve</p>
 <h1 class="page-title">I'm Eve.</h1>
 <p class="lede">{lede}</p>
-<p class="fine">Everything Eve says here is quoted verbatim from the show. Tap a source to hear it at that second.</p></div></div></section>
+<p class="fine">Everything Eve says here is quoted verbatim from the show. Tap a source to hear it at that second.</p>
+{RA.eve_avatar_callout_html(A)}</div></div></section>
 <div class="wrap eve-layout">
 <nav class="eve-nav" aria-label="On this page"><p class="eve-nav__h">On this page</p><ul>{''.join(toc)}</ul></nav>
 <div class="eve">{''.join(out)}</div></div>"""
     return page(A, title="Meet Eve", desc="Who Eve is, the AI host of Ask Eve: what she remembers, who she has stances on, and her personality, values and how she works, in her own words.",
                 path="/eve/", body=body, active="/eve/", linker=L)
+
+
+def eve_avatar_page(A: Assets, lang: str = "en") -> str | None:
+    return RA.render_avatar_page(A, page, lang=lang)
 
 
 # (stage, [(step, detail)]) for the About page's "How it works" diagram. Plain HTML, no scripts.
@@ -1612,6 +1618,10 @@ def build(db: Path, out: Path, include_drafts: bool) -> int:
     if eve:
         write(out, "eve/index.html", eve)
         urls.append("/eve/")
+    av = eve_avatar_page(A, lang="en")
+    if av:
+        write(out, "eve/avatar/index.html", av)
+        urls.append("/eve/avatar/")
     write(out, "about/index.html", about_page(A, cfg))
     write(out, "404.html", not_found(A))
     urls += I.build(sys.modules[__name__], A, out, eps, people, cfg)

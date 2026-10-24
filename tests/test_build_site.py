@@ -598,3 +598,18 @@ def test_card_summary_css_clamp():
     assert re.search(r"@media \(max-width:819px\)\{\.card__blurb,\.bonus-row__sum\{-webkit-line-clamp:2\}\}", css)
     m = re.search(r"\.bonus-row__sum\{[^}]*font-size:([\d.]+)rem", css)
     assert m and float(m.group(1)) * 16 >= 14 and "color:var(--muted)" in m.group(0)
+
+
+def test_eve_avatar_experiment_page(site):
+    eve_h = read(site, "eve/index.html")
+    assert 'href="/eve/avatar/"' in eve_h
+    assert "How I chose my face (20 prompts × 10 renders, scored) →" in eve_h
+    assert "eve-winner-512" in eve_h
+    assert 'class="rpg-portrait"' in eve_h
+    av_h = read(site, "eve/avatar/index.html")
+    assert "How I Chose My Face" in av_h
+    assert "97.40" in av_h or "97.4" in av_h
+    assert av_h.count('class="av-pblock"') == 20
+    assert av_h.count('<article class="av-rcell') == 200
+    assert av_h.count('<article class="av-fcard') == 10
+    assert "/eve/avatar/" in read(site, "sitemap.xml")
