@@ -30,14 +30,22 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import render_feed as F  # noqa: E402
 from frontmatter import episode_type, parse_front_matter_block, season  # noqa: E402
+import leak_check as LC  # noqa: E402
 import sqlite_apply  # noqa: E402
 import site_i18n as I  # noqa: E402  translated editions (/ru/...), see scripts/site_i18n.py
 
 ROOT = Path(__file__).resolve().parent.parent
 STATIC = ROOT / "site/static"
 TABLES = ["episodes", "people", "episode_people", "chapters", "turn_offsets"]
+PRIVATE_TABLES = frozenset({"inbox_items", "draft_replies", "x_drafts", "x_auth_tokens", "x_oauth_states"})
+assert not (set(TABLES) & PRIVATE_TABLES), "private inbox tables must never be exported to the public site"
+READING_FILE = ROOT / "index/reading-list.json"
+_ACTIVE_DB: Path | None = None
 SITE, EMAIL = F.SITE, F.OWNER_EMAIL
 REPO = "https://github.com/daveey/ask-eve"
+X_HANDLE = "@askevepodcast"
+X_URL = "https://x.com/askevepodcast"
+X_INTENT_URL = "https://x.com/intent/tweet?text=%40askevepodcast%20"
 TAGLINE = "Tech, power and the people shaping both, with an AI co-host who argues back."
 TURN_RE = re.compile(r"^\[(\d{2}):(\d{2}):(\d{2})\] (David|Eve): ?(.*)$")
 REAL_METHODS = {"asr-match", "sync-phrase", "interpolated", "fit"}   # David's recorded track
@@ -75,6 +83,11 @@ def pull(db: Path) -> None:
         rows = d1_query(f"SELECT * FROM {t}")
         for r in rows:
             con.execute(f"INSERT INTO {t} ({','.join(r)}) VALUES ({','.join('?' * len(r))})", list(r.values()))
+    try:
+        for r in d1_query("SELECT * FROM reading_list"):
+            con.execute(f"INSERT OR REPLACE INTO reading_list ({','.join(r)}) VALUES ({','.join('?' * len(r))})", list(r.values()))
+    except (Exception, SystemExit):
+        pass
     con.commit()
 
 
@@ -132,6 +145,8 @@ def voice_of(turn: dict, method: str | None) -> str:
 
 
 def load_site(db: Path, include_drafts: bool) -> tuple[list[dict], list[dict]]:
+    global _ACTIVE_DB
+    _ACTIVE_DB = db
     eps = F.load(db, include_drafts)
     con = sqlite3.connect(db)
     con.row_factory = sqlite3.Row
@@ -663,7 +678,7 @@ def page(A: Assets, *, title: str, desc: str, path: str, body: str, active: str 
 <footer class="site-foot">
   <div class="wrap site-foot__in">
     <div class="site-foot__brand">{mark_svg("mark mark--sm", "f")}<div><strong>Ask Eve</strong><p>{e(TAGLINE)}</p></div></div>
-    <nav aria-label="Footer">{nav_links(menu_items(), "")}<a href="/people/">People</a><a href="/feed.xml">RSS</a><a href="{REPO}" rel="noopener">GitHub</a><a href="mailto:{EMAIL}">{EMAIL}</a></nav>
+    <nav aria-label="Footer">{nav_links(menu_items(), "")}<a href="/people/">People</a><a href="/feed.xml">RSS</a><a href="{X_URL}" rel="noopener">{X_HANDLE}</a><a href="{REPO}" rel="noopener">GitHub</a><a href="mailto:{EMAIL}">{EMAIL}</a></nav>
     <p class="site-foot__fine">Eve is an AI. Her takes are opinions and can be wrong. AI-generated voices are labeled on every episode. No analytics, no trackers.</p>
   </div>
 </footer>
@@ -1263,7 +1278,65 @@ class EveSources:
 # /eve/ section order and short headings. Sections not listed (or missing from eve.json) are skipped.
 EVE_ORDER = [("who-eve-is", "Who Eve is"), ("mind", "Inside Eve's Mind"), ("self-assessment", "Personality"),
              ("name", "Her name"), ("lens-and-values", "Lens and values"), ("how-eve-works", "How she works"),
-             ("changed-mind", "Changed her mind"), ("persona-notes", "Persona notes")]
+             ("changed-mind", "Changed her mind"), ("reading", "Eve's Reading List"), ("persona-notes", "Persona notes")]
+
+
+def load_reading_list(db: Path | None = None) -> list[dict]:
+    """Public reading list from index/reading-list.json + promoted rows in D1 `reading_list`.
+    Every item is validated by leak_check_reading_item before it can render on the public site."""
+    by_slug: dict[str, dict] = {}
+    if READING_FILE.exists():
+        for it in json.loads(READING_FILE.read_text()).get("items", []):
+            by_slug[it["slug"]] = dict(it)
+    target_db = db or _ACTIVE_DB
+    if target_db and Path(target_db).exists():
+        con = sqlite3.connect(target_db)
+        con.row_factory = sqlite3.Row
+        has_tbl = con.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name='reading_list'").fetchone()
+        if has_tbl:
+            for r in con.execute("SELECT * FROM reading_list ORDER BY added_at DESC, id ASC"):
+                d = dict(r)
+                d["related_people"] = json.loads(d.get("related_people_json") or "[]")
+                d["related_topics"] = json.loads(d.get("related_topics_json") or "[]")
+                by_slug[d["slug"]] = d
+    items = list(by_slug.values())
+    for it in items:
+        chk = LC.leak_check_reading_item(it)
+        if not chk["passed"]:
+            raise ValueError(f"reading_list item {it.get('slug')!r} blocked by leak check: {chk['findings']}")
+    return items
+
+
+def reading_list_html(items: list[dict], eps: list[dict]) -> str:
+    ep_by = {ep["slug"]: ep for ep in eps}
+    status_map = {"discussed": "Discussed", "reading": "Reading", "queued": "Queued"}
+    cards = []
+    for it in items:
+        st = status_map.get(it.get("status") or "reading", "Reading")
+        meta = [f'<span class="rcard__badge">{e(st)}</span>']
+        if it.get("author_or_source"):
+            meta.append(f'<span>By {e(it["author_or_source"])}</span>')
+        ep = ep_by.get(it.get("episode_slug") or "")
+        if ep:
+            meta.append(f'<a class="rcard__ep" href="/episodes/{e(ep["slug"])}/">{e(ep["title"])}</a>')
+        t_html = (f'<a href="{e(it["url"])}" target="_blank" rel="noopener">{e(it["title"])}</a>'
+                  if it.get("url") else e(it["title"]))
+        notes = f'<p class="rcard__notes">{e(it["eve_notes"])}</p>' if it.get("eve_notes") else ""
+        cards.append(f'<li class="rcard" id="reading-{e(it["slug"])}">'
+                     f'<p class="rcard__meta">{"".join(meta)}</p>'
+                     f'<h3 class="rcard__t">{t_html}</h3>{notes}</li>')
+    return (
+        '<span id="reading-list" aria-hidden="true"></span>'
+        '<p class="eve-sec__body">Books, manifestos, essays, and platforms Eve and David have read or debated on the show.</p>'
+        '<p class="reading-note">'
+        f'<strong><a href="{X_INTENT_URL}" target="_blank" rel="noopener">Tweet at {X_HANDLE}</a></strong> '
+        '<span>to challenge a take, ask a question, or share a paper publicly on X (mentions flow straight into Eve\x27s queue), '
+        'or email long-form notes &amp; PDFs to</span> '
+        '<a href="mailto:eve@askevepodcast.com">eve@askevepodcast.com</a> / '
+        '<a href="mailto:reading@askevepodcast.com">reading@askevepodcast.com</a>.'
+        '</p>'
+        f'<ul class="rlist">{"".join(cards)}</ul>'
+    )
 
 
 def eve_page(A: Assets, eps: list[dict], people: list[dict] | None = None, topics: list[dict] | None = None) -> str | None:
@@ -1324,6 +1397,11 @@ def eve_page(A: Assets, eps: list[dict], people: list[dict] | None = None, topic
     for sid, title in EVE_ORDER:
         if sid == "mind":
             section(sid, title, mind_html(eps, people or [], topics))
+            continue
+        if sid == "reading":
+            r_items = load_reading_list()
+            if r_items:
+                section(sid, title, reading_list_html(r_items, eps))
             continue
         sec = S.get(sid)
         if not sec:
@@ -1468,7 +1546,7 @@ def about_page(A: Assets, cfg: dict) -> str:
 {subscribe_links(cfg)}
 
 <h2>Contact</h2>
-<p class="contact"><a class="btn btn--ghost" href="mailto:{EMAIL}">{icon("mail")}<span>{EMAIL}</span></a> <a class="btn btn--ghost" href="{REPO}" rel="noopener">{icon("code")}<span>Source on GitHub</span></a></p>
+<p class="contact"><a class="btn btn--ghost" href="{X_INTENT_URL}" target="_blank" rel="noopener"><span>Tweet at {X_HANDLE}</span></a> <a class="btn btn--ghost" href="mailto:{EMAIL}">{icon("mail")}<span>{EMAIL}</span></a> <a class="btn btn--ghost" href="{REPO}" rel="noopener">{icon("code")}<span>Source on GitHub</span></a></p>
 <p>Corrections are welcome, especially when Eve gets something wrong.</p>
 
 <h2>Privacy</h2>
@@ -1486,7 +1564,7 @@ def not_found(A: Assets) -> str:
 
 # ---------------------------------------------------------------- build
 
-REDIRECTS = {"/mind/": "/eve/#mind"}   # the Mind hub moved into the Eve page
+REDIRECTS = {"/mind/": "/eve/#mind", "/reading-list/": "/eve/#reading-list"}   # the Mind hub moved into the Eve page
 
 
 def redirect_page(dest: str) -> str:
@@ -1544,6 +1622,8 @@ def build(db: Path, out: Path, include_drafts: bool) -> int:
     eve = eve_page(A, eps, people, topics)
     if eve:
         write(out, "eve/index.html", eve)
+        write(out, "reading/index.html", redirect_page("/eve/#reading"))
+        write(out, "reading-list/index.html", redirect_page("/eve/#reading-list"))
         urls.append("/eve/")
     write(out, "about/index.html", about_page(A, cfg))
     write(out, "404.html", not_found(A))

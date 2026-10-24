@@ -48,6 +48,61 @@ Status in the table below is maintained by David's side; your log entry is the r
 | D-012 | done (deploy-log) | **Commit identity: GitHub noreply** (details below the table). On every machine that commits to this repo (your box and Hermes), commit as `452472+daveey@users.noreply.github.com`, never a personal or host address. | – |
 | D-013 | **todo, do first** | **History was rewritten: re-sync every clone; never push from an old clone** (details below the table). On 2026-10-24 ~00:10 UTC every branch was force-pushed after `git filter-repo` removed private links, IDs and personal emails from all history. Every commit SHA changed (old main `e3bb848` is now `9b2ebfb`; trees are identical). Pushing from a clone made before that would bring the old history back. | – |
 | D-014 | todo | **Stage and publish the v2 MP3s for episodes 0 and 1** (details below the table). v2 of First Encounter mutes the two spoken agent IDs (soft tone at ~1:10:27 and ~2:15:58; same pipeline: two-pass loudnorm, 128k, ID3 chapters); v2 of The Making of Eve is the same audio with the 15:25 chapter title fixed (it read a Grok share link; now `[link removed]`). Manifests and `d1_upsert.sql` on main already point at `.v2.mp3`; guids are unchanged, so podcast apps treat them as the same episodes. Until this runs, the site and feed keep serving v1. | D-013, PR (audio v2) merged |
+| D-016 | todo | **Eve Inbox, Reading List, Leak-Checked Draft Replies & Cloudflare Access `/admin/` Console** (details below the table). Applies D1 migration `0002_inbox_and_reading_list.sql`, deploys Worker `ask-eve-inbox` (`workers/eve-inbox`), wires Cloudflare Email Routing for `eve@askevepodcast.com` and `reading@askevepodcast.com` (keeping `podcast@askevepodcast.com` forwarding intact), and protects `askevepodcast.com/admin*` behind Cloudflare Access with Google login for David's Google login email (from Hermes's private config / Cloudflare account owner email). | D-002, D-003, D-006 |
+
+**D-016 steps.** This task names the exact Cloudflare resources you create/update: D1 migration `0002_inbox_and_reading_list.sql` on `ask-eve-meta`, Worker `ask-eve-inbox` (`workers/eve-inbox`), Email Routing rules for `eve@askevepodcast.com` and `reading@askevepodcast.com`, and a Cloudflare Access self-hosted application for `askevepodcast.com/admin*`. Never commit or log David's Google login email (from Hermes's private config / Cloudflare account owner email) or any secret value.
+1. **Apply D1 migration `0002_inbox_and_reading_list.sql` on `ask-eve-meta`:**
+   ```bash
+   npx wrangler@4 d1 migrations apply ask-eve-meta --remote --config workers/eve-inbox/wrangler.toml
+   npx wrangler@4 d1 execute ask-eve-meta --remote --config workers/eve-inbox/wrangler.toml --command "SELECT name FROM sqlite_master WHERE type='table' ORDER BY name"
+   ```
+   Expect: `0002_inbox_and_reading_list.sql` applied; tables include `draft_replies`, `inbox_items`, `reading_list`, `x_drafts`, `x_auth_tokens`, and `x_oauth_states` (plus 2 seeded launch posts in `x_drafts`).
+2. **Configure Cloudflare Access self-hosted application for `askevepodcast.com/admin*`:**
+   - Ensure Google OAuth identity provider is enabled in Cloudflare Zero Trust (`Access -> Authentication -> Login methods -> Google`).
+   - Create a self-hosted Access application (via Zero Trust API `/accounts/$ACCOUNT_ID/access/apps` or dashboard `Access -> Applications -> Add an application -> Self-hosted`):
+     - **Name:** `Ask Eve Admin Console`
+     - **Application domain:** `askevepodcast.com`, path: `admin*` (`https://askevepodcast.com/admin*`)
+     - **Session duration:** `24h`
+     - **Allowed IdPs:** Google
+     - **Policy (`Allow`):** Name `David Google Login Only`, Action `Allow`, Rule: `Include -> Emails -> David's Google login email (from Hermes's private config / Cloudflare account owner email)`.
+   - Record the Access application Audience (`AUD`) tag (`$CF_ACCESS_AUD`) and team domain (`<team-name>.cloudflareaccess.com`, `$CF_ACCESS_TEAM_DOMAIN`).
+3. **Set secrets on `ask-eve-inbox` (`workers/eve-inbox`):**
+   Pipe each secret via stdin (never echo or commit values):
+   - `XAI_API_KEY`: same xAI API key used for Grok (`grok-4.7`) triage and draft generation.
+   - `ADMIN_EMAIL`: David's Google login email (from Hermes's private config / Cloudflare account owner email).
+   - `PRIVATE_LEAK_TERMS`: comma-separated private blocklist terms (David's Google login email, any personal domain/handle, street/property names from Hermes's private config) that `leak_check.js` must block in addition to its built-in regex rules.
+   - `CF_ACCESS_TEAM_DOMAIN`: `<team-name>.cloudflareaccess.com` from step 2.
+   - `CF_ACCESS_AUD`: the 64-hex Access Application Audience (`AUD`) tag from step 2.
+   - **X (`@askevepodcast`) posting & mention sync credentials** (either OAuth 2.0 PKCE app credentials OR OAuth 1.0a user tokens):
+     - **Option A (OAuth 2.0 PKCE via `/admin/x/oauth/start`):** set `X_CLIENT_ID` and `X_CLIENT_SECRET` from David's X Developer Portal app (with Callback URI `https://askevepodcast.com/admin/x/oauth/callback` and Read+Write permissions). Once `/admin/` is live, David clicks **Connect @askevepodcast (OAuth 2.0 PKCE)** while signed into `@askevepodcast` on X to store the token in D1 `x_auth_tokens`.
+     - **Option B (OAuth 1.0a env secrets):** set `X_API_KEY`, `X_API_SECRET`, `X_ACCESS_TOKEN`, and `X_ACCESS_TOKEN_SECRET` generated for `@askevepodcast` in the X Developer Portal.
+   ```bash
+   cd workers/eve-inbox
+   for s in XAI_API_KEY ADMIN_EMAIL PRIVATE_LEAK_TERMS CF_ACCESS_TEAM_DOMAIN CF_ACCESS_AUD X_CLIENT_ID X_CLIENT_SECRET; do
+     [ -n "${!s:-}" ] && printf '%s' "${!s}" | npx wrangler@4 secret put "$s"
+   done
+   npx wrangler@4 secret list
+   ```
+   Expect: the core 5 secret names (plus `X_CLIENT_ID` / `X_CLIENT_SECRET` or `X_API_KEY`..`X_ACCESS_TOKEN_SECRET` if provided) listed on `ask-eve-inbox`.
+4. **Deploy Worker `ask-eve-inbox`:**
+   `workers/eve-inbox/wrangler.toml` binds `DB` (`ask-eve-meta` D1), `MASTERS` (`ask-eve-masters` R2), `SEND_EMAIL` (Cloudflare Email Routing outbound binding), and routes `askevepodcast.com/admin*` to the Worker:
+   ```bash
+   cd workers/eve-inbox && npx wrangler@4 deploy
+   ```
+   Expect: Worker `ask-eve-inbox` deployed and bound to route `askevepodcast.com/admin*`.
+5. **Configure Cloudflare Email Routing on `askevepodcast.com`:**
+   - **Keep `podcast@askevepodcast.com` forwarding to David's Google login email (from Hermes's private config / Cloudflare account owner email)** untouched so Apple Podcasts / Spotify verification codes continue arriving directly in David's inbox!
+   - Add/update two Email Routing rules on zone `askevepodcast.com` (`zones/$ZONE_ID/email/routing/rules`):
+     1. Match `to: eve@askevepodcast.com` -> Action: `Send to a Worker` -> Destination: `ask-eve-inbox`.
+     2. Match `to: reading@askevepodcast.com` -> Action: `Send to a Worker` -> Destination: `ask-eve-inbox`.
+   - Ensure the destination address for David's Google login email is verified in Email Routing so the `SEND_EMAIL` binding is authorized to send outbound replies once David clicks **Send Reply** in `/admin/`.
+6. **Verify fail-closed security & routing:**
+   - Unauthenticated request to `/admin/api/queue` is blocked before reaching the Worker (HTTP `302` redirect to Cloudflare Access Google login, or HTTP `401` JSON from the Worker's fail-closed JWT check if hit directly):
+     ```bash
+     curl -sI https://askevepodcast.com/admin/api/queue | head -n 5
+     ```
+   - Public reading list is live at `https://askevepodcast.com/eve/#reading` (and `/reading/` redirects to `/eve/#reading`).
+   - Report the Access app ID (redacting any email), Worker deployment version ID, and Email Routing rule IDs in `docs/deploy-log.md`.
 
 **D-014 steps.** This task names the objects you write: the two v2 staging keys below (publish.yml then writes the public v2 MP3s and chapters). Nothing else is created; **don't delete anything** (the v1 objects stay until David says otherwise).
 1. Download the 3 files from David's Google Drive folder `Ask Eve/_publish-handoff-2026-10-23` (find them by name; ids are not kept in git):

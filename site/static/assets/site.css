@@ -595,3 +595,18 @@ a.cite:focus-visible{outline:2px solid var(--eve);outline-offset:2px;border-radi
 .tcard__s{margin-top:auto;padding-top:.35rem;font:600 .875rem/1.4 var(--mono);color:var(--eve)}
 @media (min-width:700px){.take{padding:1.6rem 1.75rem 1.3rem}}
 .theme-btn__label{font-size:.875rem}
+
+/* Eve's Reading List (/eve/#reading) */
+.reading-note{margin:0 0 1.25rem;padding:.9rem 1.1rem;border-radius:var(--r);background:var(--eve-tint);border:1px solid var(--eve-line);font-size:.95rem;line-height:1.55}
+.reading-note a{color:var(--eve);font-family:var(--mono);font-weight:600;text-decoration:underline;text-underline-offset:.18em}
+.rlist{list-style:none;margin:0;padding:0;display:grid;gap:.9rem}
+.rcard{padding:1.1rem 1.2rem;border-radius:var(--r);background:var(--surface);border:1px solid var(--line);display:grid;gap:.45rem}
+.rcard__meta{margin:0;display:flex;flex-wrap:wrap;align-items:center;gap:.45rem .65rem;color:var(--muted);font-size:.875rem}
+.rcard__badge{display:inline-flex;align-items:center;padding:.15rem .55rem;border-radius:999px;background:var(--eve-tint);border:1px solid var(--eve-line);color:var(--eve);font:700 .875rem/1.3 var(--mono)}
+.rcard__t{margin:0;font:650 1.12rem/1.3 var(--display)}
+.rcard__t a{text-decoration:none}
+.rcard__t a:hover{text-decoration:underline}
+.rcard__t a::after{content:" ↗";color:var(--muted);font-weight:400;font-size:.92em}
+.rcard__notes{margin:.15rem 0 0;color:var(--text);font-size:.98rem;line-height:1.6}
+.rcard__ep{color:var(--eve);font-weight:600;text-decoration:none}
+.rcard__ep:hover{text-decoration:underline}

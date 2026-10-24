@@ -145,7 +145,7 @@ def test_about_and_privacy(site):
     for f in site.rglob("*.html"):
         h = f.read_text()
         emails = set(re.findall(r"[\w.+-]+@[\w-]+(?:\.[\w-]+)+", h))
-        assert emails <= {"podcast@askevepodcast.com"}, (f, emails)    # never a personal address
+        assert emails <= {"podcast@askevepodcast.com", "eve@askevepodcast.com", "reading@askevepodcast.com"}, (f, emails)    # never a personal address
         for src in re.findall(r'<script[^>]*\bsrc="([^"]+)"', h):
             assert src.startswith("/assets/"), (f, src)               # no third-party scripts
         assert not re.search(r'<link[^>]+href="https?://(?!askevepodcast\.com)', h), f

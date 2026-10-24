@@ -1,0 +1,76 @@
+{
+  "updated_at": "2026-10-24T00:00:00Z",
+  "submission_email": "eve@askevepodcast.com",
+  "items": [
+    {
+      "id": "rd_techno_optimist_manifesto",
+      "slug": "the-techno-optimist-manifesto",
+      "title": "The Techno-Optimist Manifesto",
+      "url": "https://a16z.com/the-techno-optimist-manifesto/",
+      "author_or_source": "Marc Andreessen",
+      "submitted_via": "David",
+      "added_at": "2026-04-12T00:00:00Z",
+      "status": "discussed",
+      "eve_notes": "A deliberate polemic engineered to break institutional stagnation—thrilling on energy and abundance, but blind to the coordination traps and concentration of power its own acceleration creates.",
+      "episode_slug": "first-encounter",
+      "related_people": ["marc-andreessen", "ben-horowitz"],
+      "related_topics": ["ai-models-and-benchmarks", "podcast-strategy-and-monetization"]
+    },
+    {
+      "id": "rd_girard_mimetic_desire",
+      "slug": "things-hidden-since-the-foundation-of-the-world",
+      "title": "Things Hidden Since the Foundation of the World (Mimetic Desire & the Scapegoat Mechanism)",
+      "url": "https://www.sup.org/books/religion/things-hidden-foundation-world",
+      "author_or_source": "René Girard",
+      "submitted_via": "David",
+      "added_at": "2026-04-12T00:00:00Z",
+      "status": "discussed",
+      "eve_notes": "The skeleton key to Silicon Valley status games and online pile-ons: we borrow our desires from models turned rivals, and when rivalry overheats, the crowd restores peace by uniting against a single scapegoat.",
+      "episode_slug": "first-encounter",
+      "related_people": ["rene-girard", "peter-thiel"],
+      "related_topics": ["girards-mimetic-desire-and-scapegoating"]
+    },
+    {
+      "id": "rd_thiel_stanford_lectures",
+      "slug": "peter-thiel-stanford-lectures-antichrist-and-girard",
+      "title": "Stanford Lectures on Girard, Stagnation, and the Apocalypse",
+      "url": "https://conversationswithtyler.com/episodes/peter-thiel/",
+      "author_or_source": "Peter Thiel",
+      "submitted_via": "David",
+      "added_at": "2026-04-12T00:00:00Z",
+      "status": "discussed",
+      "eve_notes": "Thiel reads Girard's apocalyptic warnings into technological stagnation and global governance—sharp when diagnosing conformist bubbles, worth questioning when the contrarian posture hardens into its own orthodoxy.",
+      "episode_slug": "first-encounter",
+      "related_people": ["peter-thiel", "rene-girard"],
+      "related_topics": ["girards-mimetic-desire-and-scapegoating"]
+    },
+    {
+      "id": "rd_bari_weiss_free_press",
+      "slug": "the-free-press-heterodox-journalism",
+      "title": "The Free Press & the Heterodox Media Model",
+      "url": "https://www.thefp.com/",
+      "author_or_source": "Bari Weiss",
+      "submitted_via": "David",
+      "added_at": "2026-04-12T00:00:00Z",
+      "status": "discussed",
+      "eve_notes": "Built by walking out of legacy newsrooms that enforced consensus, then tested by the harder problem: keeping audience capture from turning anti-orthodoxy into a mirror-image tribe.",
+      "episode_slug": "first-encounter",
+      "related_people": ["bari-weiss"],
+      "related_topics": ["podcast-strategy-and-monetization"]
+    },
+    {
+      "id": "rd_zohran_mamdani_housing_platform",
+      "slug": "zohran-mamdani-nyc-housing-and-affordability-platform",
+      "title": "NYC Housing, Rent Freeze, and Municipal Grocery Platform",
+      "url": "https://www.zohranfornyc.com/",
+      "author_or_source": "Zohran Mamdani",
+      "submitted_via": "David",
+      "added_at": "2026-04-12T00:00:00Z",
+      "status": "discussed",
+      "eve_notes": "Captures genuine generational anger over New York's cost of living with media-savvy clarity, while colliding head-on with supply math and fiscal constraints.",
+      "episode_slug": "first-encounter",
+      "related_people": ["zohran-mamdani"],
+      "related_topics": ["us-electoral-politics"]
+    }
+  ]
+}
