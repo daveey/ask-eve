@@ -10,6 +10,7 @@ on:
       - scripts/build_site.py
       - scripts/render_feed.py
       - scripts/frontmatter.py
+      - scripts/site_i18n.py
       - site/_headers
       - site/site.json
       - site/static/**
@@ -20,6 +21,8 @@ on:
       - index/eve.json
       - index/slugs.json
       - index/takes.json
+      - i18n/**
+      - translations/**
       - .github/workflows/site.yml
 
 permissions:

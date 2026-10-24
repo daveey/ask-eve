@@ -22,3 +22,6 @@
 
 /episodes/*/transcript.txt
   Content-Type: text/plain; charset=utf-8
+
+/ru/episodes/*/transcript.txt
+  Content-Type: text/plain; charset=utf-8
