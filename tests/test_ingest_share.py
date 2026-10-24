@@ -147,3 +147,8 @@ def test_grokbot_chat_cli(tmp_path, capsys):
     assert I.main([str(p), "--source-type", "grokbot-chat", "--slug", "x", "--title", "T", "--date", "2026-10-23",
                               "--out", str(tmp_path)]) == 0
     assert json.loads(capsys.readouterr().out)["turns"] == 4
+
+
+def test_grokbot_chat_rejects_elevenlabs_key():
+    with pytest.raises(I.IngestError):
+        I.render_grokbot_chat([{"clock_utc_minute": "10:34 AM", "speaker": "David", "text": "my key is sk_" + "a1b2c3d4" * 6}], "2026-10-23", "t", [])

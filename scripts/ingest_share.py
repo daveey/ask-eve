@@ -119,7 +119,7 @@ def ingest(source: str, slug: str, title: str, people: list[str] | None, out_dir
 
 
 CHAT_CLOCK_RE = re.compile(r"^(\d{1,2}):(\d{2}) ?([AP]M)$")
-SECRET_RE = re.compile(r"xai-[A-Za-z0-9]{20,}|gh[pousr]_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,}")
+SECRET_RE = re.compile(r"xai-[A-Za-z0-9]{20,}|sk_[A-Za-z0-9]{30,}|gh[pousr]_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,}")
 
 
 def chat_clock(s: str) -> str:
