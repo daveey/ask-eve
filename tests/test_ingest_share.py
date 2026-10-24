@@ -30,9 +30,11 @@ def test_reproduces_episode1_byte_for_byte(tmp_path, capsys):
     assert [l for l in committed if l.startswith("redactions: ")] and len(committed) == len(exported) + 1
     committed = [l for l in committed if not l.startswith("redactions: ")]
     changed = [(a, b) for a, b in zip(exported, committed) if a != b]
-    assert len(changed) == 3
-    for a, b in changed:
-        assert "canvas" in a and "canvas" not in b and "[link to a private notes page removed]" in b
+    assert len(changed) == 5   # 3 private-link lines + 2 spoken agent IDs (privacy cleanup)
+    links = [(a, b) for a, b in changed if "[link to a private notes page removed]" in b]
+    assert len(links) == 3 and sum("[redacted agent ID]" in b for _, b in changed) == 2
+    for a, b in links:
+        assert "canvas" in a and "canvas" not in b
 
 
 def _share(*turns):

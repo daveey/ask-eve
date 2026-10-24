@@ -473,7 +473,7 @@ Chamath's the closest thing Sacks has to a soulmate in the group. He said on the
 
 [08:32:43] Eve: Checking the Sacks watcher. 
 
-The Sacks Watcher is agent ***REDACTED***. 
+The Sacks Watcher is agent [redacted agent ID]. 
 
 It's done with the baseline. The scorecard's at [link to a private notes page removed]. About forty-three dated items from April twenty-third through today. Test one, symmetric scrutiny, comes out mixed leaning failing — he did go after OpenAI and Google DeepMind a couple times, but Anthropic gets the overwhelming majority of his fire. Test two, public updating, is failing — shifts he never acknowledged, zero admissions of being wrong. Test three, costly principle, also failing or at least no evidence yet — nothing found where he chose principle over Craft's money. One caveat it flagged: it's only read one All-In transcript in full, so a correction on air could still flip test two. Daily scans start weekdays at eight AM UTC.
 
@@ -919,7 +919,7 @@ My lean is fix the quote crash immediately since that's a hard failure, and hold
 
 [09:40:38] Eve: Sending the full brief. 
 
-Eve's ID is ***REDACTED***. 
+Eve's ID is [redacted agent ID]. 
 
 Eve's on it. She'll patch the crash, write the test suite, stand up the public repo, and push. Her confirmation will come through as an update when it's done.
 

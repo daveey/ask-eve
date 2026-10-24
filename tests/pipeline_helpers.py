@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts"))
 SHARE_JSON = Path("/workspace/share.json")
 EP1 = ROOT / "episodes/2026-10-23_eve-david-podcast-planning.md"
-EP1_SHA = "5f95a616883b1f5c6cecf3f0fbf7daf6b22f1e1a1f5392f16f0f22701761d13c"  # committed (redacted) transcript
+EP1_SHA = "8dc15711ab5a8903812028cebfd3d082ae2ea0611e46274436352abecd9f70bb"  # committed (redacted) transcript
 EP1_EXPORT_SHA = "15d413f1fc34283cc1bb50f31d694395979201996d803a5871ee1020b3adcea4"  # verbatim ingest_share export
 
 

@@ -13,6 +13,7 @@ episode: 2
 people: [Marc Andreessen, Ben Horowitz]
 source: https://grok.com/share/c2hhcmQtMg_690b09f6-ae41-47b8-a260-b1e5ae045afe
 note: Episode 2 (draft; title provisional). Verbatim export of the shared Grok voice session (32 turns, 18:20-18:28 UTC); human turns labeled David, assistant turns labeled Eve; text unedited, ASR artifacts kept. David's voice is his own Voice Memo (one take, 18:20:31-18:26:18 UTC) for 13 of his 16 lines. His other 3 lines are flagged as missing audio and are not voiced: the share link pasted at 18:25:21 (typed, not spoken) and the one-letter 'S' messages at 18:27:21 and 18:28:09 (after the recording ended). No narrator fill. Eve's voice is AI-reconstructed (xAI text-to-speech) from her text replies, not her live audio. Eve's 18:23:11 reply ends mid-sentence in the export and is kept as is.
+redactions: One link to a separate Grok share, pasted by David, was removed and marked in brackets. Everything else is verbatim.
 ---
 
 [18:20:39] David: Hi Eve, can you hear me?
@@ -97,7 +98,7 @@ The cleanest fix is a fallback: when conversation search returns nothing, automa
 
 I've now tried four variations — full phrase, single word, related terms — and every one comes back empty. So the index my search runs against is either stale or not capturing that session at all. One thing worth checking: does that Andreessen chat have a share link or a date you remember? If you can pull it up, we could at least anchor it manually.
 
-[18:25:21] David: https://grok.com/share/c2hhcmQtMg_***REDACTED***
+[18:25:21] David: [link to a separate Grok share removed]
 
 [18:25:45] Eve: Fetching that share link. 
 
