@@ -8,7 +8,7 @@ workers_dev = false
 routes = [{ pattern = "upload.askevepodcast.com", custom_domain = true }]
 
 [vars]
-CF_ACCOUNT_ID = "***REDACTED***"   # not a secret; `npx wrangler@4 whoami`
+# CF_ACCOUNT_ID is a Worker secret, not a var (kept out of git): printf %s "$CF_ACCOUNT_ID" | npx wrangler@4 secret put CF_ACCOUNT_ID
 MASTERS_BUCKET = "ask-eve-masters"
 GH_REPO = "daveey/ask-eve"
 GH_WORKFLOW = "ingest.yml"
@@ -20,11 +20,13 @@ binding = "MASTERS"
 bucket_name = "ask-eve-masters"
 
 # D1 metadata DB. The Worker code does not use it yet; the block lets `wrangler d1 migrations apply` and
-# publish.yml (`wrangler d1 execute --config workers/upload/wrangler.toml`) find the database. IDs are not secrets.
+# publish.yml / meta.yml (`wrangler d1 execute --config workers/upload/wrangler.toml`) find the database.
+# The id is kept out of git: the workflows substitute __D1_DATABASE_ID__ from the GitHub secret D1_DATABASE_ID at run time.
+# Locally: sed -i "s/__D1_DATABASE_ID__/$D1_DATABASE_ID/" wrangler.toml (and don't commit the result).
 [[d1_databases]]
 binding = "DB"
 database_name = "ask-eve-meta"
-database_id = "***REDACTED***"   # ask-eve-meta
+database_id = "__D1_DATABASE_ID__"   # ask-eve-meta; see above
 migrations_dir = "../../migrations"
 
 # /notify sends with this binding. Cloudflare only delivers send_email to addresses VERIFIED in this account's
@@ -32,7 +34,7 @@ migrations_dir = "../../migrations"
 [[send_email]]
 name = "MAILER"
 
-# Secrets (never in this file): npx wrangler@4 secret put UPLOAD_TOKEN | R2_ACCESS_KEY_ID | R2_SECRET_ACCESS_KEY | GITHUB_TOKEN | NOTIFY_TOKEN | NOTIFY_TO
+# Secrets (never in this file): npx wrangler@4 secret put CF_ACCOUNT_ID | UPLOAD_TOKEN | R2_ACCESS_KEY_ID | R2_SECRET_ACCESS_KEY | GITHUB_TOKEN | NOTIFY_TOKEN | NOTIFY_TO
 
 [observability]
 enabled = true

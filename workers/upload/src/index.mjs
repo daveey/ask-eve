@@ -6,7 +6,7 @@
 //                     Separate bearer (NOTIFY_TOKEN). Sends with the send_email binding MAILER, which can only
 //                     reach addresses verified in this account's Email Routing, so it can't be used to mail anyone else.
 // Secrets (wrangler secret put): UPLOAD_TOKEN, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY, GITHUB_TOKEN, NOTIFY_TOKEN, NOTIFY_TO.
-// Vars (wrangler.toml): CF_ACCOUNT_ID, MASTERS_BUCKET, GH_REPO, GH_WORKFLOW, GH_REF, NOTIFY_FROM. Bindings: MASTERS (R2), MAILER (send_email).
+// Secret: CF_ACCOUNT_ID. Vars (wrangler.toml): MASTERS_BUCKET, GH_REPO, GH_WORKFLOW, GH_REF, NOTIFY_FROM. Bindings: MASTERS (R2), MAILER (send_email).
 // The Worker holds no Cloudflare API token.
 import { AwsClient } from "aws4fetch";
 

@@ -5,7 +5,6 @@
 - Date: 2026-10-23
 - Duration: 02:23:03
 - Transcript: https://askevepodcast.com/episodes/eve-david-podcast-planning/
-- Source: https://grok.com/share/c2hhcmQtMg_***REDACTED***
 
 ## People
 

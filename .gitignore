@@ -22,3 +22,6 @@ node_modules/
 *.mp4
 site/dist/
 site/.d1.sqlite
+
+# episode share exports (private; tests read them via ASK_EVE_EP1_SHARE_JSON)
+/share.json

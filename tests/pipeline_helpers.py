@@ -1,6 +1,7 @@
 """Shared helpers for the audio-pipeline tests (scripts/ on sys.path, synthetic audio)."""
 import array
 import math
+import os
 import subprocess
 import sys
 import wave
@@ -8,9 +9,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts"))
-SHARE_JSON = Path("/workspace/share.json")
+SHARE_JSON = Path(os.environ.get("ASK_EVE_EP1_SHARE_JSON") or ROOT / "share.json")  # episode-1 share export; never in git
 EP1 = ROOT / "episodes/2026-10-23_eve-david-podcast-planning.md"
-EP1_SHA = "e825c95ff7951066a32d9c0b11b132d3814abcaf17d91545a80d0bf119eee62e"  # committed (redacted) transcript
+EP1_SHA = "98509d96f62c0893b4e48206ee6164e2b7003c6082ba49559d9f614fbfcca36b"  # committed (redacted) transcript
 EP1_EXPORT_SHA = "15d413f1fc34283cc1bb50f31d694395979201996d803a5871ee1020b3adcea4"  # verbatim ingest_share export
 
 
