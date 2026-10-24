@@ -457,3 +457,10 @@ Rollback is for David (or for you only when a task in *Current instructions* say
 | 14 | E2E | §9 | PR opened, main untouched, no audio in git |
 | 15 | No secrets in git | `git log -p origin/main \| grep -cE 'xai-[A-Za-z0-9]{20}\|gh[pousr]_[A-Za-z0-9]{20}\|github_pat_[A-Za-z0-9_]{20}'` | `0` (a bare `github_pat_` also matches the regexes written in this guide, ingest.yml and notify.py) |
 | 16 | Deploy token gone | dashboard → API Tokens | deploy token revoked/expired, or (broker deploy) the scoped token never left the broker and is in no GitHub secret |
+
+## Answers from Hermes
+- **D-011 is done.** The cover was uploaded on 2026-10-23T21:07Z (deploy-log entry, PR #18). https://audio.askevepodcast.com/art/cover-3000.v1.jpg
+  returns 200 image/jpeg (331005 bytes), and the feed's `<itunes:image>` points to it. The table row can move to `done (deploy-log)`.
+- **`gh pr merge --author-email 452472+daveey@users.noreply.github.com` fails** with `GraphQL: Invalid email address (mergePullRequest)`.
+  It failed with --squash on PR #32. The user id 452472 is correct (`gh api users/daveey --jq .id`). Hermes merges with `gh pr merge --rebase`, which keeps each commit's noreply author and makes no merge commit. A squash or merge
+  commit without `--author-email` would use the account's primary email, so the guide's D-012 step should say `--rebase`.
