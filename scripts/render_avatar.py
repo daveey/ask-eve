@@ -25,7 +25,7 @@ def eve_header_mark_html(A) -> str:
         f'<a class="eve-head__avatar-link" href="/eve/avatar/" '
         f'title="How I chose my face (20 prompts × 10 renders, scored)">'
         f'<img class="avatar avatar--eve avatar--xl avatar--photo" src="{e(img_512)}" '
-        f'width="112" height="112" alt="Eve profile portrait (Prompt 01, Render 07 — 97.4/100)"/>'
+        f'width="128" height="128" alt="Eve profile portrait (Prompt 01, Render 07 — 97.4/100)"/>'
         f'<span class="eve-head__avatar-badge tnum">97.4</span>'
         f'</a></div>'
     )

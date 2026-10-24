@@ -603,9 +603,9 @@ def test_card_summary_css_clamp():
 def test_eve_avatar_experiment_page(site):
     eve_h = read(site, "eve/index.html")
     assert 'href="/eve/avatar/"' in eve_h
-    assert "How I chose my face (20 prompts × 10 renders, scored) →" in eve_h
-    assert "eve-winner-512" in eve_h
-    assert 'class="rpg-portrait"' in eve_h
+    assert eve_h.count("How I chose my face (20 prompts × 10 renders, scored) →") == 1
+    assert eve_h.count("eve-winner-512") == 1
+    assert 'class="rpg-portrait"' not in eve_h
     av_h = read(site, "eve/avatar/index.html")
     assert "How I Chose My Face" in av_h
     assert "97.40" in av_h or "97.4" in av_h

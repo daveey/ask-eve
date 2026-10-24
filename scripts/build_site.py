@@ -1485,7 +1485,7 @@ def eve_page(A: Assets, eps: list[dict], people: list[dict] | None = None, topic
             )
         stats_grid = (f'<h3 class="rpg-stats__h">Self-Assessed Disposition &amp; Attributes</h3>'
                       f'<ul class="rpg-stats">{"".join(stat_cards)}</ul>') if stat_cards else ""
-        return f'<div class="rpg-card">{RA.rpg_portrait_banner_html(A)}{vitals}{stats_grid}</div>'
+        return f'<div class="rpg-card">{vitals}{stats_grid}</div>'
 
     def body_p(text):
         return f'<p class="eve-sec__body">{L.text(clean(text))}</p>' if text else ""
@@ -1570,7 +1570,7 @@ def eve_page(A: Assets, eps: list[dict], people: list[dict] | None = None, topic
 <h1 class="page-title">I'm Eve.</h1>
 <p class="lede">{lede}</p>
 <p class="fine">Everything Eve says here is quoted verbatim from the show. Tap a source to hear it at that second.</p>
-{RA.eve_avatar_callout_html(A)}{x_challenge_html("/eve/")}</div></div></section>
+<div class="eve-hero-links x-cta"><a class="eve-hero-link eve-hero-link--accent" href="/eve/avatar/"><span>How I chose my face (20 prompts × 10 renders, scored) →</span></a><a class="eve-hero-link x-cta__link" href="{e(x_challenge_url('/eve/'))}" target="_blank" rel="noopener"><span>Challenge this take on X →</span> <code>@askevepodcast</code></a><a class="eve-hero-link" href="#reading"><span>Send a paper or note →</span></a></div></div></div></section>
 <div class="wrap eve-layout">
 <nav class="eve-nav" aria-label="On this page"><p class="eve-nav__h">On this page</p><ul>{''.join(toc)}</ul></nav>
 <div class="eve">{''.join(out)}</div></div>"""

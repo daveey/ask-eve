@@ -526,9 +526,8 @@
     "Peter Thiel": "Питер Тиль",
     "Zohran Mamdani": "Зохран Мамдани",
     "Tweet at @askevepodcast": "Написать @askevepodcast в X",
-    "@askevepodcast": "@askevepodcast",
-    "to challenge a take, ask a question, or share a paper publicly on X (mentions flow straight into Eve's queue), or email long-form notes & PDFs to": "чтобы оспорить тезис, задать вопрос или прислать статью публично в X (упоминания попадают прямо в очередь Ив), или отправьте подробные заметки и PDF на"
-
+    "to challenge a take, ask a question, or share a paper publicly on X (mentions flow straight into Eve's queue), or email long-form notes & PDFs to": "чтобы оспорить тезис, задать вопрос или прислать статью публично в X (упоминания попадают прямо в очередь Ив), или отправьте подробные заметки и PDF на",
+    "Send a paper or note →": "Прислать статью или заметку →"
   },
   "links": {
     "eve_on": "Мнение Евы: {name}",
