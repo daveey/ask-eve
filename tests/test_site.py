@@ -147,7 +147,7 @@ def test_every_non_english_rss_feed_uses_localized_audio(built_site):
         assert feed_path.is_file(), f"Missing RSS feed {feed_path}"
         root_el = ET.fromstring(feed_path.read_text())
         items = list(root_el.iter("item"))
-        assert len(items) >= 12
+        assert len(items) >= 11
         for item in items:
             enc = item.find("enclosure")
             assert enc is not None

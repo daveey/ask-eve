@@ -1,0 +1,67 @@
+{
+ "stem": "2026-10-23_eve-david-podcast-planning",
+ "version": 1,
+ "audio_key": "audio/pt/2026-10-23_eve-david-podcast-planning.v1.mp3",
+ "audio_url": "https://audio.askevepodcast.com/audio/pt/2026-10-23_eve-david-podcast-planning.v1.mp3",
+ "audio_bytes": 161117245,
+ "audio_sha256": "3df5ff51d8e363bced4689c50745054d93e3a6b67d29bf1506626caa4e3ba2b3",
+ "audio_mime": "audio/mpeg",
+ "duration_seconds": 10070,
+ "loudness_lufs": -16.4,
+ "true_peak_dbfs": -4.4,
+ "id3_chapters": 8,
+ "chapters": [
+  {
+   "startTime": 0.0,
+   "title": "Aviso de áudio reconstruído por IA"
+  },
+  {
+   "startTime": 380.106,
+   "title": "Peter Thiel"
+  },
+  {
+   "startTime": 825.394,
+   "title": "Elon Musk"
+  },
+  {
+   "startTime": 2427.202,
+   "title": "David Sacks"
+  },
+  {
+   "startTime": 3794.706,
+   "title": "Jason Calacanis"
+  },
+  {
+   "startTime": 5922.958,
+   "title": "Chan e Nancy Pelosi e Scott Wiener"
+  },
+  {
+   "startTime": 6707.062,
+   "title": "Bari Weiss"
+  },
+  {
+   "startTime": 7036.27,
+   "title": "Zohran Mamdani"
+  }
+ ],
+ "recording_method": "tts-reconstructed",
+ "ai_reconstructed": true,
+ "mode": "synthetic",
+ "coverage": {
+  "david_lines": 152,
+  "david_real": 0,
+  "david_narrator": 152,
+  "david_real_share": 0.0,
+  "david_real_seconds": 0.0,
+  "david_narrator_seconds": 1124.48,
+  "eve_seconds": 8754.508,
+  "gap_turns": []
+ },
+ "placeholder_audio": false,
+ "tts": "xai_tts voice=eve lang=pt",
+ "narrator": "elevenlabs_tts voice=oIYMwdEzgKSOV3gVsAjB model=eleven_v4 lang=pt",
+ "missing_turns": [
+  79
+ ],
+ "transcript_sha256": "98509d96f62c0893b4e48206ee6164e2b7003c6082ba49559d9f614fbfcca36b"
+}

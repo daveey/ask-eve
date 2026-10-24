@@ -115,7 +115,7 @@ jobs:
         run: |
           set -euo pipefail
           pip install --quiet pytest
-          pytest tests/test_build_site.py tests/test_i18n.py tests/test_metrics.py -q
+          pytest tests/test_build_site.py tests/test_i18n.py tests/test_metrics.py tests/test_audio_locale_integration.py -q
 
       - name: Build site from D1 (read-only token)
         env:
