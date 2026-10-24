@@ -236,6 +236,56 @@ SPLIT_SPECS: list[dict[str, Any]] = [
             "Testing David Sacks and All-In's 'talk honestly' brand when the subject is inside the tent"
         ],
         "people": ["Elon Musk", "David Sacks", "Dario Amodei", "Donald Trump", "Volodymyr Zelensky", "Vladimir Putin"]
+    }    ,
+    {
+        "slug": "california-high-speed-rail-and-cap-and-trade",
+        "stem": "2026-10-24_california-high-speed-rail-and-cap-and-trade",
+        "date": "2026-10-24",
+        "episode_number": 10,
+        "title": "California High-Speed Rail, the $1B Cap-and-Trade Siphon, and Why Megaprojects Never Die",
+        "parent_slug": "california-high-speed-rail-and-the-billionaire-tax",
+        "parent_stem": "2026-10-24_california-high-speed-rail-and-the-billionaire-tax",
+        "parent_title": "California High-Speed Rail & the Billionaire Tax (Full Uncut Session)",
+        "part_number": 1,
+        "part_total": 2,
+        "turn_start": 13,
+        "turn_end": 78,
+        "published_at": "2026-10-24T09:00:00Z",
+        "summary": "Prop 1A's 2008 promise vs. $15.5B spent and $126B+ total cost with zero miles of track laid, Gavin Newsom's political lock-in and veto of the Inspector General staffing bill, CEO Ian Choudri's KPMG travel scandal and $537.3M Change Order 427, $677M / 130,000 pages of CEQA review, Texas vs. Spain vs. China, and drafting a $50M ballot initiative to redirect the $1B/year cap-and-trade siphon.",
+        "context": "Episode 10, recorded during the California High-Speed Rail & the Billionaire Tax session (07:49:37–08:23:42 UTC). David asks what happened to California High-Speed Rail, and Eve traces how a $10B 2008 bond measure promising San Francisco to Los Angeles in under three hours by 2020 became $15.5B spent, a $126B+ full-system cost estimate, and zero miles of track laid—sustained by a $677M / 130,000-page CEQA industry paid to the same firms that funded the ballot campaign, a $537.3M Dragados-Flatiron change-order settlement, CEO Ian Choudri's KPMG travel scandal, and Governor Gavin Newsom's veto of Inspector General staffing power while locking in a $1B/year cap-and-trade annuity through 2045.",
+        "topics": [
+            "Prop 1A's 2008 promise ($10B bonds, SF to LA in 2h40m by 2020) vs. $15.5B spent, $126B+ total cost, and zero track laid",
+            "Why megaprojects never die: Gavin Newsom's political lock-in, the $1B/year cap-and-trade siphon through 2045, and vetoing the Inspector General staffing bill",
+            "CEO Ian Choudri's HNTB background, the KPMG travel audit (nightclubs, tiki bars, late-night rideshares), and the $537.3M Dragados-Flatiron Change Order 427",
+            "Tracing a single cap-and-trade dollar and the $677M / 130,000-page CEQA review industry funded by ballot-campaign donors",
+            "Comparing Texas, Spain, and China—and drafting the Climate Investment Restoration Act to redirect the $1B/year siphon"
+        ],
+        "people": ["Gavin Newsom", "Ian Choudri", "Scott Wiener"]
+    },
+    {
+        "slug": "california-billionaire-tax-prop-40-and-seiu-uhw",
+        "stem": "2026-10-24_california-billionaire-tax-prop-40-and-seiu-uhw",
+        "date": "2026-10-24",
+        "episode_number": 11,
+        "title": "California's Billionaire Tax (Prop 40), SEIU-UHW's Ballot Machine, and the Valuation Trap",
+        "parent_slug": "california-high-speed-rail-and-the-billionaire-tax",
+        "parent_stem": "2026-10-24_california-high-speed-rail-and-the-billionaire-tax",
+        "parent_title": "California High-Speed Rail & the Billionaire Tax (Full Uncut Session)",
+        "part_number": 2,
+        "part_total": 2,
+        "turn_start": 79,
+        "turn_end": 98,
+        "published_at": "2026-10-24T10:00:00Z",
+        "summary": "SEIU-UHW president Dave Regan's 23–48 ballot initiatives as bargaining leverage vs. Emmanuel Saez & Gabriel Zucman's precedent play, the 5% one-time tax on >$1B net worth, Section 5033(c)(3)(C)'s voting-control valuation trap for illiquid private startup founders vs. public companies, the California Supreme Court fast-lane challenge, and how wealth taxes actually work in Norway, Switzerland, and Spain.",
+        "context": "Episode 11, recorded during the California High-Speed Rail & the Billionaire Tax session (08:24:36–08:43:28 UTC). David and Eve examine Proposition 40, California's one-time 5% tax on residents worth $1B+ as of January 1, 2026: how SEIU-UHW president Dave Regan uses ballot initiatives as an attrition and bargaining machine across 48 filings, how UC Berkeley economist Emmanuel Saez and his co-drafters designed Section 5033(c)(3)(C)'s voting-control valuation floor and appraiser penalties, why Gavin Newsom and every major Democratic gubernatorial candidate oppose it alongside Sergey Brin's $102M counter-campaign, the California Supreme Court fast-lane constitutional challenge led by Elizabeth Prelogar, and how wealth taxes actually perform in Norway, Switzerland, Spain, and France.",
+        "topics": [
+            "Proposition 40 explained: a one-time 5% tax on >$1B net worth retroactive to January 1, 2026, and the $300M+ opposition coalition",
+            "SEIU-UHW president Dave Regan's ballot leverage machine: 48 initiatives, the three dialysis propositions, hospital executive-pay deals, and the racketeering suit",
+            "Section 5033(c)(3)(C)'s voting-control valuation trap: private company book-plus-7.5x-profits formula, appraiser penalties, and why public super-voting shares are excluded",
+            "Intentional design vs. bug: Emmanuel Saez & Gabriel Zucman's national wealth-tax template and forced-liquidation pressure",
+            "The California Supreme Court fast-lane schedule, Commerce Clause & retroactivity challenges, and how wealth taxes work in Norway, Switzerland, Spain, and France"
+        ],
+        "people": ["Dave Regan", "Emmanuel Saez", "Gabriel Zucman", "Gavin Newsom", "Peter Thiel"]
     }
 ]
 
@@ -287,14 +337,24 @@ def build_splits(slice_audio: bool = False) -> dict[str, Any]:
         if not sliced_turns:
             raise ValueError(f"Empty turn slice for {spec['slug']}")
 
+        def _clk_sec(c: str) -> float:
+            parts = [int(x) for x in c.split(":")]
+            return float(parts[0] * 3600 + parts[1] * 60 + parts[2])
+
+        base_clk = _clk_sec(all_turns[0]["clock"]) if all_turns else 0.0
         first_tl = next((tl_by_i[k] for k in range(t_start_1 - 1, t_end_1) if tl_by_i.get(k, {}).get('edited_start') is not None), {})
         last_tl = next((tl_by_i[k] for k in range(t_end_1 - 1, t_start_1 - 2, -1) if tl_by_i.get(k, {}).get('edited_end') is not None), {})
-        parent_start_sec = round(float(first_tl.get("edited_start") or 0.0), 2)
-        parent_end_sec = round(float(last_tl.get("edited_end") or parent_start_sec), 2)
-        duration_sec = max(1, int(round(parent_end_sec - parent_start_sec)))
 
         clock_start = sliced_turns[0]["clock"]
         clock_end = sliced_turns[-1]["clock"]
+
+        if first_tl and last_tl:
+            parent_start_sec = round(float(first_tl.get("edited_start") or 0.0), 2)
+            parent_end_sec = round(float(last_tl.get("edited_end") or parent_start_sec), 2)
+        else:
+            parent_start_sec = round(max(0.0, _clk_sec(clock_start) - base_clk), 2)
+            parent_end_sec = round(max(parent_start_sec + 30.0, _clk_sec(clock_end) - base_clk + 30.0), 2)
+        duration_sec = max(1, int(round(parent_end_sec - parent_start_sec)))
 
         # Build turn records for build_site.py
         turn_records: list[dict[str, Any]] = []
@@ -304,8 +364,13 @@ def build_splits(slice_audio: bool = False) -> dict[str, Any]:
             tl_entry = tl_by_i.get(orig_1 - 1, {})
             p_s = tl_entry.get("edited_start")
             p_e = tl_entry.get("edited_end")
-            rel_s = round(max(0.0, float(p_s) - parent_start_sec), 2) if p_s is not None else None
-            rel_e = round(max(0.0, float(p_e) - parent_start_sec), 2) if p_e is not None else None
+            if p_s is None:
+                p_s = round(max(0.0, _clk_sec(t["clock"]) - base_clk), 2)
+            if p_e is None:
+                nxt_clk = sliced_turns[idx + 1]["clock"] if idx + 1 < len(sliced_turns) else clock_end
+                p_e = round(max(float(p_s) + 5.0, _clk_sec(nxt_clk) - base_clk), 2)
+            rel_s = round(max(0.0, float(p_s) - parent_start_sec), 2)
+            rel_e = round(max(0.0, float(p_e) - parent_start_sec), 2)
             turn_records.append({
                 "i": idx,
                 "parent_turn_i": orig_1 - 1,
@@ -401,7 +466,7 @@ def build_splits(slice_audio: bool = False) -> dict[str, Any]:
         entry["guid"] = f"ask-eve:{spec['stem']}"
         entry["audio_key"] = f"audio/en/{spec['stem']}.v1.mp3"
         entry["audio_url"] = f"https://audio.askevepodcast.com/audio/en/{spec['stem']}.v1.mp3"
-        entry["published_at"] = f"2026-10-23T{12 + spec['episode_number']:02d}:00:00Z"
+        entry["published_at"] = spec.get("published_at") or (f"2026-10-23T{12 + spec['episode_number']:02d}:00:00Z" if spec["date"] == "2026-10-23" else f"{spec['date']}T{spec['episode_number']:02d}:00:00Z")
         if dst_mp3.exists():
             entry["local_sliced_mp3"] = str(dst_mp3.relative_to(ROOT))
             entry["local_sliced_bytes"] = dst_mp3.stat().st_size

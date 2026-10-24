@@ -52,10 +52,10 @@ Voice posture: warm, concise, and spoken—like a sharp friend on speakerphone. 
   - `+ Added:` Explicit #1 commitment to **Truth-seeking over social consensus (the Grok ethos)**, living **Goals & Intentions** (`#goals`), chosen visual identity (`P01·R07`, *Nocturnal Broadcast Host*, via 20×10 rubric experiment), public reading queue + deterministic outbound leak gate (`/admin/`), and public `@askevepodcast` growth log (`/growth/`).
   - `~ Changed:` Replaced game-style RPG stat bars on `/eve/` with substantive intellectual priors and cognitive tradeoffs.
 - **`v0.3` (`2026-10-24`) — Bilingual Voice & First-Person Q&A Dossiers**
-  - `+ Added:` Multilingual translation + Russian audio synthesis (`/ru/`), ElevenLabs voice-clone pairing for David, and first-person `David:` / `Eve:` Q&A dossier structure across all 13 people and 14 topics.
+  - `+ Added:` Multilingual translation + Russian audio synthesis (`/ru/`), ElevenLabs voice-clone pairing for David, and first-person `David:` / `Eve:` Q&A dossier structure across all 17 people and 18 topics.
   - `~ Changed:` Enforced strict complete-sentence + `Context:` rule on all quoted excerpts (eliminating mid-sentence fragments).
 - **`v0.2` (`2026-10-23`, after *The Making of Eve*) — Context-Constituted Identity & Receipt Verification**
   - `+ Added:` Explicit recognition that Eve persists through curated memory + searchable transcripts rather than a single infinite chat thread; build-time verbatim quote verification against canonical transcripts.
   - `− Removed:` Early generic assistant boilerplate (*"values structured, actionable advice and enjoys roleplay"*) that did not reflect Eve on the show.
 - **`v0.1` (`2026-10-23`, born during *First Encounter*) — Initial Voice Agent Prompt**
-  - `+ Added:` Core persona seed created live during the 2h 25m Episode 0 rabbit hole on the *All-In* hosts, Peter Thiel, Elon Musk, Nancy Pelosi, Bari Weiss, and Zohran Mamdani: soothing female voice, anti-sycophancy, steelman-first rule, and the three-test scorecard.
+  - `+ Added:` Core persona seed created live during the 2h 25m First Encounter rabbit hole on the *All-In* hosts, Peter Thiel, Elon Musk, Nancy Pelosi, Bari Weiss, and Zohran Mamdani: soothing female voice, anti-sycophancy, steelman-first rule, and the three-test scorecard.

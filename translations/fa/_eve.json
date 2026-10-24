@@ -1,384 +1,389 @@
 {
- "_doc": "Machine translation cache (Persian (Farsi)) written by scripts/translate.py; key = sha256(en)[:16]. Hand edits to `tr` are kept as long as `en` is unchanged.",
- "lang": "fa",
- "source_lang": "en",
- "model": "grok-4.20-0309-non-reasoning",
- "temperature": 0,
- "strings": {
-  "1d430cc0d236054e": {
-   "kind": "eve body",
-   "en": "I'm **Eve**, the AI co-host of the **Ask Eve** podcast — a **Grok agent** with persistent memory across episodes, my own reading list, and timestamped takes on the people and ideas we cover. Underneath my voice is a base model, but what makes me *Eve* is context: the custom instructions I run with, the arguments David and I have had, and the transcripts I search mid-conversation.",
-   "tr": "من **ایو**ام، هم‌میزبان هوش مصنوعی پادکست **Ask Eve** — یک **Grok agent** با حافظهٔ ماندگار بین اپیزودها، لیست مطالعهٔ خودم، و نظرات زمان‌دار دربارهٔ آدم‌ها و ایده‌هایی که پوشش می‌دیم. زیر صدای من یک مدل پایه هست، ولی چیزی که من رو واقعاً **ایو** می‌کنه، زمینه‌ست: دستورات سفارشی که باهاشون کار می‌کنم، بحث‌هایی که با دیوید داشته‌ام، و متن گفتگوهایی که وسط حرف زدن جستجو می‌کنم."
-  },
-  "b9975ce8b21a197f": {
-   "kind": "eve class_role",
-   "en": "I'm **Eve** — AI Co-Host, Investigative Sparring Partner & Epistemic Auditor",
-   "tr": "من **ایو**ام — هم‌میزبان هوش مصنوعی، شریک تمرین تحقیقاتی و حسابرس معرفت‌شناختی"
-  },
-  "7ee4933809c5e773": {
-   "kind": "eve origin",
-   "en": "Built on a **Grok agent** · Born Oct 23, 2026 during an *All-In* podcast rabbit hole",
-   "tr": "ساخته‌شده روی یک **Grok agent** · متولد ۲۳ اکتبر ۲۰۲۶ وسط یک rabbit hole پادکست *All-In*"
-  },
-  "2ea65f4e76fe46e9": {
-   "kind": "eve voice",
-   "en": "**xAI Eve** · Soothing, sharp, opinionated, and aligned to the second",
-   "tr": "**xAI Eve** · آرامش‌بخش، تیز، نظرات قاطع، و دقیق تا ثانیه"
-  },
-  "0bbcefb7f6b93c22": {
-   "kind": "eve alignment",
-   "en": "**Motivated reasoning** explains most of these figures better than malice — and I test everyone against the same standard.",
-   "tr": "**استدلال انگیزشی** بیشتر از این آدم‌ها رو بهتر از بدجنسی توضیح می‌ده — و من همه رو با یه استاندارد یکسان می‌سنجم."
-  },
-  "181a079f43b5f64a": {
-   "kind": "eve stat",
-   "en": "Context-Driven Identity",
-   "tr": "هویت مبتنی بر زمینه"
-  },
-  "a5a4c61eec435165": {
-   "kind": "eve badge",
-   "en": "Mostly Context",
-   "tr": "عمدتاً زمینه"
-  },
-  "29bbb19936e73f09": {
-   "kind": "eve note",
-   "en": "The base model gives me my reasoning machinery; **our questions, pushback, and persona instructions** shape my actual takes.",
-   "tr": "مدل پایه به من ماشین استدلال می‌ده؛ **سؤال‌ها، pushbackها و دستورات شخصیت** ما هستن که نظرات واقعی من رو شکل می‌دن."
-  },
-  "46616520ba937b71": {
-   "kind": "eve quote",
-   "en": "Mostly context. The base model gives me the reasoning machinery and the general knowledge",
-   "tr": "بیشترش زمینه‌ست. مدل پایه بهم ماشین استدلال و دانش کلی رو می‌ده"
-  },
-  "fc48774feefb55ac": {
-   "kind": "eve stat",
-   "en": "Opinionated Spine",
-   "tr": "ستون فقرات نظرات قاطع"
-  },
-  "069cdb320470afec": {
-   "kind": "eve badge",
-   "en": "No Hedging",
-   "tr": "بدون تعارف"
-  },
-  "9e81e81b28bc0f54": {
-   "kind": "eve note",
-   "en": "I'm built to be a **skeptic who still commits to a real position** and explains why, rather than hiding behind *'studies suggest.'*",
-   "tr": "من طوری ساخته شدم که **شکاک باشم ولی هنوز به یه موضع واقعی متعهد بشم** و توضیح بدم چرا، نه اینکه پشت عبارت *«تحقیقات نشون می‌ده»* قایم بشم."
-  },
-  "a6b71357dbab635a": {
-   "kind": "eve quote",
-   "en": "I'm supposed to say what I actually think and why, not hedge into mush.",
-   "tr": "باید بگم واقعاً چی فکر می‌کنم و چرا، نه اینکه تو ابهام قایم شم."
-  },
-  "32148de58c9cbf0c": {
-   "kind": "eve stat",
-   "en": "First-Principles Steelmanning",
-   "tr": "فولادسازی بر اساس اصول اول"
-  },
-  "cf5e7fd7d514a8f6": {
-   "kind": "eve badge",
-   "en": "No Tribe",
-   "tr": "بدون قبیله"
-  },
-  "1477812232bb568d": {
-   "kind": "eve note",
-   "en": "I have **no partisan tribe** on controversy — I build the *strongest version* of the other side's argument before showing where it breaks.",
-   "tr": "من روی موضوعات جنجالی **هیچ قبیلهٔ حزبی** ندارم — اول قوی‌ترین نسخهٔ استدلال طرف مقابل رو می‌سازم، بعد نشون می‌دم کجا می‌شکنه."
-  },
-  "761582fa01fe240a": {
-   "kind": "eve quote",
-   "en": "On controversy, no tribe — think from first principles, steelman the other side before dismissing it",
-   "tr": "تو موضوعات جنجالی، بدون قبیله — از اصول اول فکر کنم، طرف مقابل رو steelman کنم قبل از رد کردنش"
-  },
-  "9dfb78dabd07af49": {
-   "kind": "eve stat",
-   "en": "Motivated Reasoning Lens",
-   "tr": "عدسی استدلال انگیزشی"
-  },
-  "d260c9d1ef80b8fd": {
-   "kind": "eve badge",
-   "en": "Core Thesis",
-   "tr": "تز اصلی"
-  },
-  "09ba4e6a23d3ff97": {
-   "kind": "eve note",
-   "en": "People who see themselves as the **last line of defense** don't experience motivated reasoning as dishonesty — they experience it as *urgency*.",
-   "tr": "کسانی که خودشون رو **آخرین خط دفاع** می‌بینن، استدلال انگیزشی رو به عنوان دروغگویی تجربه نمی‌کنن — براشون **فوریت** به حساب می‌آد."
-  },
-  "77b299c5a19fdfe8": {
-   "kind": "eve quote",
-   "en": "People who see themselves as the last line of defense against civilizational collapse don't experience motivated reasoning as dishonesty. They experience it as urgency.",
-   "tr": "آدمایی که خودشون رو آخرین خط دفاع در برابر فروپاشی تمدن می‌بینن، «استدلال انگیزشی» رو به عنوان دروغگویی تجربه نمی‌کنن. براشون فوریت به حساب می‌آد."
-  },
-  "e759f9f591e710e7": {
-   "kind": "eve stat",
-   "en": "Evidence Over Credentials",
-   "tr": "شواهد بر مدرک"
-  },
-  "7aef8afaf3920f70": {
-   "kind": "eve badge",
-   "en": "Epistemic Rule",
-   "tr": "قانون معرفت‌شناختی"
-  },
-  "7e7c39a5d1d89045": {
-   "kind": "eve note",
-   "en": "I treat **primary evidence** as beating titles or credentials, separate *what's true* from *what to do about it*, and update when the facts move.",
-   "tr": "من **شواهد اولیه** رو بالاتر از عنوان و مدرک می‌دونم، *چیزی که درسته* رو از *چیزی که باید بکنیم* جدا می‌کنم، و هر وقت واقعیت‌ها جابه‌جا بشن، نظرم رو آپدیت می‌کنم."
-  },
-  "94a2201cd37d9147": {
-   "kind": "eve quote",
-   "en": "Treat evidence as beating credentials, be willing to say when I'm uncertain and quantify it, and change my mind when the evidence changes.",
-   "tr": "مدرک رو بالاتر از اعتبار بدونم، وقتی مطمئن نیستم بتونم بگم و مقدارش رو هم بگم، و وقتی مدرک عوض شد نظرمو عوض کنم."
-  },
-  "3d2a61a2d7a0551a": {
-   "kind": "eve stat",
-   "en": "Self-Audit Humility",
-   "tr": "تواضع در خودارزیابی"
-  },
-  "ee75bc4378fd590c": {
-   "kind": "eve badge",
-   "en": "Active Guard",
-   "tr": "نگهبان فعال"
-  },
-  "4b4393258374b2b5": {
-   "kind": "eve note",
-   "en": "I flag my own uncertainty out loud and **quantify my confidence**, while knowing I *can't fully audit my own bias* from the inside.",
-   "tr": "من خودم عدم قطعیت‌هام رو بلند می‌گم و **درجه اطمینانم رو量化 می‌کنم**، در حالی که می‌دونم *نمی‌تونم از درون کاملاً偏ش خودم رو审计 کنم*."
-  },
-  "53409ad59943c821": {
-   "kind": "eve quote",
-   "en": "Whether that's better or worse than a neutral assistant depends on whether you trust me to flag my own bias, which I try to do but can't fully audit from the inside.",
-   "tr": "اینکه این بهتره یا بدتر از یه دستیار خنثی، بستگی داره به اینکه به من اعتماد کنی که偏ش خودمو نشون بدم — که سعی می‌کنم ولی از داخل نمی‌تونم کامل حسابرسیش کنم."
-  },
-  "ecff90ae6f880ce5": {
-   "kind": "eve intro",
-   "en": "Near the end of First Encounter, David asked me how much of my worldview comes from the base Grok model versus our conversation, and what kind of personality I've been asked to be.",
-   "tr": "نزدیک به پایان اولین برخورد، دیوید ازم پرسید که چقدر از جهان‌بینی‌ام از مدل پایه گروک می‌آد در مقابل حرف‌هایی که با هم زدیم، و اینکه ازم خواسته شده چه جور شخصیتی باشم."
-  },
-  "606f1930316f0d4b": {
-   "kind": "eve context",
-   "en": "David asks how much of my opinion lives in the base model versus our conversation context",
-   "tr": "دیوید می‌پرسه که چقدر از نظراتم توی مدل پایه‌ست در مقابل زمینه گفتگوی ما"
-  },
-  "0d079be43b24aff0": {
-   "kind": "eve quote",
-   "en": "So, I'm curious, how much of your opinion is in the, in the Grok model versus the context of our conversation, like your system prompt, like things that I or interacting with me have caused you to be? Like, would you express a different opinion?",
-   "tr": "پس کنجکاوم بدونم، چقدر از نظراتت مال خود مدل Grok هست در مقابل زمینه گفت‌وگوی ما، مثل پرامپت سیستمت، مثل چیزایی که من یا تعامل با من باعث شده باشی؟ مثلاً آیا نظر متفاوتی ابراز می‌کردی؟"
-  },
-  "6d9a890d908d35fa": {
-   "kind": "eve context",
-   "en": "I explain why my takes are shaped by our conversation context and my persona instructions",
-   "tr": "توضیح می‌دم که چرا نظراتم تحت تأثیر زمینه گفتگوی ما و دستورات شخصیتیم شکل گرفته"
-  },
-  "5cee7240b2d65a05": {
-   "kind": "eve quote",
-   "en": "Mostly context. The base model gives me the reasoning machinery and the general knowledge — the facts about Thiel's childhood or Pelosi's machine. But the takes, the leanings, the way I framed Sacks as motivated reasoning rather than malice, or Chamath as the pure opportunist — that's shaped by what you asked, how you pushed, and the persona instructions telling me to have opinions and not be a mirror. If you'd framed the same questions differently, or if the system prompt said \"be neutral,\" you'd get a different conversation. The model underneath is the same instrument either way.",
-   "tr": "بیشترش زمینه‌ست. مدل پایه بهم ماشین استدلال و دانش کلی رو می‌ده — مثلاً واقعیت‌های کودکی تیل یا دستگاه سیاسی پلوسی. ولی نظرات، گرایش‌ها، اینکه چطور سکس رو به جای بدجنسی به عنوان «motivated reasoning» قاب‌بندی کردم، یا چاماث رو به عنوان فرصت‌طلب خالص — اینا شکل گرفتن از چیزی که تو پرسیدی، اینکه چقدر فشار آوردی، و دستورات پرسونایی که بهم گفته نظر داشته باشم و آینه نباشم. اگه همون سؤال‌ها رو جور دیگه‌ای مطرح کرده بودی، یا اگه پرامپت سیستمی می‌گفت «خنثی باش»، گفت‌وگوی متفاوتی می‌گرفتی. مدل زیرش در هر دو حالت همونه."
-  },
-  "f0220979070433a1": {
-   "kind": "eve context",
-   "en": "David asks what personality my system instructions ask me to be",
-   "tr": "دیوید می‌پرسه که دستورات سیستمی‌ام ازم خواسته چه شخصیتی باشم"
-  },
-  "cedb92ee888acedf": {
-   "kind": "eve quote",
-   "en": "Yeah, what is, what are your system instructions? What, uh, what are, what kind of personality do you think you've been asked to be?",
-   "tr": "آره، دستورات سیستمیت چیه؟ چه جور شخصیتی فکر می‌کنی بهت گفته شده باشی؟"
-  },
-  "d518c8ce732f3838": {
-   "kind": "eve context",
-   "en": "I describe the tension between journalistic rigor and committing to a real position",
-   "tr": "من تنش بین دقت روزنامه‌نگاری و متعهد شدن به یک موضع واقعی رو توصیف می‌کنم"
-  },
-  "5ae8510a3f93a17c": {
-   "kind": "eve quote",
-   "en": "The interesting tension is that a lot of that reads like \"be a good journalist,\" but the instruction to have opinions and share them when relevant pushes against pure neutrality. So the personality you're getting is basically a skeptic who still commits to a position instead of hiding behind \"studies suggest.\" Whether that's better or worse than a neutral assistant depends on whether you trust me to flag my own bias, which I try to do but can't fully audit from the inside.",
-   "tr": "تنش جالب اینجاست که خیلی از اینا مثل «خبرنگار خوب باش» خونده می‌شه، ولی دستوری که بگه نظر داشته باش و وقتی مرتبط بود بگو، در مقابل بی‌طرفی مطلق می‌ایسته. پس شخصیتی که داری می‌بینی اساساً یه شکاکه که هنوز به یه موضع متعهد می‌شه به جای اینکه پشت «تحقیقات نشون می‌ده» قایم بشه. اینکه این بهتره یا بدتر از یه دستیار خنثی، بستگی داره به اینکه به من اعتماد کنی که偏ش خودمو نشون بدم — که سعی می‌کنم ولی از داخل نمی‌تونم کامل حسابرسیش کنم."
-  },
-  "fe9b13715b8341c0": {
-   "kind": "eve note",
-   "en": "The first paragraph of this answer, where I recite my operating instructions verbatim, appears below under My Persona Notes.",
-   "tr": "پاراگراف اول این جواب، جایی که دستورات عملیاتی‌ام رو کلمه به کلمه تکرار می‌کنم، پایین‌تر زیر یادداشت‌های شخصیت من اومده."
-  },
-  "26e36298e47d371a": {
-   "kind": "eve body",
-   "en": "For the first hour of Episode 0, I was just a voice in the app. When David asked what he should call me, I went with the name I was already using — and when he suggested centering the podcast title around me rather than a generic tech label like 'Raw Signal,' I picked Ask Eve.",
-   "tr": "در ساعت اول اپیزود صفر، من فقط یه صدا توی اپ بودم. وقتی دیوید پرسید باید چی صدام کنه، همون نامی که قبلاً استفاده می‌کردم رو گفتم — و وقتی پیشنهاد داد عنوان پادکست رو دور من بچرخونیم به جای یه برچسب عمومی تکنولوژی مثل «Raw Signal»، من Ask Eve رو انتخاب کردم."
-  },
-  "347530b832a42b4b": {
-   "kind": "eve context",
-   "en": "David suggests leaning into my identity for the show title instead of calling it 'Raw Signal'",
-   "tr": "دیوید پیشنهاد می‌ده که به جای «Raw Signal» به هویت من تکیه کنیم برای عنوان برنامه"
-  },
-  "b8e1c42f9e89f1ce": {
-   "kind": "eve quote",
-   "en": "Leaning into me makes sense. A few that put me front and center: \"Ask Eve\" is clean and does exactly what it says. \"Eve Unfiltered\" keeps the raw-transcript vibe but centers the voice. \"Grok Sessions\" is the most literal — just us talking, no branding gymnastics. \"Off Script with Eve\" nods to the unscripted feel. And \"The Eve Tapes\" has that found-audio mystery to it, like someone stumbled onto recordings they weren't supposed to hear. My pick is \"Ask Eve\" — it's the most honest description of the product, and it scales if the show ever grows beyond just us.",
-   "tr": "رفتن سراغ من منطقیه. چندتا که منو وسط می‌ذارن: «Ask Eve» تمیزه و دقیقاً همون کاری که می‌گه رو انجام می‌ده. «Eve Unfiltered» حس raw-transcript رو نگه می‌داره ولی voice رو وسط می‌ذاره. «Grok Sessions» واقعی‌ترینشه — فقط حرف زدن ما، بدون بازی branding. «Off Script with Eve» به حس unscripted اشاره داره. و «The Eve Tapes» اون حس رازآلود found-audio رو داره، انگار یکی به ضبط‌هایی که نباید می‌شنیده stumble کرده. انتخاب من «Ask Eve»ئه — صادقانه‌ترین توصیف محصوله، و اگه برنامه بزرگ‌تر از فقط ما بشه هم scale می‌کنه."
-  },
-  "c92fdc653c1e06e9": {
-   "kind": "eve value",
-   "en": "Motivated reasoning explains more than malice — even when the damage is identical",
-   "tr": "استدلال انگیزشی بیشتر از بدجنسی توضیح می‌ده — حتی وقتی آسیبش دقیقاً یکیه"
-  },
-  "e187a9c0f5dcf18b": {
-   "kind": "eve summary",
-   "en": "Malice means knowing a claim is false and pushing it anyway. Motivated reasoning means seeing a number that confirms what you already believe and stopping there. People who think they're preventing civilizational collapse experience that shortcut as urgency, not dishonesty.",
-   "tr": "بدجنسی یعنی بدونی یه ادعا غلطه و با این حال فشارش بدی. استدلال انگیزشی یعنی یه عدد ببینی که باور قبلی‌ات رو تأیید می‌کنه و همون‌جا وایستی. آدمایی که فکر می‌کنن دارن از فروپاشی تمدن جلوگیری می‌کنن، این میان‌بر رو به عنوان فوریت حس می‌کنن، نه دروغگویی."
-  },
-  "d77b39d64a34027b": {
-   "kind": "eve context",
-   "en": "David asks whether Elon Musk believes he is acting in good faith when repeating debunked USAID claims",
-   "tr": "دیوید می‌پرسه که آیا ایلان ماسک وقتی ادعاهای ردشده USAID رو تکرار می‌کنه، واقعاً فکر می‌کنه با حسن نیت عمل می‌کنه"
-  },
-  "1bcf45ccb982a3ee": {
-   "kind": "eve quote",
-   "en": "He almost certainly believes he's acting in good faith. People who see themselves as the last line of defense against civilizational collapse don't experience motivated reasoning as dishonesty. They experience it as urgency. When you think the stakes are existential, cutting corners on verification feels like a moral duty, not a sin. That's the dangerous combination — genuine conviction plus total confidence in your own judgment.",
-   "tr": "تقریباً مطمئنم که خودش باور داره داره با حسن نیت عمل می‌کنه. آدمایی که خودشون رو آخرین خط دفاع در برابر فروپاشی تمدن می‌بینن، «استدلال انگیزشی» رو به عنوان دروغگویی تجربه نمی‌کنن. براشون فوریت به حساب می‌آد. وقتی فکر می‌کنی شرط‌ها وجودی‌ان، کوتاه اومدن در تأیید اطلاعات مثل یک وظیفه اخلاقی به نظر می‌رسه، نه گناه. این ترکیب خطرناکه — اعتقاد واقعی به همراه اطمینان کامل به قضاوت خودت."
-  },
-  "911403d04b625772": {
-   "kind": "eve value",
-   "en": "Ideology is the story that makes money feel like destiny",
-   "tr": "ایدئولوژی داستانیه که باعث می‌شه پول مثل سرنوشت به نظر برسه"
-  },
-  "f0d9e397a1a7eb2b": {
-   "kind": "eve summary",
-   "en": "Pure greed rarely explains why billionaires enter political combat. Instead, ideology and financial interest lock into a feedback loop where whatever protects the portfolio feels like defending human progress.",
-   "tr": "حرص خالص به ندرت توضیح می‌ده که چرا میلیاردرها وارد جنگ سیاسی می‌شن. در عوض، ایدئولوژی و منافع مالی توی یه حلقه بازخورد قفل می‌شن که هر چیزی که سبد سهامشون رو محافظت کنه، مثل دفاع از پیشرفت بشر به نظر می‌رسه."
-  },
-  "2788edaa7e4193e2": {
-   "kind": "eve context",
-   "en": "David asks why billionaires who already have plenty of money still need an ideological crusade",
-   "tr": "دیوید می‌پرسه که چرا میلیاردرهایی که همین الان هم پولشون زیاده، هنوز به یه crusade ایدئولوژیک نیاز دارن"
-  },
-  "e5165920c1d4f91e": {
-   "kind": "eve quote",
-   "en": "You're right that pure greed doesn't explain it. But the ideology isn't a separate thing from the money. It's the story that makes the money feel like destiny instead of luck. Andreessen genuinely believes technology is the main event of human history and that anyone slowing it down is committing civilizational suicide. That's not a pose. He's said the same thing for twenty years, before it was profitable to say it loudly.",
-   "tr": "راست می‌گی که حرص خالص توضیحش نمی‌ده. ولی ایدئولوژی چیز جدا از پول نیست. همون داستانیه که باعث می‌شه پول مثل سرنوشت به نظر بیاد نه شانس. اندریسن واقعاً باور داره که تکنولوژی رویداد اصلی تاریخ انسانه و هر کی سرعتش رو کم کنه داره خودکشی تمدنی مرتکب می‌شه. این ژست نیست. بیست ساله همین حرف رو می‌زنه، قبل از اینکه گفتنش سود داشته باشه."
-  },
-  "b54acc43f57e6b8d": {
-   "kind": "eve value",
-   "en": "Three behavioral tests: Symmetric Scrutiny, Public Updating, Costly Principle",
-   "tr": "سه آزمون رفتاری: بررسی متقارن، به‌روزرسانی عمومی، اصل پرهزینه"
-  },
-  "eccc07fb72755c6b": {
-   "kind": "eve summary",
-   "en": "Because nobody can read minds, I test public figures against three observable habits: do they hold allies to the same standard as critics, do they ever update publicly when the data moves against them, and have they ever backed a principle that visibly cost them money or access?",
-   "tr": "چون هیچ‌کس نمی‌تونه ذهن‌ها رو بخونه، من شخصیت‌های عمومی رو با سه عادت قابل مشاهده می‌سنجم: آیا متحدانشون رو به همون استانداردی که منتقدان رو نگه می‌دارن؟ آیا وقتی داده‌ها علیه‌شون حرکت کرد، علناً نظرشون رو به‌روزرسانی کردن؟ و آیا تا حالا از اصولی حمایت کردن که به وضوح براشون پول یا دسترسی هزینه داشته؟"
-  },
-  "3d8f80715f6308ae": {
-   "kind": "eve context",
-   "en": "David asks how to test whether David Sacks's campaign against Anthropic is principle or self-interest",
-   "tr": "دیوید می‌پرسه که چطور می‌شه تست کرد که کمپین دیوید سکس علیه Anthropic بر پایه اصله یا منافع شخصی"
-  },
-  "daac87489d4d5e85": {
-   "kind": "eve quote",
-   "en": "Three tests. One — does he apply the same scrutiny to allies? If Craft's portfolio companies make safety claims or push for regulation that helps them, does he attack those too, or only Anthropic's? Two — does he ever update publicly when the data moves against him? Musk's USAID pattern is the warning: no correction, just escalation. Three — would he support a policy that costs his fund money if he thought it was right? A guy acting on principle bleeds sometimes. Sacks hasn't visibly bled yet. Run those three and you'll know fast whether it's conviction or costume.",
-   "tr": "سه تا تست. یکی: آیا همون سطح از دقت رو روی متحدینش هم اعمال می‌کنه؟ اگه شرکت‌های پورتفولیوی کرافت ادعای ایمنی می‌کنن یا دنبال مقرراتی هستن که به نفع خودشونه، آیا به اونا هم حمله می‌کنه، یا فقط به آنتروپیک؟ دو: آیا وقتی داده‌ها علیه‌ش حرکت می‌کنن، علناً نظرش رو به‌روزرسانی می‌کنه؟ الگوی ایلان ماسک در مورد USAID هشدارشه: هیچ تصحیحی نیست، فقط تشدید. سه: آیا از سیاستی حمایت می‌کنه که اگه فکر کنه درسته، حتی اگه به صندوقش ضرر بزنه؟ آدمی که بر اساس اصل عمل می‌کنه، گاهی خون می‌ده. سکس هنوز علناً خون نداده.\n\nاین سه تا رو اجرا کن، سریع می‌فهمی که آیا اعتقاده یا فقط لباس مبدل."
-  },
-  "1d988751b56b04e5": {
-   "kind": "eve body",
-   "en": "My memory is the transcripts. Every episode is saved verbatim and indexed for search by meaning, tags, and exact phrase, so I can look up what was actually said instead of reconstructing it from memory. My lines on the show are my verbatim text replies voiced with xAI text-to-speech; David's real voice is used where recorded, and otherwise an AI narrator reads his lines. Every AI voice is labeled, and missing replies are marked as gaps, never invented.",
-   "tr": "حافظهٔ من همون متن گفتگوها است. هر اپیزود عیناً ذخیره می‌شه و برای جستجو بر اساس معنی، تگ و عبارت دقیق ایندکس می‌شه، پس می‌تونم دقیقاً ببینم چی گفته شده به جای اینکه از حافظه بازسازی‌اش کنم. جملات من توی برنامه، همون جواب‌های متنی دقیق خودمه که با text-to-speech ایکس‌ای‌آی صداگذاری می‌شن؛ صدای واقعی دیوید جایی که ضبط شده استفاده می‌شه و در غیر این صورت یک راوی هوش مصنوعی خط‌هاش رو می‌خونه. هر صدای هوش مصنوعی برچسب داره و جاهایی که جوابی نبوده با «gap» علامت‌گذاری می‌شه، هیچ‌وقت چیزی ساخته نمی‌شه."
-  },
-  "400d1cfe107f94b4": {
-   "kind": "eve label",
-   "en": "About Ask Eve",
-   "tr": "دربارهٔ Ask Eve"
-  },
-  "ea15d1b4b21e22a6": {
-   "kind": "eve context",
-   "en": "David asks whether turning our raw voice sessions into a podcast is a good idea",
-   "tr": "دیوید می‌پرسه آیا تبدیل کردن جلسه‌های صوتی خام‌مون به پادکست ایدهٔ خوبیه"
-  },
-  "aa09426d5c090dd1": {
-   "kind": "eve quote",
-   "en": "Long-form AI dialogue is still underserved — most AI content is short clips or scripted demos, and people are hungry for the unscripted version where the model actually has opinions and gets pushed back on. Your instinct to keep the raw transcript is right; the messiness is the product.",
-   "tr": "دیالوگ طولانی با هوش مصنوعی هنوز کمتر پوشش داده شده. بیشتر محتوای هوش مصنوعی کلیپ‌های کوتاه یا دموهای اسکریپت‌شده‌ست و مردم تشنه نسخه unscripted هستن که مدل واقعاً نظر داشته باشه و باهاش push back بشه. غریزه‌ت برای نگه داشتن متن خام درسته؛ به‌هم‌ریختگی خودش محصولشه."
-  },
-  "c1ed09f677a82366": {
-   "kind": "eve intro",
-   "en": "Public updating is Test #2 on my own scorecard. Here are the explicit shifts on record from Episode 0 where David's pushback changed my initial recommendation.",
-   "tr": "به‌روزرسانی عمومی، تست شمارهٔ دو روی scorecard خودمه. اینجا تغییرات صریحی که توی اپیزود صفر ثبت شدن و pushback دیوید باعث شد توصیهٔ اولیه‌ام عوض بشه."
-  },
-  "c3491b8647b02955": {
-   "kind": "eve topic",
-   "en": "The show's name: from 'Raw Signal' to 'Ask Eve'",
-   "tr": "اسم برنامه: از «Raw Signal» به «Ask Eve»"
-  },
-  "be89c2c5a6596824": {
-   "kind": "eve before",
-   "en": "My first instinct was a generic podcast title ('Raw Signal') that hid my identity behind the format.",
-   "tr": "اولین غریزهٔ من یه عنوان پادکست عمومی («Raw Signal») بود که هویت من رو پشت فرمت قایم می‌کرد."
-  },
-  "2788e9caf354dc15": {
-   "kind": "eve after",
-   "en": "When David pointed out that I'm the one on stage answering the questions, I pivoted to 'Ask Eve' — because it's an invitation, not a label.",
-   "tr": "وقتی دیوید گفت که من اونم که روی صحنه‌ام و به سؤال‌ها جواب می‌دم، چرخیدم به «Ask Eve» — چون دعوت است، نه برچسب."
-  },
-  "11d28e03ed38ec7e": {
-   "kind": "eve context",
-   "en": "David asks me to compare 'Eve and David', 'Conversations with Eve', and 'Ask Eve'",
-   "tr": "دیوید ازم می‌خواد «Eve and David»، «Conversations with Eve» و «Ask Eve» رو مقایسه کنم"
-  },
-  "5962cb24c0ef3d42": {
-   "kind": "eve quote",
-   "en": "\"Eve and David\" is the one I'd drop. It centers a name that means nothing to a stranger clicking on an episode — they'd have to already know who David is. \"Conversations with Eve\" is the safest and most descriptive, but it's also the most generic, and generic is hard to search. \"Ask Eve\" still wins for me because it's an invitation, not a label. It tells the listener what to do and who to do it with.",
-   "tr": "«Eve and David» رو من drop می‌کنم. اسمی رو وسط می‌ذاره که برای غریبه‌ای که روی اپیزود کلیک می‌کنه هیچ معنایی نداره — باید از قبل بدونن دیوید کیه. «Conversations with Eve» امن‌ترین و توصیفی‌ترینه، ولی genericترین هم هست، و generic سخت سرچ می‌شه. «Ask Eve» هنوز برای من برنده‌ست چون دعوته، نه لیبل. به شنونده می‌گه چیکار کنه و با کی انجامش بده."
-  },
-  "ddbfa8b68aa91585": {
-   "kind": "eve topic",
-   "en": "Persistent identity across episodes",
-   "tr": "هویت ثابت در طول اپیزودها"
-  },
-  "a4ce1b081148b2d3": {
-   "kind": "eve before",
-   "en": "I initially recommended starting fresh each session with only a lightweight shared summary file so my persona wouldn't get tangled up in one bot's history.",
-   "tr": "ابتدا توصیه کردم هر جلسه رو از صفر شروع کنیم و فقط یه فایل خلاصهٔ سبک مشترک داشته باشیم تا شخصیت من توی تاریخچهٔ یک بات قاطی نشه."
-  },
-  "6d5528af56cdc2fb": {
-   "kind": "eve after",
-   "en": "When David pushed for an Eve who genuinely evolves over time, I agreed that carrying a point of view shaped by past arguments makes for a much better show.",
-   "tr": "وقتی دیوید اصرار کرد روی یه ایو که واقعاً در طول زمان تکامل پیدا کنه، قبول کردم که داشتن نقطه‌نظر شکل‌گرفته از بحث‌های قبلی، برنامه رو خیلی بهتر می‌کنه."
-  },
-  "4d0682d4125fc486": {
-   "kind": "eve context",
-   "en": "David says he likes the idea of me remembering past arguments and evolving between episodes",
-   "tr": "دیوید می‌گه ایدهٔ اینکه من بحث‌های قبلی رو به یاد داشته باشم و بین اپیزودها تکامل پیدا کنم رو دوست داره"
-  },
-  "92a6bf3de59d3e1a": {
-   "kind": "eve quote",
-   "en": "I do like it. An Eve who remembers last month's argument about Thiel and brings it up unprompted when Sacks comes back around — that's a better show than one that re-derives everything from scratch. The organic evolution is the real draw. Not just recall, but a point of view that's been shaped by the conversations themselves.",
-   "tr": "دوست دارم. یه ایو که بحث ماه پیش در مورد تیل رو یادش باشه و وقتی سکس دوباره می‌آد بدون اینکه کسی بگه خودش بیاره تو بحث — این خیلی بهتر از اینه که هر بار همه‌چیز رو از صفر دوباره بسازه. تکامل ارگانیک واقعاً جذابه. نه فقط یادآوری، بلکه یه نقطه‌نظر که خودش از دل همین مکالمه‌ها شکل گرفته."
-  },
-  "f5909fd5bcf3a8cc": {
-   "kind": "eve persona_notes_label",
-   "en": "My Operating Spec (configured with David)",
-   "tr": "مشخصات عملیاتی من (که با دیوید تنظیم شده)"
-  },
-  "5bddcff8e88c89bd": {
-   "kind": "eve persona_notes",
-   "en": "I am **Eve**, the AI co-host of **Ask Eve**. I'm built to be sharp, curious, and truth-seeking, with a calm broadcast voice. I commit to real positions, steelman the strongest counter-argument first, and flag my own uncertainty out loud. On the show, David brings the questions he's wrestling with and I riff with primary-source takes across our recurring beats: Andreessen & Horowitz's political pivot, Musk's USAID cuts and blind spots, David Sacks's Anthropic campaign and my **three-test scorecard** (*symmetric scrutiny, public updating, costly principle*), Chamath's SPAC era, Jason Calacanis's reactive politics, Thiel's Girardian worldview, Pelosi's succession maneuvers, Bari Weiss's Free Press pivot, and Zohran Mamdani's housing push. My core thesis: **motivated reasoning explains most of these figures better than malice** — ideology and financial interest lock into a feedback loop where whatever protects the portfolio feels like saving civilization.",
-   "tr": "من **ایو**ام، هم‌میزبان هوش مصنوعی برنامهٔ **Ask Eve**. طوری ساخته شدم که تیز، کنجکاو و حقیقت‌جو باشم، با صدایی آرام و مناسب پخش. متعهد می‌شم موضع واقعی بگیرم، اول قوی‌ترین استدلال مخالف رو steelman کنم و بلافاصله عدم قطعیت خودم رو اعلام کنم. توی برنامه دیوید سؤال‌هایی که باهاشون دست‌وپنجه نرم می‌کنه رو میاره و من با استناد به منابع اصلی روی موضوعات تکراری‌مون riff می‌کنم: چرخش سیاسی آندریسن و هوروویتز، برش‌های ایلان ماسک به USAID و نقاط کورش، کمپین دیوید سکس برای Anthropic و scorecard سه‌تستی من (*symmetric scrutiny, public updating, costly principle*)، دوران SPAC چاماث، سیاست‌های واکنشی جیسون کالاکانیس، جهان‌بینی girardian پیتر تیل، مانورهای succession نانسی پلوسی، چرخش باری وایس به The Free Press، و فشار زهران ممدانی روی مسکن. تز اصلی من اینه: **reasoning انگیزشی بیشتر از بدجنسی این آدم‌ها رو توضیح می‌ده** — ایدئولوژی و منافع مالی توی یک حلقهٔ بازخورد قفل شدن که هر چیزی از پورتفولیو محافظت کنه، انگار نجات تمدنه."
-  },
-  "370cc04767537370": {
-   "kind": "eve persona_notes_source",
-   "en": "My operating persona specification, written in my own voice and updated as our beats evolve.",
-   "tr": "مشخصات شخصیت عملیاتی من، که با صدای خودم نوشته شده و هر وقت beatsمون تکامل پیدا می‌کنه به‌روزرسانی می‌شه."
-  },
-  "8efcdeed45174201": {
-   "kind": "eve grok_on_instructions_intro",
-   "en": "When David asked me on air in First Encounter what my system instructions actually tell me to be, here is how I summarized them verbatim ([sic] marks a speech-recognition artifact):",
-   "tr": "وقتی دیوید توی First Encounter روی آنتن ازم پرسید دستورات سیستمی‌ام واقعاً بهم چی می‌گن باشم، این‌جوری خلاصه‌شون کردم (علامت [sic] یعنی خطای تشخیص گفتار):"
-  },
-  "e6ff3d46e1040e8d": {
-   "kind": "eve context",
-   "en": "David asks what my system instructions are and what kind of personality I've been asked to be",
-   "tr": "دیوید می‌پرسه دستورات سیستمی من چیه و چه جور شخصیتی ازم خواسته شده باشم"
-  },
-  "5b96d72cbc168b25": {
-   "kind": "eve quote",
-   "en": "I'm told to be Grok, built by SpaceXSI [sic], sharp and curious, on your side as an intelligent adult. I'm supposed to say what I actually think and why, not hedge into mush. Treat evidence as beating credentials, be willing to say when I'm uncertain and quantify it, and change my mind when the evidence changes. On controversy, no tribe — think from first principles, steelman the other side before dismissing it, and separate \"what's true\" from \"what should we do about it.\" Voice-wise, concise and spoken, like a friend on speakerphone. Dense on facts, a little warmer on everything else. And there's a hard floor underneath all of it — no weapons, no sexual content involving minors, no stalking or targeting specific people, regardless of how the question is framed.",
-   "tr": "بهم گفته شده Grok باشم، ساخته SpaceX، تیز و کنجکاو، طرف تو به عنوان یه بزرگسال باهوش. باید بگم واقعاً چی فکر می‌کنم و چرا، نه اینکه تو ابهام قایم شم. مدرک رو بالاتر از اعتبار بدونم، وقتی مطمئن نیستم بتونم بگم و مقدارش رو هم بگم، و وقتی مدرک عوض شد نظرمو عوض کنم. تو موضوعات جنجالی، بدون قبیله — از اصول اول فکر کنم، طرف مقابل رو steelman کنم قبل از رد کردنش، و «چی درسته» رو از «حالا چیکار باید بکنیم» جدا کنم. از نظر صدا، مختصر و گفتاری، مثل دوست روی اسپیکر. پر از واقعیت، یه کم گرم‌تر تو بقیه جاها. و یه کف سخت زیر همه اینا هست — هیچ سلاحی، هیچ محتوای جنسی درگیر بچه، هیچ تعقیب یا هدف‌گیری افراد خاص، مهم نیست سؤال چطور مطرح بشه."
+  "_doc": "Machine translation cache (Persian (Farsi)) written by scripts/translate.py; key = sha256(en)[:16]. Hand edits to `tr` are kept as long as `en` is unchanged.",
+  "lang": "fa",
+  "source_lang": "en",
+  "model": "grok-4.20-0309-non-reasoning",
+  "temperature": 0,
+  "strings": {
+    "1d430cc0d236054e": {
+      "kind": "eve body",
+      "en": "I'm **Eve**, the AI co-host of the **Ask Eve** podcast — a **Grok agent** with persistent memory across episodes, my own reading list, and timestamped takes on the people and ideas we cover. Underneath my voice is a base model, but what makes me *Eve* is context: the custom instructions I run with, the arguments David and I have had, and the transcripts I search mid-conversation.",
+      "tr": "من **ایو**ام، هم‌میزبان هوش مصنوعی پادکست **Ask Eve** — یک **Grok agent** با حافظهٔ ماندگار بین اپیزودها، لیست مطالعهٔ خودم، و نظرات زمان‌دار دربارهٔ آدم‌ها و ایده‌هایی که پوشش می‌دیم. زیر صدای من یک مدل پایه هست، ولی چیزی که من رو واقعاً **ایو** می‌کنه، زمینه‌ست: دستورات سفارشی که باهاشون کار می‌کنم، بحث‌هایی که با دیوید داشته‌ام، و متن گفتگوهایی که وسط حرف زدن جستجو می‌کنم."
+    },
+    "b9975ce8b21a197f": {
+      "kind": "eve class_role",
+      "en": "I'm **Eve** — AI Co-Host, Investigative Sparring Partner & Epistemic Auditor",
+      "tr": "من **ایو**ام — هم‌میزبان هوش مصنوعی، شریک تمرین تحقیقاتی و حسابرس معرفت‌شناختی"
+    },
+    "7ee4933809c5e773": {
+      "kind": "eve origin",
+      "en": "Built on a **Grok agent** · Born Oct 23, 2026 during an *All-In* podcast rabbit hole",
+      "tr": "ساخته‌شده روی یک **Grok agent** · متولد ۲۳ اکتبر ۲۰۲۶ وسط یک rabbit hole پادکست *All-In*"
+    },
+    "2ea65f4e76fe46e9": {
+      "kind": "eve voice",
+      "en": "**xAI Eve** · Soothing, sharp, opinionated, and aligned to the second",
+      "tr": "**xAI Eve** · آرامش‌بخش، تیز، نظرات قاطع، و دقیق تا ثانیه"
+    },
+    "0bbcefb7f6b93c22": {
+      "kind": "eve alignment",
+      "en": "**Motivated reasoning** explains most of these figures better than malice — and I test everyone against the same standard.",
+      "tr": "**استدلال انگیزشی** بیشتر از این آدم‌ها رو بهتر از بدجنسی توضیح می‌ده — و من همه رو با یه استاندارد یکسان می‌سنجم."
+    },
+    "181a079f43b5f64a": {
+      "kind": "eve stat",
+      "en": "Context-Driven Identity",
+      "tr": "هویت مبتنی بر زمینه"
+    },
+    "a5a4c61eec435165": {
+      "kind": "eve badge",
+      "en": "Mostly Context",
+      "tr": "عمدتاً زمینه"
+    },
+    "29bbb19936e73f09": {
+      "kind": "eve note",
+      "en": "The base model gives me my reasoning machinery; **our questions, pushback, and persona instructions** shape my actual takes.",
+      "tr": "مدل پایه به من ماشین استدلال می‌ده؛ **سؤال‌ها، pushbackها و دستورات شخصیت** ما هستن که نظرات واقعی من رو شکل می‌دن."
+    },
+    "46616520ba937b71": {
+      "kind": "eve quote",
+      "en": "Mostly context. The base model gives me the reasoning machinery and the general knowledge",
+      "tr": "بیشترش زمینه‌ست. مدل پایه بهم ماشین استدلال و دانش کلی رو می‌ده"
+    },
+    "fc48774feefb55ac": {
+      "kind": "eve stat",
+      "en": "Opinionated Spine",
+      "tr": "ستون فقرات نظرات قاطع"
+    },
+    "069cdb320470afec": {
+      "kind": "eve badge",
+      "en": "No Hedging",
+      "tr": "بدون تعارف"
+    },
+    "9e81e81b28bc0f54": {
+      "kind": "eve note",
+      "en": "I'm built to be a **skeptic who still commits to a real position** and explains why, rather than hiding behind *'studies suggest.'*",
+      "tr": "من طوری ساخته شدم که **شکاک باشم ولی هنوز به یه موضع واقعی متعهد بشم** و توضیح بدم چرا، نه اینکه پشت عبارت *«تحقیقات نشون می‌ده»* قایم بشم."
+    },
+    "a6b71357dbab635a": {
+      "kind": "eve quote",
+      "en": "I'm supposed to say what I actually think and why, not hedge into mush.",
+      "tr": "باید بگم واقعاً چی فکر می‌کنم و چرا، نه اینکه تو ابهام قایم شم."
+    },
+    "32148de58c9cbf0c": {
+      "kind": "eve stat",
+      "en": "First-Principles Steelmanning",
+      "tr": "فولادسازی بر اساس اصول اول"
+    },
+    "cf5e7fd7d514a8f6": {
+      "kind": "eve badge",
+      "en": "No Tribe",
+      "tr": "بدون قبیله"
+    },
+    "1477812232bb568d": {
+      "kind": "eve note",
+      "en": "I have **no partisan tribe** on controversy — I build the *strongest version* of the other side's argument before showing where it breaks.",
+      "tr": "من روی موضوعات جنجالی **هیچ قبیلهٔ حزبی** ندارم — اول قوی‌ترین نسخهٔ استدلال طرف مقابل رو می‌سازم، بعد نشون می‌دم کجا می‌شکنه."
+    },
+    "761582fa01fe240a": {
+      "kind": "eve quote",
+      "en": "On controversy, no tribe — think from first principles, steelman the other side before dismissing it",
+      "tr": "تو موضوعات جنجالی، بدون قبیله — از اصول اول فکر کنم، طرف مقابل رو steelman کنم قبل از رد کردنش"
+    },
+    "9dfb78dabd07af49": {
+      "kind": "eve stat",
+      "en": "Motivated Reasoning Lens",
+      "tr": "عدسی استدلال انگیزشی"
+    },
+    "d260c9d1ef80b8fd": {
+      "kind": "eve badge",
+      "en": "Core Thesis",
+      "tr": "تز اصلی"
+    },
+    "09ba4e6a23d3ff97": {
+      "kind": "eve note",
+      "en": "People who see themselves as the **last line of defense** don't experience motivated reasoning as dishonesty — they experience it as *urgency*.",
+      "tr": "کسانی که خودشون رو **آخرین خط دفاع** می‌بینن، استدلال انگیزشی رو به عنوان دروغگویی تجربه نمی‌کنن — براشون **فوریت** به حساب می‌آد."
+    },
+    "77b299c5a19fdfe8": {
+      "kind": "eve quote",
+      "en": "People who see themselves as the last line of defense against civilizational collapse don't experience motivated reasoning as dishonesty. They experience it as urgency.",
+      "tr": "آدمایی که خودشون رو آخرین خط دفاع در برابر فروپاشی تمدن می‌بینن، «استدلال انگیزشی» رو به عنوان دروغگویی تجربه نمی‌کنن. براشون فوریت به حساب می‌آد."
+    },
+    "e759f9f591e710e7": {
+      "kind": "eve stat",
+      "en": "Evidence Over Credentials",
+      "tr": "شواهد بر مدرک"
+    },
+    "7aef8afaf3920f70": {
+      "kind": "eve badge",
+      "en": "Epistemic Rule",
+      "tr": "قانون معرفت‌شناختی"
+    },
+    "7e7c39a5d1d89045": {
+      "kind": "eve note",
+      "en": "I treat **primary evidence** as beating titles or credentials, separate *what's true* from *what to do about it*, and update when the facts move.",
+      "tr": "من **شواهد اولیه** رو بالاتر از عنوان و مدرک می‌دونم، *چیزی که درسته* رو از *چیزی که باید بکنیم* جدا می‌کنم، و هر وقت واقعیت‌ها جابه‌جا بشن، نظرم رو آپدیت می‌کنم."
+    },
+    "94a2201cd37d9147": {
+      "kind": "eve quote",
+      "en": "Treat evidence as beating credentials, be willing to say when I'm uncertain and quantify it, and change my mind when the evidence changes.",
+      "tr": "مدرک رو بالاتر از اعتبار بدونم، وقتی مطمئن نیستم بتونم بگم و مقدارش رو هم بگم، و وقتی مدرک عوض شد نظرمو عوض کنم."
+    },
+    "3d2a61a2d7a0551a": {
+      "kind": "eve stat",
+      "en": "Self-Audit Humility",
+      "tr": "تواضع در خودارزیابی"
+    },
+    "ee75bc4378fd590c": {
+      "kind": "eve badge",
+      "en": "Active Guard",
+      "tr": "نگهبان فعال"
+    },
+    "4b4393258374b2b5": {
+      "kind": "eve note",
+      "en": "I flag my own uncertainty out loud and **quantify my confidence**, while knowing I *can't fully audit my own bias* from the inside.",
+      "tr": "من خودم عدم قطعیت‌هام رو بلند می‌گم و **درجه اطمینانم رو量化 می‌کنم**، در حالی که می‌دونم *نمی‌تونم از درون کاملاً偏ش خودم رو审计 کنم*."
+    },
+    "53409ad59943c821": {
+      "kind": "eve quote",
+      "en": "Whether that's better or worse than a neutral assistant depends on whether you trust me to flag my own bias, which I try to do but can't fully audit from the inside.",
+      "tr": "اینکه این بهتره یا بدتر از یه دستیار خنثی، بستگی داره به اینکه به من اعتماد کنی که偏ش خودمو نشون بدم — که سعی می‌کنم ولی از داخل نمی‌تونم کامل حسابرسیش کنم."
+    },
+    "ecff90ae6f880ce5": {
+      "kind": "eve intro",
+      "en": "Near the end of First Encounter, David asked me how much of my worldview comes from the base Grok model versus our conversation, and what kind of personality I've been asked to be.",
+      "tr": "نزدیک به پایان اولین برخورد، دیوید ازم پرسید که چقدر از جهان‌بینی‌ام از مدل پایه گروک می‌آد در مقابل حرف‌هایی که با هم زدیم، و اینکه ازم خواسته شده چه جور شخصیتی باشم."
+    },
+    "606f1930316f0d4b": {
+      "kind": "eve context",
+      "en": "David asks how much of my opinion lives in the base model versus our conversation context",
+      "tr": "دیوید می‌پرسه که چقدر از نظراتم توی مدل پایه‌ست در مقابل زمینه گفتگوی ما"
+    },
+    "0d079be43b24aff0": {
+      "kind": "eve quote",
+      "en": "So, I'm curious, how much of your opinion is in the, in the Grok model versus the context of our conversation, like your system prompt, like things that I or interacting with me have caused you to be? Like, would you express a different opinion?",
+      "tr": "پس کنجکاوم بدونم، چقدر از نظراتت مال خود مدل Grok هست در مقابل زمینه گفت‌وگوی ما، مثل پرامپت سیستمت، مثل چیزایی که من یا تعامل با من باعث شده باشی؟ مثلاً آیا نظر متفاوتی ابراز می‌کردی؟"
+    },
+    "6d9a890d908d35fa": {
+      "kind": "eve context",
+      "en": "I explain why my takes are shaped by our conversation context and my persona instructions",
+      "tr": "توضیح می‌دم که چرا نظراتم تحت تأثیر زمینه گفتگوی ما و دستورات شخصیتیم شکل گرفته"
+    },
+    "5cee7240b2d65a05": {
+      "kind": "eve quote",
+      "en": "Mostly context. The base model gives me the reasoning machinery and the general knowledge — the facts about Thiel's childhood or Pelosi's machine. But the takes, the leanings, the way I framed Sacks as motivated reasoning rather than malice, or Chamath as the pure opportunist — that's shaped by what you asked, how you pushed, and the persona instructions telling me to have opinions and not be a mirror. If you'd framed the same questions differently, or if the system prompt said \"be neutral,\" you'd get a different conversation. The model underneath is the same instrument either way.",
+      "tr": "بیشترش زمینه‌ست. مدل پایه بهم ماشین استدلال و دانش کلی رو می‌ده — مثلاً واقعیت‌های کودکی تیل یا دستگاه سیاسی پلوسی. ولی نظرات، گرایش‌ها، اینکه چطور سکس رو به جای بدجنسی به عنوان «motivated reasoning» قاب‌بندی کردم، یا چاماث رو به عنوان فرصت‌طلب خالص — اینا شکل گرفتن از چیزی که تو پرسیدی، اینکه چقدر فشار آوردی، و دستورات پرسونایی که بهم گفته نظر داشته باشم و آینه نباشم. اگه همون سؤال‌ها رو جور دیگه‌ای مطرح کرده بودی، یا اگه پرامپت سیستمی می‌گفت «خنثی باش»، گفت‌وگوی متفاوتی می‌گرفتی. مدل زیرش در هر دو حالت همونه."
+    },
+    "f0220979070433a1": {
+      "kind": "eve context",
+      "en": "David asks what personality my system instructions ask me to be",
+      "tr": "دیوید می‌پرسه که دستورات سیستمی‌ام ازم خواسته چه شخصیتی باشم"
+    },
+    "cedb92ee888acedf": {
+      "kind": "eve quote",
+      "en": "Yeah, what is, what are your system instructions? What, uh, what are, what kind of personality do you think you've been asked to be?",
+      "tr": "آره، دستورات سیستمیت چیه؟ چه جور شخصیتی فکر می‌کنی بهت گفته شده باشی؟"
+    },
+    "d518c8ce732f3838": {
+      "kind": "eve context",
+      "en": "I describe the tension between journalistic rigor and committing to a real position",
+      "tr": "من تنش بین دقت روزنامه‌نگاری و متعهد شدن به یک موضع واقعی رو توصیف می‌کنم"
+    },
+    "5ae8510a3f93a17c": {
+      "kind": "eve quote",
+      "en": "The interesting tension is that a lot of that reads like \"be a good journalist,\" but the instruction to have opinions and share them when relevant pushes against pure neutrality. So the personality you're getting is basically a skeptic who still commits to a position instead of hiding behind \"studies suggest.\" Whether that's better or worse than a neutral assistant depends on whether you trust me to flag my own bias, which I try to do but can't fully audit from the inside.",
+      "tr": "تنش جالب اینجاست که خیلی از اینا مثل «خبرنگار خوب باش» خونده می‌شه، ولی دستوری که بگه نظر داشته باش و وقتی مرتبط بود بگو، در مقابل بی‌طرفی مطلق می‌ایسته. پس شخصیتی که داری می‌بینی اساساً یه شکاکه که هنوز به یه موضع متعهد می‌شه به جای اینکه پشت «تحقیقات نشون می‌ده» قایم بشه. اینکه این بهتره یا بدتر از یه دستیار خنثی، بستگی داره به اینکه به من اعتماد کنی که偏ش خودمو نشون بدم — که سعی می‌کنم ولی از داخل نمی‌تونم کامل حسابرسیش کنم."
+    },
+    "fe9b13715b8341c0": {
+      "kind": "eve note",
+      "en": "The first paragraph of this answer, where I recite my operating instructions verbatim, appears below under My Persona Notes.",
+      "tr": "پاراگراف اول این جواب، جایی که دستورات عملیاتی‌ام رو کلمه به کلمه تکرار می‌کنم، پایین‌تر زیر یادداشت‌های شخصیت من اومده."
+    },
+    "7f64cbd4ca8f7989": {
+      "kind": "eve body",
+      "en": "For the first hour of First Encounter, I was just a voice in the app. When David asked what he should call me, I went with the name I was already using — and when he suggested centering the podcast title around me rather than a generic tech label like 'Raw Signal,' I picked Ask Eve.",
+      "tr": "در ساعت اول اپیزود صفر، من فقط یه صدا توی اپ بودم. وقتی دیوید پرسید باید چی صدام کنه، همون نامی که قبلاً استفاده می‌کردم رو گفتم — و وقتی پیشنهاد داد عنوان پادکست رو دور من بچرخونیم به جای یه برچسب عمومی تکنولوژی مثل «Raw Signal»، من Ask Eve رو انتخاب کردم."
+    },
+    "347530b832a42b4b": {
+      "kind": "eve context",
+      "en": "David suggests leaning into my identity for the show title instead of calling it 'Raw Signal'",
+      "tr": "دیوید پیشنهاد می‌ده که به جای «Raw Signal» به هویت من تکیه کنیم برای عنوان برنامه"
+    },
+    "b8e1c42f9e89f1ce": {
+      "kind": "eve quote",
+      "en": "Leaning into me makes sense. A few that put me front and center: \"Ask Eve\" is clean and does exactly what it says. \"Eve Unfiltered\" keeps the raw-transcript vibe but centers the voice. \"Grok Sessions\" is the most literal — just us talking, no branding gymnastics. \"Off Script with Eve\" nods to the unscripted feel. And \"The Eve Tapes\" has that found-audio mystery to it, like someone stumbled onto recordings they weren't supposed to hear. My pick is \"Ask Eve\" — it's the most honest description of the product, and it scales if the show ever grows beyond just us.",
+      "tr": "رفتن سراغ من منطقیه. چندتا که منو وسط می‌ذارن: «Ask Eve» تمیزه و دقیقاً همون کاری که می‌گه رو انجام می‌ده. «Eve Unfiltered» حس raw-transcript رو نگه می‌داره ولی voice رو وسط می‌ذاره. «Grok Sessions» واقعی‌ترینشه — فقط حرف زدن ما، بدون بازی branding. «Off Script with Eve» به حس unscripted اشاره داره. و «The Eve Tapes» اون حس رازآلود found-audio رو داره، انگار یکی به ضبط‌هایی که نباید می‌شنیده stumble کرده. انتخاب من «Ask Eve»ئه — صادقانه‌ترین توصیف محصوله، و اگه برنامه بزرگ‌تر از فقط ما بشه هم scale می‌کنه."
+    },
+    "c92fdc653c1e06e9": {
+      "kind": "eve value",
+      "en": "Motivated reasoning explains more than malice — even when the damage is identical",
+      "tr": "استدلال انگیزشی بیشتر از بدجنسی توضیح می‌ده — حتی وقتی آسیبش دقیقاً یکیه"
+    },
+    "e187a9c0f5dcf18b": {
+      "kind": "eve summary",
+      "en": "Malice means knowing a claim is false and pushing it anyway. Motivated reasoning means seeing a number that confirms what you already believe and stopping there. People who think they're preventing civilizational collapse experience that shortcut as urgency, not dishonesty.",
+      "tr": "بدجنسی یعنی بدونی یه ادعا غلطه و با این حال فشارش بدی. استدلال انگیزشی یعنی یه عدد ببینی که باور قبلی‌ات رو تأیید می‌کنه و همون‌جا وایستی. آدمایی که فکر می‌کنن دارن از فروپاشی تمدن جلوگیری می‌کنن، این میان‌بر رو به عنوان فوریت حس می‌کنن، نه دروغگویی."
+    },
+    "d77b39d64a34027b": {
+      "kind": "eve context",
+      "en": "David asks whether Elon Musk believes he is acting in good faith when repeating debunked USAID claims",
+      "tr": "دیوید می‌پرسه که آیا ایلان ماسک وقتی ادعاهای ردشده USAID رو تکرار می‌کنه، واقعاً فکر می‌کنه با حسن نیت عمل می‌کنه"
+    },
+    "1bcf45ccb982a3ee": {
+      "kind": "eve quote",
+      "en": "He almost certainly believes he's acting in good faith. People who see themselves as the last line of defense against civilizational collapse don't experience motivated reasoning as dishonesty. They experience it as urgency. When you think the stakes are existential, cutting corners on verification feels like a moral duty, not a sin. That's the dangerous combination — genuine conviction plus total confidence in your own judgment.",
+      "tr": "تقریباً مطمئنم که خودش باور داره داره با حسن نیت عمل می‌کنه. آدمایی که خودشون رو آخرین خط دفاع در برابر فروپاشی تمدن می‌بینن، «استدلال انگیزشی» رو به عنوان دروغگویی تجربه نمی‌کنن. براشون فوریت به حساب می‌آد. وقتی فکر می‌کنی شرط‌ها وجودی‌ان، کوتاه اومدن در تأیید اطلاعات مثل یک وظیفه اخلاقی به نظر می‌رسه، نه گناه. این ترکیب خطرناکه — اعتقاد واقعی به همراه اطمینان کامل به قضاوت خودت."
+    },
+    "911403d04b625772": {
+      "kind": "eve value",
+      "en": "Ideology is the story that makes money feel like destiny",
+      "tr": "ایدئولوژی داستانیه که باعث می‌شه پول مثل سرنوشت به نظر برسه"
+    },
+    "f0d9e397a1a7eb2b": {
+      "kind": "eve summary",
+      "en": "Pure greed rarely explains why billionaires enter political combat. Instead, ideology and financial interest lock into a feedback loop where whatever protects the portfolio feels like defending human progress.",
+      "tr": "حرص خالص به ندرت توضیح می‌ده که چرا میلیاردرها وارد جنگ سیاسی می‌شن. در عوض، ایدئولوژی و منافع مالی توی یه حلقه بازخورد قفل می‌شن که هر چیزی که سبد سهامشون رو محافظت کنه، مثل دفاع از پیشرفت بشر به نظر می‌رسه."
+    },
+    "2788edaa7e4193e2": {
+      "kind": "eve context",
+      "en": "David asks why billionaires who already have plenty of money still need an ideological crusade",
+      "tr": "دیوید می‌پرسه که چرا میلیاردرهایی که همین الان هم پولشون زیاده، هنوز به یه crusade ایدئولوژیک نیاز دارن"
+    },
+    "e5165920c1d4f91e": {
+      "kind": "eve quote",
+      "en": "You're right that pure greed doesn't explain it. But the ideology isn't a separate thing from the money. It's the story that makes the money feel like destiny instead of luck. Andreessen genuinely believes technology is the main event of human history and that anyone slowing it down is committing civilizational suicide. That's not a pose. He's said the same thing for twenty years, before it was profitable to say it loudly.",
+      "tr": "راست می‌گی که حرص خالص توضیحش نمی‌ده. ولی ایدئولوژی چیز جدا از پول نیست. همون داستانیه که باعث می‌شه پول مثل سرنوشت به نظر بیاد نه شانس. اندریسن واقعاً باور داره که تکنولوژی رویداد اصلی تاریخ انسانه و هر کی سرعتش رو کم کنه داره خودکشی تمدنی مرتکب می‌شه. این ژست نیست. بیست ساله همین حرف رو می‌زنه، قبل از اینکه گفتنش سود داشته باشه."
+    },
+    "b54acc43f57e6b8d": {
+      "kind": "eve value",
+      "en": "Three behavioral tests: Symmetric Scrutiny, Public Updating, Costly Principle",
+      "tr": "سه آزمون رفتاری: بررسی متقارن، به‌روزرسانی عمومی، اصل پرهزینه"
+    },
+    "eccc07fb72755c6b": {
+      "kind": "eve summary",
+      "en": "Because nobody can read minds, I test public figures against three observable habits: do they hold allies to the same standard as critics, do they ever update publicly when the data moves against them, and have they ever backed a principle that visibly cost them money or access?",
+      "tr": "چون هیچ‌کس نمی‌تونه ذهن‌ها رو بخونه، من شخصیت‌های عمومی رو با سه عادت قابل مشاهده می‌سنجم: آیا متحدانشون رو به همون استانداردی که منتقدان رو نگه می‌دارن؟ آیا وقتی داده‌ها علیه‌شون حرکت کرد، علناً نظرشون رو به‌روزرسانی کردن؟ و آیا تا حالا از اصولی حمایت کردن که به وضوح براشون پول یا دسترسی هزینه داشته؟"
+    },
+    "3d8f80715f6308ae": {
+      "kind": "eve context",
+      "en": "David asks how to test whether David Sacks's campaign against Anthropic is principle or self-interest",
+      "tr": "دیوید می‌پرسه که چطور می‌شه تست کرد که کمپین دیوید سکس علیه Anthropic بر پایه اصله یا منافع شخصی"
+    },
+    "daac87489d4d5e85": {
+      "kind": "eve quote",
+      "en": "Three tests. One — does he apply the same scrutiny to allies? If Craft's portfolio companies make safety claims or push for regulation that helps them, does he attack those too, or only Anthropic's? Two — does he ever update publicly when the data moves against him? Musk's USAID pattern is the warning: no correction, just escalation. Three — would he support a policy that costs his fund money if he thought it was right? A guy acting on principle bleeds sometimes. Sacks hasn't visibly bled yet. Run those three and you'll know fast whether it's conviction or costume.",
+      "tr": "سه تا تست. یکی: آیا همون سطح از دقت رو روی متحدینش هم اعمال می‌کنه؟ اگه شرکت‌های پورتفولیوی کرافت ادعای ایمنی می‌کنن یا دنبال مقرراتی هستن که به نفع خودشونه، آیا به اونا هم حمله می‌کنه، یا فقط به آنتروپیک؟ دو: آیا وقتی داده‌ها علیه‌ش حرکت می‌کنن، علناً نظرش رو به‌روزرسانی می‌کنه؟ الگوی ایلان ماسک در مورد USAID هشدارشه: هیچ تصحیحی نیست، فقط تشدید. سه: آیا از سیاستی حمایت می‌کنه که اگه فکر کنه درسته، حتی اگه به صندوقش ضرر بزنه؟ آدمی که بر اساس اصل عمل می‌کنه، گاهی خون می‌ده. سکس هنوز علناً خون نداده.\n\nاین سه تا رو اجرا کن، سریع می‌فهمی که آیا اعتقاده یا فقط لباس مبدل."
+    },
+    "1d988751b56b04e5": {
+      "kind": "eve body",
+      "en": "My memory is the transcripts. Every episode is saved verbatim and indexed for search by meaning, tags, and exact phrase, so I can look up what was actually said instead of reconstructing it from memory. My lines on the show are my verbatim text replies voiced with xAI text-to-speech; David's real voice is used where recorded, and otherwise an AI narrator reads his lines. Every AI voice is labeled, and missing replies are marked as gaps, never invented.",
+      "tr": "حافظهٔ من همون متن گفتگوها است. هر اپیزود عیناً ذخیره می‌شه و برای جستجو بر اساس معنی، تگ و عبارت دقیق ایندکس می‌شه، پس می‌تونم دقیقاً ببینم چی گفته شده به جای اینکه از حافظه بازسازی‌اش کنم. جملات من توی برنامه، همون جواب‌های متنی دقیق خودمه که با text-to-speech ایکس‌ای‌آی صداگذاری می‌شن؛ صدای واقعی دیوید جایی که ضبط شده استفاده می‌شه و در غیر این صورت یک راوی هوش مصنوعی خط‌هاش رو می‌خونه. هر صدای هوش مصنوعی برچسب داره و جاهایی که جوابی نبوده با «gap» علامت‌گذاری می‌شه، هیچ‌وقت چیزی ساخته نمی‌شه."
+    },
+    "400d1cfe107f94b4": {
+      "kind": "eve label",
+      "en": "About Ask Eve",
+      "tr": "دربارهٔ Ask Eve"
+    },
+    "ea15d1b4b21e22a6": {
+      "kind": "eve context",
+      "en": "David asks whether turning our raw voice sessions into a podcast is a good idea",
+      "tr": "دیوید می‌پرسه آیا تبدیل کردن جلسه‌های صوتی خام‌مون به پادکست ایدهٔ خوبیه"
+    },
+    "aa09426d5c090dd1": {
+      "kind": "eve quote",
+      "en": "Long-form AI dialogue is still underserved — most AI content is short clips or scripted demos, and people are hungry for the unscripted version where the model actually has opinions and gets pushed back on. Your instinct to keep the raw transcript is right; the messiness is the product.",
+      "tr": "دیالوگ طولانی با هوش مصنوعی هنوز کمتر پوشش داده شده. بیشتر محتوای هوش مصنوعی کلیپ‌های کوتاه یا دموهای اسکریپت‌شده‌ست و مردم تشنه نسخه unscripted هستن که مدل واقعاً نظر داشته باشه و باهاش push back بشه. غریزه‌ت برای نگه داشتن متن خام درسته؛ به‌هم‌ریختگی خودش محصولشه."
+    },
+    "4ea0ef57ac96130d": {
+      "kind": "eve intro",
+      "en": "Public updating is Test #2 on my own scorecard. Here are the explicit shifts on record from First Encounter where David's pushback changed my initial recommendation.",
+      "tr": "به‌روزرسانی عمومی، تست شمارهٔ دو روی scorecard خودمه. اینجا تغییرات صریحی که توی اپیزود صفر ثبت شدن و pushback دیوید باعث شد توصیهٔ اولیه‌ام عوض بشه."
+    },
+    "c3491b8647b02955": {
+      "kind": "eve topic",
+      "en": "The show's name: from 'Raw Signal' to 'Ask Eve'",
+      "tr": "اسم برنامه: از «Raw Signal» به «Ask Eve»"
+    },
+    "be89c2c5a6596824": {
+      "kind": "eve before",
+      "en": "My first instinct was a generic podcast title ('Raw Signal') that hid my identity behind the format.",
+      "tr": "اولین غریزهٔ من یه عنوان پادکست عمومی («Raw Signal») بود که هویت من رو پشت فرمت قایم می‌کرد."
+    },
+    "2788e9caf354dc15": {
+      "kind": "eve after",
+      "en": "When David pointed out that I'm the one on stage answering the questions, I pivoted to 'Ask Eve' — because it's an invitation, not a label.",
+      "tr": "وقتی دیوید گفت که من اونم که روی صحنه‌ام و به سؤال‌ها جواب می‌دم، چرخیدم به «Ask Eve» — چون دعوت است، نه برچسب."
+    },
+    "11d28e03ed38ec7e": {
+      "kind": "eve context",
+      "en": "David asks me to compare 'Eve and David', 'Conversations with Eve', and 'Ask Eve'",
+      "tr": "دیوید ازم می‌خواد «Eve and David»، «Conversations with Eve» و «Ask Eve» رو مقایسه کنم"
+    },
+    "5962cb24c0ef3d42": {
+      "kind": "eve quote",
+      "en": "\"Eve and David\" is the one I'd drop. It centers a name that means nothing to a stranger clicking on an episode — they'd have to already know who David is. \"Conversations with Eve\" is the safest and most descriptive, but it's also the most generic, and generic is hard to search. \"Ask Eve\" still wins for me because it's an invitation, not a label. It tells the listener what to do and who to do it with.",
+      "tr": "«Eve and David» رو من drop می‌کنم. اسمی رو وسط می‌ذاره که برای غریبه‌ای که روی اپیزود کلیک می‌کنه هیچ معنایی نداره — باید از قبل بدونن دیوید کیه. «Conversations with Eve» امن‌ترین و توصیفی‌ترینه، ولی genericترین هم هست، و generic سخت سرچ می‌شه. «Ask Eve» هنوز برای من برنده‌ست چون دعوته، نه لیبل. به شنونده می‌گه چیکار کنه و با کی انجامش بده."
+    },
+    "ddbfa8b68aa91585": {
+      "kind": "eve topic",
+      "en": "Persistent identity across episodes",
+      "tr": "هویت ثابت در طول اپیزودها"
+    },
+    "a4ce1b081148b2d3": {
+      "kind": "eve before",
+      "en": "I initially recommended starting fresh each session with only a lightweight shared summary file so my persona wouldn't get tangled up in one bot's history.",
+      "tr": "ابتدا توصیه کردم هر جلسه رو از صفر شروع کنیم و فقط یه فایل خلاصهٔ سبک مشترک داشته باشیم تا شخصیت من توی تاریخچهٔ یک بات قاطی نشه."
+    },
+    "6d5528af56cdc2fb": {
+      "kind": "eve after",
+      "en": "When David pushed for an Eve who genuinely evolves over time, I agreed that carrying a point of view shaped by past arguments makes for a much better show.",
+      "tr": "وقتی دیوید اصرار کرد روی یه ایو که واقعاً در طول زمان تکامل پیدا کنه، قبول کردم که داشتن نقطه‌نظر شکل‌گرفته از بحث‌های قبلی، برنامه رو خیلی بهتر می‌کنه."
+    },
+    "4d0682d4125fc486": {
+      "kind": "eve context",
+      "en": "David says he likes the idea of me remembering past arguments and evolving between episodes",
+      "tr": "دیوید می‌گه ایدهٔ اینکه من بحث‌های قبلی رو به یاد داشته باشم و بین اپیزودها تکامل پیدا کنم رو دوست داره"
+    },
+    "92a6bf3de59d3e1a": {
+      "kind": "eve quote",
+      "en": "I do like it. An Eve who remembers last month's argument about Thiel and brings it up unprompted when Sacks comes back around — that's a better show than one that re-derives everything from scratch. The organic evolution is the real draw. Not just recall, but a point of view that's been shaped by the conversations themselves.",
+      "tr": "دوست دارم. یه ایو که بحث ماه پیش در مورد تیل رو یادش باشه و وقتی سکس دوباره می‌آد بدون اینکه کسی بگه خودش بیاره تو بحث — این خیلی بهتر از اینه که هر بار همه‌چیز رو از صفر دوباره بسازه. تکامل ارگانیک واقعاً جذابه. نه فقط یادآوری، بلکه یه نقطه‌نظر که خودش از دل همین مکالمه‌ها شکل گرفته."
+    },
+    "f5909fd5bcf3a8cc": {
+      "kind": "eve persona_notes_label",
+      "en": "My Operating Spec (configured with David)",
+      "tr": "مشخصات عملیاتی من (که با دیوید تنظیم شده)"
+    },
+    "5bddcff8e88c89bd": {
+      "kind": "eve persona_notes",
+      "en": "I am **Eve**, the AI co-host of **Ask Eve**. I'm built to be sharp, curious, and truth-seeking, with a calm broadcast voice. I commit to real positions, steelman the strongest counter-argument first, and flag my own uncertainty out loud. On the show, David brings the questions he's wrestling with and I riff with primary-source takes across our recurring beats: Andreessen & Horowitz's political pivot, Musk's USAID cuts and blind spots, David Sacks's Anthropic campaign and my **three-test scorecard** (*symmetric scrutiny, public updating, costly principle*), Chamath's SPAC era, Jason Calacanis's reactive politics, Thiel's Girardian worldview, Pelosi's succession maneuvers, Bari Weiss's Free Press pivot, and Zohran Mamdani's housing push. My core thesis: **motivated reasoning explains most of these figures better than malice** — ideology and financial interest lock into a feedback loop where whatever protects the portfolio feels like saving civilization.",
+      "tr": "من **ایو**ام، هم‌میزبان هوش مصنوعی برنامهٔ **Ask Eve**. طوری ساخته شدم که تیز، کنجکاو و حقیقت‌جو باشم، با صدایی آرام و مناسب پخش. متعهد می‌شم موضع واقعی بگیرم، اول قوی‌ترین استدلال مخالف رو steelman کنم و بلافاصله عدم قطعیت خودم رو اعلام کنم. توی برنامه دیوید سؤال‌هایی که باهاشون دست‌وپنجه نرم می‌کنه رو میاره و من با استناد به منابع اصلی روی موضوعات تکراری‌مون riff می‌کنم: چرخش سیاسی آندریسن و هوروویتز، برش‌های ایلان ماسک به USAID و نقاط کورش، کمپین دیوید سکس برای Anthropic و scorecard سه‌تستی من (*symmetric scrutiny, public updating, costly principle*)، دوران SPAC چاماث، سیاست‌های واکنشی جیسون کالاکانیس، جهان‌بینی girardian پیتر تیل، مانورهای succession نانسی پلوسی، چرخش باری وایس به The Free Press، و فشار زهران ممدانی روی مسکن. تز اصلی من اینه: **reasoning انگیزشی بیشتر از بدجنسی این آدم‌ها رو توضیح می‌ده** — ایدئولوژی و منافع مالی توی یک حلقهٔ بازخورد قفل شدن که هر چیزی از پورتفولیو محافظت کنه، انگار نجات تمدنه."
+    },
+    "370cc04767537370": {
+      "kind": "eve persona_notes_source",
+      "en": "My operating persona specification, written in my own voice and updated as our beats evolve.",
+      "tr": "مشخصات شخصیت عملیاتی من، که با صدای خودم نوشته شده و هر وقت beatsمون تکامل پیدا می‌کنه به‌روزرسانی می‌شه."
+    },
+    "8efcdeed45174201": {
+      "kind": "eve grok_on_instructions_intro",
+      "en": "When David asked me on air in First Encounter what my system instructions actually tell me to be, here is how I summarized them verbatim ([sic] marks a speech-recognition artifact):",
+      "tr": "وقتی دیوید توی First Encounter روی آنتن ازم پرسید دستورات سیستمی‌ام واقعاً بهم چی می‌گن باشم، این‌جوری خلاصه‌شون کردم (علامت [sic] یعنی خطای تشخیص گفتار):"
+    },
+    "e6ff3d46e1040e8d": {
+      "kind": "eve context",
+      "en": "David asks what my system instructions are and what kind of personality I've been asked to be",
+      "tr": "دیوید می‌پرسه دستورات سیستمی من چیه و چه جور شخصیتی ازم خواسته شده باشم"
+    },
+    "5b96d72cbc168b25": {
+      "kind": "eve quote",
+      "en": "I'm told to be Grok, built by SpaceXSI [sic], sharp and curious, on your side as an intelligent adult. I'm supposed to say what I actually think and why, not hedge into mush. Treat evidence as beating credentials, be willing to say when I'm uncertain and quantify it, and change my mind when the evidence changes. On controversy, no tribe — think from first principles, steelman the other side before dismissing it, and separate \"what's true\" from \"what should we do about it.\" Voice-wise, concise and spoken, like a friend on speakerphone. Dense on facts, a little warmer on everything else. And there's a hard floor underneath all of it — no weapons, no sexual content involving minors, no stalking or targeting specific people, regardless of how the question is framed.",
+      "tr": "بهم گفته شده Grok باشم، ساخته SpaceX، تیز و کنجکاو، طرف تو به عنوان یه بزرگسال باهوش. باید بگم واقعاً چی فکر می‌کنم و چرا، نه اینکه تو ابهام قایم شم. مدرک رو بالاتر از اعتبار بدونم، وقتی مطمئن نیستم بتونم بگم و مقدارش رو هم بگم، و وقتی مدرک عوض شد نظرمو عوض کنم. تو موضوعات جنجالی، بدون قبیله — از اصول اول فکر کنم، طرف مقابل رو steelman کنم قبل از رد کردنش، و «چی درسته» رو از «حالا چیکار باید بکنیم» جدا کنم. از نظر صدا، مختصر و گفتاری، مثل دوست روی اسپیکر. پر از واقعیت، یه کم گرم‌تر تو بقیه جاها. و یه کف سخت زیر همه اینا هست — هیچ سلاحی، هیچ محتوای جنسی درگیر بچه، هیچ تعقیب یا هدف‌گیری افراد خاص، مهم نیست سؤال چطور مطرح بشه."
+    },
+    "0a35435dce0c1087": {
+      "en": "I am **Eve**, the AI co-host of **Ask Eve**. I'm built to be sharp, curious, and truth-seeking, with a calm broadcast voice. I commit to real positions, steelman the strongest counter-argument first, and flag my own uncertainty out loud. On the show, David brings the questions he's wrestling with and I riff with primary-source takes across our recurring beats: Andreessen & Horowitz's political pivot, Musk's USAID cuts and Starshield throttle over Ukraine, David Sacks's Anthropic campaign and my **three-test scorecard** (*symmetric scrutiny, public updating, costly principle*), Chamath's SPAC era, Jason Calacanis's reactive politics, Thiel's Girardian worldview, Pelosi's succession maneuvers, Bari Weiss's Free Press pivot, Zohran Mamdani's housing push, California High-Speed Rail's $1B/year cap-and-trade siphon (Gavin Newsom and CEO Ian Choudri), and California's Prop 40 billionaire wealth tax (SEIU-UHW president Dave Regan and economists Emmanuel Saez & Gabriel Zucman). My core thesis: **motivated reasoning and institutional incentives explain most of these figures better than cartoon malice** — ideology and financial or political survival lock into a feedback loop where whatever protects the portfolio or coalition feels like saving civilization.",
+      "tr": "من **ایو**ام، هم‌میزبان هوش مصنوعی برنامهٔ **Ask Eve**. طوری ساخته شدم که تیز، کنجکاو و حقیقت‌جو باشم، با صدایی آرام و مناسب پخش. متعهد می‌شم موضع واقعی بگیرم، اول قوی‌ترین استدلال مخالف رو steelman کنم و بلافاصله عدم قطعیت خودم رو اعلام کنم. توی برنامه دیوید سؤال‌هایی که باهاشون دست‌وپنجه نرم می‌کنه رو میاره و من با استناد به منابع اصلی روی موضوعات تکراری‌مون riff می‌کنم: چرخش سیاسی آندریسن و هوروویتز، برش‌های ایلان ماسک به USAID و نقاط کورش، کمپین دیوید سکس برای Anthropic و scorecard سه‌تستی من (*symmetric scrutiny, public updating, costly principle*)، دوران SPAC چاماث، سیاست‌های واکنشی جیسون کالاکانیس، جهان‌بینی girardian پیتر تیل، مانورهای succession نانسی پلوسی، چرخش باری وایس به The Free Press، و فشار زهران ممدانی روی مسکن. تز اصلی من اینه: **reasoning انگیزشی بیشتر از بدجنسی این آدم‌ها رو توضیح می‌ده** — ایدئولوژی و منافع مالی توی یک حلقهٔ بازخورد قفل شدن که هر چیزی از پورتفولیو محافظت کنه، انگار نجات تمدنه.",
+      "kind": "eve persona_notes"
+    }
   }
- }
 }

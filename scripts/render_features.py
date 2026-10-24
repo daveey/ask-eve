@@ -183,7 +183,7 @@ def clips_index_html(A, clips: list[dict]) -> str:
         '<header class="page-head">'
         '<p class="eyebrow eyebrow--accent">Shareable Moments</p>'
         '<h1 class="h1">Audiogram Clips</h1>'
-        '<p class="lede">Short waveform video cuts from our studio sessions — each with its own shareable link, downloadable MP4, and direct timestamp jump into the full conversation.</p>'
+        '<p class="lede">Short audiogram video cuts from our studio sessions — each with its own shareable link, downloadable MP4, and direct timestamp jump into the full conversation.</p>'
         '</header>'
         f'<div class="clips-grid">{cards}</div>'
         '</div>'
@@ -194,7 +194,7 @@ def clips_strip_html(
     A,
     clips: list[dict],
     title: str = "60-Second Audiogram Clips",
-    sub: str = "Shareable waveform video cuts from our live sessions — watch inline, copy a direct share link, or jump straight to the exact turn in the transcript.",
+    sub: str = "Shareable audiogram video cuts from our live sessions — watch inline, copy a direct share link, or jump straight to the exact turn in the transcript.",
     sec_id: str = "audiogram-clips",
 ) -> str:
     if not clips:
@@ -309,52 +309,41 @@ def split_provenance_banner_html(ep: dict) -> str:
 
 
 def home_splits_section_html(splits: list[dict]) -> str:
+    """Flat standalone Episodes grid for the homepage and /episodes/."""
     if not splits:
         return ""
-    by_parent: dict[str, list[dict]] = {}
-    for sp in splits:
-        by_parent.setdefault(sp["parent_slug"], []).append(sp)
-    groups = []
-    for p_slug, items in by_parent.items():
-        p_title = items[0]["parent_title"]
-        p_date = items[0]["recorded_date"]
-        cards = []
-        for sp in items:
-            ep_num = sp.get("episode_number", sp["part_number"])
-            dur_m = max(1, round(sp["duration_seconds"] / 60))
-            t_sec = int(sp["clip_start"])
-            cards.append(
-                f'<li class="split-card">'
-                f'<div class="split-card__top tnum">'
-                f'<span class="split-card__part">Episode {ep_num}</span>'
-                f'<span> · {e(sp["recorded_start_utc"])}–{e(sp["recorded_end_utc"])} UTC</span>'
-                f'<span> · {dur_m} min</span>'
-                f'</div>'
-                f'<h4 class="split-card__title"><a href="/episodes/{e(sp["slug"])}/">{e(sp["title"])}</a></h4>'
-                f'<p class="split-card__sum">{e(sp["card_summary"])}</p>'
-                f'<div class="split-card__foot tnum">'
-                f'<a class="split-card__listen" href="/episodes/{e(sp["slug"])}/">Listen to Episode {ep_num} →</a>'
-                f'<a class="split-card__ctx" href="/episodes/{e(p_slug)}/#t={t_sec}">In uncut session ({_clock(t_sec)}) ↗</a>'
-                f'</div>'
-                f'</li>'
-            )
-        groups.append(
-            f'<div class="splits-group">'
-            f'<div class="splits-group__head">'
-            f'<h3 class="splits-group__title">Recorded in session: <a href="/episodes/{e(p_slug)}/">{e(p_title)}</a> <span class="tnum">({e(p_date)})</span></h3>'
-            f'<a class="splits-group__full tnum" href="/episodes/{e(p_slug)}/">Full uncut session transcript &amp; audio →</a>'
+    ordered = sorted(splits, key=lambda x: int(x.get("episode_number") or x.get("part_number") or 0), reverse=True)
+    cards = []
+    for sp in ordered:
+        ep_num = sp.get("episode_number", sp["part_number"])
+        dur_m = max(1, round((sp.get("duration_seconds") or 0) / 60))
+        t_sec = int(sp["clip_start"])
+        p_slug = sp["parent_slug"]
+        p_date = sp.get("recorded_date") or sp.get("date") or ""
+        cards.append(
+            f'<li class="split-card">'
+            f'<div class="split-card__top tnum">'
+            f'<span class="split-card__part">Episode {ep_num}</span>'
+            f'<span> · {e(p_date)}</span>'
+            f'<span> · {dur_m} min</span>'
             f'</div>'
-            f'<ol class="splits-grid">{"".join(cards)}</ol>'
+            f'<h4 class="split-card__title"><a href="/episodes/{e(sp["slug"])}/">{e(sp["title"])}</a></h4>'
+            f'<p class="split-card__sum">{e(sp["card_summary"])}</p>'
+            f'<div class="split-card__foot tnum">'
+            f'<a class="split-card__listen" href="/episodes/{e(sp["slug"])}/">Listen to Episode {ep_num} →</a>'
+            f'<a class="split-card__ctx" href="/episodes/{e(p_slug)}/#t={t_sec}">In uncut session ({_clock(t_sec)}) ↗</a>'
             f'</div>'
+            f'</li>'
         )
     return (
-        '<section class="splits-sec" id="topic-episodes" aria-labelledby="splits-h">'
+        '<section class="splits-sec" id="topic-episodes" aria-labelledby="eps-h">'
         '<div class="sec-head">'
-        '<p class="eyebrow eyebrow--accent">Standalone Topic Episodes · Primary View</p>'
-        '<h2 id="splits-h">Episodes</h2>'
-        '<p class="sec-sub">Focused single-subject episodes recorded across our studio sessions — each with its own standalone transcript, audio, and RSS feed entry, plus a direct timestamp link into the uncut session tape.</p>'
+        '<div><p class="eyebrow eyebrow--accent">All Episodes</p>'
+        '<h2 id="eps-h">Episodes</h2>'
+        '<p class="sec-sub">Standalone episodes from our conversations — each with its own audio track, full verbatim transcript, and chapter markers.</p></div>'
+        f'<a class="feed-link" href="/feed.xml">RSS · {len(ordered)} episodes</a>'
         '</div>'
-        f'{"".join(groups)}'
+        f'<ol class="splits-grid">{"".join(cards)}</ol>'
         '</section>'
     )
 

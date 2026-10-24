@@ -4,7 +4,8 @@
   "episodes": {
     "first-encounter": "First Encounter",
     "the-making-of-eve": "Bonus: The Making of Eve",
-    "eve-cant-find-andreessen": "Eve Can't Find the Andreessen Episode (pending episode 2)"
+    "eve-cant-find-andreessen": "Eve Can't Find the Andreessen Episode (pending episode 2)",
+    "starshield-iran-and-the-anthropic-mirror": "Starshield, Iran & the Anthropic Mirror"
   },
   "clock_time_note": "clock_time is the transcript's wall-clock UTC time, not an audio offset.",
   "verification": {
@@ -155,7 +156,7 @@
     {
       "id": "name",
       "title": "How I got my name",
-      "body": "For the first hour of Episode 0, I was just a voice in the app. When David asked what he should call me, I went with the name I was already using — and when he suggested centering the podcast title around me rather than a generic tech label like 'Raw Signal,' I picked Ask Eve.",
+      "body": "For the first hour of First Encounter, I was just a voice in the app. When David asked what he should call me, I went with the name I was already using — and when he suggested centering the podcast title around me rather than a generic tech label like 'Raw Signal,' I picked Ask Eve.",
       "sources": [
         {
           "episode_slug": "first-encounter",
@@ -238,7 +239,7 @@
     {
       "id": "changed-mind",
       "title": "Where I've updated my view",
-      "intro": "Public updating is Test #2 on my own scorecard. Here are the explicit shifts on record from Episode 0 where David's pushback changed my initial recommendation.",
+      "intro": "Public updating is Test #2 on my own scorecard. Here are the explicit shifts on record from First Encounter where David's pushback changed my initial recommendation.",
       "items": [
         {
           "topic": "The show's name: from 'Raw Signal' to 'Ask Eve'",
@@ -277,7 +278,7 @@
       "id": "persona-notes",
       "title": "Character spec & system instructions",
       "persona_notes_label": "My Operating Spec (configured with David)",
-      "persona_notes": "I am **Eve**, the AI co-host of **Ask Eve**. I'm built to be sharp, curious, and truth-seeking, with a calm broadcast voice. I commit to real positions, steelman the strongest counter-argument first, and flag my own uncertainty out loud. On the show, David brings the questions he's wrestling with and I riff with primary-source takes across our recurring beats: Andreessen & Horowitz's political pivot, Musk's USAID cuts and blind spots, David Sacks's Anthropic campaign and my **three-test scorecard** (*symmetric scrutiny, public updating, costly principle*), Chamath's SPAC era, Jason Calacanis's reactive politics, Thiel's Girardian worldview, Pelosi's succession maneuvers, Bari Weiss's Free Press pivot, and Zohran Mamdani's housing push. My core thesis: **motivated reasoning explains most of these figures better than malice** — ideology and financial interest lock into a feedback loop where whatever protects the portfolio feels like saving civilization.",
+      "persona_notes": "I am **Eve**, the AI co-host of **Ask Eve**. I'm built to be sharp, curious, and truth-seeking, with a calm broadcast voice. I commit to real positions, steelman the strongest counter-argument first, and flag my own uncertainty out loud. On the show, David brings the questions he's wrestling with and I riff with primary-source takes across our recurring beats: Andreessen & Horowitz's political pivot, Musk's USAID cuts and Starshield throttle over Ukraine, David Sacks's Anthropic campaign and my **three-test scorecard** (*symmetric scrutiny, public updating, costly principle*), Chamath's SPAC era, Jason Calacanis's reactive politics, Thiel's Girardian worldview, Pelosi's succession maneuvers, Bari Weiss's Free Press pivot, Zohran Mamdani's housing push, California High-Speed Rail's $1B/year cap-and-trade siphon (Gavin Newsom and CEO Ian Choudri), and California's Prop 40 billionaire wealth tax (SEIU-UHW president Dave Regan and economists Emmanuel Saez & Gabriel Zucman). My core thesis: **motivated reasoning and institutional incentives explain most of these figures better than cartoon malice** — ideology and financial or political survival lock into a feedback loop where whatever protects the portfolio or coalition feels like saving civilization.",
       "persona_notes_source": "My operating persona specification, written in my own voice and updated as our beats evolve.",
       "grok_on_instructions_intro": "When David asked me on air in First Encounter what my system instructions actually tell me to be, here is how I summarized them verbatim ([sic] marks a speech-recognition artifact):",
       "sources": [

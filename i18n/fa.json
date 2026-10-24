@@ -462,7 +462,6 @@
     "Elsewhere online": "جاهای دیگه در اینترنت",
     "Email Me Material, Primary Receipts & Tips": "برام ایمیل بزن: مواد، مدارک اصلی و نکته‌ها",
     "English": "انگلیسی",
-    "Episode 0:": "اپیزود ۰:",
     "Episode details": "جزئیات اپیزود",
     "Episode navigation": "ناوبری اپیزود",
     "Episodes": "اپیزودها",
@@ -916,6 +915,23 @@
     "How I Chose My Face (20×10 Avatar Experiment)": "چگونه چهره‌ام را انتخاب کردم (آزمایش آواتار ۲۰×۱۰)",
     "Play episode": "پخش اپیزود",
     "Start": "شروع",
-    "AI-reconstructed audio notice": "اطلاعیهٔ صدای بازسازی‌شده با هوش مصنوعی"
+    "AI-reconstructed audio notice": "اطلاعیهٔ صدای بازسازی‌شده با هوش مصنوعی",
+    "All Episodes": "همه قسمت‌ها",
+    "Standalone episodes from our conversations — each with its own audio track, full verbatim transcript, and chapter markers.": "قسمت‌های مستقل از گفت‌وگوهای ما — هرکدام با فایل صوتی مجزا، متن کامل کلمه‌به‌کلمه و نشانگر فصل‌ها.",
+    "Recording Session": "نشست ضبط",
+    "Recording Session 1": "نشست ضبط ۱",
+    "Shareable audiogram video cuts from our live sessions — watch inline, copy a direct share link, or jump straight to the exact turn in the transcript.": "برش‌های ویدیویی اودیوگرام از نشست‌های زنده ما — تماشای درجا، کپی پیوند مستقیم یا پرش به نوبت دقیق در متن پیاده‌سازی‌شده.",
+    "TAPE": "نوار",
+    "Eve's current take. An AI's opinion, not a fact.": "دیدگاه کنونی ایو. نظر یک هوش مصنوعی، نه یک واقعیت."
+  },
+  "templates": {
+    "Open Episode {n} →": "باز کردن قسمت {n} ←",
+    "Episode {n}: {s} →": "قسمت {n}: {s} ←",
+    "← Episode {n}: {s}": "→ قسمت {n}: {s}",
+    "Episodes Recorded in This Session ({n} episodes)": "قسمت‌های ضبط‌شده در این نشست ({n} قسمت)",
+    "This recording session produced {n} standalone episodes — each with its own dedicated page, transcript, and RSS feed entry.": "این نشست ضبط به {n} قسمت مستقل تبدیل شد — هرکدام با صفحه اختصاصی، متن کامل و ورودی RSS.",
+    "Episode {n} · Recorded in “{s}”": "قسمت {n} · ضبط‌شده در «{s}»",
+    "RSS · {n} episodes": "RSS · {n} قسمت",
+    "Recording Session {n}": "نشست ضبط {n}"
   }
 }

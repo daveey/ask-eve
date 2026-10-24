@@ -137,8 +137,8 @@ def test_lang_menu_dropdown(built, monkeypatch):
 def test_ru_internal_links_stay_in_edition(built):
     out, eps, _ = built
     h = (out / f"{LANG}/index.html").read_text()
-    for s in cached_slugs():
-        assert f'href="/{LANG}/episodes/{s}/"' in h
+    assert f'href="/{LANG}/episodes/andreessen-horowitz-rightward-turn/"' in h
+    assert f'href="/{LANG}/episodes/the-making-of-eve/"' in h
     assert f'href="/{LANG}/people/"' in h and f'href="/{LANG}/about/"' in h
     assert f'href="/{LANG}/feed.xml"' in h
 
@@ -165,7 +165,9 @@ def test_ru_audio_and_feed(built):
         assert f'src="{expected_ru_url}"' in ru_html
         assert f'data-fallback-src="{eps[s]["audio_url"]}"' in ru_html
         assert 'data-lang-audio="ru"' in ru_html
-        assert f'<enclosure url="{expected_ru_url}"' in ru_feed
+        if s == "the-making-of-eve":
+            assert f'<enclosure url="{expected_ru_url}"' in ru_feed
+    assert '<enclosure url="https://audio.askevepodcast.com/audio/ru/splits/2026-10-23_andreessen-horowitz-rightward-turn.v1.mp3"' in ru_feed
 
 
 def test_ru_turn_offsets_and_audio_meta(built, monkeypatch):

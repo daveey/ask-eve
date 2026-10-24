@@ -7,30 +7,15 @@ on:
   push:
     branches: [main]
     paths:
-      - scripts/build_site.py
-      - scripts/render_features.py
-      - scripts/build_context_pack.py
-      - scripts/render_feed.py
-      - scripts/frontmatter.py
-      - scripts/site_i18n.py
-      - index/splits.json
-      - index/clips.json
-      - index/growth.json
-      - index/journal.json
-      - index/reading-list.json
+      - scripts/**
+      - artifacts/**
+      - episodes/**
+      - index/**
       - persona/**
-      - site/_headers
-      - site/site.json
-      - site/static/**
-      - index/people.md
-      - index/people-aliases.json
-      - index/moments/**
-      - index/links.json
-      - index/eve.json
-      - index/slugs.json
-      - index/takes.json
+      - site/**
       - i18n/**
       - translations/**
+      - tests/**
       - .github/workflows/site.yml
 
 permissions:
@@ -43,12 +28,83 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-24.04
-    timeout-minutes: 15
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: main
           persist-credentials: false
+
+      - name: Sync D1 metadata from artifacts
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_D1_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          D1_DATABASE_ID: ${{ secrets.D1_DATABASE_ID }}
+        run: |
+          set -euo pipefail
+          cp workers/upload/wrangler.toml /tmp/wrangler-d1.toml
+          sed -i "s/__D1_DATABASE_ID__/${D1_DATABASE_ID}/" /tmp/wrangler-d1.toml
+          for sql in artifacts/*/d1_upsert.sql; do
+            stem=$(basename "$(dirname "$sql")")
+            slug=$(python3 -c 'import sys; sys.path.insert(0, "scripts"); from frontmatter import public_slug; print(public_slug(sys.argv[1]))' "$stem")
+            { cat "$sql"
+              echo "UPDATE episodes SET status='published', published_at=COALESCE(published_at, strftime('%Y-%m-%dT%H:%M:%SZ','now')) WHERE slug='$slug';"
+            } > /tmp/publish_step.sql
+            npx --yes wrangler@4 d1 execute ask-eve-meta --remote --file /tmp/publish_step.sql --config /tmp/wrangler-d1.toml
+          done
+
+      - name: Sync release audio tracks to Cloudflare R2 (s3://ask-eve-public/audio/)
+        env:
+          GH_TOKEN: ${{ github.token }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: auto
+          CF_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          set -euo pipefail
+          ep="https://$CF_ACCOUNT_ID.r2.cloudflarestorage.com"
+          mkdir -p /tmp/r2-sync
+          if gh release view audio-sync-2026-10-24 -R "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            python3 - <<'PY'
+          import json, os, subprocess, urllib.request
+          from concurrent.futures import ThreadPoolExecutor
+
+          repo = os.environ["GITHUB_REPOSITORY"]
+          ep = f"https://{os.environ['CF_ACCOUNT_ID']}.r2.cloudflarestorage.com"
+          out = subprocess.check_output(["gh", "release", "view", "audio-sync-2026-10-24", "-R", repo, "--json", "assets"], text=True)
+          assets = json.loads(out).get("assets", [])
+
+          def sync_one(asset):
+              name = asset["name"]
+              if not name.endswith(".mp3") or "__" not in name:
+                  return
+              r2_key = name.replace("__", "/")
+              pub_url = f"https://audio.askevepodcast.com/{r2_key}"
+              try:
+                  req = urllib.request.Request(pub_url, method="HEAD", headers={"User-Agent": "AskEve-R2Sync/1.0"})
+                  with urllib.request.urlopen(req, timeout=10) as resp:
+                      cl = int(resp.headers.get("Content-Length", "0") or "0")
+                      if resp.status == 200 and cl >= 10000:
+                          print(f"Already in R2 ({cl:,} bytes): {r2_key}")
+                          return
+              except Exception:
+                  pass
+              print(f"Syncing missing track to R2: {r2_key} ...")
+              local_p = f"/tmp/r2-sync/{name}"
+              subprocess.check_call(["gh", "release", "download", "audio-sync-2026-10-24", "-R", repo, "-p", name, "-D", "/tmp/r2-sync", "--clobber"])
+              subprocess.check_call([
+                  "aws", "s3", "cp", local_p, f"s3://ask-eve-public/{r2_key}",
+                  "--content-type", "audio/mpeg",
+                  "--cache-control", "public, max-age=31536000, immutable",
+                  "--endpoint-url", ep, "--only-show-errors"
+              ])
+              os.remove(local_p)
+              print(f"Uploaded to R2: {r2_key}")
+
+          with ThreadPoolExecutor(max_workers=6) as pool:
+              list(pool.map(sync_one, assets))
+          PY
+          fi
 
       - name: Build site from D1 (read-only token)
         env:
@@ -65,3 +121,12 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_PAGES_TOKEN }}   # Account Pages Write only
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: npx --yes wrangler@4 pages deploy site/dist --project-name ask-eve --branch main --commit-hash "$GITHUB_SHA"
+
+      - name: Wait for live site propagation
+        run: |
+          sleep 10
+          curl -fsSI https://askevepodcast.com/ >/dev/null
+          curl -fsSI https://askevepodcast.com/zh/ >/dev/null
+
+      - name: Verify all live audio (EN + ZH/RU/ES/DE/PT/FA/FR) and clip media return HTTP 200
+        run: python3 scripts/verify_live_media.py --dist site/dist --site-url https://askevepodcast.com

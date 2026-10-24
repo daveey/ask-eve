@@ -195,8 +195,6 @@ def localize_data(lang: str, eps: list[dict], people: list[dict]) -> tuple[list[
         for c in ep.get("chapters", []):
             c["en_start_seconds"] = c.get("start_seconds")
         audio_url = meta.get(f"{lang}_audio_url") or meta.get("audio_url")
-        if not audio_url and en_audio_url:
-            audio_url = f"https://audio.askevepodcast.com/audio/{lang}/{stem}.v1.mp3"
         if audio_url:
             ep["audio_url"] = audio_url
             if en_audio_url and audio_url != en_audio_url:
@@ -273,11 +271,23 @@ def localize_data(lang: str, eps: list[dict], people: list[dict]) -> tuple[list[
     for ep in eps2:
         offs = ep_meta(lang, ep["slug"]).get(f"{lang}_turn_offsets", ep_meta(lang, ep["slug"]).get("turn_offsets"))
         for sp in ep.get("splits", []):
-            sp["audio_url"] = ep["audio_url"]
-            if ep.get("fallback_audio_url"):
-                sp["fallback_audio_url"] = ep["fallback_audio_url"]
-                sp["audio_lang"] = lang
-                sp["en_duration_seconds"] = sp["duration_seconds"]
+            en_sp_url = sp.get("audio_url") or ""
+            sp_meta = ep_meta(lang, sp["slug"])
+            parent_has_lang_audio = bool(ep_meta(lang, ep["slug"]).get(f"{lang}_audio_url") or ep_meta(lang, ep["slug"]).get("audio_url"))
+            if en_sp_url:
+                sp_audio_url = (
+                    sp_meta.get(f"{lang}_audio_url")
+                    or sp_meta.get("audio_url")
+                    or (f"https://audio.askevepodcast.com/audio/{lang}/splits/{sp['stem']}.v1.mp3" if parent_has_lang_audio else en_sp_url)
+                )
+                sp["audio_url"] = sp_audio_url
+                if sp_audio_url != en_sp_url:
+                    sp["fallback_audio_url"] = en_sp_url
+                    sp["audio_lang"] = lang
+                    sp["en_duration_seconds"] = sp["duration_seconds"]
+            else:
+                sp["audio_url"] = ""
+            sp["parent_audio_url"] = ep["audio_url"]
             if offs and 0 <= sp["start_turn"] < len(ep["turns"]) and 0 <= sp["end_turn"] < len(ep["turns"]):
                 s_t = ep["turns"][sp["start_turn"]].get("start")
                 e_t = ep["turns"][sp["end_turn"]].get("end")
@@ -678,15 +688,27 @@ _CHECK_SVG = ('<svg class="lang-menu__check" viewBox="0 0 16 16" fill="none" str
               '<path d="M3.5 8.5 6.5 11.5 12.5 4.5"/></svg>')
 
 
+NATIVE_LANG_NAMES: dict[str, str] = {
+    "en": "English",
+    "ru": "Русский",
+    "es": "Español",
+    "zh": "中文",
+    "de": "Deutsch",
+    "pt": "Português",
+    "fr": "Français",
+    "fa": "فارسی",
+}
+
+
 def switcher(path: str) -> str:
     """Language dropdown menu for the header (<details class="lang-menu" data-menu>), scalable to many languages."""
     if not any(_paths.values()):
         return ""
-    cur_name = S(_cur).get("language_name", "English") if _cur != SOURCE else "English"
+    cur_name = NATIVE_LANG_NAMES.get(_cur, S(_cur).get("language_name", "English") if _cur != SOURCE else "English")
     items = []
     for l in [SOURCE] + [x for x in LANGS if _paths.get(x)]:
         href = path if l == SOURCE else (f"/{l}{path}" if path in _paths[l] else f"/{l}/")
-        lab = S(l).get("language_name", "English") if l != SOURCE else "English"
+        lab = NATIVE_LANG_NAMES.get(l, S(l).get("language_name", "English") if l != SOURCE else "English")
         if l == _cur:
             items.append(f'<span class="lang-menu__item is-active" lang="{l}" aria-current="true">'
                          f'<span class="lang-menu__name">{lab}</span>'
@@ -709,7 +731,7 @@ CJK = re.compile(r"[\u4e00-\u9fff]")
 ARABIC = re.compile(r"[\u0600-\u06ff\u0750-\u077f\ufb50-\ufdff\ufe70-\ufeff]")
 VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "source", "track", "wbr"}
 SKIP_TAGS = {"code", "pre", "style"}
-SKIP_CLASSES = {"turn__body", "xl", "i18n-ready"}               # translated content and auto-linked names, never UI
+SKIP_CLASSES = {"turn__body", "xl", "i18n-ready", "lang-menu", "lang-menu__name", "lang-menu__panel", "lang-menu__code"}  # translated content, auto-linked names, and native autonym language menu
 ATTRS = {"aria-label", "title", "alt", "placeholder", "aria-valuetext"}
 META_CONTENT = {"description", "og:title", "og:description", "twitter:title", "twitter:description"}
 
@@ -927,12 +949,15 @@ def build(B, A, out: Path, eps: list[dict], people: list[dict], cfg: dict) -> li
             continue
         eps2, people2 = localize_data(lang, eps, people)
         splits2 = [sp for ep in eps2 for sp in ep.get("splits", [])]
+        splits2_desc = sorted(splits2, key=lambda x: int(x.get("episode_number") or 0), reverse=True)
+        bonus2 = [ep for ep in eps2 if B.is_bonus(ep)]
+        standalone_eps2 = (splits2_desc + bonus2) if splits2_desc else eps2
         by = {x["slug"]: x for x in eps2} | {sp["slug"]: sp for sp in splits2}
         pages = [("/", lambda: B.home(A, eps2, people2, splits2)), ("/episodes/", lambda: B.home(A, eps2, people2, splits2)), ("/people/", lambda: B.people_index(A, people2)),
                  ("/about/", lambda: B.about_page(A, cfg)), ("/contact/", lambda: B.contact_page(A)),
                  ("/growth/", lambda: B.growth_page(A))]
         pages += [(f"/people/{p['slug']}/", (lambda p=p: B.person_page(A, p))) for p in people2]
-        pages += [(f"/episodes/{s}/", (lambda s=s: B.episode_page(A, by[s], eps2))) for s in by]
+        pages += [(f"/episodes/{s}/", (lambda s=s: B.episode_page(A, by[s], standalone_eps2))) for s in by]
         data, tdata = eve_data(B), takes_data(B)
         saved = B.EVE_FILE, B.EveSources, B.load_links, B.TAKES_FILE, getattr(B, "_CATALOG_EPS", [])
         topics2: list[dict] = []
@@ -944,7 +969,7 @@ def build(B, A, out: Path, eps: list[dict], people: list[dict], cfg: dict) -> li
                   ("/eve/soul/", lambda: B.eve_soul_page(A)),
                   ("/eve/avatar/", lambda lang=lang: B.eve_avatar_page(A, lang=lang))]
         _cur = lang
-        B._CATALOG_EPS = eps2
+        B._CATALOG_EPS = splits2_desc + eps2
         try:
             if tdata:
                 B.TAKES_FILE = _Mem(json.dumps(localize_takes(lang, tdata, {x["slug"] for x in eps2})))
@@ -963,7 +988,7 @@ def build(B, A, out: Path, eps: list[dict], people: list[dict], cfg: dict) -> li
                 if path.startswith("/episodes/") and path != "/episodes/":
                     B.write(out, f"{lang}{path}transcript.txt", by[path.split('/')[2]]["body_md"] + "\n")
             B.write(out, f"{lang}/404.html", translate_html(lang, B.not_found(A), "/", note=False))
-            B.write(out, f"{lang}/feed.xml", render_feed(lang, B, [ep for ep in (splits2 + eps2) if f"/episodes/{ep['slug']}/" in _paths[lang]]))
+            B.write(out, f"{lang}/feed.xml", render_feed(lang, B, [ep for ep in standalone_eps2 if f"/episodes/{ep['slug']}/" in _paths[lang]]))
         finally:
             _cur = SOURCE
             B.EVE_FILE, B.EveSources, B.load_links, B.TAKES_FILE, B._CATALOG_EPS = saved
@@ -1019,7 +1044,7 @@ def render_feed(lang: str, B, eps: list[dict]) -> str:
     <description>{e(desc)}</description>
     <itunes:summary>{e(desc)}</itunes:summary>
     <content:encoded><![CDATA[{chtml}]]></content:encoded>
-    <enclosure url="{e(ep['audio_url'] + (f'#t={int(round(float(ep["clip_start"])))},{int(round(float(ep["clip_end"])))} '[:-1] if ep.get('clip_start') is not None and ep.get('clip_end') is not None else ''))}" length="{ep['audio_bytes']}" type="{e(ep.get('audio_mime') or 'audio/mpeg')}"/>
+    <enclosure url="{e(ep['audio_url'] + (f'#t={int(round(float(ep["clip_start"])))},{int(round(float(ep["clip_end"])))} '[:-1] if ep.get('clip_start') is not None and ep.get('clip_end') is not None and ep.get('audio_url') == ep.get('parent_audio_url') else ''))}" length="{ep['audio_bytes']}" type="{e(ep.get('audio_mime') or 'audio/mpeg')}"/>
     <itunes:duration>{ep['duration_seconds']}</itunes:duration>
     <itunes:explicit>{'true' if ep.get('explicit') else 'false'}</itunes:explicit>
     <itunes:episodeType>{e(ep.get('episode_type') or 'full')}</itunes:episodeType>

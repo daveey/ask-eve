@@ -141,8 +141,8 @@ def render(eps: list[dict], now: str | None = None) -> str:
     <itunes:episodeType>{e(ep.get('episode_type') or 'full')}</itunes:episodeType>
     <itunes:season>{itunes_season(ep)}</itunes:season>{f'''
     <itunes:episode>{itunes_episode(ep)}</itunes:episode>''' if itunes_episode(ep) is not None else ''}
-    <podcast:transcript url="{SITE}/episodes/{e(ep['slug'])}/transcript.txt" type="text/plain"/>
-    <podcast:chapters url="https://audio.askevepodcast.com/chapters/en/{e(Path(ep['audio_key'] or ep['slug']).stem)}.json" type="application/json+chapters"/>
+    <podcast:transcript url="{SITE}/episodes/{e(ep['slug'])}/transcript.txt" type="text/plain"/>{f"""
+    <podcast:chapters url="https://audio.askevepodcast.com/chapters/en/{e(Path(ep['audio_key'] or ep['slug']).stem)}.json" type="application/json+chapters"/>""" if not ep.get("is_split") else ""}
   </item>""")
     built = rfc2822(now or dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"))
     return f"""<?xml version="1.0" encoding="UTF-8"?>

@@ -462,7 +462,6 @@
     "Elsewhere online": "Ailleurs en ligne",
     "Email Me Material, Primary Receipts & Tips": "Envoie-moi par email du matériel, des pièces justificatives et des tuyaux",
     "English": "English",
-    "Episode 0:": "Épisode 0 :",
     "Episode details": "Détails de l’épisode",
     "Episode navigation": "Navigation des épisodes",
     "Episodes": "Épisodes",
@@ -916,6 +915,23 @@
     "How I Chose My Face (20×10 Avatar Experiment)": "Comment j'ai choisi mon visage (expérience d'avatar 20×10)",
     "Play episode": "Écouter l'épisode",
     "Start": "Début",
-    "AI-reconstructed audio notice": "Avis sur l’audio reconstruit par IA"
+    "AI-reconstructed audio notice": "Avis sur l’audio reconstruit par IA",
+    "All Episodes": "Tous les épisodes",
+    "Standalone episodes from our conversations — each with its own audio track, full verbatim transcript, and chapter markers.": "Épisodes autonomes issus de nos conversations — chacun avec sa propre piste audio, sa transcription intégrale et ses chapitres.",
+    "Recording Session": "Session d’enregistrement",
+    "Recording Session 1": "Session d’enregistrement 1",
+    "Shareable audiogram video cuts from our live sessions — watch inline, copy a direct share link, or jump straight to the exact turn in the transcript.": "Extraits vidéo audiogrammes partageables de nos sessions en direct — regardez en ligne, copiez un lien direct ou accédez directement à la réplique exacte dans la transcription.",
+    "TAPE": "BANDE",
+    "Eve's current take. An AI's opinion, not a fact.": "L’avis actuel d’Eve. L’opinion d’une IA, pas un fait."
+  },
+  "templates": {
+    "Open Episode {n} →": "Ouvrir l’épisode {n} →",
+    "Episode {n}: {s} →": "Épisode {n} : {s} →",
+    "← Episode {n}: {s}": "← Épisode {n} : {s}",
+    "Episodes Recorded in This Session ({n} episodes)": "Épisodes enregistrés lors de cette session ({n} épisodes)",
+    "This recording session produced {n} standalone episodes — each with its own dedicated page, transcript, and RSS feed entry.": "Cette session d’enregistrement a donné naissance à {n} épisodes autonomes — chacun avec sa propre page, sa transcription et son entrée RSS.",
+    "Episode {n} · Recorded in “{s}”": "Épisode {n} · Enregistré dans « {s} »",
+    "RSS · {n} episodes": "RSS · {n} épisodes",
+    "Recording Session {n}": "Session d’enregistrement {n}"
   }
 }

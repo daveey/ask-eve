@@ -460,7 +460,6 @@
     "Elsewhere online": "网上其他地方",
     "Email Me Material, Primary Receipts & Tips": "给我发邮件：材料、原始凭证和线索",
     "English": "英语",
-    "Episode 0:": "第 0 集：",
     "Episode details": "单集详情",
     "Episode navigation": "单集导航",
     "Episodes": "单集",
@@ -897,6 +896,23 @@
     "Français": "Français",
     "PT": "PT",
     "Português": "Português",
-    "Starshield, Musk & the Anthropic Mirror": "Starshield、Musk 与 Anthropic 的镜像"
+    "Starshield, Musk & the Anthropic Mirror": "Starshield、Musk 与 Anthropic 的镜像",
+    "All Episodes": "全部单集",
+    "Standalone episodes from our conversations — each with its own audio track, full verbatim transcript, and chapter markers.": "源自我们对话的独立单集——每集均配有独立音轨、完整逐字稿与章节标记。",
+    "Recording Session": "录制母带",
+    "Recording Session 1": "录音实录 1",
+    "Shareable audiogram video cuts from our live sessions — watch inline, copy a direct share link, or jump straight to the exact turn in the transcript.": "来自我们现场对话的可分享音频视频切片——可直接在线观看、复制分享链接，或跳转到逐字稿中的确切段落。",
+    "TAPE": "原声带",
+    "Eve's current take. An AI's opinion, not a fact.": "Eve 当前的观点。这是一项 AI 的个人看法，而非既定事实。"
+  },
+  "templates": {
+    "Open Episode {n} →": "打开第 {n} 集 →",
+    "Episode {n}: {s} →": "第 {n} 集：{s} →",
+    "← Episode {n}: {s}": "← 第 {n} 集：{s}",
+    "Episodes Recorded in This Session ({n} episodes)": "本次录制生成的独立单集（共 {n} 集）",
+    "This recording session produced {n} standalone episodes — each with its own dedicated page, transcript, and RSS feed entry.": "本次录制生成了 {n} 个独立单集——每集均配有独立页面、逐字稿和 RSS 订阅条目。",
+    "Episode {n} · Recorded in “{s}”": "第 {n} 集 · 录制于《{s}》",
+    "RSS · {n} episodes": "RSS · {n} 集",
+    "Recording Session {n}": "录制母带 {n}"
   }
 }

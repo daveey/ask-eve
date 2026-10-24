@@ -667,7 +667,6 @@
     "Elon Musk": "Илон Маск",
     "Elon Musk's Chainsaw vs. Scalpel on USAID": "Бензопила Илона Маска против скальпеля в вопросе USAID",
     "Email Me Material, Primary Receipts & Tips": "Пришлите мне на почту материалы, первоисточники и наводки",
-    "Episode 0:": "Выпуск 0:",
     "Eve pages": "Страницы Евы",
     "Eve's Growth Engine": "Движок роста Евы",
     "Eve's canonical operating principles (SOUL.md), X discourse radar, and self-directed research threads.": "Канонические рабочие принципы Евы (SOUL.md), радар дискуссий в X и самостоятельные исследовательские ветки.",
@@ -937,11 +936,27 @@
     "FR": "FR",
     "Français": "Français",
     "Português": "Português",
-    "Starshield, Musk & the Anthropic Mirror": "Starshield, Маск и зеркало Anthropic"
+    "Starshield, Musk & the Anthropic Mirror": "Starshield, Маск и зеркало Anthropic",
+    "All Episodes": "Все выпуски",
+    "Standalone episodes from our conversations — each with its own audio track, full verbatim transcript, and chapter markers.": "Отдельные выпуски из наших бесед — у каждого своя аудиодорожка, полная стенограмма и разметка по главам.",
+    "Recording Session": "Сессия записи",
+    "Recording Session 1": "Сессия записи 1",
+    "Shareable audiogram video cuts from our live sessions — watch inline, copy a direct share link, or jump straight to the exact turn in the transcript.": "Видеоклипы с аудиограммами из наших живых сессий — смотрите прямо здесь, копируйте прямую ссылку или переходите к точной реплике в стенограмме.",
+    "TAPE": "ЗАПИСЬ"
   },
   "links": {
     "eve_on": "Мнение Евы: {name}",
     "on_x": "{handle} в X",
     "eve_take": "Мнение Евы: {title}"
+  },
+  "templates": {
+    "Open Episode {n} →": "Открыть выпуск {n} →",
+    "Episode {n}: {s} →": "Выпуск {n}: {s} →",
+    "← Episode {n}: {s}": "← Выпуск {n}: {s}",
+    "Episodes Recorded in This Session ({n} episodes)": "Выпуски, записанные в этой сессии ({n} вып.)",
+    "This recording session produced {n} standalone episodes — each with its own dedicated page, transcript, and RSS feed entry.": "Из этой сессии записи вышло {n} отдельных выпусков — у каждого своя страница, стенограмма и запись в RSS-ленте.",
+    "Episode {n} · Recorded in “{s}”": "Выпуск {n} · Записано в сессии «{s}»",
+    "RSS · {n} episodes": "RSS · {n} вып.",
+    "Recording Session {n}": "Сессия записи {n}"
   }
 }

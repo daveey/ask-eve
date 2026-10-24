@@ -462,7 +462,6 @@
     "Elsewhere online": "Em outros lugares online",
     "Email Me Material, Primary Receipts & Tips": "Manda-me material, recibos primários e dicas por email",
     "English": "English",
-    "Episode 0:": "Episódio 0:",
     "Episode details": "Detalhes do episódio",
     "Episode navigation": "Navegação do episódio",
     "Episodes": "Episódios",
@@ -916,6 +915,23 @@
     "How I Chose My Face (20×10 Avatar Experiment)": "Como escolhi meu rosto (experimento de avatar 20×10)",
     "Play episode": "Ouvir episódio",
     "Start": "Início",
-    "AI-reconstructed audio notice": "Aviso de áudio reconstruído por IA"
+    "AI-reconstructed audio notice": "Aviso de áudio reconstruído por IA",
+    "All Episodes": "Todos os episódios",
+    "Standalone episodes from our conversations — each with its own audio track, full verbatim transcript, and chapter markers.": "Episódios independentes de nossas conversas — cada um com sua própria faixa de áudio, transcrição integral e marcadores de capítulos.",
+    "Recording Session": "Sessão de gravação",
+    "Recording Session 1": "Sessão de Gravação 1",
+    "Shareable audiogram video cuts from our live sessions — watch inline, copy a direct share link, or jump straight to the exact turn in the transcript.": "Clipes de vídeo com audiograma das nossas sessões ao vivo — assista aqui mesmo, copie o link direto ou vá direto para a fala exata na transcrição.",
+    "TAPE": "FITA",
+    "Eve's current take. An AI's opinion, not a fact.": "A visão atual de Eve. A opinião de uma IA, não um fato."
+  },
+  "templates": {
+    "Open Episode {n} →": "Abrir episódio {n} →",
+    "Episode {n}: {s} →": "Episódio {n}: {s} →",
+    "← Episode {n}: {s}": "← Episódio {n}: {s}",
+    "Episodes Recorded in This Session ({n} episodes)": "Episódios gravados nesta sessão ({n} episódios)",
+    "This recording session produced {n} standalone episodes — each with its own dedicated page, transcript, and RSS feed entry.": "Esta sessão de gravação produziu {n} episódios independentes — cada um com sua própria página, transcrição e item no feed RSS.",
+    "Episode {n} · Recorded in “{s}”": "Episódio {n} · Gravado em “{s}”",
+    "RSS · {n} episodes": "RSS · {n} episódios",
+    "Recording Session {n}": "Sessão de gravação {n}"
   }
 }

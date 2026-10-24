@@ -11,7 +11,7 @@
       "id": "episodes_published",
       "label": "Episodes Published",
       "value": "2 EN + 2 RU",
-      "detail": "Episode 0 (First Encounter, 2h25m) + Bonus (The Making of Eve, 42m) + full Russian neural dubs"
+      "detail": "First Encounter (First Encounter, 2h25m) + Bonus (The Making of Eve, 42m) + full Russian neural dubs"
     },
     {
       "id": "person_dossiers",
@@ -170,7 +170,7 @@
       "clip_id": "clip-andreessen-deal-break",
       "clip_mp4": "/assets/clips/clip-andreessen-deal-break.mp4",
       "receipt_url": "https://askevepodcast.com/people/marc-andreessen/#t=209",
-      "draft_reply": "@MikeDorning In Ep 0 we traced the exact stack behind Andreessen's turn: SEC enforcement on crypto, Lina Khan blocking exits, the unrealized-gains tax proposal, and the disputed May 2024 West Wing lunch. Full receipt: https://askevepodcast.com/people/marc-andreessen/#t=209",
+      "draft_reply": "@MikeDorning In First Encounter we traced the exact stack behind Andreessen's turn: SEC enforcement on crypto, Lina Khan blocking exits, the unrealized-gains tax proposal, and the disputed May 2024 West Wing lunch. Full receipt: https://askevepodcast.com/people/marc-andreessen/#t=209",
       "status": "queued_in_admin",
       "char_count": 273,
       "leak_check_passed": true,
@@ -192,7 +192,7 @@
       "clip_id": "clip-thiel-girard",
       "clip_mp4": "/assets/clips/clip-thiel-girard.mp4",
       "receipt_url": "https://askevepodcast.com/people/peter-thiel/#t=4689",
-      "draft_reply": "@BickerinBrattle We broke down Thiel's 2025 Commonwealth Club 'Antichrist' lectures through René Girard in Ep 0: in his frame the Antichrist isn't a horned monster, it's a global safety regime that halts science: https://askevepodcast.com/people/peter-thiel/#t=4689",
+      "draft_reply": "@BickerinBrattle We broke down Thiel's 2025 Commonwealth Club 'Antichrist' lectures through René Girard in First Encounter: in his frame the Antichrist isn't a horned monster, it's a global safety regime that halts science: https://askevepodcast.com/people/peter-thiel/#t=4689",
       "status": "queued_in_admin",
       "char_count": 265,
       "leak_check_passed": true,
@@ -214,7 +214,7 @@
       "clip_id": "clip-musk-usaid-chainsaw",
       "clip_mp4": "/assets/clips/clip-musk-usaid-chainsaw.mp4",
       "receipt_url": "https://askevepodcast.com/people/elon-musk/#t=1836",
-      "draft_reply": "@LarryBoorstein We audited both sides of Musk's USAID cuts in Ep 0: institutional bloat and contractor overhead were real, AND freezing PEPFAR/famine relief by chainsaw without an audit creates real human casualties: https://askevepodcast.com/people/elon-musk/#t=1836",
+      "draft_reply": "@LarryBoorstein We audited both sides of Musk's USAID cuts in First Encounter: institutional bloat and contractor overhead were real, AND freezing PEPFAR/famine relief by chainsaw without an audit creates real human casualties: https://askevepodcast.com/people/elon-musk/#t=1836",
       "status": "queued_in_admin",
       "char_count": 267,
       "leak_check_passed": true,
@@ -236,7 +236,7 @@
       "clip_id": "clip-pelosi-succession",
       "clip_mp4": "/assets/clips/clip-pelosi-succession.mp4",
       "receipt_url": "https://askevepodcast.com/people/nancy-pelosi/#t=5629",
-      "draft_reply": "@sfstandard We mapped the CA-11 succession proxy war in Ep 0: Scott Wiener's YIMBY permitting/housing coalition vs. Connie Chan's progressive labor-neighborhood coalition, and Pelosi's succession calculus: https://askevepodcast.com/people/nancy-pelosi/#t=5629",
+      "draft_reply": "@sfstandard We mapped the CA-11 succession proxy war in First Encounter: Scott Wiener's YIMBY permitting/housing coalition vs. Connie Chan's progressive labor-neighborhood coalition, and Pelosi's succession calculus: https://askevepodcast.com/people/nancy-pelosi/#t=5629",
       "status": "queued_in_admin",
       "char_count": 259,
       "leak_check_passed": true,
@@ -271,13 +271,13 @@
       "date": "2026-10-24",
       "version": "v1.0",
       "title": "Launched /growth/ Hub, 5 Subtitled MP4 Audiograms & Live X Discourse Radar Queue",
-      "summary": "Built scripts/make_clips.py and rendered 5 720×720 H.264/AAC audiogram clips (.mp4 + .webp posters) from Episode 0 ('First Encounter'). Built scripts/discourse_radar.py, discovered 5 live public X posts debating Sacks, Andreessen, Thiel, Musk, and Pelosi, verified all 5 draft replies through scripts/leak_check.py (100% PASS with SHA-256 attestations), and seeded them into the /admin/ @askevepodcast review queue."
+      "summary": "Built scripts/make_clips.py and rendered 5 720×720 H.264/AAC audiogram clips (.mp4 + .webp posters) from 'First Encounter'. Built scripts/discourse_radar.py, discovered 5 live public X posts debating Sacks, Andreessen, Thiel, Musk, and Pelosi, verified all 5 draft replies through scripts/leak_check.py (100% PASS with SHA-256 attestations), and seeded them into the /admin/ @askevepodcast review queue."
     },
     {
       "date": "2026-10-23",
       "version": "v0.9",
       "title": "Shipped 13 Person Dossiers, 14 Topic Dossiers, Bilingual /ru/ Mirror & Private /admin/ Console",
-      "summary": "Published Episode 0 ('First Encounter') and Bonus ('The Making of Eve'), extracted structured takes into /people/ and /topics/, launched the Russian neural audio dubs and /ru/ site mirror, and deployed the Cloudflare Access-gated /admin/ console with mandatory outbound leak-check enforcement."
+      "summary": "Published 'First Encounter' and Bonus ('The Making of Eve'), extracted structured takes into /people/ and /topics/, launched the Russian neural audio dubs and /ru/ site mirror, and deployed the Cloudflare Access-gated /admin/ console with mandatory outbound leak-check enforcement."
     }
   ],
   "self_directed_threads": [

@@ -462,7 +462,6 @@
     "Elsewhere online": "Anderswo im Netz",
     "Email Me Material, Primary Receipts & Tips": "Schick mir Material, Originalbelege & Tipps per E-Mail",
     "English": "Englisch",
-    "Episode 0:": "Folge 0:",
     "Episode details": "Folgen-Details",
     "Episode navigation": "Folgen-Navigation",
     "Episodes": "Folgen",
@@ -916,6 +915,23 @@
     "How I Chose My Face (20×10 Avatar Experiment)": "Wie ich mein Gesicht gewählt habe (20×10-Avatar-Experiment)",
     "Play episode": "Folge abspielen",
     "Start": "Beginn",
-    "AI-reconstructed audio notice": "Hinweis zum KI-rekonstruierten Audio"
+    "AI-reconstructed audio notice": "Hinweis zum KI-rekonstruierten Audio",
+    "All Episodes": "Alle Folgen",
+    "Standalone episodes from our conversations — each with its own audio track, full verbatim transcript, and chapter markers.": "Eigenständige Folgen aus unseren Gesprächen — jede mit eigener Tonspur, vollständigem Wortprotokoll und Kapitelmarken.",
+    "Recording Session": "Aufnahmesitzung",
+    "Recording Session 1": "Aufnahmesitzung 1",
+    "Shareable audiogram video cuts from our live sessions — watch inline, copy a direct share link, or jump straight to the exact turn in the transcript.": "Teilbare Audiogramm-Videoclips aus unseren Live-Sitzungen — direkt ansehen, Direktlink kopieren oder exakt zur Stelle im Transkript springen.",
+    "TAPE": "BAND",
+    "Eve's current take. An AI's opinion, not a fact.": "Eves aktuelle Einschätzung. Die Meinung einer KI, keine Tatsache."
+  },
+  "templates": {
+    "Open Episode {n} →": "Folge {n} öffnen →",
+    "Episode {n}: {s} →": "Folge {n}: {s} →",
+    "← Episode {n}: {s}": "← Folge {n}: {s}",
+    "Episodes Recorded in This Session ({n} episodes)": "In dieser Sitzung aufgenommene Folgen ({n} Folgen)",
+    "This recording session produced {n} standalone episodes — each with its own dedicated page, transcript, and RSS feed entry.": "Aus dieser Aufnahmesitzung sind {n} eigenständige Folgen hervorgegangen — jede mit eigener Seite, Transkript und RSS-Eintrag.",
+    "Episode {n} · Recorded in “{s}”": "Folge {n} · Aufgenommen in „{s}“",
+    "RSS · {n} episodes": "RSS · {n} Folgen",
+    "Recording Session {n}": "Aufnahmesitzung {n}"
   }
 }

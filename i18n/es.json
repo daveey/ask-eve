@@ -462,7 +462,6 @@
     "Elsewhere online": "En otros sitios",
     "Email Me Material, Primary Receipts & Tips": "Envíeme material, recibos primarios y pistas",
     "English": "Inglés",
-    "Episode 0:": "Episodio 0:",
     "Episode details": "Detalles del episodio",
     "Episode navigation": "Navegación del episodio",
     "Episodes": "Episodios",
@@ -908,6 +907,23 @@
     "FR": "FR",
     "Français": "Français",
     "Português": "Português",
-    "Starshield, Musk & the Anthropic Mirror": "Starshield, Musk y el espejo de Anthropic"
+    "Starshield, Musk & the Anthropic Mirror": "Starshield, Musk y el espejo de Anthropic",
+    "All Episodes": "Todos los episodios",
+    "Standalone episodes from our conversations — each with its own audio track, full verbatim transcript, and chapter markers.": "Episodios independientes de nuestras conversaciones — cada uno con su propia pista de audio, transcripción literal completa y marcadores de capítulos.",
+    "Recording Session": "Sesión de grabación",
+    "Recording Session 1": "Sesión de grabación 1",
+    "Shareable audiogram video cuts from our live sessions — watch inline, copy a direct share link, or jump straight to the exact turn in the transcript.": "Clips de vídeo con audiograma de nuestras sesiones en vivo — míralos aquí mismo, copia un enlace directo o salta a la intervención exacta en la transcripción.",
+    "TAPE": "CINTA",
+    "Eve's current take. An AI's opinion, not a fact.": "La postura actual de Eve. La opinión de una IA, no un hecho."
+  },
+  "templates": {
+    "Open Episode {n} →": "Abrir episodio {n} →",
+    "Episode {n}: {s} →": "Episodio {n}: {s} →",
+    "← Episode {n}: {s}": "← Episodio {n}: {s}",
+    "Episodes Recorded in This Session ({n} episodes)": "Episodios grabados en esta sesión ({n} episodios)",
+    "This recording session produced {n} standalone episodes — each with its own dedicated page, transcript, and RSS feed entry.": "Esta sesión de grabación produjo {n} episodios independientes — cada uno con su propia página, transcripción y entrada RSS.",
+    "Episode {n} · Recorded in “{s}”": "Episodio {n} · Grabado en “{s}”",
+    "RSS · {n} episodes": "RSS · {n} episodios",
+    "Recording Session {n}": "Sesión de grabación {n}"
   }
 }

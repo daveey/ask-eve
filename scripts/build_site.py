@@ -82,17 +82,25 @@ def pull(db: Path) -> None:
     if db.exists():
         db.unlink()
     sqlite_apply.apply(db, ROOT / "migrations")
+    if all(os.environ.get(k) for k in ("CLOUDFLARE_ACCOUNT_ID", "D1_DATABASE_ID", "D1_READ_TOKEN")):
+        con = sqlite3.connect(db)
+        for t in TABLES:
+            rows = d1_query(f"SELECT * FROM {t}")
+            for r in rows:
+                con.execute(f"INSERT INTO {t} ({','.join(r)}) VALUES ({','.join('?' * len(r))})", list(r.values()))
+        try:
+            for r in d1_query("SELECT * FROM reading_list"):
+                con.execute(f"INSERT OR REPLACE INTO reading_list ({','.join(r)}) VALUES ({','.join('?' * len(r))})", list(r.values()))
+        except (Exception, SystemExit):
+            pass
+        con.commit()
+        con.close()
+    for sql_f in sorted((ROOT / "artifacts").glob("*/d1_upsert.sql")):
+        sqlite_apply.apply(db, ROOT / "migrations", sql_f)
     con = sqlite3.connect(db)
-    for t in TABLES:
-        rows = d1_query(f"SELECT * FROM {t}")
-        for r in rows:
-            con.execute(f"INSERT INTO {t} ({','.join(r)}) VALUES ({','.join('?' * len(r))})", list(r.values()))
-    try:
-        for r in d1_query("SELECT * FROM reading_list"):
-            con.execute(f"INSERT OR REPLACE INTO reading_list ({','.join(r)}) VALUES ({','.join('?' * len(r))})", list(r.values()))
-    except (Exception, SystemExit):
-        pass
+    con.execute("UPDATE episodes SET status = 'published', published_at = COALESCE(published_at, date || 'T12:00:00Z')")
     con.commit()
+    con.close()
 
 
 def slugify(name: str) -> str:
@@ -313,18 +321,20 @@ def is_bonus(ep: dict) -> bool:
 
 def ep_label(ep: dict) -> str:
     if ep.get("is_split"):
-        return f"Part {ep['part_number']} of {ep['total_parts']}"
+        return f"Episode {ep.get('episode_number') or ep['part_number']}"
     if is_bonus(ep):
         return "Bonus"
-    return f"Episode {ep['episode_number']}" if ep["episode_number"] is not None else "Episode"
+    if ep.get("episode_number"):
+        return f"Recording Session {ep['episode_number']}"
+    return "Recording Session"
 
 
 def cover_mark(ep: dict) -> str:
     if ep.get("is_split"):
-        return f"PT {ep['part_number']}"
+        return f"EP {ep.get('episode_number') or ep['part_number']}"
     if is_bonus(ep):
         return "BONUS"
-    return f"EP {ep['episode_number'] if ep['episode_number'] is not None else '·'}"
+    return "TAPE"
 
 
 def bonus_badge(ep: dict) -> str:
@@ -555,7 +565,7 @@ def mark_svg(cls: str = "mark", uid: str = "m") -> str:
 
 
 def cover_svg(seed: str, label: str, cls: str = "cover", title: str = "") -> str:
-    """Deterministic generative cover: a waveform ring on a dark field, tinted per episode."""
+    """Deterministic generative cover: a radial ring on a dark field, tinted per episode."""
     rnd = random.Random(seed)
     c1, c2, c3 = BRAND[int(hashlib.sha256(seed.encode()).hexdigest(), 16) % len(BRAND)]
     uid = "c" + hashlib.sha256(seed.encode()).hexdigest()[:6]
@@ -592,7 +602,7 @@ class Assets:
             for src in STATIC.rglob("*"):
                 if src.is_file():
                     rel = src.relative_to(STATIC).as_posix()
-                    if rel.startswith("assets/") and not rel.startswith("assets/clips/"):
+                    if rel.startswith("assets/"):
                         h = hashlib.sha256(src.read_bytes()).hexdigest()[:10]
                         rel_out = f"{src.parent.relative_to(STATIC).as_posix()}/{src.stem}.{h}{src.suffix}"
                     else:
@@ -835,7 +845,7 @@ def player_html(ep: dict, idle: bool = False, all_eps: list[dict] | None = None)
             fb_attr = f' data-fallback-src="{e(fb_v2)}"'
     cat_script = _episodes_catalog_script(all_eps)
     return f"""<div class="player{' is-idle' if idle else ''}" id="player" data-slug="{e(ep['slug'])}" data-title="{e(ep['title'])}" data-duration="{dur}"{en_dur_attr}{clip_attr} role="region" aria-label="Audio player">
-  <audio preload="none" src="{e(ep['audio_url'])}"{fb_attr}></audio>
+  <audio preload="none" src="{e(ep['audio_url'])}"{fb_attr}><source src="{e(ep['audio_url'])}" type="audio/mpeg">{f'<source src="{e(ep["fallback_audio_url"])}" type="audio/mpeg">' if ep.get("fallback_audio_url") else ""}</audio>
   <div class="player__in wrap">
     <a class="player__info" href="/episodes/{e(ep['slug'])}/">{mark_svg("mark player__mark", "p")}<span class="player__text"><span class="player__title">{e(ep['title'])}</span><span class="player__sub" data-chapter>{e(ep_label(ep))}</span></span></a>
     <div class="player__controls">
@@ -947,7 +957,24 @@ def load_splits(eps: list[dict], people: list[dict]) -> list[dict]:
     for raw in raw_splits:
         parent = parent_by.get(raw["parent_slug"])
         if parent is None:
-            continue
+            p_stem = raw.get("parent_stem") or f"{raw['date']}_{raw['parent_slug']}"
+            p_man = ROOT / "artifacts" / p_stem / "manifest.json"
+            p_ch = ROOT / "artifacts" / p_stem / "chapters.json"
+            m_data = json.loads(p_man.read_text()) if p_man.exists() else {}
+            c_data = json.loads(p_ch.read_text()).get("chapters", []) if p_ch.exists() else []
+            parent = {
+                "slug": raw["parent_slug"],
+                "title": m_data.get("title") or raw["parent_slug"].replace("-", " ").title(),
+                "audio_url": f"https://audio.askevepodcast.com/{m_data.get('audio_key', f'audio/en/{p_stem}.v1.mp3')}",
+                "audio_bytes": m_data.get("audio_bytes", 0),
+                "audio_sha256": m_data.get("audio_sha256", ""),
+                "audio_mime": "audio/mpeg",
+                "explicit": 1,
+                "ai_disclosure": m_data.get("ai_disclosure") or "AI-reconstructed audio: Eve's voice is synthesized by xAI TTS and David's unrecorded turns use an AI voice clone of David.",
+                "chapters": c_data,
+                "splits": [],
+                "cfg": {},
+            }
         md_path = ROOT / raw["transcript_path"]
         if not md_path.exists():
             continue
@@ -998,9 +1025,9 @@ def load_splits(eps: list[dict], people: list[dict]) -> list[dict]:
             "clip_start": float(raw["parent_start_sec"]),
             "clip_end": float(raw["parent_end_sec"]),
             "audio_key": raw.get("audio_key") or f"audio/en/{stem}.v1.mp3",
-            "audio_url": raw.get("audio_url") or f"https://audio.askevepodcast.com/audio/en/{stem}.v1.mp3",
+            "audio_url": raw["audio_url"] if "audio_url" in raw else f"https://audio.askevepodcast.com/audio/en/{stem}.v1.mp3",
             "parent_audio_url": raw.get("parent_audio_url") or parent["audio_url"],
-            "audio_bytes": int(raw.get("audio_bytes") or parent.get("audio_bytes", 0)),
+            "audio_bytes": int(raw.get("audio_bytes") or parent.get("audio_bytes") or 0),
             "audio_sha256": raw.get("audio_sha256") or parent.get("audio_sha256", ""),
             "audio_mime": parent.get("audio_mime", "audio/mpeg"),
             "duration_seconds": int(round(float(raw["duration_seconds"]))),
@@ -1039,20 +1066,15 @@ def home(A: Assets, eps: list[dict], people: list[dict], splits: list[dict] | No
     cfg = eps[0]["cfg"] if eps else {}
     full = [x for x in eps if not is_bonus(x)]
     bonus = [x for x in eps if is_bonus(x)]
-    # the featured slot is the latest FULL episode; bonus content is never featured
-    latest = next((x for x in full if x["audio_url"]), full[0] if full else None)
-    ep0 = next((x for x in full if x["slug"] == "first-encounter"), None)
+    ordered_splits = sorted(splits or [], key=lambda x: int(x.get("episode_number") or x.get("part_number") or 0), reverse=True)
+    # the featured slot is the latest standalone Episode (or fallback to full if no splits)
+    latest = next((x for x in ordered_splits if x.get("audio_url")), ordered_splits[0] if ordered_splits else (full[0] if full else None))
     hero = ""
     if latest:
         kind, label = ai_kind(latest)
         play = (f'<button class="btn btn--primary" type="button" data-play aria-label="Play {e(latest["title"])}">'
                 f'{icon("play")}<span>Play episode</span><span class="btn__meta">{human_duration(latest["duration_seconds"])}</span></button>'
                 if latest["audio_url"] else "")
-        origin_note = (
-            f'<p class="hero__origin"><strong>New here? Start with <a href="/episodes/first-encounter/">Episode 0: {e(ep0["title"])}</a></strong> — {e(ep0["blurb"])}</p>'
-            if ep0 and latest["slug"] != "first-encounter"
-            else ""
-        )
         hero = f"""<section class="hero">
   <div class="wrap hero__in">
     <div class="hero__text">
@@ -1061,14 +1083,12 @@ def home(A: Assets, eps: list[dict], people: list[dict], splits: list[dict] | No
       <p class="hero__blurb">{e(latest['blurb'])}</p>
       <div class="hero__actions">{play}<a class="btn btn--ghost" href="/episodes/{e(latest['slug'])}/">{icon("doc")}<span>Transcript &amp; chapters</span></a></div>
       {f'<p class="hero__ai">{icon("spark")}<span>{e(label)}. Every AI voice is labeled, line by line.</span></p>' if kind else ''}
-      {origin_note}
     </div>
     <div class="hero__art">{cover_svg(latest['key'], cover_mark(latest), "cover cover--hero", f"Cover art for {latest['title']}")}</div>
   </div>
 </section>"""
-    cards = "".join(ep_card(x) for x in full) or '<p class="empty">The first episode is on its way.</p>'
     clips_html = f'<div class="wrap">{RF.clips_strip_html(A, RF.load_clips())}</div>' if RF.load_clips() else ""
-    splits_html = f'<div class="wrap">{RF.home_splits_section_html(splits or [])}</div>' if splits else ""
+    splits_html = f'<div class="wrap">{RF.home_splits_section_html(ordered_splits)}</div>' if ordered_splits else ""
     body = f"""{hero}
 <section class="show">
   <div class="wrap show__in">
@@ -1086,14 +1106,7 @@ def home(A: Assets, eps: list[dict], people: list[dict], splits: list[dict] | No
 </section>
 {splits_html}
 {clips_html}
-<section class="episodes home-uncut-sec" id="uncut-sessions" aria-labelledby="eps-h">
-  <div class="wrap">
-    <p class="eyebrow">Secondary Archive · Complete Studio Tapes</p>
-    <h2 class="h2" id="eps-h">Full Uncut Recording Sessions</h2>
-    <p class="sec-sub">The complete, unedited multi-hour studio recordings from which our standalone episodes are drawn.</p>
-    <div class="cards">{cards}</div>
-  </div>
-</section>{bonus_section(bonus)}
+{bonus_section(bonus)}
 <section class="whos" aria-labelledby="who-h">
   <div class="wrap">
     <h2 class="h2" id="who-h">Who comes up</h2>
@@ -1312,7 +1325,7 @@ def mind_html(eps: list[dict], people: list[dict], topics: list[dict] | None = N
     """Inside Eve's Mind, a section of /eve/: her memories (episodes, bonus included), the people she has
     takes on, and the topics she has thought through (SHOW_TOPICS)."""
     mems = []
-    for ep in eps:
+    for ep in _standalone_memory_eps(eps):
         n = len(ep.get("moments") or [])
         who = ep.get("people_full") or []
         stat = " · ".join(x for x in [human_date(ep["date"]), human_duration(ep["duration_seconds"]),
@@ -1827,9 +1840,16 @@ def eve_shell_header_html(A: Assets, active_tab_path: str, L: Linker | None = No
     )
 
 
+def _standalone_memory_eps(eps: list[dict]) -> list[dict]:
+    splits = [sp for ep in eps for sp in ep.get("splits", [])]
+    if splits:
+        return sorted(splits, key=lambda x: int(x.get("episode_number") or 0), reverse=True) + [ep for ep in eps if is_bonus(ep)]
+    return eps
+
+
 def eve_mind_directory_html(eps: list[dict], people: list[dict], topics: list[dict] | None = None) -> str:
     """Compact 2x2 hub cards on /eve/ Overview linking into the 4 dedicated /eve/* tabs."""
-    n_eps = len(eps)
+    n_eps = len(_standalone_memory_eps(eps))
     n_people = len([p for p in (people or []) if p.get("episodes")]) or len(people or [])
     n_topics = len(topics or [])
     n_journal = len(RF.load_journal())
@@ -2053,19 +2073,15 @@ def build(db: Path, out: Path, include_drafts: bool) -> int:
     global _CATALOG_EPS
     eps, people = load_site(db, include_drafts)
     splits = load_splits(eps, people)
-    _CATALOG_EPS = eps
+    splits_desc = sorted(splits, key=lambda x: int(x.get("episode_number") or 0), reverse=True)
+    bonus_eps = [ep for ep in eps if is_bonus(ep)]
+    standalone_eps = (splits_desc + bonus_eps) if splits_desc else eps
+    _CATALOG_EPS = splits_desc + eps
     I.plan(sys.modules[__name__], eps, people, ["/", "/episodes/", "/people/", "/about/", "/contact/", "/growth/"])
     out.mkdir(parents=True, exist_ok=True)
-    feed_eps = F.load(db, include_drafts)
-    by_slug = {ep["slug"]: ep for ep in eps}
-    for fe in feed_eps:
-        if fe["slug"] in by_slug:
-            src = by_slug[fe["slug"]]
-            for k in ("context", "topics", "episode_type", "episode_number", "season"):
-                fe[k] = src[k]
-    existing_guids = {fe["guid"] for fe in feed_eps}
-    for sp in splits:
-        if sp["guid"] not in existing_guids:
+    if splits_desc:
+        feed_eps = []
+        for sp in splits_desc:
             feed_eps.append({
                 "guid": sp["guid"],
                 "slug": sp["slug"],
@@ -2088,6 +2104,37 @@ def build(db: Path, out: Path, include_drafts: bool) -> int:
                 "ai_disclosure": sp["ai_disclosure"],
                 "people": sp["people"],
             })
+        for bep in bonus_eps:
+            feed_eps.append({
+                "guid": bep["guid"],
+                "slug": bep["slug"],
+                "title": bep["title"],
+                "date": bep["date"],
+                "published_at": bep["published_at"],
+                "summary": bep.get("summary") or "",
+                "context": bep.get("context") or "",
+                "topics": bep.get("topics") or [],
+                "episode_type": "bonus",
+                "episode_number": None,
+                "season": bep.get("season", 1),
+                "audio_key": bep["audio_key"],
+                "audio_url": bep["audio_url"],
+                "audio_bytes": bep["audio_bytes"],
+                "audio_mime": bep.get("audio_mime") or "audio/mpeg",
+                "duration_seconds": bep["duration_seconds"],
+                "explicit": bep["explicit"],
+                "ai_reconstructed": 1 if bep["ai_reconstructed"] else 0,
+                "ai_disclosure": bep["ai_disclosure"],
+                "people": bep["people"],
+            })
+    else:
+        feed_eps = F.load(db, include_drafts)
+        by_slug = {ep["slug"]: ep for ep in eps}
+        for fe in feed_eps:
+            if fe["slug"] in by_slug:
+                src = by_slug[fe["slug"]]
+                for k in ("context", "topics", "episode_type", "episode_number", "season"):
+                    fe[k] = src[k]
     (out / "feed.xml").write_text(F.render(feed_eps))
     shutil.rmtree(out / "assets", ignore_errors=True)   # drop stale hashed assets from earlier local builds
     A = Assets(out)
@@ -2097,11 +2144,11 @@ def build(db: Path, out: Path, include_drafts: bool) -> int:
     urls = ["/", "/people/", "/about/", "/contact/", "/growth/"]
     for ep in eps:
         write(out, f"episodes/{ep['slug']}/transcript.txt", ep["body_md"] + "\n")
-        write(out, f"episodes/{ep['slug']}/index.html", episode_page(A, ep, eps))
+        write(out, f"episodes/{ep['slug']}/index.html", episode_page(A, ep, standalone_eps))
         urls.append(f"/episodes/{ep['slug']}/")
     for sp in splits:
         write(out, f"episodes/{sp['slug']}/transcript.txt", sp["body_md"] + "\n")
-        write(out, f"episodes/{sp['slug']}/index.html", episode_page(A, sp, eps))
+        write(out, f"episodes/{sp['slug']}/index.html", episode_page(A, sp, standalone_eps))
         urls.append(f"/episodes/{sp['slug']}/")
     write(out, "index.html", home(A, eps, people, splits))
     moved = dict(REDIRECTS) | {f"/episodes/{ep['key']}/": f"/episodes/{ep['slug']}/" for ep in eps if ep["key"] != ep["slug"]}
@@ -2142,7 +2189,7 @@ def build(db: Path, out: Path, include_drafts: bool) -> int:
         write(out, "clips/index.html", page(
             A,
             title="Audiogram Clips",
-            desc="Shareable 60-second waveform video clips from Ask Eve.",
+            desc="Shareable 60-second audiogram video clips from Ask Eve.",
             path="/clips/",
             body=RF.clips_index_html(A, clips),
         ))

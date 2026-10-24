@@ -22,7 +22,7 @@ note: Verbatim export of the shared Grok voice session (66 turns, 18:31-19:03 UT
 - **Source**: Entire Grok Bot chat (09:33–11:00 UTC on 2026-10-23). David’s real voice is in two Voice Memo segments (10:31–10:39 and 10:42–10:49 UTC); everything else is AI-reconstructed (Eve re-voiced via xAI TTS, David’s unrecorded/typed lines via narrator). Gaps exist for a few of Eve’s replies (10:48, 10:49, 10:52). xAI key was redacted.
 - **What got built/decided**:
   - Workspace structure, 3-layer memory/search (`search.py` with sqlite-vec + tags + FTS5), `boot.py`.
-  - Episode 0 (planning session on Sacks/Andreessen/etc.) committed from a Grok share link.
+  - First Encounter (planning session on Sacks/Andreessen/etc.) committed from a Grok share link.
   - Full audio pipeline design (`docs/audio-pipeline.md`): re-voice as the **primary** path, multi-segment stitching with “Ask Eve, take N” markers, PR-only ingest (nothing to `main` until you merge), two R2 buckets (`ask-eve-masters` private + `ask-eve-public`), D1 schema, Netlify site, RSS at `askevepodcast.com/feed.xml`.
   - Domain set: site `askevepodcast.com`, audio `audio.askevepodcast.com`, email `podcast@askevepodcast.com`.
   - Deploy guide written for a coding agent that has Cloudflare credentials.

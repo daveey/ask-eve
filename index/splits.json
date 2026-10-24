@@ -5468,6 +5468,44 @@
         "turn_count": 26,
         "deep_link_in_parent": "/episodes/starshield-iran-and-the-anthropic-mirror/#t=741"
       }
+    ],
+    "california-high-speed-rail-and-the-billionaire-tax": [
+      {
+        "slug": "california-high-speed-rail-and-cap-and-trade",
+        "stem": "2026-10-24_california-high-speed-rail-and-cap-and-trade",
+        "episode_number": 10,
+        "part_number": 1,
+        "part_total": 2,
+        "title": "California High-Speed Rail, the $1B Cap-and-Trade Siphon, and Why Megaprojects Never Die",
+        "summary": "Prop 1A's 2008 promise vs. $15.5B spent and $126B+ total cost with zero miles of track laid, Gavin Newsom's political lock-in and veto of the Inspector General staffing bill, CEO Ian Choudri's KPMG travel scandal and $537.3M Change Order 427, $677M / 130,000 pages of CEQA review, Texas vs. Spain vs. China, and drafting a $50M ballot initiative to redirect the $1B/year cap-and-trade siphon.",
+        "clock_start": "07:49:37",
+        "clock_end": "08:23:42",
+        "parent_start_sec": 138.0,
+        "parent_end_sec": 2213.0,
+        "duration_seconds": 2075,
+        "turn_start_0based": 12,
+        "turn_end_0based": 77,
+        "turn_count": 66,
+        "deep_link_in_parent": "/episodes/california-high-speed-rail-and-the-billionaire-tax/#t=138"
+      },
+      {
+        "slug": "california-billionaire-tax-prop-40-and-seiu-uhw",
+        "stem": "2026-10-24_california-billionaire-tax-prop-40-and-seiu-uhw",
+        "episode_number": 11,
+        "part_number": 2,
+        "part_total": 2,
+        "title": "California's Billionaire Tax (Prop 40), SEIU-UHW's Ballot Machine, and the Valuation Trap",
+        "summary": "SEIU-UHW president Dave Regan's 23–48 ballot initiatives as bargaining leverage vs. Emmanuel Saez & Gabriel Zucman's precedent play, the 5% one-time tax on >$1B net worth, Section 5033(c)(3)(C)'s voting-control valuation trap for illiquid private startup founders vs. public companies, the California Supreme Court fast-lane challenge, and how wealth taxes actually work in Norway, Switzerland, and Spain.",
+        "clock_start": "08:24:36",
+        "clock_end": "08:43:28",
+        "parent_start_sec": 2237.0,
+        "parent_end_sec": 3399.0,
+        "duration_seconds": 1162,
+        "turn_start_0based": 78,
+        "turn_end_0based": 97,
+        "turn_count": 20,
+        "deep_link_in_parent": "/episodes/california-high-speed-rail-and-the-billionaire-tax/#t=2237"
+      }
     ]
   }
 }
