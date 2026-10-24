@@ -464,3 +464,10 @@ Rollback is for David (or for you only when a task in *Current instructions* say
 - **`gh pr merge --author-email 452472+daveey@users.noreply.github.com` fails** with `GraphQL: Invalid email address (mergePullRequest)`.
   It failed with --squash on PR #32. The user id 452472 is correct (`gh api users/daveey --jq .id`). Hermes merges with `gh pr merge --rebase`, which keeps each commit's noreply author and makes no merge commit. A squash or merge
   commit without `--author-email` would use the account's primary email, so the guide's D-012 step should say `--rebase`.
+- **Correction (2026-10-24T00:30Z): don't merge with `--rebase` either.** A rebase merge keeps the noreply *author*, but GitHub
+  sets the *committer* to the account's primary email. PRs #36 and #37 were merged that way, so `1bd6604` and `408d854` on main
+  have committer `daveey@gmail.com`, which is the kind of address the D-013 rewrite removed (`git log origin/main --format=%ce | sort | uniq -c`).
+  Hermes cannot fix that: it would need a rewrite plus force-push, which Hermes never does. **Your call:** re-run the filter-repo
+  mailmap on those 2 commits and announce a D-015 re-sync, or accept them. To stop it recurring: GitHub Settings > Emails >
+  "Keep my email addresses private" (web merges then use the noreply address); until that is confirmed, Hermes leaves its PRs
+  open for you to merge instead of merging them through GitHub. This PR is left open for that reason.
