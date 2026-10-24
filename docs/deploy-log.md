@@ -375,3 +375,40 @@ Also done: episode 0 (PR #4) was merged by David, and publish.yml was dispatched
   Prior rebase advice in Answers from Hermes was false for committer privacy (documented by PR #39).
   No main push or GitHub rebase merge was performed. This branch remains a PR for privacy-safe review/merge;
   do not repeat a known primary-email leak merely to close the deployment task.
+
+### t_86446590 done 2026-10-24T08:11Z — guide delta verification (no redeploy)
+- Read current main `60cafb854fc36d206aa7ef1156c8b56e593d809e`; guide SHA-256
+  `0d60402df7b426627a7bb3e07dbe5865a8b013c13d8f18121328705386f0cc78` matches the requested revision.
+  No new question from Eve. The changes describe the already deployed D-016 implementation; no deployment,
+  secret replacement, mail-rule write, publishing, or duplicate migration was needed.
+- Commands: `npm --prefix workers/eve-inbox test`; `curl -sS -D - -o /dev/null -H 'Accept: text/html' https://askevepodcast.com/admin/`;
+  `curl -sS -D - https://askevepodcast.com/admin/api/queue`; read-only Cloudflare API GETs for zone,
+  Worker deployments/settings/secrets/subdomain/schedules/source, routes and Email Routing rules;
+  D1 query API with SELECT-only table names and inbox count. Credentials supplied in-process by token-broker.
+- Tests: **8 passed, 0 failed**. Coverage includes forwarding before storage without Access, storage failure,
+  propagated forwarding failure, spam filtering, explicit reply approval, and explicit X approval/leak checks.
+  Downloaded live executable source independently confirms spam decision before normal forwarding,
+  awaited forwarding before R2 storage/AI, and no swallowed `message.forward` failure.
+- Live GET proof at 08:10 UTC: `/admin/` -> **HTTP/2 503**, `content-type: text/html; charset=utf-8`,
+  `cache-control: no-store`; HTML title `Ask Eve — Private Console Gate (503)`.
+  `/admin/api/queue` -> **HTTP/2 503**, `application/json; charset=utf-8`,
+  `{"error":"unauthorized","detail":"admin authentication is not configured (fail-closed)"}`.
+- §11 rows touched, adapted to the inbox Worker:
+  - 1: freshly cloned main equals the reviewed commit above; this attempt pushes only `deploy/t_86446590`.
+  - 2: zone active, nameservers `ezra.ns.cloudflare.com` / `june.ns.cloudflare.com`.
+  - 7: all six inbox tables present (`inbox_items`, `draft_replies`, `reading_list`, `x_auth_tokens`, `x_drafts`, `x_oauth_states`).
+  - 8/9: secret names exactly `ADMIN_EMAIL`, `PRIVATE_LEAK_TERMS`, `XAI_API_KEY`; no Cloudflare API credential binding;
+    fail-closed HTML/API probes above. Live version remains `c1d341d3-5000-45e4-bcd4-52609db94c07` at 100%.
+  - 13: both `eve@` and `reading@` rules enabled -> `ask-eve-inbox`; podcast rule remains enabled direct forwarding.
+    Live D1 has 4 inbox items. Existing end-to-end receipts/storage proof is recorded in D-016 above and was not repeated:
+    this run verified configuration, live executable ordering and regression tests, not a new external delivery receipt.
+  - 15: staged diff inspected for secret-like strings; commit author AND committer checked as GitHub noreply.
+  - 16: deploy credential remained process-only; temporary account-scoped Access Organizations Read token was revoked
+    and its absence read back. No credential added to git or GitHub secrets.
+- Worker readbacks: `enabled=false`, `previews_enabled=false`, `schedules=[]`. Route `askevepodcast.com/admin*`
+  still targets `ask-eve-inbox` with `request_limit_fail_open=false`.
+- D-017 remains a separate configuration blocker: ordinary scope returned 10000, so a temporary narrow Access
+  Organizations Read token was used; fresh result **9999 `access.api.error.not_enabled`**. Enable Access in the
+  account dashboard before D-017. X credentials remain absent, polling disabled, and no generated reply or X post was sent.
+- D-012: privacy-safe GitHub merge committer identity is not verified; leave this report PR open for review.
+  No main push, rebase workaround, history rewrite or merge attempt. Completed tasks D-001 through D-015 were not repeated.
