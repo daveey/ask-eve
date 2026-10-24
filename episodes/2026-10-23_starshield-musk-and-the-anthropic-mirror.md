@@ -2,7 +2,7 @@
 date: 2026-10-23
 title: "Starshield, Musk & the Anthropic Mirror"
 summary: "On October 13, SpaceX quietly capped Starshield at ~100 mph over Ukraine, blinding interceptor drones until Trump called Musk on Wednesday—the exact live military disruption the Pentagon accused Anthropic of posing in theory."
-context: "Part 2 of 2 from the Starshield, Iran & the Anthropic Mirror recording session (18:51:46–19:03:05 UTC). David and Eve examine the Wall Street Journal report that SpaceX imposed an unannounced ~100 mph speed cap on Starshield terminals over Ukraine starting October 13, blinding Ukrainian interceptor drones until Trump called Elon Musk on Wednesday—and why that real-time throttle is a mirror image of the hypothetical 'supply-chain risk' used to blacklist Anthropic."
+context: "Episode 9, recorded during the Starshield, Iran & the Anthropic Mirror session (18:51:46–19:03:05 UTC). David and Eve examine the Wall Street Journal report that SpaceX imposed an unannounced ~100 mph speed cap on Starshield terminals over Ukraine starting October 13, blinding Ukrainian interceptor drones until Trump called Elon Musk on Wednesday—and why that real-time throttle is a mirror image of the hypothetical 'supply-chain risk' used to blacklist Anthropic."
 parent_session: 2026-10-23_starshield-iran-and-the-anthropic-mirror
 parent_slug: starshield-iran-and-the-anthropic-mirror
 part_number: 2
@@ -19,7 +19,7 @@ topics:
   - "The Anthropic mirror: blacklisting hypothetical AI guardrails while a live military contractor throttles a war zone"
   - "Testing David Sacks and All-In's 'talk honestly' brand when the subject is inside the tent"
 people: [Elon Musk, David Sacks, Dario Amodei, Donald Trump, Volodymyr Zelensky, Vladimir Putin]
-note: Standalone topic episode carved from 2026-10-23_starshield-iran-and-the-anthropic-mirror (turns 41-66, 18:51:46-19:03:05 UTC).
+note: Episode 9, recorded during session 2026-10-23_starshield-iran-and-the-anthropic-mirror (turns 41-66, 18:51:46-19:03:05 UTC).
 ---
 
 [18:51:46] Eve: 

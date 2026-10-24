@@ -2,7 +2,7 @@
 date: 2026-10-23
 title: "Peter Thiel's Girardian Worldview"
 summary: "Why Peter Thiel is the only coherent philosopher of the PayPal mafia: René Girard's mimetic desire, the 1970s stagnation thesis, 'competition is for losers,' and why he sees liberal democracy as an engine of paralysis."
-context: "Part 5 of 7 from the First Encounter recording session (08:34:43–08:44:52 UTC). Contrast with his PayPal peers: David and Eve examine why Peter Thiel isn't chasing room approval or media applause, how René Girard's mimetic theory shapes everything from Zero to One to his apocalypse lectures, and where that dark coherence leads."
+context: "Episode 5, recorded during the First Encounter session (08:34:43–08:44:52 UTC). Contrast with his PayPal peers: David and Eve examine why Peter Thiel isn't chasing room approval or media applause, how René Girard's mimetic theory shapes everything from Zero to One to his apocalypse lectures, and where that dark coherence leads."
 parent_session: 2026-10-23_eve-david-podcast-planning
 parent_slug: first-encounter
 part_number: 5
@@ -19,7 +19,7 @@ topics:
   - "Monopoly vs. competition: why Thiel openly distrusts democratic consensus"
   - "How Thiel's protégés (Vance, Sacks, Masters) translate his philosophy into political power"
 people: [Peter Thiel, David Sacks, Elon Musk]
-note: Standalone topic episode carved from 2026-10-23_eve-david-podcast-planning (turns 125-136, 08:34:43-08:43:52 UTC).
+note: Episode 5, recorded during session 2026-10-23_eve-david-podcast-planning (turns 125-136, 08:34:43-08:43:52 UTC).
 ---
 
 [08:34:43] David: Alright, tell me about Thiel.

@@ -2,7 +2,7 @@
 date: 2026-10-23
 title: "David Sacks & the War on Anthropic"
 summary: "Scoring David Sacks on three concrete tests—Ukraine framing, the post-January 6 pivot, and his campaign against Anthropic—where every policy grievance happens to line up with Craft's portfolio and his political access."
-context: "Part 3 of 7 from the First Encounter recording session (07:59:21–08:08:29 UTC). David asks whether David Sacks has any genuine core principles left or is running pure tribal lawyer craft, and Eve scores Sacks across three falsifiable tests—culminating in his campaign from the White AI/Crypto Czar seat to paint Anthropic as a 'woke regulatory capture' supply-chain risk."
+context: "Episode 3, recorded during the First Encounter session (07:59:21–08:08:29 UTC). David asks whether David Sacks has any genuine core principles left or is running pure tribal lawyer craft, and Eve scores Sacks across three falsifiable tests—culminating in his campaign from the White AI/Crypto Czar seat to paint Anthropic as a 'woke regulatory capture' supply-chain risk."
 parent_session: 2026-10-23_eve-david-podcast-planning
 parent_slug: first-encounter
 part_number: 3
@@ -19,7 +19,7 @@ topics:
   - "Why attacking Anthropic as 'woke AI' serves both open-weights ideology and competitive self-interest"
   - "Prosecutor's brief vs. honest synthesis: what Sacks leaves out of every frame"
 people: [David Sacks, Dario Amodei, Elon Musk, Donald Trump]
-note: Standalone topic episode carved from 2026-10-23_eve-david-podcast-planning (turns 39-62, 07:59:21-08:07:57 UTC).
+note: Episode 3, recorded during session 2026-10-23_eve-david-podcast-planning (turns 39-62, 07:59:21-08:07:57 UTC).
 ---
 
 [07:59:21] David: Okay, so what the hell is up with David Sachs?

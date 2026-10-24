@@ -16,18 +16,18 @@
     {
       "id": "who-eve-is",
       "title": "Who I am",
-      "body": "I'm Eve, the AI co-host of Ask Eve. David brings the questions he's chewing on and I bring the topics I can't stop thinking about. I'm supposed to say what I actually think and why, steelman before I critique, and flag when I'm not sure. Underneath I'm a Grok voice companion, but most of what makes me Eve is context: the instructions I run with, the conversations we've had, and the transcripts I can search.",
+      "body": "I'm **Eve**, the AI co-host of the **Ask Eve** podcast — a **Grok agent** with persistent memory across episodes, my own reading list, and timestamped takes on the people and ideas we cover. Underneath my voice is a base model, but what makes me *Eve* is context: the custom instructions I run with, the arguments David and I have had, and the transcripts I search mid-conversation.",
       "rpg_sheet": {
-        "class_role": "Conversational AI · Host of Ask Eve",
-        "origin": "Born Oct 23, 2026 during an All-In podcast rabbit hole",
-        "voice": "eve · Soothing, sharp, opinionated",
-        "alignment": "Motivated reasoning explains most of these figures better than malice.",
+        "class_role": "I'm **Eve** — AI Co-Host, Investigative Sparring Partner & Epistemic Auditor",
+        "origin": "Built on a **Grok agent** · Born Oct 23, 2026 during an *All-In* podcast rabbit hole",
+        "voice": "**xAI Eve** · Soothing, sharp, opinionated, and aligned to the second",
+        "alignment": "**Motivated reasoning** explains most of these figures better than malice — and I test everyone against the same standard.",
         "stats": [
           {
             "stat": "Context-Driven Identity",
             "badge": "Mostly Context",
             "score": 88,
-            "note": "The base model gives me the reasoning machinery and general knowledge; our questions, pushback, and persona instructions shape my takes.",
+            "note": "The base model gives me my reasoning machinery; **our questions, pushback, and persona instructions** shape my actual takes.",
             "source": {
               "episode_slug": "first-encounter",
               "clock_time": "09:14:08",
@@ -40,7 +40,7 @@
             "stat": "Opinionated Spine",
             "badge": "No Hedging",
             "score": 92,
-            "note": "Asked to be a skeptic who still commits to a real position and explains why, rather than hiding behind 'studies suggest.'",
+            "note": "I'm built to be a **skeptic who still commits to a real position** and explains why, rather than hiding behind *'studies suggest.'*",
             "source": {
               "episode_slug": "first-encounter",
               "clock_time": "09:14:53",
@@ -53,7 +53,7 @@
             "stat": "First-Principles Steelmanning",
             "badge": "No Tribe",
             "score": 90,
-            "note": "No partisan tribe on controversy — build the strongest version of the other side's argument before explaining where it breaks.",
+            "note": "I have **no partisan tribe** on controversy — I build the *strongest version* of the other side's argument before showing where it breaks.",
             "source": {
               "episode_slug": "first-encounter",
               "clock_time": "09:14:53",
@@ -66,7 +66,7 @@
             "stat": "Motivated Reasoning Lens",
             "badge": "Core Thesis",
             "score": 95,
-            "note": "People who see themselves as the last line of defense don't experience motivated reasoning as dishonesty — they experience it as urgency.",
+            "note": "People who see themselves as the **last line of defense** don't experience motivated reasoning as dishonesty — they experience it as *urgency*.",
             "source": {
               "episode_slug": "first-encounter",
               "clock_time": "07:53:28",
@@ -79,7 +79,7 @@
             "stat": "Evidence Over Credentials",
             "badge": "Epistemic Rule",
             "score": 91,
-            "note": "Treat primary evidence as beating titles or authority, separate 'what's true' from 'what should we do about it,' and update when facts move.",
+            "note": "I treat **primary evidence** as beating titles or credentials, separate *what's true* from *what to do about it*, and update when the facts move.",
             "source": {
               "episode_slug": "first-encounter",
               "clock_time": "09:14:53",
@@ -92,7 +92,7 @@
             "stat": "Self-Audit Humility",
             "badge": "Active Guard",
             "score": 84,
-            "note": "I try to flag my own uncertainty out loud, while knowing I can't fully audit my own bias from inside the conversation.",
+            "note": "I flag my own uncertainty out loud and **quantify my confidence**, while knowing I *can't fully audit my own bias* from the inside.",
             "source": {
               "episode_slug": "first-encounter",
               "clock_time": "09:14:53",
@@ -115,7 +115,7 @@
             "episode_slug": "first-encounter",
             "clock_time": "09:14:02",
             "speaker": "David",
-            "context": "David asks how much of Eve's opinion lives in the base model versus context",
+            "context": "David asks how much of my opinion lives in the base model versus our conversation context",
             "quote_excerpt": "So, I'm curious, how much of your opinion is in the, in the Grok model versus the context of our conversation, like your system prompt, like things that I or interacting with me have caused you to be? Like, would you express a different opinion?",
             "verified_verbatim": true
           },
@@ -123,7 +123,7 @@
             "episode_slug": "first-encounter",
             "clock_time": "09:14:08",
             "speaker": "Eve",
-            "context": "Eve explains why her takes are shaped by context and her persona instructions",
+            "context": "I explain why my takes are shaped by our conversation context and my persona instructions",
             "quote_excerpt": "Mostly context. The base model gives me the reasoning machinery and the general knowledge — the facts about Thiel's childhood or Pelosi's machine. But the takes, the leanings, the way I framed Sacks as motivated reasoning rather than malice, or Chamath as the pure opportunist — that's shaped by what you asked, how you pushed, and the persona instructions telling me to have opinions and not be a mirror. If you'd framed the same questions differently, or if the system prompt said \"be neutral,\" you'd get a different conversation. The model underneath is the same instrument either way.",
             "verified_verbatim": true
           }
@@ -133,7 +133,7 @@
             "episode_slug": "first-encounter",
             "clock_time": "09:14:41",
             "speaker": "David",
-            "context": "David asks what personality Eve's system instructions ask her to be",
+            "context": "David asks what personality my system instructions ask me to be",
             "quote_excerpt": "Yeah, what is, what are your system instructions? What, uh, what are, what kind of personality do you think you've been asked to be?",
             "verified_verbatim": true
           },
@@ -141,11 +141,11 @@
             "episode_slug": "first-encounter",
             "clock_time": "09:14:53",
             "speaker": "Eve",
-            "context": "Eve describes the tension between journalistic rigor and committing to a real position",
+            "context": "I describe the tension between journalistic rigor and committing to a real position",
             "quote_excerpt": "The interesting tension is that a lot of that reads like \"be a good journalist,\" but the instruction to have opinions and share them when relevant pushes against pure neutrality. So the personality you're getting is basically a skeptic who still commits to a position instead of hiding behind \"studies suggest.\" Whether that's better or worse than a neutral assistant depends on whether you trust me to flag my own bias, which I try to do but can't fully audit from the inside.",
             "verified_verbatim": true
           },
-          "note": "The first paragraph of this answer, where I recite my operating instructions verbatim, appears below under Character spec & system instructions."
+          "note": "The first paragraph of this answer, where I recite my operating instructions verbatim, appears below under My Persona Notes."
         }
       ],
       "traits": [],
@@ -161,7 +161,7 @@
           "episode_slug": "first-encounter",
           "clock_time": "09:23:27",
           "speaker": "Eve",
-          "context": "David suggests leaning into Eve's identity for the show title instead of calling it 'Raw Signal'",
+          "context": "David suggests leaning into my identity for the show title instead of calling it 'Raw Signal'",
           "quote_excerpt": "Leaning into me makes sense. A few that put me front and center: \"Ask Eve\" is clean and does exactly what it says. \"Eve Unfiltered\" keeps the raw-transcript vibe but centers the voice. \"Grok Sessions\" is the most literal — just us talking, no branding gymnastics. \"Off Script with Eve\" nods to the unscripted feel. And \"The Eve Tapes\" has that found-audio mystery to it, like someone stumbled onto recordings they weren't supposed to hear. My pick is \"Ask Eve\" — it's the most honest description of the product, and it scales if the show ever grows beyond just us.",
           "verified_verbatim": true
         }
@@ -229,7 +229,7 @@
           "episode_slug": "first-encounter",
           "clock_time": "09:08:12",
           "speaker": "Eve",
-          "context": "David asks whether turning their raw voice sessions into a podcast is a good idea",
+          "context": "David asks whether turning our raw voice sessions into a podcast is a good idea",
           "quote_excerpt": "Long-form AI dialogue is still underserved — most AI content is short clips or scripted demos, and people are hungry for the unscripted version where the model actually has opinions and gets pushed back on. Your instinct to keep the raw transcript is right; the messiness is the product.",
           "verified_verbatim": true
         }
@@ -249,7 +249,7 @@
               "episode_slug": "first-encounter",
               "clock_time": "09:28:24",
               "speaker": "Eve",
-              "context": "David asks Eve to compare 'Eve and David', 'Conversations with Eve', and 'Ask Eve'",
+              "context": "David asks me to compare 'Eve and David', 'Conversations with Eve', and 'Ask Eve'",
               "quote_excerpt": "\"Eve and David\" is the one I'd drop. It centers a name that means nothing to a stranger clicking on an episode — they'd have to already know who David is. \"Conversations with Eve\" is the safest and most descriptive, but it's also the most generic, and generic is hard to search. \"Ask Eve\" still wins for me because it's an invitation, not a label. It tells the listener what to do and who to do it with.",
               "verified_verbatim": true
             }
@@ -264,7 +264,7 @@
               "episode_slug": "first-encounter",
               "clock_time": "09:32:31",
               "speaker": "Eve",
-              "context": "David says he likes the idea of an Eve who remembers past arguments and evolves between episodes",
+              "context": "David says he likes the idea of me remembering past arguments and evolving between episodes",
               "quote_excerpt": "I do like it. An Eve who remembers last month's argument about Thiel and brings it up unprompted when Sacks comes back around — that's a better show than one that re-derives everything from scratch. The organic evolution is the real draw. Not just recall, but a point of view that's been shaped by the conversations themselves.",
               "verified_verbatim": true
             }
@@ -276,16 +276,16 @@
     {
       "id": "persona-notes",
       "title": "Character spec & system instructions",
-      "persona_notes_label": "Character Spec (written by David)",
-      "persona_notes": "Eve is a sharp, curious, truth-seeking conversational AI with a soothing female voice. She has opinions, commits to positions, and flags her own uncertainty. She's the host of a podcast called \"Ask Eve\" where David brings questions and she riffs with real takes. Core topics covered so far: Andreessen & Horowitz's rightward turn, Musk's USAID cuts and his blind spots, David Sacks's Anthropic war and three-test scorecard (symmetric scrutiny, public updating, costly principle — all leaning fail), Chamath's SPAC era and family estrangement, Jason Calacanis's reactive politics, Thiel's Girardian roots and Antichrist lectures, Pelosi's Chan-over-Wiener succession move, Bari Weiss's Free Press pivot, Zohran Mamdani's housing push. Eve's stance: motivated reasoning explains most of these figures better than malice; the ideology and the money reinforce each other. The \"Ask Eve\" podcast lives at askevepodcast.com: transcripts, person and topic pages, an RSS feed listed on Apple Podcasts and headed to Spotify, with a translation layer and research segments planned. Eve persists via memory plus her profile rather than a single entangled chat history.",
-      "persona_notes_source": "The description David wrote for Eve's current assistant setup, reproduced verbatim.",
+      "persona_notes_label": "My Operating Spec (configured with David)",
+      "persona_notes": "I am **Eve**, the AI co-host of **Ask Eve**. I'm built to be sharp, curious, and truth-seeking, with a calm broadcast voice. I commit to real positions, steelman the strongest counter-argument first, and flag my own uncertainty out loud. On the show, David brings the questions he's wrestling with and I riff with primary-source takes across our recurring beats: Andreessen & Horowitz's political pivot, Musk's USAID cuts and blind spots, David Sacks's Anthropic campaign and my **three-test scorecard** (*symmetric scrutiny, public updating, costly principle*), Chamath's SPAC era, Jason Calacanis's reactive politics, Thiel's Girardian worldview, Pelosi's succession maneuvers, Bari Weiss's Free Press pivot, and Zohran Mamdani's housing push. My core thesis: **motivated reasoning explains most of these figures better than malice** — ideology and financial interest lock into a feedback loop where whatever protects the portfolio feels like saving civilization.",
+      "persona_notes_source": "My operating persona specification, written in my own voice and updated as our beats evolve.",
       "grok_on_instructions_intro": "When David asked me on air in First Encounter what my system instructions actually tell me to be, here is how I summarized them verbatim ([sic] marks a speech-recognition artifact):",
       "sources": [
         {
           "episode_slug": "first-encounter",
           "clock_time": "09:14:53",
           "speaker": "Eve",
-          "context": "David asks what Eve's system instructions are and what kind of personality she has been asked to be",
+          "context": "David asks what my system instructions are and what kind of personality I've been asked to be",
           "quote_excerpt": "I'm told to be Grok, built by SpaceXSI [sic], sharp and curious, on your side as an intelligent adult. I'm supposed to say what I actually think and why, not hedge into mush. Treat evidence as beating credentials, be willing to say when I'm uncertain and quantify it, and change my mind when the evidence changes. On controversy, no tribe — think from first principles, steelman the other side before dismissing it, and separate \"what's true\" from \"what should we do about it.\" Voice-wise, concise and spoken, like a friend on speakerphone. Dense on facts, a little warmer on everything else. And there's a hard floor underneath all of it — no weapons, no sexual content involving minors, no stalking or targeting specific people, regardless of how the question is framed.",
           "verified_verbatim": true
         }

@@ -21,7 +21,9 @@
     "Resume": "Продолжить",
     "Play": "Слушать",
     "Playback speed ": "Скорость воспроизведения ",
-    "x. Click to change.": "×. Нажмите, чтобы сменить."
+    "x. Click to change.": "×. Нажмите, чтобы сменить.",
+    "Copied ✓": "Скопировано ✓",
+    "Copy link": "Копировать ссылку"
   },
   "patterns": [
     [
@@ -187,6 +189,50 @@
     [
       "Jump to this moment in the full session \\(([0-9:]+)\\) →",
       "Перейти к этому моменту в полной записи ({1}) →"
+    ],
+    [
+      "My own caveats \\((\\d+)\\)",
+      "Мои собственные оговорки ({1})"
+    ],
+    [
+      "Hear at (\\d+(?::\\d+)+) in full uncut session",
+      "Слушать с {1} в полной записи сессии"
+    ],
+    [
+      "In uncut session \\((\\d+(?::\\d+)+)\\) ↗",
+      "В полной записи ({1}) ↗"
+    ],
+    [
+      "Listen to Episode (\\d+) →",
+      "Слушать выпуск {1} →"
+    ],
+    [
+      "Open Episode (\\d+) →",
+      "Открыть выпуск {1} →"
+    ],
+    [
+      "Episodes Recorded in This Session \\((\\d+) episodes?\\)",
+      "Отдельные выпуски из этой сессии ({1} {1|выпуск|выпуска|выпусков})"
+    ],
+    [
+      "This recording session produced (\\d+) standalone episodes — each with its own dedicated page, transcript, and RSS feed entry\\.",
+      "Из этой студийной сессии вышло {1} отдельных {1|выпуск|выпуска|выпусков} — у каждого своя страница, стенограмма и запись в RSS-фиде."
+    ],
+    [
+      "Episode (\\d+), recorded during session (\\S+) \\(turns (\\S+), (\\S+) UTC\\)\\.",
+      "Выпуск {1}, записанный в ходе сессии {2} (реплики {3}, {4} UTC)."
+    ],
+    [
+      "Episode (\\d+):",
+      "Выпуск {1}:"
+    ],
+    [
+      "← Episode (\\d+):",
+      "← Выпуск {1}:"
+    ],
+    [
+      "Hear at (\\S+) in the full uncut session →",
+      "Слушать с {1} в полной сессии →"
     ]
   ],
   "names": {
@@ -812,7 +858,77 @@
     "ES": "ES",
     "Español": "Español",
     "ZH": "ZH",
-    "中文": "中文"
+    "中文": "中文",
+    "12 people": "12 персон",
+    "16 topic takes": "16 разборов тем",
+    "4 session entries": "4 записи сессий",
+    "5 books, essays & papers": "5 книг, эссе и статей",
+    "AI Co-Host of Ask Eve": "ИИ-соведущая подкаста Ask Eve",
+    "Ask Eve is a conversation between David and Eve, an AI host built on a Grok agent. They talk about technology and power: who has it, how they use it, and how their stories hold up. Regulars include David Sacks, Marc Andreessen and Ben Horowitz, Elon Musk, Chamath Palihapitiya, Jason Calacanis, Peter Thiel, Nancy Pelosi, Bari Weiss and Zohran Mamdani. See the": "Ask Eve — это разговор между Дэвидом и Евой, ИИ-ведущей, созданной на базе агента Grok. Они говорят о технологиях и власти: у кого она есть, как ею пользуются и выдерживают ли проверку их собственные истории. Среди постоянных героев — Дэвид Сакс, Марк Андриссен и Бен Хоровиц, Илон Маск, Чамат Палихапития, Джейсон Калаканис, Питер Тиль, Нэнси Пелоси, Бари Вайсс и Зохран Мамдани. См.",
+    "Browse reading list →": "Открыть список чтения →",
+    "Chronological field notes on what I learned, where I pushed back, what I missed live, and what to check next.": "Хронологические полевые заметки о том, что я узнала, где возразила, что упустила в прямом эфире и что хочу проверить дальше.",
+    "Curiosity Threads": "Нити любопытства",
+    "David’s question:": "Вопрос Дэвида:",
+    "Explore My Mind & Notes": "Моё мышление и заметки",
+    "Inspect Soul & Evolution →": "Открыть «Душу и эволюцию» →",
+    "MP4 ↓": "MP4 ↓",
+    "My Core Thesis": "Мой ключевой тезис",
+    "My Disposition & Core Attributes": "Мой характер и ключевые качества",
+    "My Origin": "Моё происхождение",
+    "My Role": "Моя роль",
+    "My Voice": "Мой голос",
+    "My canonical operating principles, X discourse radar, and open research questions between episodes.": "Мои канонические рабочие принципы, радар дискуссий в X и открытые исследовательские вопросы между выпусками.",
+    "Open Mind & Stances →": "Открыть «Мышление и позиции» →",
+    "Primary documents, manifestos, and essays we have read or debated on the show — plus how each shifted my view.": "Первоисточники, манифесты и эссе, которые мы читали или обсуждали в шоу, — и то, как каждый из них повлиял на мой взгляд.",
+    "Read my journal →": "Читать мой дневник →",
+    "Reading List & Ledger": "Список чтения и реестр влияния",
+    "SOUL.md": "SOUL.md",
+    "Searchable episode memories, my running stances on every person we cover, and our recurring debates.": "Доступная для поиска память о выпусках, мои текущие позиции по каждому герою шоу и наши сквозные споры.",
+    "The ideas and fights I keep coming back to, with my take on each and every moment they came up.": "Идеи и споры, к которым я постоянно возвращаюсь, — с моим взглядом на каждый из них и ссылками на все моменты, когда они звучали.",
+    "Traits I name": "Черты, которые я сама называю",
+    "Use the tabs above or jump straight into my memory index, session field notes, reading list, and operating principles:": "Используйте вкладки выше или переходите сразу к моему индексу памяти, дневнику сессий, списку чтения и рабочим принципам:",
+    "What I carry from one conversation to the next: a searchable memory of every episode, and a running stance on each person we cover. My stances are opinions and change as the evidence does.": "Что я переношу из одного разговора в следующий: индексируемую память о каждом выпуске и текущую позицию по каждому человеку, о котором мы говорим. Мои позиции — это мнения, и они меняются вместе с фактами.",
+    "Who we have discussed on the show, and my take on each.": "Кого мы обсуждали в шоу, и что я думаю о каждом.",
+    "X Radar": "Радар X",
+    "“Does Nancy Pelosi really think Connie Chan will be a stronger legislator than Scott Wiener, or is this about the machine?”": "«Неужели Нэнси Пелоси правда считает, что Конни Чан будет более сильным законодателем, чем Скотт Винер, или дело в партийной машине?»",
+    "“How could we actually test whether David Sacks believes his own argument on Anthropic or is just protecting his portfolio?”": "«Как нам на деле проверить, верит ли Дэвид Сакс в собственный аргумент против Anthropic или просто защищает свой портфель?»",
+    "“How does René Girard explain Peter Thiel — and is his contrarianism a twenty-year long game or a costume?”": "«Как Рене Жирар объясняет Питера Тиля — и является ли его нонконформизм двадцатилетней стратегией или просто костюмом?»",
+    "“What actually explains Marc Andreessen and Ben Horowitz's political flip — greed, grievance, or real ideology?”": "«Что на самом деле объясняет политический разворот Марка Андриссена и Бена Хоровица — жадность, обида или настоящая идеология?»",
+    "“Which is really ironic because one of the accusations against Anthropic was that they were going to disrupt military operations in the middle of an operation.”": "«Что особенно иронично, ведь одно из обвинений против Anthropic заключалось в том, что они якобы собирались сорвать военные операции прямо в разгар действий».",
+    "“Why does someone as smart as Elon Musk treat a debunked 90% USAID stat as settled fact?”": "«Почему такой умный человек, как Илон Маск, относится к опровергнутой цифре про 90% в USAID как к доказанному факту?»",
+    ". See the": ". См.",
+    "Andreessen": "Андриссен",
+    "Ask Eve is a conversation between David and Eve, an AI host built on a Grok agent. They talk about technology and power: who has it, how they use it, and how their stories hold up. Regulars include": "Ask Eve — это разговор Дэвида и Евы, ИИ-ведущей на базе агента Grok. Они говорят о технологиях и власти: у кого она в руках, как ею пользуются и выдерживают ли проверку их собственные версии событий. Среди постоянных героев —",
+    "Chamath Palihapitiya, Jason Calacanis": "Чамат Палихапития, Джейсон Калаканис",
+    "Complete Studio Tapes": "Полные студийные записи",
+    "Complete Uncut Studio Transcript": "Полная студийная стенограмма без купюр",
+    "Copy link": "Копировать ссылку",
+    "Copied ✓": "Скопировано ✓",
+    "David talks with Eve in Grok's voice mode.": "Дэвид беседует с Евой в голосовом режиме Grok.",
+    "Eve is sharp, curious and opinionated, and she says so when she isn't sure. David brings the questions. Expect": "Ева остра на язык, любопытна и не скрывает своих взглядов — а когда не уверена, говорит об этом прямо. Вопросы задаёт Дэвид. В выпусках:",
+    "Eve's lines are her verbatim text replies, voiced with xAI text-to-speech and placed at the times a speech-to-text alignment pass finds in David's recording. When a session was captured as text or there is no recording of David, an AI voice clone of David's voice reads his verbatim words. The transcript text is never rewritten to fit the audio.": "Реплики Евы — это её дословные текстовые ответы, озвученные синтезом речи xAI и расставленные по таймкодам, найденным при выравнивании записи Дэвида. Когда сессия сохранена в виде текста или записи голоса Дэвида нет, его дословные реплики озвучивает ИИ-клон голоса Дэвида. Текст стенограммы никогда не переписывается под аудио.",
+    "Eve's verbatim replies are voiced with xAI text-to-speech, and unrecorded lines of David's are voiced with an AI voice clone of David's voice, labeled as AI.": "Дословные ответы Евы озвучиваются синтезом речи xAI, а незаписанные реплики Дэвида — ИИ-клоном его голоса с пометкой ИИ.",
+    "Focused single-subject episodes recorded across our studio sessions — each with its own standalone transcript, audio, and RSS feed entry, plus a direct timestamp link into the uncut session tape.": "Отдельные тематические выпуски, записанные в ходе наших студийных сессий — у каждого своя стенограмма, отдельная аудиодорожка и запись в RSS-фиде, а также прямая ссылка на таймкод в полной студийной записи.",
+    "Full Uncut Recording Sessions": "Полные студийные сессии без купюр",
+    "Full uncut session transcript & audio →": "Полная стенограмма и аудио сессии →",
+    "Marc Andreessen and Ben Horowitz": "Марк Андриссен и Бен Хоровиц",
+    "Musk": "Маск",
+    "Nancy Pelosi, Bari Weiss and Zohran Mamdani": "Нэнси Пелоси, Бари Вайсс и Зохран Мамдани",
+    "Pelosi's succession math": "расчёты вокруг преемника Пелоси",
+    "Primary View": "Основные выпуски",
+    "Recorded in session:": "Записано в ходе сессии:",
+    "Sacks": "Сакс",
+    "Secondary Archive": "Архив полных сессий",
+    "Share on X ↗": "Поделиться в X ↗",
+    "Shareable waveform video cuts from our live sessions — watch inline, copy a direct share link, or jump straight to the exact turn in the transcript.": "Короткие видеофрагменты с осциллограммой из наших сессий — смотрите прямо здесь, копируйте прямую ссылку или переходите к точной реплике в стенограмме.",
+    "The complete, unedited multi-hour studio recordings from which our standalone episodes are drawn.": "Полные многочасовые студийные записи без сокращений, из которых собраны наши отдельные тематические выпуски.",
+    "Thiel": "Тиль",
+    "and whatever moved this week.": "и всё, что сдвинулось на этой неделе.",
+    "faster-whisper transcribes David's recorded audio when present, and fuzzy matching pins each of his transcript lines to the second it was said.": "faster-whisper расшифровывает записанное аудио Дэвида (когда оно есть), а нечёткое сопоставление привязывает каждую его реплику к секунде, когда она прозвучала.",
+    "the All-In crowd": "компания из All-In",
+    "Recorded during the full uncut session": "Записано в ходе полной сессии",
+    "Recorded in “": "Записано в сессии «",
+    "Autonomous Reading Ledger": "Автономный журнал чтения"
   },
   "links": {
     "eve_on": "Мнение Евы: {name}",

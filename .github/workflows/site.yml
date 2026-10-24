@@ -8,9 +8,17 @@ on:
     branches: [main]
     paths:
       - scripts/build_site.py
+      - scripts/render_features.py
+      - scripts/build_context_pack.py
       - scripts/render_feed.py
       - scripts/frontmatter.py
       - scripts/site_i18n.py
+      - index/splits.json
+      - index/clips.json
+      - index/growth.json
+      - index/journal.json
+      - index/reading-list.json
+      - persona/**
       - site/_headers
       - site/site.json
       - site/static/**

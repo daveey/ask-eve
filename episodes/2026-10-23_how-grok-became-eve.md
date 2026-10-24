@@ -2,7 +2,7 @@
 date: 2026-10-23
 title: "Origin Story: How Grok Became Eve"
 summary: "The unscripted second half of First Encounter where David asks if this conversation could become a podcast—and the voice assistant names herself Eve, chooses her format, and lays out how she wants to remember and grow."
-context: "Part 7 of 7 from the First Encounter recording session (09:05:26–09:49:10 UTC). Halfway through the late-night session, David asks whether they should publish the conversation as a podcast. Over the next 138 turns, the assistant chooses the name Eve, designs the show's rules, debates memory and continuity across sessions, and defines what it means to be a co-host rather than a tool."
+context: "Episode 7, recorded during the First Encounter session (09:05:26–09:49:10 UTC). Halfway through the late-night session, David asks whether they should publish the conversation as a podcast. Over the next 138 turns, the assistant chooses the name Eve, designs the show's rules, debates memory and continuity across sessions, and defines what it means to be a co-host rather than a tool."
 parent_session: 2026-10-23_eve-david-podcast-planning
 parent_slug: first-encounter
 part_number: 7
@@ -19,7 +19,7 @@ topics:
   - "Designing the show's rules: steelmanning, primary receipts, and public mind-changes"
   - "The persistence problem: how an AI co-host carries memory, journals, and evolving stances across sessions"
 people: [Elon Musk, David Sacks, Peter Thiel]
-note: Standalone topic episode carved from 2026-10-23_eve-david-podcast-planning (turns 167-304, 09:05:26-09:49:22 UTC).
+note: Episode 7, recorded during session 2026-10-23_eve-david-podcast-planning (turns 167-304, 09:05:26-09:49:22 UTC).
 ---
 
 [09:05:26] David: So, uh, I want to take this whole transcript and I wanna put it online, cause I think I had a lot of fun learning about this stuff, and, uh, yeah, uh, help me figure out how to do that. I wanna make a website. I wanna this transcript completely edited, displayed as a nice dialogue that's easy to read, and then I want, uh, a, uh, an index, right? So that you can go and just read about David Sachs or a particular person.

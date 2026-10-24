@@ -58,7 +58,7 @@
     });
   }
 
-  /* ---------- copy feed URL ---------- */
+  /* ---------- copy feed URL & clip share links ---------- */
   $$("[data-copy-feed]").forEach(function (b) {
     b.addEventListener("click", function () {
       var url = b.getAttribute("data-copy-feed"), old = b.textContent;
@@ -66,6 +66,28 @@
       if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(done, function () { prompt(L("Feed URL"), url); });
       else prompt(L("Feed URL"), url);
     });
+  });
+  doc.addEventListener("click", function (ev) {
+    var b = ev.target.closest && ev.target.closest("[data-copy-url]");
+    if (!b) return;
+    ev.preventDefault();
+    var url = b.getAttribute("data-copy-url");
+    if (!url) return;
+    var old = b.getAttribute("data-orig-label") || b.textContent;
+    b.setAttribute("data-orig-label", old);
+    var done = function () {
+      b.textContent = L("Copied ✓");
+      b.classList.add("is-copied");
+      setTimeout(function () {
+        b.textContent = old;
+        b.classList.remove("is-copied");
+      }, 2000);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url).then(done, function () { prompt(L("Copy link"), url); });
+    } else {
+      prompt(L("Copy link"), url);
+    }
   });
 
   /* ---------- wide screens: open collapsible side boxes ---------- */
@@ -303,6 +325,13 @@
     }
     audio.setAttribute("data-using-fallback-audio", String(stage + 1));
     var savedTime = pendingSeek != null ? pendingSeek : (audio.currentTime || 0);
+    var fbClipStart = audio.getAttribute("data-fallback-clip-start");
+    var fbClipEnd = audio.getAttribute("data-fallback-clip-end");
+    if (fbClipStart != null && fbClipEnd != null) {
+      clipStart = parseFloat(fbClipStart);
+      clipEnd = parseFloat(fbClipEnd);
+      savedTime = clipStart + savedTime;
+    }
     var enDur = parseFloat(P.getAttribute("data-en-duration") || "0");
     if (enDur > 0) {
       duration = enDur;
@@ -457,6 +486,13 @@
       audio.removeAttribute("data-using-fallback-audio");
       if (info.fallback_audio_url) audio.setAttribute("data-fallback-src", info.fallback_audio_url);
       else audio.removeAttribute("data-fallback-src");
+      if (info.fallback_clip_start != null && info.fallback_clip_end != null) {
+        audio.setAttribute("data-fallback-clip-start", String(info.fallback_clip_start));
+        audio.setAttribute("data-fallback-clip-end", String(info.fallback_clip_end));
+      } else {
+        audio.removeAttribute("data-fallback-clip-start");
+        audio.removeAttribute("data-fallback-clip-end");
+      }
       audio.src = info.audio_url;
       audio.load();
     }

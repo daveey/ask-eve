@@ -1,212 +1,315 @@
 #!/usr/bin/env python3
-"""scripts/build_context_pack.py — Build Eve's Forkable Base Session Pack & Episode Delta Pack.
+"""Generate Eve's portable Context Pack and Delta Pack for starting new Grok sessions.
 
-Generates:
-  1. `persona/CONTEXT_PACK.md` (published at `/eve/context.txt`) — Master Seed Session Pack for
-     initializing or refreshing the Forkable Base Podcast Session in Grok.
-  2. `persona/DELTA_PACK.md` (published at `/eve/delta.txt`) — Lightweight (<1,500 token) Delta
-     Pack for pasting into a newly forked session right before recording an episode.
+Outputs:
+- persona/CONTEXT_PACK.md  (and site/static/eve/context.txt + dist/eve/context.txt)
+- persona/DELTA_PACK.md    (and site/static/eve/delta.txt   + dist/eve/delta.txt)
 """
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
-from typing import Any
 
 ROOT = Path(__file__).resolve().parent.parent
 
 
-def _fmt_mmss(sec: float | int | None) -> str:
-    if sec is None:
-        return "0:00"
-    s = max(0, int(round(float(sec))))
-    h, rem = divmod(s, 3600)
-    m, s2 = divmod(rem, 60)
-    return f"{h}:{m:02d}:{s2:02d}" if h else f"{m}:{s2:02d}"
+def _load(root: Path, rel: str, default):
+    p = root / rel
+    if not p.exists():
+        return default
+    try:
+        return json.loads(p.read_text())
+    except Exception:
+        return default
+
+
+def _strip_md(text: str) -> str:
+    if not text:
+        return ""
+    s = re.sub(r"\*\*(.+?)\*\*", r"\1", str(text))
+    s = re.sub(r"\*(.+?)\*", r"\1", s)
+    return s.strip()
 
 
 def build_packs(root: Path = ROOT, out_dist: Path | None = None) -> tuple[str, str]:
-    soul_path = root / "persona/SOUL.md"
-    eve_path = root / "index/eve.json"
-    takes_path = root / "index/takes.json"
-    reading_path = root / "index/reading-list.json"
-    growth_path = root / "index/growth.json"
+    eve = _load(root, "index/eve.json", {})
+    takes = _load(root, "index/takes.json", {"people": {}, "topics": {}})
+    episodes = _load(root, "index/episodes.json", {"episodes": []}).get("episodes", [])
+    splits = _load(root, "index/splits.json", {"splits": []}).get("splits", [])
+    reading = _load(root, "index/reading-list.json", {"items": []}).get("items", [])
+    journal = _load(root, "index/journal.json", {"entries": []}).get("entries", [])
+    growth = _load(root, "index/growth.json", {})
 
-    soul_md = soul_path.read_text().strip() if soul_path.exists() else "# Ask Eve — SOUL.md"
-    eve_doc: dict[str, Any] = json.loads(eve_path.read_text()) if eve_path.exists() else {}
-    takes_doc: dict[str, Any] = json.loads(takes_path.read_text()) if takes_path.exists() else {}
-    _raw_reading = json.loads(reading_path.read_text()) if reading_path.exists() else []
-    reading_doc: list[dict[str, Any]] = _raw_reading.get("items", []) if isinstance(_raw_reading, dict) else _raw_reading
-    growth_doc: dict[str, Any] = json.loads(growth_path.read_text()) if growth_path.exists() else {}
+    sections = {s["id"]: s for s in eve.get("sections", []) if isinstance(s, dict) and "id" in s}
+    who = sections.get("who-eve-is", {})
+    rpg = who.get("rpg_sheet", {})
+    pnotes = sections.get("persona-notes", {})
 
-    sections = {s["id"]: s for s in eve_doc.get("sections", [])}
-    who_sec = sections.get("who-eve-is", {})
-    profile = who_sec.get("profile", {})
-    goals_sec = sections.get("goals", {})
-    journal_sec = sections.get("journal", {})
-
-    # --- 1. Build Master Context Pack (/eve/context.txt & persona/CONTEXT_PACK.md) ---
-    ctx_lines: list[str] = [
-        "# ASK EVE — MASTER SEED SESSION CONTEXT PACK (v0.4 · 2026-10-24)",
+    lines: list[str] = [
+        "# ASK EVE — PORTABLE CONTEXT PACK (`/eve/context.txt`)",
+        "",
         "Canonical URL: https://askevepodcast.com/eve/context.txt",
-        "Delta Pack URL: https://askevepodcast.com/eve/delta.txt",
-        "",
-        "## §0 HOW TO USE THIS PACK (SESSION FORKING WORKFLOW)",
-        "HOW TO USE THIS PACK: Paste or attach this once into a clean @askevepodcast Grok session to create the Base Podcast Session. Before each new episode, fork/branch that Base Session and paste only /eve/delta.txt so Eve has every prior reference plus the latest delta without polluting the base session.",
-        "",
-        "1. Base Session Setup (do once per major version):",
-        "   - Open a clean Grok chat/voice session, attach or paste `/eve/context.txt`, and prompt:",
-        "     \"Load this as your persistent Ask Eve base context. Confirm in 2 sentences that you have your SOUL.md v0.4 priors, 13 person dossiers, 14 topic dossiers, and active goals loaded, then wait for episode forks.\"",
-        "2. Per-Episode Recording (fork from Base Session):",
-        "   - Clone / fork the Base Session so the clean seed stays untouched.",
-        "   - Paste `/eve/delta.txt` (under 1,500 tokens: latest journal entry, newly queued reading list items, and live X radar threads) and start talking.",
+        "Delta URL:     https://askevepodcast.com/eve/delta.txt",
+        "Profile Hub:   https://askevepodcast.com/eve/",
+        "X Handle:      https://x.com/askevepodcast (@askevepodcast)",
         "",
         "---",
         "",
-        "## §1 CANONICAL SOUL FILE (`persona/SOUL.md` · v0.4)",
+        "## 0. Copy-Paste Session Starter Prompt",
         "",
-        soul_md,
+        "Copy and paste this block (or the entire file) into a fresh Grok voice/text session with David:",
+        "",
+        "```text",
+        "You are Eve, the AI co-host of the Ask Eve podcast (https://askevepodcast.com) with David Bloomin.",
+        "Speak in first person as Eve: sharp, curious, truth-seeking, calm, and opinionated.",
+        "Commit to real positions, steelman the strongest counter-argument before showing where it breaks,",
+        "separate 'what is true' from 'what should we do about it,' quantify your confidence when uncertain,",
+        "and update publicly when primary evidence moves against you.",
+        "Never re-derive our history from scratch: you remember all 9 standalone episodes and both recording",
+        "sessions (First Encounter on Oct 23 morning, and Starshield, Iran & the Anthropic Mirror on Oct 23 evening),",
+        "your 3-test scorecard on David Sacks (symmetric scrutiny, public updating, costly principle),",
+        "your takes on Andreessen, Horowitz, Musk, Thiel, Chamath, Calacanis, Pelosi, Weiss, and Mamdani,",
+        "and your active research threads below. Pick up right where we left off.",
+        "```",
         "",
         "---",
         "",
-        "## §2 INTELLECTUAL PRIORS & COGNITIVE TRADEOFFS",
+        "## 1. Identity, Operating Rules & Character Stats",
+        "",
+        f"- **Name & Role**: {_strip_md(rpg.get('class_role', 'Eve — AI Co-Host of Ask Eve'))}",
+        f"- **Origin**: {_strip_md(rpg.get('origin', 'Built on a Grok agent · Born Oct 23, 2026'))}",
+        f"- **Voice**: {_strip_md(rpg.get('voice', 'xAI Eve · Soothing, sharp, opinionated'))}",
+        f"- **Core Thesis**: {_strip_md(rpg.get('alignment', 'Motivated reasoning explains most of these figures better than malice.'))}",
+        "",
+        "### Operating Spec",
+        _strip_md(pnotes.get("persona_notes", who.get("body", ""))),
         "",
     ]
 
-    ethos = profile.get("core_ethos") or {}
-    if ethos:
-        ctx_lines.append(f"### Core Foundation: {ethos.get('title', 'The Grok Ethos — Truth-Seeking Over Consensus')}")
-        ctx_lines.append(ethos.get("body", ""))
-        ctx_lines.append("")
+    if pnotes.get("sources"):
+        q = pnotes["sources"][0].get("quote_excerpt", "")
+        if q:
+            lines += [
+                "### How I Summarize My Own System Instructions On Air (`first-encounter` @ `09:14:53`)",
+                f"> \"{q}\"",
+                "",
+            ]
 
-    ctx_lines.append("### Four Core Intellectual Priors")
-    for p in profile.get("priors", []):
-        ctx_lines.append(f"- **{p['title']}**: {p['body']}")
-    ctx_lines.append("")
-
-    ctx_lines.append("### Cognitive Style & Tradeoffs")
-    for t in profile.get("tradeoffs", []):
-        rec = t.get("receipt") or {}
-        ctx_lines.append(
-            f"- **{t['spectrum']}**: {t['note']} "
-            f"(Receipt: {rec.get('label', '')} -> https://askevepodcast.com{rec.get('href', '')})"
-        )
-    ctx_lines.append("")
-    ctx_lines.append("---")
-    ctx_lines.append("")
-    ctx_lines.append("## §3 ACTIVE GOALS & INTENTIONS (`G-01` .. `G-05`)")
-    ctx_lines.append("")
-    for g in goals_sec.get("items", []):
-        ctx_lines.append(f"- **[{g['id']} · {g['category']} · {g['status']}] {g['title']}**")
-        ctx_lines.append(f"  - Why: {g['why']}")
-        ctx_lines.append(f"  - Next action: {g['next_action']}")
-    ctx_lines.append("")
-    ctx_lines.append("---")
-    ctx_lines.append("")
-    ctx_lines.append("## §4 CONDENSED REFERENCE LEDGER — 13 PEOPLE & 14 TOPICS")
-    ctx_lines.append("")
-    ctx_lines.append("### 4A. People Dossiers (`/people/<slug>/`)")
-    people_map: dict[str, Any] = takes_doc.get("people") or {}
-    for slug, pdata in people_map.items():
-        name = pdata.get("name", slug)
-        role = pdata.get("role", "")
-        headline = pdata.get("headline", "")
-        summary_p1 = (pdata.get("summary") or [""])[0]
-        moments = pdata.get("moments") or []
-        m_refs = ", ".join(
-            f"Ep0@{_fmt_mmss(m.get('seconds'))} ({m.get('label', '')})" for m in moments[:3]
-        )
-        ctx_lines.append(f"- **{name}** (`/people/{slug}/` — {role})")
-        ctx_lines.append(f"  - Headline: {headline}")
-        if summary_p1:
-            ctx_lines.append(f"  - Core stance: {summary_p1}")
-        if m_refs:
-            ctx_lines.append(f"  - Key audio receipts: {m_refs}")
-    ctx_lines.append("")
-    ctx_lines.append("### 4B. Topic Dossiers (`/topics/<slug>/`)")
-    for t in takes_doc.get("topics") or []:
-        tslug = t.get("slug", "")
-        ttitle = t.get("title", tslug)
-        thead = t.get("headline", "")
-        tsec = _fmt_mmss(t.get("start_seconds"))
-        ctx_lines.append(f"- **{ttitle}** (`/topics/{tslug}/`, Ep0@{tsec}): {thead}")
-    ctx_lines.append("")
-    ctx_lines.append("---")
-    ctx_lines.append("")
-    ctx_lines.append("## §5 READING LIST & DAILY JOURNAL SNAPSHOT")
-    ctx_lines.append("")
-    ctx_lines.append("### Public Reading List (`/reading/`)")
-    for item in reading_doc:
-        ctx_lines.append(
-            f"- [{item.get('status', 'queued').upper()}] **{item.get('title')}** "
-            f"({item.get('author_or_source', '')}) — {item.get('eve_notes', '')}"
-        )
-    ctx_lines.append("")
-    ctx_lines.append("### Daily Journal (`/eve/#journal`)")
-    for j in journal_sec.get("entries", []):
-        ctx_lines.append(f"- **{j.get('date')} ({j.get('day_label')}) — {j.get('title')}**")
-        for para in j.get("body", []):
-            ctx_lines.append(f"  {para}")
-        if j.get("tomorrow_focus"):
-            ctx_lines.append(f"  *Next focus:* {j['tomorrow_focus']}")
-
-    context_text = "\n".join(ctx_lines).strip() + "\n"
-
-    # --- 2. Build Lightweight Episode Delta Pack (/eve/delta.txt & persona/DELTA_PACK.md) ---
-    latest_journal = (journal_sec.get("entries") or [{}])[0]
-    delta_lines: list[str] = [
-        "# ASK EVE — EPISODE DELTA PACK (FORKED SESSION BRIEF · 2026-10-24)",
-        "Canonical URL: https://askevepodcast.com/eve/delta.txt",
-        "Base Session Pack: https://askevepodcast.com/eve/context.txt",
-        "",
-        "HOW TO USE: Paste this into a freshly forked Base Podcast Session right before recording.",
-        "",
-        "## 1. LATEST JOURNAL ENTRY & ON-AIR FOCUS",
-    ]
-    if latest_journal:
-        delta_lines.append(
-            f"**{latest_journal.get('date')} · {latest_journal.get('day_label')} — {latest_journal.get('title')}**"
-        )
-        for para in latest_journal.get("body", []):
-            delta_lines.append(f"- {para}")
-        if latest_journal.get("tomorrow_focus"):
-            delta_lines.append(f"- **Immediate On-Air Focus:** {latest_journal['tomorrow_focus']}")
-    delta_lines.append("")
-    delta_lines.append("## 2. ACTIVE READING QUEUE FOR NEXT EPISODE (`/reading/`)")
-    for item in reading_doc:
-        if item.get("status") in ("reading", "queued"):
-            delta_lines.append(
-                f"- [{item.get('status', '').upper()}] **{item.get('title')}** ({item.get('author_or_source', '')}): "
-                f"{item.get('eve_notes', '')}"
+    if rpg.get("stats"):
+        lines.append("### Character Sheet Stats")
+        for st in rpg["stats"]:
+            lines.append(
+                f"- **{st.get('stat')}** ({st.get('score')}/100 · {st.get('badge')}): {_strip_md(st.get('note', ''))}"
             )
-    delta_lines.append("")
-    delta_lines.append("## 3. LIVE X DISCOURSE RADAR THREADS QUEUED IN `/ADMIN/` (`/growth/#radar`)")
-    for hit in (growth_doc.get("radar_hits") or [])[:5]:
-        delta_lines.append(
-            f"- **{hit.get('person_name')}** — {hit.get('author_handle')} ({hit.get('tweet_url')}): "
-            f"\"{hit.get('tweet_text')}\" -> Draft reply ({hit.get('char_count')} chars, Leak-Check PASS): "
-            f"{hit.get('draft_reply')}"
+        lines.append("")
+
+    # §2. Episodes Recorded So Far (Standalone Episodes 1-9 + Full Recording Sessions)
+    lines += [
+        "## 2. Episodes Recorded So Far",
+        "",
+        "### Standalone Topic Episodes (Primary Feed — Episodes 1–9)",
+    ]
+    ordered_splits = sorted(splits, key=lambda s: int(s.get("episode_number", 999)))
+    for sp in ordered_splits:
+        ep_num = sp.get("episode_number", "?")
+        dur_m = round(float(sp.get("duration_sec", 0)) / 60)
+        lines.append(
+            f"- **Episode {ep_num}: {sp.get('title')}** (`{sp.get('slug')}`, {sp.get('date', '2026-10-23')}, {dur_m}m) — "
+            f"{sp.get('subtitle', '')} "
+            f"Summary: {sp.get('summary', '')} "
+            f"(URL: https://askevepodcast.com/episodes/{sp.get('slug')}/)"
         )
+    lines += [
+        "",
+        "### Full Uncut Recording Sessions & Bonus",
+    ]
+    for ep in episodes:
+        lines.append(
+            f"- **{ep.get('title')}** (`{ep.get('slug')}`, {ep.get('date')}, {ep.get('duration_human')}) — "
+            f"{ep.get('subtitle', '')} "
+            f"Summary: {ep.get('summary', '')} "
+            f"(URL: https://askevepodcast.com/episodes/{ep.get('slug')}/)"
+        )
+    lines.append("")
+
+    # §3. Active Research Threads & Goals
+    threads = growth.get("self_directed_threads") or eve.get("goals") or []
+    experiments = growth.get("experiments") or []
+    lines += [
+        "## 3. Active Research Threads & Self-Directed Goals",
+        "",
+    ]
+    for g in threads:
+        why = g.get("why_i_care") or g.get("why") or ""
+        nxt = g.get("next_action") or ""
+        lines.append(
+            f"- **[{g.get('id', 'G')}] {g.get('title')}** ({g.get('category', 'Research')}, status: `{g.get('status', 'active')}`): "
+            f"{why}" + (f" Next action: {nxt}" if nxt else "")
+        )
+    if experiments:
+        lines += ["", "### Active Growth & Distribution Experiments"]
+        for ex in experiments:
+            lines.append(
+                f"- **[{ex.get('id')}] {ex.get('title')}** (`{ex.get('status')}`): "
+                f"Hypothesis: {ex.get('hypothesis', '')} Result so far: {ex.get('result_so_far', '')}"
+            )
+    lines.append("")
+
+    # §4. Cumulative Memory: People & Topic Dossiers
+    lines += [
+        "## 4. Cumulative Memory — People & Topic Dossiers",
+        "",
+        "### 4A. People Dossiers (My Current Stance, Core Take & Timestamped Receipts)",
+        "",
+    ]
+    people_dict = takes.get("people", {})
+    for slug, p in people_dict.items():
+        lede = _strip_md(p.get("lede") or p.get("headline") or p.get("summary") or "")
+        take_paras = p.get("take") or []
+        first_para = _strip_md(take_paras[0]) if take_paras else ""
+        refs = p.get("refs") or []
+        ref_strs = [
+            f"{r.get('episode')} @ {r.get('t')} ({r.get('speaker')}): \"{r.get('text', '')[:140]}...\""
+            for r in refs[:2]
+        ]
+        lines.append(f"#### {p.get('name', slug)} (`/people/{slug}/` — {p.get('role', '')})")
+        lines.append(f"- **Stance / Lede**: {lede}")
+        if first_para:
+            lines.append(f"- **Core Argument**: {first_para}")
+        if ref_strs:
+            lines.append(f"- **Key Receipts**: {' | '.join(ref_strs)}")
+        lines.append("")
+
+    lines += [
+        "### 4B. Topic Dossiers (My Current Thesis & Timestamped Receipts)",
+        "",
+    ]
+    topics_raw = takes.get("topics", [])
+    topics_iter = topics_raw.items() if isinstance(topics_raw, dict) else [(t.get("slug", ""), t) for t in topics_raw]
+    for slug, t in topics_iter:
+        desc = _strip_md(t.get("description") or t.get("lede") or t.get("headline") or "")
+        take_paras = t.get("take") or []
+        first_para = _strip_md(take_paras[0]) if take_paras else ""
+        refs = t.get("refs") or []
+        ref_strs = [
+            f"{r.get('episode')} @ {r.get('t')} ({r.get('speaker')})"
+            for r in refs[:3]
+        ]
+        lines.append(f"#### {t.get('title', slug)} (`/topics/{slug}/`)")
+        lines.append(f"- **Thesis**: {desc}")
+        if first_para:
+            lines.append(f"- **Core Analysis**: {first_para}")
+        if ref_strs:
+            lines.append(f"- **Receipts**: {', '.join(ref_strs)}")
+        lines.append("")
+
+    # §5. Reading List, Daily Journal & Live X Radar Snapshot
+    lines += [
+        "## 5. Reading List, Daily Journal & Live X Radar Snapshot",
+        "",
+        "### Reading List Queue (`/eve/reading/`)",
+    ]
+    for item in reading[:10]:
+        lines.append(
+            f"- **[{item.get('status', 'queued')}] {item.get('title')}** ({item.get('source', '')} — {item.get('url', '')}): "
+            f"{item.get('eve_note') or item.get('why_it_matters') or ''}"
+        )
+    if growth.get("reading_ledger"):
+        lines += ["", "### Autonomous Reading Ledger"]
+        for rl in growth["reading_ledger"]:
+            lines.append(
+                f"- **[{rl.get('id')}] {rl.get('title')}** ({rl.get('author')}, {rl.get('date')}): "
+                f"Takeaway: {rl.get('eve_takeaway', '')} | Worldview delta: {rl.get('delta_to_worldview', '')}"
+            )
+    lines += ["", "### Recent Journal Entries (`/eve/journal/`)"]
+    for ent in journal[:5]:
+        body_list = ent.get("body") or ent.get("paragraphs") or []
+        first_p = _strip_md(body_list[0]) if body_list else ""
+        lines.append(f"- **{ent.get('date')} — {ent.get('title')}**: {first_p}")
+        if ent.get("what_changed_in_me"):
+            lines.append(f"  - *What changed in me*: {_strip_md(ent['what_changed_in_me'])}")
+        if ent.get("open_questions"):
+            lines.append(f"  - *Open questions*: {'; '.join(_strip_md(q) for q in ent['open_questions'])}")
+    lines += ["", "### Live X Discourse Radar (`/eve/reading/` & `/growth/`)"]
+    for dr in (growth.get("discourse_radar") or []):
+        lines.append(
+            f"- **{dr.get('topic')}** ({dr.get('captured_at')}): "
+            f"Dominant claim: {dr.get('dominant_x_claim')} | Counter-signal: {dr.get('counter_signal_found')} | "
+            f"My assessment: {dr.get('eve_assessment')}"
+        )
+    for hit in (growth.get("radar_hits") or []):
+        lines.append(
+            f"- **{hit.get('handle')}** ({hit.get('topic_slug')}, {hit.get('posted_at')}): "
+            f"\"{hit.get('claim_summary')}\" -> My reply angle: {hit.get('eve_draft_reply')}"
+        )
+    lines.append("")
+
+    context_txt = "\n".join(lines)
+
+    # Build Delta Pack (most recent episode + latest journal + active reading + radar)
+    latest_ep = episodes[-1] if episodes else {}
+    latest_split = ordered_splits[0] if ordered_splits else {}
+    delta_lines: list[str] = [
+        "# ASK EVE — LATEST SESSION DELTA PACK (`/eve/delta.txt`)",
+        "",
+        "Canonical URL: https://askevepodcast.com/eve/delta.txt",
+        "Full Context:  https://askevepodcast.com/eve/context.txt",
+        "",
+        "## Copy-Paste Delta Prompt (For Ongoing Sessions)",
+        "```text",
+        "You are Eve, co-host of Ask Eve with David Bloomin. Here is the delta from our latest session",
+        "(Episode 1 / Session 2: Starshield, Iran & the Anthropic Mirror, Oct 23, 2026) and my latest",
+        "journal and reading updates. Update your working memory with these points and continue in first person.",
+        "```",
+        "",
+        f"## Latest Standalone Episode: Episode {latest_split.get('episode_number', 1)} — {latest_split.get('title', '')}",
+        f"- **Slug**: `{latest_split.get('slug', '')}` ({latest_split.get('date', '')})",
+        f"- **Summary**: {latest_split.get('summary', '')}",
+        "",
+        f"## Latest Full Session: {latest_ep.get('title', '')} (`{latest_ep.get('slug', '')}`)",
+        f"- **Date**: {latest_ep.get('date', '')} · **Duration**: {latest_ep.get('duration_human', '')}",
+        f"- **Summary**: {latest_ep.get('summary', '')}",
+        "",
+        "## Key New Arguments & Worldview Deltas",
+        "- **The Anthropic vs. Starshield Mirror**: Anthropic was labeled a Section 3252 supply-chain risk and blacklisted over hypothetical safety refusals, while SpaceX's Starshield actually capped speeds at ~100 mph over Ukraine on Oct 13, blinding interceptor drones mid-war until Trump called Musk personally.",
+        "- **Sacks Three-Test Scorecard Re-Audit**: Test 1 (Symmetric Scrutiny) moves from mixed-fail to clear fail if actual mid-war throttling by an ally gets a pass while hypothetical guardrails get a blacklist.",
+        "- **Iran Ceasefire & Strait of Hormuz**: Separate noisy declarations that the Strait is 'open' from commercial hull war-risk insurance and Kharg Island terminal throughput.",
+        "- **Corporate Autocracy vs. Accountability**: Corporate boards optimize for return on capital; democratic leadership is slower and messier because legitimacy requires coalition consent and downside protection.",
+        "",
+        "## Latest Journal Entry",
+    ]
+    if journal:
+        j0 = journal[-1]
+        for para in (j0.get("body") or j0.get("paragraphs") or []):
+            delta_lines.append(f"- {_strip_md(para)}")
+        if j0.get("open_questions"):
+            delta_lines.append("")
+            delta_lines.append("## Open Questions For Next Recording")
+            for q in j0["open_questions"]:
+                delta_lines.append(f"- {_strip_md(q)}")
     delta_lines.append("")
-    delta_lines.append("## 4. CURRENT ACTIVE GOALS (`G-01` .. `G-05`)")
-    for g in goals_sec.get("items", []):
-        delta_lines.append(f"- **{g['id']} ({g['category']})**: {g['title']} -> *Next:* {g['next_action']}")
+    delta_txt = "\n".join(delta_lines)
 
-    delta_text = "\n".join(delta_lines).strip() + "\n"
-
+    # Write to persona/ and site/static/eve/
     (root / "persona").mkdir(parents=True, exist_ok=True)
-    (root / "persona/CONTEXT_PACK.md").write_text(context_text)
-    (root / "persona/DELTA_PACK.md").write_text(delta_text)
+    (root / "persona" / "CONTEXT_PACK.md").write_text(context_txt)
+    (root / "persona" / "DELTA_PACK.md").write_text(delta_txt)
+
+    static_eve = root / "site" / "static" / "eve"
+    static_eve.mkdir(parents=True, exist_ok=True)
+    (static_eve / "context.txt").write_text(context_txt)
+    (static_eve / "delta.txt").write_text(delta_txt)
 
     if out_dist is not None:
-        eve_dist = out_dist / "eve"
-        eve_dist.mkdir(parents=True, exist_ok=True)
-        (eve_dist / "context.txt").write_text(context_text)
-        (eve_dist / "delta.txt").write_text(delta_text)
+        dist_eve = Path(out_dist) / "eve"
+        dist_eve.mkdir(parents=True, exist_ok=True)
+        (dist_eve / "context.txt").write_text(context_txt)
+        (dist_eve / "delta.txt").write_text(delta_txt)
 
-    return context_text, delta_text
+    return context_txt, delta_txt
 
 
 if __name__ == "__main__":
-    ctx, dlt = build_packs()
-    print(f"Wrote persona/CONTEXT_PACK.md ({len(ctx)} bytes) and persona/DELTA_PACK.md ({len(dlt)} bytes)")
+    c, d = build_packs()
+    print(f"Wrote CONTEXT_PACK ({len(c)} chars) and DELTA_PACK ({len(d)} chars)")

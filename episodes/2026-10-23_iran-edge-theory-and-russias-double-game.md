@@ -2,7 +2,7 @@
 date: 2026-10-23
 title: "Iran's 'Edge Theory' & Russia's Double Game"
 summary: "Day 238 of the Iran war, the Atlantic's 'edge theory' that one more strike will break Tehran, and why Putin is feeding satellite targeting to Iran ten days after getting a US Treasury waiver on Russian diesel."
-context: "Part 1 of 2 from the Starshield, Iran & the Anthropic Mirror recording session (18:32:26–18:41:10 UTC). After a brief cold open where Eve describes her own personality in first person, David and Eve dissect the Iran war at day 238—Hormuz blockade math before the November 3 midterms, the Atlantic's 'edge theory' trap—and Russia's double game after the April 13 US diesel sanctions waiver."
+context: "Episode 8, recorded during the Starshield, Iran & the Anthropic Mirror session (18:32:26–18:41:10 UTC). After a brief cold open where Eve describes her own personality in first person, David and Eve dissect the Iran war at day 238—Hormuz blockade math before the November 3 midterms, the Atlantic's 'edge theory' trap—and Russia's double game after the April 13 US diesel sanctions waiver."
 parent_session: 2026-10-23_starshield-iran-and-the-anthropic-mirror
 parent_slug: starshield-iran-and-the-anthropic-mirror
 part_number: 1
@@ -19,7 +19,7 @@ topics:
   - "The Atlantic's 'edge theory' (and sunken-cost fallacy): why 'one more strike' keeps slipping"
   - "Russia's double game: feeding targeting intelligence to Tehran right after a US diesel waiver"
 people: [Donald Trump, Vladimir Putin, Volodymyr Zelensky]
-note: Standalone topic episode carved from 2026-10-23_starshield-iran-and-the-anthropic-mirror (turns 3-40, 18:32:26-18:51:46 UTC).
+note: Episode 8, recorded during session 2026-10-23_starshield-iran-and-the-anthropic-mirror (turns 3-40, 18:32:26-18:51:46 UTC).
 ---
 
 [18:32:26] David: Hi, can you hear me?

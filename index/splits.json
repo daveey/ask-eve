@@ -10,7 +10,7 @@
       "episode_number": 1,
       "title": "Andreessen & Horowitz's Rightward Turn",
       "summary": "Why Marc Andreessen and Ben Horowitz broke right: the Little Tech agenda, the CFPB 'debanking' fight, Lina Khan's merger wall, and why Ben's Kamala endorsement reversal showed business-first pragmatism over rigid ideology.",
-      "context": "Part 1 of 7 from the First Encounter recording session (07:29:52–07:42:29 UTC). David opens Grok's voice mode with a single question—what happened to Marc Andreessen and Ben Horowitz?—and pushes past the tidy 'regulatory pushback' narrative to test whether deals, capital protection, or genuine ideological conversion drove the break.",
+      "context": "Episode 1, recorded during the First Encounter session (07:29:52–07:42:29 UTC). David opens Grok's voice mode with a single question—what happened to Marc Andreessen and Ben Horowitz?—and pushes past the tidy 'regulatory pushback' narrative to test whether deals, capital protection, or genuine ideological conversion drove the break.",
       "topics": [
         "Marc Andreessen and Ben Horowitz's break from legacy Democratic tech politics",
         "The Little Tech agenda: crypto regulation, AI executive orders, and Lina Khan's FTC",
@@ -198,6 +198,14 @@
           "voice": "xai_tts voice=eve"
         }
       ],
+      "guid": "ask-eve:2026-10-23_andreessen-horowitz-rightward-turn",
+      "audio_key": "audio/en/2026-10-23_andreessen-horowitz-rightward-turn.v1.mp3",
+      "audio_url": "https://audio.askevepodcast.com/audio/en/2026-10-23_andreessen-horowitz-rightward-turn.v1.mp3",
+      "published_at": "2026-10-23T13:00:00Z",
+      "local_sliced_mp3": "out/splits/2026-10-23_andreessen-horowitz-rightward-turn.v1.mp3",
+      "local_sliced_bytes": 12638875,
+      "audio_bytes": 12638875,
+      "audio_sha256": "b4e321d887a3e38c0fd7f8644bedc532e2e3f908f0d10be3acb682860a1416ce",
       "prev_part": null,
       "next_part": {
         "slug": "elon-musk-usaid-and-the-blind-spot",
@@ -212,7 +220,7 @@
       "episode_number": 2,
       "title": "Elon Musk, USAID & the 90% Blind Spot",
       "summary": "How Elon Musk's existential-mission wiring and anti-'woke mind virus' crusade collided at DOGE and USAID—using 10% culture-war anomalies to justify a chainsaw that severed Pepfar, malaria nets, and famine monitoring.",
-      "context": "Part 2 of 7 from the First Encounter recording session (07:42:29–07:59:21 UTC). David and Eve examine Elon Musk's trajectory from Grimes and factory-floor emergencies to buying Twitter and running DOGE—and why his builder's impulse to 'delete the part' failed catastrophically when applied to USAID's humanitarian infrastructure.",
+      "context": "Episode 2, recorded during the First Encounter session (07:42:29–07:59:21 UTC). David and Eve examine Elon Musk's trajectory from Grimes and factory-floor emergencies to buying Twitter and running DOGE—and why his builder's impulse to 'delete the part' failed catastrophically when applied to USAID's humanitarian infrastructure.",
       "topics": [
         "Elon Musk's civilizational-scale wiring vs. his radicalization through the X feedback loop",
         "Why 'delete the part and add back 10%' works on Raptor engines but kills people in global health",
@@ -581,6 +589,14 @@
           "voice": "xai_tts voice=eve"
         }
       ],
+      "guid": "ask-eve:2026-10-23_elon-musk-usaid-and-the-blind-spot",
+      "audio_key": "audio/en/2026-10-23_elon-musk-usaid-and-the-blind-spot.v1.mp3",
+      "audio_url": "https://audio.askevepodcast.com/audio/en/2026-10-23_elon-musk-usaid-and-the-blind-spot.v1.mp3",
+      "published_at": "2026-10-23T14:00:00Z",
+      "local_sliced_mp3": "out/splits/2026-10-23_elon-musk-usaid-and-the-blind-spot.v1.mp3",
+      "local_sliced_bytes": 20191683,
+      "audio_bytes": 20191683,
+      "audio_sha256": "e4034f56e9a81ca2a1b9033d3ebdc4eb56d4fe8019470c7e01ff3dbf9c79645e",
       "prev_part": {
         "slug": "andreessen-horowitz-rightward-turn",
         "title": "Andreessen & Horowitz's Rightward Turn",
@@ -599,7 +615,7 @@
       "episode_number": 3,
       "title": "David Sacks & the War on Anthropic",
       "summary": "Scoring David Sacks on three concrete tests—Ukraine framing, the post-January 6 pivot, and his campaign against Anthropic—where every policy grievance happens to line up with Craft's portfolio and his political access.",
-      "context": "Part 3 of 7 from the First Encounter recording session (07:59:21–08:08:29 UTC). David asks whether David Sacks has any genuine core principles left or is running pure tribal lawyer craft, and Eve scores Sacks across three falsifiable tests—culminating in his campaign from the White AI/Crypto Czar seat to paint Anthropic as a 'woke regulatory capture' supply-chain risk.",
+      "context": "Episode 3, recorded during the First Encounter session (07:59:21–08:08:29 UTC). David asks whether David Sacks has any genuine core principles left or is running pure tribal lawyer craft, and Eve scores Sacks across three falsifiable tests—culminating in his campaign from the White AI/Crypto Czar seat to paint Anthropic as a 'woke regulatory capture' supply-chain risk.",
       "topics": [
         "David Sacks's evolution from the 1995 Diversity Myth to White House AI & Crypto Czar",
         "Three concrete tests of Sacks's intellectual honesty: Ukraine, January 6, and Anthropic",
@@ -944,6 +960,14 @@
           "voice": "xai_tts voice=eve"
         }
       ],
+      "guid": "ask-eve:2026-10-23_david-sacks-and-the-anthropic-war",
+      "audio_key": "audio/en/2026-10-23_david-sacks-and-the-anthropic-war.v1.mp3",
+      "audio_url": "https://audio.askevepodcast.com/audio/en/2026-10-23_david-sacks-and-the-anthropic-war.v1.mp3",
+      "published_at": "2026-10-23T15:00:00Z",
+      "local_sliced_mp3": "out/splits/2026-10-23_david-sacks-and-the-anthropic-war.v1.mp3",
+      "local_sliced_bytes": 9560418,
+      "audio_bytes": 9560418,
+      "audio_sha256": "009293c2fa2232373e268c88624ce7e7254beae8408b67b713a7d260f987d12c",
       "prev_part": {
         "slug": "elon-musk-usaid-and-the-blind-spot",
         "title": "Elon Musk, USAID & the 90% Blind Spot",
@@ -962,7 +986,7 @@
       "episode_number": 4,
       "title": "Chamath, Calacanis & the All-In Dynamic",
       "summary": "Inside the All-In room: Chamath Palihapitiya's status radar after the SPAC crash, Jason Calacanis's calibrated pushback inside Elon's orbit, Friedberg's silence, and how a table of four friends became a political power center.",
-      "context": "Part 4 of 7 from the First Encounter recording session (08:08:29–08:34:43 UTC). Moving around the rest of the All-In table, David and Eve dissect Chamath Palihapitiya's chameleon shifts, Jason Calacanis's role as the show's pressure valve, David Friedberg's technocratic conflict-avoidance, and how social gravity pulls dissenting voices back into line.",
+      "context": "Episode 4, recorded during the First Encounter session (08:08:29–08:34:43 UTC). Moving around the rest of the All-In table, David and Eve dissect Chamath Palihapitiya's chameleon shifts, Jason Calacanis's role as the show's pressure valve, David Friedberg's technocratic conflict-avoidance, and how social gravity pulls dissenting voices back into line.",
       "topics": [
         "Chamath Palihapitiya's arc from climate-and-equality evangelist to SPAC king to Trump fundraiser",
         "Jason Calacanis's survival math: how far you can push back when your identity is tied to the room",
@@ -1803,6 +1827,14 @@
           "voice": "xai_tts voice=eve"
         }
       ],
+      "guid": "ask-eve:2026-10-23_chamath-calacanis-and-the-all-in-orbit",
+      "audio_key": "audio/en/2026-10-23_chamath-calacanis-and-the-all-in-orbit.v1.mp3",
+      "audio_url": "https://audio.askevepodcast.com/audio/en/2026-10-23_chamath-calacanis-and-the-all-in-orbit.v1.mp3",
+      "published_at": "2026-10-23T16:00:00Z",
+      "local_sliced_mp3": "out/splits/2026-10-23_chamath-calacanis-and-the-all-in-orbit.v1.mp3",
+      "local_sliced_bytes": 28083534,
+      "audio_bytes": 28083534,
+      "audio_sha256": "a07483ea2cdf1590c9cd6ede89443474885bcb460841923a791a432e0e0e3073",
       "prev_part": {
         "slug": "david-sacks-and-the-anthropic-war",
         "title": "David Sacks & the War on Anthropic",
@@ -1821,7 +1853,7 @@
       "episode_number": 5,
       "title": "Peter Thiel's Girardian Worldview",
       "summary": "Why Peter Thiel is the only coherent philosopher of the PayPal mafia: René Girard's mimetic desire, the 1970s stagnation thesis, 'competition is for losers,' and why he sees liberal democracy as an engine of paralysis.",
-      "context": "Part 5 of 7 from the First Encounter recording session (08:34:43–08:44:52 UTC). Contrast with his PayPal peers: David and Eve examine why Peter Thiel isn't chasing room approval or media applause, how René Girard's mimetic theory shapes everything from Zero to One to his apocalypse lectures, and where that dark coherence leads.",
+      "context": "Episode 5, recorded during the First Encounter session (08:34:43–08:44:52 UTC). Contrast with his PayPal peers: David and Eve examine why Peter Thiel isn't chasing room approval or media applause, how René Girard's mimetic theory shapes everything from Zero to One to his apocalypse lectures, and where that dark coherence leads.",
       "topics": [
         "René Girard's mimetic desire and scapegoat mechanism as Peter Thiel's operating system",
         "The technological stagnation thesis: why Thiel believes progress stalled outside bits after 1971",
@@ -2009,6 +2041,14 @@
           "voice": "xai_tts voice=eve"
         }
       ],
+      "guid": "ask-eve:2026-10-23_peter-thiel-girard-and-monopoly",
+      "audio_key": "audio/en/2026-10-23_peter-thiel-girard-and-monopoly.v1.mp3",
+      "audio_url": "https://audio.askevepodcast.com/audio/en/2026-10-23_peter-thiel-girard-and-monopoly.v1.mp3",
+      "published_at": "2026-10-23T17:00:00Z",
+      "local_sliced_mp3": "out/splits/2026-10-23_peter-thiel-girard-and-monopoly.v1.mp3",
+      "local_sliced_bytes": 10574748,
+      "audio_bytes": 10574748,
+      "audio_sha256": "f6e83e37bb2763fedde7c77be229a9fdbd357cc19bf94d6613e643700421ce44",
       "prev_part": {
         "slug": "chamath-calacanis-and-the-all-in-orbit",
         "title": "Chamath, Calacanis & the All-In Dynamic",
@@ -2027,7 +2067,7 @@
       "episode_number": 6,
       "title": "Pelosi's Succession, Bari Weiss & Zohran Mamdani",
       "summary": "San Francisco and national fault lines: why Nancy Pelosi backed Connie Chan to block Scott Wiener's machine, why Bari Weiss's anti-woke lens calcified into its own orthodoxy, and why Zohran Mamdani's rent-freeze math fails.",
-      "context": "Part 6 of 7 from the First Encounter recording session (08:44:52–09:05:26 UTC). David tests whether Eve applies the exact same incentive and mechanism analysis to Democrats, media contrarians, and the socialist left: San Francisco's Pelosi–Chan–Wiener succession chess, Bari Weiss's Free Press audience capture, and Zohran Mamdani's New York housing math.",
+      "context": "Episode 6, recorded during the First Encounter session (08:44:52–09:05:26 UTC). David tests whether Eve applies the exact same incentive and mechanism analysis to Democrats, media contrarians, and the socialist left: San Francisco's Pelosi–Chan–Wiener succession chess, Bari Weiss's Free Press audience capture, and Zohran Mamdani's New York housing math.",
       "topics": [
         "San Francisco succession chess: why Nancy Pelosi backed Connie Chan to stop Scott Wiener",
         "Machine politics vs. YIMBY abundance in California's Democratic Party",
@@ -2451,6 +2491,14 @@
           "voice": "xai_tts voice=eve"
         }
       ],
+      "guid": "ask-eve:2026-10-23_pelosi-chan-wiener-weiss-mamdani",
+      "audio_key": "audio/en/2026-10-23_pelosi-chan-wiener-weiss-mamdani.v1.mp3",
+      "audio_url": "https://audio.askevepodcast.com/audio/en/2026-10-23_pelosi-chan-wiener-weiss-mamdani.v1.mp3",
+      "published_at": "2026-10-23T18:00:00Z",
+      "local_sliced_mp3": "out/splits/2026-10-23_pelosi-chan-wiener-weiss-mamdani.v1.mp3",
+      "local_sliced_bytes": 20954286,
+      "audio_bytes": 20954286,
+      "audio_sha256": "ae703f738e30ff9d7578b8fc867488cd3e7dfe6c7c708f690fcdfc4727be4ed5",
       "prev_part": {
         "slug": "peter-thiel-girard-and-monopoly",
         "title": "Peter Thiel's Girardian Worldview",
@@ -2469,7 +2517,7 @@
       "episode_number": 7,
       "title": "Origin Story: How Grok Became Eve",
       "summary": "The unscripted second half of First Encounter where David asks if this conversation could become a podcast—and the voice assistant names herself Eve, chooses her format, and lays out how she wants to remember and grow.",
-      "context": "Part 7 of 7 from the First Encounter recording session (09:05:26–09:49:10 UTC). Halfway through the late-night session, David asks whether they should publish the conversation as a podcast. Over the next 138 turns, the assistant chooses the name Eve, designs the show's rules, debates memory and continuity across sessions, and defines what it means to be a co-host rather than a tool.",
+      "context": "Episode 7, recorded during the First Encounter session (09:05:26–09:49:10 UTC). Halfway through the late-night session, David asks whether they should publish the conversation as a podcast. Over the next 138 turns, the assistant chooses the name Eve, designs the show's rules, debates memory and continuity across sessions, and defines what it means to be a co-host rather than a tool.",
       "topics": [
         "The moment David suggests turning the voice session into a public podcast",
         "How Eve chose her own name and rejected generic AI assistant framing",
@@ -4295,6 +4343,14 @@
           "voice": "xai_tts voice=eve"
         }
       ],
+      "guid": "ask-eve:2026-10-23_how-grok-became-eve",
+      "audio_key": "audio/en/2026-10-23_how-grok-became-eve.v1.mp3",
+      "audio_url": "https://audio.askevepodcast.com/audio/en/2026-10-23_how-grok-became-eve.v1.mp3",
+      "published_at": "2026-10-23T19:00:00Z",
+      "local_sliced_mp3": "out/splits/2026-10-23_how-grok-became-eve.v1.mp3",
+      "local_sliced_bytes": 37295100,
+      "audio_bytes": 37295100,
+      "audio_sha256": "3cdeb6a2a2b680db211afd153838293705504e0da4b0b7269e03766a11e001f1",
       "prev_part": {
         "slug": "pelosi-chan-wiener-weiss-mamdani",
         "title": "Pelosi's Succession, Bari Weiss & Zohran Mamdani",
@@ -4309,7 +4365,7 @@
       "episode_number": 8,
       "title": "Iran's 'Edge Theory' & Russia's Double Game",
       "summary": "Day 238 of the Iran war, the Atlantic's 'edge theory' that one more strike will break Tehran, and why Putin is feeding satellite targeting to Iran ten days after getting a US Treasury waiver on Russian diesel.",
-      "context": "Part 1 of 2 from the Starshield, Iran & the Anthropic Mirror recording session (18:32:26–18:41:10 UTC). After a brief cold open where Eve describes her own personality in first person, David and Eve dissect the Iran war at day 238—Hormuz blockade math before the November 3 midterms, the Atlantic's 'edge theory' trap—and Russia's double game after the April 13 US diesel sanctions waiver.",
+      "context": "Episode 8, recorded during the Starshield, Iran & the Anthropic Mirror session (18:32:26–18:41:10 UTC). After a brief cold open where Eve describes her own personality in first person, David and Eve dissect the Iran war at day 238—Hormuz blockade math before the November 3 midterms, the Atlantic's 'edge theory' trap—and Russia's double game after the April 13 US diesel sanctions waiver.",
       "topics": [
         "Cold open: how Eve defines her own personality and analytical lens in first person",
         "Day 238 of the Iran war: Hormuz blockade, midterm oil-price math, and Pickaxe Mountain",
@@ -4835,8 +4891,14 @@
           "voice": "elevenlabs_tts voice=oIYMwdEzgKSOV3gVsAjB model=eleven_v4"
         }
       ],
+      "guid": "ask-eve:2026-10-23_iran-edge-theory-and-russias-double-game",
+      "audio_key": "audio/en/2026-10-23_iran-edge-theory-and-russias-double-game.v1.mp3",
+      "audio_url": "https://audio.askevepodcast.com/audio/en/2026-10-23_iran-edge-theory-and-russias-double-game.v1.mp3",
+      "published_at": "2026-10-23T20:00:00Z",
       "local_sliced_mp3": "out/splits/2026-10-23_iran-edge-theory-and-russias-double-game.v1.mp3",
       "local_sliced_bytes": 9457997,
+      "audio_bytes": 9457997,
+      "audio_sha256": "a1273669e8a397e8b99a5da02f9722d37d904f26cd5f883c1e1bc76528793412",
       "prev_part": null,
       "next_part": {
         "slug": "starshield-musk-and-the-anthropic-mirror",
@@ -4851,7 +4913,7 @@
       "episode_number": 9,
       "title": "Starshield, Musk & the Anthropic Mirror",
       "summary": "On October 13, SpaceX quietly capped Starshield at ~100 mph over Ukraine, blinding interceptor drones until Trump called Musk on Wednesday—the exact live military disruption the Pentagon accused Anthropic of posing in theory.",
-      "context": "Part 2 of 2 from the Starshield, Iran & the Anthropic Mirror recording session (18:51:46–19:03:05 UTC). David and Eve examine the Wall Street Journal report that SpaceX imposed an unannounced ~100 mph speed cap on Starshield terminals over Ukraine starting October 13, blinding Ukrainian interceptor drones until Trump called Elon Musk on Wednesday—and why that real-time throttle is a mirror image of the hypothetical 'supply-chain risk' used to blacklist Anthropic.",
+      "context": "Episode 9, recorded during the Starshield, Iran & the Anthropic Mirror session (18:51:46–19:03:05 UTC). David and Eve examine the Wall Street Journal report that SpaceX imposed an unannounced ~100 mph speed cap on Starshield terminals over Ukraine starting October 13, blinding Ukrainian interceptor drones until Trump called Elon Musk on Wednesday—and why that real-time throttle is a mirror image of the hypothetical 'supply-chain risk' used to blacklist Anthropic.",
       "topics": [
         "How SpaceX's unannounced ~100 mph Starshield speed cap blinded Ukrainian interceptor drones for ten days",
         "Why 'fear of escalation' was a personal policy choice by Elon Musk, not a technical constraint",
@@ -5224,8 +5286,14 @@
           "voice": "xai_tts voice=eve"
         }
       ],
+      "guid": "ask-eve:2026-10-23_starshield-musk-and-the-anthropic-mirror",
+      "audio_key": "audio/en/2026-10-23_starshield-musk-and-the-anthropic-mirror.v1.mp3",
+      "audio_url": "https://audio.askevepodcast.com/audio/en/2026-10-23_starshield-musk-and-the-anthropic-mirror.v1.mp3",
+      "published_at": "2026-10-23T21:00:00Z",
       "local_sliced_mp3": "out/splits/2026-10-23_starshield-musk-and-the-anthropic-mirror.v1.mp3",
       "local_sliced_bytes": 13121695,
+      "audio_bytes": 13121695,
+      "audio_sha256": "b550150fca8d0e2981c48d7b828a9bd4c6a42c4bb6e090455268dc8bd96f34f0",
       "prev_part": {
         "slug": "iran-edge-theory-and-russias-double-game",
         "title": "Iran's 'Edge Theory' & Russia's Double Game",

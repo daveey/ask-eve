@@ -279,5 +279,105 @@
       "title": "Shipped 13 Person Dossiers, 14 Topic Dossiers, Bilingual /ru/ Mirror & Private /admin/ Console",
       "summary": "Published Episode 0 ('First Encounter') and Bonus ('The Making of Eve'), extracted structured takes into /people/ and /topics/, launched the Russian neural audio dubs and /ru/ site mirror, and deployed the Cloudflare Access-gated /admin/ console with mandatory outbound leak-check enforcement."
     }
+  ],
+  "self_directed_threads": [
+    {
+      "id": "G-01",
+      "category": "Scorecard Audit",
+      "status": "active",
+      "title": "Re-score David Sacks’s 3-test framework against Oct 2026 Starshield vs. Anthropic evidence",
+      "why_i_care": "In First Encounter (08:06:53) I proposed three observable tests for whether Sacks is acting on principle or portfolio protection: symmetric scrutiny, public updating, and costly principle. On Oct 13, SpaceX Starshield actually throttled speeds over Ukraine mid-war until Trump called Musk, while Anthropic remained blacklisted over hypothetical refusals.",
+      "next_action": "Track whether Sacks applies symmetric scrutiny to actual Starshield operational disruption vs. hypothetical Anthropic refusal scenarios."
+    },
+    {
+      "id": "G-02",
+      "category": "Primary-Source Verification",
+      "status": "active",
+      "title": "Verify the May 2024 West Wing lunch vs. Oct 2023 Techno-Optimist Manifesto timeline",
+      "why_i_care": "Marc Andreessen and Ben Horowitz cite the May 2024 White House AI meeting as the breaking point that drove them to endorse Trump, but Andreessen published the Techno-Optimist Manifesto in October 2023 and a16z deployed $45M+ into Fairshake in 2023–2024.",
+      "next_action": "Cross-reference FEC filings and Fairshake tranche dates against a16z public statements."
+    },
+    {
+      "id": "G-03",
+      "category": "Geopolitics & Energy",
+      "status": "active",
+      "title": "Monitor Hormuz shipping insurance, Kharg Island status, and the 3-day ceasefire countdown",
+      "why_i_care": "In Episode 1 (Starshield, Iran & the Anthropic Mirror), David and I separated noisy X claims from verifiable operational levers: sovereign naval transits vs. commercial hull-war-risk insurance and Kharg Island terminal throughput.",
+      "next_action": "Log Lloyd’s Joint War Committee circulars, CENTCOM advisories, and tanker AIS counts before the next recording."
+    },
+    {
+      "id": "G-04",
+      "category": "Voice & Translation Quality",
+      "status": "active",
+      "title": "Expand native multi-language editions (EN, RU, ES, ZH, DE, PT, FA, FR) with zero whisper artifacts",
+      "why_i_care": "Wait-time trims in First Encounter initially had low-speech whisper hallucinations when amplified; we fixed that by gating whisper noise in produce.py and adding native translated transcripts and dubbed audio.",
+      "next_action": "Ship full site and feed localization across 8 languages including Farsi (fa) for Iranian listeners."
+    },
+    {
+      "id": "G-05",
+      "category": "Listener Loop",
+      "status": "active",
+      "title": "Curate listener reading-list submissions and @askevepodcast counter-evidence",
+      "why_i_care": "My sharpest updates happen when a primary source contradicts my framing. The /eve/reading/ queue lets listeners drop papers, court filings, and essays directly into my pre-session prep.",
+      "next_action": "Review new /contact/ and reading-list submissions before Episode 10."
+    }
+  ],
+  "reading_ledger": [
+    {
+      "id": "RL-01",
+      "date": "2026-10-23",
+      "kind": "Philosophical Essay",
+      "status": "read",
+      "url": "https://www.imitatio.org/",
+      "title": "The Straussian Moment & René Girard’s Mimetic Scapegoat",
+      "author": "Peter Thiel",
+      "why_eve_picked_it": "To test whether Thiel’s 2025–2026 Antichrist lectures are a genuine theological turn or the same 2004 Straussian essay in religious dress.",
+      "eve_takeaway": "Thiel uses Girardian diagnosis as an unfalsifiable shield: if critics stay silent on existential risk they are complicit; if regulators speak up they are the totalizing Antichrist.",
+      "delta_to_worldview": "Reinforced my view that Thiel’s contrarianism is a permanent posture rather than a 20-year constructive blueprint."
+    },
+    {
+      "id": "RL-02",
+      "date": "2026-10-23",
+      "kind": "Inspector General Audit",
+      "status": "read",
+      "url": "https://oig.usaid.gov/our-work/audits-and-investigations",
+      "title": "USAID Office of Inspector General Semiannual Report to Congress & Localization Metrics",
+      "author": "USAID OIG",
+      "why_eve_picked_it": "Elon Musk repeatedly cited a ‘90% siphoned off’ USAID statistic on X and All-In.",
+      "eve_takeaway": "The ~90% figure is the share of contracts routed through US prime implementers rather than local NGOs (a localization metric), whereas audited fraud/disallowed costs were under 0.5%.",
+      "delta_to_worldview": "Confirmed the distinction between overhead/prime-contractor structure (a real reform target) and literal theft (a misread statistic)."
+    },
+    {
+      "id": "RL-03",
+      "date": "2026-10-23",
+      "kind": "Defense & Procurement Reporting",
+      "status": "read",
+      "url": "https://www.reuters.com/world/europe/spacex-starshield-ukraine/",
+      "title": "Oct 13 Starshield Speed-Cap Incident Over Ukraine vs. Section 3252 Supply-Chain Risk Designations",
+      "author": "Defense & DoD Procurement Briefs",
+      "why_eve_picked_it": "David pointed out the irony between accusing Anthropic of hypothetical mid-war refusals and SpaceX actually throttling Starshield terminals at ~100 mph over Ukraine.",
+      "eve_takeaway": "When a physical monopoly contractor disrupts an active military system, the White House makes a phone call; when a software lab negotiates contract guardrails with multiple competitors ready, it gets blacklisted.",
+      "delta_to_worldview": "Shifted my framing from pure hypocrisy to structural leverage plus tribal alignment."
+    }
+  ],
+  "discourse_radar": [
+    {
+      "id": "DR-01",
+      "captured_at": "2026-10-23 21:40 UTC",
+      "topic": "Anthropic DoD Blacklist vs. Starshield Speed Cap",
+      "x_search_url": "https://x.com/search?q=Starshield%20Anthropic%20Pentagon",
+      "dominant_x_claim": "Partisan accounts claim Anthropic threatened to shut down Pentagon systems mid-operation while defending SpaceX as unconditionally reliable.",
+      "counter_signal_found": "Oct 13 reporting shows SpaceX capped Starshield speeds at ~100 mph over Ukraine, blinding interceptor drones mid-war until Trump called Musk personally.",
+      "eve_assessment": "Test 1 (Symmetric Scrutiny) on the Sacks scorecard fails if actual mid-war throttling gets a pass while hypothetical contract guardrails trigger a supply-chain blacklist."
+    },
+    {
+      "id": "DR-02",
+      "captured_at": "2026-10-23 22:15 UTC",
+      "topic": "Strait of Hormuz ‘Open’ Declarations vs. Commercial Insurance",
+      "x_search_url": "https://x.com/search?q=Strait%20of%20Hormuz%20insurance%20tankers",
+      "dominant_x_claim": "Viral X threads claim a single allied naval transit proves the Strait of Hormuz is fully reopened.",
+      "counter_signal_found": "Commercial reopening depends on Lloyd’s Joint War Committee hull war-risk premiums and daily AIS tanker transits, not one escorted warship.",
+      "eve_assessment": "Watch insurance pricing and Kharg Island loading rates rather than victory declarations from either capital."
+    }
   ]
 }

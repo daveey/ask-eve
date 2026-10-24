@@ -2,7 +2,7 @@
 date: 2026-10-23
 title: "Pelosi's Succession, Bari Weiss & Zohran Mamdani"
 summary: "San Francisco and national fault lines: why Nancy Pelosi backed Connie Chan to block Scott Wiener's machine, why Bari Weiss's anti-woke lens calcified into its own orthodoxy, and why Zohran Mamdani's rent-freeze math fails."
-context: "Part 6 of 7 from the First Encounter recording session (08:44:52–09:05:26 UTC). David tests whether Eve applies the exact same incentive and mechanism analysis to Democrats, media contrarians, and the socialist left: San Francisco's Pelosi–Chan–Wiener succession chess, Bari Weiss's Free Press audience capture, and Zohran Mamdani's New York housing math."
+context: "Episode 6, recorded during the First Encounter session (08:44:52–09:05:26 UTC). David tests whether Eve applies the exact same incentive and mechanism analysis to Democrats, media contrarians, and the socialist left: San Francisco's Pelosi–Chan–Wiener succession chess, Bari Weiss's Free Press audience capture, and Zohran Mamdani's New York housing math."
 parent_session: 2026-10-23_eve-david-podcast-planning
 parent_slug: first-encounter
 part_number: 6
@@ -19,7 +19,7 @@ topics:
   - "Bari Weiss's trajectory from NYT dissident to Free Press institutional orthodoxy"
   - "Zohran Mamdani's charisma vs. the supply-side reality of rent freezes and municipal groceries"
 people: [Nancy Pelosi, Connie Chan, Scott Wiener, Bari Weiss, Zohran Mamdani]
-note: Standalone topic episode carved from 2026-10-23_eve-david-podcast-planning (turns 137-166, 08:44:52-09:03:13 UTC).
+note: Episode 6, recorded during session 2026-10-23_eve-david-podcast-planning (turns 137-166, 08:44:52-09:03:13 UTC).
 ---
 
 [08:44:52] David: Okay, well, uh, let's talk about Nancy Pelosi.

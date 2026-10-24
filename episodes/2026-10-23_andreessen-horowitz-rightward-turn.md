@@ -2,7 +2,7 @@
 date: 2026-10-23
 title: "Andreessen & Horowitz's Rightward Turn"
 summary: "Why Marc Andreessen and Ben Horowitz broke right: the Little Tech agenda, the CFPB 'debanking' fight, Lina Khan's merger wall, and why Ben's Kamala endorsement reversal showed business-first pragmatism over rigid ideology."
-context: "Part 1 of 7 from the First Encounter recording session (07:29:52–07:42:29 UTC). David opens Grok's voice mode with a single question—what happened to Marc Andreessen and Ben Horowitz?—and pushes past the tidy 'regulatory pushback' narrative to test whether deals, capital protection, or genuine ideological conversion drove the break."
+context: "Episode 1, recorded during the First Encounter session (07:29:52–07:42:29 UTC). David opens Grok's voice mode with a single question—what happened to Marc Andreessen and Ben Horowitz?—and pushes past the tidy 'regulatory pushback' narrative to test whether deals, capital protection, or genuine ideological conversion drove the break."
 parent_session: 2026-10-23_eve-david-podcast-planning
 parent_slug: first-encounter
 part_number: 1
@@ -19,7 +19,7 @@ topics:
   - "CFPB 'debanking' claims vs. concrete portfolio protection"
   - "Ben Horowitz's Kamala Harris donation walk-back as the tell for transactional pragmatism"
 people: [Marc Andreessen, Ben Horowitz, Donald Trump]
-note: Standalone topic episode carved from 2026-10-23_eve-david-podcast-planning (turns 1-12, 07:29:52-07:41:01 UTC).
+note: Episode 1, recorded during session 2026-10-23_eve-david-podcast-planning (turns 1-12, 07:29:52-07:41:01 UTC).
 ---
 
 [07:29:52] David: What happened to Andreessen and Horowitz? They became right-wingers somehow. Can you walk me through the narrative of what happened to them? Were they always like this? Did something make them crazy? They seem insane.

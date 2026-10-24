@@ -68,7 +68,7 @@ def _rewrite_asset_url(A, url: str) -> str:
     return A(rel)
 
 
-def render_avatar_page(A, page_fn, lang: str = "en") -> str | None:
+def render_avatar_page(A, page_fn, lang: str = "en", shell_header_html: str = "") -> str | None:
     data = load_avatars()
     if not data:
         return None
@@ -379,28 +379,26 @@ def render_avatar_page(A, page_fn, lang: str = "en") -> str | None:
     master_sheet_url = _rewrite_asset_url(A, exp["master_sheet_url"])
     modal_json = json.dumps(modal_items_js, ensure_ascii=False).replace("</", "<\\/")
 
-    body = f"""<div class="avatar-page i18n-ready">
-<section class="page-head av-hero">
-  <div class="wrap">
-    <p class="eyebrow eyebrow--accent"><a href="/eve/">{e(t["eyebrow_back"])}</a> · {e(t["eyebrow_cur"])}</p>
-    <h1 class="page-title">{e(t["title"])}</h1>
-    <p class="lede">{e(t["lede"])}</p>
-    <div class="av-stat-ribbon tnum">
-      <span class="av-spill">{e(t["stat_prompts"])}</span>
-      <span class="av-spill">{e(t["stat_renders"])}</span>
-      <span class="av-spill">{e(t["stat_total"])}</span>
-      <span class="av-spill">{e(t["stat_rubric"])}</span>
-      <span class="av-spill av-spill--accent">{e(t["stat_winner"])}</span>
-    </div>
-    <nav class="av-subnav" aria-label="Sections">
-      <a href="#winner">{e(t["nav_winner"])}</a>
-      <a href="#rubric">{e(t["nav_rubric"])}</a>
-      <a href="#finalists">{e(t["nav_finalists"])}</a>
-      <a href="#prompts">{e(t["nav_prompts"])}</a>
-      <a href="#contact-sheet">{e(t["nav_sheet"])}</a>
-    </nav>
+    body = f"""{shell_header_html}<div class="avatar-page i18n-ready">
+<header class="wrap eve-view-head av-hero">
+  <p class="eyebrow eyebrow--accent"><a href="/eve/">{e(t["eyebrow_back"])}</a> · {e(t["eyebrow_cur"])}</p>
+  <h2 class="eve-view-head__title">{e(t["title"])}</h2>
+  <p class="lede">{e(t["lede"])}</p>
+  <div class="av-stat-ribbon tnum">
+    <span class="av-spill">{e(t["stat_prompts"])}</span>
+    <span class="av-spill">{e(t["stat_renders"])}</span>
+    <span class="av-spill">{e(t["stat_total"])}</span>
+    <span class="av-spill">{e(t["stat_rubric"])}</span>
+    <span class="av-spill av-spill--accent">{e(t["stat_winner"])}</span>
   </div>
-</section>
+  <nav class="av-subnav" aria-label="Sections">
+    <a href="#winner">{e(t["nav_winner"])}</a>
+    <a href="#rubric">{e(t["nav_rubric"])}</a>
+    <a href="#finalists">{e(t["nav_finalists"])}</a>
+    <a href="#prompts">{e(t["nav_prompts"])}</a>
+    <a href="#contact-sheet">{e(t["nav_sheet"])}</a>
+  </nav>
+</header>
 
 <section class="wrap av-sec" id="winner" aria-labelledby="winner-h">
   <h2 class="av-sec__h" id="winner-h">{e(t["sec1_h"])}</h2>

@@ -2,7 +2,7 @@
 date: 2026-10-23
 title: "Elon Musk, USAID & the 90% Blind Spot"
 summary: "How Elon Musk's existential-mission wiring and anti-'woke mind virus' crusade collided at DOGE and USAID—using 10% culture-war anomalies to justify a chainsaw that severed Pepfar, malaria nets, and famine monitoring."
-context: "Part 2 of 7 from the First Encounter recording session (07:42:29–07:59:21 UTC). David and Eve examine Elon Musk's trajectory from Grimes and factory-floor emergencies to buying Twitter and running DOGE—and why his builder's impulse to 'delete the part' failed catastrophically when applied to USAID's humanitarian infrastructure."
+context: "Episode 2, recorded during the First Encounter session (07:42:29–07:59:21 UTC). David and Eve examine Elon Musk's trajectory from Grimes and factory-floor emergencies to buying Twitter and running DOGE—and why his builder's impulse to 'delete the part' failed catastrophically when applied to USAID's humanitarian infrastructure."
 parent_session: 2026-10-23_eve-david-podcast-planning
 parent_slug: first-encounter
 part_number: 2
@@ -19,7 +19,7 @@ topics:
   - "The USAID chainsaw: using 10% questionable grants to freeze 90% life-saving disease and famine programs"
   - "Why no one inside Elon's current circle can force a reality check"
 people: [Elon Musk, Donald Trump]
-note: Standalone topic episode carved from 2026-10-23_eve-david-podcast-planning (turns 13-38, 07:42:29-07:58:26 UTC).
+note: Episode 2, recorded during session 2026-10-23_eve-david-podcast-planning (turns 13-38, 07:42:29-07:58:26 UTC).
 ---
 
 [07:42:29] David: How did Musk become a Trump fanboy?

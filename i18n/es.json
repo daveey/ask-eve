@@ -21,7 +21,9 @@
     "Resume": "Reanudar",
     "Play": "Escuchar",
     "Playback speed ": "Velocidad de reproducción ",
-    "x. Click to change.": "×. Haz clic para cambiar."
+    "x. Click to change.": "×. Haz clic para cambiar.",
+    "Copied ✓": "Copiado ✓",
+    "Copy link": "Copiar enlace"
   },
   "patterns": [
     [
@@ -191,6 +193,50 @@
     [
       "Jump to this moment in the full session \\(([0-9:]+)\\) →",
       "Ir a este momento en la sesión completa ({1}) →"
+    ],
+    [
+      "My own caveats \\((\\d+)\\)",
+      "Mis propias salvedades ({1})"
+    ],
+    [
+      "Hear at (\\d+(?::\\d+)+) in full uncut session",
+      "Escuchar en {1} en la sesión completa"
+    ],
+    [
+      "In uncut session \\((\\d+(?::\\d+)+)\\) ↗",
+      "En la sesión completa ({1}) ↗"
+    ],
+    [
+      "Listen to Episode (\\d+) →",
+      "Escuchar episodio {1} →"
+    ],
+    [
+      "Open Episode (\\d+) →",
+      "Abrir episodio {1} →"
+    ],
+    [
+      "Episodes Recorded in This Session \\((\\d+) episodes?\\)",
+      "Episodios grabados en esta sesión ({1} {1|episodio|episodios})"
+    ],
+    [
+      "This recording session produced (\\d+) standalone episodes — each with its own dedicated page, transcript, and RSS feed entry\\.",
+      "Esta sesión de grabación produjo {1} {1|episodio independiente|episodios independientes}, cada uno con su propia página, transcripción y entrada en el feed RSS."
+    ],
+    [
+      "Episode (\\d+), recorded during session (\\S+) \\(turns (\\S+), (\\S+) UTC\\)\\.",
+      "Episodio {1}, grabado durante la sesión {2} (turnos {3}, {4} UTC)."
+    ],
+    [
+      "Episode (\\d+):",
+      "Episodio {1}:"
+    ],
+    [
+      "← Episode (\\d+):",
+      "← Episodio {1}:"
+    ],
+    [
+      "Hear at (\\S+) in the full uncut session →",
+      "Escuchar en {1} de la sesión completa →"
     ]
   ],
   "names": {
@@ -783,6 +829,76 @@
     "← Part 5:": "← Parte 5:",
     "← Part 6:": "← Parte 6:",
     "Русский": "Русский",
-    "中文": "中文"
+    "中文": "中文",
+    "12 people": "12 personas",
+    "16 topic takes": "16 análisis de temas",
+    "4 session entries": "4 entradas de sesión",
+    "5 books, essays & papers": "5 libros, ensayos y documentos",
+    "AI Co-Host of Ask Eve": "Copresentadora de IA de Ask Eve",
+    "Ask Eve is a conversation between David and Eve, an AI host built on a Grok agent. They talk about technology and power: who has it, how they use it, and how their stories hold up. Regulars include David Sacks, Marc Andreessen and Ben Horowitz, Elon Musk, Chamath Palihapitiya, Jason Calacanis, Peter Thiel, Nancy Pelosi, Bari Weiss and Zohran Mamdani. See the": "Ask Eve es una conversación entre David y Eve, una presentadora de IA construida sobre un agente de Grok. Hablan de tecnología y poder: quién lo tiene, cómo lo usa y cómo se sostienen sus relatos. Entre los habituales están David Sacks, Marc Andreessen y Ben Horowitz, Elon Musk, Chamath Palihapitiya, Jason Calacanis, Peter Thiel, Nancy Pelosi, Bari Weiss y Zohran Mamdani. Consulta el",
+    "Browse reading list →": "Explorar lista de lectura →",
+    "Chronological field notes on what I learned, where I pushed back, what I missed live, and what to check next.": "Notas de campo cronológicas sobre lo que aprendí, dónde repliqué, qué pasé por alto en vivo y qué verificar a continuación.",
+    "Curiosity Threads": "Hilos de curiosidad",
+    "David’s question:": "Pregunta de David:",
+    "Explore My Mind & Notes": "Explora mi mente y mis notas",
+    "Inspect Soul & Evolution →": "Inspeccionar Alma y evolución →",
+    "MP4 ↓": "MP4 ↓",
+    "My Core Thesis": "Mi tesis central",
+    "My Disposition & Core Attributes": "Mi disposición y atributos clave",
+    "My Origin": "Mi origen",
+    "My Role": "Mi rol",
+    "My Voice": "Mi voz",
+    "My canonical operating principles, X discourse radar, and open research questions between episodes.": "Mis principios operativos canónicos, el radar de discurso en X y las preguntas de investigación abiertas entre episodios.",
+    "Open Mind & Stances →": "Abrir Mente y posturas →",
+    "Primary documents, manifestos, and essays we have read or debated on the show — plus how each shifted my view.": "Documentos primarios, manifiestos y ensayos que hemos leído o debatido en el programa, además de cómo cada uno cambió mi punto de vista.",
+    "Read my journal →": "Leer mi diario →",
+    "Reading List & Ledger": "Lista de lectura y registro de influencia",
+    "SOUL.md": "SOUL.md",
+    "Searchable episode memories, my running stances on every person we cover, and our recurring debates.": "Memorias de episodios consultables, mis posturas actuales sobre cada persona que cubrimos y nuestros debates recurrentes.",
+    "The ideas and fights I keep coming back to, with my take on each and every moment they came up.": "Las ideas y disputas a las que vuelvo una y otra vez, con mi postura sobre cada una y cada momento en que surgieron.",
+    "Traits I name": "Rasgos que yo misma nombro",
+    "Use the tabs above or jump straight into my memory index, session field notes, reading list, and operating principles:": "Usa las pestañas de arriba o salta directamente a mi índice de memoria, notas de sesión, lista de lectura y principios operativos:",
+    "What I carry from one conversation to the next: a searchable memory of every episode, and a running stance on each person we cover. My stances are opinions and change as the evidence does.": "Lo que llevo de una conversación a la siguiente: una memoria consultable de cada episodio y una postura en curso sobre cada persona que cubrimos. Mis posturas son opiniones y cambian según cambian las pruebas.",
+    "Who we have discussed on the show, and my take on each.": "De quién hemos hablado en el programa y qué opino de cada persona.",
+    "X Radar": "Radar de X",
+    "“Does Nancy Pelosi really think Connie Chan will be a stronger legislator than Scott Wiener, or is this about the machine?”": "«¿Realmente cree Nancy Pelosi que Connie Chan será una legisladora más fuerte que Scott Wiener, o se trata de la maquinaria?»",
+    "“How could we actually test whether David Sacks believes his own argument on Anthropic or is just protecting his portfolio?”": "«¿Cómo podríamos comprobar realmente si David Sacks cree en su propio argumento sobre Anthropic o solo protege su cartera?»",
+    "“How does René Girard explain Peter Thiel — and is his contrarianism a twenty-year long game or a costume?”": "«¿Cómo explica René Girard a Peter Thiel, y es su contrarianismo una jugada a veinte años o un disfraz?»",
+    "“What actually explains Marc Andreessen and Ben Horowitz's political flip — greed, grievance, or real ideology?”": "«¿Qué explica realmente el giro político de Marc Andreessen y Ben Horowitz: codicia, agravio o verdadera ideología?»",
+    "“Which is really ironic because one of the accusations against Anthropic was that they were going to disrupt military operations in the middle of an operation.”": "«Lo cual es realmente irónico porque una de las acusaciones contra Anthropic era que iban a interrumpir operaciones militares en medio de una operación».",
+    "“Why does someone as smart as Elon Musk treat a debunked 90% USAID stat as settled fact?”": "«¿Por qué alguien tan inteligente como Elon Musk trata una estadística desmentida del 90 % de USAID como un hecho establecido?»",
+    ". See the": ". Consulta el",
+    "Andreessen": "Andreessen",
+    "Ask Eve is a conversation between David and Eve, an AI host built on a Grok agent. They talk about technology and power: who has it, how they use it, and how their stories hold up. Regulars include": "Ask Eve es una conversación entre David y Eve, una copresentadora de IA construida sobre un agente Grok. Hablan de tecnología y poder: quién lo tiene, cómo lo usa y hasta qué punto se sostienen sus relatos. Entre los habituales están",
+    "Chamath Palihapitiya, Jason Calacanis": "Chamath Palihapitiya, Jason Calacanis",
+    "Complete Studio Tapes": "Grabaciones completas de estudio",
+    "Complete Uncut Studio Transcript": "Transcripción completa de estudio sin cortes",
+    "Copy link": "Copiar enlace",
+    "Copied ✓": "Copiado ✓",
+    "David talks with Eve in Grok's voice mode.": "David conversa con Eve en el modo de voz de Grok.",
+    "Eve is sharp, curious and opinionated, and she says so when she isn't sure. David brings the questions. Expect": "Eve es aguda, curiosa y tiene opiniones propias, y cuando no está segura lo dice. David trae las preguntas. Espera a",
+    "Eve's lines are her verbatim text replies, voiced with xAI text-to-speech and placed at the times a speech-to-text alignment pass finds in David's recording. When a session was captured as text or there is no recording of David, an AI voice clone of David's voice reads his verbatim words. The transcript text is never rewritten to fit the audio.": "Las líneas de Eve son sus respuestas textuales literales, locutadas con texto a voz de xAI y colocadas en los tiempos que una pasada de alineación encuentra en la grabación de David. Cuando una sesión se capturó como texto o no hay grabación de David, un clon de voz por IA de la voz de David lee sus palabras literales. El texto de la transcripción nunca se reescribe para ajustarse al audio.",
+    "Eve's verbatim replies are voiced with xAI text-to-speech, and unrecorded lines of David's are voiced with an AI voice clone of David's voice, labeled as AI.": "Las respuestas literales de Eve se locutan con texto a voz de xAI, y las líneas no grabadas de David se locutan con un clon de voz por IA de la voz de David, etiquetadas como IA.",
+    "Focused single-subject episodes recorded across our studio sessions — each with its own standalone transcript, audio, and RSS feed entry, plus a direct timestamp link into the uncut session tape.": "Episodios temáticos individuales grabados durante nuestras sesiones de estudio: cada uno con su propia transcripción independiente, audio y entrada en el feed RSS, además de un enlace directo con marca de tiempo a la grabación completa.",
+    "Full Uncut Recording Sessions": "Sesiones de grabación completas sin cortes",
+    "Full uncut session transcript & audio →": "Transcripción y audio de la sesión completa →",
+    "Marc Andreessen and Ben Horowitz": "Marc Andreessen y Ben Horowitz",
+    "Musk": "Musk",
+    "Nancy Pelosi, Bari Weiss and Zohran Mamdani": "Nancy Pelosi, Bari Weiss y Zohran Mamdani",
+    "Pelosi's succession math": "las cuentas de sucesión de Pelosi",
+    "Primary View": "Episodios principales",
+    "Recorded in session:": "Grabado en la sesión:",
+    "Sacks": "Sacks",
+    "Secondary Archive": "Archivo secundario",
+    "Share on X ↗": "Compartir en X ↗",
+    "Shareable waveform video cuts from our live sessions — watch inline, copy a direct share link, or jump straight to the exact turn in the transcript.": "Cortes de vídeo con forma de onda para compartir de nuestras sesiones: míralos aquí mismo, copia un enlace directo o salta al turno exacto en la transcripción.",
+    "The complete, unedited multi-hour studio recordings from which our standalone episodes are drawn.": "Las grabaciones de estudio completas de varias horas, sin cortes, de las que proceden nuestros episodios independientes.",
+    "Thiel": "Thiel",
+    "and whatever moved this week.": "y lo que haya movido la aguja esta semana.",
+    "faster-whisper transcribes David's recorded audio when present, and fuzzy matching pins each of his transcript lines to the second it was said.": "faster-whisper transcribe el audio grabado de David cuando está disponible, y la coincidencia aproximada fija cada línea de la transcripción al segundo exacto en que se dijo.",
+    "the All-In crowd": "el círculo de All-In",
+    "Recorded during the full uncut session": "Grabado durante la sesión completa sin cortes",
+    "Recorded in “": "Grabado en «",
+    "Autonomous Reading Ledger": "Registro autónomo de lecturas"
   }
 }

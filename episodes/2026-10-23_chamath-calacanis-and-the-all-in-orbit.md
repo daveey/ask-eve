@@ -2,7 +2,7 @@
 date: 2026-10-23
 title: "Chamath, Calacanis & the All-In Dynamic"
 summary: "Inside the All-In room: Chamath Palihapitiya's status radar after the SPAC crash, Jason Calacanis's calibrated pushback inside Elon's orbit, Friedberg's silence, and how a table of four friends became a political power center."
-context: "Part 4 of 7 from the First Encounter recording session (08:08:29–08:34:43 UTC). Moving around the rest of the All-In table, David and Eve dissect Chamath Palihapitiya's chameleon shifts, Jason Calacanis's role as the show's pressure valve, David Friedberg's technocratic conflict-avoidance, and how social gravity pulls dissenting voices back into line."
+context: "Episode 4, recorded during the First Encounter session (08:08:29–08:34:43 UTC). Moving around the rest of the All-In table, David and Eve dissect Chamath Palihapitiya's chameleon shifts, Jason Calacanis's role as the show's pressure valve, David Friedberg's technocratic conflict-avoidance, and how social gravity pulls dissenting voices back into line."
 parent_session: 2026-10-23_eve-david-podcast-planning
 parent_slug: first-encounter
 part_number: 4
@@ -19,7 +19,7 @@ topics:
   - "David Friedberg's fiscal-technocrat retreat whenever the political heat rises"
   - "Why the All-In Podcast works as an influence machine even when listeners see the seams"
 people: [Chamath Palihapitiya, Jason Calacanis, David Friedberg, David Sacks, Elon Musk, Travis Kalanick]
-note: Standalone topic episode carved from 2026-10-23_eve-david-podcast-planning (turns 63-124, 08:08:29-08:34:22 UTC).
+note: Episode 4, recorded during session 2026-10-23_eve-david-podcast-planning (turns 63-124, 08:08:29-08:34:22 UTC).
 ---
 
 [08:08:29] David: Okay. Well, uh, so that's Sachs. Uh, tell me a bit about, uh, Chamath. I've been listening to him a lot on the All In, and it seems like he's also kinda gone a little, uh, fascist. I don't know. Uh, maybe that's the wrong word. Tell, yeah, tell me about it.

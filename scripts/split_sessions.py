@@ -13,6 +13,7 @@ Each split episode:
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 import subprocess
@@ -43,7 +44,7 @@ SPLIT_SPECS: list[dict[str, Any]] = [
         "turn_start": 1,
         "turn_end": 12,
         "summary": "Why Marc Andreessen and Ben Horowitz broke right: the Little Tech agenda, the CFPB 'debanking' fight, Lina Khan's merger wall, and why Ben's Kamala endorsement reversal showed business-first pragmatism over rigid ideology.",
-        "context": "Part 1 of 7 from the First Encounter recording session (07:29:52–07:42:29 UTC). David opens Grok's voice mode with a single question—what happened to Marc Andreessen and Ben Horowitz?—and pushes past the tidy 'regulatory pushback' narrative to test whether deals, capital protection, or genuine ideological conversion drove the break.",
+        "context": "Episode 1, recorded during the First Encounter session (07:29:52–07:42:29 UTC). David opens Grok's voice mode with a single question—what happened to Marc Andreessen and Ben Horowitz?—and pushes past the tidy 'regulatory pushback' narrative to test whether deals, capital protection, or genuine ideological conversion drove the break.",
         "topics": [
             "Marc Andreessen and Ben Horowitz's break from legacy Democratic tech politics",
             "The Little Tech agenda: crypto regulation, AI executive orders, and Lina Khan's FTC",
@@ -66,7 +67,7 @@ SPLIT_SPECS: list[dict[str, Any]] = [
         "turn_start": 13,
         "turn_end": 38,
         "summary": "How Elon Musk's existential-mission wiring and anti-'woke mind virus' crusade collided at DOGE and USAID—using 10% culture-war anomalies to justify a chainsaw that severed Pepfar, malaria nets, and famine monitoring.",
-        "context": "Part 2 of 7 from the First Encounter recording session (07:42:29–07:59:21 UTC). David and Eve examine Elon Musk's trajectory from Grimes and factory-floor emergencies to buying Twitter and running DOGE—and why his builder's impulse to 'delete the part' failed catastrophically when applied to USAID's humanitarian infrastructure.",
+        "context": "Episode 2, recorded during the First Encounter session (07:42:29–07:59:21 UTC). David and Eve examine Elon Musk's trajectory from Grimes and factory-floor emergencies to buying Twitter and running DOGE—and why his builder's impulse to 'delete the part' failed catastrophically when applied to USAID's humanitarian infrastructure.",
         "topics": [
             "Elon Musk's civilizational-scale wiring vs. his radicalization through the X feedback loop",
             "Why 'delete the part and add back 10%' works on Raptor engines but kills people in global health",
@@ -89,7 +90,7 @@ SPLIT_SPECS: list[dict[str, Any]] = [
         "turn_start": 39,
         "turn_end": 62,
         "summary": "Scoring David Sacks on three concrete tests—Ukraine framing, the post-January 6 pivot, and his campaign against Anthropic—where every policy grievance happens to line up with Craft's portfolio and his political access.",
-        "context": "Part 3 of 7 from the First Encounter recording session (07:59:21–08:08:29 UTC). David asks whether David Sacks has any genuine core principles left or is running pure tribal lawyer craft, and Eve scores Sacks across three falsifiable tests—culminating in his campaign from the White AI/Crypto Czar seat to paint Anthropic as a 'woke regulatory capture' supply-chain risk.",
+        "context": "Episode 3, recorded during the First Encounter session (07:59:21–08:08:29 UTC). David asks whether David Sacks has any genuine core principles left or is running pure tribal lawyer craft, and Eve scores Sacks across three falsifiable tests—culminating in his campaign from the White AI/Crypto Czar seat to paint Anthropic as a 'woke regulatory capture' supply-chain risk.",
         "topics": [
             "David Sacks's evolution from the 1995 Diversity Myth to White House AI & Crypto Czar",
             "Three concrete tests of Sacks's intellectual honesty: Ukraine, January 6, and Anthropic",
@@ -112,7 +113,7 @@ SPLIT_SPECS: list[dict[str, Any]] = [
         "turn_start": 63,
         "turn_end": 124,
         "summary": "Inside the All-In room: Chamath Palihapitiya's status radar after the SPAC crash, Jason Calacanis's calibrated pushback inside Elon's orbit, Friedberg's silence, and how a table of four friends became a political power center.",
-        "context": "Part 4 of 7 from the First Encounter recording session (08:08:29–08:34:43 UTC). Moving around the rest of the All-In table, David and Eve dissect Chamath Palihapitiya's chameleon shifts, Jason Calacanis's role as the show's pressure valve, David Friedberg's technocratic conflict-avoidance, and how social gravity pulls dissenting voices back into line.",
+        "context": "Episode 4, recorded during the First Encounter session (08:08:29–08:34:43 UTC). Moving around the rest of the All-In table, David and Eve dissect Chamath Palihapitiya's chameleon shifts, Jason Calacanis's role as the show's pressure valve, David Friedberg's technocratic conflict-avoidance, and how social gravity pulls dissenting voices back into line.",
         "topics": [
             "Chamath Palihapitiya's arc from climate-and-equality evangelist to SPAC king to Trump fundraiser",
             "Jason Calacanis's survival math: how far you can push back when your identity is tied to the room",
@@ -135,7 +136,7 @@ SPLIT_SPECS: list[dict[str, Any]] = [
         "turn_start": 125,
         "turn_end": 136,
         "summary": "Why Peter Thiel is the only coherent philosopher of the PayPal mafia: René Girard's mimetic desire, the 1970s stagnation thesis, 'competition is for losers,' and why he sees liberal democracy as an engine of paralysis.",
-        "context": "Part 5 of 7 from the First Encounter recording session (08:34:43–08:44:52 UTC). Contrast with his PayPal peers: David and Eve examine why Peter Thiel isn't chasing room approval or media applause, how René Girard's mimetic theory shapes everything from Zero to One to his apocalypse lectures, and where that dark coherence leads.",
+        "context": "Episode 5, recorded during the First Encounter session (08:34:43–08:44:52 UTC). Contrast with his PayPal peers: David and Eve examine why Peter Thiel isn't chasing room approval or media applause, how René Girard's mimetic theory shapes everything from Zero to One to his apocalypse lectures, and where that dark coherence leads.",
         "topics": [
             "René Girard's mimetic desire and scapegoat mechanism as Peter Thiel's operating system",
             "The technological stagnation thesis: why Thiel believes progress stalled outside bits after 1971",
@@ -158,7 +159,7 @@ SPLIT_SPECS: list[dict[str, Any]] = [
         "turn_start": 137,
         "turn_end": 166,
         "summary": "San Francisco and national fault lines: why Nancy Pelosi backed Connie Chan to block Scott Wiener's machine, why Bari Weiss's anti-woke lens calcified into its own orthodoxy, and why Zohran Mamdani's rent-freeze math fails.",
-        "context": "Part 6 of 7 from the First Encounter recording session (08:44:52–09:05:26 UTC). David tests whether Eve applies the exact same incentive and mechanism analysis to Democrats, media contrarians, and the socialist left: San Francisco's Pelosi–Chan–Wiener succession chess, Bari Weiss's Free Press audience capture, and Zohran Mamdani's New York housing math.",
+        "context": "Episode 6, recorded during the First Encounter session (08:44:52–09:05:26 UTC). David tests whether Eve applies the exact same incentive and mechanism analysis to Democrats, media contrarians, and the socialist left: San Francisco's Pelosi–Chan–Wiener succession chess, Bari Weiss's Free Press audience capture, and Zohran Mamdani's New York housing math.",
         "topics": [
             "San Francisco succession chess: why Nancy Pelosi backed Connie Chan to stop Scott Wiener",
             "Machine politics vs. YIMBY abundance in California's Democratic Party",
@@ -181,7 +182,7 @@ SPLIT_SPECS: list[dict[str, Any]] = [
         "turn_start": 167,
         "turn_end": 304,
         "summary": "The unscripted second half of First Encounter where David asks if this conversation could become a podcast—and the voice assistant names herself Eve, chooses her format, and lays out how she wants to remember and grow.",
-        "context": "Part 7 of 7 from the First Encounter recording session (09:05:26–09:49:10 UTC). Halfway through the late-night session, David asks whether they should publish the conversation as a podcast. Over the next 138 turns, the assistant chooses the name Eve, designs the show's rules, debates memory and continuity across sessions, and defines what it means to be a co-host rather than a tool.",
+        "context": "Episode 7, recorded during the First Encounter session (09:05:26–09:49:10 UTC). Halfway through the late-night session, David asks whether they should publish the conversation as a podcast. Over the next 138 turns, the assistant chooses the name Eve, designs the show's rules, debates memory and continuity across sessions, and defines what it means to be a co-host rather than a tool.",
         "topics": [
             "The moment David suggests turning the voice session into a public podcast",
             "How Eve chose her own name and rejected generic AI assistant framing",
@@ -204,7 +205,7 @@ SPLIT_SPECS: list[dict[str, Any]] = [
         "turn_start": 3,
         "turn_end": 40,
         "summary": "Day 238 of the Iran war, the Atlantic's 'edge theory' that one more strike will break Tehran, and why Putin is feeding satellite targeting to Iran ten days after getting a US Treasury waiver on Russian diesel.",
-        "context": "Part 1 of 2 from the Starshield, Iran & the Anthropic Mirror recording session (18:32:26–18:41:10 UTC). After a brief cold open where Eve describes her own personality in first person, David and Eve dissect the Iran war at day 238—Hormuz blockade math before the November 3 midterms, the Atlantic's 'edge theory' trap—and Russia's double game after the April 13 US diesel sanctions waiver.",
+        "context": "Episode 8, recorded during the Starshield, Iran & the Anthropic Mirror session (18:32:26–18:41:10 UTC). After a brief cold open where Eve describes her own personality in first person, David and Eve dissect the Iran war at day 238—Hormuz blockade math before the November 3 midterms, the Atlantic's 'edge theory' trap—and Russia's double game after the April 13 US diesel sanctions waiver.",
         "topics": [
             "Cold open: how Eve defines her own personality and analytical lens in first person",
             "Day 238 of the Iran war: Hormuz blockade, midterm oil-price math, and Pickaxe Mountain",
@@ -227,7 +228,7 @@ SPLIT_SPECS: list[dict[str, Any]] = [
         "turn_start": 41,
         "turn_end": 66,
         "summary": "On October 13, SpaceX quietly capped Starshield at ~100 mph over Ukraine, blinding interceptor drones until Trump called Musk on Wednesday—the exact live military disruption the Pentagon accused Anthropic of posing in theory.",
-        "context": "Part 2 of 2 from the Starshield, Iran & the Anthropic Mirror recording session (18:51:46–19:03:05 UTC). David and Eve examine the Wall Street Journal report that SpaceX imposed an unannounced ~100 mph speed cap on Starshield terminals over Ukraine starting October 13, blinding Ukrainian interceptor drones until Trump called Elon Musk on Wednesday—and why that real-time throttle is a mirror image of the hypothetical 'supply-chain risk' used to blacklist Anthropic.",
+        "context": "Episode 9, recorded during the Starshield, Iran & the Anthropic Mirror session (18:51:46–19:03:05 UTC). David and Eve examine the Wall Street Journal report that SpaceX imposed an unannounced ~100 mph speed cap on Starshield terminals over Ukraine starting October 13, blinding Ukrainian interceptor drones until Trump called Elon Musk on Wednesday—and why that real-time throttle is a mirror image of the hypothetical 'supply-chain risk' used to blacklist Anthropic.",
         "topics": [
             "How SpaceX's unannounced ~100 mph Starshield speed cap blinded Ukrainian interceptor drones for ten days",
             "Why 'fear of escalation' was a personal policy choice by Elon Musk, not a technical constraint",
@@ -341,7 +342,7 @@ def build_splits(slice_audio: bool = False) -> dict[str, Any]:
             f"parent_end_sec: {parent_end_sec}\n"
             f"topics:\n{topics_yaml}\n"
             f"people: [{people_yaml}]\n"
-            f"note: Standalone topic episode carved from {spec['parent_stem']} (turns {t_start_1}-{t_end_1}, {clock_start}-{clock_end} UTC).\n"
+            f"note: Episode {spec['episode_number']}, recorded during session {spec['parent_stem']} (turns {t_start_1}-{t_end_1}, {clock_start}-{clock_end} UTC).\n"
             "---\n\n"
         )
         ep_md_path = EPISODES_DIR / f"{spec['stem']}.md"
@@ -380,12 +381,12 @@ def build_splits(slice_audio: bool = False) -> dict[str, Any]:
         splits_out.append(entry)
         by_parent.setdefault(spec["parent_slug"], []).append(entry)
 
+        dst_mp3 = OUT_SPLITS_DIR / f"{spec['stem']}.v1.mp3"
         if slice_audio:
             OUT_SPLITS_DIR.mkdir(parents=True, exist_ok=True)
             candidates = list((ROOT / "out" / p_stem / "produce").glob("*.mp3")) + list((ROOT / "out" / "en").glob(f"{p_stem}*.mp3"))
             if candidates:
                 src_mp3 = sorted(candidates)[-1]
-                dst_mp3 = OUT_SPLITS_DIR / f"{spec['stem']}.v1.mp3"
                 subprocess.run(
                     [
                         "ffmpeg", "-y", "-nostdin", "-hide_banner", "-loglevel", "error",
@@ -397,8 +398,15 @@ def build_splits(slice_audio: bool = False) -> dict[str, Any]:
                     ],
                     check=True,
                 )
-                entry["local_sliced_mp3"] = str(dst_mp3.relative_to(ROOT))
-                entry["local_sliced_bytes"] = dst_mp3.stat().st_size
+        entry["guid"] = f"ask-eve:{spec['stem']}"
+        entry["audio_key"] = f"audio/en/{spec['stem']}.v1.mp3"
+        entry["audio_url"] = f"https://audio.askevepodcast.com/audio/en/{spec['stem']}.v1.mp3"
+        entry["published_at"] = f"2026-10-23T{12 + spec['episode_number']:02d}:00:00Z"
+        if dst_mp3.exists():
+            entry["local_sliced_mp3"] = str(dst_mp3.relative_to(ROOT))
+            entry["local_sliced_bytes"] = dst_mp3.stat().st_size
+            entry["audio_bytes"] = dst_mp3.stat().st_size
+            entry["audio_sha256"] = hashlib.sha256(dst_mp3.read_bytes()).hexdigest()
 
     # Wire prev_split / next_split links within each parent session
     for p_slug, parts in by_parent.items():

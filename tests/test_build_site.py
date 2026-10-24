@@ -257,7 +257,7 @@ def test_feed_bonus_item(site):
     root = ET.fromstring(read(site, "feed.xml"))
     ns = {"itunes": "http://www.itunes.com/dtds/podcast-1.0.dtd"}
     items = {i.findtext("guid"): i for i in root.iter("item")}
-    assert len(items) == 3
+    assert len(items) == 12
     b = items["ask-eve:2026-10-23_the-making-of-eve"]
     assert b.findtext("title") == "Bonus: The Making of Eve"
     assert b.findtext("itunes:episodeType", namespaces=ns) == "bonus" and b.find("itunes:episode", ns) is None
@@ -454,13 +454,15 @@ def test_eve_citations_are_verbatim(site):
 
 def test_eve_hub_holds_mind(site):
     h = read(site, "eve/index.html")
+    mind_h = read(site, "eve/mind/index.html")
     ids = re.findall(r'<section class="eve-sec" id="([\w-]+)"', h)
     assert ids[:3] == ["who-eve-is", "mind", "self-assessment"] and ids[-1] == "persona-notes"
-    assert 'id="memories"' in h and 'id="people"' in h and 'id="topics"' in h   # topics approved 2026-10-23
-    assert 'href="/episodes/first-encounter/"' in h and 'href="/episodes/the-making-of-eve/"' in h
-    assert 'href="/people/david-sacks/"' in h and 'href="/people/"' in h
+    assert 'href="/eve/mind/"' in h and 'href="/eve/journal/"' in h and 'href="/eve/reading/"' in h and 'href="/eve/soul/"' in h
+    assert 'id="memories"' in mind_h and 'id="people"' in mind_h and 'id="topics"' in mind_h   # topics approved 2026-10-23
+    assert 'href="/episodes/first-encounter/"' in mind_h and 'href="/episodes/the-making-of-eve/"' in mind_h
+    assert 'href="/people/david-sacks/"' in mind_h and 'href="/people/"' in mind_h
     assert '<nav class="eve-nav" aria-label="On this page">' in h and 'href="#mind"' in h
-    assert '<details class="fold' in h and "<script" not in h.split("<footer")[0].split("</header>")[1]
+    assert '<details class="fold' in mind_h and "<script" not in h.split("<footer")[0].split("</header>")[1]
     assert '<a href="/eve/" aria-current=page>Eve</a>' in h
     for rel in ("people/index.html", "people/david-sacks/index.html"):        # /people/ still works, under Eve
         p = read(site, rel)

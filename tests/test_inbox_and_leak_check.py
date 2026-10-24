@@ -198,8 +198,8 @@ def test_public_reading_list_renders_and_private_queue_never_exports(tmp_path: P
     con.commit()
 
     assert B.main(["--db", str(db), "--out", str(out), "--include-drafts"]) == 0
-    eve_html = (out / "eve/index.html").read_text()
-    ru_eve_html = (out / "ru/eve/index.html").read_text()
+    eve_html = (out / "eve/reading/index.html").read_text()
+    ru_eve_html = (out / "ru/eve/reading/index.html").read_text()
     assert 'id="reading"' in eve_html
     assert 'id="reading-list"' in eve_html
     assert "Eve&#x27;s Reading List" in eve_html or "Eve's Reading List" in eve_html

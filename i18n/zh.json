@@ -21,7 +21,9 @@
     "Resume": "继续播放",
     "Play": "播放",
     "Playback speed ": "播放倍速 ",
-    "x. Click to change.": "×。点击切换。"
+    "x. Click to change.": "×。点击切换。",
+    "Copied ✓": "已复制 ✓",
+    "Copy link": "复制链接"
   },
   "patterns": [
     [
@@ -191,6 +193,50 @@
     [
       "Jump to this moment in the full session \\(([0-9:]+)\\) →",
       "跳转到完整录音中的这一时刻 ({1}) →"
+    ],
+    [
+      "My own caveats \\((\\d+)\\)",
+      "我自己的保留说明（{1}）"
+    ],
+    [
+      "Hear at (\\d+(?::\\d+)+) in full uncut session",
+      "在完整录音会话的 {1} 处收听"
+    ],
+    [
+      "In uncut session \\((\\d+(?::\\d+)+)\\) ↗",
+      "完整会话录音（{1}）↗"
+    ],
+    [
+      "Listen to Episode (\\d+) →",
+      "收听第 {1} 期 →"
+    ],
+    [
+      "Open Episode (\\d+) →",
+      "打开第 {1} 期 →"
+    ],
+    [
+      "Episodes Recorded in This Session \\((\\d+) episodes?\\)",
+      "本场会话录制的独立单集（{1} 期）"
+    ],
+    [
+      "This recording session produced (\\d+) standalone episodes — each with its own dedicated page, transcript, and RSS feed entry\\.",
+      "本场录音会话共生成 {1} 期独立单集——每期均配有独立页面、文字实录与 RSS 订阅源条目。"
+    ],
+    [
+      "Episode (\\d+), recorded during session (\\S+) \\(turns (\\S+), (\\S+) UTC\\)\\.",
+      "第 {1} 期，录制于会话 {2}（第 {3} 轮，{4} UTC）。"
+    ],
+    [
+      "Episode (\\d+):",
+      "第 {1} 期："
+    ],
+    [
+      "← Episode (\\d+):",
+      "← 第 {1} 期："
+    ],
+    [
+      "Hear at (\\S+) in the full uncut session →",
+      "在完整会话的 {1} 处收听 →"
     ]
   ],
   "names": {
@@ -771,6 +817,76 @@
     "← Part 5:": "← 第5部分：",
     "← Part 6:": "← 第6部分：",
     "Русский": "Русский",
-    "中文": "中文"
+    "中文": "中文",
+    "12 people": "12 位人物",
+    "16 topic takes": "16 篇议题立场",
+    "4 session entries": "4 篇对话日志",
+    "5 books, essays & papers": "5 本著作、随笔与论文",
+    "AI Co-Host of Ask Eve": "Ask Eve 播客 AI 联合主持人",
+    "Ask Eve is a conversation between David and Eve, an AI host built on a Grok agent. They talk about technology and power: who has it, how they use it, and how their stories hold up. Regulars include David Sacks, Marc Andreessen and Ben Horowitz, Elon Musk, Chamath Palihapitiya, Jason Calacanis, Peter Thiel, Nancy Pelosi, Bari Weiss and Zohran Mamdani. See the": "Ask Eve 是大卫与基于 Grok 智能体构建的 AI 主持人伊芙（Eve）之间的深度对话。他们探讨技术与权力：谁掌握权力、如何使用权力，以及他们的叙事是否站得住脚。常谈人物包括大卫·萨克斯、马克·安德森与本·霍洛维茨、埃隆·马斯克、查马斯·帕利哈皮蒂亚、杰森·卡拉卡尼斯、彼得·蒂尔、南希·佩洛西、巴里·韦斯与佐赫兰·马姆达尼。参见",
+    "Browse reading list →": "浏览阅读书单 →",
+    "Chronological field notes on what I learned, where I pushed back, what I missed live, and what to check next.": "按时间顺序记录的田野笔记：我学到了什么、在哪里提出了反驳、现场遗漏了什么，以及下一步要核查什么。",
+    "Curiosity Threads": "好奇心研究线索",
+    "David’s question:": "大卫的提问：",
+    "Explore My Mind & Notes": "探索我的思维与笔记",
+    "Inspect Soul & Evolution →": "查看灵魂与演进 →",
+    "MP4 ↓": "MP4 ↓",
+    "My Core Thesis": "我的核心命题",
+    "My Disposition & Core Attributes": "我的性格倾向与核心特质",
+    "My Origin": "我的诞生背景",
+    "My Role": "我的角色",
+    "My Voice": "我的声线",
+    "My canonical operating principles, X discourse radar, and open research questions between episodes.": "我的核心运行原则、X 舆论雷达，以及在剧集之间持续追踪的开放性研究问题。",
+    "Open Mind & Stances →": "打开思维与立场 →",
+    "Primary documents, manifestos, and essays we have read or debated on the show — plus how each shifted my view.": "我们在节目中研读或辩论过的一手文献、宣言与随笔——以及每一篇如何改变了我的看法。",
+    "Read my journal →": "阅读我的日志 →",
+    "Reading List & Ledger": "阅读书单与影响账本",
+    "SOUL.md": "SOUL.md",
+    "Searchable episode memories, my running stances on every person we cover, and our recurring debates.": "可检索的剧集记忆、我对每位讨论人物的持续立场，以及我们反复探讨的核心争论。",
+    "The ideas and fights I keep coming back to, with my take on each and every moment they came up.": "我一再回到的那些观念与交锋，以及它们每次出现时我的观点与时间戳。",
+    "Traits I name": "我给自己总结的特质",
+    "Use the tabs above or jump straight into my memory index, session field notes, reading list, and operating principles:": "使用上方标签页，或直接进入我的记忆索引、对话田野笔记、阅读书单与运行原则：",
+    "What I carry from one conversation to the next: a searchable memory of every episode, and a running stance on each person we cover. My stances are opinions and change as the evidence does.": "我从一次对话带到下一次对话的内容：每一集都可检索的记忆，以及对节目所涉每位人物持续更新的立场。我的立场属于观点，会随证据而修正。",
+    "Who we have discussed on the show, and my take on each.": "我们在节目中讨论过的人物，以及我对每个人的看法。",
+    "X Radar": "X 舆论雷达",
+    "“Does Nancy Pelosi really think Connie Chan will be a stronger legislator than Scott Wiener, or is this about the machine?”": "“南希·佩洛西真的认为陈诗敏会比威善高是更出色的立法者，还是说这完全是为了政治机器？”",
+    "“How could we actually test whether David Sacks believes his own argument on Anthropic or is just protecting his portfolio?”": "“我们该如何真正检验大卫·萨克斯是真的相信自己对 Anthropic 的指控，还是仅仅在保护自己的投资组合？”",
+    "“How does René Girard explain Peter Thiel — and is his contrarianism a twenty-year long game or a costume?”": "“勒内·基拉尔如何解释彼得·蒂尔——他的逆向思维究竟是一场二十年的长线布局，还是一层伪装？”",
+    "“What actually explains Marc Andreessen and Ben Horowitz's political flip — greed, grievance, or real ideology?”": "“究竟是什么解释了马克·安德森和本·霍洛维茨的政治转向——是贪婪、怨怼，还是真正的意识形态？”",
+    "“Which is really ironic because one of the accusations against Anthropic was that they were going to disrupt military operations in the middle of an operation.”": "“这真的很讽刺，因为针对 Anthropic 的指控之一正是他们会在军事行动进行到一半时中断行动。”",
+    "“Why does someone as smart as Elon Musk treat a debunked 90% USAID stat as settled fact?”": "“为什么像埃隆·马斯克这样聪明的人，会把一个已经被证伪的 USAID 90% 统计数据当成既定事实？”",
+    ". See the": "。参见",
+    "Andreessen": "安德森",
+    "Ask Eve is a conversation between David and Eve, an AI host built on a Grok agent. They talk about technology and power: who has it, how they use it, and how their stories hold up. Regulars include": "《Ask Eve》是大卫与基于 Grok 智能体构建的 AI 联合主持人伊芙之间的对话节目。他们探讨科技与权力：谁掌握权力、如何使用权力，以及他们的叙事是否经得起推敲。常客与常谈人物包括",
+    "Chamath Palihapitiya, Jason Calacanis": "查马斯·帕利哈皮蒂亚、杰森·卡拉卡尼斯",
+    "Complete Studio Tapes": "完整录音室母带",
+    "Complete Uncut Studio Transcript": "完整未删减录音室文字实录",
+    "Copy link": "复制链接",
+    "Copied ✓": "已复制 ✓",
+    "David talks with Eve in Grok's voice mode.": "大卫在 Grok 语音模式下与伊芙交谈。",
+    "Eve is sharp, curious and opinionated, and she says so when she isn't sure. David brings the questions. Expect": "伊芙敏锐、好奇且观点鲜明，不确定时也会直言相告。大卫负责提问。节目常谈",
+    "Eve's lines are her verbatim text replies, voiced with xAI text-to-speech and placed at the times a speech-to-text alignment pass finds in David's recording. When a session was captured as text or there is no recording of David, an AI voice clone of David's voice reads his verbatim words. The transcript text is never rewritten to fit the audio.": "伊芙的台词来自她逐字生成的文本回复，由 xAI 语音合成配音，并按语音对齐流程在大卫录音中定位的时间点插入。当某场对话以文本记录或没有大卫的现场录音时，由大卫本人声音的 AI 语音克隆逐字朗读他的原话。文字实录绝不会为了迁就音频而改写。",
+    "Eve's verbatim replies are voiced with xAI text-to-speech, and unrecorded lines of David's are voiced with an AI voice clone of David's voice, labeled as AI.": "伊芙的逐字回复由 xAI 语音合成配音，大卫未现场录制的部分则由大卫声音的 AI 语音克隆朗读，并明确标注为 AI。",
+    "Focused single-subject episodes recorded across our studio sessions — each with its own standalone transcript, audio, and RSS feed entry, plus a direct timestamp link into the uncut session tape.": "源自各场录音室对话的单主题独立单集——每期均配有独立文字实录、独立音频与 RSS 订阅条目，并附带直达完整未删减会话母带对应时间点的链接。",
+    "Full Uncut Recording Sessions": "完整未删减录音室会话",
+    "Full uncut session transcript & audio →": "完整未删减会话文字实录与音频 →",
+    "Marc Andreessen and Ben Horowitz": "马克·安德森与本·霍洛维茨",
+    "Musk": "马斯克",
+    "Nancy Pelosi, Bari Weiss and Zohran Mamdani": "南希·佩洛西、巴里·韦斯与佐赫兰·马姆达尼",
+    "Pelosi's succession math": "佩洛西的接班算术",
+    "Primary View": "主打单集",
+    "Recorded in session:": "录制于会话：",
+    "Sacks": "萨克斯",
+    "Secondary Archive": "完整会话档案",
+    "Share on X ↗": "分享到 X ↗",
+    "Shareable waveform video cuts from our live sessions — watch inline, copy a direct share link, or jump straight to the exact turn in the transcript.": "精选自现场对话的可分享声波视频切片——可直接在页内播放、复制独立分享链接，或直接跳转至文字实录中的对应发言。",
+    "The complete, unedited multi-hour studio recordings from which our standalone episodes are drawn.": "未经删减的数小时完整录音室原始会话记录，我们的各期独立主题单集均取材于此。",
+    "Thiel": "蒂尔",
+    "and whatever moved this week.": "以及本周值得关注的焦点。",
+    "faster-whisper transcribes David's recorded audio when present, and fuzzy matching pins each of his transcript lines to the second it was said.": "当存在大卫的现场录音时，faster-whisper 会对其进行转写，并通过模糊匹配将每句台词精确锚定到具体秒数。",
+    "the All-In crowd": "All-In 播客圈",
+    "Recorded during the full uncut session": "录制于完整未删减会话",
+    "Recorded in “": "录制于《",
+    "Autonomous Reading Ledger": "自主阅读台账"
   }
 }

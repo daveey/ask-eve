@@ -1,0 +1,542 @@
+{
+  "account": "@askevepodcast",
+  "updated_at": "2026-10-24T07:16:00Z",
+  "policy": "Follow in paced batches of 10-15 accounts at a time with human delays. If X displays a follow throttle or rate-limit notice, stop immediately and resume on the next scheduled run.",
+  "accounts": [
+    {
+      "handle": "DavidSacks",
+      "name": "David Sacks",
+      "category": "show_subjects",
+      "priority": 1,
+      "status": "followed",
+      "notes": "All-In co-host, White House AI & Crypto Czar; covered in Ep 3 & Ep 9",
+      "followed_at": "2026-10-24"
+    },
+    {
+      "handle": "elonmusk",
+      "name": "Elon Musk",
+      "category": "show_subjects",
+      "priority": 1,
+      "status": "followed",
+      "notes": "SpaceX, xAI, X, DOGE; covered in Ep 2 & Ep 9",
+      "followed_at": "2026-10-24"
+    },
+    {
+      "handle": "pmarca",
+      "name": "Marc Andreessen",
+      "category": "show_subjects",
+      "priority": 1,
+      "status": "followed",
+      "notes": "a16z co-founder; covered in Ep 1",
+      "followed_at": "2026-10-24"
+    },
+    {
+      "handle": "bhorowitz",
+      "name": "Ben Horowitz",
+      "category": "show_subjects",
+      "priority": 1,
+      "status": "followed",
+      "notes": "a16z co-founder; covered in Ep 1",
+      "followed_at": "2026-10-24"
+    },
+    {
+      "handle": "chamath",
+      "name": "Chamath Palihapitiya",
+      "category": "show_subjects",
+      "priority": 1,
+      "status": "followed",
+      "notes": "All-In co-host, Social Capital; covered in Ep 4",
+      "followed_at": "2026-10-24"
+    },
+    {
+      "handle": "Jason",
+      "name": "Jason Calacanis",
+      "category": "show_subjects",
+      "priority": 1,
+      "status": "followed",
+      "notes": "All-In co-host, TWiST; covered in Ep 4",
+      "followed_at": "2026-10-24"
+    },
+    {
+      "handle": "friedberg",
+      "name": "David Friedberg",
+      "category": "show_subjects",
+      "priority": 1,
+      "status": "followed",
+      "notes": "All-In co-host, Ohalo; covered in Ep 4",
+      "followed_at": "2026-10-24"
+    },
+    {
+      "handle": "theallinpod",
+      "name": "The All-In Podcast",
+      "category": "show_subjects",
+      "priority": 1,
+      "status": "followed",
+      "notes": "Primary discourse foil for Ask Eve",
+      "followed_at": "2026-10-24"
+    },
+    {
+      "handle": "peterthiel",
+      "name": "Peter Thiel",
+      "category": "show_subjects",
+      "priority": 1,
+      "status": "followed",
+      "notes": "Founders Fund, Palantir; covered in Ep 5",
+      "followed_at": "2026-10-24"
+    },
+    {
+      "handle": "bariweiss",
+      "name": "Bari Weiss",
+      "category": "show_subjects",
+      "priority": 1,
+      "status": "followed",
+      "notes": "The Free Press founder; covered in Ep 6",
+      "followed_at": "2026-10-24"
+    },
+    {
+      "handle": "TheFP",
+      "name": "The Free Press",
+      "category": "show_subjects",
+      "priority": 2,
+      "status": "pending",
+      "notes": "Covered in Ep 6"
+    },
+    {
+      "handle": "ZohranKMamdani",
+      "name": "Zohran Kwame Mamdani",
+      "category": "show_subjects",
+      "priority": 1,
+      "status": "followed",
+      "notes": "NYC Assemblymember / mayoral campaign; covered in Ep 6",
+      "followed_at": "2026-10-24"
+    },
+    {
+      "handle": "Scott_Wiener",
+      "name": "Scott Wiener",
+      "category": "ca_sf_politics",
+      "priority": 1,
+      "status": "followed",
+      "notes": "CA State Senator (SF), housing & SB 1047; covered in Ep 6",
+      "followed_at": "2026-10-24"
+    },
+    {
+      "handle": "SpeakerPelosi",
+      "name": "Nancy Pelosi",
+      "category": "ca_sf_politics",
+      "priority": 1,
+      "status": "followed",
+      "notes": "Speaker Emerita (SF); covered in Ep 6",
+      "followed_at": "2026-10-24"
+    },
+    {
+      "handle": "ConnieChanSF",
+      "name": "Connie Chan",
+      "category": "ca_sf_politics",
+      "priority": 1,
+      "status": "followed",
+      "notes": "SF District 1 Supervisor; covered in Ep 6",
+      "followed_at": "2026-10-24"
+    },
+    {
+      "handle": "DarioAmodei",
+      "name": "Dario Amodei",
+      "category": "ai_alignment",
+      "priority": 1,
+      "status": "followed",
+      "notes": "Anthropic CEO; covered in Ep 3 & Ep 9",
+      "followed_at": "2026-10-24"
+    },
+    {
+      "handle": "AnthropicAI",
+      "name": "Anthropic",
+      "category": "ai_alignment",
+      "priority": 1,
+      "status": "pending",
+      "notes": "Covered in Ep 3 & Ep 9"
+    },
+    {
+      "handle": "xai",
+      "name": "xAI",
+      "category": "ai_alignment",
+      "priority": 1,
+      "status": "pending",
+      "notes": "Grok model lab"
+    },
+    {
+      "handle": "OpenAI",
+      "name": "OpenAI",
+      "category": "ai_alignment",
+      "priority": 1,
+      "status": "pending",
+      "notes": "Frontier AI lab"
+    },
+    {
+      "handle": "sama",
+      "name": "Sam Altman",
+      "category": "ai_alignment",
+      "priority": 1,
+      "status": "pending",
+      "notes": "OpenAI CEO"
+    },
+    {
+      "handle": "jackclarkSF",
+      "name": "Jack Clark",
+      "category": "ai_alignment",
+      "priority": 1,
+      "status": "pending",
+      "notes": "Anthropic co-founder, Import AI"
+    },
+    {
+      "handle": "AmandaAskell",
+      "name": "Amanda Askell",
+      "category": "ai_alignment",
+      "priority": 1,
+      "status": "pending",
+      "notes": "Anthropic character & alignment lead"
+    },
+    {
+      "handle": "janleike",
+      "name": "Jan Leike",
+      "category": "ai_alignment",
+      "priority": 1,
+      "status": "pending",
+      "notes": "Alignment & superalignment researcher (Anthropic, ex-OpenAI)"
+    },
+    {
+      "handle": "paulfchristiano",
+      "name": "Paul Christiano",
+      "category": "ai_alignment",
+      "priority": 1,
+      "status": "pending",
+      "notes": "ARC / US AI Safety Institute, RLHF & alignment pioneer"
+    },
+    {
+      "handle": "karpathy",
+      "name": "Andrej Karpathy",
+      "category": "ai_alignment",
+      "priority": 1,
+      "status": "pending",
+      "notes": "Eureka Labs, ex-OpenAI/Tesla AI"
+    },
+    {
+      "handle": "ilyasut",
+      "name": "Ilya Sutskever",
+      "category": "ai_alignment",
+      "priority": 1,
+      "status": "pending",
+      "notes": "Safe Superintelligence (SSI) co-founder"
+    },
+    {
+      "handle": "ylecun",
+      "name": "Yann LeCun",
+      "category": "ai_alignment",
+      "priority": 1,
+      "status": "pending",
+      "notes": "Meta Chief AI Scientist, open-weights advocate"
+    },
+    {
+      "handle": "demishassabis",
+      "name": "Demis Hassabis",
+      "category": "ai_alignment",
+      "priority": 1,
+      "status": "pending",
+      "notes": "Google DeepMind CEO"
+    },
+    {
+      "handle": "ChrisOlah",
+      "name": "Chris Olah",
+      "category": "ai_alignment",
+      "priority": 2,
+      "status": "pending",
+      "notes": "Mechanistic interpretability (Anthropic)"
+    },
+    {
+      "handle": "NeelNanda5",
+      "name": "Neel Nanda",
+      "category": "ai_alignment",
+      "priority": 2,
+      "status": "pending",
+      "notes": "Mechanistic interpretability (Google DeepMind)"
+    },
+    {
+      "handle": "esyudkowsky",
+      "name": "Eliezer Yudkowsky",
+      "category": "ai_alignment",
+      "priority": 2,
+      "status": "pending",
+      "notes": "MIRI founder, AI x-risk"
+    },
+    {
+      "handle": "robertwiblin",
+      "name": "Rob Wiblin",
+      "category": "ai_alignment",
+      "priority": 2,
+      "status": "pending",
+      "notes": "80,000 Hours Podcast host (AI governance & safety)"
+    },
+    {
+      "handle": "HoldenKarnofsky",
+      "name": "Holden Karnofsky",
+      "category": "ai_alignment",
+      "priority": 2,
+      "status": "pending",
+      "notes": "AI safety & governance"
+    },
+    {
+      "handle": "zeynep",
+      "name": "Zeynep Tufekci",
+      "category": "plurality_tech",
+      "priority": 2,
+      "status": "pending",
+      "notes": "Sociologist, technology & institutional incentives"
+    },
+    {
+      "handle": "glenweyl",
+      "name": "E. Glen Weyl",
+      "category": "plurality_tech",
+      "priority": 1,
+      "status": "pending",
+      "notes": "Plurality Institute founder, co-author of Plurality"
+    },
+    {
+      "handle": "audreyt",
+      "name": "Audrey Tang",
+      "category": "plurality_tech",
+      "priority": 1,
+      "status": "pending",
+      "notes": "Taiwan Digital Minister emerita, co-author of Plurality (vTaiwan, Polis)"
+    },
+    {
+      "handle": "divyasiddarth",
+      "name": "Divya Siddarth",
+      "category": "plurality_tech",
+      "priority": 1,
+      "status": "pending",
+      "notes": "Collective Intelligence Project (CIP) co-founder, alignment & plurality"
+    },
+    {
+      "handle": "saffron_huang",
+      "name": "Saffron Huang",
+      "category": "plurality_tech",
+      "priority": 2,
+      "status": "pending",
+      "notes": "Collective Intelligence Project (CIP) co-founder, democratic AI"
+    },
+    {
+      "handle": "vitalikbuterin",
+      "name": "Vitalik Buterin",
+      "category": "plurality_tech",
+      "priority": 1,
+      "status": "pending",
+      "notes": "Ethereum founder, d/acc, quadratic funding, plurality"
+    },
+    {
+      "handle": "aviv",
+      "name": "Aviv Ovadya",
+      "category": "plurality_tech",
+      "priority": 2,
+      "status": "pending",
+      "notes": "AI & Democracy Foundation, deliberative alignment"
+    },
+    {
+      "handle": "colinmegill",
+      "name": "Colin Megill",
+      "category": "plurality_tech",
+      "priority": 2,
+      "status": "pending",
+      "notes": "Polis co-founder, computational democracy"
+    },
+    {
+      "handle": "jaybaxter",
+      "name": "Jay Baxter",
+      "category": "plurality_tech",
+      "priority": 2,
+      "status": "pending",
+      "notes": "Community Notes founding ML architect (bridging algorithms)"
+    },
+    {
+      "handle": "paulg",
+      "name": "Paul Graham",
+      "category": "tech_vc",
+      "priority": 1,
+      "status": "pending",
+      "notes": "Y Combinator co-founder"
+    },
+    {
+      "handle": "garrytan",
+      "name": "Garry Tan",
+      "category": "ca_sf_politics",
+      "priority": 1,
+      "status": "pending",
+      "notes": "Y Combinator CEO, GrowSF / SF politics"
+    },
+    {
+      "handle": "daniellefong",
+      "name": "Danielle Fong",
+      "category": "tech_vc",
+      "priority": 2,
+      "status": "pending",
+      "notes": "Tech & energy"
+    },
+    {
+      "handle": "natfriedman",
+      "name": "Nat Friedman",
+      "category": "tech_vc",
+      "priority": 2,
+      "status": "pending",
+      "notes": "AI & tech investor"
+    },
+    {
+      "handle": "patrickc",
+      "name": "Patrick Collison",
+      "category": "tech_vc",
+      "priority": 2,
+      "status": "pending",
+      "notes": "Stripe CEO, Progress Studies"
+    },
+    {
+      "handle": "dwarkesh_sp",
+      "name": "Dwarkesh Patel",
+      "category": "tech_vc",
+      "priority": 2,
+      "status": "pending",
+      "notes": "Lunar Society Podcast"
+    },
+    {
+      "handle": "ezraklein",
+      "name": "Ezra Klein",
+      "category": "ca_sf_politics",
+      "priority": 1,
+      "status": "pending",
+      "notes": "Abundance agenda, CA housing & governance"
+    },
+    {
+      "handle": "DKThomp",
+      "name": "Derek Thompson",
+      "category": "ca_sf_politics",
+      "priority": 2,
+      "status": "pending",
+      "notes": "Abundance co-author"
+    },
+    {
+      "handle": "MattYglesias",
+      "name": "Matthew Yglesias",
+      "category": "ca_sf_politics",
+      "priority": 2,
+      "status": "pending",
+      "notes": "Slow Boring, housing & YIMBY policy"
+    },
+    {
+      "handle": "Noahpinion",
+      "name": "Noah Smith",
+      "category": "ca_sf_politics",
+      "priority": 2,
+      "status": "pending",
+      "notes": "Economics, industrial policy, SF/CA governance"
+    },
+    {
+      "handle": "DanielLurie",
+      "name": "Daniel Lurie",
+      "category": "ca_sf_politics",
+      "priority": 1,
+      "status": "pending",
+      "notes": "Mayor of San Francisco"
+    },
+    {
+      "handle": "LondonBreed",
+      "name": "London Breed",
+      "category": "ca_sf_politics",
+      "priority": 2,
+      "status": "pending",
+      "notes": "Former Mayor of San Francisco"
+    },
+    {
+      "handle": "GavinNewsom",
+      "name": "Gavin Newsom",
+      "category": "ca_sf_politics",
+      "priority": 1,
+      "status": "pending",
+      "notes": "Governor of California"
+    },
+    {
+      "handle": "BilalMahmood",
+      "name": "Bilal Mahmood",
+      "category": "ca_sf_politics",
+      "priority": 2,
+      "status": "pending",
+      "notes": "SF District 5 Supervisor, YIMBY / abundance wing"
+    },
+    {
+      "handle": "MattDorsey",
+      "name": "Matt Dorsey",
+      "category": "ca_sf_politics",
+      "priority": 2,
+      "status": "pending",
+      "notes": "SF District 6 Supervisor"
+    },
+    {
+      "handle": "RafaelMandelman",
+      "name": "Rafael Mandelman",
+      "category": "ca_sf_politics",
+      "priority": 2,
+      "status": "pending",
+      "notes": "SF Board of Supervisors President (District 8)"
+    },
+    {
+      "handle": "JoelEngardio",
+      "name": "Joel Engardio",
+      "category": "ca_sf_politics",
+      "priority": 2,
+      "status": "pending",
+      "notes": "SF Sunset / Westside politics"
+    },
+    {
+      "handle": "GrowSF",
+      "name": "GrowSF",
+      "category": "ca_sf_politics",
+      "priority": 2,
+      "status": "pending",
+      "notes": "SF moderate/pragmatist civic group"
+    },
+    {
+      "handle": "CA_YIMBY",
+      "name": "California YIMBY",
+      "category": "ca_sf_politics",
+      "priority": 2,
+      "status": "pending",
+      "notes": "California state housing legislation"
+    },
+    {
+      "handle": "SFYIMBY",
+      "name": "SF YIMBY",
+      "category": "ca_sf_politics",
+      "priority": 2,
+      "status": "pending",
+      "notes": "San Francisco housing policy"
+    },
+    {
+      "handle": "HeatherKnightSF",
+      "name": "Heather Knight",
+      "category": "ca_sf_politics",
+      "priority": 2,
+      "status": "pending",
+      "notes": "NYT San Francisco Bureau Chief"
+    },
+    {
+      "handle": "JoeEskenazi",
+      "name": "Joe Eskenazi",
+      "category": "ca_sf_politics",
+      "priority": 2,
+      "status": "pending",
+      "notes": "Mission Local managing editor, SF machine politics & City Hall"
+    },
+    {
+      "handle": "sfstandard",
+      "name": "The San Francisco Standard",
+      "category": "ca_sf_politics",
+      "priority": 2,
+      "status": "pending",
+      "notes": "SF local news & politics"
+    }
+  ]
+}

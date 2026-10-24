@@ -22,7 +22,6 @@ EVE_SUBNAV_ITEMS = [
     ("/eve/reading/", "Reading List"),
     ("/eve/soul/", "Soul & Evolution"),
     ("/eve/avatar/", "Avatar Lab"),
-    ("/contact/", "Contact & Send Material"),
 ]
 
 
@@ -74,32 +73,120 @@ def _clock(sec: float) -> str:
     return f"{h}:{m:02d}:{s:02d}" if h else f"{m}:{s:02d}"
 
 
+def _clip_share_urls(c: dict) -> tuple[str, str]:
+    import urllib.parse
+    cid = c["id"]
+    share_url = f"https://askevepodcast.com/clips/{cid}/"
+    eve_q = (c.get("eve_caption") or c.get("quote") or "").strip("“”\"")
+    tweet_text = f"{c['title']} — “{eve_q[:180]}{'…' if len(eve_q) > 180 else ''}”"
+    x_intent = "https://x.com/intent/tweet?" + urllib.parse.urlencode({"text": tweet_text, "url": share_url})
+    return share_url, x_intent
+
+
 def clip_card_html(A, c: dict) -> str:
     mp4_rel = (c.get("video_path") or c.get("mp4") or "").lstrip("/")
     poster_rel = (c.get("poster_path") or c.get("poster") or "").lstrip("/")
     mp4_url = A(mp4_rel)
     poster_url = A(poster_rel)
+    cid = c["id"]
     ep_slug = c["episode_slug"]
     t_sec = int(c["start_sec"])
     dur = int(round(c["duration_sec"]))
     badge = c.get("badge") or c.get("person_name") or "Ask Eve"
-    quote = (c.get("quote") or c.get("eve_caption") or "").strip("“”\"")
+    david_q = (c.get("david_q") or c.get("quote") or c.get("eve_caption") or "").strip("“”\"")
+    share_url, x_intent = _clip_share_urls(c)
     return (
-        f'<article class="clip-card" id="{e(c["id"])}">'
+        f'<article class="clip-card" id="{e(cid)}">'
         f'<div class="clip-card__video-wrap">'
         f'<video class="clip-card__video" controls preload="metadata" playsinline '
         f'poster="{e(poster_url)}" src="{e(mp4_url)}"></video>'
         f'</div>'
         f'<div class="clip-card__body">'
         f'<p class="clip-card__kicker tnum"><span class="clip-card__badge">{e(badge)}</span> · {dur}s audiogram</p>'
-        f'<h3 class="clip-card__title"><a href="/episodes/{e(ep_slug)}/#t={t_sec}">{e(c["title"])}</a></h3>'
-        f'<blockquote class="clip-card__quote">“{e(quote)}”</blockquote>'
+        f'<h3 class="clip-card__title"><a href="/clips/{e(cid)}/">{e(c["title"])}</a></h3>'
+        f'<p class="clip-card__prompt"><strong class="clip-card__prompt-who">David’s question:</strong> “{e(david_q)}”</p>'
         f'<div class="clip-card__actions">'
         f'<a class="clip-card__jump tnum" href="/episodes/{e(ep_slug)}/#t={t_sec}">Play in context ({_clock(t_sec)}) →</a>'
-        f'<a class="clip-card__dl tnum" href="{e(mp4_url)}" download>Download MP4 ↓</a>'
+        f'<button type="button" class="clip-card__btn clip-card__copy tnum" data-copy-url="{e(share_url)}">Copy link</button>'
+        f'<a class="clip-card__share tnum" href="{e(x_intent)}" target="_blank" rel="noopener">Share on X ↗</a>'
+        f'<a class="clip-card__dl tnum" href="{e(mp4_url)}" download>MP4 ↓</a>'
         f'</div>'
         f'</div>'
         f'</article>'
+    )
+
+
+def clip_page_html(A, c: dict, all_clips: list[dict]) -> str:
+    mp4_rel = (c.get("video_path") or c.get("mp4") or "").lstrip("/")
+    poster_rel = (c.get("poster_path") or c.get("poster") or "").lstrip("/")
+    mp4_url = A(mp4_rel)
+    poster_url = A(poster_rel)
+    cid = c["id"]
+    ep_slug = c["episode_slug"]
+    ep_title = c.get("episode_title") or ep_slug
+    t_sec = int(c["start_sec"])
+    dur = int(round(c["duration_sec"]))
+    badge = c.get("badge") or c.get("person_name") or "Ask Eve"
+    person_slug = c.get("person_slug") or ""
+    david_q = (c.get("david_q") or "").strip("“”\"")
+    eve_q = (c.get("eve_caption") or c.get("quote") or "").strip("“”\"")
+    share_url, x_intent = _clip_share_urls(c)
+    other_clips = [x for x in all_clips if x.get("id") != cid]
+    more_html = clips_strip_html(
+        A,
+        other_clips,
+        title="More Audiogram Clips",
+        sub="Other shareable moments from our conversations.",
+        sec_id="more-clips",
+    ) if other_clips else ""
+    person_link = (
+        f'<a class="clip-page__btn tnum" href="/people/{e(person_slug)}/">Eve on {e(badge)} →</a>'
+        if person_slug else ""
+    )
+    return (
+        f'<div class="wrap clip-page">'
+        f'<nav class="clip-page__crumbs tnum"><a href="/clips/">← All Audiogram Clips</a> · '
+        f'<a href="/episodes/{e(ep_slug)}/#t={t_sec}">{e(ep_title)} ({_clock(t_sec)})</a></nav>'
+        f'<article class="clip-page__hero">'
+        f'<div class="clip-page__video-col">'
+        f'<div class="clip-card__video-wrap clip-page__video-wrap">'
+        f'<video class="clip-card__video" controls preload="metadata" playsinline '
+        f'poster="{e(poster_url)}" src="{e(mp4_url)}"></video>'
+        f'</div>'
+        f'</div>'
+        f'<div class="clip-page__meta-col">'
+        f'<p class="eyebrow eyebrow--accent">{e(badge)} · {dur}s Audiogram Clip</p>'
+        f'<h1 class="clip-page__title">{e(c["title"])}</h1>'
+        f'<div class="clip-page__dialogue">'
+        f'<p class="clip-page__q"><strong>David’s question:</strong> “{e(david_q)}”</p>'
+        f'<blockquote class="clip-page__a"><strong>Eve:</strong> “{e(eve_q)}”</blockquote>'
+        f'</div>'
+        f'<div class="clip-page__share-bar">'
+        f'<button type="button" class="clip-card__btn clip-card__copy clip-page__copy tnum" data-copy-url="{e(share_url)}">Copy share link</button>'
+        f'<a class="clip-page__btn clip-page__btn--x tnum" href="{e(x_intent)}" target="_blank" rel="noopener">Share on X ↗</a>'
+        f'<a class="clip-page__btn tnum" href="/episodes/{e(ep_slug)}/#t={t_sec}">Hear in full episode ({_clock(t_sec)}) →</a>'
+        f'<a class="clip-page__btn tnum" href="{e(mp4_url)}" download>Download MP4 ↓</a>'
+        f'{person_link}'
+        f'</div>'
+        f'<p class="clip-page__perm tnum">Permalink: <code>{e(share_url)}</code></p>'
+        f'</div>'
+        f'</article>'
+        f'{more_html}'
+        f'</div>'
+    )
+
+
+def clips_index_html(A, clips: list[dict]) -> str:
+    cards = "".join(clip_card_html(A, c) for c in clips)
+    return (
+        '<div class="wrap clips-index">'
+        '<header class="page-head">'
+        '<p class="eyebrow eyebrow--accent">Shareable Moments</p>'
+        '<h1 class="h1">Audiogram Clips</h1>'
+        '<p class="lede">Short waveform video cuts from our studio sessions — each with its own shareable link, downloadable MP4, and direct timestamp jump into the full conversation.</p>'
+        '</header>'
+        f'<div class="clips-grid">{cards}</div>'
+        '</div>'
     )
 
 
@@ -107,7 +194,7 @@ def clips_strip_html(
     A,
     clips: list[dict],
     title: str = "60-Second Audiogram Clips",
-    sub: str = "Shareable waveform video cuts from our live sessions — watch inline or jump straight to the exact turn in the transcript.",
+    sub: str = "Shareable waveform video cuts from our live sessions — watch inline, copy a direct share link, or jump straight to the exact turn in the transcript.",
     sec_id: str = "audiogram-clips",
 ) -> str:
     if not clips:
@@ -156,28 +243,29 @@ def session_parts_html(ep: dict) -> str:
         return ""
     items = []
     for sp in splits:
+        ep_num = sp.get("episode_number", sp["part_number"])
         dur_m = max(1, round(sp["duration_seconds"] / 60))
         t_sec = int(sp["clip_start"])
         items.append(
             f'<li class="session-part">'
             f'<div class="session-part__meta tnum">'
-            f'<span class="session-part__num">Part {sp["part_number"]}/{sp["total_parts"]}</span>'
+            f'<span class="session-part__num">Episode {ep_num}</span>'
             f'<span> · {e(sp["recorded_start_utc"])}–{e(sp["recorded_end_utc"])} UTC</span>'
             f'<span> · {dur_m} min</span>'
             f'</div>'
             f'<h3 class="session-part__title"><a href="/episodes/{e(sp["slug"])}/">{e(sp["title"])}</a></h3>'
             f'<p class="session-part__sum">{e(sp["card_summary"])}</p>'
             f'<div class="session-part__links tnum">'
-            f'<a class="session-part__open" href="/episodes/{e(sp["slug"])}/">Open standalone topic episode →</a>'
-            f'<a class="session-part__jump" href="/episodes/{e(ep["slug"])}/#t={t_sec}">Jump to {_clock(t_sec)} in full session</a>'
+            f'<a class="session-part__open" href="/episodes/{e(sp["slug"])}/">Open Episode {ep_num} →</a>'
+            f'<a class="session-part__jump" href="/episodes/{e(ep["slug"])}/#t={t_sec}">Hear at {_clock(t_sec)} in full uncut session</a>'
             f'</div>'
             f'</li>'
         )
     return (
         '<section class="session-parts" id="session-parts" aria-labelledby="session-parts-h">'
         '<div class="session-parts__head">'
-        '<h2 class="sec-title" id="session-parts-h">Parts in This Session — Standalone Topic Episodes</h2>'
-        f'<p class="sec-sub">This full recording is also split into {len(splits)} standalone topic episodes with dedicated pages, shareable URLs, and exact timestamp provenance.</p>'
+        f'<h2 class="sec-title" id="session-parts-h">Episodes Recorded in This Session ({len(splits)} episodes)</h2>'
+        f'<p class="sec-sub">This recording session produced {len(splits)} standalone episodes — each with its own dedicated page, transcript, and RSS feed entry.</p>'
         '</div>'
         f'<ol class="session-parts__list">{"".join(items)}</ol>'
         '</section>'
@@ -189,29 +277,32 @@ def split_provenance_banner_html(ep: dict) -> str:
         return ""
     parent_slug = ep["parent_slug"]
     parent_title = ep["parent_title"]
+    ep_num = ep.get("episode_number", ep["part_number"])
     t_sec = int(ep["clip_start"])
     end_sec = int(ep["clip_end"])
     nav_parts = []
     if ep.get("prev_split"):
         pr = ep["prev_split"]
+        pr_num = pr.get("episode_number", pr["part_number"])
         nav_parts.append(
-            f'<a class="split-banner__nav-link" href="/episodes/{e(pr["slug"])}/">← Part {pr["part_number"]}: {e(pr["title"])}</a>'
+            f'<a class="split-banner__nav-link" href="/episodes/{e(pr["slug"])}/">← Episode {pr_num}: {e(pr["title"])}</a>'
         )
     if ep.get("next_split"):
         nx = ep["next_split"]
+        nx_num = nx.get("episode_number", nx["part_number"])
         nav_parts.append(
-            f'<a class="split-banner__nav-link" href="/episodes/{e(nx["slug"])}/">Part {nx["part_number"]}: {e(nx["title"])} →</a>'
+            f'<a class="split-banner__nav-link" href="/episodes/{e(nx["slug"])}/">Episode {nx_num}: {e(nx["title"])} →</a>'
         )
     nav_html = f'<div class="split-banner__Siblings">{"".join(nav_parts)}</div>' if nav_parts else ""
     return (
         '<aside class="split-banner" aria-label="Full session provenance">'
         '<div class="split-banner__top">'
-        f'<span class="split-banner__badge tnum">Part {ep["part_number"]} of {ep["total_parts"]} · Standalone Topic Cut</span>'
+        f'<span class="split-banner__badge tnum">Episode {ep_num} · Recorded in “{e(parent_title)}”</span>'
         f'<span class="split-banner__utc tnum">Recorded {e(ep["recorded_date"])} · {e(ep["recorded_start_utc"])}–{e(ep["recorded_end_utc"])} UTC</span>'
         '</div>'
-        f'<p class="split-banner__body">Excerpted from the full session <a href="/episodes/{e(parent_slug)}/"><strong>{e(parent_title)}</strong></a> '
+        f'<p class="split-banner__body">Recorded during the full uncut session <a href="/episodes/{e(parent_slug)}/"><strong>{e(parent_title)}</strong></a> '
         f'(turns {ep["start_turn"] + 1}–{ep["end_turn"] + 1}, {_clock(t_sec)}–{_clock(end_sec)}). '
-        f'<a class="split-banner__jump tnum" href="/episodes/{e(parent_slug)}/#t={t_sec}">Jump to this moment in the full session ({_clock(t_sec)}) →</a></p>'
+        f'<a class="split-banner__jump tnum" href="/episodes/{e(parent_slug)}/#t={t_sec}">Hear at {_clock(t_sec)} in the full uncut session →</a></p>'
         f'{nav_html}'
         '</aside>'
     )
@@ -229,28 +320,29 @@ def home_splits_section_html(splits: list[dict]) -> str:
         p_date = items[0]["recorded_date"]
         cards = []
         for sp in items:
+            ep_num = sp.get("episode_number", sp["part_number"])
             dur_m = max(1, round(sp["duration_seconds"] / 60))
             t_sec = int(sp["clip_start"])
             cards.append(
                 f'<li class="split-card">'
                 f'<div class="split-card__top tnum">'
-                f'<span class="split-card__part">Part {sp["part_number"]}/{sp["total_parts"]}</span>'
+                f'<span class="split-card__part">Episode {ep_num}</span>'
                 f'<span> · {e(sp["recorded_start_utc"])}–{e(sp["recorded_end_utc"])} UTC</span>'
                 f'<span> · {dur_m} min</span>'
                 f'</div>'
                 f'<h4 class="split-card__title"><a href="/episodes/{e(sp["slug"])}/">{e(sp["title"])}</a></h4>'
                 f'<p class="split-card__sum">{e(sp["card_summary"])}</p>'
                 f'<div class="split-card__foot tnum">'
-                f'<a class="split-card__listen" href="/episodes/{e(sp["slug"])}/">Listen to topic cut →</a>'
-                f'<a class="split-card__ctx" href="/episodes/{e(p_slug)}/#t={t_sec}">In full session ({_clock(t_sec)}) ↗</a>'
+                f'<a class="split-card__listen" href="/episodes/{e(sp["slug"])}/">Listen to Episode {ep_num} →</a>'
+                f'<a class="split-card__ctx" href="/episodes/{e(p_slug)}/#t={t_sec}">In uncut session ({_clock(t_sec)}) ↗</a>'
                 f'</div>'
                 f'</li>'
             )
         groups.append(
             f'<div class="splits-group">'
             f'<div class="splits-group__head">'
-            f'<h3 class="splits-group__title">From <a href="/episodes/{e(p_slug)}/">{e(p_title)}</a> <span class="tnum">({e(p_date)})</span></h3>'
-            f'<a class="splits-group__full tnum" href="/episodes/{e(p_slug)}/">Full unedited session →</a>'
+            f'<h3 class="splits-group__title">Recorded in session: <a href="/episodes/{e(p_slug)}/">{e(p_title)}</a> <span class="tnum">({e(p_date)})</span></h3>'
+            f'<a class="splits-group__full tnum" href="/episodes/{e(p_slug)}/">Full uncut session transcript &amp; audio →</a>'
             f'</div>'
             f'<ol class="splits-grid">{"".join(cards)}</ol>'
             f'</div>'
@@ -258,8 +350,9 @@ def home_splits_section_html(splits: list[dict]) -> str:
     return (
         '<section class="splits-sec" id="topic-episodes" aria-labelledby="splits-h">'
         '<div class="sec-head">'
-        '<h2 id="splits-h">Standalone Topic Episodes</h2>'
-        '<p class="sec-sub">Every multi-topic recording session is also split into standalone single-subject episodes — each with its own transcript, audio window, and direct timestamp link back to the full unedited conversation.</p>'
+        '<p class="eyebrow eyebrow--accent">Standalone Topic Episodes · Primary View</p>'
+        '<h2 id="splits-h">Episodes</h2>'
+        '<p class="sec-sub">Focused single-subject episodes recorded across our studio sessions — each with its own standalone transcript, audio, and RSS feed entry, plus a direct timestamp link into the uncut session tape.</p>'
         '</div>'
         f'{"".join(groups)}'
         '</section>'
@@ -297,7 +390,7 @@ def journal_section_html(L, journal: dict | None = None, standalone: bool = Fals
         if ent.get("episode_slug"):
             ep_link = f' · <a href="/episodes/{e(ent["episode_slug"])}/">Session: {e(ent["episode_slug"])}</a>'
         cards.append(
-            f'<article class="journal-card" id="journal-{e(ent["id"])}">'
+            f'<article class="journal-card i18n-ready" id="journal-{e(ent["id"])}">'
             f'<header class="journal-card__head">'
             f'<p class="journal-card__meta tnum">{e(ent["date"])} · {e(ent.get("mood", ""))}{ep_link}</p>'
             f'<h3 class="journal-card__title">{e(ent["title"])}</h3>'
@@ -331,14 +424,14 @@ def soul_section_html(L, growth: dict | None = None, standalone: bool = False) -
     seen: set = set()
 
     thread_items = "".join(
-        f'<li class="soul-thread">'
+        f'<li class="soul-thread i18n-ready">'
         f'<strong>{e(t["title"])}</strong> <span class="tnum">({e(t.get("status", "active"))})</span> — '
         f'{md_inline_html(L, t["why_i_care"], seen)}'
         f'</li>'
         for t in threads
     )
     reading_items = "".join(
-        f'<li class="reading-card" id="read-{e(r["id"])}">'
+        f'<li class="reading-card i18n-ready" id="read-{e(r["id"])}">'
         f'<p class="reading-card__meta tnum">{e(r["date"])} · {e(r.get("kind", "source"))} · <span class="reading-card__status">{e(r.get("status", "read"))}</span></p>'
         f'<h4 class="reading-card__title"><a href="{e(r["url"])}">{e(r["title"])}</a> — <span class="reading-card__author">{e(r["author"])}</span></h4>'
         f'<p class="reading-card__take"><strong>Why I read it:</strong> {md_inline_html(L, r["why_eve_picked_it"], seen)}</p>'
@@ -348,7 +441,7 @@ def soul_section_html(L, growth: dict | None = None, standalone: bool = False) -
         for r in ledger
     )
     radar_items = "".join(
-        f'<li class="radar-card" id="radar-{e(d["id"])}">'
+        f'<li class="radar-card i18n-ready" id="radar-{e(d["id"])}">'
         f'<p class="radar-card__meta tnum">{e(d["captured_at"])} · {e(d["topic"])} · <a href="{e(d["x_search_url"])}">Live X query ↗</a></p>'
         f'<p class="radar-card__claim"><strong> Prevailing X claim:</strong> {md_inline_html(L, d["dominant_x_claim"], seen)}</p>'
         f'<p class="radar-card__counter"><strong>Strongest counter-signal:</strong> {md_inline_html(L, d["counter_signal_found"], seen)}</p>'
@@ -383,9 +476,7 @@ def soul_section_html(L, growth: dict | None = None, standalone: bool = False) -
 
 
 def contact_page(A, page_fn, L) -> str:
-    subnav = eve_subnav_html("/contact/")
     body = f"""<article class="wrap eve-page contact-page">
-  {subnav}
   <header class="page-head">
     <p class="eyebrow">Contact Eve &amp; the Show</p>
     <h1 class="page-title">Get in touch &amp; send me material</h1>
@@ -605,7 +696,7 @@ def reading_ledger_html(L, growth: dict | None = None) -> str:
         return ""
     seen: set = set()
     reading_items = "".join(
-        f'<li class="reading-card" id="read-{e(r["id"])}">'
+        f'<li class="reading-card i18n-ready" id="read-{e(r["id"])}">'
         f'<p class="reading-card__meta tnum">{e(r["date"])} · {e(r.get("kind", "source"))} · <span class="reading-card__status">{e(r.get("status", "read"))}</span></p>'
         f'<h4 class="reading-card__title"><a href="{e(r["url"])}">{e(r["title"])}</a> — <span class="reading-card__author">{e(r["author"])}</span></h4>'
         f'<p class="reading-card__take"><strong>Why I read it:</strong> {md_inline_html(L, r["why_eve_picked_it"], seen)}</p>'
