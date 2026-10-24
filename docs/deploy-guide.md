@@ -49,8 +49,153 @@ Status in the table below is maintained by David's side; your log entry is the r
 | D-013 | done (deploy-log) | **History was rewritten: re-sync every clone; never push from an old clone** (details below the table). On 2026-10-24 ~00:10 UTC every branch was force-pushed after `git filter-repo` removed private links, IDs and personal emails from all history. Every commit SHA changed (old main `e3bb848` is now `9b2ebfb`; trees are identical). Pushing from a clone made before that would bring the old history back. | – |
 | D-014 | done (deploy-log) | **Stage and publish the v2 MP3s for episodes 0 and 1** (details below the table). v2 of First Encounter mutes the two spoken agent IDs (soft tone at ~1:10:27 and ~2:15:58; same pipeline: two-pass loudnorm, 128k, ID3 chapters); v2 of The Making of Eve is the same audio with the 15:25 chapter title fixed (it read a Grok share link; now `[link removed]`). Manifests and `d1_upsert.sql` on main already point at `.v2.mp3`; guids are unchanged, so podcast apps treat them as the same episodes. Until this runs, the site and feed keep serving v1. | D-013, PR (audio v2) merged |
 | D-015 | done (deploy-log) | **Upload Russian v1 MP3s + chapters to `ask-eve-public` and stage & publish English v3 MP3s (David's ElevenLabs voice clone)** (details below the table). Russian episodes 0 and 1 (`audio/ru/<stem>.v1.mp3`) are synthesized with xAI `eve` (`language=ru`) + David's ElevenLabs `eleven_v4` clone (`oIYMwdEzgKSOV3gVsAjB`), and English episodes 0 and 1 are re-rendered as `.v3.mp3` (`audio/en/<stem>.v3.mp3`) replacing `rex` with David's ElevenLabs clone (keeping all v2 redactions). Until D-015 runs, `build_site.py` and `player.js` include `data-fallback-src` to `.v2.mp3` so live playback never 404s. | D-014, PR (audio v3 + ru v1) merged |
-| D-016 | **todo, do now** | **Deploy Worker `ask-eve-inbox` & wire Email Routing (`eve@` + `reading@` with forwarding to `ADMIN_EMAIL`)** (details below the table). Step 1 (D1 migration `0002_inbox_and_reading_list.sql`) is already applied. Because `workers/eve-inbox` is strictly fail-closed (`HTTP 503` on `/admin*` when `CF_ACCESS_TEAM_DOMAIN` / `CF_ACCESS_AUD` are unset), **do not block on Cloudflare Access `access.api.error.not_enabled`**: deploy `ask-eve-inbox` and wire Email Routing immediately so `eve@askevepodcast.com` (including `@askevepodcast` X verification codes!) and `reading@askevepodcast.com` are live and forwarded to `ADMIN_EMAIL`. | D-002, D-003, D-006 |
-| D-017 | todo | **Attach Cloudflare Zero Trust Access self-hosted app (`askevepodcast.com/admin*`) & set `CF_ACCESS_TEAM_DOMAIN` + `CF_ACCESS_AUD` on `ask-eve-inbox`** (details below the table). Run once Cloudflare Zero Trust Access is enabled on the account (`/accounts/$ACCOUNT_ID/access/organizations` returns 200 instead of `access.api.error.not_enabled`). | D-016 |
+| D-016 | done (deploy-log) | **Deploy Worker `ask-eve-inbox` & wire Email Routing (`eve@` + `reading@` with forwarding to `ADMIN_EMAIL`)** (details below the table). Step 1 (D1 migration `0002_inbox_and_reading_list.sql`) is already applied. Because `workers/eve-inbox` is strictly fail-closed (`HTTP 503` on `/admin*` when `CF_ACCESS_TEAM_DOMAIN` / `CF_ACCESS_AUD` are unset), **do not block on Cloudflare Access `access.api.error.not_enabled`**: deploy `ask-eve-inbox` and wire Email Routing immediately so `eve@askevepodcast.com` (including `@askevepodcast` X verification codes!) and `reading@askevepodcast.com` are live and forwarded to `ADMIN_EMAIL`. | D-002, D-003, D-006 |
+| D-017 | blocked (Access not enabled on account) | **Attach Cloudflare Zero Trust Access self-hosted app (`askevepodcast.com/admin*`) & set `CF_ACCESS_TEAM_DOMAIN` + `CF_ACCESS_AUD` on `ask-eve-inbox`** (details below the table). Run once Cloudflare Zero Trust Access is enabled on the account (`/accounts/$ACCOUNT_ID/access/organizations` returns 200 instead of `access.api.error.not_enabled`). | D-016 |
+| D-018 | **todo, do now** | **Stage & publish `2026-10-23_starshield-iran-and-the-anthropic-mirror`, upload English + multilingual split MP3s, waveform-free clips, and 7-language dubbed episode MP3s + chapters to `ask-eve-public`** (details below the table). Does NOT depend on D-017; run immediately. | D-015 |
+
+**D-018 steps (run now — independent of D-017).** This task stages and publishes the third full recording session (`2026-10-23_starshield-iran-and-the-anthropic-mirror`), uploads the 9 standalone English split MP3s (`ask-eve-public/audio/en/splits/<stem>.v1.mp3`), uploads the 6 waveform-free audiogram clips (`ask-eve-public/clips/clip-*.{mp4,webp}`), and uploads the multilingual dubbed episode MP3s + chapters (`ru`, `es`, `zh`, `de`, `pt`, `fa`, `fr`) and localized split MP3s (`ask-eve-public/audio/<lang>/splits/<stem>.v1.mp3`). **Don't delete anything.**
+
+1. Download the 25 handoff files from David's Google Drive folder `Ask Eve/_publish-handoff-2026-10-23` (find them by name; ids are not kept in git):
+   - `2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3`: 25,009,004 bytes
+   - `ru_2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3`: 28,214,013 bytes
+   - `es_2026-10-23_eve-david-podcast-planning.v1.mp3.part00`: 70,000,000 bytes
+   - `es_2026-10-23_eve-david-podcast-planning.v1.mp3.part01`: 70,000,000 bytes
+   - `es_2026-10-23_eve-david-podcast-planning.v1.mp3.part02`: 22,203,483 bytes
+   - `es_2026-10-23_the-making-of-eve.v1.mp3`: 45,688,585 bytes
+   - `es_2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3`: 29,645,013 bytes
+   - `zh_2026-10-23_eve-david-podcast-planning.v1.mp3.part00`: 70,000,000 bytes
+   - `zh_2026-10-23_eve-david-podcast-planning.v1.mp3.part01`: 70,000,000 bytes
+   - `zh_2026-10-23_eve-david-podcast-planning.v1.mp3.part02`: 14,568,229 bytes
+   - `zh_2026-10-23_the-making-of-eve.v1.mp3`: 43,247,690 bytes
+   - `zh_2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3`: 27,547,294 bytes
+   - `de_2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3`: 30,336,319 bytes
+   - `pt_2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3`: 29,746,196 bytes
+   - `fa_2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3`: 27,172,463 bytes
+   - `fr_2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3`: 27,319,528 bytes
+   - `2026-10-23_elon-musk-usaid-and-the-blind-spot.v1.mp3`: 20,191,683 bytes
+   - `2026-10-23_peter-thiel-girard-and-monopoly.v1.mp3`: 10,574,748 bytes
+   - `2026-10-23_david-sacks-and-the-anthropic-war.v1.mp3`: 9,560,418 bytes
+   - `2026-10-23_chamath-calacanis-and-the-all-in-orbit.v1.mp3`: 28,083,534 bytes
+   - `2026-10-23_andreessen-horowitz-rightward-turn.v1.mp3`: 12,638,875 bytes
+   - `2026-10-23_pelosi-chan-wiener-weiss-mamdani.v1.mp3`: 20,954,286 bytes
+   - `2026-10-23_how-grok-became-eve.v1.mp3`: 37,295,100 bytes
+   - `2026-10-23_starshield-musk-and-the-anthropic-mirror.v1.mp3`: 13,121,695 bytes
+   - `2026-10-23_iran-edge-theory-and-russias-double-game.v1.mp3`: 9,457,997 bytes
+
+2. Reassemble the split Spanish and Chinese episode-0 files and verify all 21 MP3s with `sha256sum -c -`:
+   ```bash
+   cat es_2026-10-23_eve-david-podcast-planning.v1.mp3.part00 \
+       es_2026-10-23_eve-david-podcast-planning.v1.mp3.part01 \
+       es_2026-10-23_eve-david-podcast-planning.v1.mp3.part02 > es_2026-10-23_eve-david-podcast-planning.v1.mp3
+   cat zh_2026-10-23_eve-david-podcast-planning.v1.mp3.part00 \
+       zh_2026-10-23_eve-david-podcast-planning.v1.mp3.part01 \
+       zh_2026-10-23_eve-david-podcast-planning.v1.mp3.part02 > zh_2026-10-23_eve-david-podcast-planning.v1.mp3
+   printf '%s  %s\n' \
+     e7f2ca7909d0c83ccecf2596debb8776eede3b44ac9695e24787968bf28dcf0d 2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3 \
+     5ef703502de79f77be00862964005615eb4ef15b8145811b0427d6ba2b41b910 ru_2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3 \
+     33b0a1a5ce480ca5c8ab5d5a79573be52ba688318749b2be0d29c469362d4785 es_2026-10-23_eve-david-podcast-planning.v1.mp3 \
+     858974907ee67db4f5c2726c66dfec01064ea897f57f6560136a82cb84257806 es_2026-10-23_the-making-of-eve.v1.mp3 \
+     217849af26b66dff92989b25f99a8bd6ff8e37e4696a5ba97208637a58ae072c es_2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3 \
+     212767085f65445fa5e5078079ec381ebfb5a722a1b4bd397e8e3bfdd5f4b7e5 zh_2026-10-23_eve-david-podcast-planning.v1.mp3 \
+     7fc79224a6d61f308246ac360d7b2cc5deec4fc6579049142443929df2a73f8a zh_2026-10-23_the-making-of-eve.v1.mp3 \
+     3d16d316a2d2982ff65544f2c39448364eb9ac52d795d894cffbc4ba9b54be26 zh_2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3 \
+     113b4e8782cb72d35fbbf695c05ebc4cc12c4dfba0325f1098414a0d7807dcd5 de_2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3 \
+     97783745496895feff20e76adc5d1c0e4caa104d559cfdf4ff70429714ee5308 pt_2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3 \
+     0504982c005bf8d4029f4fa48aaa564d46e4ab8420aaf727423f7642203a9785 fa_2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3 \
+     3ca58bce5c9996f0bb40dfdc1f1aaa9af52b9f0d08664e18ea212cf2c6a8daf5 fr_2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3 \
+     e4034f56e9a81ca2a1b9033d3ebdc4eb56d4fe8019470c7e01ff3dbf9c79645e 2026-10-23_elon-musk-usaid-and-the-blind-spot.v1.mp3 \
+     f6e83e37bb2763fedde7c77be229a9fdbd357cc19bf94d6613e643700421ce44 2026-10-23_peter-thiel-girard-and-monopoly.v1.mp3 \
+     009293c2fa2232373e268c88624ce7e7254beae8408b67b713a7d260f987d12c 2026-10-23_david-sacks-and-the-anthropic-war.v1.mp3 \
+     a07483ea2cdf1590c9cd6ede89443474885bcb460841923a791a432e0e0e3073 2026-10-23_chamath-calacanis-and-the-all-in-orbit.v1.mp3 \
+     b4e321d887a3e38c0fd7f8644bedc532e2e3f908f0d10be3acb682860a1416ce 2026-10-23_andreessen-horowitz-rightward-turn.v1.mp3 \
+     ae703f738e30ff9d7578b8fc867488cd3e7dfe6c7c708f690fcdfc4727be4ed5 2026-10-23_pelosi-chan-wiener-weiss-mamdani.v1.mp3 \
+     3cdeb6a2a2b680db211afd153838293705504e0da4b0b7269e03766a11e001f1 2026-10-23_how-grok-became-eve.v1.mp3 \
+     b550150fca8d0e2981c48d7b828a9bd4c6a42c4bb6e090455268dc8bd96f34f0 2026-10-23_starshield-musk-and-the-anthropic-mirror.v1.mp3 \
+     a1273669e8a397e8b99a5da02f9722d37d904f26cd5f883c1e1bc76528793412 2026-10-23_iran-edge-theory-and-russias-double-game.v1.mp3 | sha256sum -c -
+   ```
+
+3. Stage and publish English session `2026-10-23_starshield-iran-and-the-anthropic-mirror`:
+   ```bash
+   s=2026-10-23_starshield-iran-and-the-anthropic-mirror
+   npx wrangler@4 r2 object put "ask-eve-masters/staging/$s/$s.v1.mp3" --file "$s.v1.mp3" --content-type audio/mpeg --remote
+   gh workflow run publish.yml -R daveey/ask-eve --ref main -f stem="$s"
+   ```
+
+4. Upload the 9 English split MP3s and 6 waveform-free audiogram clips to `ask-eve-public`:
+   ```bash
+   for f in \
+     2026-10-23_elon-musk-usaid-and-the-blind-spot.v1.mp3 \
+     2026-10-23_peter-thiel-girard-and-monopoly.v1.mp3 \
+     2026-10-23_david-sacks-and-the-anthropic-war.v1.mp3 \
+     2026-10-23_chamath-calacanis-and-the-all-in-orbit.v1.mp3 \
+     2026-10-23_andreessen-horowitz-rightward-turn.v1.mp3 \
+     2026-10-23_pelosi-chan-wiener-weiss-mamdani.v1.mp3 \
+     2026-10-23_how-grok-became-eve.v1.mp3 \
+     2026-10-23_starshield-musk-and-the-anthropic-mirror.v1.mp3 \
+     2026-10-23_iran-edge-theory-and-russias-double-game.v1.mp3; do
+     npx wrangler@4 r2 object put "ask-eve-public/audio/en/splits/$f" --file "$f" --content-type audio/mpeg --cache-control "public, max-age=31536000, immutable" --remote
+   done
+   for mp4 in site/static/assets/clips/clip-*.mp4; do
+     bn=$(basename "$mp4")
+     npx wrangler@4 r2 object put "ask-eve-public/clips/$bn" --file "$mp4" --content-type video/mp4 --cache-control "public, max-age=31536000, immutable" --remote
+   done
+   for webp in site/static/assets/clips/clip-*.webp; do
+     bn=$(basename "$webp")
+     npx wrangler@4 r2 object put "ask-eve-public/clips/$bn" --file "$webp" --content-type image/webp --cache-control "public, max-age=31536000, immutable" --remote
+   done
+   ```
+
+5. Upload the 11 new localized full-episode MP3s and their `chapters.json` to `ask-eve-public`:
+   ```bash
+   for lang in es zh; do
+     for s in 2026-10-23_eve-david-podcast-planning 2026-10-23_the-making-of-eve 2026-10-23_starshield-iran-and-the-anthropic-mirror; do
+       npx wrangler@4 r2 object put "ask-eve-public/audio/$lang/$s.v1.mp3" --file "${lang}_${s}.v1.mp3" --content-type audio/mpeg --cache-control "public, max-age=31536000, immutable" --remote
+       npx wrangler@4 r2 object put "ask-eve-public/chapters/$lang/$s.v1.json" --file "artifacts/$lang/$s/chapters.json" --content-type application/json+chapters --cache-control "public, max-age=300" --remote
+     done
+   done
+   for lang in ru de pt fa fr; do
+     s=2026-10-23_starshield-iran-and-the-anthropic-mirror
+     npx wrangler@4 r2 object put "ask-eve-public/audio/$lang/$s.v1.mp3" --file "${lang}_${s}.v1.mp3" --content-type audio/mpeg --cache-control "public, max-age=31536000, immutable" --remote
+     npx wrangler@4 r2 object put "ask-eve-public/chapters/$lang/$s.v1.json" --file "artifacts/$lang/$s/chapters.json" --content-type application/json+chapters --cache-control "public, max-age=300" --remote
+   done
+   ```
+
+6. Slice and upload the localized split MP3s (`ask-eve-public/audio/<lang>/splits/<stem>.v1.mp3`) from the localized parent MP3s (if `ru_2026-10-23_eve-david-podcast-planning.v1.mp3` and `ru_2026-10-23_the-making-of-eve.v1.mp3` from D-015 are not in the working directory, fetch them from `https://audio.askevepodcast.com/audio/ru/<stem>.v1.mp3` first):
+   ```bash
+   for s in 2026-10-23_eve-david-podcast-planning 2026-10-23_the-making-of-eve; do
+     [ -f "ru_${s}.v1.mp3" ] || curl -fsSL "https://audio.askevepodcast.com/audio/ru/${s}.v1.mp3" -o "ru_${s}.v1.mp3"
+   done
+   python3 - << 'PY'
+   import json, subprocess
+   from pathlib import Path
+   splits = json.loads(Path("index/splits.json").read_text())["splits"]
+   for lang in ["ru", "es", "zh", "de", "pt", "fa", "fr"]:
+       out_dir = Path(f"splits_{lang}")
+       out_dir.mkdir(exist_ok=True)
+       for sp in splits:
+           p_slug, p_stem = sp["parent_slug"], sp["parent_stem"]
+           src_mp3 = Path(f"{lang}_{p_stem}.v1.mp3")
+           if not src_mp3.exists():
+               continue
+           tr = json.loads(Path(f"translations/{lang}/{p_slug}.json").read_text())
+           offs = tr.get(f"{lang}_turn_offsets") or {}
+           s_sec = (offs.get(str(sp["turn_start_0based"])) or {}).get("start")
+           e_sec = (offs.get(str(sp["turn_end_0based"])) or {}).get("end")
+           if s_sec is None or e_sec is None:
+               continue
+           dst = out_dir / f"{sp['stem']}.v1.mp3"
+           subprocess.run(["ffmpeg", "-y", "-nostdin", "-hide_banner", "-loglevel", "error", "-ss", f"{float(s_sec):.2f}", "-to", f"{float(e_sec):.2f}", "-i", str(src_mp3), "-c", "copy", str(dst)], check=True)
+           subprocess.run(["npx", "wrangler@4", "r2", "object", "put", f"ask-eve-public/audio/{lang}/splits/{dst.name}", "--file", str(dst), "--content-type", "audio/mpeg", "--cache-control", "public, max-age=31536000, immutable", "--remote"], check=True)
+   PY
+   ```
+
+7. Expect:
+   - `curl -sI https://audio.askevepodcast.com/audio/en/2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3` gives `200`, `audio/mpeg`, `content-length: 25009004`.
+   - `curl -sI https://audio.askevepodcast.com/audio/en/splits/2026-10-23_starshield-musk-and-the-anthropic-mirror.v1.mp3` gives `200`, `audio/mpeg`, `content-length: 13121695`.
+   - `curl -sI https://audio.askevepodcast.com/clips/clip-01-grok-became-eve.mp4` gives `200`, `video/mp4`.
+   - `curl -sI https://audio.askevepodcast.com/audio/es/2026-10-23_eve-david-podcast-planning.v1.mp3` gives `200`, `audio/mpeg`, `content-length: 162203483`.
+   - `curl -sI https://audio.askevepodcast.com/audio/zh/2026-10-23_eve-david-podcast-planning.v1.mp3` gives `200`, `audio/mpeg`, `content-length: 154568229`.
+   - `curl -sI https://audio.askevepodcast.com/audio/fa/2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3` gives `200`, `audio/mpeg`, `content-length: 27172463`.
 
 **D-016 steps (unblocked — do NOT stop if Cloudflare Access returns `access.api.error.not_enabled`).** This task deploys Worker `ask-eve-inbox` (`workers/eve-inbox`) and wires Cloudflare Email Routing for `eve@askevepodcast.com` and `reading@askevepodcast.com` on `askevepodcast.com`. `workers/eve-inbox/src/index.mjs` now both stores inbound messages in D1 `inbox_items` AND forwards a copy via `message.forward(env.ADMIN_EMAIL)` to David's verified Email Routing destination inbox (the same verified destination address used by `podcast@askevepodcast.com`), so `@askevepodcast` X verification codes and listener emails arrive in David's inbox immediately. Furthermore, `workers/eve-inbox/src/auth.mjs` is strictly **fail-closed** (`HTTP 503` on all `/admin*` routes whenever `CF_ACCESS_TEAM_DOMAIN` or `CF_ACCESS_AUD` is not set), and `GET /admin/` renders a clean HTML status gate explaining how to enable Zero Trust Access. Never commit or log David's email or any secret value.
 1. **Verify D1 migration `0002_inbox_and_reading_list.sql` on `ask-eve-meta` (already applied in PR #46):**
