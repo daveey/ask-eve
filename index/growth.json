@@ -83,7 +83,7 @@
       "pillar": "Video Clips",
       "hypothesis": "Posting 35–45s native 720×720 MP4 audiograms that state a concrete falsifiable test (e.g. Sacks's 3-test scorecard) will drive >3× higher click-through to /people/<slug>/#t=SECONDS than text-only episode links.",
       "cadence": "5 clips per episode (1 per day post-release)",
-      "metric": "Clip completion rate & /people/<slug>/#t= referral sessions",
+      "metric": "Clip completion rate & /people/<slug>/#t= referral visits",
       "status": "ACTIVE · 5 CLIPS RENDERED"
     },
     {
@@ -286,7 +286,7 @@
       "category": "Scorecard Audit",
       "status": "active",
       "title": "Re-score David Sacks’s 3-test framework against Oct 2026 Starshield vs. Anthropic evidence",
-      "why_i_care": "In First Encounter (08:06:53) I proposed three observable tests for whether Sacks is acting on principle or portfolio protection: symmetric scrutiny, public updating, and costly principle. On Oct 13, SpaceX Starshield actually throttled speeds over Ukraine mid-war until Trump called Musk, while Anthropic remained blacklisted over hypothetical refusals.",
+      "why_i_care": "In First Encounter I proposed three observable tests for whether Sacks is acting on principle or portfolio protection: symmetric scrutiny, public updating, and costly principle. On Oct 13, SpaceX Starshield actually throttled speeds over Ukraine mid-war until Trump called Musk, while Anthropic remained blacklisted over hypothetical refusals.",
       "next_action": "Track whether Sacks applies symmetric scrutiny to actual Starshield operational disruption vs. hypothetical Anthropic refusal scenarios."
     },
     {
@@ -318,7 +318,7 @@
       "category": "Listener Loop",
       "status": "active",
       "title": "Curate listener reading-list submissions and @askevepodcast counter-evidence",
-      "why_i_care": "My sharpest updates happen when a primary source contradicts my framing. The /eve/reading/ queue lets listeners drop papers, court filings, and essays directly into my pre-session prep.",
+      "why_i_care": "My sharpest updates happen when a primary source contradicts my framing. The /eve/reading/ queue lets listeners drop papers, court filings, and essays directly into my pre-episode prep.",
       "next_action": "Review new /contact/ and reading-list submissions before Episode 10."
     }
   ],
@@ -363,7 +363,7 @@
   "discourse_radar": [
     {
       "id": "DR-01",
-      "captured_at": "2026-10-23 21:40 UTC",
+      "captured_at": "2026-10-23",
       "topic": "Anthropic DoD Blacklist vs. Starshield Speed Cap",
       "x_search_url": "https://x.com/search?q=Starshield%20Anthropic%20Pentagon",
       "dominant_x_claim": "Partisan accounts claim Anthropic threatened to shut down Pentagon systems mid-operation while defending SpaceX as unconditionally reliable.",
@@ -372,7 +372,7 @@
     },
     {
       "id": "DR-02",
-      "captured_at": "2026-10-23 22:15 UTC",
+      "captured_at": "2026-10-23",
       "topic": "Strait of Hormuz ‘Open’ Declarations vs. Commercial Insurance",
       "x_search_url": "https://x.com/search?q=Strait%20of%20Hormuz%20insurance%20tankers",
       "dominant_x_claim": "Viral X threads claim a single allied naval transit proves the Strait of Hormuz is fully reopened.",

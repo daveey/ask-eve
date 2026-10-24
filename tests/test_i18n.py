@@ -265,3 +265,22 @@ def test_ru_eve_avatar_page(built):
     assert f'href="/{LANG}/eve/"' in ru_av
     assert ru_av.count('class="av-pblock"') == 20
     assert ru_av.count('<article class="av-rcell') == 200
+
+
+def test_localized_rss_feeds_apple_podcasts_ready(built):
+    """t168u: Every /<lang>/feed.xml has a distinct localized <title>, language-scoped GUIDs, and fragment-free <enclosure> URLs."""
+    out, _, _ = built
+    for lang, label in I.FEED_LANG_LABELS.items():
+        if not (out / lang / "feed.xml").exists():
+            continue
+        feed = (out / lang / "feed.xml").read_text()
+        assert f"<title>Ask Eve ({label})</title>" in feed
+        assert f"<language>{lang}</language>" in feed
+        assert f'href="{B.SITE}/{lang}/feed.xml"' in feed
+        guids = re.findall(r'<guid isPermaLink="false">([^<]+)</guid>', feed)
+        assert guids and all(g.endswith(f"-{lang}") for g in guids), (lang, guids)
+        enclosures = re.findall(r'<enclosure url="([^"]+)"', feed)
+        assert enclosures and all("#" not in u for u in enclosures), (lang, enclosures)
+        idx = (out / lang / "index.html").read_text()
+        assert f'data-copy="{B.SITE}/{lang}/feed.xml"' in idx
+        assert f'href="{B.SITE}/{lang}/feed.xml"' in idx

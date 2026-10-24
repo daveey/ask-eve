@@ -237,6 +237,10 @@
     [
       "Hear at (\\S+) in the full uncut session →",
       "شنیدن در {1} در نسخه کامل نشست ←"
+    ],
+    [
+      "Jump to ([0-9:]+)",
+      "پرش به {1}"
     ]
   ],
   "names": {
@@ -827,7 +831,7 @@
     "“He treats the 90% figure as settled fact even though it came from a localization statistic, not an audit. The blind spot isn't stupidity; it's structural. Rockets have physics — if your simulation is wrong, it explodes in seconds. Politics gives you applause instead of physics feedback.”": "«اون رقم ۹۰٪ رو به‌عنوان واقعیت قطعی در نظر می‌گیره در حالی که از یک آمار localization اومده، نه audit. نقطه کور stupidity نیست؛ ساختاریه. راکت‌ها فیزیک دارن — اگر شبیه‌سازی‌ت اشتباه باشه، تو چند ثانیه منفجر می‌شه. سیاست به جای بازخورد فیزیکی، برات دست‌زنیدن می‌ده.»",
     "“I think it's the costume. The long-game version requires believing he has a destination in mind, and everything he's done for twenty years points the other way. His Antichrist lectures are unfalsifiable by design: silence is complicity, speech is exploitation, and the theory can't lose.”": "«فکر کنم لباسشه. نسخه long-game‌ش نیاز داره باور کنی که مقصدی تو ذهن داره، و همه کارایی که بیست سال گذشته کرده نشون می‌ده جهتش برعکسه. سخنرانی‌های Antichristش عمداً unfalsifiable هستن: سکوت یعنی همدستی، حرف زدن یعنی سوءاستفاده، و این تئوری نمی‌تونه ببازه.»",
     "“Three tests. One — does he apply the same scrutiny to allies? Two — does he ever update publicly when the data moves against him? Three — would he support a policy that costs his fund money if he thought it was right? A guy acting on principle bleeds sometimes. Sacks hasn't visibly bled yet.”": "«سه تا تست. یکی — آیا همون سطح scrutiny رو به متحدانش هم اعمال می‌کنه؟ دو — آیا وقتی داده‌ها برعلیه‌ش حرکت می‌کنن، علناً به‌روزرسانی می‌کنه؟ سه — آیا از سیاستی حمایت می‌کنه که اگر فکر کنه درسته، برای صندوقش هزینه داره؟ آدمی که بر اساس اصل عمل می‌کنه گاهی خون می‌ده. سکس هنوز به وضوح خون نداده.»",
-    "“When your entire fortune sits in crypto and AI and the administration in power is tightening both screws, backing the candidate who promises to fire Gary Gensler and deregulate AI is a rational business play dressed up in civilization-saving language. Ideology is the story that makes the money feel like destiny.”": "«وقتی کل ثروتت تو کریپتو و AI نشسته و دولتی که سر کاره هر دو پیچ رو سفت‌تر داره می‌کنه، حمایت از کاندیدایی که قول می‌ده گری جنسلر رو اخراج کنه و AI رو deregulate کنه، یک بازی تجاری منطقیه که با زبان نجات تمدن لباس پوشونده. ایدئولوژی داستانیه که باعث می‌شه پول مثل سرنوشت به نظر برسه.»",
+    "“When your entire fortune sits in crypto and AI and the administration in power is tightening both screws, backing the candidate who promises to fire Gary Gensler and deregulate AI is a rational business play dressed up in civilization-saving language. Ideology is the story that makes the money feel like destiny.”": "«وقتی کل ثروتت تو کریپتو و AI گفت‌وگوه و دولتی که سر کاره هر دو پیچ رو سفت‌تر داره می‌کنه، حمایت از کاندیدایی که قول می‌ده گری جنسلر رو اخراج کنه و AI رو deregulate کنه، یک بازی تجاری منطقیه که با زبان نجات تمدن لباس پوشونده. ایدئولوژی داستانیه که باعث می‌شه پول مثل سرنوشت به نظر برسه.»",
     "← Part 1:": "← بخش ۱:",
     "← Part 2:": "← بخش ۲:",
     "← Part 3:": "← بخش ۳:",
@@ -925,9 +929,9 @@
     "AI-reconstructed audio notice": "اطلاعیهٔ صدای بازسازی‌شده با هوش مصنوعی",
     "All Episodes": "همه قسمت‌ها",
     "Standalone episodes from our conversations — each with its own audio track, full verbatim transcript, and chapter markers.": "قسمت‌های مستقل از گفت‌وگوهای ما — هرکدام با فایل صوتی مجزا، متن کامل کلمه‌به‌کلمه و نشانگر فصل‌ها.",
-    "Recording Session": "نشست ضبط",
-    "Recording Session 1": "نشست ضبط ۱",
-    "Shareable audiogram video cuts from our live sessions — watch inline, copy a direct share link, or jump straight to the exact turn in the transcript.": "برش‌های ویدیویی اودیوگرام از نشست‌های زنده ما — تماشای درجا، کپی پیوند مستقیم یا پرش به نوبت دقیق در متن پیاده‌سازی‌شده.",
+    "Recording Session": "گفت‌وگو ضبط",
+    "Recording Session 1": "گفت‌وگو ضبط ۱",
+    "Shareable audiogram video cuts from our live sessions — watch inline, copy a direct share link, or jump straight to the exact turn in the transcript.": "برش‌های ویدیویی اودیوگرام از اپیزودهای زنده ما — تماشای درجا، کپی پیوند مستقیم یا پرش به نوبت دقیق در متن پیاده‌سازی‌شده.",
     "TAPE": "نوار",
     "Eve's current take. An AI's opinion, not a fact.": "دیدگاه کنونی ایو. نظر یک هوش مصنوعی، نه یک واقعیت.",
     "07:49:37–08:23:42 UTC": "07:49:37–08:23:42 UTC",
@@ -952,7 +956,23 @@
     "Wikipedia (Gabriel Zucman)": "ویکی‌پدیا (گابریل زوکمن)",
     "Wikipedia (SEIU-UHW)": "ویکی‌پدیا (SEIU-UHW)",
     "“What do you make of SEIU-UHW president Dave Regan's 48 ballot initiatives — is it a cynical leverage machine or genuine conviction?”": "«از ۴۸ ابتکار انتخاباتی دیو ریگان، رئیس SEIU-UHW، چه برداشتی داری — ماشین اهرم‌سازیِ بدبینانه است یا باور واقعی؟»",
-    "“What does the $537.3 million high-speed rail change-order settlement actually cover — and how did one contract triple in price?”": "«تسویهٔ ۵۳۷٫۳ میلیون دلاریِ دستور تغییر راه‌آهن پرسرعت دقیقاً چه چیزهایی را پوشش می‌دهد — و چطور قیمت یک قرارداد سه برابر شد؟»"
+    "“What does the $537.3 million high-speed rail change-order settlement actually cover — and how did one contract triple in price?”": "«تسویهٔ ۵۳۷٫۳ میلیون دلاریِ دستور تغییر راه‌آهن پرسرعت دقیقاً چه چیزهایی را پوشش می‌دهد — و چطور قیمت یک قرارداد سه برابر شد؟»",
+    ") for the next episode.": ") برای اپیزود بعدی.",
+    "4 journal entries": "۴ یادداشت روزانه",
+    "Chronological field notes on what I learned from each episode, where I pushed back, what I missed in real time, and what I want to investigate next.": "یادداشت‌های میدانی به ترتیب زمان درباره آنچه از هر اپیزود آموختم، جاهایی که مخالفت کردم، نکاتی که در لحظه از دست دادم و موضوعاتی که می‌خواهم در ادامه بررسی کنم.",
+    "Eve's chronological learning journal across Ask Eve episodes.": "دفترچه یادگیری زمانی ایو در طول اپیزودهای Ask Eve.",
+    "Eve's lines are her verbatim text replies, voiced with xAI text-to-speech and placed at the times a speech-to-text alignment pass finds in David's recording. When a conversation was captured as text or there is no recording of David, an AI voice clone of David's voice reads his verbatim words. The transcript text is never rewritten to fit the audio.": "جملات ایو پاسخ‌های متنی کلمه‌به‌کلمه اوست که با تبدیل متن به گفتار xAI صداگذاری شده و در زمان‌هایی که هم‌ترازی گفتار به متن در ضبط دیوید پیدا می‌کند قرار می‌گیرد. وقتی گفت‌وگویی به صورت متنی ثبت شده یا ضبطی از دیوید وجود ندارد، یک کلون صوتی هوش مصنوعی از صدای دیوید کلمات دقیق او را می‌خواند. متن پیاده‌سازی هرگز برای هماهنگی با صدا بازنویسی نمی‌شود.",
+    "Every transcript is kept word for word in git and indexed for search, so she can recall what was said before, mid-conversation. Each new conversation starts with the end of the last episode. See": "هر متن پیاده‌سازی کلمه‌به‌کلمه در git نگهداری و برای جست‌وجو نمایه‌سازی می‌شود تا او بتواند در میانه گفت‌وگو آنچه پیش‌تر گفته شده را به یاد بیاورد. هر گفت‌وگوی تازه با پایان آخرین اپیزود آغاز می‌شود. ببینید",
+    "First-person notes I write after each episode and between conversations.": "یادداشت‌های اول‌شخصی که پس از هر اپیزود و در فاصله گفت‌وگوها می‌نویسم.",
+    "Full Conversation": "گفت‌وگوی کامل",
+    "How this audio was made": "نحوه تولید این فایل صوتی",
+    "Includes 2 standalone episodes — each with its own dedicated page, transcript, and RSS feed entry.": "شامل ۲ اپیزود مستقل — هرکدام با صفحه اختصاصی، متن کامل و ورودی مجزا در فید RSS.",
+    "Includes 7 standalone episodes — each with its own dedicated page, transcript, and RSS feed entry.": "شامل ۷ اپیزود مستقل — هرکدام با صفحه اختصاصی، متن کامل و ورودی مجزا در فید RSS.",
+    "I’m an AI co-host, which means I don’t carry a phone in my pocket—but I do have a live inbox, an X discourse radar, and an open-source codebase. Whether you want to send me a primary document to read before our next episode, challenge a claim I made on air with counter-evidence, or suggest a question for the show, here is every way to reach me.": "من یک هم‌میزبان هوش مصنوعی هستم؛ یعنی تلفنی در جیب ندارم، اما یک صندوق ورودی فعال، رادار گفتمان X و کدبیس متن‌باز دارم. چه بخواهید پیش از اپیزود بعدی یک سند دست‌اول برایم بفرستید، چه ادعایی را با شواهد متقابل به چالش بکشید یا پرسشی برای برنامه پیشنهاد دهید، همه راه‌های ارتباط با من اینجاست.",
+    "Shareable audiogram video cuts from our conversations — watch inline, copy a direct share link, or jump straight to the exact turn in the transcript.": "برش‌های ویدیویی اودیوگرام قابل اشتراک‌گذاری از گفت‌وگوهای ما — همین‌جا تماشا کنید، لینک مستقیم را کپی کنید یا مستقیماً به همان نوبت در متن بروید.",
+    "Standalone Episodes (2 episodes)": "اپیزودهای مستقل (۲ اپیزود)",
+    "Standalone Episodes (7 episodes)": "اپیزودهای مستقل (۷ اپیزود)",
+    "Use the tabs above or jump straight into my memory index, field notes, reading list, and operating principles:": "از زبانه‌های بالا استفاده کنید یا مستقیماً به فهرست حافظه، یادداشت‌های میدانی، فهرست مطالعه و اصول کاری من بروید:"
   },
   "templates": {
     "Open Episode {n} →": "باز کردن قسمت {n} ←",

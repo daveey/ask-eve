@@ -433,7 +433,7 @@ def _sources_class(B, eps_en: list[dict]):
             if t["start"] is not None and not t["gap"]:
                 href, when = f"/episodes/{ep['slug']}/#t={int(t['start'])}", B.clock(t["start"])
             else:
-                href, when = f"/episodes/{ep['slug']}/#turn-{t['i']}", t["clock"] + " UTC"
+                href, when = f"/episodes/{ep['slug']}/#turn-{t['i']}", t["clock"]
             return {**r, "ep": ep, "turn": t, "href": href, "when": when}
     return Sources
 
@@ -998,6 +998,17 @@ def build(B, A, out: Path, eps: list[dict], people: list[dict], cfg: dict) -> li
     return urls
 
 
+FEED_LANG_LABELS = {
+    "zh": "中文",
+    "ru": "Русский",
+    "es": "Español",
+    "de": "Deutsch",
+    "pt": "Português",
+    "fa": "فارسی",
+    "fr": "Français",
+}
+
+
 def render_feed(lang: str, B, eps: list[dict]) -> str:
     """Render /<lang>/feed.xml with translated metadata and localized audio enclosures."""
     import datetime as dt
@@ -1013,7 +1024,10 @@ def render_feed(lang: str, B, eps: list[dict]) -> str:
             continue
         for k in ("title", "ai_disclosure", "context", "summary", "blurb"):
             if isinstance(ep.get(k), str):
-                ep[k] = unmark(ep[k])
+                val = unmark(ep[k])
+                if k in ("context", "summary", "blurb") and hasattr(B, "clean_session_prose"):
+                    val = B.clean_session_prose(val, bool(ep.get("is_split")))
+                ep[k] = val
         ep["topics"] = [unmark(t) for t in ep.get("topics", [])]
         ep["people"] = [unmark(p) for p in ep.get("people", [])]
         url = f"{B.SITE}/{lang}/episodes/{ep['slug']}/"
@@ -1036,15 +1050,16 @@ def render_feed(lang: str, B, eps: list[dict]) -> str:
         desc = "\n\n".join(parts)
         chtml = "".join(html_parts).replace("]]>", "]]&gt;")
         pub = ep.get("published_at") or (ep["date"] + "T12:00:00Z")
+        enclosure_url = ep["audio_url"].split("#")[0]
         items.append(f"""  <item>
     <title>{e(ep['title'])}</title>
-    <guid isPermaLink="false">{e(ep['guid'])}</guid>
+    <guid isPermaLink="false">{e(ep['guid'])}-{lang}</guid>
     <link>{e(url)}</link>
     <pubDate>{F.rfc2822(pub)}</pubDate>
     <description>{e(desc)}</description>
     <itunes:summary>{e(desc)}</itunes:summary>
     <content:encoded><![CDATA[{chtml}]]></content:encoded>
-    <enclosure url="{e(ep['audio_url'] + (f'#t={int(round(float(ep["clip_start"])))},{int(round(float(ep["clip_end"])))} '[:-1] if ep.get('clip_start') is not None and ep.get('clip_end') is not None and ep.get('audio_url') == ep.get('parent_audio_url') else ''))}" length="{ep['audio_bytes']}" type="{e(ep.get('audio_mime') or 'audio/mpeg')}"/>
+    <enclosure url="{e(enclosure_url)}" length="{ep['audio_bytes']}" type="{e(ep.get('audio_mime') or 'audio/mpeg')}"/>
     <itunes:duration>{ep['duration_seconds']}</itunes:duration>
     <itunes:explicit>{'true' if ep.get('explicit') else 'false'}</itunes:explicit>
     <itunes:episodeType>{e(ep.get('episode_type') or 'full')}</itunes:episodeType>
@@ -1058,7 +1073,7 @@ def render_feed(lang: str, B, eps: list[dict]) -> str:
     return f"""<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:podcast="https://podcastindex.org/namespace/1.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
-  <title>{e(F.SHOW['title'])}</title>
+  <title>{e(F.SHOW['title'])} ({e(FEED_LANG_LABELS.get(lang, lang.upper()))})</title>
   <link>{B.SITE}/{lang}/</link>
   <atom:link href="{feed_url}" rel="self" type="application/rss+xml"/>
   <language>{lang}</language>

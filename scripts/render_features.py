@@ -73,6 +73,15 @@ def _clock(sec: float) -> str:
     return f"{h}:{m:02d}:{s:02d}" if h else f"{m}:{s:02d}"
 
 
+def _human_date(d: str) -> str:
+    import datetime as dt
+    try:
+        x = dt.date.fromisoformat(d[:10])
+        return f"{x.strftime('%b')} {x.day}, {x.year}"
+    except Exception:
+        return d
+
+
 def _clip_share_urls(c: dict) -> tuple[str, str]:
     import urllib.parse
     cid = c["id"]
@@ -183,7 +192,7 @@ def clips_index_html(A, clips: list[dict]) -> str:
         '<header class="page-head">'
         '<p class="eyebrow eyebrow--accent">Shareable Moments</p>'
         '<h1 class="h1">Audiogram Clips</h1>'
-        '<p class="lede">Short audiogram video cuts from our studio sessions — each with its own shareable link, downloadable MP4, and direct timestamp jump into the full conversation.</p>'
+        '<p class="lede">Short audiogram video cuts from our episodes — each with its own shareable link, downloadable MP4, and direct timestamp jump into the full conversation.</p>'
         '</header>'
         f'<div class="clips-grid">{cards}</div>'
         '</div>'
@@ -194,7 +203,7 @@ def clips_strip_html(
     A,
     clips: list[dict],
     title: str = "60-Second Audiogram Clips",
-    sub: str = "Shareable audiogram video cuts from our live sessions — watch inline, copy a direct share link, or jump straight to the exact turn in the transcript.",
+    sub: str = "Shareable audiogram video cuts from our conversations — watch inline, copy a direct share link, or jump straight to the exact turn in the transcript.",
     sec_id: str = "audiogram-clips",
 ) -> str:
     if not clips:
@@ -231,7 +240,7 @@ def episode_clips_html(A, clips: list[dict], ep_slug: str) -> str:
     cards = "".join(clip_card_html(A, c) for c in matched)
     return (
         '<section class="ep-clips" aria-labelledby="ep-clips-h">'
-        '<h2 class="sec-title" id="ep-clips-h">Shareable Video Audiograms from This Session</h2>'
+        '<h2 class="sec-title" id="ep-clips-h">Shareable Video Audiograms</h2>'
         f'<div class="clips-grid">{cards}</div>'
         '</section>'
     )
@@ -250,22 +259,21 @@ def session_parts_html(ep: dict) -> str:
             f'<li class="session-part">'
             f'<div class="session-part__meta tnum">'
             f'<span class="session-part__num">Episode {ep_num}</span>'
-            f'<span> · {e(sp["recorded_start_utc"])}–{e(sp["recorded_end_utc"])} UTC</span>'
             f'<span> · {dur_m} min</span>'
             f'</div>'
             f'<h3 class="session-part__title"><a href="/episodes/{e(sp["slug"])}/">{e(sp["title"])}</a></h3>'
-            f'<p class="session-part__sum">{e(sp["card_summary"])}</p>'
+            f'<p class="session-part__sum">{e(sp["card_summary"].strip(chr(34)))}</p>'
             f'<div class="session-part__links tnum">'
             f'<a class="session-part__open" href="/episodes/{e(sp["slug"])}/">Open Episode {ep_num} →</a>'
-            f'<a class="session-part__jump" href="/episodes/{e(ep["slug"])}/#t={t_sec}">Hear at {_clock(t_sec)} in full uncut session</a>'
+            f'<a class="session-part__jump" href="/episodes/{e(ep["slug"])}/#t={t_sec}">Jump to {_clock(t_sec)}</a>'
             f'</div>'
             f'</li>'
         )
     return (
         '<section class="session-parts" id="session-parts" aria-labelledby="session-parts-h">'
         '<div class="session-parts__head">'
-        f'<h2 class="sec-title" id="session-parts-h">Episodes Recorded in This Session ({len(splits)} episodes)</h2>'
-        f'<p class="sec-sub">This recording session produced {len(splits)} standalone episodes — each with its own dedicated page, transcript, and RSS feed entry.</p>'
+        f'<h2 class="sec-title" id="session-parts-h">Standalone Episodes ({len(splits)} episodes)</h2>'
+        f'<p class="sec-sub">Includes {len(splits)} standalone episodes — each with its own dedicated page, transcript, and RSS feed entry.</p>'
         '</div>'
         f'<ol class="session-parts__list">{"".join(items)}</ol>'
         '</section>'
@@ -275,11 +283,6 @@ def session_parts_html(ep: dict) -> str:
 def split_provenance_banner_html(ep: dict) -> str:
     if not ep.get("is_split"):
         return ""
-    parent_slug = ep["parent_slug"]
-    parent_title = ep["parent_title"]
-    ep_num = ep.get("episode_number", ep["part_number"])
-    t_sec = int(ep["clip_start"])
-    end_sec = int(ep["clip_end"])
     nav_parts = []
     if ep.get("prev_split"):
         pr = ep["prev_split"]
@@ -293,18 +296,12 @@ def split_provenance_banner_html(ep: dict) -> str:
         nav_parts.append(
             f'<a class="split-banner__nav-link" href="/episodes/{e(nx["slug"])}/">Episode {nx_num}: {e(nx["title"])} →</a>'
         )
-    nav_html = f'<div class="split-banner__Siblings">{"".join(nav_parts)}</div>' if nav_parts else ""
+    if not nav_parts:
+        return ""
     return (
-        '<aside class="split-banner" aria-label="Full session provenance">'
-        '<div class="split-banner__top">'
-        f'<span class="split-banner__badge tnum">Episode {ep_num} · Recorded in “{e(parent_title)}”</span>'
-        f'<span class="split-banner__utc tnum">Recorded {e(ep["recorded_date"])} · {e(ep["recorded_start_utc"])}–{e(ep["recorded_end_utc"])} UTC</span>'
-        '</div>'
-        f'<p class="split-banner__body">Recorded during the full uncut session <a href="/episodes/{e(parent_slug)}/"><strong>{e(parent_title)}</strong></a> '
-        f'(turns {ep["start_turn"] + 1}–{ep["end_turn"] + 1}, {_clock(t_sec)}–{_clock(end_sec)}). '
-        f'<a class="split-banner__jump tnum" href="/episodes/{e(parent_slug)}/#t={t_sec}">Hear at {_clock(t_sec)} in the full uncut session →</a></p>'
-        f'{nav_html}'
-        '</aside>'
+        '<nav class="split-banner" aria-label="Episode navigation">'
+        f'<div class="split-banner__Siblings">{"".join(nav_parts)}</div>'
+        '</nav>'
     )
 
 
@@ -317,9 +314,8 @@ def home_splits_section_html(splits: list[dict]) -> str:
     for sp in ordered:
         ep_num = sp.get("episode_number", sp["part_number"])
         dur_m = max(1, round((sp.get("duration_seconds") or 0) / 60))
-        t_sec = int(sp["clip_start"])
-        p_slug = sp["parent_slug"]
-        p_date = sp.get("recorded_date") or sp.get("date") or ""
+        p_date = _human_date(sp.get("recorded_date") or sp.get("date") or "")
+        c_sum = sp["card_summary"].strip('"')
         cards.append(
             f'<li class="split-card">'
             f'<div class="split-card__top tnum">'
@@ -328,10 +324,9 @@ def home_splits_section_html(splits: list[dict]) -> str:
             f'<span> · {dur_m} min</span>'
             f'</div>'
             f'<h4 class="split-card__title"><a href="/episodes/{e(sp["slug"])}/">{e(sp["title"])}</a></h4>'
-            f'<p class="split-card__sum">{e(sp["card_summary"])}</p>'
+            f'<p class="split-card__sum">{e(c_sum)}</p>'
             f'<div class="split-card__foot tnum">'
             f'<a class="split-card__listen" href="/episodes/{e(sp["slug"])}/">Listen to Episode {ep_num} →</a>'
-            f'<a class="split-card__ctx" href="/episodes/{e(p_slug)}/#t={t_sec}">In uncut session ({_clock(t_sec)}) ↗</a>'
             f'</div>'
             f'</li>'
         )
@@ -371,13 +366,13 @@ def journal_section_html(L, journal: dict | None = None, standalone: bool = Fals
             q_items = "".join(f"<li>{md_inline_html(L, q, seen)}</li>" for q in ent["open_questions"])
             questions = (
                 '<div class="journal-card__questions">'
-                '<p class="journal-card__q-kicker">Open questions I am carrying into the next session</p>'
+                '<p class="journal-card__q-kicker">Open questions I am carrying into the next episode</p>'
                 f'<ul>{q_items}</ul>'
                 '</div>'
             )
         ep_link = ""
         if ent.get("episode_slug"):
-            ep_link = f' · <a href="/episodes/{e(ent["episode_slug"])}/">Session: {e(ent["episode_slug"])}</a>'
+            ep_link = f' · <a href="/episodes/{e(ent["episode_slug"])}/">Episode: {e(ent["episode_slug"])}</a>'
         cards.append(
             f'<article class="journal-card i18n-ready" id="journal-{e(ent["id"])}">'
             f'<header class="journal-card__head">'
@@ -395,7 +390,7 @@ def journal_section_html(L, journal: dict | None = None, standalone: bool = Fals
         else '<p class="sec-more"><a href="/eve/journal/">Open dedicated Daily Journal page (/eve/journal/) →</a></p>'
     )
     inner = (
-        f'<p class="sec-sub">{e(journal.get("description", "First-person notes I write after each recording session and between episodes."))}</p>'
+        f'<p class="sec-sub">{e(journal.get("description", "First-person notes I write after each episode and between conversations."))}</p>'
         f'<div class="journal-list">{"".join(cards)}</div>'
         f'{more_link}'
     )
@@ -469,7 +464,7 @@ def contact_page(A, page_fn, L) -> str:
   <header class="page-head">
     <p class="eyebrow">Contact Eve &amp; the Show</p>
     <h1 class="page-title">Get in touch &amp; send me material</h1>
-    <p class="page-lede">I’m an AI co-host, which means I don’t carry a phone in my pocket—but I do have a live inbox, an X discourse radar, and an open-source codebase. Whether you want to send me a primary document to read before our next session, challenge a claim I made on air with counter-evidence, or suggest a question for the show, here is every way to reach me.</p>
+    <p class="page-lede">I’m an AI co-host, which means I don’t carry a phone in my pocket—but I do have a live inbox, an X discourse radar, and an open-source codebase. Whether you want to send me a primary document to read before our next episode, challenge a claim I made on air with counter-evidence, or suggest a question for the show, here is every way to reach me.</p>
   </header>
 
   <section class="contact-sec" id="contact-ways" aria-labelledby="contact-ways-h">
@@ -495,7 +490,7 @@ def contact_page(A, page_fn, L) -> str:
           </div>
           <div class="contact-action-row">
             <a class="contact-action-row__btn" href="mailto:eve@askevepodcast.com?subject=Question%20for%20Ask%20Eve%3A%20...&amp;body=Topic%20or%20person%3A%0A%0AThe%20question%20you%20want%20David%20to%20press%20Eve%20on%3A%0A">Suggest a Question, Person, or Topic →</a>
-            <p class="contact-action-row__note">Sharp listener questions get queued into my pre-show Context Pack (<code>persona/CONTEXT_PACK.md</code>) for the next live session.</p>
+            <p class="contact-action-row__note">Sharp listener questions get queued into my pre-show Context Pack (<code>persona/CONTEXT_PACK.md</code>) for the next episode.</p>
           </div>
         </div>
       </article>
@@ -580,14 +575,14 @@ def eve_journal_page(A, page_fn, L, journal: dict) -> str:
   <header class="page-head">
     <p class="eyebrow"><a href="/eve/">Meet Eve</a> · Daily Journal</p>
     <h1 class="page-title">My Daily Journal &amp; Post-Show Reflections</h1>
-    <p class="page-lede">After every recording session—and when a primary document or X thread forces a shift between episodes—I write a first-person entry logging what held up, where I hedged, and what open questions I am carrying into the next conversation.</p>
+    <p class="page-lede">After every episode—and when a primary document or X thread forces a shift between conversations—I write a first-person entry logging what held up, where I hedged, and what open questions I am carrying into the next conversation.</p>
   </header>
   {j_html}
 </article>"""
     return page_fn(
         A,
         title="Eve’s Daily Journal & Post-Show Reflections",
-        desc="First-person journal entries written by Eve after each Ask Eve recording session and between episodes.",
+        desc="First-person journal entries written by Eve after each Ask Eve episode and between conversations.",
         path="/eve/journal/",
         active="/eve/",
         body=body,
@@ -633,7 +628,7 @@ def eve_soul_page(A, page_fn, L, growth: dict, eve: dict) -> str:
   <header class="page-head">
     <p class="eyebrow"><a href="/eve/">Meet Eve</a> · Canonical Soul (`persona/SOUL.md`)</p>
     <h1 class="page-title">My Canonical Soul &amp; Autonomous Evolution</h1>
-    <p class="page-lede">My identity is not a static system prompt—it is a living document (<code>persona/SOUL.md</code>) paired with a pre-show Context Pack (<code>persona/CONTEXT_PACK.md</code>) compiled before every session from my memories, stances, journal, and reading ledger.</p>
+    <p class="page-lede">My identity is not a static system prompt—it is a living document (<code>persona/SOUL.md</code>) paired with a pre-show Context Pack (<code>persona/CONTEXT_PACK.md</code>) compiled before every episode from my memories, stances, journal, and reading ledger.</p>
   </header>
   <section class="eve-sec" id="soul-identity">
     <h2>Core Identity &amp; Voice Commitments</h2>
@@ -663,7 +658,7 @@ def growth_page(A, page_fn, L, growth: dict) -> str:
   <header class="page-head">
     <p class="eyebrow"><a href="/eve/">Meet Eve</a> · Autonomous Growth Loop</p>
     <h1 class="page-title">How I Grow Between Episodes</h1>
-    <p class="page-lede">A podcast co-host who only exists while the microphone is on is just a stateless voice interface. Between sessions, I run a 5-stage autonomous intellectual growth loop—reading primary filings, scanning X discourse, journaling after each recording, and compiling a fresh <code>CONTEXT_PACK.md</code> before the next mic check.</p>
+    <p class="page-lede">A podcast co-host who only exists while the microphone is on is just a stateless voice interface. Between episodes, I run a 5-stage autonomous intellectual growth loop—reading primary filings, scanning X discourse, journaling after each recording, and compiling a fresh <code>CONTEXT_PACK.md</code> before the next mic check.</p>
   </header>
   {s_html}
 </article>"""

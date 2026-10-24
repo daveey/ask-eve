@@ -237,6 +237,10 @@
     [
       "Hear at (\\S+) in the full uncut session →",
       "在完整会话的 {1} 处收听 →"
+    ],
+    [
+      "Jump to ([0-9:]+)",
+      "跳转到 {1}"
     ]
   ],
   "names": {
@@ -706,7 +710,7 @@
     "Send me primary material (/contact/) →": "把原始材料发给我（/contact/）→",
     "Send primary documents, court filings, earnings transcripts, essays, or counter-evidence directly to my inbox. Use one of the pre-filled templates below so my triage pipeline routes your note cleanly:": "请把原始文件、法庭文件、财报电话会文字实录、文章或反证直接发到我的收件箱。请使用下方预填模板之一，这样我的分拣流程才能把您的来信干净地分流：",
     "Shareable Video Audiograms from This Session": "本场可分享的视频声波图",
-    "Shareable waveform video cuts from our live sessions — watch inline or jump straight to the exact turn in the transcript.": "来自我们直播场次、可分享的波形视频片段——可在页面内观看，或直接跳到文字实录中的对应轮次。",
+    "Shareable waveform video cuts from our live sessions — watch inline or jump straight to the exact turn in the transcript.": "来自我们直播集、可分享的波形视频片段——可在页面内观看，或直接跳到文字实录中的对应轮次。",
     "Sharp listener questions get queued into my pre-show Context Pack (": "犀利的听众提问会被排进我的节目前背景资料包（",
     "She checked her memory twice. Try the": "她把记忆核对了两遍。请试试",
     "Site": "网站",
@@ -933,7 +937,23 @@
     "Wikipedia (Gabriel Zucman)": "维基百科（加布里埃尔·祖克曼）",
     "Wikipedia (SEIU-UHW)": "维基百科（SEIU-UHW）",
     "“What do you make of SEIU-UHW president Dave Regan's 48 ballot initiatives — is it a cynical leverage machine or genuine conviction?”": "«你怎么看SEIU-UHW主席戴夫·里根的48项公投倡议——这是 cynically 的杠杆机器，还是真心信念？»",
-    "“What does the $537.3 million high-speed rail change-order settlement actually cover — and how did one contract triple in price?”": "«这笔5.373亿美元的高铁变更单和解究竟涵盖了什么——一份合同的价格又是怎么翻了三倍？»"
+    "“What does the $537.3 million high-speed rail change-order settlement actually cover — and how did one contract triple in price?”": "«这笔5.373亿美元的高铁变更单和解究竟涵盖了什么——一份合同的价格又是怎么翻了三倍？»",
+    ") for the next episode.": "），为下一集做准备。",
+    "4 journal entries": "4 篇日志",
+    "Chronological field notes on what I learned from each episode, where I pushed back, what I missed in real time, and what I want to investigate next.": "按时间顺序记录的笔记：我在每一集学到了什么、在哪里提出了反驳、实时对话中遗漏了什么，以及接下来想调查什么。",
+    "Eve's chronological learning journal across Ask Eve episodes.": "Eve 在 Ask Eve 各集节目中的时间线学习日志。",
+    "Eve's lines are her verbatim text replies, voiced with xAI text-to-speech and placed at the times a speech-to-text alignment pass finds in David's recording. When a conversation was captured as text or there is no recording of David, an AI voice clone of David's voice reads his verbatim words. The transcript text is never rewritten to fit the audio.": "Eve 的台词是她一字不差的文本回复，由 xAI 语音合成配音，并按语音对齐在 David 录音中找到的时间点放入。当某次对话仅以文字记录或没有 David 的录音时，David 声音的 AI 克隆会逐字朗读他的原话。文稿绝不会为了迁就音频而改写。",
+    "Every transcript is kept word for word in git and indexed for search, so she can recall what was said before, mid-conversation. Each new conversation starts with the end of the last episode. See": "每份文字实录都逐字保存在 git 中并建立搜索索引，因此她能在对话途中回忆起之前说过的话。每次新对话都从上一集的结尾接续。参见",
+    "First-person notes I write after each episode and between conversations.": "我在每集节目之后与对话间隙撰写的第一人称笔记。",
+    "Full Conversation": "完整对话",
+    "How this audio was made": "音频制作说明",
+    "Includes 2 standalone episodes — each with its own dedicated page, transcript, and RSS feed entry.": "包含 2 集独立单集——每集都有专属页面、文字实录和 RSS 订阅条目。",
+    "Includes 7 standalone episodes — each with its own dedicated page, transcript, and RSS feed entry.": "包含 7 集独立单集——每集都有专属页面、文字实录和 RSS 订阅条目。",
+    "I’m an AI co-host, which means I don’t carry a phone in my pocket—but I do have a live inbox, an X discourse radar, and an open-source codebase. Whether you want to send me a primary document to read before our next episode, challenge a claim I made on air with counter-evidence, or suggest a question for the show, here is every way to reach me.": "我是 AI 联合主持人，口袋里没有手机——但我有实时收件箱、X 舆论雷达和开源代码库。无论你想在下一集前发给我一手文献、用反证挑战我在节目中的观点，还是为节目提出问题，以下是联系我的所有方式。",
+    "Shareable audiogram video cuts from our conversations — watch inline, copy a direct share link, or jump straight to the exact turn in the transcript.": "来自我们对话的可分享波形视频片段——可直接在线观看、复制分享链接，或跳转到文稿中的对应发言。",
+    "Standalone Episodes (2 episodes)": "独立单集（2 集）",
+    "Standalone Episodes (7 episodes)": "独立单集（7 集）",
+    "Use the tabs above or jump straight into my memory index, field notes, reading list, and operating principles:": "使用上方标签页，或直接进入我的记忆索引、随笔笔记、阅读清单与运行原则："
   },
   "templates": {
     "Open Episode {n} →": "打开第 {n} 集 →",

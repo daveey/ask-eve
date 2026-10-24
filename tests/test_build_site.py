@@ -413,7 +413,7 @@ def test_eve_page_quotes_link_to_their_moment(site):
             sec = int(frag[2:])
             assert sec >= 0
     # the exchange answer at 09:14:08 points at the turn that starts at that offset
-    m = re.search(r'id="turn-(\d+)" data-start="([\d.]+)"[^>]*>(?:(?!</li>).)*?09:14 UTC(?:(?!</li>).)*?Mostly context', ep0, re.S)
+    m = re.search(r'id="turn-(\d+)" data-start="([\d.]+)"[^>]*>(?:(?!</li>).)*?Mostly context', ep0, re.S)
     assert m and f'/episodes/{EP0}/#t={int(float(m.group(2)))}' in h
 
 
@@ -629,3 +629,53 @@ def test_x_challenge_and_footer_links(site):
         assert "Challenge this take on X →" in html, rel
         assert "<code>@askevepodcast</code>" in html, rel
         assert f"https://x.com/intent/tweet?text=%40askevepodcast%20https%3A//askevepodcast.com{expected_path}" in html, rel
+
+
+def test_episode_cards_fully_clickable(site):
+    """t165u: Every episode card (.split-card, .card, .session-part) is fully tappable/clickable via stretched-link CSS + JS fallback."""
+    css = (ROOT / "site/static/assets/site.css").read_text()
+    js = (ROOT / "site/static/assets/player.js").read_text()
+    assert ".split-card__title a::after" in css
+    assert ".session-part__title a::after" in css
+    assert "cursor: pointer" in css or "cursor:pointer" in css
+    # Ensure @media (pointer:coarse) does NOT strip .card__title a::after
+    m_coarse = re.search(r"@media\s*\(pointer:coarse\)\s*\{([^}]*)\}", css)
+    assert m_coarse and ".card__title" not in m_coarse.group(1)
+    assert ".split-card, .card, .session-part" in js
+
+
+def test_no_utc_or_session_in_ui_chrome(site):
+    """t166u: No 'UTC' timestamps or 'session' references in UI chrome across home, episode pages, /eve/, /about/, /contact/."""
+    for rel in [
+        "index.html",
+        "about/index.html",
+        "contact/index.html",
+        "eve/index.html",
+        "eve/journal/index.html",
+        "eve/soul/index.html",
+        "episodes/first-encounter/index.html",
+        "episodes/andreessen-horowitz-rightward-turn/index.html",
+        "episodes/california-high-speed-rail-and-cap-and-trade/index.html",
+    ]:
+        h = read(site, rel)
+        assert 'class="turn__clock"' not in h, rel
+        assert 'class="split-card__ctx"' not in h, rel
+        # Strip script, style, verbatim transcript turn bodies, and blockquotes
+        t = re.sub(r"<script\b[^>]*>.*?</script>", "", h, flags=re.S)
+        t = re.sub(r"<style\b[^>]*>.*?</style>", "", t, flags=re.S)
+        t = re.sub(r'<div class="turn__body">.*?</div>\s*</li>', "</li>", t, flags=re.S)
+        t = re.sub(r"<blockquote>.*?</blockquote>", "", t, flags=re.S)
+        visible = re.sub(r"<[^>]+>", " ", t)
+        assert not re.search(r"\b(?:UTC|session|sessions)\b", visible, flags=re.I), f"Found UTC/session in {rel}"
+
+
+def test_ai_disclosure_is_compact_expandable_details(site):
+    """t167u: Episode AI disclosure is a collapsed-by-default <details class="disclosure"> callout."""
+    for slug in ("first-encounter", "andreessen-horowitz-rightward-turn", "the-making-of-eve"):
+        h = read(site, f"episodes/{slug}/index.html")
+        assert '<aside class="disclosure-wrap" aria-labelledby="disc-h">' in h
+        m = re.search(r'<details class="disclosure disclosure--[\w-]+"[^>]*>', h)
+        assert m and " open" not in m.group(0), slug
+        assert '<summary class="disclosure__summary">' in h
+        assert '<span class="disclosure__hint">How this audio was made</span>' in h
+        assert '<div class="disclosure__body">' in h

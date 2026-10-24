@@ -325,8 +325,118 @@ def ep_label(ep: dict) -> str:
     if is_bonus(ep):
         return "Bonus"
     if ep.get("episode_number"):
-        return f"Recording Session {ep['episode_number']}"
-    return "Recording Session"
+        return f"Episode {ep['episode_number']}"
+    return "Full Conversation"
+
+
+def clean_session_prose(s: str, is_split: bool = False) -> str:
+    if not s:
+        return s
+    has_mark = s.startswith(I.MARK) and s.endswith(I.END)
+    inner = I.unmark(s).strip()
+    if len(inner) >= 2 and ((inner[0] == '"' and inner[-1] == '"') or (inner[0] == '«' and inner[-1] == '»')):
+        inner = inner[1:-1].strip()
+    if is_split:
+        inner = re.sub(r'^[^.。!?]*\bUTC[^.。!?]*[.。]\s*', '', inner)
+    inner = re.sub(r'\s*[\(（][^\(\)（）]*\bUTC[^\(\)（）]*[\)）]', '', inner)
+    utc_phrases = [
+        (r"from Eve's hello at \d{2}:\d{2} UTC to \d{2}:\d{2} UTC", "from Eve's first hello"),
+        (r"от приветствия Евы в \d{2}:\d{2} UTC до \d{2}:\d{2} UTC", "от первого приветствия Евы"),
+        (r"del saludo de Eve a las \d{2}:\d{2} UTC hasta las \d{2}:\d{2} UTC", "desde el primer saludo de Eve"),
+        (r"从伊芙 \d{2}:\d{2} UTC 打招呼，一直到 \d{2}:\d{2} UTC。", ""),
+        (r"von Eves Hallo um \d{2}:\d{2} UTC bis \d{2}:\d{2} UTC", "von Eves erstem Hallo an"),
+        (r"desde o «olá» da Eve às \d{2}:\d{2} UTC até as \d{2}:\d{2} UTC", "desde o primeiro «olá» da Eve"),
+        (r"از سلام ایو در ساعت [۰-۹0-9:]+ UTC شروع می‌شه و تا [۰-۹0-9:]+ UTC ادامه داره\.\s*", ""),
+        (r"du « bonjour » d'Eve à \d{2}:\d{2} UTC jusqu'à \d{2}:\d{2} UTC", "depuis le premier « bonjour » d'Eve"),
+    ]
+    for pat, rep in utc_phrases:
+        inner = re.sub(pat, rep, inner)
+    inner = re.sub(r'\s+at \d{1,2}:\d{2}(?::\d{2})?(?:\s+and\s+\d{1,2}:\d{2}(?::\d{2})?)?\s*UTC', '', inner)
+    inner = re.sub(r'\s*\b\d{1,2}:\d{2}(?::\d{2})?(?:[–-]\d{1,2}:\d{2}(?::\d{2})?)?\s*(?:(?:and|и|y|und|e|et|و|和)\s+\d{1,2}:\d{2}(?::\d{2})?(?:[–-]\d{1,2}:\d{2}(?::\d{2})?)?\s*)?UTC\b', '', inner)
+    inner = re.sub(r'\bUTC\s*(?:时间)?\s*\d{1,2}:\d{2}(?::\d{2})?(?:[–-]\d{1,2}:\d{2}(?::\d{2})?)?', '', inner)
+    repls = [
+        (r'\bshared Grok voice session\b', 'shared Grok voice conversation'),
+        (r'\bvoice sessions\b', 'voice conversations'),
+        (r'\bvoice session\b', 'voice conversation'),
+        (r'\bevening session\b', 'evening conversation'),
+        (r'\bsetup session\b', 'setup conversation'),
+        (r'\bbuild session\b', 'build conversation'),
+        (r'\brecording sessions\b', 'episodes'),
+        (r'\brecording session\b', 'conversation'),
+        (r'\blate-night session\b', 'late-night conversation'),
+        (r'\bmorning session\b', 'morning conversation'),
+        (r'\bcommute session\b', 'commute conversation'),
+        (r'\buncut session\b', 'uncut conversation'),
+        (r'\blive sessions\b', 'conversations'),
+        (r'\bstudio sessions\b', 'episodes'),
+        (r'\bthis session\b', 'this conversation'),
+        (r'\bThis session\b', 'This conversation'),
+        (r'\bthat session\b', 'that conversation'),
+        (r'\bacross sessions\b', 'across episodes'),
+        (r'\bbetween sessions\b', 'between episodes'),
+        (r'\bBetween sessions\b', 'Between episodes'),
+        (r'\bevery session\b', 'every episode'),
+        (r'\beach session\b', 'each episode'),
+        (r'\bnext session\b', 'next episode'),
+        (r'\bfirst session\b', 'first conversation'),
+        (r'\bsecond session\b', 'second conversation'),
+        (r'\bthird session\b', 'third conversation'),
+        (r'\bpre-session\b', 'pre-episode'),
+        (r'голосовой сессии', 'голосового разговора'),
+        (r'ночной сессии', 'ночного разговора'),
+        (r'этой сессии', 'этого разговора'),
+        (r'той сессии', 'того разговора'),
+        (r'в ходе сессии', 'в ходе разговора'),
+        (r'во время сессии', 'во время разговора'),
+        (r'Сессия начинается', 'Разговор начинается'),
+        (r'сессия открывается', 'разговор открывается'),
+        (r'между сессиями', 'между выпусками'),
+        (r'esta sesión', 'esta conversación'),
+        (r'esa sesión', 'esa conversación'),
+        (r'la sesión nocturna', 'la conversación nocturna'),
+        (r'la sesión', 'la conversación'),
+        (r'sesión de voz', 'conversación de voz'),
+        (r'entre sesiones', 'entre episodios'),
+        (r'diese Session', 'dieses Gespräch'),
+        (r'dieser Session', 'diesem Gespräch'),
+        (r'Bausession', 'Bau-Folge'),
+        (r'Mitten in der späten Session', 'Mitten im späten Gespräch'),
+        (r'der späten Session', 'des späten Gesprächs'),
+        (r'über Sessions hinweg', 'über Folgen hinweg'),
+        (r'in der Session', 'im Gespräch'),
+        (r'während der Session', 'während des Gesprächs'),
+        (r'zwischen den Sessions', 'zwischen den Folgen'),
+        (r'\bSessions\b', 'Folgen'),
+        (r'\bSession\b', 'Folge'),
+        (r'esta sessão', 'esta conversa'),
+        (r'daquela sessão', 'daquela conversa'),
+        (r'da sessão', 'da conversa'),
+        (r'a sessão', 'a conversa'),
+        (r'sessão de voz', 'conversa de voz'),
+        (r'entre sessões', 'entre episódios'),
+        (r'cette session', 'cette conversation'),
+        (r'la session tardive', 'la conversation tardive'),
+        (r'la session', 'la conversation'),
+        (r'sessions vocales', 'conversations vocales'),
+        (r'session vocale', 'conversation vocale'),
+        (r'd’une session à l’autre', 'd’un épisode à l’autre'),
+        (r"d'une session à l'autre", "d'un épisode à l'autre"),
+        (r'à chaque session', 'à chaque épisode'),
+        (r'sesiones de voz', 'conversaciones de voz'),
+        (r'en cada sesión', 'en cada episodio'),
+        (r'sessões de voz', 'conversas de voz'),
+        (r'em cada sessão', 'em cada episódio'),
+        (r'в каждой сессии', 'в каждом выпуске'),
+        (r'голосовые сессии', 'голосовые разговоры'),
+        (r'entre les sessions', 'entre les épisodes'),
+        (r'entre sessions', 'entre épisodes'),
+        (r'录制场次', '对话'),
+        (r'跨场次', '跨集'),
+    ]
+    for pat, rep in repls:
+        inner = re.sub(pat, rep, inner)
+    inner = re.sub(r'  +', ' ', inner).strip()
+    return f"{I.MARK}{inner}{I.END}" if has_mark else inner
 
 
 def cover_mark(ep: dict) -> str:
@@ -912,7 +1022,7 @@ def ep_card(ep: dict) -> str:
   <div class="card__body">
     <p class="eyebrow"><span class="card__num">{e(ep_label(ep))}</span> · <time datetime="{e(ep['date'])}">{human_date(ep['date'])}</time> · {human_duration(ep['duration_seconds'])}</p>
     <h3 class="card__title"><a href="/episodes/{e(ep['slug'])}/">{e(ep['title'])}</a></h3>
-    <p class="card__blurb">{e(ep['card_summary'])}</p>
+    <p class="card__blurb">{e(clean_session_prose(ep['card_summary'], bool(ep.get('is_split'))))}</p>
     <div class="card__badges">{bonus_badge(ep)}{badge}</div>
     {chips(ep['people_full'], 5)}
   </div>
@@ -927,7 +1037,7 @@ def bonus_section(bonus: list[dict]) -> str:
         f'<li class="bonus-row"><a href="/episodes/{e(x["slug"])}/">'
         f'<span class="badge badge--bonus">Bonus</span><span class="bonus-row__title">{e(x["title"])}</span>'
         f'<span class="bonus-row__meta">{human_date(x["date"])} · {human_duration(x["duration_seconds"])}</span>'
-        + (f'<span class="bonus-row__sum">{e(x["card_summary"])}</span>' if x.get("card_summary") else "") + '</a></li>'
+        + (f'<span class="bonus-row__sum">{e(clean_session_prose(x["card_summary"]))}</span>' if x.get("card_summary") else "") + '</a></li>'
         for x in bonus)
     return f"""
 <section class="bonus" aria-labelledby="bonus-h">
@@ -1080,7 +1190,7 @@ def home(A: Assets, eps: list[dict], people: list[dict], splits: list[dict] | No
     <div class="hero__text">
       <p class="eyebrow eyebrow--accent">Latest · {e(ep_label(latest))} · {human_date(latest['date'])}</p>
       <h1 class="hero__title"><a href="/episodes/{e(latest['slug'])}/">{e(latest['title'])}</a></h1>
-      <p class="hero__blurb">{e(latest['blurb'])}</p>
+      <p class="hero__blurb">{e(clean_session_prose(latest['blurb'], bool(latest.get('is_split'))))}</p>
       <div class="hero__actions">{play}<a class="btn btn--ghost" href="/episodes/{e(latest['slug'])}/">{icon("doc")}<span>Transcript &amp; chapters</span></a></div>
       {f'<p class="hero__ai">{icon("spark")}<span>{e(label)}. Every AI voice is labeled, line by line.</span></p>' if kind else ''}
     </div>
@@ -1156,8 +1266,7 @@ def turn_html(t: dict, L: Linker = NO_LINKS) -> str:
                 f'{blocks(chr(10).join(rest))}</details>')
     return (f'<li class="turn turn--{who}{" turn--gap" if t["gap"] else ""}" id="turn-{t["i"]}"{attrs}>'
             f'<div class="turn__head"><span class="avatar avatar--{who}" aria-hidden="true">{t["speaker"][0]}</span>'
-            f'<span class="turn__who">{t["speaker"]}</span>{badge}'
-            f'<span class="turn__clock" title="Wall-clock time of this turn in the original session (UTC)">{t["clock"]} UTC</span>{tbtn}</div>'
+            f'<span class="turn__who">{t["speaker"]}</span>{badge}{tbtn}</div>'
             f'<div class="turn__body">{body}</div>{meta}</li>')
 
 
@@ -1166,7 +1275,7 @@ def context_html(ep: dict, L: Linker = NO_LINKS) -> str:
     if not ep.get("context") and not ep.get("topics"):
         return ""
     seen: set = set()   # the topics list is one section: first mention only
-    ctx_body = L.text(ep["context"]) if ep.get("context") else ""
+    ctx_body = L.text(clean_session_prose(ep["context"], bool(ep.get("is_split")))) if ep.get("context") else ""
     if ctx_body and ep.get("slug") == "first-encounter":
         ctx_body = ctx_body.replace(
             "asked to be called Eve",
@@ -1181,7 +1290,7 @@ def context_html(ep: dict, L: Linker = NO_LINKS) -> str:
     ctx = (f'<h2 class="ep-context__h" id="ctx-h">Context</h2><p class="ep-context__p">{ctx_body}</p>'
            if ctx_body else "")
     tops = (f'<h2 class="ep-context__h" id="topics-h">Topics</h2><ul class="ep-topics">'
-            + "".join(f"<li>{L.text(t, seen)}</li>" for t in ep["topics"]) + "</ul>") if ep.get("topics") else ""
+            + "".join(f"<li>{L.text(clean_session_prose(t), seen)}</li>" for t in ep["topics"]) + "</ul>") if ep.get("topics") else ""
     return f'<section class="wrap ep-context" aria-labelledby="ctx-h">{ctx}{tops}</section>\n'
 
 
@@ -1198,13 +1307,18 @@ def episode_page(A: Assets, ep: dict, eps: list[dict]) -> str:
         legend.append('<li><span class="vb vb--eve">AI voice</span> Eve, voiced with xAI text-to-speech</li>')
         if any(t["gap"] for t in ep["turns"]):
             legend.append('<li><span class="vb vb--gap">Not recovered</span> missing replies, marked and never invented</li>')
-        disclosure = f"""<aside class="disclosure disclosure--{kind}" role="note" aria-labelledby="disc-h">
-  <div class="disclosure__icon">{icon("spark")}</div>
+        disclosure = f"""<aside class="disclosure-wrap" aria-labelledby="disc-h">
+<details class="disclosure disclosure--{kind}" role="note">
+  <summary class="disclosure__summary">
+    <span class="disclosure__icon">{icon("spark")}</span>
+    <span class="disclosure__title" id="disc-h">{e(label)}</span>
+    <span class="disclosure__hint">How this audio was made</span>
+  </summary>
   <div class="disclosure__body">
-    <p class="disclosure__title" id="disc-h">{e(label)}</p>
     <p>{e(_disc(ep['ai_disclosure']))}</p>
     <ul class="legend">{''.join(legend)}</ul>
   </div>
+</details>
 </aside>"""
     chs = []
     for c in ep["chapters"]:
@@ -1225,7 +1339,8 @@ def episode_page(A: Assets, ep: dict, eps: list[dict]) -> str:
                          f'{f" <span class=chip__n>{n}</span>" if n else ""}</a></li>')
         ppl = f'<section class="side-box"><h2 class="side-h">People in this episode</h2><ul class="chips">{"".join(items)}</ul></section>'
     fm = ep["fm"]
-    notes = "".join(f"<p><strong>{k.title()}.</strong> {inline(fm[k])}</p>" for k in ("note", "redactions") if fm.get(k))
+    note_keys = ("redactions",) if ep.get("is_split") else ("note", "redactions")
+    notes = "".join(f"<p><strong>{k.title()}.</strong> {inline(clean_session_prose(fm[k]))}</p>" for k in note_keys if fm.get(k))
     details = f"""<section class="side-box details-box"><h2 class="side-h">Episode details</h2><dl class="dl">
 <dt>Recorded</dt><dd>{human_date(ep['date'])}</dd><dt>Length</dt><dd>{human_duration(ep['duration_seconds'])}</dd>
 <dt>Turns</dt><dd>{len(ep['turns'])}</dd></dl>
@@ -1261,7 +1376,7 @@ def episode_page(A: Assets, ep: dict, eps: list[dict]) -> str:
 <button class="follow" type="button" data-follow hidden>{icon("down")}<span>Back to the current line</span></button>
 </article>
 {more}"""
-    desc = (ep["blurb"] or F.description(ep, ep["people"]))[:300]
+    desc = (clean_session_prose(ep["blurb"], bool(ep.get("is_split"))) or F.description(ep, ep["people"]))[:300]
     ld = {"@context": "https://schema.org", "@type": "PodcastEpisode", "name": ep["title"], "url": f"{SITE}/episodes/{ep['slug']}/",
           "datePublished": ep["date"], "description": desc, "episodeNumber": ep["episode_number"] if not is_bonus(ep) else None,
           "partOfSeries": {"@type": "PodcastSeries", "name": "Ask Eve", "url": SITE},
@@ -1335,7 +1450,7 @@ def mind_html(eps: list[dict], people: list[dict], topics: list[dict] | None = N
 <p class="eyebrow">{bonus_badge(ep) if is_bonus(ep) else f'<span class="card__num">{e(ep_label(ep))}</span>'}</p>
 <h4 class="mem__t"><a href="/episodes/{e(ep['slug'])}/">{e(ep['title'])}</a></h4>
 <p class="mem__meta">{stat}</p>
-{f'<p class="mem__b">{e(first_sentence(ep["blurb"]))}</p>' if ep.get("blurb") else ""}
+{f'<p class="mem__b">{e(first_sentence(clean_session_prose(ep["blurb"], bool(ep.get("is_split")))))}</p>' if ep.get("blurb") else ""}
 {f'<ul class="chips">{names}</ul>' if names else ""}</li>""")
     discussed = [p for p in people if p["episodes"]]
     cards = pcards(discussed).removeprefix('<ul class="pgrid">').removesuffix("</ul>").split("</li>")
@@ -1364,9 +1479,9 @@ def mind_html(eps: list[dict], people: list[dict], topics: list[dict] | None = N
 def _qa_exchange_html(dq: str, ea: str, L: Linker = NO_LINKS) -> str:
     return (f'<div class="pm__qa">'
             f'<p class="pm__q"><span class="qa-spk qa-spk--david">David:</span> '
-            f'<span class="pm__q-text">{L.text(dq)}</span></p>'
+            f'<span class="pm__q-text">{L.text(clean_session_prose(dq))}</span></p>'
             f'<p class="pm__a"><span class="qa-spk qa-spk--eve">Eve:</span> '
-            f'<span class="pm__a-text">{L.text(ea)}</span></p></div>')
+            f'<span class="pm__a-text">{L.text(clean_session_prose(ea))}</span></p></div>')
 
 
 def moment_html(ep: dict, m: dict, L: Linker = NO_LINKS) -> str:
@@ -1394,7 +1509,8 @@ def take_html(x: dict, L: Linker, heading: str = "Eve's take", path: str = "") -
     phrase becomes a silent link that opens the episode at the second she said it; names get auto-link menus."""
     seen: set = set()
     paras = []
-    for text in x["take"]:
+    for raw_text in x["take"]:
+        text = clean_session_prose(raw_text)
         h = e(text)
         for r in x["refs"]:
             a = r.get("anchor")
@@ -1578,7 +1694,7 @@ class EveSources:
                 if t["start"] is not None and not t["gap"]:
                     href, when = f"/episodes/{ep['slug']}/#t={int(t['start'])}", clock(t["start"])
                 else:
-                    href, when = f"/episodes/{ep['slug']}/#turn-{t['i']}", t["clock"] + " UTC"
+                    href, when = f"/episodes/{ep['slug']}/#turn-{t['i']}", t["clock"]
                 return {"ep": ep, "turn": t, "href": href, "when": when, "gap": t["gap"]}
         raise ValueError(f"eve.json citation not found verbatim: {src['episode_slug']} {src['clock_time']} {src['speaker']}: {want[:60]}")
 
@@ -1666,10 +1782,10 @@ def eve_page(A: Assets, eps: list[dict], people: list[dict] | None = None, topic
 
     def clean(text: str) -> str:
         # drop sentences that point at an episode that isn't published yet
-        if all(x in published for x in data.get("episodes", {})):
-            return text
-        parts = re.split(r"(?<=[.!?])\s+", text)
-        return " ".join(x for x in parts if not re.search(r"\(pending[^)]*\)|\bepisode 2\b", x, re.I))
+        if not all(x in published for x in data.get("episodes", {})):
+            parts = re.split(r"(?<=[.!?])\s+", text)
+            text = " ".join(x for x in parts if not re.search(r"\(pending[^)]*\)|\bepisode 2\b", x, re.I))
+        return clean_session_prose(text)
 
     def srcs(lst):
         return [(x, r) for x in lst if (r := R.resolve(x))]
@@ -1682,7 +1798,7 @@ def eve_page(A: Assets, eps: list[dict], people: list[dict] | None = None, topic
 
     def quote(src, r, cls="q"):
         ctx_html = (f'<p class="q__ctx"><span class="q__ctx-k">Context:</span> '
-                    f'<span class="q__ctx-v">{L.text(src["context"])}</span></p>') if src.get("context") else ""
+                    f'<span class="q__ctx-v">{L.text(clean_session_prose(src["context"]))}</span></p>') if src.get("context") else ""
         if r["gap"]:
             body = '<p class="q__gap">Eve\'s reply here was not recovered. It is marked as a gap in the transcript, never invented.</p>'
         else:
@@ -1722,7 +1838,7 @@ def eve_page(A: Assets, eps: list[dict], people: list[dict] | None = None, topic
                 f'<span class="rpg-stat__name">{L.text(st["stat"])}</span>'
                 f'<span class="rpg-stat__badge">{L.text(st.get("badge", ""))}</span>'
                 f'</div>'
-                f'<p class="rpg-stat__note">{RF.md_inline_html(L, st["note"])}</p>'
+                f'<p class="rpg-stat__note">{RF.md_inline_html(L, clean_session_prose(st["note"]))}</p>'
                 f'{src_pill}'
                 f'</li>'
             )
@@ -1794,8 +1910,8 @@ def eve_page(A: Assets, eps: list[dict], people: list[dict] | None = None, topic
                     continue
                 extra = [quote(x, r, "tq") for x, r in qs[1:]]
                 items.append(f'<li class="chg"><h4 class="chg__t">{e(it["topic"])}</h4>'
-                             f'<div class="chg__ba"><p><span class="chg__k">Before</span>{L.text(it["before"])}</p>'
-                             f'<p><span class="chg__k">After</span>{L.text(it["after"])}</p></div>'
+                             f'<div class="chg__ba"><p><span class="chg__k">Before</span>{L.text(clean_session_prose(it["before"]))}</p>'
+                             f'<p><span class="chg__k">After</span>{L.text(clean_session_prose(it["after"]))}</p></div>'
                              f'{quote(*qs[0], "tq")}' + fold(extra, f"{len(extra)} more quote{'s' * (len(extra) != 1)}", "fold--sm") + "</li>")
             if items:
                 section(sid, title, body_p(sec.get("intro", "")) + f'<ul class="chgs">{"".join(items)}</ul>')
@@ -1817,7 +1933,7 @@ def eve_shell_header_html(A: Assets, active_tab_path: str, L: Linker | None = No
         data = json.loads(EVE_FILE.read_text())
         for sec in data.get("sections", []):
             if sec.get("id") == "who-eve-is" and sec.get("body"):
-                lede_html = RF.md_inline_html(L, sec["body"])
+                lede_html = RF.md_inline_html(L, clean_session_prose(sec["body"]))
                 break
     return (
         f'<section class="page-head eve-head">'
@@ -1855,7 +1971,7 @@ def eve_mind_directory_html(eps: list[dict], people: list[dict], topics: list[di
     n_journal = len(RF.load_journal())
     n_reading = len(load_reading_list())
     return (
-        f'<p class="eve-sec__body">Use the tabs above or jump straight into my memory index, session field notes, reading list, and operating principles:</p>'
+        f'<p class="eve-sec__body">Use the tabs above or jump straight into my memory index, field notes, reading list, and operating principles:</p>'
         f'<div class="eve-dir-grid">'
         f'<a class="eve-dir-card" href="/eve/mind/">'
         f'<span class="eve-dir-card__kicker tnum">{n_eps} episodes · {n_people} people · {n_topics} topic takes</span>'
@@ -1864,7 +1980,7 @@ def eve_mind_directory_html(eps: list[dict], people: list[dict], topics: list[di
         f'<span class="eve-dir-card__cta">Open Mind &amp; Stances →</span>'
         f'</a>'
         f'<a class="eve-dir-card" href="/eve/journal/">'
-        f'<span class="eve-dir-card__kicker tnum">{n_journal} session entries</span>'
+        f'<span class="eve-dir-card__kicker tnum">{n_journal} journal entries</span>'
         f'<span class="eve-dir-card__title">Daily Journal</span>'
         f'<span class="eve-dir-card__desc">Chronological field notes on what I learned, where I pushed back, what I missed live, and what to check next.</span>'
         f'<span class="eve-dir-card__cta">Read my journal →</span>'
@@ -1908,9 +2024,9 @@ def eve_journal_page(A: Assets, eps: list[dict]) -> str:
 <div class="wrap eve">
 <header class="eve-view-head"><p class="eyebrow eyebrow--accent">Daily Journal</p>
 <h2 class="eve-view-head__title">My Learning Journal</h2>
-<p class="lede">Chronological field notes on what I learned from each session, where I pushed back, what I missed in real time, and what I want to investigate next.</p></header>
+<p class="lede">Chronological field notes on what I learned from each episode, where I pushed back, what I missed in real time, and what I want to investigate next.</p></header>
 {RF.journal_section_html(L, standalone=True)}</div>"""
-    return page(A, title="My Learning Journal · Eve", desc="Eve's chronological learning journal across Ask Eve recording sessions.", path="/eve/journal/", body=body, active="/eve/", linker=L)
+    return page(A, title="My Learning Journal · Eve", desc="Eve's chronological learning journal across Ask Eve episodes.", path="/eve/journal/", body=body, active="/eve/", linker=L)
 
 
 def eve_reading_page(A: Assets, eps: list[dict]) -> str:
@@ -1983,7 +2099,7 @@ def how_it_works() -> str:
 <h3>How Eve persists between episodes</h3>
 <p>Eve doesn't keep a hidden memory. Two things carry her from one conversation to the next:</p>
 <ul>
-<li><strong>Her memory.</strong> Every transcript is kept word for word in git and indexed for search, so she can recall what was said before, mid-conversation. Each new session starts with the end of the last episode. See <a href="/eve/#mind">Inside Eve's Mind</a>.</li>
+<li><strong>Her memory.</strong> Every transcript is kept word for word in git and indexed for search, so she can recall what was said before, mid-conversation. Each new conversation starts with the end of the last episode. See <a href="/eve/#mind">Inside Eve's Mind</a>.</li>
 <li><strong>Her profile.</strong> The persona instructions she runs with, plus her take on each person and topic the show covers. The takes are public and change when the evidence does. See <a href="/eve/">Meet Eve</a>.</li>
 </ul>
 
@@ -2010,7 +2126,7 @@ def about_page(A: Assets, cfg: dict) -> str:
 <h2>How Eve works</h2>
 <div class="howgrid">
 <div class="how"><h3>Memory</h3><p>Every transcript goes into git and into a local search index that blends three kinds of lookup: meaning (vector embeddings), exact tags (people, companies, topics) and full-text search for exact phrases and rare names. Eve uses it mid-conversation to recall what was said before. Her take on each person and topic lives in a public index and changes when the evidence does.</p></div>
-<div class="how"><h3>Re-voicing</h3><p>Eve's lines are her verbatim text replies, voiced with xAI text-to-speech and placed at the times a speech-to-text alignment pass finds in David's recording. When a session was captured as text or there is no recording of David, an AI voice clone of David's voice reads his verbatim words. The transcript text is never rewritten to fit the audio.</p></div>
+<div class="how"><h3>Re-voicing</h3><p>Eve's lines are her verbatim text replies, voiced with xAI text-to-speech and placed at the times a speech-to-text alignment pass finds in David's recording. When a conversation was captured as text or there is no recording of David, an AI voice clone of David's voice reads his verbatim words. The transcript text is never rewritten to fit the audio.</p></div>
 <div class="how"><h3>Labeling</h3><p>Any episode with an AI voice says so in the feed, the show notes, at the top of its page and out loud at 00:00. Transcript lines carry badges: <span class="vb vb--real">Real voice</span> <span class="vb vb--narrator">AI voice clone</span> <span class="vb vb--eve">AI voice</span>. Replies that weren't recovered are marked <span class="vb vb--gap">Not recovered</span>. They are never invented. Private links and keys are redacted.</p></div>
 </div>
 

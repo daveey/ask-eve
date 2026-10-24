@@ -58,6 +58,24 @@
     });
   }
 
+  /* ---------- clickable episode cards (.split-card, .card, .session-part) ---------- */
+  doc.addEventListener("click", function (ev) {
+    if (ev.defaultPrevented || ev.button !== 0) return;
+    var interactive = ev.target.closest && ev.target.closest("a, button, input, select, textarea, summary, details, video, audio");
+    if (interactive) return;
+    var card = ev.target.closest && ev.target.closest(".split-card, .card, .session-part");
+    if (!card) return;
+    var sel = window.getSelection ? String(window.getSelection()) : "";
+    if (sel && sel.trim().length > 0) return;
+    var primary = card.querySelector(".split-card__title a, .card__title a, .session-part__title a");
+    if (!primary || !primary.href) return;
+    if (ev.metaKey || ev.ctrlKey) {
+      window.open(primary.href, "_blank", "noopener");
+    } else {
+      window.location.href = primary.href;
+    }
+  });
+
   /* ---------- copy feed URL & clip share links ---------- */
   $$("[data-copy-feed]").forEach(function (b) {
     b.addEventListener("click", function () {
