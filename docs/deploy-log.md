@@ -206,3 +206,30 @@ Also done: episode 0 (PR #4) was merged by David, and publish.yml was dispatched
   `secret put` straight away. publish.yml was not re-run (both episodes are already published); its D1 step uses the
   same `D1_DATABASE_ID` substitution as meta.yml, which succeeded after the change (runs 40042770775, 40042778412).
   D-011 was already done (PR #18). No questions for Hermes in this guide version.
+
+### D-013 done 2026-10-24T00:30Z
+- clones re-synced: Hermes: ae-1792800041; Hermes: ask-eve; Hermes: askeve-g-1792801360 (all three clones of this repo on Hermes;
+  none had uncommitted or unpushed work, so no patches were needed and no branches were recreated)
+- commands run (in each clone):
+  ```
+  git status -sb; git rev-list --count origin/main..main          # clean, 0 unpushed
+  git fetch origin --prune '+refs/heads/*:refs/remotes/origin/*'
+  git checkout -f main && git reset --hard origin/main
+  git for-each-ref refs/heads (non-main) | git update-ref -d       # same as branch -D; none existed
+  git reflog expire --expire=now --all && git gc -q --prune=now
+  git repack -a -d && git prune --expire=now                      # ae-1792800041 only: its multi-pack-index kept the old pack after gc
+  ```
+- outputs / success-check results:
+  ```
+  git cat-file -e e3bb848 ... -> clean         (all 3 clones; old 90843a9 / 2660123 also absent)
+  git rev-parse origin/main  -> aea40bb        (= git ls-remote origin main, all 3 clones)
+  git fsck --unreachable --no-reflogs -> 0     (all 3 clones)
+  git config user.email -> 452472+daveey@users.noreply.github.com (global; no clone sets its own)
+  §11 #1  git ls-remote origin main = aea40bb088ec (current main)
+  §11 #15 git log -p origin/main | grep -cE '<token regexes>' -> 0   (all remote branches: 0)
+  author/committer emails on all remote branches: 452472+daveey@users.noreply.github.com, noreply@github.com,
+  41898282+github-actions[bot]@users.noreply.github.com only
+  ```
+- notes: this branch was made from a freshly synced clone and pushed without force. D-011 is still done (PR #18): the cover
+  at audio.askevepodcast.com/art/cover-3000.v1.jpg returns 200 image/jpeg, 331005 bytes, and is the feed's itunes:image.
+  D-014 (v2 MP3s) is new on main and not part of this entry.
