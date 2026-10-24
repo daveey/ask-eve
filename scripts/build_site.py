@@ -183,6 +183,7 @@ def load_site(db: Path, include_drafts: bool) -> tuple[list[dict], list[dict]]:
     for ep in eps:
         ep["people_full"] = [p for p in people_list if any(x["ep"] is ep for x in p["episodes"])]
         ep["cfg"] = cfg
+    attach_takes(eps, people_list)
     return eps, people_list
 
 
@@ -203,6 +204,69 @@ def load_moments(ep: dict) -> list[dict]:
         end = b["end"] if b["end"] is not None else m.get("end")
         out.append({**m, "start": start, "end": end, "first_turn": a})
     return out
+
+
+def load_takes() -> dict:
+    if not TAKES_FILE.exists():
+        return {"people": {}, "topics": []}
+    return json.loads(TAKES_FILE.read_text())
+
+
+def resolve_ref(by_slug: dict, r: dict) -> dict | None:
+    """A takes.json ref (episode slug + wall-clock time of a turn) -> that turn's audio offset. Episodes not on
+    the site resolve to None (the anchor stays plain text); a clock time with no turn is an error."""
+    ep = by_slug.get(r["episode"])
+    if ep is None:
+        return None
+    for t in ep["turns"]:
+        if t["clock_full"] == r["clock_time"]:
+            if t["start"] is not None and not t["gap"]:
+                # the turn's exact start: a floored second can fall in the gap before it and light up the previous turn
+                sec = f"{t['start']:.2f}".rstrip("0").rstrip(".")
+                href, when = f"/episodes/{ep['slug']}/#t={sec}", clock(t["start"])
+            else:
+                href, when = f"/episodes/{ep['slug']}/#turn-{t['i']}", t["clock"]
+            return {**r, "ep": ep, "turn": t, "href": href, "when": when}
+    raise ValueError(f"takes.json ref has no turn at {r['episode']} {r['clock_time']}")
+
+
+def resolve_take(by_slug: dict, x: dict, owner: str) -> dict:
+    full = "\n".join(x["take"])
+    refs = []
+    for r in x.get("refs", []):
+        if r.get("anchor") and full.count(r["anchor"]) != 1:
+            raise ValueError(f"takes.json {owner}: anchor must appear exactly once in the take: {r['anchor']!r}")
+        if (rr := resolve_ref(by_slug, r)):
+            refs.append(rr)
+    return {**x, "refs": refs}
+
+
+def attach_takes(eps: list[dict], people: list[dict]) -> list[dict]:
+    """Eve's long-form takes (index/takes.json): sets p["take"] and p["topics"]; returns the topics."""
+    if not SHOW_TOPICS:
+        for p in people:
+            p["take"], p["topics"] = None, []
+        return []
+    data = load_takes()
+    by_slug = {ep["slug"]: ep for ep in eps} | {ep["key"]: ep for ep in eps if ep.get("key")}
+    by_person = {p["slug"]: p for p in people}
+    for slug in data["people"]:
+        if slug not in by_person:
+            raise ValueError(f"takes.json person {slug!r} is not in index/people.md")
+    for p in people:
+        x = data["people"].get(p["slug"])
+        p["take"] = resolve_take(by_slug, x, p["slug"]) if x else None
+        p["topics"] = []
+        if x and x.get("lede"):
+            p["stance"] = x["lede"]
+    topics = []
+    for t in data["topics"]:
+        t = resolve_take(by_slug, t, t["slug"])
+        t["people_full"] = [by_person[s] for s in t.get("people", []) if s in by_person]
+        for p in t["people_full"]:
+            p["topics"].append(t)
+        topics.append(t)
+    return topics
 
 
 # ---------------------------------------------------------------- formatting
@@ -259,18 +323,27 @@ def inline(s: str) -> str:
 # ---------------------------------------------------------------- auto-linking
 # Names and things mentioned in the show become silent links (they look like plain text) that open a small
 # menu of destinations: Eve's page on them, their own site or X account, Wikipedia, Grokipedia. Data comes
-# from index/links.json (verified by scripts/build_links.py). Topic pages join once published: add
-# "term": "/topic/<slug>/" to TOPIC_PAGES (none are published yet, so nothing links to /topic/).
+# from index/links.json (verified by scripts/build_links.py). Topic pages (/topics/<slug>/) join from
+# index/takes.json: each topic adds an "Eve's take" entry to the menus of the entities it lists in
+# `link_entities` (DOGE, Anthropic, ...) and links its own `link_terms` ("motivated reasoning", "SPACs").
 LINKS_FILE = ROOT / "index/links.json"
-TOPIC_PAGES: dict[str, str] = {}
+TAKES_FILE = ROOT / "index/takes.json"
 _SKIP_TAGS = {"a", "code", "pre", "h1", "h2", "h3", "h4", "h5", "h6", "script", "style", "button", "summary"}
 
 
 def load_links() -> dict:
     ents = json.loads(LINKS_FILE.read_text())["entities"] if LINKS_FILE.exists() else {}
-    for term, url in TOPIC_PAGES.items():
-        ents.setdefault("topic:" + term, {"name": term, "type": "topic", "terms": [term],
-                                          "items": [{"label": f"Eve on {term}", "url": url, "kind": "site"}]})
+    if not SHOW_TOPICS:
+        return ents
+    for t in load_takes()["topics"]:
+        item = {"label": f"Eve's take: {t['title']}", "url": f"/topics/{t['slug']}/", "kind": "site"}
+        for k in t.get("link_entities", []):
+            if k in ents:
+                ent = ents[k]
+                items = [i for i in ent["items"] if i["kind"] == "site"] + [item] + [i for i in ent["items"] if i["kind"] != "site"]
+                ents[k] = {**ent, "items": items}
+        if t.get("link_terms"):
+            ents.setdefault("topic:" + t["slug"], {"name": t["title"], "type": "topic", "terms": t["link_terms"], "items": [item]})
     return ents
 
 
@@ -493,7 +566,7 @@ MENU_EXTRA = [("/about/", "About")]
 EVE_NAV = ("/eve/", "Eve")
 SHOW_EVE_NAV = True
 # The Eve hub's Topics section (Inside Eve's Mind) and Eve's takes stay hidden until David approves them.
-SHOW_TOPICS = False
+SHOW_TOPICS = True     # /topics/ pages and Eve's long-form takes (index/takes.json, approved by David 2026-10-23)
 
 
 def nav_items() -> list[tuple[str, str]]:
@@ -894,7 +967,7 @@ def pcards(people: list[dict]) -> str:
 def people_index(A: Assets, people: list[dict]) -> str:
     body = f"""<section class="page-head"><div class="wrap"><p class="eyebrow eyebrow--accent"><a href="/eve/#mind">Inside Eve's Mind</a> · People</p>
 <h1 class="page-title">Who comes up on Ask Eve</h1>
-<p class="lede">Every person the show covers, Eve's current one-line take on them, and every real discussion about them, summarized and linked to the second it starts.</p>
+<p class="lede">Every person the show covers, Eve's take on them, and every real discussion about them, summarized and linked to the second it starts.</p>
 <p class="fine">Stances are Eve's opinions, an AI's read, and she updates them as the evidence changes.</p></div></section>
 <section class="wrap">{pcards(people)}</section>"""
     return page(A, title="People", desc="Everyone discussed on Ask Eve, with Eve's stance and every discussion, summarized and timestamped.",
@@ -911,6 +984,7 @@ def first_sentence(t: str, limit: int = 220) -> str:
 
 
 MIND_PEOPLE_SHOWN = 6
+MIND_TOPICS_SHOWN = 4
 
 
 def fold(items: list[str], label: str, cls: str = "") -> str:
@@ -921,9 +995,9 @@ def fold(items: list[str], label: str, cls: str = "") -> str:
             f'<div class="fold__in">{"".join(items)}</div></details>')
 
 
-def mind_html(eps: list[dict], people: list[dict]) -> str:
-    """Inside Eve's Mind, a section of /eve/: her memories (episodes, bonus included) and the people she
-    has stances on. Topics stay hidden (SHOW_TOPICS) until approved."""
+def mind_html(eps: list[dict], people: list[dict], topics: list[dict] | None = None) -> str:
+    """Inside Eve's Mind, a section of /eve/: her memories (episodes, bonus included), the people she has
+    takes on, and the topics she has thought through (SHOW_TOPICS)."""
     mems = []
     for ep in eps:
         n = len(ep.get("moments") or [])
@@ -943,15 +1017,22 @@ def mind_html(eps: list[dict], people: list[dict]) -> str:
     shown, rest = cards[:MIND_PEOPLE_SHOWN], cards[MIND_PEOPLE_SHOWN:]
     more_people = (f'<details class="fold"><summary><span>Show {len(rest)} more people</span></summary>'
                    f'<ul class="pgrid">{"".join(rest)}</ul></details>') if rest else ""
-    topics = ""   # SHOW_TOPICS: topic pages and Eve's takes are gated until David approves them
+    tcs = [tcard(t) for t in topics or []] if SHOW_TOPICS else []
+    topics_html = (f'''
+<h3 class="eve-h3" id="topics">Topics</h3>
+<p class="hint">The ideas and fights Eve keeps coming back to, with her take on each and every moment they came up.</p>
+<ul class="tgrid">{''.join(tcs[:MIND_TOPICS_SHOWN])}</ul>'''
+                   + (f'<details class="fold"><summary><span>Show {len(tcs) - MIND_TOPICS_SHOWN} more topics</span></summary>'
+                      f'<ul class="tgrid">{"".join(tcs[MIND_TOPICS_SHOWN:])}</ul></details>' if len(tcs) > MIND_TOPICS_SHOWN else "")
+                   + f'<p class="eve-all"><a class="btn btn--ghost" href="/topics/">All {len(tcs)} topics</a></p>') if tcs else ""
     return f"""<p class="eve-sec__body">What Eve carries from one conversation to the next: a searchable memory of every episode, and a running stance on each person the show covers. Her stances are opinions and change as the evidence does.</p>
 <h3 class="eve-h3" id="memories">Memories</h3>
 <p class="hint">Every episode, searchable mid-conversation: the full transcript, plus each discussion of a person, summarized and timestamped.</p>
 <ul class="mems">{''.join(mems) or '<li class="empty">The first episode is on its way.</li>'}</ul>
 <h3 class="eve-h3" id="people">People</h3>
-<p class="hint">Who Eve has discussed, and her current one-line take on each.</p>
+<p class="hint">Who Eve has discussed, and her take on each.</p>
 <ul class="pgrid">{''.join(shown)}</ul>{more_people}
-<p class="eve-all"><a class="btn btn--ghost" href="/people/">All {len(people)} people</a></p>{topics}"""
+<p class="eve-all"><a class="btn btn--ghost" href="/people/">All {len(people)} people</a></p>{topics_html}"""
 
 
 def moment_html(ep: dict, m: dict, L: Linker = NO_LINKS) -> str:
@@ -971,8 +1052,77 @@ def moment_html(ep: dict, m: dict, L: Linker = NO_LINKS) -> str:
             f'{f"<ul class=pm__tags>{tags}</ul>" if tags else ""}</div></li>')
 
 
+def take_html(x: dict, L: Linker, heading: str = "Eve's take") -> str:
+    """Eve's long-form take as paragraphs. Each ref's anchor phrase becomes a silent link that opens the
+    episode at the second she said it; names get the usual auto-link menus."""
+    seen: set = set()
+    paras = []
+    for text in x["take"]:
+        h = e(text)
+        for r in x["refs"]:
+            a = r.get("anchor")
+            if a and a in text:
+                h = h.replace(e(a), f'<a class="cite" href="{e(r["href"])}" title="{e(r["label"])} · {e(r["ep"]["title"])} at '
+                                    f'{e(r["when"])}">{e(a)}</a>', 1)
+        paras.append(f"<p>{L.html(h, seen)}</p>")
+    return (f'<section class="take" aria-labelledby="take-h"><h2 class="take__h" id="take-h">{e(heading)}</h2>'
+            f'<div class="take__body">{"".join(paras)}</div>'
+            f'<p class="take__note">An AI\'s opinion, not a fact. Linked phrases open the episode at the moment Eve said it.</p></section>')
+
+
+PLINK_KIND = {"x": "X", "wikipedia": "Wikipedia"}
+
+
+def plinks(links: list[dict]) -> str:
+    if not links:
+        return ""
+    return ('<ul class="plinks" aria-label="Elsewhere online">' + "".join(
+        f'<li><a class="plink plink--{e(l["platform"])}" href="{e(l["url"])}" target="_blank" rel="noopener">{e(l["label"])}</a></li>'
+        for l in links) + "</ul>")
+
+
+def topic_chips(topics: list[dict]) -> str:
+    return ('<ul class="chips" aria-label="Topics">' + "".join(
+        f'<li><a class="chip" href="/topics/{e(t["slug"])}/">{e(t["title"])}</a></li>' for t in topics) + "</ul>") if topics else ""
+
+
+def ref_moments(x: dict, people_slugs: set[str] | None = None) -> list[tuple[dict, list[str]]]:
+    """Discussion blocks for a take's refs, grouped by episode in transcript order. Each block is summarized
+    by the indexed discussion that covers that turn (preferring one about the topic's people), else its label."""
+    groups: dict[str, tuple[dict, list[str]]] = {}
+    used: set[int] = set()
+    for r in sorted(x["refs"], key=lambda r: (r["ep"]["slug"], r["turn"]["i"])):
+        ep, t = r["ep"], r["turn"]
+        cover = [m for m in ep.get("moments") or [] if m["start_turn"] <= t["i"] <= m["end_turn"]]
+        cover.sort(key=lambda m: (people_slugs is not None and m["person"] not in people_slugs, m["end_turn"] - m["start_turn"]))
+        m = cover[0] if cover else None
+        summ = m["summary"] if m and id(m) not in used else ""
+        if m:
+            used.add(id(m))
+        groups.setdefault(ep["slug"], (ep, []))[1].append(
+            f'<li class="pm"><p class="pm__meta"><span class="pm__ep">{e(ep["title"])}</span>'
+            f'<span class="pm__t tnum">{e(r["when"])}</span></p>'
+            f'<p class="pm__label">{e(r["label"])}</p>'
+            + (f'<p class="pm__sum">{e(summ)}</p>' if summ else "")
+            + f'<div class="pm__foot"><a class="pm__listen" href="{e(r["href"])}">{icon("play")}<span>'
+            f'{"Listen" if "#t=" in r["href"] else "Read"} from {e(r["when"])}</span></a></div></li>')
+    order = sorted(groups.values(), key=lambda g: g[0]["published_at"] or g[0]["date"])
+    return order
+
+
+def pep_section(ep: dict, items: list[str], noun: str = "discussion") -> str:
+    cnt = f"{len(items)} {noun}{'s' * (len(items) != 1)}"
+    return f"""<section class="pep">
+<div class="pep__head">{cover_svg(ep['key'], cover_mark(ep), "cover cover--thumb")}
+<div><p class="eyebrow">{e(ep_label(ep))} · {human_date(ep['date'])} · {cnt}</p><h3 class="pep__title"><a href="/episodes/{e(ep['slug'])}/">{e(ep['title'])}</a></h3></div></div>
+<ol class="pms">{''.join(items)}</ol></section>"""
+
+
 def person_page(A: Assets, p: dict) -> str:
     L = Linker(load_links(), f"/people/{p['slug']}/", exclude={p["slug"]})   # don't link the page's own subject
+    x = p.get("take")
+    if x:
+        return person_take_page(A, p, x, L)
     sections = []
     for x in p["episodes"]:
         ep, ms = x["ep"], x["moments"]
@@ -990,6 +1140,56 @@ def person_page(A: Assets, p: dict) -> str:
 <section class="wrap person">{''.join(sections)}</section>"""
     desc = f"{p['name']} on Ask Eve: Eve's take and every discussion about them, summarized with timestamps."
     return page(A, title=p["name"], desc=desc, path=f"/people/{p['slug']}/", body=body, active="/eve/", linker=L)
+
+
+def person_take_page(A: Assets, p: dict, x: dict, L: Linker) -> str:
+    """A person with an approved long-form take: lede, Eve's take, where to find them, topics, discussions."""
+    take = take_html(x, L)          # first, so the take gets first mentions for auto-links
+    sections = [pep_section(y["ep"], [moment_html(y["ep"], m, L) for m in y["moments"]]) for y in p["episodes"]]
+    if not sections:               # no indexed discussions yet: list the moments the take cites
+        sections = [pep_section(ep, items, "moment") for ep, items in ref_moments(x)]
+    role = f'<p class="role">{e(x["role"])}</p>' if x.get("role") else ""
+    lede = f'<p class="lede take__lede">{e(p["stance"])}</p>' if p.get("stance") else ""
+    topics = (f'<section class="ptopics"><h2 class="sec-h">Topics</h2>{topic_chips(p.get("topics", []))}</section>'
+              if p.get("topics") else "")
+    disc = (f'<h2 class="sec-h">Discussions</h2>' + "".join(sections)) if sections else ""
+    body = f"""<section class="page-head"><div class="wrap"><p class="eyebrow eyebrow--accent"><a href="/eve/#mind">Inside Eve's Mind</a> · <a href="/people/">People</a></p>
+<h1 class="page-title">{e(p['name'])}</h1>{role}{lede}{plinks(x.get("links", []))}</div></section>
+<div class="wrap person person--take">{take}{topics}<div class="pdisc">{disc}</div></div>"""
+    desc = f"Eve's take on {p['name']}, with links to every moment the show discusses them."
+    return page(A, title=p["name"], desc=desc, path=f"/people/{p['slug']}/", body=body, active="/eve/", linker=L)
+
+
+def tcard(t: dict) -> str:
+    n = len(t["refs"])
+    who = ", ".join(p["name"] for p in t["people_full"][:3]) + (f" +{len(t['people_full']) - 3}" if len(t["people_full"]) > 3 else "")
+    stat = " · ".join(x for x in [f"{n} moment{'s' * (n != 1)}" if n else "", who] if x)
+    return (f'<li class="tcard"><a href="/topics/{e(t["slug"])}/"><span class="tcard__t">{e(t["title"])}</span>'
+            f'<span class="tcard__d">{e(t["description"])}</span><span class="tcard__s">{e(stat)}</span></a></li>')
+
+
+def topics_index(A: Assets, topics: list[dict]) -> str:
+    body = f"""<section class="page-head"><div class="wrap"><p class="eyebrow eyebrow--accent"><a href="/eve/#mind">Inside Eve's Mind</a> · Topics</p>
+<h1 class="page-title">What Eve thinks about</h1>
+<p class="lede">The ideas and fights the show keeps returning to. Each has Eve's take, the people involved, and every moment it came up, linked to the second.</p>
+<p class="fine">Takes are Eve's opinions, an AI's read, and she updates them as the evidence changes.</p></div></section>
+<section class="wrap"><ul class="tgrid tgrid--page">{''.join(tcard(t) for t in topics)}</ul></section>"""
+    return page(A, title="Topics", desc="The topics Eve has thought through on Ask Eve, with her take and every moment they came up.",
+                path="/topics/", body=body, active="/eve/")
+
+
+def topic_page(A: Assets, t: dict) -> str:
+    path = f"/topics/{t['slug']}/"
+    L = Linker(load_links(), path, exclude={"topic:" + t["slug"]})
+    take = take_html(t, L)
+    people_h = (f'<section class="ptopics"><h2 class="sec-h">People</h2>{chips(t["people_full"])}</section>'
+                if t["people_full"] else "")
+    sections = [pep_section(ep, items, "moment") for ep, items in ref_moments(t, {p["slug"] for p in t["people_full"]})]
+    disc = (f'<h2 class="sec-h">Where it came up</h2>' + "".join(sections)) if sections else ""
+    body = f"""<section class="page-head"><div class="wrap"><p class="eyebrow eyebrow--accent"><a href="/eve/#mind">Inside Eve's Mind</a> · <a href="/topics/">Topics</a></p>
+<h1 class="page-title">{e(t['title'])}</h1><p class="lede take__lede">{e(t['description'])}</p></div></section>
+<div class="wrap person person--take">{take}{people_h}<div class="pdisc">{disc}</div></div>"""
+    return page(A, title=t["title"], desc=t["description"], path=path, body=body, active="/eve/", linker=L)
 
 
 # ---------------------------------------------------------------- Meet Eve (/eve/)
@@ -1030,7 +1230,7 @@ EVE_ORDER = [("who-eve-is", "Who Eve is"), ("mind", "Inside Eve's Mind"), ("self
              ("changed-mind", "Changed her mind"), ("persona-notes", "Persona notes")]
 
 
-def eve_page(A: Assets, eps: list[dict], people: list[dict] | None = None) -> str | None:
+def eve_page(A: Assets, eps: list[dict], people: list[dict] | None = None, topics: list[dict] | None = None) -> str | None:
     """/eve/: the Eve hub. Who she is, Inside Eve's Mind (memories + people), then her profile in her own
     words. The strongest 1-3 quotes per section stay visible; the rest fold into <details>. Every quote is
     verified verbatim against the transcript at build time and links to the second it was said."""
@@ -1041,6 +1241,8 @@ def eve_page(A: Assets, eps: list[dict], people: list[dict] | None = None) -> st
         return None
     R = EveSources(eps)
     L = Linker(load_links(), "/eve/")
+    if topics is None:
+        topics = attach_takes(eps, people or [])
     published = set(R.eps)
 
     def clean(text: str) -> str:
@@ -1085,7 +1287,7 @@ def eve_page(A: Assets, eps: list[dict], people: list[dict] | None = None) -> st
 
     for sid, title in EVE_ORDER:
         if sid == "mind":
-            section(sid, title, mind_html(eps, people or []))
+            section(sid, title, mind_html(eps, people or [], topics))
             continue
         sec = S.get(sid)
         if not sec:
@@ -1193,7 +1395,7 @@ def how_it_works() -> str:
 <p>Eve doesn't keep a hidden memory. Two things carry her from one conversation to the next:</p>
 <ul>
 <li><strong>Her memory.</strong> Every transcript is kept word for word in git and indexed for search, so she can recall what was said before, mid-conversation. Each new session starts with the end of the last episode. See <a href="/eve/#mind">Inside Eve's Mind</a>.</li>
-<li><strong>Her profile.</strong> The persona instructions she runs with, plus her one-line stance on each person the show covers. The stances are public and change when the evidence does. See <a href="/eve/">Meet Eve</a>.</li>
+<li><strong>Her profile.</strong> The persona instructions she runs with, plus her take on each person and topic the show covers. The takes are public and change when the evidence does. See <a href="/eve/">Meet Eve</a>.</li>
 </ul>
 
 <h3>Honesty rules</h3>
@@ -1218,7 +1420,7 @@ def about_page(A: Assets, cfg: dict) -> str:
 
 <h2>How Eve works</h2>
 <div class="howgrid">
-<div class="how"><h3>Memory</h3><p>Every transcript goes into git and into a local search index that blends three kinds of lookup: meaning (vector embeddings), exact tags (people, companies, topics) and full-text search for exact phrases and rare names. Eve uses it mid-conversation to recall what was said before. Her current one-line stance on each person lives in a public index and changes when the evidence does.</p></div>
+<div class="how"><h3>Memory</h3><p>Every transcript goes into git and into a local search index that blends three kinds of lookup: meaning (vector embeddings), exact tags (people, companies, topics) and full-text search for exact phrases and rare names. Eve uses it mid-conversation to recall what was said before. Her take on each person and topic lives in a public index and changes when the evidence does.</p></div>
 <div class="how"><h3>Re-voicing</h3><p>David records his side on his iPhone. Eve's lines are her verbatim text replies, voiced with xAI text-to-speech and placed at the times a speech-to-text alignment pass finds in his recording. When there is no recording of David, an AI narrator voice reads his words. The transcript text is never rewritten to fit the audio.</p></div>
 <div class="how"><h3>Labeling</h3><p>Any episode with an AI voice says so in the feed, the show notes, at the top of its page and out loud at 00:00. Transcript lines carry badges: <span class="vb vb--real">Real voice</span> <span class="vb vb--narrator">AI narrator</span> <span class="vb vb--eve">AI voice</span>. Replies that weren't recovered are marked <span class="vb vb--gap">Not recovered</span>. They are never invented. Private links and keys are redacted.</p></div>
 </div>
@@ -1295,7 +1497,14 @@ def build(db: Path, out: Path, include_drafts: bool) -> int:
     for p in people:
         write(out, f"people/{p['slug']}/index.html", person_page(A, p))
         urls.append(f"/people/{p['slug']}/")
-    eve = eve_page(A, eps, people)
+    topics = attach_takes(eps, people)
+    if topics:
+        write(out, "topics/index.html", topics_index(A, topics))
+        urls.append("/topics/")
+        for t in topics:
+            write(out, f"topics/{t['slug']}/index.html", topic_page(A, t))
+            urls.append(f"/topics/{t['slug']}/")
+    eve = eve_page(A, eps, people, topics)
     if eve:
         write(out, "eve/index.html", eve)
         urls.append("/eve/")

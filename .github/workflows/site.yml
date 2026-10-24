@@ -19,6 +19,7 @@ on:
       - index/links.json
       - index/eve.json
       - index/slugs.json
+      - index/takes.json
       - .github/workflows/site.yml
 
 permissions:

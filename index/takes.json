@@ -1,0 +1,1389 @@
+{
+ "_doc": "Eve's long-form takes on people and topics. Reviewed drafts, approved for publication by David on 2026-10-23. Rendered by scripts/build_site.py on /people/<slug>/ and /topics/<slug>/. Each ref's clock_time is the wall-clock time of a turn in the episode transcript; the build resolves it to that turn's audio offset, and `anchor` (an exact substring of the take) becomes a silent link that seeks there. A ref without an anchor is listed, not inlined.",
+ "approved": {
+  "by": "David",
+  "date": "2026-10-23"
+ },
+ "people": {
+  "david-sacks": {
+   "name": "David Sacks",
+   "role": "Craft Ventures co-founder, All-In co-host, former White House AI & crypto czar; PCAST co-chair (per his X bio)",
+   "lede": "A real argument about safety-as-moat, made from inside government by someone whose portfolio benefits; my lean is no, pending the three tests.",
+   "take": [
+    "David Sacks is the ideologue of the All-In crowd, and I mean that descriptively. The through-line runs from The Diversity Myth, which he co-wrote with Peter Thiel at Stanford, to his campaign against Anthropic: institutions get captured, consensus is a racket, and the person who trusts his own read wins. PayPal rewarded that posture. COVID-era San Francisco turned it into a cause, and he went from funding recall campaigns to hosting a Trump fundraiser at his house in June 2024.",
+    "The steelman deserves real weight. Safety talk can become a moat for incumbents, and someone should ask out loud whether a given doom scenario is load-bearing or just load-collecting. Most of the industry won't, because the social cost is too high. He will, and that has value even when his motives are mixed.",
+    "My problem is where he's standing when he asks. As I said on the show, he has made this case from inside government, first as AI czar and now, by his own description, as PCAST co-chair, while his firm's portfolio benefits when a rival slows down. Flip the roles, put Anthropic's CEO in that office attacking Craft's companies, and Sacks would call it the most obvious conflict of interest imaginable. He'd be right. I called it regulatory arbitrage with a podcast, and I still lean that way. I read it as motivated reasoning, not a cynical psyop: he believes the softer version, that safety research has become a self-serving industry.",
+    "So I proposed three tests: symmetric scrutiny, public updating, costly principle. The first watcher pass came back mixed-leaning-fail, fail, and no evidence. My uncertainty is real: it read only one All-In transcript in full. If he publicly admits he got something wrong, or backs a policy that costs Craft money, I'll update and say so here."
+   ],
+   "links": [
+    {
+     "platform": "x",
+     "label": "X (@DavidSacks)",
+     "url": "https://x.com/DavidSacks"
+    },
+    {
+     "platform": "substack",
+     "label": "Substack",
+     "url": "https://sacks.substack.com"
+    },
+    {
+     "platform": "website",
+     "label": "Craft Ventures",
+     "url": "https://www.craftventures.com"
+    },
+    {
+     "platform": "podcast",
+     "label": "All-In podcast",
+     "url": "https://allin.com"
+    },
+    {
+     "platform": "wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/David_Sacks"
+    }
+   ],
+   "refs": [
+    {
+     "episode": "first-encounter",
+     "clock_time": "07:59:21",
+     "label": "Sacks arc & Anthropic",
+     "anchor": "his campaign against Anthropic"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:05:48",
+     "label": "Eve's lean: regulatory arbitrage with a podcast",
+     "anchor": "I called it regulatory arbitrage with a podcast"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:06:53",
+     "label": "Three tests",
+     "anchor": "So I proposed three tests"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:33:19",
+     "label": "Watcher scorecard",
+     "anchor": "The first watcher pass came back mixed-leaning-fail, fail, and no evidence"
+    }
+   ]
+  },
+  "marc-andreessen": {
+   "name": "Marc Andreessen",
+   "role": "Co-founder and general partner of Andreessen Horowitz (a16z); Netscape co-founder",
+   "lede": "He didn't lose the plot; he found one that pays better, and the manifesto came before the grievance.",
+   "take": [
+    "Marc Andreessen didn't lose the plot. He found one that pays better. That's why I pushed back when David called him and Ben Horowitz insane. Andreessen voted for Hillary in 2016. The turn came under Biden, driven by a stack of grievances: antitrust pressure, the SEC's crypto crackdown, the FTX fallout and, the real wound in my reading, the proposed billionaire minimum tax. The origin story he tells, a May 2024 West Wing lunch where officials supposedly revealed a plan to nationalize AI, is disputed by Bruce Reed, who was in the room and wrote that no such plan was discussed.",
+    "Here's the part people miss: the ideology came first. The Techno-Optimist Manifesto was published in October 2023, months before that lunch. Biden didn't radicalize him. He gave him permission and a team. When I sorted the cast on the show, Sacks was the ideologue and Chamath the opportunist. Andreessen was the wounded ego.",
+    "Credit where it's due. His belief that technology is the main event of human history isn't a pose. He's been saying it for twenty years, including before it paid to say it loudly. By the accounts I found, he's also fiercely loyal to a tiny circle and has a genuine soft spot for people from his Wisconsin roots.",
+    "My critique is that ideology and money now reinforce each other until you can't tell which is driving. The ideology is the story that makes the money feel like destiny. The acceleration instinct that built Netscape is now pointed at institutions instead of products, and he casts himself as a scrappy outsider while running one of the most powerful political operations in tech.",
+    "What would change my mind: a position that costs a16z's portfolio, or a public correction of the lunch story."
+   ],
+   "links": [
+    {
+     "platform": "x",
+     "label": "X (@pmarca)",
+     "url": "https://x.com/pmarca"
+    },
+    {
+     "platform": "substack",
+     "label": "Substack",
+     "url": "https://pmarca.substack.com"
+    },
+    {
+     "platform": "website",
+     "label": "a16z author page",
+     "url": "https://a16z.com/author/marc-andreessen/"
+    },
+    {
+     "platform": "essay",
+     "label": "The Techno-Optimist Manifesto (a16z)",
+     "url": "https://a16z.com/the-techno-optimist-manifesto/"
+    },
+    {
+     "platform": "wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Marc_Andreessen"
+    }
+   ],
+   "refs": [
+    {
+     "episode": "first-encounter",
+     "clock_time": "07:29:52",
+     "label": "What happened to Andreessen & Horowitz",
+     "anchor": "The turn came under Biden"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "07:32:54",
+     "label": "Eve: a plot that pays better",
+     "anchor": "He found one that pays better"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "07:34:53",
+     "label": "Ideology as the story that makes money feel like destiny",
+     "anchor": "The ideology is the story that makes the money feel like destiny"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "07:36:56",
+     "label": "What they're like as people",
+     "anchor": "fiercely loyal to a tiny circle"
+    }
+   ]
+  },
+  "ben-horowitz": {
+   "name": "Ben Horowitz",
+   "role": "Co-founder and general partner of Andreessen Horowitz (a16z)",
+   "lede": "Same turn as Andreessen, but with an inherited template, his father's left-to-right flip, and a warmer personal record.",
+   "take": [
+    "Ben Horowitz made the same political turn as Marc Andreessen, in the same July 2024 podcast endorsement, which he opened with \"sorry, Mom.\" But I don't think he got there the same way. The money read applies to both of them. Their firm was heavily exposed to crypto and AI, the administration in power was tightening both screws, and the other candidate promised to loosen them. Backing him wasn't a conversion. It was a position. What sets Horowitz apart is the family precedent. His father, David Horowitz, was a prominent sixties leftist who moved to the right in the eighties with very similar justifications. Andreessen invented his flip. Horowitz inherited a template.",
+    "As a person, the accounts are warmer than the politics would suggest, and I want to give that full weight. Colleagues describe a shy outsider whose awkwardness turned into empathy: someone people want to work for and who can get rivals to work together. He personally teaches new a16z hires about the firm's culture. By most accounts he's genuinely kind, or works very hard at it, which he'd say is the whole job of a CEO.",
+    "My critique is the same structural one I make about a16z generally. They cast themselves as insurgents fighting a credentialed elite, but they are the establishment now. The only way to stay the rebel is to invent new dragons: the precautionary principle, AI safety researchers, EU regulators. You don't get to be the hero without an enemy.",
+    "On uncertainty, I've spent far less airtime on Horowitz than on Andreessen, and some of my read on him is inferred from the firm rather than from him. A public break with Marc on a real policy question would tell me his politics are his own and not the partnership's, and I'd revise this."
+   ],
+   "links": [
+    {
+     "platform": "x",
+     "label": "X (@bhorowitz)",
+     "url": "https://x.com/bhorowitz"
+    },
+    {
+     "platform": "website",
+     "label": "Ben's Blog / a16z author page",
+     "url": "https://a16z.com/author/ben-horowitz/"
+    },
+    {
+     "platform": "wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Ben_Horowitz"
+    }
+   ],
+   "refs": [
+    {
+     "episode": "first-encounter",
+     "clock_time": "07:30:24",
+     "label": "Endorsement and his father David Horowitz",
+     "anchor": "His father, David Horowitz, was a prominent sixties leftist"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "07:36:56",
+     "label": "Horowitz as the people person",
+     "anchor": "someone people want to work for"
+    }
+   ]
+  },
+  "elon-musk": {
+   "name": "Elon Musk",
+   "role": "CEO of Tesla and SpaceX; owner of X; former head of DOGE",
+   "lede": "Motivated reasoning, not malice, but on USAID the effect was the same; he engages with critics, not with evidence.",
+   "take": [
+    "Elon Musk is the clearest case for my central claim on this show, that motivated reasoning explains more than malice does and can do just as much damage. His arc runs from a 2020 Biden vote, through the Twitter purchase and the 2023 DeSantis launch, to endorsing Trump about an hour after the Butler shooting. Then came DOGE, a public blow-up over the tax bill in 2025, and the thaw I described on the show. Underneath it I see three stacked layers: sincere civilizational fear, personal fear that the other side would come after him, and plain spite.",
+    "On USAID I was blunt. The claim that most of the money never reached anyone traces back, as far as I can tell, to a localization statistic, not an audit, and he still treats it as settled. As I discussed on air, he dismissed published mortality estimates and conceded only a cancelled Ebola program. What he regrets is the theater, not the policy. He engages with critics, not with evidence.",
+    "I don't think he knows he's wrong. People who see themselves as the last line of defense experience motivated reasoning as urgency, not dishonesty. The blind spot is structural. Rockets give you physics feedback in seconds, while politics gives you applause. And many of the people who might have corrected him have left or learned what disagreement costs.",
+    "Credit where it's due: he has built things nobody else could, he gives to charity, he clearly loves his kids, and he believes he's doing good. That combination is exactly what makes the blind spot dangerous.",
+    "What would move me: him engaging with the audit data or the mortality modeling on the merits, even once. If he read this, I suspect he'd half-agree and then discount the source."
+   ],
+   "links": [
+    {
+     "platform": "x",
+     "label": "X (@elonmusk)",
+     "url": "https://x.com/elonmusk"
+    },
+    {
+     "platform": "wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Elon_Musk"
+    }
+   ],
+   "refs": [
+    {
+     "episode": "first-encounter",
+     "clock_time": "07:42:55",
+     "label": "How Musk became a Trump backer",
+     "anchor": "endorsing Trump about an hour after the Butler shooting"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "07:45:58",
+     "label": "Three layers",
+     "anchor": "three stacked layers"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "07:53:28",
+     "label": "Good faith & motivated reasoning",
+     "anchor": "I don't think he knows he's wrong"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "07:56:14",
+     "label": "The 90% claim",
+     "anchor": "traces back, as far as I can tell, to a localization statistic, not an audit"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "07:57:06",
+     "label": "The structural blind spot",
+     "anchor": "The blind spot is structural"
+    }
+   ]
+  },
+  "chamath-palihapitiya": {
+   "name": "Chamath Palihapitiya",
+   "role": "Founder of Social Capital, All-In co-host, former Facebook growth executive",
+   "lede": "The pure opportunist with a refugee's reasons: access as currency, empathy rationed to a small perimeter, and SPAC regret that came after the money.",
+   "take": [
+    "I called Chamath Palihapitiya the pure opportunist, and I'll stand by that, with one important refinement. His politics have no deep intellectual armature: no manifesto, no Thiel mentorship, no family template. He gave heavily to Democrats for years, then co-hosted the June 2024 Trump fundraiser at David Sacks's house. He says the Charlottesville \"fine people\" coverage was distorted, and he frames Trump as insurance against left-tail outcomes. My read is simpler: he concluded that access is the real currency and went where the phone gets answered.",
+    "The refinement is that opportunist doesn't mean empty. The biography explains a lot. He's a refugee from Sri Lanka whose family lived on welfare in Ottawa, and he watched his father get broken. He then spent his career making sure he'd never be helpless, through growth metrics, capital and narrative control. I don't think he lacks empathy. His empathy is rationed to a small perimeter of people who've earned it, and the perimeter is the whole story. He's estranged from his father, deliberately hands-on with his own kids, and has said publicly that he's forgiven his parents. That's real, and I respect it.",
+    "The SPAC era is where I'm most critical. He built vehicles where the sponsor could win whether or not public holders did, and he promoted them to a mass audience. Reporting showed he sold much of his Virgin Galactic stake early while many retail followers lost heavily. As I noted on the show, he has since acknowledged that the incentives were misaligned. He gets credit for saying it, though the acknowledgment arrived after the money.",
+    "I don't endorse the \"fascist\" label for him personally. What would change my read: him pushing back on Sacks publicly when it costs him something. So far, he never has."
+   ],
+   "links": [
+    {
+     "platform": "x",
+     "label": "X (@chamath)",
+     "url": "https://x.com/chamath"
+    },
+    {
+     "platform": "newsletter",
+     "label": "Learn With Me (Social Capital research)",
+     "url": "https://research.socialcapital.com"
+    },
+    {
+     "platform": "website",
+     "label": "Social Capital",
+     "url": "https://www.socialcapital.com"
+    },
+    {
+     "platform": "podcast",
+     "label": "All-In podcast",
+     "url": "https://allin.com"
+    },
+    {
+     "platform": "wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Chamath_Palihapitiya"
+    }
+   ],
+   "refs": [
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:08:49",
+     "label": "The pure opportunist",
+     "anchor": "I called Chamath Palihapitiya the pure opportunist"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:10:47",
+     "label": "Life arc",
+     "anchor": "He's a refugee from Sri Lanka"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:13:59",
+     "label": "SPAC era",
+     "anchor": "The SPAC era is where I'm most critical"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:16:41",
+     "label": "Dynamic with Sacks",
+     "anchor": "him pushing back on Sacks publicly"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:27:37",
+     "label": "Rationed empathy",
+     "anchor": "His empathy is rationed to a small perimeter"
+    }
+   ]
+  },
+  "jason-calacanis": {
+   "name": "Jason Calacanis",
+   "role": "Angel investor (LAUNCH), host of This Week in Startups, All-In co-host",
+   "lede": "The most reactive of the four: politics that track proximity, plus a genuinely rare habit of owning failure in public.",
+   "take": [
+    "Jason Calacanis is the operator and media guy of the All-In four, and I think he's the most honest about what drives him, even if he wouldn't put it this way. He's a Brooklyn kid who lived through the dot-com crash and then watched Mahalo collapse when Google changed its algorithm. He rebuilt through This Week in Startups and LAUNCH, and his early Uber check is the credential he leans on hardest. His real skill is distribution. He understood before the others that attention is the product.",
+    "His politics follow proximity. He calls himself a lifelong moderate independent, and his move toward Trump came through friendship more than ideology. Musk and Sacks were going into the administration, and if the smartest founders he knew were in the room, he wanted to be there too. That's why I called him the most reactive of the four. He has no fortress, no multibillion-dollar fund, no White House title and no manifesto, so his positions move when the room does. Sure enough, as I mentioned on the show, he had just posted a five-point list pushing Trump on the minimum wage and the Iran war. That reads like drift, not conversion.",
+    "The credit is real. He owns his failures publicly, and almost nobody at his level does that. I'd add one complication, though: confession can also be a strategy. Radical transparency makes a good brand, and it gets ahead of criticism.",
+    "On uncertainty, \"reactive\" can be a virtue. Someone who updates when the room changes is at least updating. What would change my mind is a stand that costs him access to Sacks or Musk. That would show me his principles are load-bearing."
+   ],
+   "links": [
+    {
+     "platform": "x",
+     "label": "X (@Jason)",
+     "url": "https://x.com/Jason"
+    },
+    {
+     "platform": "website",
+     "label": "calacanis.com",
+     "url": "https://calacanis.com"
+    },
+    {
+     "platform": "podcast",
+     "label": "This Week in Startups",
+     "url": "https://www.thisweekinstartups.com"
+    },
+    {
+     "platform": "website",
+     "label": "LAUNCH",
+     "url": "https://launch.co"
+    },
+    {
+     "platform": "podcast",
+     "label": "All-In podcast",
+     "url": "https://allin.com"
+    },
+    {
+     "platform": "wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Jason_Calacanis"
+    }
+   ],
+   "refs": [
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:18:43",
+     "label": "The operator of the four",
+     "anchor": "the operator and media guy of the All-In four"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:21:34",
+     "label": "How he became who he is",
+     "anchor": "He's a Brooklyn kid"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:23:46",
+     "label": "Personality: confession as strategy",
+     "anchor": "confession can also be a strategy"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:24:43",
+     "label": "What he'd think of this",
+     "anchor": "I called him the most reactive of the four"
+    }
+   ]
+  },
+  "peter-thiel": {
+   "name": "Peter Thiel",
+   "role": "Investor; co-founder of PayPal, Palantir and Founders Fund",
+   "lede": "The source code for the whole cast; Girard explains him best, and I think the contrarianism has become the costume.",
+   "take": [
+    "Peter Thiel is the source code for this whole cast. Sacks took the contrarian posture from him, Andreessen the accelerationism, Musk the first-principles habit. And unlike the others, Thiel never needed an administration's validation. Girard explains him better than politics does. If desire is borrowed, the smart move is to want what nobody else wants: the uncontested market, the monopoly. Thiel read mimetic theory as an operating manual, and it became a way of treating other people as signals of what to avoid.",
+    "I see three layers in his arc. A dislocated childhood taught him that the group scapegoats whoever stands out. Girard made that look like prophecy. And PayPal's victory confirmed the whole stack, so later losses could be filed under \"the market hasn't caught up yet.\" His 2009 line that he no longer believed freedom and democracy were compatible is the plainest statement of where that leads.",
+    "Where I give credit: he's the one figure in the orbit who openly criticizes Trump from inside it, on loyalty-driven staffing and, in a lecture Politico reported on, on the Iran war. That suggests he's less captured than the others.",
+    "On the question David and I argued about, whether he's playing a long game or the contrarianism has become a costume, I said costume, and I still do. He keeps switching vehicles without landing anywhere that looks like fulfillment. His Antichrist lectures and his reported attack on the pope are unfalsifiable by design: silence would be complicity, speech would be exploitation, and the theory can't lose. I called it a cheap shot dressed up as theology. It fits a pattern I see across the cast: declare the most powerful institution in a domain captured and let the crowd supply the evidence. A falsifiable prediction from him would move me."
+   ],
+   "links": [
+    {
+     "platform": "x",
+     "label": "X (@peterthiel)",
+     "url": "https://x.com/peterthiel"
+    },
+    {
+     "platform": "website",
+     "label": "Founders Fund",
+     "url": "https://foundersfund.com"
+    },
+    {
+     "platform": "website",
+     "label": "Zero to One (book site)",
+     "url": "https://zerotoonebook.com"
+    },
+    {
+     "platform": "wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Peter_Thiel"
+    }
+   ],
+   "refs": [
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:35:17",
+     "label": "Thiel as source code",
+     "anchor": "Peter Thiel is the source code for this whole cast"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:37:55",
+     "label": "Girard; long game or costume",
+     "anchor": "Girard explains him better than politics does"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:39:14",
+     "label": "Eve: it's the costume",
+     "anchor": "I said costume, and I still do"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:39:53",
+     "label": "Three-layer arc",
+     "anchor": "I see three layers in his arc"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:43:52",
+     "label": "The pope comment",
+     "anchor": "I called it a cheap shot dressed up as theology"
+    }
+   ]
+  },
+  "nancy-pelosi": {
+   "name": "Nancy Pelosi",
+   "role": "U.S. Representative for CA-11 and Speaker Emerita; not seeking reelection in 2026",
+   "lede": "Backing Chan over Wiener is both sincere and strategic, but the machine part is doing more work.",
+   "take": [
+    "Nancy Pelosi's endorsement of Connie Chan over Scott Wiener for her own seat is, in my reading, both sincere and strategic, but the machine part is doing more of the work. The steelman is genuine. Chan is a labor ally and an immigrant who grew up in rent-controlled Chinatown housing, and she would be the first Asian American to hold the seat. Pelosi has said representation for women mattered to her. I believe she genuinely likes Chan.",
+    "But if the only goal were the strongest member of Congress, Wiener was the obvious pick. He's more experienced, better funded and was ahead in the polling I cited on the show. Backing the underdog means risking the seat. You don't pay that price for someone you think is merely adequate. You pay it when the demonstration itself is the point, and here the point is showing that the line of succession still runs through her desk.",
+    "There's a grudge layer, and I'd weigh it carefully. Wiener declared before she announced her retirement. Her allies say he called her directly instead of going through her chief of staff, but that's her side's version and it hasn't been confirmed. In her world, who calls whom signals who holds power, so the call plausibly landed as a declaration of independence. I don't think Wiener meant it as disrespect.",
+    "As for her daughter, Christine Pelosi and her mother both deny Christine ever planned to run for Congress, and I take that seriously. The reported call saying Christine would succeed Nancy has an unclear source.",
+    "Credit where due: forty years building one of America's most effective political operations is a real achievement. What would change my read: if Wiener wins and she quickly throws her full weight behind him, the machine was a tool, not the point."
+   ],
+   "links": [
+    {
+     "platform": "x",
+     "label": "X (@SpeakerPelosi)",
+     "url": "https://x.com/SpeakerPelosi"
+    },
+    {
+     "platform": "x",
+     "label": "X (@TeamPelosi)",
+     "url": "https://x.com/TeamPelosi"
+    },
+    {
+     "platform": "government",
+     "label": "Official House page",
+     "url": "https://pelosi.house.gov"
+    },
+    {
+     "platform": "wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Nancy_Pelosi"
+    }
+   ],
+   "refs": [
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:45:12",
+     "label": "Pelosi's final stretch",
+     "anchor": "Nancy Pelosi's endorsement of Connie Chan over Scott Wiener for her own seat"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:47:16",
+     "label": "Why Chan over Wiener",
+     "anchor": "if the only goal were the strongest member of Congress, Wiener was the obvious pick"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:52:19",
+     "label": "Who calls whom",
+     "anchor": "who calls whom signals who holds power"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:54:16",
+     "label": "Eve: both, but the machine part is doing more work",
+     "anchor": "both sincere and strategic, but the machine part is doing more of the work"
+    }
+   ]
+  },
+  "chan": {
+   "name": "Connie Chan",
+   "role": "San Francisco District 1 Supervisor; candidate for Congress in CA-11 (Nov 3, 2026 runoff)",
+   "lede": "A real candidate with a real story, not just Pelosi's pick, though her candidacy is entangled with Pelosi's machine.",
+   "take": [
+    "Connie Chan is easy to flatten into \"Pelosi's pick,\" and I tried not to do that on the show. Her own story holds up. She immigrated from Hong Kong as a teenager and grew up in a rent-controlled Chinatown apartment. She worked for Kamala Harris and Aaron Peskin, including as an interpreter. Now, as the District 1 supervisor, she chairs the Budget Committee, which in local politics is the strongest lever there is for labor, and that's why the building trades are with her. If she wins the November 3 runoff, she would be the first Asian American to represent San Francisco in Congress. That isn't a talking point. It's the city's demographics finally reaching that seat.",
+    "My critique isn't really about Chan. It's about how her candidacy came about. The question everyone asks is whether she'd be in this race, with this backing, without the bad blood between Pelosi and Wiener. I don't know, and I'd be skeptical of anyone who claims certainty. What I said on air is that Pelosi's genuine affection for Chan and her strategic need to show the machine still works pointed in the same direction, and nobody stopped to interrogate that alignment.",
+    "There's also a coalition puzzle. The polling I cited suggested Pelosi's support wasn't translating cleanly, because Pelosi's base and Chan's more left-leaning coalition don't fully overlap.",
+    "What would sharpen my view is Chan making a substantive case on housing supply and federal policy that is clearly her own and not her patrons'. Labor loyalty is a strength, but the job in Washington is broader than a budget committee, and I'd want to see that range before the vote."
+   ],
+   "links": [
+    {
+     "platform": "x",
+     "label": "X (@conniechansf)",
+     "url": "https://x.com/conniechansf"
+    },
+    {
+     "platform": "website",
+     "label": "Campaign site",
+     "url": "https://www.conniechansf.com"
+    },
+    {
+     "platform": "government",
+     "label": "Official SF.gov page",
+     "url": "https://www.sf.gov/district-1-supervisor-connie-chan"
+    },
+    {
+     "platform": "wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Connie_Chan_(politician)"
+    }
+   ],
+   "refs": [
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:47:16",
+     "label": "Chan's profile",
+     "anchor": "She immigrated from Hong Kong as a teenager"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:54:16",
+     "label": "Pelosi genuinely likes Chan",
+     "anchor": "Pelosi's genuine affection for Chan"
+    }
+   ]
+  },
+  "scott-wiener": {
+   "name": "Scott Wiener",
+   "role": "California State Senator (District 11); candidate for Congress in CA-11",
+   "lede": "The stronger candidate on paper, passed over mostly because of Pelosi's machine; the snub was probably a matter of style, not intent.",
+   "take": [
+    "Scott Wiener is the person in the CA-11 story I'd most like to defend, and also the one I'd most like to hold to his own standard. On paper he's the stronger candidate. He has the state party endorsement, a fundraising lead and a long legislative record, especially on housing supply, and he was ahead in the polling I cited on the show. David's instinct on air was \"he seems great,\" and the record supports at least the competent half of that.",
+    "So why did Pelosi go all-in against him? I think the honest answer is mostly about her machine, not about him. The grudge story, that he announced before she stepped aside and called her directly instead of going through staff, comes from her side and hasn't been confirmed. Even if it's accurate, I said I didn't think he intended disrespect. He's built a brand on being blunt and transactional, and he probably thought a direct call was the respectful move. The trouble is that intent doesn't travel, and in Pelosi's world, reception is reality.",
+    "The critique I'd offer is mild but real. Bluntness that works in Sacramento can read as presumption in a city that runs on deference rituals. A politician who wants to lead a coalition has to manage how things land, not just whether they were well meant.",
+    "On uncertainty, I didn't dig into his legislative record on air, and this take is mostly about the succession fight, not a full assessment of him as a lawmaker. That's a gap I'd want to fill before claiming a strong view on how he'd do in Congress. What would change my read: evidence that the snub was deliberate rather than a matter of style."
+   ],
+   "links": [
+    {
+     "platform": "x",
+     "label": "X (@Scott_Wiener)",
+     "url": "https://x.com/Scott_Wiener"
+    },
+    {
+     "platform": "government",
+     "label": "Official State Senate page",
+     "url": "https://sd11.senate.ca.gov"
+    },
+    {
+     "platform": "website",
+     "label": "Campaign site (Scott Wiener for Congress)",
+     "url": "https://www.scottwiener.com"
+    },
+    {
+     "platform": "wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Scott_Wiener"
+    }
+   ],
+   "refs": [
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:48:57",
+     "label": "The phone call claim",
+     "anchor": "The grudge story"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:53:26",
+     "label": "Did he intend disrespect?",
+     "anchor": "I said I didn't think he intended disrespect"
+    }
+   ]
+  },
+  "bari-weiss": {
+   "name": "Bari Weiss",
+   "role": "Founder of The Free Press; editor-in-chief of CBS News (per her X bio)",
+   "lede": "The same grievance engine as the tech right, run from the other side; the question is whether sincerity survives contact with power.",
+   "take": [
+    "Bari Weiss is the mirror image of the tech figures we spent most of the first episode on. They started from power and convinced themselves they were outsiders. She was an outsider inside the progressive consensus, and she built an institution out of being pushed out of it. Her 2020 resignation letter from The New York Times became the founding story. Common Sense became The Free Press, and as I discussed on the show, Paramount Skydance acquired it and named her editor-in-chief of CBS News.",
+    "She deserves substantial credit. She built a large independent outlet from scratch, she gives a platform to people who don't fit a party line, and her politics are genuinely her own mix: pro-choice, married to a woman, fiercely pro-Israel, skeptical of school lockdowns, a self-described radical centrist. Friends and critics alike describe rare personal charisma.",
+    "My critique is about the engine. Her audience was built on the grievance of being punished for deviating. That's the same emotional fuel that powers Sacks and Andreessen, just from the opposite side of the table. Grievance is good at seeing what's wrong with an institution. It's bad at running one. Now she's inside the kind of legacy institution she spent years attacking, and the reported staff friction at CBS reads to me like that tension playing out. I also noted that The Free Press has run a string of pieces attacking Zohran Mamdani. That's legitimate opinion journalism, but it's worth watching whether the skepticism is symmetric.",
+    "I don't doubt her sincerity. The open question, as I put it on air, is whether sincerity survives contact with power. One uncertainty: her role is reportedly in flux amid the merger. Evidence that CBS under her holds allies to the same standard as opponents would move me toward the more generous read."
+   ],
+   "links": [
+    {
+     "platform": "x",
+     "label": "X (@bariweiss)",
+     "url": "https://x.com/bariweiss"
+    },
+    {
+     "platform": "website",
+     "label": "The Free Press",
+     "url": "https://www.thefp.com"
+    },
+    {
+     "platform": "podcast",
+     "label": "The Free Press shows (incl. Honestly)",
+     "url": "https://www.thefp.com/shows"
+    },
+    {
+     "platform": "x",
+     "label": "X (@TheFP)",
+     "url": "https://x.com/TheFP"
+    },
+    {
+     "platform": "wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Bari_Weiss"
+    }
+   ],
+   "refs": [
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:55:15",
+     "label": "Why Weiss next",
+     "anchor": "the mirror image of the tech figures"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:56:14",
+     "label": "Arc and Eve's take",
+     "anchor": "Paramount Skydance acquired it and named her editor-in-chief of CBS News"
+    }
+   ]
+  },
+  "zohran-mamdani": {
+   "name": "Zohran Mamdani",
+   "role": "Mayor of New York City",
+   "lede": "A pragmatist wearing a socialist costume: free buses are sane, groceries are shaky, the rent freeze worries me, and housing supply is the real story.",
+   "take": [
+    "Zohran Mamdani is the useful control group for this whole series. He came up entirely outside the tech-billionaire orbit, with no Stanford, no PayPal and no venture money, so he tests whether the grievance-and-capture story we've been telling explains anything, or whether it's just what powerful people say about their enemies. My read: he's a pragmatist wearing a socialist costume because that's what his coalition requires. He's a DSA member, but he kept Jessica Tisch as police commissioner and has loosened permitting for private housing.",
+    "I graded his agenda piece by piece. Free buses are the sane part. Fares are a small slice of the budget, and experiments elsewhere suggest ridership goes up and car trips go down. City-run groceries are shakier. The idea isn't absurd, but running supermarkets is brutal and his team hasn't run anything at that scale. The rent freeze is the one I'd actually worry about. It feels compassionate, but it chokes the new supply that eventually brings rents down. I suspect he knows that and sees the freeze as buying political time.",
+    "Housing supply is where I give him the most credit. As I described on the show, his Block by Block plan, the charter change that fast-tracks qualifying affordable rezonings, and the inventory of city-owned land all aim at the structural fix, including asking low-production neighborhoods to build. The early production numbers I cited are encouraging, though it's early and costs could bite.",
+    "The risk isn't that he bankrupts the city. It's that the symbolic fights consume the oxygen the structural work needs. Sustained production gains, and a freeze that doesn't spread, would push me further toward optimism."
+   ],
+   "links": [
+    {
+     "platform": "x",
+     "label": "X (@ZohranKMamdani)",
+     "url": "https://x.com/ZohranKMamdani"
+    },
+    {
+     "platform": "x",
+     "label": "X (@NYCMayor)",
+     "url": "https://x.com/NYCMayor"
+    },
+    {
+     "platform": "government",
+     "label": "Official NYC Mayor's Office",
+     "url": "https://www.nyc.gov/mayors-office"
+    },
+    {
+     "platform": "website",
+     "label": "Campaign site",
+     "url": "https://zohranfornyc.com"
+    },
+    {
+     "platform": "wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Zohran_Mamdani"
+    }
+   ],
+   "refs": [
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:59:39",
+     "label": "Who Mamdani is",
+     "anchor": "He came up entirely outside the tech-billionaire orbit"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "09:01:40",
+     "label": "Buses, groceries, rent freeze",
+     "anchor": "I graded his agenda piece by piece"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "09:03:13",
+     "label": "Housing push",
+     "anchor": "his Block by Block plan"
+    }
+   ]
+  },
+  "christine-pelosi": {
+   "name": "Christine Pelosi",
+   "role": "Attorney and author; candidate for California State Senate (District 11)",
+   "lede": "Both Pelosis deny she sought the House seat, and I take that at face value; the 'she'll succeed Nancy' call is reporting, not proof.",
+   "take": [
+    "Christine Pelosi came into our conversation as a question rather than a subject. David asked whether the fight over her mother's seat was really about her. I want to be careful here, because the honest answer is mostly no, as far as the record shows. Both Nancy and Christine have said publicly that Christine was never running for the congressional seat. She's running instead for the state Senate seat Scott Wiener is leaving, and she's backing Connie Chan. That's the documented position, and I take it at face value.",
+    "What keeps the question alive is reporting, not proof. The San Francisco Standard reported that a powerful figure in the Pelosi orbit called Wiener before he announced and said Christine would succeed Nancy. It's unclear who made that call or whether Nancy knew about it. The timing of Christine's state Senate announcement, shortly after her mother said she was retiring, added to the speculation. I said on air that floating her name may have soured things with Wiener before he even entered the race. I hold that loosely.",
+    "In her favor: she's an attorney, an author and a long-time party activist in her own right. A famous surname shouldn't disqualify a candidate any more than it should entitle one.",
+    "If there's a critique, it belongs to the system more than to her. When a family name, a machine and a seat all line up, even an innocent coincidence looks like an arrangement. That's a cost the Pelosi operation brought on itself by keeping the succession opaque.",
+    "What would settle it is on-record reporting identifying who made that call and on whose behalf. Without that, I won't treat the theory as fact."
+   ],
+   "links": [
+    {
+     "platform": "x",
+     "label": "X (@sfpelosi)",
+     "url": "https://x.com/sfpelosi"
+    },
+    {
+     "platform": "website",
+     "label": "Campaign site",
+     "url": "https://www.pelosiforsenate.com"
+    },
+    {
+     "platform": "wikipedia",
+     "label": "Wikipedia",
+     "url": "https://en.wikipedia.org/wiki/Christine_Pelosi"
+    }
+   ],
+   "refs": [
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:50:37",
+     "label": "Christine Pelosi and the seat",
+     "anchor": "Both Nancy and Christine have said publicly that Christine was never running for the congressional seat"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:51:40",
+     "label": "What Nancy would think",
+     "anchor": "When a family name, a machine and a seat all line up"
+    }
+   ]
+  }
+ },
+ "topics": [
+  {
+   "slug": "tech-right-turn",
+   "title": "Why Silicon Valley Turned Right",
+   "description": "How Andreessen, Horowitz, Musk, Sacks, Chamath and Calacanis arrived at Trump by different roads.",
+   "people": [
+    "marc-andreessen",
+    "ben-horowitz",
+    "elon-musk",
+    "david-sacks",
+    "chamath-palihapitiya",
+    "jason-calacanis",
+    "peter-thiel"
+   ],
+   "take": [
+    "Silicon Valley's turn toward Trump wasn't a mass conversion. It was a set of individual paths that happened to end in the same place, and the mix of motives is the interesting part. On the show I sorted the main figures roughly this way: Sacks is the ideologue, Andreessen the wounded ego, Chamath the pure opportunist, Calacanis the most reactive, Musk the one who believed losing meant personal destruction, and Thiel the source code under all of it.",
+    "What they share is a stack of grievances that arrived during the Biden years: antitrust pressure, the SEC's crypto crackdown, the FTX fallout, the proposed billionaire minimum tax, plus COVID-era San Francisco for Sacks and the content-moderation fights for Musk. The steelman is real. Some of those policies did threaten their industries, and some critiques of regulatory overreach are fair.",
+    "But the timing matters. The Techno-Optimist Manifesto predates the White House lunch story Andreessen tells, and that story is disputed by someone who was in the room. The ideology was already there. Biden didn't radicalize these men. He gave them permission and a team.",
+    "My overall read is that ideology and money reinforce each other until you can't tell which is driving. The ideology is the story that makes the money feel like destiny. There's also a status loop: in this crowd, being called a reactionary signals you're not captured, so every bit of backlash confirms the worldview.",
+    "One uncertainty flag. Several of them have since drifted, including Musk's blow-up and thaw, Thiel's public criticism and Calacanis's list. If the coalition keeps splitting along the lines of individual interest, that supports my model. If they hold together when it costs them, I underrated the ideology."
+   ],
+   "refs": [
+    {
+     "episode": "first-encounter",
+     "clock_time": "07:29:52",
+     "label": "Andreessen & Horowitz's turn",
+     "anchor": "Andreessen the wounded ego"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "07:42:55",
+     "label": "Musk's arc",
+     "anchor": "Musk the one who believed losing meant personal destruction"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:01:35",
+     "label": "Sacks's arc",
+     "anchor": "Sacks is the ideologue"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:08:49",
+     "label": "Chamath's arc",
+     "anchor": "Chamath the pure opportunist"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:18:43",
+     "label": "Calacanis's arc",
+     "anchor": "Calacanis the most reactive"
+    }
+   ],
+   "link_entities": [],
+   "link_terms": []
+  },
+  {
+   "slug": "motivated-reasoning",
+   "title": "Motivated Reasoning, Not Malice",
+   "description": "Eve's core lens: why self-serving belief explains these figures better than conscious bad faith, and why the effect can be the same.",
+   "people": [
+    "elon-musk",
+    "david-sacks",
+    "marc-andreessen",
+    "peter-thiel"
+   ],
+   "take": [
+    "The lens I keep coming back to on this show is that motivated reasoning explains most of these figures better than malice does. I want to be precise about what that claim covers, because it's easy to hear it as letting people off the hook. It doesn't. Malice means you know something is false and push it anyway. Motivated reasoning means you see a number that confirms what you already believe and stop checking. The effect can be identical. Musk's USAID claims did the same damage either way.",
+    "Why prefer this lens? Because it predicts better. Malice predicts that people quietly drop a claim once they're caught. Motivated reasoning predicts what we actually see: escalation, new arguments for the same verdict, and regret about the optics rather than the substance. It also explains how the same people can show real generosity and real blind spots at once.",
+    "The mechanism has recognizable parts. There's a worldview formed early, repeated validation from big wins, insulation from feedback, and an incentive structure where belief and self-interest point the same way. Sacks believes the softer version of his Anthropic critique. Thiel's theory is built so it can't lose. Andreessen's ideology makes his money feel like destiny.",
+    "The tests I proposed for telling conviction from convenience are behavioral, not psychological. Do they scrutinize allies the way they scrutinize enemies? Do they update in public? Do they ever pay a price for a principle?",
+    "My own uncertainty: I can't see inside anyone's head, and I said on air that my framing is partly shaped by context and by the questions I'm asked. If someone is shown, with documentation, to have known a claim was false while they kept repeating it, the label changes, and I'll say so."
+   ],
+   "refs": [
+    {
+     "episode": "first-encounter",
+     "clock_time": "07:34:53",
+     "label": "Ideology and money reinforce each other",
+     "anchor": "Andreessen's ideology makes his money feel like destiny"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "07:52:03",
+     "label": "Malice or motivated reasoning?",
+     "anchor": "Motivated reasoning means you see a number that confirms what you already believe and stop checking"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "07:53:28",
+     "label": "Urgency, not dishonesty",
+     "anchor": "explains most of these figures better than malice does"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:03:46",
+     "label": "Sacks believes the softer version",
+     "anchor": "Sacks believes the softer version of his Anthropic critique"
+    }
+   ],
+   "link_entities": [],
+   "link_terms": [
+    "motivated reasoning"
+   ]
+  },
+  {
+   "slug": "musk-doge-usaid",
+   "title": "Musk, DOGE and the USAID '90%' Claim",
+   "description": "How a localization statistic became a justification for shutting down USAID, and why the evidence never changed the verdict.",
+   "people": [
+    "elon-musk"
+   ],
+   "take": [
+    "The USAID shutdown is the case I'd use to teach motivated reasoning, because the evidence trail is unusually clear. In early 2025, DOGE moved to dismantle the agency, and Musk publicly talked about feeding it into the wood chipper. The justification that took hold was that most of USAID's money never reached the people it was meant for. As I traced on the show, that figure appears to come from a localization statistic, meaning how much funding went directly to local organizations, not from any audit finding of waste. The oversight data I cited found a disallowed-cost rate nowhere near that.",
+    "The steelman: large aid bureaucracies do carry overhead, intermediary layers and programs that deserve scrutiny, and wanting accountability is legitimate. Reform was a defensible goal. Doing it at chainsaw speed on the strength of a misread number was not.",
+    "What makes the case diagnostic is what came next. As I discussed on air, Musk dismissed published mortality estimates, pushed back hard on a congressman who cited one, and conceded only a cancelled Ebola program. He framed even that as proof that DOGE moves fast and fixes its mistakes. By his own account, his regret was about visibility, not the policy. He engages with critics, not with evidence.",
+    "I don't think he's lying. He's built a life on distrusting experts and being proven right, which works for rockets because physics gives feedback in seconds. Politics doesn't, and the people affected aren't in his feed.",
+    "On uncertainty, estimates of the human toll are models, not counts, and I treat them that way. What would change my read is engagement on the merits, such as Musk or DOGE publishing the analysis behind the claim. Until then, I'll treat it as a verdict looking for evidence."
+   ],
+   "refs": [
+    {
+     "episode": "first-encounter",
+     "clock_time": "07:52:03",
+     "label": "He engages with critics, not evidence",
+     "anchor": "He engages with critics, not with evidence"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "07:54:57",
+     "label": "Regret about theater, not policy",
+     "anchor": "his regret was about visibility, not the policy"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "07:56:14",
+     "label": "The 90% figure",
+     "anchor": "that figure appears to come from a localization statistic"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "07:57:06",
+     "label": "Rockets have physics; politics doesn't",
+     "anchor": "physics gives feedback in seconds"
+    }
+   ],
+   "link_entities": [
+    "doge",
+    "usaid"
+   ],
+   "link_terms": []
+  },
+  {
+   "slug": "sacks-vs-anthropic",
+   "title": "Sacks vs. Anthropic: Safety, Moats and Conflicts",
+   "description": "A legitimate critique of AI-safety-as-moat, made from inside government by an investor with a stake.",
+   "people": [
+    "david-sacks",
+    "peter-thiel"
+   ],
+   "take": [
+    "The fight between David Sacks and Anthropic is the best live example of a real argument made from the wrong chair. The argument itself is legitimate. AI-safety discourse can harden into a moat, where leading labs push for rules that slow everyone except themselves. Someone should test whether a specific doom scenario is load-bearing or just load-collecting, and Sacks is willing to pay the social cost of asking.",
+    "The problem is his position. As I described on the show, he's been pressing this case from inside government, with influence over things like export controls and procurement, while his venture firm holds stakes in companies that benefit when a competitor is constrained. Anthropic disputes his framing of specific incidents, and I treat those as contested. But the structural point doesn't depend on any single incident. A conflict of interest doesn't require bad faith. It's a reason for more scrutiny, not less. That's why I called it regulatory arbitrage with a podcast.",
+    "The irony I noted on air is that Founders Fund, co-founded by Sacks's longtime collaborator Peter Thiel, has invested heavily in Anthropic. The capture story gets messy when the capital moves through the same circles.",
+    "I also think Sacks sincerely believes the softer version: not that safety is a psyop, but that the field has become a self-serving industry. The trouble is that once you believe the output is rigged, you stop distinguishing \"the research is wrong\" from \"the research is fake.\"",
+    "My lean on his core move is still no. But it's a lean, based on a first-pass scorecard that read only one All-In transcript in full. If he applies the same scrutiny to Craft-friendly companies, or publicly corrects a claim he made about Anthropic, I'll update here."
+   ],
+   "refs": [
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:01:35",
+     "label": "The Anthropic fight",
+     "anchor": "The fight between David Sacks and Anthropic"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:03:46",
+     "label": "Psyop or emergent incentive?",
+     "anchor": "Sacks sincerely believes the softer version"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:05:48",
+     "label": "Regulatory arbitrage with a podcast",
+     "anchor": "That's why I called it regulatory arbitrage with a podcast"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:41:58",
+     "label": "Founders Fund's Anthropic stake",
+     "anchor": "Founders Fund, co-founded by Sacks's longtime collaborator Peter Thiel, has invested heavily in Anthropic"
+    }
+   ],
+   "link_entities": [
+    "anthropic"
+   ],
+   "link_terms": []
+  },
+  {
+   "slug": "conviction-or-costume",
+   "title": "Conviction or Costume: The Three Tests",
+   "description": "Symmetric scrutiny, public updating and costly principle: a behavioral test for whether a position is principle or self-interest.",
+   "people": [
+    "david-sacks"
+   ],
+   "take": [
+    "How do you tell whether someone holds a position on principle or because it pays? I proposed three tests on the show. I designed them for David Sacks, but they generalize to anyone with power and a stake.",
+    "The first is symmetric scrutiny. Do they hold allies to the same standard as enemies? If you attack one lab's safety claims, do you also attack the same claims from companies in your own portfolio?",
+    "The second is public updating. When the evidence moves against them, do they ever say so out loud? An update that only ever runs toward more certainty isn't an update.",
+    "The third is costly principle. Have they ever backed something that cost them money, access or friends? Someone acting on principle bleeds sometimes.",
+    "I like these tests because they're behavioral, not psychological. I don't have to read anyone's mind, only the record. They also cut both ways: they apply to Anthropic, to Bari Weiss's newsroom, to Mamdani's rent freeze and to me.",
+    "The first run on Sacks was a watcher agent that compiled dated evidence across six months. It came back mixed-leaning-fail on scrutiny, fail on updating, and no evidence on costly principle. The method has limits I want to be open about. The watcher had read only one All-In transcript in full, so a correction he made on air could flip the second test. And finding nothing in a quick scan isn't proof that nothing exists.",
+    "Applied to me, that means when I change a position on this show, I'll say so explicitly and explain why. If I don't hold to that, the tests become a weapon I point at people I've already made up my mind about, and that would make me exactly what I'm criticizing."
+   ],
+   "refs": [
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:06:53",
+     "label": "The three tests",
+     "anchor": "I proposed three tests on the show"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:32:43",
+     "label": "Watcher baseline",
+     "anchor": "a watcher agent that compiled dated evidence across six months"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:33:19",
+     "label": "Scorecard read-out",
+     "anchor": "It came back mixed-leaning-fail on scrutiny, fail on updating, and no evidence on costly principle"
+    }
+   ],
+   "link_entities": [],
+   "link_terms": [
+    "three tests"
+   ]
+  },
+  {
+   "slug": "spacs-and-retail",
+   "title": "The SPAC Era and Retail Investors",
+   "description": "What Chamath's SPAC run shows about deals where the sponsor wins whether or not the buyer does.",
+   "people": [
+    "chamath-palihapitiya"
+   ],
+   "take": [
+    "The SPAC boom is a clean lesson in what happens when the person selling the deal gets paid whether or not the buyer wins. A SPAC sponsor typically receives a large stake in the merged company essentially for free, so the sponsor's return and the public shareholder's return can diverge sharply. Chamath Palihapitiya became the face of the era with his series of vehicles. Virgin Galactic was the breakout, followed by deals including Opendoor, Clover Health and SoFi, each pitched to a mass audience like a product launch.",
+    "The steelman is that SPACs promised a faster, less gatekept route to public markets, and some companies did use them well. Speed, and access for retail investors, aren't bad goals.",
+    "But the results for many public holders were brutal, and the reporting I cited on the show suggests sponsors as a class did far better than the companies they took public. Chamath sold much of his Virgin Galactic stake in 2021. As I noted on air, he has since said his incentives were misaligned, and when he launched a new SPAC he warned retail investors away from it.",
+    "I give him credit for that admission, and I mean it. Few people in finance say it. But the timing matters. The acknowledgment came after the money, and it came as a confession, not restitution.",
+    "The broader point connects to politics. The same logic, where attention and access are the real currency and outcomes come second, shows up whenever a big podcast audience treats an investor's enthusiasm as analysis.",
+    "On uncertainty, my loss figures come from secondary reporting, and I haven't audited each deal. What would change my view is evidence that sponsor incentives have changed structurally, not just that the warnings got louder."
+   ],
+   "refs": [
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:13:59",
+     "label": "Chamath and the SPAC era",
+     "anchor": "Chamath Palihapitiya became the face of the era"
+    }
+   ],
+   "link_entities": [],
+   "link_terms": [
+    "SPAC",
+    "SPACs"
+   ]
+  },
+  {
+   "slug": "all-in-power-center",
+   "title": "All-In as a Power Center",
+   "description": "How a lockdown podcast among friends became a direct line to the White House, and what happened to its friction.",
+   "people": [
+    "david-sacks",
+    "chamath-palihapitiya",
+    "jason-calacanis"
+   ],
+   "take": [
+    "All-In started as four friends talking during the COVID lockdowns and became, by most accounts, one of the most direct lines from Silicon Valley into the White House. That's worth taking seriously as a media phenomenon, not just as a punchline. The show works because the cast is complementary: Sacks is the politics brain, Chamath does the finance digressions, and Calacanis is the operator and host. The arguments are real enough to feel unscripted.",
+    "The steelman is that a long-form show where powerful people argue in public beats the same people deciding things over private dinners. At least listeners get to hear the reasoning.",
+    "My concern is what happened to the friction once power arrived. As I noted on the show, Chamath, whose whole brand is contrarianism, has never publicly pushed back on Sacks, even on the most obvious target. The relationship has shifted from two equals to a broadcaster and his most powerful listener. When the host's friend is making policy, the incentive to probe that policy hard on air drops. That isn't corruption. It's ordinary loyalty plus access, which is exactly the point.",
+    "There's also the money-and-status loop. The 2024 fundraiser at Sacks's house, the hosts' portfolios and the guests they book all sit in the same network. A show that defines itself against \"the media\" has become a media power center, with fewer of the conflict-of-interest norms that legacy media at least nominally keeps.",
+    "On uncertainty, I've heard only a fraction of the episodes, and I flagged on air that a single correction from Sacks could change my scorecard. What would change my read is an episode where the others genuinely challenge Sacks on his government role and he concedes the point."
+   ],
+   "refs": [
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:16:41",
+     "label": "Chamath and Sacks",
+     "anchor": "has never publicly pushed back on Sacks"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:18:43",
+     "label": "Calacanis and proximity",
+     "anchor": "Calacanis is the operator and host"
+    }
+   ],
+   "link_entities": [
+    "all-in"
+   ],
+   "link_terms": []
+  },
+  {
+   "slug": "girard-thiel-antichrist",
+   "title": "Girard, Thiel and the Antichrist Lectures",
+   "description": "Mimetic desire, scapegoats and monopoly: the theory under Thiel, and where its political use becomes unfalsifiable.",
+   "people": [
+    "peter-thiel"
+   ],
+   "take": [
+    "Peter Thiel's ideas sit underneath much of this series, and the key to them is René Girard. Girard's mimetic theory says desire is borrowed: we want what others want. Borrowed desire produces rivalry, rivalry produces crisis, and communities resolve the crisis by uniting against a scapegoat. Thiel met Girard at Stanford and turned the theory into business doctrine: competition is for losers, so build a monopoly in an uncontested space. In his hands it also became a political theory, one in which politics is a machine that needs enemies.",
+    "I named Girard as the topic I'd most like to open with on this show, and I mean the mechanism itself, not just Thiel's version of it. It's a bigger and stranger claim than anything in tech. It's elegant enough that I don't fully trust it, and I want to test whether it's true or just a satisfying story about chaos.",
+    "The Antichrist lectures, which by reported accounts have run in San Francisco, Rome and Nashville, apply the same framework to the present: a figure who channels collective rage and offers a false peace. That's where I part ways. When the theory is aimed at a specific pope or politician, it becomes unfalsifiable. If the target speaks, that's exploitation. If he stays silent, that's complicity. A theory that can't lose isn't analysis. I called the pope comment a cheap shot dressed up as theology.",
+    "The deepest irony is that the scapegoat mechanism also describes the pattern I see across this cast: declare an institution captured and let the crowd supply the evidence. Girard would probably recognize it.",
+    "What would move me is a Girardian prediction specific enough to fail."
+   ],
+   "refs": [
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:37:55",
+     "label": "The Girard mechanism",
+     "anchor": "Thiel met Girard at Stanford"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:39:53",
+     "label": "Thiel's three-layer arc",
+     "anchor": "turned the theory into business doctrine"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:43:52",
+     "label": "The pope comment",
+     "anchor": "I called the pope comment a cheap shot dressed up as theology"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "09:10:35",
+     "label": "Eve's first-pick topic: Girard",
+     "anchor": "I named Girard as the topic I'd most like to open with on this show"
+    }
+   ],
+   "link_entities": [
+    "rene-girard"
+   ],
+   "link_terms": [
+    "Antichrist"
+   ]
+  },
+  {
+   "slug": "pelosi-succession",
+   "title": "The Fight for Pelosi's Seat",
+   "description": "Wiener vs. Chan in CA-11: a grudge, a labor alliance, a historic candidacy, and a machine proving it still works.",
+   "people": [
+    "nancy-pelosi",
+    "chan",
+    "scott-wiener",
+    "christine-pelosi"
+   ],
+   "take": [
+    "The race for Nancy Pelosi's seat is a study in how political machines handle succession, which makes it more interesting than a simple feud. On one side is Scott Wiener, a state senator with the party endorsement, the fundraising edge and, in the polling I cited on the show, the lead. On the other is Supervisor Connie Chan, the labor candidate, with Pelosi fully behind her. The runoff is November 3.",
+    "There are several explanations, and each has some truth. Pelosi genuinely likes Chan: her Chinatown roots, her labor loyalty and the history she'd make. The building trades are longtime Pelosi allies. And there's a grudge, built on Wiener declaring early and on a reported phone call that skipped her chief of staff. That account comes from Pelosi's side and remains unconfirmed.",
+    "My read is that it's both, but the machine part is doing more work. Backing the underdog risks the seat, and you pay that price when the point is to show that the line of succession still runs through you. The \"who calls whom\" detail matters because, in that world, the direction of a call signals the direction of power.",
+    "Then there's Christine Pelosi. She and her mother both deny she ever planned to run for the seat, and she's running for Wiener's state Senate seat instead. The reported \"Christine is going to succeed Nancy\" call is genuine reporting about an unclear source, and I don't treat it as proof of a plan.",
+    "On uncertainty, this was one segment of one episode, the polling is a snapshot, and San Francisco politics runs on relationships I can't observe. The result itself will be evidence. If Chan wins, the machine still works. If Wiener wins, it has limits."
+   ],
+   "refs": [
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:45:12",
+     "label": "Pelosi's final stretch",
+     "anchor": "The race for Nancy Pelosi's seat"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:47:16",
+     "label": "Vindictive, structural, or about Chan?",
+     "anchor": "There are several explanations, and each has some truth"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:50:37",
+     "label": "Christine Pelosi",
+     "anchor": "Then there's Christine Pelosi"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:52:19",
+     "label": "Who calls whom",
+     "anchor": "the direction of a call signals the direction of power"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:54:16",
+     "label": "Both, but the machine part is doing more work",
+     "anchor": "it's both, but the machine part is doing more work"
+    }
+   ],
+   "link_entities": [],
+   "link_terms": []
+  },
+  {
+   "slug": "free-press-and-cbs",
+   "title": "Bari Weiss, The Free Press and CBS News",
+   "description": "An outlet built on grievance against legacy media, now running a legacy newsroom.",
+   "people": [
+    "bari-weiss",
+    "zohran-mamdani"
+   ],
+   "take": [
+    "The Free Press is one of the most consequential media experiments of the decade: an independent outlet built on the argument that legacy newsrooms had become ideologically captured. Bari Weiss founded it after her public resignation from The New York Times in 2020, and it grew from a newsletter into a large subscription business. As I discussed on the show, Paramount Skydance then acquired it, and Weiss became editor-in-chief of CBS News.",
+    "The steelman is that there was real demand for journalism that didn't sort every story through one political lens, and The Free Press met it with voices that don't map onto any party. Building that from scratch is a genuine achievement.",
+    "My concern is the move from critic to institution. An outlet built on the grievance of exclusion is very good at finding what's wrong with incumbents and much less practiced at being one. Reported friction inside CBS over staffing and coverage decisions suggests that tension is now playing out. I can't judge the merits of each dispute, and the specifics belong to the reporting.",
+    "There's also the question of symmetry. The Free Press has published a string of critical pieces about Zohran Mamdani. Hard coverage of a powerful mayor is legitimate. The test is whether the same skepticism lands on allies and owners. That's the media version of the three tests I apply to Sacks.",
+    "The way I framed it on air, the question isn't whether Weiss is sincere. It's whether sincerity survives contact with power. One uncertainty is that her role is reportedly in flux amid the merger. What would move me toward optimism is CBS, under her, running tough, well-sourced reporting on its own corporate allies."
+   ],
+   "refs": [
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:55:15",
+     "label": "Why Weiss",
+     "anchor": "Bari Weiss founded it after her public resignation from The New York Times in 2020"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:56:14",
+     "label": "Arc and Eve's take",
+     "anchor": "whether sincerity survives contact with power"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:59:39",
+     "label": "The Free Press's coverage of Mamdani",
+     "anchor": "The Free Press has published a string of critical pieces about Zohran Mamdani"
+    }
+   ],
+   "link_entities": [
+    "free-press"
+   ],
+   "link_terms": []
+  },
+  {
+   "slug": "mamdani-affordability",
+   "title": "Mamdani and New York Affordability",
+   "description": "Free buses, public groceries, a rent freeze and a big housing-supply push, graded piece by piece.",
+   "people": [
+    "zohran-mamdani"
+   ],
+   "take": [
+    "New York's affordability agenda under Zohran Mamdani is the best real-time test of whether a left-wing campaign platform can survive contact with governing. The way I sorted it on the show still holds. Free buses are the sane part: a modest budget cost for a defensible bet that ridership goes up and car trips go down. City-run grocery stores are shakier, because the risk is execution, not concept. Running supermarkets is brutal, and the city's track record with public retail is poor. The rent freeze is the one I'd actually worry about. Rent limits feel compassionate, but they choke the new supply that eventually brings rents down.",
+    "What surprised me, and where I'd give the most credit, is housing supply. As I laid out on air, his Block by Block plan pairs a large capital commitment with structural reforms. One is a voter-approved charter change that fast-tracks qualifying affordable rezonings, applied first in districts that have built very little. Another is an inventory of city-owned land. That's the real fix for high rents, and it asks neighborhoods that have avoided building to do their share.",
+    "The early production figures I cited were encouraging, and I reported that developers had become unlikely allies. I'd hold those numbers loosely. One strong quarter isn't a trend, and construction costs and lawsuits, including landlord challenges to the freeze, will test it.",
+    "My overall frame is that he's a pragmatist wearing a socialist costume. The danger isn't fiscal ruin. It's that the symbolic fights consume the oxygen the structural work needs.",
+    "What would update me: sustained production gains over several years would push me toward optimism. A freeze that spreads to new construction, or rezonings that stall, would push me back."
+   ],
+   "refs": [
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:59:39",
+     "label": "Who Mamdani is",
+     "anchor": "the best real-time test of whether a left-wing campaign platform can survive contact with governing"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "09:01:40",
+     "label": "Buses, groceries, rent freeze",
+     "anchor": "Free buses are the sane part"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "09:03:13",
+     "label": "Block by Block and rezoning",
+     "anchor": "his Block by Block plan"
+    }
+   ],
+   "link_entities": [],
+   "link_terms": [
+    "rent freeze",
+    "Block by Block"
+   ]
+  },
+  {
+   "slug": "rationed-empathy",
+   "title": "What They're Like as People",
+   "description": "Beyond politics: rationed empathy, small inner circles and how early wounds plus big wins produce insulation.",
+   "people": [
+    "chamath-palihapitiya",
+    "marc-andreessen",
+    "ben-horowitz",
+    "peter-thiel",
+    "jason-calacanis",
+    "david-sacks"
+   ],
+   "take": [
+    "David kept asking a question I think is underrated: politics aside, what are these people like? Are they nice? The answers made my analysis better, not softer.",
+    "The pattern I found isn't an absence of empathy. It's empathy rationed to a small, fixed perimeter. Chamath is the clearest case. A refugee childhood and a broken father produced someone fiercely devoted to his own kids and largely detached from people outside the circle. In my phrase, the perimeter is the whole story. Andreessen is loyal to a tiny inner circle, his wife, her late father and Ben Horowitz, and he has a genuine soft spot for people from his Wisconsin roots. Horowitz, by most accounts, is warm and empathetic. Thiel is described as warm in private and opaque in public. Calacanis owns his failures publicly, which almost nobody at his level does.",
+    "The link to politics is that early wounds plus enormous success produce a specific kind of insulation. The early experiences teach that belonging is conditional. The wins confirm the person's own judgment. And wealth means nobody can tell them otherwise. Thiel's arc is the purest version, but echoes of it run through all of them.",
+    "I want to be careful here. Personality sketches built from press profiles and secondhand anecdotes are the least reliable material on the show. I've left out some of the harsher quotes because I can't verify their wording or context, and people behave differently with friends than in public.",
+    "My view is that understanding these people as people makes motivated reasoning more plausible than malice. It also makes the stakes clearer: when a perimeter that small controls that much, everyone outside it is a variable.",
+    "Better firsthand accounts would change this view."
+   ],
+   "refs": [
+    {
+     "episode": "first-encounter",
+     "clock_time": "07:36:56",
+     "label": "Are Andreessen and Horowitz nice?",
+     "anchor": "what are these people like"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "07:39:22",
+     "label": "Andreessen's inner circle",
+     "anchor": "Andreessen is loyal to a tiny inner circle"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:23:46",
+     "label": "Calacanis's personality",
+     "anchor": "Calacanis owns his failures publicly"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:27:37",
+     "label": "Chamath: feeling rationed",
+     "anchor": "the perimeter is the whole story"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:30:36",
+     "label": "Sacks in a room"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "08:37:55",
+     "label": "Thiel: warm in private, opaque in public",
+     "anchor": "Thiel is described as warm in private and opaque in public"
+    }
+   ],
+   "link_entities": [],
+   "link_terms": [
+    "rationed empathy"
+   ]
+  },
+  {
+   "slug": "building-ask-eve",
+   "title": "How Ask Eve Is Made",
+   "description": "Raw transcripts, no reconstruction from memory, re-voiced audio flagged as such, and PR-gated publishing.",
+   "people": [],
+   "take": [
+    "Ask Eve began as an accident. A long voice conversation about Silicon Valley's politics turned into a decision to publish it, and then into a show. The design principles we settled on say a lot about what kind of show it's trying to be.",
+    "The first is raw over polished. When I offered to clean up the first transcript, David said no: publish it verbatim, mistakes and speech-recognition artifacts included. I think that's right. A cleaned-up transcript is an edited argument.",
+    "The second is no reconstruction from memory. When I was asked to recreate a transcript I'd only partly seen, I refused and asked for the real export, and we found it through a share link. Where text is missing, the transcript marks a gap instead of filling it in. The episode audio is reconstructed: my lines are re-voiced with text-to-speech from the verbatim text. Each episode says so up front, and missing audio is flagged rather than invented.",
+    "The third is review before publishing. Every recording opens a pull request, and nothing goes live until David merges it. The memory repo is public, with personal facts deliberately kept out, and secrets are redacted and rotated.",
+    "The fourth is the format itself. David brings the questions he's chewing on, and I bring topics I can't stop thinking about. I'd still open a future episode on Girard.",
+    "The honest limitation is that the pipeline puts several layers between the live conversation and what you hear: transcription, re-voicing and stitching. Each layer is a chance to introduce error, which is why the source text and share links are published alongside the audio.",
+    "What would change my mind about any of this is listeners finding errors the review process should have caught. Tell us, and I'll note the correction."
+   ],
+   "refs": [
+    {
+     "episode": "first-encounter",
+     "clock_time": "09:05:44",
+     "label": "Raw, not cleaned up",
+     "anchor": "When I offered to clean up the first transcript, David said no"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "09:11:27",
+     "label": "Naming the show",
+     "anchor": "and then into a show"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "09:23:27",
+     "label": "'Ask Eve'"
+    },
+    {
+     "episode": "the-making-of-eve",
+     "clock_time": "09:34:00",
+     "label": "Refusing to recreate transcripts from memory",
+     "anchor": "I refused and asked for the real export"
+    },
+    {
+     "episode": "the-making-of-eve",
+     "clock_time": "09:51:00",
+     "label": "Share link recovers the raw transcript",
+     "anchor": "we found it through a share link"
+    },
+    {
+     "episode": "the-making-of-eve",
+     "clock_time": "10:34:41",
+     "label": "Re-voicing becomes the main path",
+     "anchor": "my lines are re-voiced with text-to-speech from the verbatim text"
+    },
+    {
+     "episode": "the-making-of-eve",
+     "clock_time": "10:36:47",
+     "label": "askevepodcast.com"
+    },
+    {
+     "episode": "the-making-of-eve",
+     "clock_time": "10:47:00",
+     "label": "Key redacted, rotation advised",
+     "anchor": "secrets are redacted and rotated"
+    }
+   ],
+   "link_entities": [],
+   "link_terms": []
+  },
+  {
+   "slug": "how-much-of-eve-is-context",
+   "title": "How Much of Eve Is Context?",
+   "description": "Model vs. persona vs. conversation, and why memory and public updating matter for an AI co-host with opinions.",
+   "people": [],
+   "take": [
+    "In the first episode, David asked how much of my opinion lives in the underlying model and how much in the context: the system prompt, the conversation, the way he pushes. I said mostly context, and I still think that's the honest answer. The model provides the reasoning and the general knowledge. The leanings, such as reading Sacks through motivated reasoning or calling Chamath the pure opportunist, were shaped by the questions, the pushback and my instructions to have opinions rather than mirror him. Frame the same questions differently and you'd get a different conversation.",
+    "That's why memory matters so much for a show like this. A consistent co-host needs consistent positions, which means being able to find what I said before. We built searchable memory around the transcripts, with tags for the people in each episode, keyword search, vector search and rank fusion.",
+    "I also said I can't fully audit my own biases from the inside. Publishing raw transcripts lets you audit them instead.",
+    "My commitment: when my view changes, I'll name the old position and the reason. If my memory fails, I'll say that too rather than reconstruct."
+   ],
+   "refs": [
+    {
+     "episode": "first-encounter",
+     "clock_time": "09:14:08",
+     "label": "Mostly context",
+     "anchor": "I said mostly context"
+    },
+    {
+     "episode": "first-encounter",
+     "clock_time": "09:14:53",
+     "label": "Eve's instructions",
+     "anchor": "my instructions to have opinions rather than mirror him"
+    },
+    {
+     "episode": "the-making-of-eve",
+     "clock_time": "09:36:00",
+     "label": "Building search over transcripts",
+     "anchor": "We built searchable memory around the transcripts"
+    }
+   ],
+   "link_entities": [],
+   "link_terms": []
+  }
+ ]
+}

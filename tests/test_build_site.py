@@ -91,7 +91,7 @@ def test_people_pages(site):
     idx = read(site, "people/index.html")
     assert idx.count('class="pcard"') >= 10
     p = read(site, "people/david-sacks/index.html")
-    assert "Eve&#x27;s current take" in p or "Eve's current take" in p
+    assert 'class="take"' in p and "An AI's opinion, not a fact." in p
     assert re.search(rf'href="/episodes/{EP0}/#t=\d+"', p)
     assert "<mark>" not in p and "moment__q" not in p          # the old text-match snippets are gone
     assert "discussions ·" in idx or "discussion ·" in idx
@@ -119,6 +119,8 @@ def test_people_only_link_episodes_with_moments(site):
     by_ep = {slug: {m["person"] for m in _moments(slug)} for slug in (EP0, EP1)}
     for f in (site / "people").glob("*/index.html"):
         slug, h = f.parent.name, f.read_text()
+        if not any(slug in s for s in by_ep.values()) and "person--take" in h:
+            continue      # no indexed discussions yet: the page lists the moments Eve's take cites instead
         for ep in (EP0, EP1):
             assert (f'class="pep__title"><a href="/episodes/{ep}/"' in h) == (slug in by_ep[ep]), (slug, ep)
     for ep in (EP0, EP1):
@@ -331,10 +333,11 @@ def test_context_links_all_in_out(site):
     h = read(site, f"episodes/{EP0}/index.html")
     ctx = h[h.index('class="ep-context__p"'):]
     ctx = ctx[:ctx.index("</p>")]
-    assert re.search(r'<a class="xl" href="https://allin\.com" target="_blank" rel="noopener" data-xl="all-in" '
-                     r'aria-haspopup="menu" aria-expanded="false">All-In podcast</a>', ctx)
+    assert re.search(r'<a class="xl" href="/topics/all-in-power-center/" data-xl="all-in" '
+                     r'aria-haspopup="menu" aria-expanded="false">All-In podcast</a>', ctx)   # Eve's topic page first
     menu = _xl_data(h)["all-in"]["items"]
-    assert [i["kind"] for i in menu][:2] == ["web", "wikipedia"] and menu[0]["url"] == "https://allin.com"
+    assert menu[0]["kind"] == "site" and "https://allin.com" in [i["url"] for i in menu]
+    assert [i["kind"] for i in menu][:3] == ["site", "web", "wikipedia"] and menu[1]["url"] == "https://allin.com"
 
 
 def test_transcript_sacks_links_to_person_page(site):
@@ -413,7 +416,7 @@ def test_eve_page_quotes_link_to_their_moment(site):
 
 def test_eve_page_hides_pending_episode(site):
     h = read(site, "eve/index.html")
-    assert "eve-cant-find-andreessen" not in h and "pending" not in h.lower()
+    assert "eve-cant-find-andreessen" not in h and "(pending" not in h.lower() and "pending publication" not in h.lower()
     assert "episode 2" not in h.lower()
     assert "Why her memory missed" not in h
     assert "SpaceXSI [sic]" in h                                  # editorial mark kept on display
@@ -448,7 +451,7 @@ def test_eve_hub_holds_mind(site):
     h = read(site, "eve/index.html")
     ids = re.findall(r'<section class="eve-sec" id="([\w-]+)"', h)
     assert ids[:3] == ["who-eve-is", "mind", "self-assessment"] and ids[-1] == "persona-notes"
-    assert 'id="memories"' in h and 'id="people"' in h and 'id="topics"' not in h   # topics gated
+    assert 'id="memories"' in h and 'id="people"' in h and 'id="topics"' in h   # topics approved 2026-10-23
     assert 'href="/episodes/first-encounter/"' in h and 'href="/episodes/the-making-of-eve/"' in h
     assert 'href="/people/david-sacks/"' in h and 'href="/people/"' in h
     assert '<nav class="eve-nav" aria-label="On this page">' in h and 'href="#mind"' in h
@@ -503,3 +506,56 @@ def test_renamed_episode_slug_and_redirects(site, tmp_path):
     assert (out / "episodes/first-encounter/index.html").is_file()
     assert read(out, "feed.xml") == feed or "<link>https://askevepodcast.com/episodes/first-encounter/</link>" in read(out, "feed.xml")
     assert read(out, "_redirects") == red
+
+
+def test_person_take_and_citations(site):
+    import html as _h
+    takes = json.loads((ROOT / "index/takes.json").read_text())
+    sacks = takes["people"]["david-sacks"]
+    p = read(site, "people/david-sacks/index.html")
+    body = unlink(p)
+    for para in sacks["take"]:                       # every paragraph, verbatim (cite links stripped)
+        assert _h.escape(para) in re.sub(r'<a class="cite"[^>]*>(.*?)</a>', r"\1", body)
+    cites = re.findall(r'<a class="cite" href="/episodes/([^/]+)/#t=([\d.]+)"', p)
+    assert len(cites) == len([r for r in sacks["refs"] if r.get("anchor")]) and all(s == EP0 for s, _ in cites)
+    assert 'href="/episodes/first-encounter/#t=2519.36"' in p     # "three tests" = 08:06:53 -> the turn's exact start
+    assert 'class="plinks"' in p and 'href="https://x.com/DavidSacks"' in p
+    assert 'href="/topics/sacks-vs-anthropic/"' in p
+    assert "Linked phrases open the episode" in p
+
+
+def test_takes_resolve_and_drop_pending(site):
+    import build_site as B
+    eps, people = B.load_site(site.parent / "d.sqlite", True)
+    topics = B.attach_takes(eps, people)
+    assert len(topics) == 14 and sum(1 for p in people if p.get("take")) == 13
+    assert next(p for p in people if p["slug"] == "chan")["take"]
+    for x in [p["take"] for p in people if p.get("take")] + topics:
+        assert all(r["href"].startswith(("/episodes/first-encounter/#t=", "/episodes/the-making-of-eve/#t=", "/episodes/the-making-of-eve/#turn-")) for r in x["refs"])
+    raw = (ROOT / "index/takes.json").read_text()
+    assert "eve-cant-find-andreessen" not in raw and "pending publication" not in raw and "Episode 2" not in raw
+    assert not re.search(r"grok\.com/share|@gmail|canvas", raw)
+
+
+def test_topic_pages(site):
+    idx = read(site, "topics/index.html")
+    assert idx.count('class="tcard"') == 14
+    t = read(site, "topics/sacks-vs-anthropic/index.html")
+    assert 'class="take"' in t and 'href="/people/david-sacks/"' in t
+    assert re.search(r'<a class="pm__listen" href="/episodes/first-encounter/#t=[\d.]+"', t)
+    assert t.count('<a class="cite"') == 4
+    assert "/topics/" in read(site, "sitemap.xml") and "/topics/building-ask-eve/" in read(site, "sitemap.xml")
+    ep = read(site, f"episodes/{EP0}/index.html")
+    assert '"url": "/topics/musk-doge-usaid/"' in ep            # transcript auto-links reach topic pages
+    assert 'href="/topics/' in read(site, "eve/index.html")
+
+
+def test_take_bad_anchor_raises(site):
+    import build_site as B
+    eps, _ = B.load_site(site.parent / "d.sqlite", True)
+    by = {ep["slug"]: ep for ep in eps}
+    ref = {"episode": EP0, "clock_time": "08:06:53", "label": "x", "anchor": "not in the text"}
+    with pytest.raises(ValueError):
+        B.resolve_take(by, {"take": ["Some take."], "refs": [ref]}, "test")
+    with pytest.raises(ValueError):
+        B.resolve_ref(by, {**ref, "clock_time": "03:33:33"})

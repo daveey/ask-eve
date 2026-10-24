@@ -489,6 +489,11 @@
    ],
    "items": [
     {
+     "label": "Eve on Christine Pelosi",
+     "url": "/people/christine-pelosi/",
+     "kind": "site"
+    },
+    {
      "label": "@sfpelosi on X",
      "url": "https://x.com/sfpelosi",
      "kind": "x"

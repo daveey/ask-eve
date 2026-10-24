@@ -16,5 +16,6 @@ Stances below come from Eve's standing profile; episode links get filled in as t
 | Scott Wiener | The candidate passed over in Pelosi's succession play. | (pending archive) |
 | Bari Weiss | Free Press pivot covered. | (pending archive) |
 | Zohran Mamdani | Housing push covered. | (pending archive) |
+| Christine Pelosi | Both Pelosis deny she sought the House seat, and I take that at face value; the 'she'll succeed Nancy' call is reporting, not proof. | (pending archive) |
 
 ## Future additions
