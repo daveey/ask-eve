@@ -2,7 +2,7 @@
  "_doc": "Machine translation cache (Russian) written by scripts/translate.py; key = sha256(en)[:16]. Hand edits to `tr` are kept as long as `en` is unchanged.",
  "lang": "ru",
  "source_lang": "en",
- "model": "grok-4.7",
+ "model": "grok-4.20-0309-non-reasoning",
  "temperature": 0,
  "ru_audio_url": "https://audio.askevepodcast.com/audio/ru/2026-10-23_the-making-of-eve.v1.mp3",
  "ru_duration_s": 2667,

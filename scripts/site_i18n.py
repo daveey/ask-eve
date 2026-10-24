@@ -28,7 +28,8 @@ ROOT = Path(__file__).resolve().parent.parent
 I18N_DIR = ROOT / "i18n"
 CACHE_DIR = ROOT / "translations"
 SOURCE = "en"
-LANGS = ["ru", "es", "zh"]                       # translated editions; each needs i18n/<lang>.json
+LANGS = ["ru", "es", "zh", "de", "pt", "fa", "fr"]  # translated editions; each needs i18n/<lang>.json
+RTL_LANGS = {"fa", "ar", "he"}
 
 _cur = SOURCE                        # language of the page being rendered
 _paths: dict[str, set[str]] = {}     # lang -> English paths that have a translated page
@@ -648,6 +649,8 @@ def _alts(path: str) -> list[tuple[str, str]]:
 
 def html_attrs() -> str:
     a = f' lang="{_cur}"'
+    if _cur in RTL_LANGS:
+        a += ' dir="rtl"'
     if _cur != SOURCE:
         a += f' data-i18n="{html.escape(json.dumps(S(_cur).get("js", {}), ensure_ascii=False))}"'
     return a
@@ -703,6 +706,7 @@ def switcher(path: str) -> str:
 LATIN = re.compile(r"[A-Za-z]")
 CYRILLIC = re.compile(r"[\u0400-\u04ff]")
 CJK = re.compile(r"[\u4e00-\u9fff]")
+ARABIC = re.compile(r"[\u0600-\u06ff\u0750-\u077f\ufb50-\ufdff\ufe70-\ufeff]")
 VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "source", "track", "wbr"}
 SKIP_TAGS = {"code", "pre", "style"}
 SKIP_CLASSES = {"turn__body", "xl", "i18n-ready"}               # translated content and auto-linked names, never UI
@@ -748,7 +752,7 @@ def ui(lang: str, text: str, record: bool = True) -> str:
             return lead + _fill(lang, tpl, m) + trail
     if "·" in core:      # "Bonus · <time> · 41 min": translate each piece
         return lead + "".join(x if not x.strip(" ·") else ui(lang, x, record) for x in re.split(r"( ?· ?)", core)) + trail
-    if record and not (CYRILLIC.search(core) or CJK.search(core)):
+    if record and not (CYRILLIC.search(core) or CJK.search(core) or ARABIC.search(core)):
         _misses.setdefault(lang, set()).add(core)
     return text
 
@@ -924,7 +928,7 @@ def build(B, A, out: Path, eps: list[dict], people: list[dict], cfg: dict) -> li
         eps2, people2 = localize_data(lang, eps, people)
         splits2 = [sp for ep in eps2 for sp in ep.get("splits", [])]
         by = {x["slug"]: x for x in eps2} | {sp["slug"]: sp for sp in splits2}
-        pages = [("/", lambda: B.home(A, eps2, people2, splits2)), ("/people/", lambda: B.people_index(A, people2)),
+        pages = [("/", lambda: B.home(A, eps2, people2, splits2)), ("/episodes/", lambda: B.home(A, eps2, people2, splits2)), ("/people/", lambda: B.people_index(A, people2)),
                  ("/about/", lambda: B.about_page(A, cfg)), ("/contact/", lambda: B.contact_page(A)),
                  ("/growth/", lambda: B.growth_page(A))]
         pages += [(f"/people/{p['slug']}/", (lambda p=p: B.person_page(A, p))) for p in people2]
@@ -956,10 +960,10 @@ def build(B, A, out: Path, eps: list[dict], people: list[dict], cfg: dict) -> li
                 B.write(out, f"{lang}{path}index.html", translate_html(lang, fn(), path))
                 if "/mind/" not in path:
                     urls.append(f"/{lang}{path}")
-                if path.startswith("/episodes/"):
+                if path.startswith("/episodes/") and path != "/episodes/":
                     B.write(out, f"{lang}{path}transcript.txt", by[path.split('/')[2]]["body_md"] + "\n")
             B.write(out, f"{lang}/404.html", translate_html(lang, B.not_found(A), "/", note=False))
-            B.write(out, f"{lang}/feed.xml", render_feed(lang, B, [ep for ep in eps2 if f"/episodes/{ep['slug']}/" in _paths[lang]]))
+            B.write(out, f"{lang}/feed.xml", render_feed(lang, B, [ep for ep in (splits2 + eps2) if f"/episodes/{ep['slug']}/" in _paths[lang]]))
         finally:
             _cur = SOURCE
             B.EVE_FILE, B.EveSources, B.load_links, B.TAKES_FILE, B._CATALOG_EPS = saved
@@ -1015,7 +1019,7 @@ def render_feed(lang: str, B, eps: list[dict]) -> str:
     <description>{e(desc)}</description>
     <itunes:summary>{e(desc)}</itunes:summary>
     <content:encoded><![CDATA[{chtml}]]></content:encoded>
-    <enclosure url="{e(ep['audio_url'])}" length="{ep['audio_bytes']}" type="{e(ep.get('audio_mime') or 'audio/mpeg')}"/>
+    <enclosure url="{e(ep['audio_url'] + (f'#t={int(round(float(ep["clip_start"])))},{int(round(float(ep["clip_end"])))} '[:-1] if ep.get('clip_start') is not None and ep.get('clip_end') is not None else ''))}" length="{ep['audio_bytes']}" type="{e(ep.get('audio_mime') or 'audio/mpeg')}"/>
     <itunes:duration>{ep['duration_seconds']}</itunes:duration>
     <itunes:explicit>{'true' if ep.get('explicit') else 'false'}</itunes:explicit>
     <itunes:episodeType>{e(ep.get('episode_type') or 'full')}</itunes:episodeType>

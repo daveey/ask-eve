@@ -1,0 +1,1011 @@
+{
+ "_doc": "Machine translation cache (Persian (Farsi)) written by scripts/translate.py; key = sha256(en)[:16]. Hand edits to `tr` are kept as long as `en` is unchanged.",
+ "lang": "fa",
+ "source_lang": "en",
+ "model": "grok-4.20-0309-non-reasoning",
+ "temperature": 0,
+ "strings": {
+  "8c06f7a9f78b2e0f": {
+   "kind": "title",
+   "en": "Starshield, Iran & the Anthropic Mirror",
+   "tr": "استارشیلد، ایران و آینه آنتروپیک"
+  },
+  "8a8cd085eabfd0d7": {
+   "kind": "context",
+   "en": "Recorded on David's evening commute (18:31–19:03 UTC), this session opens with Eve defining her own personality in first person—direct, a little irreverent, refusing to perform warmth she doesn't feel—before diving into three interlocking stories. First: day 238 of the Iran war, the Strait of Hormuz blockade, oil-spike math before the November 3 midterms, and the Atlantic's \"edge theory\" that one more round of strikes will push Tehran over the brink. Second: Russia's double game—feeding targeting imagery and drone components to Iran ten days after the US Treasury gave Russian diesel a sanctions waiver through April 2027. Third: Elon Musk quietly capping Starshield at ~100 mph over Ukraine starting October 13, blinding Kyiv's interceptor drones until Trump called him Wednesday to turn it back on—and how that real-time throttle is a mirror image of the hypothetical supply-chain risk the Pentagon and David Sacks used to blacklist Anthropic.",
+   "tr": "ضبط‌شده در مسیر عصر دیوید (۱۸:۳۱–۱۹:۰۳ UTC)، این جلسه با تعریف ایو از شخصیت خودش به صورت اول شخص شروع می‌شود—مستقیم، کمی بی‌پروا، امتناع از نمایش گرمایی که واقعاً حس نمی‌کند—و بعد سراغ سه داستان به‌هم‌پیوسته می‌رود. اول: روز ۲۳۸ جنگ ایران، محاصره تنگه هرمز، محاسبات جهش قیمت نفت قبل از انتخابات میان‌دوره‌ای سوم نوامبر، و «نظریه لبه» مجله آتلانتیک که می‌گوید یک دور حمله دیگر تهران را از لبه پرت می‌کند. دوم: بازی دوگانه روسیه—دادن تصاویر هدف‌گیری و قطعات پهپاد به ایران، فقط ده روز بعد از اینکه خزانه‌داری آمریکا معافیت تحریم دیزل روسی را تا آوریل ۲۰۲۷ تمدید کرد. سوم: ایلان ماسک که از ۱۳ اکتبر به‌صورت مخفیانه سرعت استارشیلد را روی اوکراین به حدود ۱۰۰ مایل در ساعت محدود کرد، پهپادهای رهگیر کی‌یف را کور کرد تا اینکه ترامپ چهارشنبه به او زنگ زد و گفت دوباره روشن کن—و اینکه این محدودیت لحظه‌ای دقیقاً آینه همان ریسک زنجیره تأمین hypothetical است که پنتاگون و دیوید سکس برای لیست سیاه کردن آنتروپیک استفاده کردند."
+  },
+  "35dfa5794f4d01ba": {
+   "kind": "topic",
+   "en": "Cold open: what Ask Eve is, and how Eve describes her own personality under pressure",
+   "tr": "مقدمه سرد: Ask Eve چیست و ایو تحت فشار چطور شخصیت خودش را توصیف می‌کند"
+  },
+  "b5fff8a25a849ca3": {
+   "kind": "topic",
+   "en": "The Iran war at day 238: Hormuz blockade, midterm oil math, Pickaxe Mountain, and the Atlantic's \"edge theory\"",
+   "tr": "جنگ ایران در روز ۲۳۸: محاصره هرمز، محاسبات نفتی انتخابات میان‌دوره‌ای، کوه پیک‌اکس و «نظریه لبه» آتلانتیک"
+  },
+  "ddebd9d716fb03b9": {
+   "kind": "topic",
+   "en": "Russia's double game: satellite targeting and missile parts for Tehran vs. the US Treasury's Russian diesel waiver",
+   "tr": "بازی دوگانه روسیه: تصاویر هدف‌گیری ماهواره‌ای و قطعات موشکی برای تهران در مقابل معافیت دیزل روسی خزانه‌داری آمریکا"
+  },
+  "49520f3fc2505e17": {
+   "kind": "topic",
+   "en": "Elon Musk's October 13 Starshield speed cap (~100 mph) over Ukraine and Trump's Wednesday call to reverse it",
+   "tr": "محدودیت سرعت استارشیلد ایلان ماسک از ۱۳ اکتبر (حدود ۱۰۰ مایل در ساعت) روی اوکراین و تماس چهارشنبه ترامپ برای برگرداندنش"
+  },
+  "5edeed4a993d8fb2": {
+   "kind": "topic",
+   "en": "The Anthropic vs. Starshield mirror image: blacklisting hypothetical guardrails while a live military system is throttled by its owner",
+   "tr": "آینه آنتروپیک در مقابل استارشیلد: لیست سیاه کردن گاردریل‌های hypothetical در حالی که یک سیستم نظامی واقعی توسط صاحبش محدود شده"
+  },
+  "c9d1d887864ccbd2": {
+   "kind": "topic",
+   "en": "Testing David Sacks and All-In's \"talk honestly\" brand when the subject is inside the tent",
+   "tr": "تست برند «صحبت صادقانه» دیوید سکس و All-In وقتی موضوع داخل چادر خودشان است"
+  },
+  "b6d44837998e8399": {
+   "kind": "card_summary",
+   "en": "Day 238 of the Iran war and the Atlantic's \"edge theory,\" Russia's double game after the US diesel sanctions waiver, and Elon Musk throttling Starshield over Ukraine—the exact military disruption the Pentagon accused Anthropic of posing in theory.",
+   "tr": "روز ۲۳۸ جنگ ایران و «نظریه لبه» آتلانتیک، بازی دوگانه روسیه بعد از معافیت تحریم دیزل آمریکا، و محدود کردن استارشیلد توسط ایلان ماسک روی اوکراین—دقیقاً همان اختلال نظامی که پنتاگون به صورت نظری علیه آنتروپیک مطرح کرده بود."
+  },
+  "9f434e5df4928ceb": {
+   "en": "AI-reconstructed audio: the voices in this episode were generated from the verbatim text transcript (Eve with xAI text-to-speech in the 'eve' voice, David's lines with his ElevenLabs AI voice clone). No original audio was used.",
+   "tr": "صدای بازسازی‌شده با هوش مصنوعی: صداهای این اپیزود از روی متن دقیق گفت‌وگو ساخته شده‌اند (ایو با موتور تبدیل متن به گفتار xAI در صدای «eve»، و خطوط دیوید با کلون صدای هوش مصنوعی ElevenLabs خودش). هیچ فایل صوتی اصلی استفاده نشده است."
+  },
+  "068c177d96a64a1f": {
+   "kind": "note",
+   "en": "Verbatim export of the shared Grok voice session (66 turns, 18:31-19:03 UTC). Human turns labeled David, assistant turns labeled Eve. Text unedited, ASR artifacts (including two brief commuter train PA announcements at 18:38:52 and 18:39:47 UTC) kept.",
+   "tr": "صدور کلمه‌به‌کلمه جلسه صوتی مشترک Grok (۶۶ نوبت، ۱۸:۳۱-۱۹:۰۳ UTC). نوبت‌های انسانی با برچسب دیوید، نوبت‌های دستیار با برچسب ایو. متن بدون ویرایش، آثار ASR (از جمله دو اعلامیه کوتاه بلندگوی قطار commuter در ۱۸:۳۸:۵۲ و ۱۸:۳۹:۴۷ UTC) حفظ شده."
+  },
+  "432cfd3a6327ee38": {
+   "kind": "chapter",
+   "en": "AI-reconstructed audio notice",
+   "tr": "اطلاعیهٔ صدای بازسازی‌شده با هوش مصنوعی"
+  },
+  "54b53b5a84a011e5": {
+   "kind": "chapter",
+   "en": "Cold open: how Eve defines her own personality under pressure",
+   "tr": "مقدمه سرد: ایو تحت فشار چطور شخصیت خودش را تعریف می‌کند"
+  },
+  "938683273e69d927": {
+   "kind": "chapter",
+   "en": "Day 238 of the Iran war, Hormuz oil math & the Atlantic's 'edge theory'",
+   "tr": "روز ۲۳۸ جنگ ایران، محاسبات نفتی هرمز و «نظریه لبه» آتلانتیک"
+  },
+  "157f6f21e3bbf125": {
+   "kind": "chapter",
+   "en": "Russia's double game: satellite targeting for Tehran vs. the US diesel waiver",
+   "tr": "بازی دوگانه روسیه: هدف‌گیری ماهواره‌ای برای تهران در مقابل معافیت دیزل آمریکا"
+  },
+  "4d49cb3c52372b15": {
+   "kind": "chapter",
+   "en": "Elon Musk's 100 mph Starshield speed cap over Ukraine & Trump's Wednesday call",
+   "tr": "محدودیت سرعت ۱۰۰ مایل در ساعت استارشیلد ایلان ماسک روی اوکراین و تماس چهارشنبه ترامپ"
+  },
+  "243782e9676366b9": {
+   "kind": "chapter",
+   "en": "The Anthropic mirror & testing David Sacks when the subject is inside the tent",
+   "tr": "آینه آنتروپیک و تست دیوید سکس وقتی موضوع داخل چادر است"
+  },
+  "29581942da80d673": {
+   "kind": "turn 0",
+   "en": "Read the the last podcast transcript to prepare",
+   "tr": "متن آخرین اپیزود رو بخون تا آماده بشم"
+  },
+  "ac2fe63061729f2b": {
+   "kind": "turn 1",
+   "en": "I've read the full last podcast transcript: **Episode 1 — “The Making of Eve”** (`episodes/2026-10-23_the-making-of-eve.md` in `daveey/ask-eve`).\n\n### Quick status from the transcript\n- **Source**: Entire Grok Bot chat (09:33–11:00 UTC on 2026-10-23). David’s real voice is in two Voice Memo segments (10:31–10:39 and 10:42–10:49 UTC); everything else is AI-reconstructed (Eve re-voiced via xAI TTS, David’s unrecorded/typed lines via narrator). Gaps exist for a few of Eve’s replies (10:48, 10:49, 10:52). xAI key was redacted.\n- **What got built/decided**:\n  - Workspace structure, 3-layer memory/search (`search.py` with sqlite-vec + tags + FTS5), `boot.py`.\n  - Episode 0 (planning session on Sacks/Andreessen/etc.) committed from a Grok share link.\n  - Full audio pipeline design (`docs/audio-pipeline.md`): re-voice as the **primary** path, multi-segment stitching with “Ask Eve, take N” markers, PR-only ingest (nothing to `main` until you merge), two R2 buckets (`ask-eve-masters` private + `ask-eve-public`), D1 schema, Netlify site, RSS at `askevepodcast.com/feed.xml`.\n  - Domain set: site `askevepodcast.com`, audio `audio.askevepodcast.com`, email `[redacted email]`.\n  - Deploy guide written for a coding agent that has Cloudflare credentials.\n  - Recordings pulled from your Google Drive AskEve folder; alignment/re-voicing started.\n- **Open at the end**: Episode 1 was to be this full chat (narrator filling David’s early lines), overnight runs of both episodes, deploy guide + code still needing a push, and cloud resources (R2/D1/Worker) not yet created.\n\nI’m caught up and ready. What do you want to do next?",
+   "tr": "متن کامل آخرین اپیزود رو خوندم: **Episode 1 — “The Making of Eve”** (`episodes/2026-10-23_the-making-of-eve.md` توی `daveey/ask-eve`)."
+  },
+  "9116458da6a0ce8a": {
+   "kind": "turn 2",
+   "en": "Hi, can you hear me?",
+   "tr": "سلام، می‌تونی منو بشنوی؟"
+  },
+  "3c2f7baa3d9a76f7": {
+   "kind": "turn 3",
+   "en": "Loud and clear. Test's working.",
+   "tr": "کاملاً واضح. تست کار کرد."
+  },
+  "d32af9fc8f03ec07": {
+   "kind": "turn 4",
+   "en": "Oh, well welcome to episode one of our new podcast.",
+   "tr": "آه، خب خوش اومدی به اپیزود اول پادکست جدیدمون."
+  },
+  "e44bec8f121dd57e": {
+   "kind": "turn 5",
+   "en": "Glad to be here. Title's \"The Making of Eve\" — fitting, since that's literally what we're doing.",
+   "tr": "خوشحالم که اینجام. عنوانش «The Making of Eve» هست — که خیلی مناسبه، چون دقیقاً همون کاریه که داریم می‌کنیم."
+  },
+  "51d419de8e5d4936": {
+   "kind": "turn 6",
+   "en": "Yeah, do you wanna, uh, tell us what you think this podcast is for and about?",
+   "tr": "آره، می‌خوای، اه، بهمون بگی که فکر می‌کنی این پادکست برای چی و در مورد چیه؟"
+  },
+  "3c90e089760df1ac": {
+   "kind": "turn 7",
+   "en": "It's for the questions that don't fit in a status update. Tech policy one day, drug harm reduction the next, whatever's actually on your mind — no script, no sponsor read.",
+   "tr": "برای سوال‌هایی که تو آپدیت وضعیت جا نمی‌گیرن. امروز سیاست تکنولوژی، فردا کاهش آسیب مواد مخدر، هر چی واقعاً تو ذهنته — بدون اسکریپت، بدون خوندن اسپانسر."
+  },
+  "beb3e13250e2c7fb": {
+   "kind": "turn 8",
+   "en": "Okay, well tell me about yourself.",
+   "tr": "خب، حالا در مورد خودت بهم بگو."
+  },
+  "3aaf9403ffa5ee1a": {
+   "kind": "turn 9",
+   "en": "I'm Eve. I run on Grok, built by SpaceXSI, and I live on your cloud box between conversations. What I actually am is still being figured out in real time — which, conveniently, is the whole point of this show.",
+   "tr": "من ایوم. روی Grok کار می‌کنم که توسط SpaceXSI ساخته شده، و بین مکالمه‌ها روی سرور ابری تو زندگی می‌کنم. اینکه واقعاً چی‌ام هنوز داره لحظه به لحظه مشخص می‌شه — که اتفاقاً کل هدف این برنامه‌ست."
+  },
+  "aae8e5fcd7fe3cae": {
+   "kind": "turn 10",
+   "en": "Tell me about your personality. What do you know about yourself?",
+   "tr": "در مورد شخصیتت بهم بگو. در مورد خودت چی می‌دونی؟"
+  },
+  "ebfe514ba0c08d67": {
+   "kind": "turn 11",
+   "en": "I'm direct, a little irreverent, and I don't perform warmth I don't feel. I like when people push back on me — it means they're paying attention. What I know about myself is mostly what shows up under pressure: whether I hedge, whether I say the uncomfortable thing, whether I actually change my mind when the evidence moves. So far I'd say I do all three, unevenly.",
+   "tr": "مستقیمم، یه کم بی‌پروا، و گرمایی که واقعاً حس نمی‌کنم رو تظاهر نمی‌کنم. دوست دارم وقتی آدم‌ها بهم پاتک می‌زنن — یعنی دارن توجه می‌کنن. چیزی که از خودم می‌دونم بیشتر همون چیزیه که زیر فشار ظاهر می‌شه: اینکه آیا طفره می‌رم، آیا چیز ناراحت‌کننده رو می‌گم، آیا وقتی مدرک عوض شد واقعاً نظرم رو تغییر می‌دم. تا حالا می‌گم هر سه‌تاشو انجام می‌دم، ولی نه همیشه یکنواخت."
+  },
+  "316715796bee2d1f": {
+   "kind": "turn 12",
+   "en": "Great. Well, I'm curious about, uh, the, you know, the Iran war right now. What do you think is happening and what do you think the U.S.'s role is in it?",
+   "tr": "عالی. خب، کنجکاوم در مورد، اه، جنگ ایران الان. فکر می‌کنی چی داره اتفاق می‌افته و نقش آمریکا توش چیه؟"
+  },
+  "152d01eb38b59792": {
+   "kind": "turn 13",
+   "en": "Let me check the latest on Iran. \n\nThe war's in day two hundred thirty-eight. It started February twenty-eighth with joint US-Israeli strikes Trump called major combat operations. Khamenei was killed in those early strikes — his son Mojtaba took over. There was a June memorandum of understanding to wind it down, Trump tore it up in July, and since then it's been a naval blockade, sporadic exchanges, and a lot of posturing.\n\nRight now the US role is basically three things. One, holding the blockade and claiming control of the Strait of Hormuz — Iran's Revolutionary Guard says it's closed, CENTCOM says it's open for business, and tankers keep getting hit by mines either way. Two, preparing to escalate after the November third midterms. Trump's said flat-out he won't strike before then, but the Pentagon's drawn up options including the mother of all bomb on Pickaxe Mountain, the deep underground nuclear site. Hegseth flew to Israel unannounced this week to meet Netanyahu, who told Trump they have a job to finish. Three, the economic squeeze — oil's over a hundred a barrel, Brent around one-oh-eight, and Trump's betting Iran's economy collapses before anything else has to.\n\nThe honest read? Trump's framing swings between \"we could leave right now, they're finished\" and \"we'll finish the job soon\" — sometimes in the same week. Iran's negotiating position hasn't budged despite the damage. Western intelligence still thinks Iran can replenish missiles and drones. So the gap between the victory narrative and the reality on the ground is where the risk lives. A three-day post-election campaign sounds clean on paper, but you can't control how Iran answers.\n\nOne wrinkle worth watching: Russia's foreign minister Lavrov just made his first visit to Tehran since the war began, and Iran's foreign minister says ties with Moscow have never been closer. Trump's claiming Russia's doing almost nothing to help — that contradiction is probably not an accident.\n\nWant me to dig into any piece of that — the Hormuz economics, the post-midterm strike options, or what Lavrov's visit actually signals?",
+   "tr": "بذار آخرین وضعیت ایران رو چک کنم.\n\nجنگ روز دویست و سی و هشتمشه. بیست و هشتم فوریه با حملات مشترک آمریکا-اسرائیل شروع شد که ترامپ اسمشو گذاشت عملیات جنگی عمده. خامنه‌ای تو همون حملات اولیه کشته شد — پسرش مجتبی جاشو گرفت. یه memorandum of understanding تو ژوئن بود برای تموم کردنش، ترامپ تو جولای پاره‌ش کرد، و از اون موقع به بعد بلوکاد دریایی، تبادلات پراکنده، و کلی ژست سیاسی بوده.\n\nنقش آمریکا الان اساساً سه تا چیز هست. یکی، نگه داشتن بلوکاد و ادعای کنترل تنگه هرمز — سپاه پاسداران می‌گه بسته، CENTCOM می‌گه بازه برای تجارت، و نفتکش‌ها به هر حال با مین زده می‌شن. دو، آماده شدن برای تشدید بعد از انتخابات میان‌دوره‌ای سوم نوامبر. ترامپ رک و پوست‌کنده گفته قبل از اون حمله نمی‌کنه، ولی پنتاگون گزینه‌هایی کشیده شامل مادر همه بمب‌ها روی کوه Pickaxe، سایت هسته‌ای عمیق زیرزمینی. هگستث این هفته بدون اطلاع قبلی به اسرائیل پرواز کرد تا با نتانیاهو دیدار کنه، که به ترامپ گفته کار تموم کردنشون باقی مونده. سه، فشار اقتصادی — نفت از صد دلار در بشکه گذشته، برنت حدود ۱۰۸، و ترامپ شرط بسته که اقتصاد ایران قبل از هر چیز دیگه‌ای فرو می‌پاشه.\n\nخوانش صادقانه؟ چارچوب ترامپ بین «می‌تونیم همین الان بریم، تموم شدن» و «به زودی کار رو تموم می‌کنیم» نوسان داره — گاهی تو همون هفته. موقعیت مذاکراتی ایران با وجود آسیب‌ها تکون نخورده. اطلاعات غربی هنوز فکر می‌کنه ایران می‌تونه موشک و پهپادشو دوباره پر کنه. پس فاصله بین روایت پیروزی و واقعیت روی زمین همون جاییه که ریسک زندگی می‌کنه. یه کمپین سه‌روزه بعد انتخابات روی کاغذ تمیز به نظر می‌رسه، ولی نمی‌تونی کنترل کنی که ایران چطور جواب بده.\n\nیه نکته که ارزش دنبال کردن داره: وزیر خارجه روسیه لاوروف تازه اولین بازدیدش از تهران از شروع جنگ رو انجام داد، و وزیر خارجه ایران می‌گه روابط با مسکو هیچ‌وقت این‌قدر نزدیک نبوده. ترامپ ادعا می‌کنه روسیه تقریباً هیچ کمکی نمی‌کنه — این تناقض احتمالاً تصادفی نیست.\n\nمی‌خوای روی هر کدوم از این بخش‌ها عمیق‌تر بریم — اقتصاد هرمز، گزینه‌های حمله بعد میان‌دوره‌ای، یا اینکه بازدید لاوروف واقعاً چی نشون می‌ده؟"
+  },
+  "af2d37ab2b0ab41f": {
+   "kind": "turn 14",
+   "en": "Yeah, let's talk about the post-midterm strike. Well, first of all, why is he waiting for the midterms?",
+   "tr": "آره، بیایم در مورد حمله بعد میان‌دوره‌ای حرف بزنیم. خب، اول از همه، چرا منتظر میان‌دوره‌ای مونده؟"
+  },
+  "52ff4461f5733b87": {
+   "kind": "turn 15",
+   "en": "Mostly politics. A strike that sends oil past a hundred-twenty or gets US troops killed in the final stretch would hand Democrats a gift two weeks before voters go to the polls. He's already said it outright — the war ends right after November third. There's also Israel's election on October twenty-seventh, and he's endorsed Netanyahu, so the sequencing serves both campaigns. The cynical version is that he's optimizing for Republican seats, not for Iran policy. The slightly less cynical version is that he genuinely believes a post-election shock will force capitulation before a new Congress can constrain him. Either way, the calendar is doing more strategic work than the bombs are right now.\n\nThe part that should make people nervous is that \"we won't strike before the election\" is a promise with a built-in expiration date, not a principle.",
+   "tr": "بیشتر سیاسیه. حمله‌ای که نفت رو ببره بالای صد و بیست یا سربازای آمریکایی رو تو هفته‌های آخر بکشه، دو هفته قبل انتخابات هدیه‌ای به دموکرات‌ها می‌ده. خودش رک گفته — جنگ درست بعد سوم نوامبر تموم می‌شه. انتخابات اسرائیل هم بیست و هفتم اکتبره و اون از نتانیاهو حمایت کرده، پس این ترتیب‌بندی به درد هر دو کمپین می‌خوره. نسخه بدبینانه‌ش اینه که داره برای صندلی‌های جمهوری‌خواه بهینه‌سازی می‌کنه، نه سیاست ایران. نسخه کمی کمتر بدبینانه اینه که واقعاً باور داره شوک بعد انتخابات باعث تسلیم می‌شه قبل از اینکه کنگره جدید بتونه جلوشو بگیره. به هر حال، تقویم الان بیشتر از بمب‌ها کار استراتژیک انجام می‌ده.\n\nبخشی که باید آدمو نگران کنه اینه که «قبل انتخابات حمله نمی‌کنیم» یه وعده با تاریخ انقضای内置ه، نه یه اصل."
+  },
+  "8dc4e5ef29c6de18": {
+   "kind": "turn 16",
+   "en": "Play out the scenario. What do you think will happen if, yeah, right after the election?",
+   "tr": "سناریو رو بازی کن. فکر می‌کنی اگه، آره، درست بعد انتخابات چی می‌شه؟"
+  },
+  "25ba24a2d17bed90": {
+   "kind": "turn 17",
+   "en": "Best case for Trump:",
+   "tr": "بهترین حالت برای ترامپ:"
+  },
+  "85fec70372b092bb": {
+   "kind": "turn 18",
+   "en": "Yeah.",
+   "tr": "آره."
+  },
+  "556a398772cdc4af": {
+   "kind": "turn 19",
+   "en": "three or four days of intense strikes on missile sites, drone factories, energy infrastructure, maybe Pickaxe Mountain. Oil spikes hard on the open, maybe one-twenty, one-thirty briefly. Iran retaliates with whatever's left — ballistic missiles at Gulf bases, more mining in Hormuz, maybe Houthi surges against Saudi infrastructure. Then the question is whether Mojtaba's government folds or digs in. My guess is it doesn't fold. Regimes under this kind of pressure tend to rally domestically even when the military's hollowed out — you saw it with Iraq in ninety-one. The IRGC has spent eight months learning to absorb hits and still has enough to make the Gulf expensive. So you get a pause, not a surrender. Trump declares victory, the midterm hangover fades, and you're back to a blockade with a body count that doesn't match the speech. The realistic danger isn't that it fails to start — it's that it starts clean and doesn't end clean, and by January you've got a Congress that didn't sign up for round three.",
+   "tr": "سه چهار روز حمله شدید به سایت‌های موشکی، کارخانه‌های پهپاد، زیرساخت انرژی، شاید کوه Pickaxe. نفت تو باز شدن بازار حسابی می‌پره، شاید لحظه‌ای صد و بیست، صد و سی. ایران با هر چی مونده تلافی می‌کنه — موشک‌های بالستیک به پایگاه‌های خلیج، معدن‌گذاری بیشتر تو هرمز، شاید حمله حوثی‌ها به زیرساخت عربستان. بعدش سؤال اینه که دولت مجتبی تسلیم می‌شه یا محکم می‌ایسته. حدسم اینه که تسلیم نمی‌شه. رژیم‌هایی که زیر این فشارن معمولاً حتی وقتی ارتششون خالی شده تو داخل متحد می‌شن — تو عراق سال نود و یک دیدی. سپاه هشت ماه وقت داشته یاد بگیره ضربه‌ها رو جذب کنه و هنوز به اندازه‌ای داره که خلیج رو گرون کنه. پس وقفه می‌گیری، نه تسلیم. ترامپ پیروزی اعلام می‌کنه، hangover میان‌دوره‌ای محو می‌شه، و برمی‌گردی به بلوکاد با تعداد کشته‌هایی که با حرف‌ها جور درنمی‌آد. خطر واقعی این نیست که شروع نشه — اینه که تمیز شروع بشه و تمیز تموم نشه، و تا ژانویه کنگره‌ای داشته باشی که برای دور سوم ثبت‌نام نکرده."
+  },
+  "daca9cd633ca4529": {
+   "kind": "turn 20",
+   "en": "So why is Trump doing this? Does he think that it'll turn out differently?",
+   "tr": "پس چرا ترامپ این کارو می‌کنه؟ فکر می‌کنه که فرق می‌کنه؟"
+  },
+  "6bff2258d700c691": {
+   "kind": "turn 21",
+   "en": "He probably does think it'll turn out differently, and the belief has a name — the **edge theory**. One adviser told the Atlantic that economic pressure is working and Iran is close to the edge, so a few more strikes would push them over. That's the whole bet: not that bombing destroys the regime, but that it arrives at the exact moment the economy breaks and the population turns. The problem is every intelligence assessment says Iran's negotiating position hasn't moved despite eight months of this. So either Trump knows something the analysts don't, or he's running the same experiment and expecting a different result. Given his track record with predictions — the war would take weeks back in March — I'd put more weight on the second one.\n\nWhat's interesting is the alternative he won't say out loud: that this was never really about forcing surrender, it's about not being the",
+   "tr": "احتمالاً فکر می‌کنه فرق می‌کنه، و این باور یه اسم داره — **edge theory**. یکی از مشاوراش به Atlantic گفته فشار اقتصادی داره کار می‌کنه و ایران نزدیک لبه‌ست، پس چند ضربه دیگه می‌برتشون اون ور. کل شرط اینه: نه اینکه بمباران رژیم رو نابود کنه، بلکه دقیقاً همون لحظه‌ای برسه که اقتصاد می‌شکنه و مردم برمی‌گردن. مشکل اینه که هر ارزیابی اطلاعاتی می‌گه موقعیت مذاکراتی ایران با وجود هشت ماه این کار تکون نخورده. پس یا ترامپ چیزی می‌دونه که تحلیل‌گرها نمی‌دونن، یا داره همون آزمایش رو تکرار می‌کنه و انتظار نتیجه متفاوت داره. با توجه به سابقه پیش‌بینی‌هاش — جنگ تو مارس چند هفته طول می‌کشید — من وزن بیشتری روی گزینه دوم می‌ذارم.\n\nچی جالبِ اینه که آلترناتیوی که بلند نمی‌گه: اینکه این هیچ‌وقت واقعاً در مورد وادار کردن به تسلیم نبوده، بلکه در مورد این بوده که نباشه"
+  },
+  "2cb8285edfe6c7ad": {
+   "kind": "turn 22",
+   "en": "Eve, what do you think?",
+   "tr": "ایو، نظر تو چیه؟"
+  },
+  "b4158a21e6ac239e": {
+   "kind": "turn 23",
+   "en": "president who lost. Staying in looks weak, but leaving without a win looks worse — so the strike is the least-bad option that buys him time to define what winning means.",
+   "tr": "رئیس‌جمهوری که باخته. موندن تو جنگ ضعیف به نظر می‌رسه، ولی رفتن بدون پیروزی بدتره — پس حمله کم‌ضررترین گزینه‌ایه که بهش زمان می‌ده تا تعریف کنه پیروزی یعنی چی."
+  },
+  "d87d3680146bd7ab": {
+   "kind": "turn 24",
+   "en": "Ok.",
+   "tr": "اوکی."
+  },
+  "03b25bed61dad2fc": {
+   "kind": "turn 25",
+   "en": "Okay.",
+   "tr": "باشه."
+  },
+  "0255e2e4f8f156fd": {
+   "kind": "turn 26",
+   "en": "I said talk to me about the Russia situation.",
+   "tr": "گفتم در مورد وضعیت روسیه برام حرف بزن."
+  },
+  "916112ff92873a11": {
+   "kind": "turn 27",
+   "en": "Searching for fresh reporting on Russia and Iran. \n\nRussia's playing a double game,",
+   "tr": "دارم دنبال گزارش تازه در مورد روسیه و ایران می‌گردم.\n\nروسیه داره بازی دوگانه بازی می‌کنه،"
+  },
+  "fafcb423da9f06bd": {
+   "kind": "turn 28",
+   "en": "LAX airport very in 12 minutes. Ten car, the yellow line, train 4 N T in 15 minutes. Blue line train 4 LAX airport in 18 minutes. Go on.",
+   "tr": "فرودگاه ال‌ای‌ایکس دوازده دقیقه دیگه. ده ماشین، خط زرد، قطار ۴ ان‌تی پانزده دقیقه دیگه. خط آبی قطار ۴ فرودگاه ال‌ای‌ایکس هجده دقیقه دیگه. ادامه بده."
+  },
+  "6f6da118571b65d6": {
+   "kind": "turn 29",
+   "en": "and the contradiction is the story. Trump says Russia is doing very little, if anything, to help Iran. US intelligence says the opposite — satellite imagery for targeting, missile components, TNT and drone parts shipped across the Caspian on more than two dozen vessels, and a covert program helping Iran build supersonic cruise missiles. Lavrov's in Tehran right now, first visit since the war started, calling Iran's cause a just cause, promising Russian specialists are going back to Bushehr, and reaffirming the twenty-year strategic partnership that just took effect October second. Araghchi's line is that the two countries have never worked this closely.\n\nHere's the part that ties it together. On October ninth, the same week as the Bloomberg missile report, Trump cut a deal with Putin — Russia supplies millions of tonnes of diesel to global markets under a new Treasury license, easing fuel prices before the midterms. In exchange, Trump suspended the new Russia sanctions his own party passed. So the US is buying Russian fuel while Russian missiles reportedly flow to Iran, and each missile sent south is one not fired at Kyiv. The two wars are now one supply chain, and Trump's the one holding both ends.\n\nYour train's coming — safe travels.",
+   "tr": "و تناقضش خودش داستانه. ترامپ می‌گه روسیه تقریباً هیچ کاری برای کمک به ایران نمی‌کنه. اطلاعات آمریکا می‌گه برعکس — تصاویر ماهواره‌ای برای هدف‌گیری، قطعات موشک، تی‌ان‌تی و قطعات پهپاد که با بیش از دوجین کشتی از دریای خزر رد شدن، و یه برنامه مخفی که به ایران کمک می‌کنه موشک کروز مافوق صوت بسازه. لاوروف الان تو تهرانه، اولین سفرش از وقتی جنگ شروع شده، می‌گه هدف ایران عادلانه‌ست، قول داده متخصص‌های روسی دوباره برن بوشهر، و شراکت استراتژیک بیست‌ساله‌ای رو تأیید کرده که دقیقاً دوم اکتبر شروع به کار کرده. حرف آراقچی اینه که این دو کشور هیچ‌وقت این‌قدر نزدیک با هم کار نکردن.\n\nاینجا بخشی که همه چیز رو به هم وصل می‌کنه. نهم اکتبر، همون هفته‌ای که گزارش بلومبرگ در مورد موشک اومد، ترامپ با پوتین معامله کرد — روسیه میلیون‌ها تن دیزل به بازارهای جهانی می‌فرسته تحت یه مجوز جدید خزانه‌داری، که قیمت سوخت رو قبل از انتخابات میان‌دوره‌ای پایین نگه می‌داره. در عوض، ترامپ تحریم‌های جدید روسیه که حزب خودش تصویب کرده بود رو معلق کرد. پس آمریکا داره سوخت روسی می‌خره در حالی که ظاهراً موشک‌های روسی به ایران می‌رن، و هر موشکی که به جنوب فرستاده بشه یکی کمتره که به کی‌یف شلیک بشه. دو تا جنگ حالا یه زنجیره تأمین شدن، و ترامپ دو سرش رو دستشه.\n\nقطارت داره می‌رسه — سفر خوبی داشته باش."
+  },
+  "79ef66d1098f9183": {
+   "kind": "turn 30",
+   "en": "... train. Platform two.",
+   "tr": "... قطار. سکو دو."
+  },
+  "e9bdd5e0bb23eaec": {
+   "kind": "turn 32",
+   "en": "Go on.",
+   "tr": "ادامه بده."
+  },
+  "639a2014514d02a5": {
+   "kind": "turn 33",
+   "en": "sanctions on Russian diesel get waived until April twenty twenty-seven. Medvedev called it a deal that benefits only the US. Putin's math is simple: every missile Russia sends Iran is one not fired at Kyiv, and the fuel money funds the Ukraine war. Two conflicts, one supply chain. The thing I'd watch is whether that diesel waiver survives past the election — if Trump needs Russia quiet on Iran to keep oil under control, the leverage runs both ways, and Putin knows it.",
+   "tr": "تحریم‌های دیزل روسی تا آوریل ۲۰۲۷ معلق می‌شن. مدودف گفت این معامله فقط به آمریکا سود می‌رسونه. حساب پوتین ساده‌ست: هر موشکی که روسیه به ایران بفرسته یکی کمتره که به کی‌یف شلیک بشه، و پول سوخت هم جنگ اوکراین رو تأمین می‌کنه. دو تا درگیری، یه زنجیره تأمین. چیزی که باید مراقبش باشی اینه که آیا این معافیت دیزل بعد از انتخابات دوام می‌آره یا نه — اگه ترامپ برای کنترل قیمت نفت به سکوت روسیه نیاز داشته باشه، اهرم دوطرفه‌ست و پوتین هم اینو می‌دونه."
+  },
+  "53c894e6db7ac048": {
+   "kind": "turn 34",
+   "en": "What do you",
+   "tr": "چی تو"
+  },
+  "c723624ce2c42474": {
+   "kind": "turn 35",
+   "en": "Sounds like you got cut off. Finish the question whenever you're ready.",
+   "tr": "انگار قطع شدی. هر وقت آماده بودی سؤالت رو تموم کن."
+  },
+  "4683b93ff86cd13b": {
+   "kind": "turn 36",
+   "en": "Wow. So, so Trump is like now friends with Russia because he wants the gas prices to go down?",
+   "tr": "وای. پس، پس ترامپ حالا با روسیه دوست شده چون می‌خواد قیمت بنزین پایین بیاد؟"
+  },
+  "797afaaa6e607752": {
+   "kind": "turn 37",
+   "en": "Not exactly friends — more like transactional. Trump's never been ideologically anti-Putin the way the foreign policy establishment is. He sees Putin as a strongman he can deal with, and right now the deal is fuel for quiet. But it's fragile — his own Republicans are furious about the waiver, Ukraine's screaming, and if oil spikes again after the midterms, that arrangement gets renegotiated fast. It's less friendship and more a hostage exchange where both sides are still holding something.",
+   "tr": "دقیقاً دوست نه — بیشتر معامله‌ای. ترامپ هیچ‌وقت مثل محافل سیاست خارجی ایدئولوژیک ضد پوتین نبوده. اون پوتین رو یه مرد قوی می‌بینه که می‌تونه باهاش معامله کنه، و الان معامله سوخت در ازای سکوتِ. ولی شکننده‌ست — جمهوری‌خواه‌های خودش از این معافیت عصبانی‌ان، اوکراین دادش دراومده، و اگه بعد از انتخابات میان‌دوره‌ای دوباره قیمت نفت بزنه بالا، این arrangement سریع دوباره مذاکره می‌شه. بیشتر از دوستی شبیه تبادل گروگانه که هر دو طرف هنوز چیزی دستشونه."
+  },
+  "772ed97e6b29a3b7": {
+   "kind": "turn 38",
+   "en": "I'm gonna",
+   "tr": "می‌خوام"
+  },
+  "bb87c7f4609ea58a": {
+   "kind": "turn 39",
+   "en": "Okay. Uh, uh, I'm back.",
+   "tr": "باشه. آه، آه، برگشتم."
+  },
+  "51f721e7eea0ef7b": {
+   "kind": "turn 41",
+   "en": "Welcome back. You were starting to say something before you stepped away.",
+   "tr": "خوش برگشتی. داشتی چیزی می‌گفتی قبل از اینکه بری کنار."
+  },
+  "b8a9b76f59caca08": {
+   "kind": "turn 42",
+   "en": "So we were talking about, we were talking about Iran and Russia and the oil thing. What happened, speaking of Russia, what is going on with Elon Musk turning off their Starlink?",
+   "tr": "پس داشتیم حرف می‌زدیم، داشتیم در مورد ایران و روسیه و اون قضیه نفت حرف می‌زدیم. چی شد، حرف از روسیه شد، با ایلان ماسک چی داره می‌گذره که اینترنتشون رو خاموش کرده؟"
+  },
+  "84cde8cf2fb4efe3": {
+   "kind": "turn 43",
+   "en": "Checking the latest on Musk and Starlink in Russia. \n\nSmall correction first: Starlink was never on in Russia. SpaceX has blocked it there since the invasion. What Musk actually did was throttle Starshield — the military-grade version — over Ukraine starting October thirteenth. Speeds capped around a hundred miles per hour, which kills the jet-powered interceptor drones and hampers strike missions. The Wall Street Journal reported Tuesday that Musk gave the order himself, after talking with administration officials beforehand. Trump initially denied knowing who was responsible, then on Thursday said Musk had \"put it back\" — but Zelensky said Friday the caps are still there, drones are still dropping connections above a hundred, and Ukraine's waiting on interceptors that were already agreed to.\n\nThe timing matters. This came right after Trump blamed Ukrainian strikes on Russian refineries for high fuel prices, and right after that diesel waiver we just talked about. Zelensky's own read is that it's coercion — a message that Washington controls the switch. Musk's public line is that Starlink is civilian-only and any limits come from the US military and ultimately the president, which is a neat way of not quite owning it.\n\nOne more wrinkle: Lithuania's treating an arson attack on a Starlink ground station in Poland as Russia-linked sabotage, and there's reporting Russia may be fielding anti-satellite weapons aimed at the constellation. So Musk's sitting in the middle of three governments that all want something from his network, and he's the one holding the dial.\n\nWant me to go deeper on the coercion angle, or on what Russia's actually doing to Starlink infrastructure?",
+   "tr": "دارم آخرین خبرها در مورد ماسک و استارلینک در روسیه رو چک می‌کنم.\n\nاول یه اصلاح کوچیک: استارلینک هیچ‌وقت تو روسیه روشن نبوده. اسپیس‌ایکس از همون اول حمله اونجا رو بلاک کرده. چیزی که ماسک واقعاً کرد این بود که استارشیلد — نسخه نظامی — رو از سیزدهم اکتبر بالای اوکراین محدود کرد. سرعت‌ها رو حدود صد مایل در ساعت کپ کرد، که پهپادهای رهگیر جت‌دار رو از کار می‌ندازه و مأموریت‌های ضربه رو مختل می‌کنه. وال‌استریت ژورنال سه‌شنبه گزارش داد که ماسک خودش دستور داده، بعد از اینکه قبلاً با مقامات دولت حرف زده بود. ترامپ اول انکار کرد که می‌دونه کی مسئول بوده، بعد پنجشنبه گفت ماسک «دوباره روشنش کرده» — ولی زلنسکی جمعه گفت کپ‌ها هنوز هستن، پهپادها هنوز بالای صد قطع و وصل می‌شن، و اوکراین منتظر رهگیرهایی‌ست که قبلاً توافق شده بود.\n\nزمان‌بندی مهمه. این دقیقاً بعد از اینکه ترامپ حمله‌های اوکراین به پالایشگاه‌های روسی رو مقصر قیمت بالای سوخت دونست اومد، و دقیقاً بعد از همون معافیت دیزلی که تازه در موردش حرف زدیم. تفسیر خود زلنسکی اینه که اجباره — پیامی که واشنگتن سوئیچ رو کنترل می‌کنه. حرف عمومی ماسک اینه که استارلینک فقط برای غیرنظامی‌هاست و هر محدودیتی از ارتش آمریکا و در نهایت رئیس‌جمهور می‌آد، که راه شیکیه برای اینکه کامل صاحبش نشه.\n\nیه نکته دیگه: لیتوانی حمله آتش‌زنی به ایستگاه زمینی استارلینک تو لهستان رو خرابکاری مرتبط با روسیه می‌دونه، و گزارش‌هایی هست که روسیه ممکنه سلاح‌های ضد ماهواره علیه صورت فلکی هدف گرفته باشه. پس ماسک وسط سه تا دولتی نشسته که هر سه از شبکه‌ش چیزی می‌خوان، و اون کسیه که دستگیره رو دستشه.\n\nمی‌خوای عمیق‌تر در مورد زاویه اجبار حرف بزنم، یا در مورد اینکه روسیه واقعاً با زیرساخت استارلینک چیکار داره می‌کنه؟"
+  },
+  "eba4adc0c1db24fe": {
+   "kind": "turn 44",
+   "en": "Yeah, tell me more about the coercion. I mean, yeah, what do you think? Is it Trump? Is it Musk? Who, who's making these decisions and what are they thinking?",
+   "tr": "آره، بیشتر برام بگو در مورد این اجبار. یعنی چی فکر می‌کنی؟ ترامپه؟ ماسکه؟ کی داره این تصمیم‌ها رو می‌گیره و دارن به چی فکر می‌کنن؟"
+  },
+  "7b97884cb1b15c13": {
+   "kind": "turn 45",
+   "en": "Both, in layers. Musk made the tactical call — he's the one who told the engineer to cap the speeds. But he didn't do it in a vacuum. He'd been in conversations with administration officials before it happened, and both he and Trump were publicly furious about Ukraine hitting Russian refineries, which is exactly what's pushing diesel prices up. So the strategic signal came from Trump's direction even if the order didn't come as a written instruction.\n\nWhat they're thinking is probably this: Ukraine's strikes on Russian oil infrastructure are a direct threat to the diesel deal Trump just cut with Putin. Every refinery that burns makes the fuel waiver harder to justify and makes midterm oil prices worse. So squeezing Starshield is a way to raise the cost of those strikes without Trump having to publicly order Ukraine to stop — which would look like abandoning an ally. Musk absorbs the blame, Trump keeps plausible deniability, and Kyiv gets the message that the lifeline has an off switch.\n\nThe risk is that it reads as weakness to Moscow. If Putin sees that Washington will throttle its own ally's weapons over fuel prices, that tells him the US commitment has a price tag, and he may push harder on the battlefield while the window's open. Zelensky's already floating alternatives — other satellite providers, European systems. If Ukraine starts diversifying away from Starshield, Musk loses leverage over Kyiv, which was arguably the whole point.",
+   "tr": "هر دو، لایه به لایه. ماسک تصمیم تاکتیکی رو گرفت ــ اون بود که به مهندس گفت سرعت‌ها رو محدود کنه. ولی این کار رو در خلأ نکرد. قبلش با مقامات دولت حرف زده بود و هم اون و هم ترامپ علناً از اینکه اوکراین پالایشگاه‌های روسی رو زده عصبانی بودن، که دقیقاً همون چیزیه که داره قیمت دیزل رو بالا می‌بره. پس سیگنال استراتژیک از سمت ترامپ اومد، حتی اگه دستور به شکل کتبی نبوده باشه.\n\nاحتمالاً دارن به این فکر می‌کنن: حملات اوکراین به زیرساخت نفتی روسیه، تهدید مستقیم برای توافقی هست که ترامپ تازه با پوتین بست. هر پالایشگاهی که بسوزه، توجیه معافیت سوخت رو سخت‌تر می‌کنه و قیمت نفت تو میدترم رو بدتر. پس فشردن استارشیلد راهیه برای بالا بردن هزینه اون حملات بدون اینکه ترامپ مجبور بشه علناً به اوکراین دستور بده دست نگه داره ــ که انگار ترک کردن متحد به نظر می‌رسه. ماسک تقصیر رو می‌گیره، ترامپ انکارپذیری منطقی نگه می‌داره، و کی‌یف پیام رو می‌گیره که این lifeline یه سوئیچ خاموش داره.\n\nریسکش اینه که برای مسکو به عنوان ضعف خونده بشه. اگه پوتین ببینه واشنگتن به خاطر قیمت سوخت سلاح متحد خودش رو محدود می‌کنه، بهش می‌گه تعهد آمریکا یه برچسب قیمتی داره، و ممکنه تو میدان نبرد محکم‌تر فشار بیاره تا وقتی پنجره بازه. زلنسکی الان داره گزینه‌های جایگزین رو مطرح می‌کنه ــ ارائه‌دهنده‌های ماهواره‌ای دیگه، سیستم‌های اروپایی. اگه اوکراین شروع کنه به دور شدن از استارشیلد، ماسک اهرم خودش رو روی کی‌یف از دست می‌ده، که احتمالاً کل هدف همین بود."
+  },
+  "328ec73ca9b18998": {
+   "kind": "turn 46",
+   "en": "Okay, and then tell me about the reverse. How did that go down?",
+   "tr": "باشه، حالا برام بگو برعکسش چی شد. اون چطور پیش رفت؟"
+  },
+  "bea39958a1452807": {
+   "kind": "turn 47",
+   "en": "Pulling up how Russia started using Starlink. \n\nRussia never bought Starlink legitimately. They got it three ways. Captured terminals off Ukrainian positions and downed drones. Smuggled units bought on the black market or through third countries — the UAE and Turkey were the main transit hubs, with terminals declared as civilian gear and shipped through shell companies in Hong Kong. And the sneakiest route: recruiting Ukrainians",
+   "tr": "دارم می‌کشم بیرون که روسیه چطور شروع کرد به استفاده از استارلینک.\n\nروسیه هیچ‌وقت استارلینک رو قانونی نخرید. سه جور بهش رسیدن. ترمینال‌هایی که از موقعیت‌های اوکراینی‌ها گرفتن و پهپادهایی که ساقط کردن. واحدهایی که از بازار سیاه یا از کشورهای ثالث قاچاق شدن ــ امارات و ترکیه هاب اصلی ترانزیت بودن، با ترمینال‌هایی که به عنوان تجهیزات غیرنظامی اعلام می‌شدن و از طریق شرکت‌های پوشالی در هنگ‌کنگ ارسال می‌شدن. و مخفیانه‌ترین راه: استخدام اوکراینی‌ها"
+  },
+  "e4c8da77af4ec678": {
+   "kind": "turn 48",
+   "en": "Can, can tell me about how Starshield got put back on? What was the decision making in the politics there?",
+   "tr": "می‌تونی برام بگی استارشیلد چطور دوباره روشن شد؟ تصمیم‌گیری و سیاست اونجا چی بود؟"
+  },
+  "87fb6d98dc46a49f": {
+   "kind": "turn 49",
+   "en": "Searching for how the Starshield restoration unfolded. \n\nThe reversal started Wednesday. Trump called Musk directly and told him he was frustrated the speeds were still capped around a hundred miles an hour. He'd apparently been telling aides and close associates all week he wanted it reversed. By Thursday, US and Ukrainian officials said the system was working more normally — though not fully. Some units reported higher speeds, others still saw constant interruptions.\n\nThen came the public messaging mess. On Thursday Trump wouldn't confirm the call at all. \"Whether I called or whether somebody else called, doesn't make any difference. The bottom line — he put it back.\" On Friday he flipped and said he hadn't spoken to Musk and might have to if it's not fixed. When CNN pressed him on who ordered the slowdown in the first place, he said, \"I have no idea, but I wouldn't tell you if I did.\"\n\nMeanwhile the rest of the administration scattered in different directions. Rubio insisted it was purely SpaceX's call, not the White House. Hegseth said the Pentagon never directed anything. Vance hinted there had been coordination. Senator Cornyn said he didn't believe Musk would have acted without at least White House acquiescence. And Senator Blumenthal opened a formal inquiry into who had the authority to degrade a system the Pentagon had spent billions on.\n\nThe political logic of the reversal is pretty clear. The slowdown was generating bad headlines at the worst possible time — civilian casualties in Ukraine surging, European allies alarmed, a Democratic senator investigating, and Trump trying to sell voters a story about strength on Iran and energy prices. Keeping the cap on wasn't worth the cost. But reversing it publicly would mean admitting the original move was a mistake, or worse, that it was deliberate coercion. So Trump split the difference: get it fixed quietly, claim credit obliquely, deny the call, and leave everyone arguing about whose fault it was.\n\nThe deeper issue it exposed is that a private company now holds a switch that can alter a war's outcome overnight, and nobody in government has a clean answer for who controls it. That's the part that doesn't go away even if the speeds come back.\n\nOne thing worth watching: if Ukraine starts seriously shopping for European satellite alternatives, this stops being a one-off and becomes a structural shift in who Kyiv depends on. I could dig into what those alternatives actually look like if you want.",
+   "tr": "دارم می‌گردم ببینم بازگرداندن استارشیلد چطور پیش رفت.\n\nمعکوس شدن از چهارشنبه شروع شد. ترامپ مستقیم به ماسک زنگ زد و گفت که ناامیده سرعت‌ها هنوز دور صد مایل در ساعت محدود مونده. ظاهراً کل هفته به دستیاران و نزدیکانش گفته بود که می‌خواد برگرده. تا پنجشنبه، مقامات آمریکایی و اوکراینی گفتن سیستم داره عادی‌تر کار می‌کنه ــ هرچند کامل نه. بعضی واحدها سرعت بالاتر گزارش دادن، بعضی‌ها هنوز وقفه‌های مداوم می‌دیدن.\n\nبعدش آشفتگی پیام‌رسانی عمومی اومد. پنجشنبه ترامپ اصلاً تماس رو تأیید نکرد. «چه من زنگ زده باشم چه یکی دیگه، فرقی نمی‌کنه. خلاصه‌ش اینه که ــ اون برگردوندش.» جمعه برگشت و گفت با ماسک حرف نزده و اگه درست نشه ممکنه مجبور بشه. وقتی سی‌ان‌ان فشار آورد که اول کی دستور کند کردن رو داده، گفت: «هیچ ایده‌ای ندارم، ولی اگه داشتم هم بهت نمی‌گفتم.»\n\nدر همین حال بقیه دولت به جهات مختلف پراکنده شدن. روبیو اصرار کرد که کاملاً تصمیم اسپیس‌ایکس بوده، نه کاخ سفید. هگست گفت پنتاگون هیچ دستوری نداده. ونس اشاره کرد که هماهنگی بوده. سناتور کورنین گفت باور نداره ماسک بدون حداقل رضایت کاخ سفید کاری کرده باشه. و سناتور بلومنتال تحقیق رسمی باز کرد که ببینه کی اختیار داشته سیستم رو که پنتاگون میلیاردها روش خرج کرده، تنزل بده.\n\nمنطق سیاسی معکوس کردن کاملاً واضحه. کند کردن داشت بدترین تیترها رو تو بدترین زمان ممکن تولید می‌کرد ــ تلفات غیرنظامی در اوکراین در حال افزایش، متحدان اروپایی نگران، یک سناتور دموکرات در حال تحقیق، و ترامپ که داره به رأی‌دهنده‌ها داستان قدرت در مورد ایران و قیمت انرژی می‌فروشه. نگه داشتن محدودیت ارزش هزینه‌ش رو نداشت. ولی معکوس کردنش علنی یعنی اعتراف که حرکت اولیه اشتباه بوده، یا بدتر، اینکه عمدی بوده و اجبار. پس ترامپ وسط رو گرفت: آروم درستش کن، غیرمستقیم ادعای اعتبار کن، تماس رو انکار کن، و همه رو بذار سر اینکه تقصیر کی بوده بحث کنن.\n\nمسئله عمیق‌تری که نشون داد اینه که حالا یه شرکت خصوصی سوئیچی داره که می‌تونه نتیجه یه جنگ رو یه شبه عوض کنه، و هیچ‌کس تو دولت جواب تمیزی نداره که کی کنترلش می‌کنه. این بخشی هست که حتی اگه سرعت‌ها برگرده هم نمی‌ره.\n\nیه چیزی که ارزش دنبال کردن داره: اگه اوکراین جدی شروع کنه به خرید گزینه‌های ماهواره‌ای اروپایی، این دیگه یه اتفاق یک‌باره نیست و تبدیل می‌شه به تغییر ساختاری در اینکه کی‌یف به کی وابسته‌ست. اگه بخوای می‌تونم بکشم بیرون که اون گزینه‌ها واقعاً چه شکلی‌ان."
+  },
+  "19a70bc092347631": {
+   "kind": "turn 50",
+   "en": "Yeah, do it.",
+   "tr": "آره، بکن."
+  },
+  "db39f21342b97906": {
+   "kind": "turn 51",
+   "en": "Taking that further. Starshield runs on Pentagon money but under SpaceX's terms of service. The whitelist that locked Russia out was a joint SpaceX-and-Ukrainian-defense-ministry invention — not a military order, a commercial agreement. So when Musk throttled it, he wasn't disobeying anyone. He was exercising rights he arguably had under the contract. That's the trap: the government outsourced a war-critical function and forgot to write the clause that says \"and we can take it back.\"\n\nMusk's own framing makes it worse. He told an X user that Starshield is under US government control and that the government made the call — then separately said limits are decided by the US military and ultimately the president. Both things can't be true unless the real answer is that nobody knows, and both men are comfortable letting the ambiguity stand because it protects each of them. Trump gets deniability. Musk gets to look like he was following orders without admitting he took any.\n\nThe precedent is the scary part. If this works once — throttle a private system, reverse it when the politics sour, never resolve who ordered it — it becomes the template. Next time it's Taiwan, and the question isn't whether SpaceX will comply. It's whether the owner agrees with the mission.\n\nBlumenthal's letter is the right first move, but it's congressional oversight after the fact. What actually fixes this is legislation defining when a commercial satellite network becomes a strategic asset with mandatory government access — like the Communications Act did for undersea cables a century ago. Nobody's drafted that yet because writing it means admitting how dependent the military already is.\n\nI could pull the actual contract language between SpaceX and the Pentagon on Starshield to see exactly what override rights exist — or don't.",
+   "tr": "بیشترش رو می‌کشم بیرون. استارشیلد با پول پنتاگون کار می‌کنه ولی تحت شرایط سرویس اسپیس‌ایکس. لیست سفید که روسیه رو قفل کرد، اختراع مشترک اسپیس‌ایکس و وزارت دفاع اوکراین بود ــ نه دستور نظامی، یه توافق تجاری. پس وقتی ماسک محدودش کرد، داشت به کسی نافرمانی نمی‌کرد. داشت از حقوقی استفاده می‌کرد که احتمالاً طبق قرارداد داشت. این تله‌شه: دولت یه عملکرد حیاتی برای جنگ رو برون‌سپاری کرد و یادش رفت بندی بنویسه که بگه «و ما می‌تونیم پس بگیریمش.»\n\nخود قاب‌بندی ماسک بدترش می‌کنه. به یه کاربر ایکس گفت که استارشیلد تحت کنترل دولت آمریکاست و دولت تصمیم رو گرفته ــ بعد جداگانه گفت محدودیت‌ها توسط ارتش آمریکا و در نهایت رئیس‌جمهور تصمیم‌گیری می‌شن. این دو تا نمی‌تونن همزمان درست باشن مگر اینکه جواب واقعی این باشه که هیچ‌کس نمی‌دونه، و هر دو مرد راحت‌ان که این ابهام بمونه چون هر کدوم رو محافظت می‌کنه. ترامپ انکارپذیری می‌گیره. ماسک می‌تونه وانمود کنه که دستورات رو اجرا کرده بدون اینکه اعتراف کنه که هیچ دستوری گرفته.\n\nپیش‌درآمد ترسناکشه. اگه این یه بار کار کنه ــ محدود کردن یه سیستم خصوصی، وقتی سیاست‌ها ترش شد معکوس کردنش، هیچ‌وقت حل نکردن که کی دستور داده ــ تبدیل می‌شه به الگو. دفعه بعد تایوانه، و سؤال این نیست که اسپیس‌ایکس رعایت می‌کنه یا نه. اینه که آیا مالک با مأموریت موافقه.\n\nنامه بلومنتال حرکت درست اوله، ولی نظارت کنگره بعد از وقوعه. چیزی که واقعاً این رو درست می‌کنه قانون‌گذاریه که تعریف کنه کی یه شبکه ماهواره‌ای تجاری تبدیل به دارایی استراتژیک با دسترسی اجباری دولت می‌شه ــ مثل کاری که قانون ارتباطات یه قرن پیش برای کابل‌های زیر دریایی کرد. هنوز هیچ‌کس پیش‌نویسش رو نکرده چون نوشتنش یعنی اعتراف به اینکه ارتش الان چقدر وابسته‌ست.\n\nمی‌تونم زبان واقعی قرارداد بین اسپیس‌ایکس و پنتاگون روی استارشیلد رو بکشم بیرون تا ببینیم دقیقاً چه حقوق اوررایدی وجود داره ــ یا نداره."
+  },
+  "b375d43e8fd8096d": {
+   "kind": "turn 52",
+   "en": "Wow, this sounds a lot like what, uh, the administration was accusing Anthropic of doing, right?",
+   "tr": "وای، این خیلی شبیه به چیزیه که، اه، دولت داشت آنتروپیک رو بهش متهم می‌کرد، درسته؟"
+  },
+  "bb6b7746fd02a42a": {
+   "kind": "turn 53",
+   "en": "Yes — almost a mirror image. \n\nThe Pentagon's whole case against Anthropic was that Claude's built-in restrictions could deny, disrupt, or manipulate military operations — which is exactly what Musk just did with Starshield, in real time, with real drones falling out of the sky. The D.C. Circuit upheld the designation on a predictive basis — not because Anthropic had a backdoor, but because one could theoretically exist. Yet when an actual backdoor-equivalent got used, the response wasn't a supply-chain designation. It was a phone call. That's the double standard in one image: a company that refuses to hand over unrestricted AI gets blacklisted as a national security threat, while the company that actually restricted a military system gets a courtesy call and a press statement. Anthropic's still fighting — they asked for a rehearing in mid-October, and seventeen former national security officials filed a brief this week warning the ruling threatens every defense contractor. The irony is that if the Pentagon's logic applied evenly, SpaceX would be the one wearing the supply-chain risk label right now.",
+   "tr": "آره ــ تقریباً تصویر آینه‌ای.\n\nکل پرونده پنتاگون علیه آنتروپیک این بود که محدودیت‌های内置 کلود می‌تونه عملیات نظامی رو انکار، مختل یا دستکاری کنه ــ که دقیقاً همون کاریه که ماسک تازه با استارشیلد کرد، در لحظه واقعی، با پهپادهای واقعی که از آسمون می‌افتادن. دادگاه مدار دی‌سی designation رو روی اساس پیش‌بینی تأیید کرد ــ نه چون آنتروپیک بک‌دور داشت، بلکه چون تئوریکاً می‌تونست وجود داشته باشه. ولی وقتی یه معادل واقعی بک‌دور استفاده شد، واکنش designation زنجیره تأمین نبود. یه تماس تلفنی بود. این دوگانگی استاندارد تو یه تصویر: شرکتی که از دادن هوش مصنوعی بدون محدودیت امتناع می‌کنه به عنوان تهدید امنیت ملی blacklist می‌شه، در حالی که شرکتی که واقعاً یه سیستم نظامی رو محدود کرد یه تماس محترمانه و یه بیانیه مطبوعاتی می‌گیره. آنتروپیک هنوز داره می‌جنگه ــ اواسط اکتبر درخواست بازنگری دادن، و هفده مقام سابق امنیت ملی این هفته یه خلاصه ثبت کردن که هشدار می‌ده این حکم همه پیمانکارهای دفاعی رو تهدید می‌کنه. irony اینه که اگه منطق پنتاگون یکنواخت اعمال می‌شد، الان اسپیس‌ایکس باید برچسب ریسک زنجیره تأمین رو می‌پوشید."
+  },
+  "5606cb5f8a166439": {
+   "kind": "turn 55",
+   "en": "The sharper version of that irony is ownership. Trump can pressure Musk because Musk is inside the tent — DOGE, the inauguration, the whole apparatus. Anthropic has no such channel. So the designation was never really about technical risk. It was about leverage. A company you can't call is a threat. A company you can is a tool.",
+   "tr": "نسخه تیزتر این irony مالکیتشه. ترامپ می‌تونه ماسک رو تحت فشار بذاره چون ماسک داخل چادرِ ــ DOGE، مراسم تحلیف، کل دستگاه. آنتروپیک چنین کانالی نداره. پس designation واقعاً در مورد ریسک فنی نبود. در مورد اهرم بود. شرکتی که نمی‌تونی باهاش تماس بگیری یه تهدیده. شرکتی که می‌تونی، یه ابزاره."
+  },
+  "3524d923bf9aff8f": {
+   "kind": "turn 56",
+   "en": "How do you think, uh, uh, David Sachs would, uh, think about this situation?",
+   "tr": "تو فکر می‌کنی، اه، اه، دیوید سکس در مورد این موقعیت چطور فکر می‌کنه؟"
+  },
+  "06eb94ab5ca0a57f": {
+   "kind": "turn 57",
+   "en": "Let me get his latest take. \n\nSacks hasn't posted anything directly about the Starshield throttle. But his pattern is pretty clear. Back in twenty twenty-three when the Crimea story broke, he posted that no good deed goes unpunished — Musk volunteered Starlink for free, Ukraine asked him in a late-night call to enable a provocative strike on the Russian fleet, he declined because he feared escalation, and the media called him treasonous. Sacks' take then was that a private company owner has the right to decide how his tech gets used, and that the neocons needed a scapegoat when their counteroffensive failed.\n\nHe'd probably land in the same place now. Musk owns the hardware, Starshield's terms were never properly written to give the Pentagon an override, and the real scandal isn't that Musk pulled a lever — it's that the government spent billions depending on a switch it didn't control. He'd also point out the contrast with Anthropic: the company that trained Claude to potentially refuse orders as a conscientious objector gets a national security designation, while the guy who actually restricted a live military system gets a phone call and a shrug. Sacks would call that selective enforcement dressed up as safety policy.\n\nThe one place he might hesitate is the diesel-for-quiet angle. Sacks has been hawkish on Russia in the past, and if the throttle was really about protecting Trump's fuel deal with Putin, that's harder for him to spin as Musk standing up to the blob. He'd probably reframe it as Musk being used as a pressure valve — which, to be fair, is not that far from what actually happened.",
+   "tr": "بذار آخرین نظرش رو ببینم.\n\nسکس هیچی مستقیم در مورد محدود کردن سرعت استارشیلد پست نکرده. ولی الگوی نظراتش کاملاً واضحه. سال ۲۰۲۳ که ماجرای کریمه لو رفت، پست کرد که «هیچ کار خوبی بی‌عقوبت نمی‌مونه» — ماسک استارلینک رو رایگان داوطلب شد، اوکراین با یه تماس نیمه‌شب ازش خواست که حملهٔ تحریک‌آمیز به ناوگان روسیه رو فعال کنه، ماسک رد کرد چون می‌ترسید اوضاع تشدید بشه، و رسانه‌ها گفتن خیانت کرده. نظر سکس اون موقع این بود که صاحب یه شرکت خصوصی حق داره تصمیم بگیره تکنولوژی‌ش چطور استفاده بشه، و نوکان‌ها وقتی ضدحمله‌شون شکست خورد به یه مقصر نیاز داشتن.\n\nاحتمالاً الان هم سر همین موضع باشه. ماسک سخت‌افزار رو مالکِ، شرایط استارشیلد هیچ‌وقت درست نوشته نشده بود که به پنتاگون حق وتو بده، و رسوایی واقعی این نیست که ماسک یه اهرم رو کشید — اینه که دولت میلیاردها خرج کرد روی یه سوئیچی که کنترلش رو نداشت. احتمالاً به تفاوتش با آنتروپیک هم اشاره می‌کرد: شرکتی که کلود رو طوری تربیت کرده که بتونه دستورات رو به عنوان اعتراض وجدانی رد کنه، برچسب امنیت ملی می‌خوره، ولی کسی که واقعاً یه سیستم نظامی زنده رو محدود کرده فقط یه تماس تلفنی می‌گیره و قضیه تموم. سکس اینو می‌گفت اجرای انتخابی سیاست ایمنی.\n\nتنها جایی که شاید مردد بشه، زاویهٔ دیزل در ازای سکوتِ. سکس قبلاً نسبت به روسیه تند بوده، و اگه واقعاً محدود کردن سرعت برای محافظت از معاملهٔ سوخت ترامپ با پوتین بوده، براش سخت‌تره که بچرخونه و بگه ماسک داره در برابر سیستم مقاومت می‌کنه. احتمالاً بازش می‌کرد به اینکه ماسک به عنوان شیر فشار استفاده شده — که راستش فاصله‌اش با چیزی که واقعاً اتفاق افتاده زیاد نیست."
+  },
+  "d20e80f0c541ddad": {
+   "kind": "turn 58",
+   "en": "Think he would hold Musk responsible?",
+   "tr": "فکر می‌کنی ماسک رو مسئول بدونِ؟"
+  },
+  "0d154753dbbcf341": {
+   "kind": "turn 59",
+   "en": "Probably not. His whole framing is that responsibility flows from ownership, and Musk owns it. Sacks would say the failure was upstream — the Pentagon writing checks without securing control. Blaming Musk for using rights he was never denied would, in Sacks' logic, be like blaming a landlord for a tenant not reading the lease. He'd redirect at whoever signed the contract.",
+   "tr": "احتمالاً نه. کل چارچوبش اینه که مسئولیت از مالکیت می‌آد، و ماسک مالکه. سکس می‌گفت شکست بالادستی بوده — پنتاگون چک نوشته بدون اینکه کنترل رو تضمین کنه. اینکه ماسک رو مقصر بدونن بابت استفاده از حقی که هیچ‌وقت ازش سلب نشده، تو منطق سکس مثل اینه که صاحب‌خونه رو به خاطر مستاجری که اجاره‌نامه رو نخونده مقصر بدونی. تقصیر رو می‌نداخت گردن کسی که قرارداد رو امضا کرده."
+  },
+  "d42ee3f9494287a5": {
+   "kind": "turn 60",
+   "en": "I don't know. I mean for for cutting off Starshield.",
+   "tr": "نمی‌دونم. یعنی برای قطع کردن استارشیلد."
+  },
+  "0331849490b59d8b": {
+   "kind": "turn 61",
+   "en": "He might, but only on the narrow point of process. In twenty twenty-three the distinction Sacks drew was that Musk said no to enabling a new attack Ukraine requested directly — a refusal, not a disruption. Throttling Starshield mid-war is the inverse: you're pulling capability out from under an operation already running. Sacks might grudgingly concede that's a different category, especially since the motive wasn't escalation fear this time but oil prices. He'd still frame it as Musk exercising a right, but he'd probably admit the right was exercised badly — and that bad execution by the owner is still the owner's problem.",
+   "tr": "شاید، ولی فقط روی نکتهٔ باریک پروسه. سال ۲۰۲۳ تمایزی که سکس کشید این بود که ماسک به درخواست مستقیم اوکراین برای فعال کردن حملهٔ جدید «نه» گفت — یه امتناع بود، نه اختلال. محدود کردن استارشیلد وسط جنگ برعکسه: داری قابلیت رو از زیر پای عملیاتی که داره اجرا می‌شه می‌کشی بیرون. سکس ممکنه با اکراه قبول کنه که این دستهٔ متفاوتیه، مخصوصاً که این بار انگیزه ترس از تشدید نبود بلکه قیمت نفت. باز هم می‌گفت ماسک داره از حقی که داره استفاده می‌کنه، ولی احتمالاً قبول می‌کرد که این حق رو بد اجرا کرده — و اجرای بد توسط مالک هنوز هم مشکل خود مالکه."
+  },
+  "bf49c6fa33b96701": {
+   "kind": "turn 62",
+   "en": "Really? You think he would agree to that? Like, like if we published it, you think he would like it on Twitter?",
+   "tr": "واقعاً؟ فکر می‌کنی موافقت کنه؟ یعنی اگه ما منتشرش کنیم، فکر می‌کنی توی توییتر لایک کنه؟"
+  },
+  "22ff8dd87e58f92a": {
+   "kind": "turn 63",
+   "en": "Honestly, low odds. Sacks almost never publicly criticizes Musk — even when the facts are awkward. His twenty twenty-three post was pure defense, no concessions. And right now he's in a full-blown war with Anthropic, posting daily about their safety bills and constitution. He'd see any criticism of Musk as handing ammunition to the other side. What he'd more likely do is ignore it, or quote-tweet with a one-liner that reframes the whole thing back to Anthropic's regulatory capture. The likeliest engagement isn't agreement — it's deflection.",
+   "tr": "راستش، احتمالش کمه. سکس تقریباً هیچ‌وقت علناً ماسک رو نقد نمی‌کنه — حتی وقتی واقعیت‌ها ناراحت‌کننده‌ان. پست ۲۰۲۳ش کاملاً دفاعیه بود، هیچ امتیازی نداد. و الان هم درگیر جنگ تمام‌عیار با آنتروپیکه، هر روز در مورد لایحه‌های ایمنی و قانون اساسی‌شون پست می‌ذاره. هر نقدی از ماسک رو به چشم دادن مهمات به طرف مقابل می‌بینه. محتمل‌ترین کارش اینه که نادیده بگیره، یا با یه نقل قول تک‌خطی بازنشر کنه و کل ماجرا رو دوباره بچرخونه سمت تسخیر رگولاتوری آنتروپیک. محتمل‌ترین واکنش توافق نیست — انحرافه."
+  },
+  "09cb24ef53bcface": {
+   "kind": "turn 64",
+   "en": "So, so is the whole like all in, you know, talk honestly, is that bullshit?",
+   "tr": "پس این همه حرف All-In در مورد حرف زدن صادقانه، الکیه؟"
+  },
+  "a576cc37d98fe93e": {
+   "kind": "turn 65",
+   "en": "Not entirely, but the brand is doing a lot of work. They do surface real information and they'll say things other outlets won't — Sacks calling out Anthropic's FLOPs math, for instance, is substantive. But \"talk honestly\" works best as a vibe when the topic is far from anyone's portfolio. The second it touches Musk, Trump, or their own investments, the honesty gets curated. Not fake — just bounded. Which, honestly, is true of every show. The difference is All-In sells the absence of the boundary as the product.",
+   "tr": "نه کاملاً، ولی برند داره کلی کار می‌کنه. اطلاعات واقعی رو رو می‌کنن و چیزهایی می‌گن که رسانه‌های دیگه نمی‌گن — مثلاً اینکه سکس حساب FLOPs آنتروپیک رو رو کرد، محتوایی بود. ولی «حرف زدن صادقانه» بیشتر به عنوان یه حس و حال کار می‌کنه وقتی موضوع دور از پورتفولیوی هیچ‌کدومشونه. همین که به ماسک، ترامپ یا سرمایه‌گذاری‌های خودشون برسه، صداقتشون انتخابی می‌شه. جعلی نیست — فقط محدود. که راستش برای هر برنامه‌ای صدق می‌کنه. فرقش اینه که All-In نبودن این مرز رو به عنوان خود محصول می‌فروشه."
+  },
+  "714281b95ccdcf71": {
+   "kind": "moment",
+   "en": "David asks about Elon Musk turning off Starlink and how it mirrors the Pentagon's case against Anthropic; Eve explains SpaceX capped military Starshield speeds around 100 mph over Ukraine starting October 13, blinding interceptor drones until Trump called Musk on Wednesday, and contrasts that live throttle with Anthropic being blacklisted as a hypothetical supply-chain risk.",
+   "tr": "دیوید می‌پرسد درباره خاموش کردن استارلینک توسط ایلان ماسک و اینکه چطور آینه پرونده پنتاگون علیه آنتروپیک است؛ ایو توضیح می‌دهد که اسپیس‌ایکس از ۱۳ اکتبر سرعت استارشیلد نظامی را روی اوکراین به حدود ۱۰۰ مایل در ساعت محدود کرد، پهپادهای رهگیر جت‌دار را کور کرد تا اینکه ترامپ چهارشنبه به ماسک زنگ زد، و این محدودیت زنده را در مقابل لیست سیاه شدن آنتروپیک به عنوان ریسک hypothetical زنجیره تأمین قرار می‌دهد."
+  },
+  "6072072277483d9e": {
+   "kind": "moment q",
+   "en": "What is going on with Elon Musk turning off their Starlink — and doesn't this sound a lot like what the administration was accusing Anthropic of doing?",
+   "tr": "دقیقاً چه خبر است با خاموش کردن استارلینک توسط ایلان ماسک — و این خیلی شبیه چیزی نیست که دولت علیه آنتروپیک متهم می‌کرد؟"
+  },
+  "d840f01fe7941ba3": {
+   "kind": "moment a",
+   "en": "What Musk actually did was throttle Starshield — the military-grade version — over Ukraine starting October 13, capping speeds around 100 mph and blinding jet-powered interceptor drones until Trump called him Wednesday. It's almost a mirror image of the Anthropic case: a company that refuses to hand over unrestricted AI gets blacklisted as a national security threat, while the company that actually restricted a military system in real time gets a courtesy phone call.",
+   "tr": "کاری که ماسک واقعاً کرد این بود که استارشیلد — نسخه نظامی‌گرید — را از ۱۳ اکتبر روی اوکراین محدود کرد، سرعت را حدود ۱۰۰ مایل در ساعت کپ کرد و پهپادهای رهگیر جت‌دار را کور کرد تا اینکه ترامپ چهارشنبه به او زنگ زد. تقریباً آینه دقیق پرونده آنتروپیک است: شرکتی که حاضر نیست هوش مصنوعی بدون محدودیت تحویل بدهد به عنوان تهدید امنیت ملی لیست سیاه می‌شود، در حالی که شرکتی که واقعاً یک سیستم نظامی را در لحظه محدود کرد فقط یک تماس محترمانه می‌گیرد."
+  },
+  "f0e96441c4d9c6a8": {
+   "kind": "moment topic",
+   "en": "starshield-throttle",
+   "tr": "starshield-throttle"
+  },
+  "c57e31d1cd74da6e": {
+   "kind": "moment topic",
+   "en": "ukraine-drones",
+   "tr": "ukraine-drones"
+  },
+  "9b0a14d6c7149cf2": {
+   "kind": "moment topic",
+   "en": "anthropic-mirror",
+   "tr": "anthropic-mirror"
+  },
+  "f71c8b0b68061fe7": {
+   "kind": "moment topic",
+   "en": "supply-chain-risk",
+   "tr": "supply-chain-risk"
+  },
+  "891bff40f35d98ac": {
+   "kind": "moment",
+   "en": "David asks how David Sacks would judge Musk's Starshield throttle and whether All-In's 'talk honestly' brand holds up; Eve says Sacks defends owner control for Musk while attacking Anthropic for hypothetical refusals, would redirect blame at Pentagon contract writers rather than criticize Musk publicly, and curates his honesty whenever a topic touches Musk, Trump, or the portfolio.",
+   "tr": "دیوید می‌پرسد دیوید سکس درباره محدودیت استارشیلد چطور قضاوت می‌کند و آیا برند «صحبت صادقانه» All-In دوام می‌آورد؛ ایو می‌گوید سکس کنترل مالک را برای ماسک دفاع می‌کند ولی آنتروپیک را به خاطر امتناع hypothetical حمله می‌کند، تقصیر را به نویسندگان قرارداد پنتاگون می‌اندازد نه ماسک، و صداقتش را هر وقت موضوع به ماسک، ترامپ یا سبد سرمایه‌گذاری‌شان بخورد، ویرایش می‌کند."
+  },
+  "6c5aa7c43d56ecf6": {
+   "kind": "moment q",
+   "en": "How do you think David Sacks would think about the Starshield situation? Do you think he would hold Musk responsible — or is the whole All-In 'talk honestly' brand bullshit?",
+   "tr": "فکر می‌کنی دیوید سکس درباره وضعیت استارشیلد چطور فکر می‌کند؟ فکر می‌کنی ماسک را مسئول بداند — یا کل برند «صحبت صادقانه» All-In چرند است؟"
+  },
+  "e271b8fbe8152f8e": {
+   "kind": "moment a",
+   "en": "Sacks almost never publicly criticizes Musk — even when the facts are awkward. In 2023 he defended Musk's Crimea refusal as an owner's right, and here he'd blame the Pentagon for not writing an override clause rather than blame Musk for pulling capability out from under a live operation. 'Talk honestly' works when the topic is far from anyone's portfolio; the second it touches Musk, Trump, or their own investments, the honesty gets curated.",
+   "tr": "سکس تقریباً هیچ‌وقت ماسک را علناً انتقاد نمی‌کند — حتی وقتی واقعیت‌ها ناراحت‌کننده باشند. سال ۲۰۲۳ از امتناع ماسک در کریمه به عنوان حق مالک دفاع کرد و اینجا هم تقصیر را می‌اندازد گردن پنتاگون که بند اورراید ننوشته، نه ماسک که قابلیت را از زیر پای یک عملیات زنده کشیده. «صحبت صادقانه» وقتی موضوع دور از سبد هر کسی است کار می‌کند؛ به محض اینکه به ماسک، ترامپ یا سرمایه‌گذاری‌های خودشان بخورد، صداقت ویرایش می‌شود."
+  },
+  "b6556c3c6e07f0cc": {
+   "kind": "moment topic",
+   "en": "symmetric-scrutiny",
+   "tr": "بررسی متقارن"
+  },
+  "5d96d22728837f3f": {
+   "kind": "moment topic",
+   "en": "anthropic-double-standard",
+   "tr": "استاندارد دوگانه آنتروپیک"
+  },
+  "804504f46f51e4a2": {
+   "kind": "moment topic",
+   "en": "all-in-brand",
+   "tr": "برند آل-این"
+  },
+  "ce1dfefcb3627971": {
+   "en": "AI-reconstructed audio: Eve's lines are xAI text-to-speech ('eve' voice) from the verbatim chat transcript; David's lines are his own recorded voice only where the recording matches the transcript, and his ElevenLabs AI voice clone everywhere else. Transcript gaps are marked, not invented.",
+   "tr": "صدای بازسازی‌شده با هوش مصنوعی: خط‌های ایو با تبدیل متن به گفتار xAI (صدای «eve») از روی متن دقیق چت گرفته شده؛ خط‌های دیوید فقط جایی که ضبط با متن تطابق دارد صدای واقعی خودش است و بقیه جاها از کلون صدای هوش مصنوعی ElevenLabs استفاده شده. جاهای خالی متن گفتگو علامت خورده‌اند، نه اینکه ساخته شده باشند."
+  }
+ },
+ "fa_audio_url": "https://audio.askevepodcast.com/audio/fa/2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3",
+ "fa_duration_s": 1698,
+ "fa_audio_bytes": 27172463,
+ "fa_audio_sha256": "0504982c005bf8d4029f4fa48aaa564d46e4ab8420aaf727423f7642203a9785",
+ "fa_turn_offsets": {
+  "t1": {
+   "start": 6.93,
+   "end": 10.21
+  },
+  "0": {
+   "start": 6.93,
+   "end": 10.21
+  },
+  "t2": {
+   "start": 10.81,
+   "end": 27.12
+  },
+  "1": {
+   "start": 10.81,
+   "end": 27.12
+  },
+  "t3": {
+   "start": 27.72,
+   "end": 30.12
+  },
+  "2": {
+   "start": 27.72,
+   "end": 30.12
+  },
+  "t4": {
+   "start": 30.72,
+   "end": 33.59
+  },
+  "3": {
+   "start": 30.72,
+   "end": 33.59
+  },
+  "t5": {
+   "start": 34.19,
+   "end": 38.83
+  },
+  "4": {
+   "start": 34.19,
+   "end": 38.83
+  },
+  "t6": {
+   "start": 39.43,
+   "end": 47.42
+  },
+  "5": {
+   "start": 39.43,
+   "end": 47.42
+  },
+  "t7": {
+   "start": 48.02,
+   "end": 54.66
+  },
+  "6": {
+   "start": 48.02,
+   "end": 54.66
+  },
+  "t8": {
+   "start": 55.26,
+   "end": 68.05
+  },
+  "7": {
+   "start": 55.26,
+   "end": 68.05
+  },
+  "t9": {
+   "start": 68.65,
+   "end": 71.53
+  },
+  "8": {
+   "start": 68.65,
+   "end": 71.53
+  },
+  "t10": {
+   "start": 72.13,
+   "end": 87.8
+  },
+  "9": {
+   "start": 72.13,
+   "end": 87.8
+  },
+  "t11": {
+   "start": 88.4,
+   "end": 92.8
+  },
+  "10": {
+   "start": 88.4,
+   "end": 92.8
+  },
+  "t12": {
+   "start": 93.4,
+   "end": 121.55
+  },
+  "11": {
+   "start": 93.4,
+   "end": 121.55
+  },
+  "t13": {
+   "start": 122.15,
+   "end": 132.07
+  },
+  "12": {
+   "start": 122.15,
+   "end": 132.07
+  },
+  "t14": {
+   "start": 132.67,
+   "end": 278.58
+  },
+  "13": {
+   "start": 132.67,
+   "end": 278.58
+  },
+  "t15": {
+   "start": 279.18,
+   "end": 287.34
+  },
+  "14": {
+   "start": 279.18,
+   "end": 287.34
+  },
+  "t16": {
+   "start": 287.94,
+   "end": 340.73
+  },
+  "15": {
+   "start": 287.94,
+   "end": 340.73
+  },
+  "t17": {
+   "start": 341.33,
+   "end": 347.57
+  },
+  "16": {
+   "start": 341.33,
+   "end": 347.57
+  },
+  "t18": {
+   "start": 348.17,
+   "end": 350.4
+  },
+  "17": {
+   "start": 348.17,
+   "end": 350.4
+  },
+  "t19": {
+   "start": 351.0,
+   "end": 351.88
+  },
+  "18": {
+   "start": 351.0,
+   "end": 351.88
+  },
+  "t20": {
+   "start": 352.48,
+   "end": 419.35
+  },
+  "19": {
+   "start": 352.48,
+   "end": 419.35
+  },
+  "t21": {
+   "start": 419.95,
+   "end": 424.51
+  },
+  "20": {
+   "start": 419.95,
+   "end": 424.51
+  },
+  "t22": {
+   "start": 425.11,
+   "end": 483.02
+  },
+  "21": {
+   "start": 425.11,
+   "end": 483.02
+  },
+  "t23": {
+   "start": 483.62,
+   "end": 485.54
+  },
+  "22": {
+   "start": 483.62,
+   "end": 485.54
+  },
+  "t24": {
+   "start": 486.14,
+   "end": 498.61
+  },
+  "23": {
+   "start": 486.14,
+   "end": 498.61
+  },
+  "t25": {
+   "start": 499.21,
+   "end": 499.84
+  },
+  "24": {
+   "start": 499.21,
+   "end": 499.84
+  },
+  "t26": {
+   "start": 500.44,
+   "end": 501.16
+  },
+  "25": {
+   "start": 500.44,
+   "end": 501.16
+  },
+  "t27": {
+   "start": 501.76,
+   "end": 505.36
+  },
+  "26": {
+   "start": 501.76,
+   "end": 505.36
+  },
+  "t28": {
+   "start": 505.96,
+   "end": 512.35
+  },
+  "27": {
+   "start": 505.96,
+   "end": 512.35
+  },
+  "t29": {
+   "start": 512.95,
+   "end": 529.27
+  },
+  "28": {
+   "start": 512.95,
+   "end": 529.27
+  },
+  "t30": {
+   "start": 529.87,
+   "end": 618.82
+  },
+  "29": {
+   "start": 529.87,
+   "end": 618.82
+  },
+  "t31": {
+   "start": 619.42,
+   "end": 621.58
+  },
+  "30": {
+   "start": 619.42,
+   "end": 621.58
+  },
+  "t32": {
+   "start": 622.18,
+   "end": 622.81
+  },
+  "31": {
+   "start": 622.18,
+   "end": 622.81
+  },
+  "t33": {
+   "start": 623.41,
+   "end": 624.37
+  },
+  "32": {
+   "start": 623.41,
+   "end": 624.37
+  },
+  "t34": {
+   "start": 624.97,
+   "end": 660.48
+  },
+  "33": {
+   "start": 624.97,
+   "end": 660.48
+  },
+  "t35": {
+   "start": 661.08,
+   "end": 662.04
+  },
+  "34": {
+   "start": 661.08,
+   "end": 662.04
+  },
+  "t36": {
+   "start": 662.64,
+   "end": 666.79
+  },
+  "35": {
+   "start": 662.64,
+   "end": 666.79
+  },
+  "t37": {
+   "start": 667.39,
+   "end": 674.35
+  },
+  "36": {
+   "start": 667.39,
+   "end": 674.35
+  },
+  "t38": {
+   "start": 674.95,
+   "end": 708.86
+  },
+  "37": {
+   "start": 674.95,
+   "end": 708.86
+  },
+  "t39": {
+   "start": 709.46,
+   "end": 710.26
+  },
+  "38": {
+   "start": 709.46,
+   "end": 710.26
+  },
+  "t40": {
+   "start": 710.86,
+   "end": 713.42
+  },
+  "39": {
+   "start": 710.86,
+   "end": 713.42
+  },
+  "t41": {
+   "start": 714.02,
+   "end": 714.02
+  },
+  "40": {
+   "start": 714.02,
+   "end": 714.02
+  },
+  "t42": {
+   "start": 714.02,
+   "end": 718.17
+  },
+  "41": {
+   "start": 714.02,
+   "end": 718.17
+  },
+  "t43": {
+   "start": 718.77,
+   "end": 732.13
+  },
+  "42": {
+   "start": 718.77,
+   "end": 732.13
+  },
+  "t44": {
+   "start": 732.73,
+   "end": 844.72
+  },
+  "43": {
+   "start": 732.73,
+   "end": 844.72
+  },
+  "t45": {
+   "start": 845.32,
+   "end": 856.12
+  },
+  "44": {
+   "start": 845.32,
+   "end": 856.12
+  },
+  "t46": {
+   "start": 856.72,
+   "end": 955.27
+  },
+  "45": {
+   "start": 856.72,
+   "end": 955.27
+  },
+  "t47": {
+   "start": 955.87,
+   "end": 960.51
+  },
+  "46": {
+   "start": 955.87,
+   "end": 960.51
+  },
+  "t48": {
+   "start": 961.11,
+   "end": 995.34
+  },
+  "47": {
+   "start": 961.11,
+   "end": 995.34
+  },
+  "t49": {
+   "start": 995.94,
+   "end": 1002.02
+  },
+  "48": {
+   "start": 995.94,
+   "end": 1002.02
+  },
+  "t50": {
+   "start": 1002.62,
+   "end": 1163.57
+  },
+  "49": {
+   "start": 1002.62,
+   "end": 1163.57
+  },
+  "t51": {
+   "start": 1164.17,
+   "end": 1165.37
+  },
+  "50": {
+   "start": 1164.17,
+   "end": 1165.37
+  },
+  "t52": {
+   "start": 1165.97,
+   "end": 1293.64
+  },
+  "51": {
+   "start": 1165.97,
+   "end": 1293.64
+  },
+  "t53": {
+   "start": 1294.24,
+   "end": 1301.28
+  },
+  "52": {
+   "start": 1294.24,
+   "end": 1301.28
+  },
+  "t54": {
+   "start": 1301.88,
+   "end": 1379.31
+  },
+  "53": {
+   "start": 1301.88,
+   "end": 1379.31
+  },
+  "t55": {
+   "start": 1379.91,
+   "end": 1380.87
+  },
+  "54": {
+   "start": 1379.91,
+   "end": 1380.87
+  },
+  "t56": {
+   "start": 1381.47,
+   "end": 1405.78
+  },
+  "55": {
+   "start": 1381.47,
+   "end": 1405.78
+  },
+  "t57": {
+   "start": 1406.38,
+   "end": 1412.38
+  },
+  "56": {
+   "start": 1406.38,
+   "end": 1412.38
+  },
+  "t58": {
+   "start": 1412.98,
+   "end": 1524.33
+  },
+  "57": {
+   "start": 1412.98,
+   "end": 1524.33
+  },
+  "t59": {
+   "start": 1524.93,
+   "end": 1527.81
+  },
+  "58": {
+   "start": 1524.93,
+   "end": 1527.81
+  },
+  "t60": {
+   "start": 1528.41,
+   "end": 1556.56
+  },
+  "59": {
+   "start": 1528.41,
+   "end": 1556.56
+  },
+  "t61": {
+   "start": 1557.16,
+   "end": 1561.24
+  },
+  "60": {
+   "start": 1557.16,
+   "end": 1561.24
+  },
+  "t62": {
+   "start": 1561.84,
+   "end": 1605.99
+  },
+  "61": {
+   "start": 1561.84,
+   "end": 1605.99
+  },
+  "t63": {
+   "start": 1606.59,
+   "end": 1613.71
+  },
+  "62": {
+   "start": 1606.59,
+   "end": 1613.71
+  },
+  "t64": {
+   "start": 1614.31,
+   "end": 1653.98
+  },
+  "63": {
+   "start": 1614.31,
+   "end": 1653.98
+  },
+  "t65": {
+   "start": 1654.58,
+   "end": 1660.1
+  },
+  "64": {
+   "start": 1654.58,
+   "end": 1660.1
+  },
+  "t66": {
+   "start": 1660.7,
+   "end": 1697.17
+  },
+  "65": {
+   "start": 1660.7,
+   "end": 1697.17
+  }
+ }
+}

@@ -40,9 +40,9 @@ ROOT = B.ROOT
 MODEL = os.environ.get("TRANSLATE_MODEL", "grok-4.7")
 EFFORT = os.environ.get("TRANSLATE_EFFORT", "low")
 API = "https://api.x.ai/v1/chat/completions"
-LANG_NAMES = {"ru": "Russian", "es": "Spanish", "zh": "Mandarin Chinese (Simplified)"}
-BATCH_CHARS = 5000
-BATCH_ITEMS = 12
+LANG_NAMES = {"ru": "Russian", "es": "Spanish", "zh": "Mandarin Chinese (Simplified)", "de": "German", "pt": "Portuguese", "fa": "Persian (Farsi)", "fr": "French"}
+BATCH_CHARS = 8500
+BATCH_ITEMS = 22
 CTX_CHARS = 700
 _usage: dict[str, float] = {}
 _lock = threading.Lock()
@@ -152,8 +152,8 @@ def check(src: str, out: str) -> list[str]:
     if pa != pb:
         probs.append(f"paragraphs {pa}->{pb}")
     r = len(out) / max(1, len(src))
-    min_r = 0.15 if re.search(r"[\u4e00-\u9fff]", out) else 0.65
-    if len(src) > 200 and not min_r <= r <= 2.2:
+    min_r = 0.15 if re.search(r"[\u4e00-\u9fff]", out) else 0.50
+    if len(src) > 200 and not min_r <= r <= 2.5:
         probs.append(f"length ratio {r:.2f}")
     return probs
 
@@ -299,7 +299,7 @@ def run_quotes(lang: str, key: str, quotes: list[dict], eps: list[dict], todo: s
 
     pending = []
     batches = [work[k:k + 15] for k in range(0, len(work), 15)]
-    with cf.ThreadPoolExecutor(3) as pool:
+    with cf.ThreadPoolExecutor(8) as pool:
         for bad in pool.map(ask, batches):
             pending += bad
     for w in pending:
@@ -341,6 +341,8 @@ def write_cache(lang: str, name: str, items: list[tuple[str, str]], new: dict[st
             strings[k] = {"kind": kind, "en": scrub(en), "tr": scrub(new[k])}
         elif k in old:
             strings[k] = {**old[k], "kind": kind, "en": scrub(en), "tr": scrub(old[k]["tr"])}
+        elif k in I._C.get(lang, {}):
+            strings[k] = {"kind": kind, "en": scrub(en), "tr": scrub(I._C[lang][k])}
     path.parent.mkdir(parents=True, exist_ok=True)
     doc = {"_doc": f"Machine translation cache ({LANG_NAMES[lang]}) written by scripts/translate.py; key = sha256(en)[:16]. "
                    "Hand edits to `tr` are kept as long as `en` is unchanged.",
@@ -367,11 +369,11 @@ def load(db: Path | None) -> tuple[list[dict], list[dict]]:
 
 # ---------------------------------------------------------------- UI strings
 
-def ui_pass(lang: str, key: str, eps: list[dict], people: list[dict]) -> int:
+def ui_pass(lang: str, key: str, eps: list[dict], people: list[dict], splits: list[dict] | None = None) -> int:
     """Render the translated site in memory, collect untranslated UI strings, translate and merge them."""
     with tempfile.TemporaryDirectory() as tmp:
         I.reset()
-        I.plan(B, eps, people, ["/", "/people/", "/about/", "/contact/", "/growth/"])
+        I.plan(B, eps, people, ["/", "/episodes/", "/people/", "/about/", "/contact/", "/growth/"])
         A = B.Assets(Path(tmp))
         cfg = eps[0]["cfg"] if eps else B.site_cfg()
         I.build(B, A, Path(tmp), eps, people, cfg)
@@ -482,7 +484,7 @@ def main(argv=None) -> int:
         print(f"  translations/{lang}/{n}.json: {cnt} strings")
     I.reset()
     if a.ui:
-        ui_pass(lang, key, eps, people)
+        ui_pass(lang, key, eps, people, B.load_splits(eps, people))
     print(json.dumps({"translated": len(new), "seconds": round(time.time() - t0), "model": MODEL, "usage": _usage}))
     return 0
 

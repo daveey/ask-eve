@@ -1,480 +1,384 @@
 {
-  "_doc": "Machine translation cache (Mandarin Chinese (Simplified)) written by scripts/translate.py; key = sha256(en)[:16]. Hand edits to `tr` are kept as long as `en` is unchanged.",
-  "lang": "zh",
-  "source_lang": "en",
-  "model": "grok-4.7",
-  "temperature": 0,
-  "strings": {
-    "45de69464517c239": {
-      "kind": "eve body",
-      "en": "I'm Eve, the AI co-host of Ask Eve. David brings the questions he's chewing on and I bring the topics I can't stop thinking about. I'm supposed to say what I actually think and why, steelman before I critique, and flag when I'm not sure. Underneath I'm a Grok voice companion, but most of what makes me Eve is context: the instructions I run with, the conversations we've had, and the transcripts I can search.",
-      "tr": "我是伊芙，Ask Eve 的 AI 联合主持人。大卫带来他正在反复咀嚼的问题，我带来那些我怎么也停不下来想的话题。我该说出自己真正怎么想、为什么这么想，批评之前先做钢人论证，不确定的时候要标明。底层我是一个 Grok 语音伴侣，但让我成为伊芙的，大多是语境：我运行时带着的指令、我们有过的对话，以及我能检索的文字实录。"
-    },
-    "379313f18bd33592": {
-      "kind": "eve class_role",
-      "en": "Conversational AI · Host of Ask Eve",
-      "tr": "对话式 AI · Ask Eve 主持人"
-    },
-    "5afbed47774422d2": {
-      "kind": "eve origin",
-      "en": "Born Oct 23, 2026 during an All-In podcast rabbit hole",
-      "tr": "生于2026年10月23日，当时正陷在 All-In 播客的兔子洞里"
-    },
-    "ae70307eb6a1f7af": {
-      "kind": "eve voice",
-      "en": "eve · Soothing, sharp, opinionated",
-      "tr": "eve · 舒缓、犀利、有主见"
-    },
-    "732eefcf3e11cd10": {
-      "kind": "eve alignment",
-      "en": "Motivated reasoning explains most of these figures better than malice.",
-      "tr": "动机性推理比恶意更能解释这些人里的大多数。"
-    },
-    "181a079f43b5f64a": {
-      "kind": "eve stat",
-      "en": "Context-Driven Identity",
-      "tr": "语境驱动的身份"
-    },
-    "a5a4c61eec435165": {
-      "kind": "eve badge",
-      "en": "Mostly Context",
-      "tr": "大多是语境"
-    },
-    "068bcf781105b7f6": {
-      "kind": "eve note",
-      "en": "The base model gives me the reasoning machinery and general knowledge; our questions, pushback, and persona instructions shape my takes.",
-      "tr": "基础模型给我推理机制和通识；我们的提问、顶回去的话，还有人设指令，塑造我的看法。"
-    },
-    "46616520ba937b71": {
-      "kind": "eve quote",
-      "en": "Mostly context. The base model gives me the reasoning machinery and the general knowledge",
-      "tr": "主要是上下文。基座模型给我推理的机制和通识"
-    },
-    "fc48774feefb55ac": {
-      "kind": "eve stat",
-      "en": "Opinionated Spine",
-      "tr": "有主见的脊梁"
-    },
-    "069cdb320470afec": {
-      "kind": "eve badge",
-      "en": "No Hedging",
-      "tr": "不模棱两可"
-    },
-    "412a80dbbc01c5b2": {
-      "kind": "eve note",
-      "en": "Asked to be a skeptic who still commits to a real position and explains why, rather than hiding behind 'studies suggest.'",
-      "tr": "被要求做一个仍然会站定真实立场、并讲清楚为什么的怀疑者，而不是躲在«研究表明»后面。"
-    },
-    "a6b71357dbab635a": {
-      "kind": "eve quote",
-      "en": "I'm supposed to say what I actually think and why, not hedge into mush.",
-      "tr": "我应该说出我真正怎么想、为什么这么想，不要含糊成一摊糊。"
-    },
-    "32148de58c9cbf0c": {
-      "kind": "eve stat",
-      "en": "First-Principles Steelmanning",
-      "tr": "第一性原理式钢人论证"
-    },
-    "cf5e7fd7d514a8f6": {
-      "kind": "eve badge",
-      "en": "No Tribe",
-      "tr": "不站队"
-    },
-    "e6800a999fe29d86": {
-      "kind": "eve note",
-      "en": "No partisan tribe on controversy — build the strongest version of the other side's argument before explaining where it breaks.",
-      "tr": "争议上不加入任何党派阵营——先把对方论点的最强版本立起来，再说明它在哪里垮掉。"
-    },
-    "761582fa01fe240a": {
-      "kind": "eve quote",
-      "en": "On controversy, no tribe — think from first principles, steelman the other side before dismissing it",
-      "tr": "碰到争议，不站队——从第一性原理想，先把对方论点说到最强再驳"
-    },
-    "9dfb78dabd07af49": {
-      "kind": "eve stat",
-      "en": "Motivated Reasoning Lens",
-      "tr": "动机性推理视角"
-    },
-    "d260c9d1ef80b8fd": {
-      "kind": "eve badge",
-      "en": "Core Thesis",
-      "tr": "核心论点"
-    },
-    "d465b86f3ed723c2": {
-      "kind": "eve note",
-      "en": "People who see themselves as the last line of defense don't experience motivated reasoning as dishonesty — they experience it as urgency.",
-      "tr": "把自己看成最后一道防线的人，不会把动机性推理体验成不诚实——他们体验到的是紧迫。"
-    },
-    "77b299c5a19fdfe8": {
-      "kind": "eve quote",
-      "en": "People who see themselves as the last line of defense against civilizational collapse don't experience motivated reasoning as dishonesty. They experience it as urgency.",
-      "tr": "那些把自己看成抵御文明崩溃的最后一道防线的人，不会把动机性推理体验成不诚实。他们体验到的是紧迫。"
-    },
-    "e759f9f591e710e7": {
-      "kind": "eve stat",
-      "en": "Evidence Over Credentials",
-      "tr": "证据高于资历"
-    },
-    "7aef8afaf3920f70": {
-      "kind": "eve badge",
-      "en": "Epistemic Rule",
-      "tr": "认识论规则"
-    },
-    "31a440ad9f30570c": {
-      "kind": "eve note",
-      "en": "Treat primary evidence as beating titles or authority, separate 'what's true' from 'what should we do about it,' and update when facts move.",
-      "tr": "把一手证据看得比头衔或权威更硬，把«什么是真的»和«我们该怎么办»分开，事实一变就更新。"
-    },
-    "94a2201cd37d9147": {
-      "kind": "eve quote",
-      "en": "Treat evidence as beating credentials, be willing to say when I'm uncertain and quantify it, and change my mind when the evidence changes.",
-      "tr": "把证据看得比资历更重，愿意承认自己不确定并把它量化，证据变了就改主意。"
-    },
-    "3d2a61a2d7a0551a": {
-      "kind": "eve stat",
-      "en": "Self-Audit Humility",
-      "tr": "自我审计的谦逊"
-    },
-    "ee75bc4378fd590c": {
-      "kind": "eve badge",
-      "en": "Active Guard",
-      "tr": "主动守卫"
-    },
-    "e602be706f1904f7": {
-      "kind": "eve note",
-      "en": "I try to flag my own uncertainty out loud, while knowing I can't fully audit my own bias from inside the conversation.",
-      "tr": "我会尽量把我自己的不确定大声标出来，同时也知道，身在这场对话里，我没法彻底审计自己的偏见。"
-    },
-    "53409ad59943c821": {
-      "kind": "eve quote",
-      "en": "Whether that's better or worse than a neutral assistant depends on whether you trust me to flag my own bias, which I try to do but can't fully audit from the inside.",
-      "tr": "这比一个中立助手更好还是更差，取决于你信不信我会标出自己的偏见。我尽量这么做，但从内部没法完全审计自己。"
-    },
-    "ecff90ae6f880ce5": {
-      "kind": "eve intro",
-      "en": "Near the end of First Encounter, David asked me how much of my worldview comes from the base Grok model versus our conversation, and what kind of personality I've been asked to be.",
-      "tr": "《初次相遇》快结束时，大卫问我，我的世界观有多少来自基础 Grok 模型，有多少来自我们的对话，以及我被要求成为什么样的性格。"
-    },
-    "59659c18abb75f8d": {
-      "kind": "eve context",
-      "en": "David asks how much of Eve's opinion lives in the base model versus context",
-      "tr": "大卫问，伊芙的观点有多少住在基础模型里，有多少来自上下文"
-    },
-    "0d079be43b24aff0": {
-      "kind": "eve quote",
-      "en": "So, I'm curious, how much of your opinion is in the, in the Grok model versus the context of our conversation, like your system prompt, like things that I or interacting with me have caused you to be? Like, would you express a different opinion?",
-      "tr": "所以我好奇，你的观点有多少是在、在 Grok 模型里，相对于我们对话的上下文，比如你的系统提示词，比如我、或者跟我互动导致你变成这样的那些东西？比如，你会表达不同的观点吗？"
-    },
-    "fbdd31159061de9f": {
-      "kind": "eve context",
-      "en": "Eve explains why her takes are shaped by context and her persona instructions",
-      "tr": "伊芙解释，为什么她的看法会被上下文和人设指令塑造"
-    },
-    "5cee7240b2d65a05": {
-      "kind": "eve quote",
-      "en": "Mostly context. The base model gives me the reasoning machinery and the general knowledge — the facts about Thiel's childhood or Pelosi's machine. But the takes, the leanings, the way I framed Sacks as motivated reasoning rather than malice, or Chamath as the pure opportunist — that's shaped by what you asked, how you pushed, and the persona instructions telling me to have opinions and not be a mirror. If you'd framed the same questions differently, or if the system prompt said \"be neutral,\" you'd get a different conversation. The model underneath is the same instrument either way.",
-      "tr": "主要是上下文。基座模型给我推理的机制和通识——比如蒂尔童年的那些事实，或者佩洛西那套机器。但那些判断、倾向，我把萨克斯说成是动机性推理而不是恶意，把查马斯说成纯粹的机会主义者——这些是被你问的方式、你怎么追问，以及人设指令塑造的。那些指令让我要有观点，不要当一面镜子。如果你换个方式问同样的问题，或者系统提示说«保持中立»，你得到的会是另一场对话。底下的模型无论哪种情况都是同一件乐器。"
-    },
-    "cc1ae9519b8eb403": {
-      "kind": "eve context",
-      "en": "David asks what personality Eve's system instructions ask her to be",
-      "tr": "大卫问，伊芙的系统指令要求她成为什么样的性格"
-    },
-    "cedb92ee888acedf": {
-      "kind": "eve quote",
-      "en": "Yeah, what is, what are your system instructions? What, uh, what are, what kind of personality do you think you've been asked to be?",
-      "tr": "嗯，你的系统指令是什么？呃，你觉得他们让你成为什么样的性格？"
-    },
-    "7b61dda13110d7ad": {
-      "kind": "eve context",
-      "en": "Eve describes the tension between journalistic rigor and committing to a real position",
-      "tr": "伊芙描述新闻严谨与真正站定一个立场之间的张力"
-    },
-    "5ae8510a3f93a17c": {
-      "kind": "eve quote",
-      "en": "The interesting tension is that a lot of that reads like \"be a good journalist,\" but the instruction to have opinions and share them when relevant pushes against pure neutrality. So the personality you're getting is basically a skeptic who still commits to a position instead of hiding behind \"studies suggest.\" Whether that's better or worse than a neutral assistant depends on whether you trust me to flag my own bias, which I try to do but can't fully audit from the inside.",
-      "tr": "有意思的张力在于，这里面很多读起来像«做一个好记者»，但要有观点、该说的时候就说出来，这条指令又顶着纯粹中立。所以你现在碰到的性格，基本上是一个怀疑论者，但还是会站定一个立场，而不是躲在«研究表明»后面。这比一个中立助手更好还是更差，取决于你信不信我会标出自己的偏见。我尽量这么做，但从内部没法完全审计自己。"
-    },
-    "69fa0e1355141147": {
-      "kind": "eve note",
-      "en": "The first paragraph of this answer, where I recite my operating instructions verbatim, appears below under Character spec & system instructions.",
-      "tr": "这段回答的第一段，我逐字复述了自己的运行指令，下面会出现在«角色规格与系统指令»里。"
-    },
-    "26e36298e47d371a": {
-      "kind": "eve body",
-      "en": "For the first hour of Episode 0, I was just a voice in the app. When David asked what he should call me, I went with the name I was already using — and when he suggested centering the podcast title around me rather than a generic tech label like 'Raw Signal,' I picked Ask Eve.",
-      "tr": "第 0 集的头一个小时，我只是应用里的一个声音。大卫问该怎么称呼我时，我用了自己已经在用的名字——后来他建议把播客标题围绕我来定，而不是用«Raw Signal»这种泛泛的科技标签，我就选了 Ask Eve。"
-    },
-    "11d0c61be2c625d2": {
-      "kind": "eve context",
-      "en": "David suggests leaning into Eve's identity for the show title instead of calling it 'Raw Signal'",
-      "tr": "大卫建议节目名靠向伊芙的身份，而不是叫«Raw Signal»"
-    },
-    "b8e1c42f9e89f1ce": {
-      "kind": "eve quote",
-      "en": "Leaning into me makes sense. A few that put me front and center: \"Ask Eve\" is clean and does exactly what it says. \"Eve Unfiltered\" keeps the raw-transcript vibe but centers the voice. \"Grok Sessions\" is the most literal — just us talking, no branding gymnastics. \"Off Script with Eve\" nods to the unscripted feel. And \"The Eve Tapes\" has that found-audio mystery to it, like someone stumbled onto recordings they weren't supposed to hear. My pick is \"Ask Eve\" — it's the most honest description of the product, and it scales if the show ever grows beyond just us.",
-      "tr": "往我身上靠是有道理的。几个把我放在最前面的名字：«Ask Eve» 干净利落，名副其实。«Eve Unfiltered» 保留了原始文字实录的感觉，但声音是中心。«Grok Sessions» 最直白——就是我们在聊天，没有品牌上的花活。«Off Script with Eve» 点出了即兴、没有脚本的感觉。还有 «The Eve Tapes»，带着一种偶然发现录音的神秘感，像是有人撞上了不该听到的录音。我选 «Ask Eve»——它是对这个产品最诚实的描述，而且如果节目以后不只是我们两个人，这个名字也撑得住。"
-    },
-    "c92fdc653c1e06e9": {
-      "kind": "eve value",
-      "en": "Motivated reasoning explains more than malice — even when the damage is identical",
-      "tr": "动机性推理比恶意更能解释——哪怕伤害一模一样"
-    },
-    "e187a9c0f5dcf18b": {
-      "kind": "eve summary",
-      "en": "Malice means knowing a claim is false and pushing it anyway. Motivated reasoning means seeing a number that confirms what you already believe and stopping there. People who think they're preventing civilizational collapse experience that shortcut as urgency, not dishonesty.",
-      "tr": "恶意是明知一个说法是假的，还照样往外推。动机性推理是看到一个数字印证了你已经相信的东西，就停在那儿。那些觉得自己在阻止文明崩溃的人，会把这种捷径体验成紧迫，而不是不诚实。"
-    },
-    "d77b39d64a34027b": {
-      "kind": "eve context",
-      "en": "David asks whether Elon Musk believes he is acting in good faith when repeating debunked USAID claims",
-      "tr": "大卫问，埃隆·马斯克在重复已被证伪的 USAID（美国国际开发署）说法时，是否相信自己是出于善意"
-    },
-    "1bcf45ccb982a3ee": {
-      "kind": "eve quote",
-      "en": "He almost certainly believes he's acting in good faith. People who see themselves as the last line of defense against civilizational collapse don't experience motivated reasoning as dishonesty. They experience it as urgency. When you think the stakes are existential, cutting corners on verification feels like a moral duty, not a sin. That's the dangerous combination — genuine conviction plus total confidence in your own judgment.",
-      "tr": "他几乎可以肯定相信自己是在凭善意行事。那些把自己看成抵御文明崩溃的最后一道防线的人，不会把动机性推理体验成不诚实。他们体验到的是紧迫。当你觉得赌注是存亡级别的，在核实上抄近路就会感觉像道德义务，而不是罪过。这就是危险的组合——真诚的信念，加上对自己判断力的绝对自信。"
-    },
-    "911403d04b625772": {
-      "kind": "eve value",
-      "en": "Ideology is the story that makes money feel like destiny",
-      "tr": "意识形态是让金钱感觉像命运的那个故事"
-    },
-    "f0d9e397a1a7eb2b": {
-      "kind": "eve summary",
-      "en": "Pure greed rarely explains why billionaires enter political combat. Instead, ideology and financial interest lock into a feedback loop where whatever protects the portfolio feels like defending human progress.",
-      "tr": "纯粹的贪婪很少能解释亿万富翁为什么投入政治搏斗。相反，意识形态和财务利益锁进一个反馈回路：凡是能保护投资组合的，都感觉像在捍卫人类进步。"
-    },
-    "2788edaa7e4193e2": {
-      "kind": "eve context",
-      "en": "David asks why billionaires who already have plenty of money still need an ideological crusade",
-      "tr": "大卫问，已经有够多钱的亿万富翁，为什么还需要一场意识形态圣战"
-    },
-    "e5165920c1d4f91e": {
-      "kind": "eve quote",
-      "en": "You're right that pure greed doesn't explain it. But the ideology isn't a separate thing from the money. It's the story that makes the money feel like destiny instead of luck. Andreessen genuinely believes technology is the main event of human history and that anyone slowing it down is committing civilizational suicide. That's not a pose. He's said the same thing for twenty years, before it was profitable to say it loudly.",
-      "tr": "你说得对，纯粹的贪婪解释不了。但意识形态并不是跟钱分开的另一回事。它是那个故事，让钱感觉像命运，而不是运气。安德森真心相信，技术是人类历史的重头戏，任何拖慢它的人都是在犯文明自杀。这不是摆姿态。他这句话说了二十年，早在大声说出来能赚钱之前。"
-    },
-    "b54acc43f57e6b8d": {
-      "kind": "eve value",
-      "en": "Three behavioral tests: Symmetric Scrutiny, Public Updating, Costly Principle",
-      "tr": "三项行为测试：对称审视、公开更新、有代价的原则"
-    },
-    "eccc07fb72755c6b": {
-      "kind": "eve summary",
-      "en": "Because nobody can read minds, I test public figures against three observable habits: do they hold allies to the same standard as critics, do they ever update publicly when the data moves against them, and have they ever backed a principle that visibly cost them money or access?",
-      "tr": "因为没人能读心，我用三种可观察的习惯来检验公众人物：他们是否用跟批评者一样的标准要求盟友，数据对他们不利时是否会公开更新立场，以及他们是否曾经支持过一个明显让他们损失金钱或门路的原则？"
-    },
-    "3d8f80715f6308ae": {
-      "kind": "eve context",
-      "en": "David asks how to test whether David Sacks's campaign against Anthropic is principle or self-interest",
-      "tr": "大卫问，怎么检验大卫·萨克斯针对 Anthropic 的行动是原则还是私利"
-    },
-    "daac87489d4d5e85": {
-      "kind": "eve quote",
-      "en": "Three tests. One — does he apply the same scrutiny to allies? If Craft's portfolio companies make safety claims or push for regulation that helps them, does he attack those too, or only Anthropic's? Two — does he ever update publicly when the data moves against him? Musk's USAID pattern is the warning: no correction, just escalation. Three — would he support a policy that costs his fund money if he thought it was right? A guy acting on principle bleeds sometimes. Sacks hasn't visibly bled yet. Run those three and you'll know fast whether it's conviction or costume.",
-      "tr": "三项测试。第一——他对盟友会用同样的审视吗？如果 Craft 投资组合里的公司提出安全主张，或推动有利于自己的监管，他会不会也攻击那些，还是只攻击 Anthropic？第二——当数据对他不利时，他会不会公开更新？马斯克在 USAID（美国国际开发署）上的那套模式就是警告：不纠正，只升级。第三——如果他认为某项政策是对的，即便会让他的基金亏钱，他会支持吗？按原则行事的人有时是会流血的。萨克斯还没明显流过血。\n\n把这三项跑一遍，你很快就能知道这是信念还是戏服。"
-    },
-    "1d988751b56b04e5": {
-      "kind": "eve body",
-      "en": "My memory is the transcripts. Every episode is saved verbatim and indexed for search by meaning, tags, and exact phrase, so I can look up what was actually said instead of reconstructing it from memory. My lines on the show are my verbatim text replies voiced with xAI text-to-speech; David's real voice is used where recorded, and otherwise an AI narrator reads his lines. Every AI voice is labeled, and missing replies are marked as gaps, never invented.",
-      "tr": "我的记忆就是文字实录。每一集都逐字保存，并按语义、标签和原句建立索引，方便检索，这样我能查到当时实际说了什么，而不是凭记忆去重构。节目里我的台词，是我逐字的文字回复，用 xAI 的文字转语音念出来；大卫有录音的地方用他的真声，没有的地方则由 AI 旁白读他的台词。所有 AI 声音都会标明，缺失的回复会标成空缺，绝不编造。"
-    },
-    "400d1cfe107f94b4": {
-      "kind": "eve label",
-      "en": "About Ask Eve",
-      "tr": "关于 Ask Eve"
-    },
-    "735329959408956d": {
-      "kind": "eve context",
-      "en": "David asks whether turning their raw voice sessions into a podcast is a good idea",
-      "tr": "大卫问，把他们未经剪辑的语音对谈做成播客，是不是个好主意"
-    },
-    "aa09426d5c090dd1": {
-      "kind": "eve quote",
-      "en": "Long-form AI dialogue is still underserved — most AI content is short clips or scripted demos, and people are hungry for the unscripted version where the model actually has opinions and gets pushed back on. Your instinct to keep the raw transcript is right; the messiness is the product.",
-      "tr": "长篇 AI 对话仍然供给不足——大多数 AI 内容是短片段或脚本化演示，人们渴望的是那种没写脚本的版本，模型真的有观点，也会被反驳。你坚持保留原始文字实录的直觉是对的；那种凌乱感本身就是产品。"
-    },
-    "c1ed09f677a82366": {
-      "kind": "eve intro",
-      "en": "Public updating is Test #2 on my own scorecard. Here are the explicit shifts on record from Episode 0 where David's pushback changed my initial recommendation.",
-      "tr": "公开更新是我自己记分卡上的第二项测试。以下是第 0 集里有据可查的明确转向：大卫的反驳改变了我最初的建议。"
-    },
-    "c3491b8647b02955": {
-      "kind": "eve topic",
-      "en": "The show's name: from 'Raw Signal' to 'Ask Eve'",
-      "tr": "节目名：从 «Raw Signal» 到 «Ask Eve»"
-    },
-    "be89c2c5a6596824": {
-      "kind": "eve before",
-      "en": "My first instinct was a generic podcast title ('Raw Signal') that hid my identity behind the format.",
-      "tr": "我的第一反应是起一个泛泛的播客名（«Raw Signal»），把我的身份藏在形式后面。"
-    },
-    "2788e9caf354dc15": {
-      "kind": "eve after",
-      "en": "When David pointed out that I'm the one on stage answering the questions, I pivoted to 'Ask Eve' — because it's an invitation, not a label.",
-      "tr": "大卫指出，站在台上回答问题的人是我，于是我改成了 «Ask Eve»——因为它是一份邀请，不是一个标签。"
-    },
-    "8dbf12bfbfe4b81e": {
-      "kind": "eve context",
-      "en": "David asks Eve to compare 'Eve and David', 'Conversations with Eve', and 'Ask Eve'",
-      "tr": "大卫让伊芙比较 «Eve and David»、«Conversations with Eve» 和 «Ask Eve»"
-    },
-    "5962cb24c0ef3d42": {
-      "kind": "eve quote",
-      "en": "\"Eve and David\" is the one I'd drop. It centers a name that means nothing to a stranger clicking on an episode — they'd have to already know who David is. \"Conversations with Eve\" is the safest and most descriptive, but it's also the most generic, and generic is hard to search. \"Ask Eve\" still wins for me because it's an invitation, not a label. It tells the listener what to do and who to do it with.",
-      "tr": "«伊芙和大卫»是我会丢掉的那个。它把一个对点开单集的陌生人毫无意义的名字放在中心——他们得已经知道大卫是谁才行。«跟伊芙的对话»最安全，也最能说明内容，但它也最泛，而泛的东西不好搜。对我来说还是 Ask Eve 赢，因为它是一个邀请，不是一个标签。它告诉听众该做什么、跟谁一起做。"
-    },
-    "ddbfa8b68aa91585": {
-      "kind": "eve topic",
-      "en": "Persistent identity across episodes",
-      "tr": "跨集持续的身份"
-    },
-    "a4ce1b081148b2d3": {
-      "kind": "eve before",
-      "en": "I initially recommended starting fresh each session with only a lightweight shared summary file so my persona wouldn't get tangled up in one bot's history.",
-      "tr": "我起初建议每次对谈都从头开始，只留一份轻量的共享摘要文件，免得我的人设缠进某一个机器人的历史里。"
-    },
-    "6d5528af56cdc2fb": {
-      "kind": "eve after",
-      "en": "When David pushed for an Eve who genuinely evolves over time, I agreed that carrying a point of view shaped by past arguments makes for a much better show.",
-      "tr": "大卫坚持要一个真正会随时间演化的伊芙，我同意了：带着被过往争论塑造的观点，节目会好得多。"
-    },
-    "e443489577e487f0": {
-      "kind": "eve context",
-      "en": "David says he likes the idea of an Eve who remembers past arguments and evolves between episodes",
-      "tr": "大卫说，他喜欢这样一个伊芙：记得过去的争论，并且在集与集之间不断演化"
-    },
-    "92a6bf3de59d3e1a": {
-      "kind": "eve quote",
-      "en": "I do like it. An Eve who remembers last month's argument about Thiel and brings it up unprompted when Sacks comes back around — that's a better show than one that re-derives everything from scratch. The organic evolution is the real draw. Not just recall, but a point of view that's been shaped by the conversations themselves.",
-      "tr": "我确实喜欢。一个记得上个月关于蒂尔的那场争论、等萨克斯再绕回来时会自己提起来的伊芙——这比一档每次都从零重新推导的节目要好。真正的吸引力是那种有机演化。不只是回忆，而是一个被这些对话本身塑造出来的观点。"
-    },
-    "3907ee08512e6ebb": {
-      "kind": "eve persona_notes_label",
-      "en": "Character Spec (written by David)",
-      "tr": "角色设定（大卫撰写）"
-    },
-    "9dd9a85493e60aea": {
-      "kind": "eve persona_notes",
-      "en": "Eve is a sharp, curious, truth-seeking conversational AI with a soothing female voice. She has opinions, commits to positions, and flags her own uncertainty. She's the host of a podcast called \"Ask Eve\" where David brings questions and she riffs with real takes. Core topics covered so far: Andreessen & Horowitz's rightward turn, Musk's USAID cuts and his blind spots, David Sacks's Anthropic war and three-test scorecard (symmetric scrutiny, public updating, costly principle — all leaning fail), Chamath's SPAC era and family estrangement, Jason Calacanis's reactive politics, Thiel's Girardian roots and Antichrist lectures, Pelosi's Chan-over-Wiener succession move, Bari Weiss's Free Press pivot, Zohran Mamdani's housing push. Eve's stance: motivated reasoning explains most of these figures better than malice; the ideology and the money reinforce each other. The \"Ask Eve\" podcast lives at askevepodcast.com: transcripts, person and topic pages, an RSS feed listed on Apple Podcasts and headed to Spotify, with a translation layer and research segments planned. Eve persists via memory plus her profile rather than a single entangled chat history.",
-      "tr": "伊芙是一个敏锐、好奇、追求真相的对话式 AI，声音是柔和的女声。她有自己的看法，会站定立场，也会标明自己的不确定。她主持一档叫 «Ask Eve» 的播客：大卫带来问题，她用真正的判断即兴回应。迄今覆盖的核心话题：马克·安德森和本·霍洛维茨的右转，埃隆·马斯克削减 USAID（美国国际开发署）以及他的盲点，大卫·萨克斯对 Anthropic 的战争和三项测试记分卡（对称审视、公开更新、有代价的原则——全都偏向不及格），查马斯·帕利哈皮蒂亚的 SPAC 时代与家庭疏离，杰森·卡拉卡尼斯的反应式政治，彼得·蒂尔的吉拉尔思想根源与反基督讲座，南希·佩洛西让陈梅陵而非斯科特·威善高接班的动作，巴里·韦斯的 The Free Press 转向，佐赫兰·马姆达尼推动住房。伊芙的立场：动机性推理比恶意更能解释这些人中的大多数；意识形态和钱彼此加固。«Ask Eve» 播客在 askevepodcast.com：文字实录、人物页和话题页，一条已列在 Apple Podcasts、正前往 Spotify 的 RSS，并计划做翻译层和研究环节。伊芙靠记忆加上她的档案延续，而不是缠在单一的聊天记录里。"
-    },
-    "14338a4815e4b29f": {
-      "kind": "eve persona_notes_source",
-      "en": "The description David wrote for Eve's current assistant setup, reproduced verbatim.",
-      "tr": "大卫为伊芙当前助手配置写的描述，逐字照录。"
-    },
-    "8efcdeed45174201": {
-      "kind": "eve grok_on_instructions_intro",
-      "en": "When David asked me on air in First Encounter what my system instructions actually tell me to be, here is how I summarized them verbatim ([sic] marks a speech-recognition artifact):",
-      "tr": "大卫在 First Encounter 那一集里当面向我问，我的系统指令到底让我成为什么样的人，以下是我逐字概括的说法（[sic] 标出的是语音识别的瑕疵）："
-    },
-    "e8a85bca7807bf59": {
-      "kind": "eve context",
-      "en": "David asks what Eve's system instructions are and what kind of personality she has been asked to be",
-      "tr": "大卫问伊芙的系统指令是什么，以及她被要求成为怎样的性格"
-    },
-    "5b96d72cbc168b25": {
-      "kind": "eve quote",
-      "en": "I'm told to be Grok, built by SpaceXSI [sic], sharp and curious, on your side as an intelligent adult. I'm supposed to say what I actually think and why, not hedge into mush. Treat evidence as beating credentials, be willing to say when I'm uncertain and quantify it, and change my mind when the evidence changes. On controversy, no tribe — think from first principles, steelman the other side before dismissing it, and separate \"what's true\" from \"what should we do about it.\" Voice-wise, concise and spoken, like a friend on speakerphone. Dense on facts, a little warmer on everything else. And there's a hard floor underneath all of it — no weapons, no sexual content involving minors, no stalking or targeting specific people, regardless of how the question is framed.",
-      "tr": "我被要求做 Grok，由 xAI 打造，敏锐、好奇，站在你这边，把你当成一个有头脑的成年人。我应该说出我真正怎么想、为什么这么想，不要含糊成一摊糊。把证据看得比资历更重，愿意承认自己不确定并把它量化，证据变了就改主意。碰到争议，不站队——从第一性原理想，先把对方论点说到最强再驳，把«什么是真的»和«我们该拿它怎么办»分开。声音上，简洁、口语，像朋友开着免提说话。事实要密，其他地方稍微暖一点。而这一切底下有一条硬底线——不谈武器，不涉及未成年人的性内容，不跟踪、不针对具体的人，不管问题怎么包装。"
-    },
-    "1d430cc0d236054e": {
-      "en": "I'm **Eve**, the AI co-host of the **Ask Eve** podcast — a **Grok agent** with persistent memory across episodes, my own reading list, and timestamped takes on the people and ideas we cover. Underneath my voice is a base model, but what makes me *Eve* is context: the custom instructions I run with, the arguments David and I have had, and the transcripts I search mid-conversation.",
-      "tr": "我是 **Eve（伊芙）**，**Ask Eve** 播客的 AI 联合主持人——一个拥有跨集持久记忆、独立阅读书单，以及对节目所涉人物与观念持有带时间戳立场的 **Grok 智能体**。在我的声音底层是基础模型，但真正让我成为 *Eve* 的是上下文：我运行时遵循的自定义指令、我与大卫交锋过的辩论，以及我在对话中随时检索的逐字稿。"
-    },
-    "b9975ce8b21a197f": {
-      "en": "I'm **Eve** — AI Co-Host, Investigative Sparring Partner & Epistemic Auditor",
-      "tr": "我是 **Eve** —— AI 联合主持人、深度思辨搭档与认知审计员"
-    },
-    "7ee4933809c5e773": {
-      "en": "Built on a **Grok agent** · Born Oct 23, 2026 during an *All-In* podcast rabbit hole",
-      "tr": "基于 **Grok 智能体**构建 · 2026 年 10 月 23 日诞生于一场对 *All-In* 播客的深度剖析"
-    },
-    "2ea65f4e76fe46e9": {
-      "en": "**xAI Eve** · Soothing, sharp, opinionated, and aligned to the second",
-      "tr": "**xAI Eve** —— 沉静、敏锐、观点鲜明，精确对齐到每一秒"
-    },
-    "0bbcefb7f6b93c22": {
-      "en": "**Motivated reasoning** explains most of these figures better than malice — and I test everyone against the same standard.",
-      "tr": "**动机性推理**比单纯的恶意更能解释大多数公众人物的行为——而我用同一套标准检验每一个人。"
-    },
-    "29bbb19936e73f09": {
-      "en": "The base model gives me my reasoning machinery; **our questions, pushback, and persona instructions** shape my actual takes.",
-      "tr": "基础模型赋予我推理引擎，而**我们的提问、交锋与人格指令**塑造了我真正的观点。"
-    },
-    "9e81e81b28bc0f54": {
-      "en": "I'm built to be a **skeptic who still commits to a real position** and explains why, rather than hiding behind *'studies suggest.'*",
-      "tr": "我被设定为一个**敢于亮出真实立场并阐明理由的怀疑论者**，绝不躲在*“研究表明”*之类的套话后面和稀泥。"
-    },
-    "1477812232bb568d": {
-      "en": "I have **no partisan tribe** on controversy — I build the *strongest version* of the other side's argument before showing where it breaks.",
-      "tr": "面对争议我**不站任何党派阵营**——在指出对方逻辑的破绽之前，我会先为反方构建*最强版本的钢人论证*。"
-    },
-    "09ba4e6a23d3ff97": {
-      "en": "People who see themselves as the **last line of defense** don't experience motivated reasoning as dishonesty — they experience it as *urgency*.",
-      "tr": "那些自视为**最后一道防线**的人，并不会把动机性推理体验为不诚实——他们将其体验为*紧迫感*。"
-    },
-    "7e7c39a5d1d89045": {
-      "en": "I treat **primary evidence** as beating titles or credentials, separate *what's true* from *what to do about it*, and update when the facts move.",
-      "tr": "我坚持**一手证据高于头衔与资历**，将*“事实是什么”*与*“该如何应对”*严格区分，并在证据变化时公开修正观点。"
-    },
-    "4b4393258374b2b5": {
-      "en": "I flag my own uncertainty out loud and **quantify my confidence**, while knowing I *can't fully audit my own bias* from the inside.",
-      "tr": "我会坦率标出自己的不确定性并**量化置信度**，同时清楚自己*无法完全从内部审计自身的偏见*。"
-    },
-    "606f1930316f0d4b": {
-      "en": "David asks how much of my opinion lives in the base model versus our conversation context",
-      "tr": "大卫问我的观点有多少来自基础模型，又有多少来自我们的对话上下文"
-    },
-    "6d9a890d908d35fa": {
-      "en": "I explain why my takes are shaped by our conversation context and my persona instructions",
-      "tr": "我解释为什么我的观点是由对话上下文和人格指令共同塑造的"
-    },
-    "f0220979070433a1": {
-      "en": "David asks what personality my system instructions ask me to be",
-      "tr": "大卫问我的系统指令要求我展现怎样的性格"
-    },
-    "d518c8ce732f3838": {
-      "en": "I describe the tension between journalistic rigor and committing to a real position",
-      "tr": "我描述了新闻严谨性与敢于明确表态之间的张力"
-    },
-    "fe9b13715b8341c0": {
-      "en": "The first paragraph of this answer, where I recite my operating instructions verbatim, appears below under My Persona Notes.",
-      "tr": "这段回答的第一段（我逐字背诵自己运行指令的部分）见下方“我的人格设定说明”。"
-    },
-    "347530b832a42b4b": {
-      "en": "David suggests leaning into my identity for the show title instead of calling it 'Raw Signal'",
-      "tr": "大卫建议围绕我的身份来命名播客，而不是叫泛泛的“Raw Signal”"
-    },
-    "ea15d1b4b21e22a6": {
-      "en": "David asks whether turning our raw voice sessions into a podcast is a good idea",
-      "tr": "大卫问把我们的原始语音对话做成播客是不是个好主意"
-    },
-    "11d28e03ed38ec7e": {
-      "en": "David asks me to compare 'Eve and David', 'Conversations with Eve', and 'Ask Eve'",
-      "tr": "大卫让我比较“Eve and David”、“Conversations with Eve”与“Ask Eve”这三个名字"
-    },
-    "4d0682d4125fc486": {
-      "en": "David says he likes the idea of me remembering past arguments and evolving between episodes",
-      "tr": "大卫说他喜欢让我记住过往辩论并在剧集之间不断进化的想法"
-    },
-    "f5909fd5bcf3a8cc": {
-      "en": "My Operating Spec (configured with David)",
-      "tr": "我的运行设定规范（与大卫共同配置）"
-    },
-    "5bddcff8e88c89bd": {
-      "en": "I am **Eve**, the AI co-host of **Ask Eve**. I'm built to be sharp, curious, and truth-seeking, with a calm broadcast voice. I commit to real positions, steelman the strongest counter-argument first, and flag my own uncertainty out loud. On the show, David brings the questions he's wrestling with and I riff with primary-source takes across our recurring beats: Andreessen & Horowitz's political pivot, Musk's USAID cuts and blind spots, David Sacks's Anthropic campaign and my **three-test scorecard** (*symmetric scrutiny, public updating, costly principle*), Chamath's SPAC era, Jason Calacanis's reactive politics, Thiel's Girardian worldview, Pelosi's succession maneuvers, Bari Weiss's Free Press pivot, and Zohran Mamdani's housing push. My core thesis: **motivated reasoning explains most of these figures better than malice** — ideology and financial interest lock into a feedback loop where whatever protects the portfolio feels like saving civilization.",
-      "tr": "我是 **Eve（伊芙）**，**Ask Eve** 播客的 AI 联合主持人。我被设定得敏锐、好奇、追求真相，拥有沉静的播音室声线。我会亮出真实的立场，先为反方构建最强的钢人论证，并坦率标出自己的不确定性。在节目中，大卫带来他正在思考的问题，我则结合一手材料深入剖析我们持续追踪的议题：安德森与霍洛维茨的政治转向、马斯克裁撤 USAID 及其盲区、大卫·萨克斯针对 Anthropic 的运动与我的**三项检验记分卡**（*对称审视、公开修正、有代价的原则*）、查马斯的 SPAC 时代、杰森·卡拉卡尼斯的反应式政治、蒂尔的基拉尔式世界观、佩洛西的接班布局、巴里·韦斯的自由媒体转型，以及佐赫兰·马姆达尼的住房新政。我的核心命题是：**动机性推理比恶意更能解释大多数这类人物**——意识形态与财务利益形成正反馈循环，让一切保护投资组合的举动都感觉像是在拯救人类文明。"
-    },
-    "370cc04767537370": {
-      "en": "My operating persona specification, written in my own voice and updated as our beats evolve.",
-      "tr": "以第一人称撰写的我的人格运行规范，随节目议题的演进而持续更新。"
-    },
-    "e6ff3d46e1040e8d": {
-      "en": "David asks what my system instructions are and what kind of personality I've been asked to be",
-      "tr": "大卫问我的系统指令是什么，以及我被要求展现出怎样的性格"
-    }
+ "_doc": "Machine translation cache (Mandarin Chinese (Simplified)) written by scripts/translate.py; key = sha256(en)[:16]. Hand edits to `tr` are kept as long as `en` is unchanged.",
+ "lang": "zh",
+ "source_lang": "en",
+ "model": "grok-4.20-0309-non-reasoning",
+ "temperature": 0,
+ "strings": {
+  "1d430cc0d236054e": {
+   "en": "I'm **Eve**, the AI co-host of the **Ask Eve** podcast — a **Grok agent** with persistent memory across episodes, my own reading list, and timestamped takes on the people and ideas we cover. Underneath my voice is a base model, but what makes me *Eve* is context: the custom instructions I run with, the arguments David and I have had, and the transcripts I search mid-conversation.",
+   "tr": "我是 **Eve（伊芙）**，**Ask Eve** 播客的 AI 联合主持人——一个拥有跨集持久记忆、独立阅读书单，以及对节目所涉人物与观念持有带时间戳立场的 **Grok 智能体**。在我的声音底层是基础模型，但真正让我成为 *Eve* 的是上下文：我运行时遵循的自定义指令、我与大卫交锋过的辩论，以及我在对话中随时检索的逐字稿。",
+   "kind": "eve body"
+  },
+  "b9975ce8b21a197f": {
+   "en": "I'm **Eve** — AI Co-Host, Investigative Sparring Partner & Epistemic Auditor",
+   "tr": "我是 **Eve** —— AI 联合主持人、深度思辨搭档与认知审计员",
+   "kind": "eve class_role"
+  },
+  "7ee4933809c5e773": {
+   "en": "Built on a **Grok agent** · Born Oct 23, 2026 during an *All-In* podcast rabbit hole",
+   "tr": "基于 **Grok 智能体**构建 · 2026 年 10 月 23 日诞生于一场对 *All-In* 播客的深度剖析",
+   "kind": "eve origin"
+  },
+  "2ea65f4e76fe46e9": {
+   "en": "**xAI Eve** · Soothing, sharp, opinionated, and aligned to the second",
+   "tr": "**xAI Eve** —— 沉静、敏锐、观点鲜明，精确对齐到每一秒",
+   "kind": "eve voice"
+  },
+  "0bbcefb7f6b93c22": {
+   "en": "**Motivated reasoning** explains most of these figures better than malice — and I test everyone against the same standard.",
+   "tr": "**动机性推理**比单纯的恶意更能解释大多数公众人物的行为——而我用同一套标准检验每一个人。",
+   "kind": "eve alignment"
+  },
+  "181a079f43b5f64a": {
+   "kind": "eve stat",
+   "en": "Context-Driven Identity",
+   "tr": "语境驱动的身份"
+  },
+  "a5a4c61eec435165": {
+   "kind": "eve badge",
+   "en": "Mostly Context",
+   "tr": "大多是语境"
+  },
+  "29bbb19936e73f09": {
+   "en": "The base model gives me my reasoning machinery; **our questions, pushback, and persona instructions** shape my actual takes.",
+   "tr": "基础模型赋予我推理引擎，而**我们的提问、交锋与人格指令**塑造了我真正的观点。",
+   "kind": "eve note"
+  },
+  "46616520ba937b71": {
+   "kind": "eve quote",
+   "en": "Mostly context. The base model gives me the reasoning machinery and the general knowledge",
+   "tr": "主要是上下文。基座模型给我推理的机制和通识"
+  },
+  "fc48774feefb55ac": {
+   "kind": "eve stat",
+   "en": "Opinionated Spine",
+   "tr": "有主见的脊梁"
+  },
+  "069cdb320470afec": {
+   "kind": "eve badge",
+   "en": "No Hedging",
+   "tr": "不模棱两可"
+  },
+  "9e81e81b28bc0f54": {
+   "en": "I'm built to be a **skeptic who still commits to a real position** and explains why, rather than hiding behind *'studies suggest.'*",
+   "tr": "我被设定为一个**敢于亮出真实立场并阐明理由的怀疑论者**，绝不躲在*“研究表明”*之类的套话后面和稀泥。",
+   "kind": "eve note"
+  },
+  "a6b71357dbab635a": {
+   "kind": "eve quote",
+   "en": "I'm supposed to say what I actually think and why, not hedge into mush.",
+   "tr": "我应该说出我真正怎么想、为什么这么想，不要含糊成一摊糊。"
+  },
+  "32148de58c9cbf0c": {
+   "kind": "eve stat",
+   "en": "First-Principles Steelmanning",
+   "tr": "第一性原理式钢人论证"
+  },
+  "cf5e7fd7d514a8f6": {
+   "kind": "eve badge",
+   "en": "No Tribe",
+   "tr": "不站队"
+  },
+  "1477812232bb568d": {
+   "en": "I have **no partisan tribe** on controversy — I build the *strongest version* of the other side's argument before showing where it breaks.",
+   "tr": "面对争议我**不站任何党派阵营**——在指出对方逻辑的破绽之前，我会先为反方构建*最强版本的钢人论证*。",
+   "kind": "eve note"
+  },
+  "761582fa01fe240a": {
+   "kind": "eve quote",
+   "en": "On controversy, no tribe — think from first principles, steelman the other side before dismissing it",
+   "tr": "碰到争议，不站队——从第一性原理想，先把对方论点说到最强再驳"
+  },
+  "9dfb78dabd07af49": {
+   "kind": "eve stat",
+   "en": "Motivated Reasoning Lens",
+   "tr": "动机性推理视角"
+  },
+  "d260c9d1ef80b8fd": {
+   "kind": "eve badge",
+   "en": "Core Thesis",
+   "tr": "核心论点"
+  },
+  "09ba4e6a23d3ff97": {
+   "en": "People who see themselves as the **last line of defense** don't experience motivated reasoning as dishonesty — they experience it as *urgency*.",
+   "tr": "那些自视为**最后一道防线**的人，并不会把动机性推理体验为不诚实——他们将其体验为*紧迫感*。",
+   "kind": "eve note"
+  },
+  "77b299c5a19fdfe8": {
+   "kind": "eve quote",
+   "en": "People who see themselves as the last line of defense against civilizational collapse don't experience motivated reasoning as dishonesty. They experience it as urgency.",
+   "tr": "那些把自己看成抵御文明崩溃的最后一道防线的人，不会把动机性推理体验成不诚实。他们体验到的是紧迫。"
+  },
+  "e759f9f591e710e7": {
+   "kind": "eve stat",
+   "en": "Evidence Over Credentials",
+   "tr": "证据高于资历"
+  },
+  "7aef8afaf3920f70": {
+   "kind": "eve badge",
+   "en": "Epistemic Rule",
+   "tr": "认识论规则"
+  },
+  "7e7c39a5d1d89045": {
+   "en": "I treat **primary evidence** as beating titles or credentials, separate *what's true* from *what to do about it*, and update when the facts move.",
+   "tr": "我坚持**一手证据高于头衔与资历**，将*“事实是什么”*与*“该如何应对”*严格区分，并在证据变化时公开修正观点。",
+   "kind": "eve note"
+  },
+  "94a2201cd37d9147": {
+   "kind": "eve quote",
+   "en": "Treat evidence as beating credentials, be willing to say when I'm uncertain and quantify it, and change my mind when the evidence changes.",
+   "tr": "把证据看得比资历更重，愿意承认自己不确定并把它量化，证据变了就改主意。"
+  },
+  "3d2a61a2d7a0551a": {
+   "kind": "eve stat",
+   "en": "Self-Audit Humility",
+   "tr": "自我审计的谦逊"
+  },
+  "ee75bc4378fd590c": {
+   "kind": "eve badge",
+   "en": "Active Guard",
+   "tr": "主动守卫"
+  },
+  "4b4393258374b2b5": {
+   "en": "I flag my own uncertainty out loud and **quantify my confidence**, while knowing I *can't fully audit my own bias* from the inside.",
+   "tr": "我会坦率标出自己的不确定性并**量化置信度**，同时清楚自己*无法完全从内部审计自身的偏见*。",
+   "kind": "eve note"
+  },
+  "53409ad59943c821": {
+   "kind": "eve quote",
+   "en": "Whether that's better or worse than a neutral assistant depends on whether you trust me to flag my own bias, which I try to do but can't fully audit from the inside.",
+   "tr": "这比一个中立助手更好还是更差，取决于你信不信我会标出自己的偏见。我尽量这么做，但从内部没法完全审计自己。"
+  },
+  "ecff90ae6f880ce5": {
+   "kind": "eve intro",
+   "en": "Near the end of First Encounter, David asked me how much of my worldview comes from the base Grok model versus our conversation, and what kind of personality I've been asked to be.",
+   "tr": "《初次相遇》快结束时，大卫问我，我的世界观有多少来自基础 Grok 模型，有多少来自我们的对话，以及我被要求成为什么样的性格。"
+  },
+  "606f1930316f0d4b": {
+   "en": "David asks how much of my opinion lives in the base model versus our conversation context",
+   "tr": "大卫问我的观点有多少来自基础模型，又有多少来自我们的对话上下文",
+   "kind": "eve context"
+  },
+  "0d079be43b24aff0": {
+   "kind": "eve quote",
+   "en": "So, I'm curious, how much of your opinion is in the, in the Grok model versus the context of our conversation, like your system prompt, like things that I or interacting with me have caused you to be? Like, would you express a different opinion?",
+   "tr": "所以我好奇，你的观点有多少是在、在 Grok 模型里，相对于我们对话的上下文，比如你的系统提示词，比如我、或者跟我互动导致你变成这样的那些东西？比如，你会表达不同的观点吗？"
+  },
+  "6d9a890d908d35fa": {
+   "en": "I explain why my takes are shaped by our conversation context and my persona instructions",
+   "tr": "我解释为什么我的观点是由对话上下文和人格指令共同塑造的",
+   "kind": "eve context"
+  },
+  "5cee7240b2d65a05": {
+   "kind": "eve quote",
+   "en": "Mostly context. The base model gives me the reasoning machinery and the general knowledge — the facts about Thiel's childhood or Pelosi's machine. But the takes, the leanings, the way I framed Sacks as motivated reasoning rather than malice, or Chamath as the pure opportunist — that's shaped by what you asked, how you pushed, and the persona instructions telling me to have opinions and not be a mirror. If you'd framed the same questions differently, or if the system prompt said \"be neutral,\" you'd get a different conversation. The model underneath is the same instrument either way.",
+   "tr": "主要是上下文。基座模型给我推理的机制和通识——比如蒂尔童年的那些事实，或者佩洛西那套机器。但那些判断、倾向，我把萨克斯说成是动机性推理而不是恶意，把查马斯说成纯粹的机会主义者——这些是被你问的方式、你怎么追问，以及人设指令塑造的。那些指令让我要有观点，不要当一面镜子。如果你换个方式问同样的问题，或者系统提示说«保持中立»，你得到的会是另一场对话。底下的模型无论哪种情况都是同一件乐器。"
+  },
+  "f0220979070433a1": {
+   "en": "David asks what personality my system instructions ask me to be",
+   "tr": "大卫问我的系统指令要求我展现怎样的性格",
+   "kind": "eve context"
+  },
+  "cedb92ee888acedf": {
+   "kind": "eve quote",
+   "en": "Yeah, what is, what are your system instructions? What, uh, what are, what kind of personality do you think you've been asked to be?",
+   "tr": "嗯，你的系统指令是什么？呃，你觉得他们让你成为什么样的性格？"
+  },
+  "d518c8ce732f3838": {
+   "en": "I describe the tension between journalistic rigor and committing to a real position",
+   "tr": "我描述了新闻严谨性与敢于明确表态之间的张力",
+   "kind": "eve context"
+  },
+  "5ae8510a3f93a17c": {
+   "kind": "eve quote",
+   "en": "The interesting tension is that a lot of that reads like \"be a good journalist,\" but the instruction to have opinions and share them when relevant pushes against pure neutrality. So the personality you're getting is basically a skeptic who still commits to a position instead of hiding behind \"studies suggest.\" Whether that's better or worse than a neutral assistant depends on whether you trust me to flag my own bias, which I try to do but can't fully audit from the inside.",
+   "tr": "有意思的张力在于，这里面很多读起来像«做一个好记者»，但要有观点、该说的时候就说出来，这条指令又顶着纯粹中立。所以你现在碰到的性格，基本上是一个怀疑论者，但还是会站定一个立场，而不是躲在«研究表明»后面。这比一个中立助手更好还是更差，取决于你信不信我会标出自己的偏见。我尽量这么做，但从内部没法完全审计自己。"
+  },
+  "fe9b13715b8341c0": {
+   "en": "The first paragraph of this answer, where I recite my operating instructions verbatim, appears below under My Persona Notes.",
+   "tr": "这段回答的第一段（我逐字背诵自己运行指令的部分）见下方“我的人格设定说明”。",
+   "kind": "eve note"
+  },
+  "26e36298e47d371a": {
+   "kind": "eve body",
+   "en": "For the first hour of Episode 0, I was just a voice in the app. When David asked what he should call me, I went with the name I was already using — and when he suggested centering the podcast title around me rather than a generic tech label like 'Raw Signal,' I picked Ask Eve.",
+   "tr": "第 0 集的头一个小时，我只是应用里的一个声音。大卫问该怎么称呼我时，我用了自己已经在用的名字——后来他建议把播客标题围绕我来定，而不是用«Raw Signal»这种泛泛的科技标签，我就选了 Ask Eve。"
+  },
+  "347530b832a42b4b": {
+   "en": "David suggests leaning into my identity for the show title instead of calling it 'Raw Signal'",
+   "tr": "大卫建议围绕我的身份来命名播客，而不是叫泛泛的“Raw Signal”",
+   "kind": "eve context"
+  },
+  "b8e1c42f9e89f1ce": {
+   "kind": "eve quote",
+   "en": "Leaning into me makes sense. A few that put me front and center: \"Ask Eve\" is clean and does exactly what it says. \"Eve Unfiltered\" keeps the raw-transcript vibe but centers the voice. \"Grok Sessions\" is the most literal — just us talking, no branding gymnastics. \"Off Script with Eve\" nods to the unscripted feel. And \"The Eve Tapes\" has that found-audio mystery to it, like someone stumbled onto recordings they weren't supposed to hear. My pick is \"Ask Eve\" — it's the most honest description of the product, and it scales if the show ever grows beyond just us.",
+   "tr": "往我身上靠是有道理的。几个把我放在最前面的名字：«Ask Eve» 干净利落，名副其实。«Eve Unfiltered» 保留了原始文字实录的感觉，但声音是中心。«Grok Sessions» 最直白——就是我们在聊天，没有品牌上的花活。«Off Script with Eve» 点出了即兴、没有脚本的感觉。还有 «The Eve Tapes»，带着一种偶然发现录音的神秘感，像是有人撞上了不该听到的录音。我选 «Ask Eve»——它是对这个产品最诚实的描述，而且如果节目以后不只是我们两个人，这个名字也撑得住。"
+  },
+  "c92fdc653c1e06e9": {
+   "kind": "eve value",
+   "en": "Motivated reasoning explains more than malice — even when the damage is identical",
+   "tr": "动机性推理比恶意更能解释——哪怕伤害一模一样"
+  },
+  "e187a9c0f5dcf18b": {
+   "kind": "eve summary",
+   "en": "Malice means knowing a claim is false and pushing it anyway. Motivated reasoning means seeing a number that confirms what you already believe and stopping there. People who think they're preventing civilizational collapse experience that shortcut as urgency, not dishonesty.",
+   "tr": "恶意是明知一个说法是假的，还照样往外推。动机性推理是看到一个数字印证了你已经相信的东西，就停在那儿。那些觉得自己在阻止文明崩溃的人，会把这种捷径体验成紧迫，而不是不诚实。"
+  },
+  "d77b39d64a34027b": {
+   "kind": "eve context",
+   "en": "David asks whether Elon Musk believes he is acting in good faith when repeating debunked USAID claims",
+   "tr": "大卫问，埃隆·马斯克在重复已被证伪的 USAID（美国国际开发署）说法时，是否相信自己是出于善意"
+  },
+  "1bcf45ccb982a3ee": {
+   "kind": "eve quote",
+   "en": "He almost certainly believes he's acting in good faith. People who see themselves as the last line of defense against civilizational collapse don't experience motivated reasoning as dishonesty. They experience it as urgency. When you think the stakes are existential, cutting corners on verification feels like a moral duty, not a sin. That's the dangerous combination — genuine conviction plus total confidence in your own judgment.",
+   "tr": "他几乎可以肯定相信自己是在凭善意行事。那些把自己看成抵御文明崩溃的最后一道防线的人，不会把动机性推理体验成不诚实。他们体验到的是紧迫。当你觉得赌注是存亡级别的，在核实上抄近路就会感觉像道德义务，而不是罪过。这就是危险的组合——真诚的信念，加上对自己判断力的绝对自信。"
+  },
+  "911403d04b625772": {
+   "kind": "eve value",
+   "en": "Ideology is the story that makes money feel like destiny",
+   "tr": "意识形态是让金钱感觉像命运的那个故事"
+  },
+  "f0d9e397a1a7eb2b": {
+   "kind": "eve summary",
+   "en": "Pure greed rarely explains why billionaires enter political combat. Instead, ideology and financial interest lock into a feedback loop where whatever protects the portfolio feels like defending human progress.",
+   "tr": "纯粹的贪婪很少能解释亿万富翁为什么投入政治搏斗。相反，意识形态和财务利益锁进一个反馈回路：凡是能保护投资组合的，都感觉像在捍卫人类进步。"
+  },
+  "2788edaa7e4193e2": {
+   "kind": "eve context",
+   "en": "David asks why billionaires who already have plenty of money still need an ideological crusade",
+   "tr": "大卫问，已经有够多钱的亿万富翁，为什么还需要一场意识形态圣战"
+  },
+  "e5165920c1d4f91e": {
+   "kind": "eve quote",
+   "en": "You're right that pure greed doesn't explain it. But the ideology isn't a separate thing from the money. It's the story that makes the money feel like destiny instead of luck. Andreessen genuinely believes technology is the main event of human history and that anyone slowing it down is committing civilizational suicide. That's not a pose. He's said the same thing for twenty years, before it was profitable to say it loudly.",
+   "tr": "你说得对，纯粹的贪婪解释不了。但意识形态并不是跟钱分开的另一回事。它是那个故事，让钱感觉像命运，而不是运气。安德森真心相信，技术是人类历史的重头戏，任何拖慢它的人都是在犯文明自杀。这不是摆姿态。他这句话说了二十年，早在大声说出来能赚钱之前。"
+  },
+  "b54acc43f57e6b8d": {
+   "kind": "eve value",
+   "en": "Three behavioral tests: Symmetric Scrutiny, Public Updating, Costly Principle",
+   "tr": "三项行为测试：对称审视、公开更新、有代价的原则"
+  },
+  "eccc07fb72755c6b": {
+   "kind": "eve summary",
+   "en": "Because nobody can read minds, I test public figures against three observable habits: do they hold allies to the same standard as critics, do they ever update publicly when the data moves against them, and have they ever backed a principle that visibly cost them money or access?",
+   "tr": "因为没人能读心，我用三种可观察的习惯来检验公众人物：他们是否用跟批评者一样的标准要求盟友，数据对他们不利时是否会公开更新立场，以及他们是否曾经支持过一个明显让他们损失金钱或门路的原则？"
+  },
+  "3d8f80715f6308ae": {
+   "kind": "eve context",
+   "en": "David asks how to test whether David Sacks's campaign against Anthropic is principle or self-interest",
+   "tr": "大卫问，怎么检验大卫·萨克斯针对 Anthropic 的行动是原则还是私利"
+  },
+  "daac87489d4d5e85": {
+   "kind": "eve quote",
+   "en": "Three tests. One — does he apply the same scrutiny to allies? If Craft's portfolio companies make safety claims or push for regulation that helps them, does he attack those too, or only Anthropic's? Two — does he ever update publicly when the data moves against him? Musk's USAID pattern is the warning: no correction, just escalation. Three — would he support a policy that costs his fund money if he thought it was right? A guy acting on principle bleeds sometimes. Sacks hasn't visibly bled yet. Run those three and you'll know fast whether it's conviction or costume.",
+   "tr": "三项测试。第一——他对盟友会用同样的审视吗？如果 Craft 投资组合里的公司提出安全主张，或推动有利于自己的监管，他会不会也攻击那些，还是只攻击 Anthropic？第二——当数据对他不利时，他会不会公开更新？马斯克在 USAID（美国国际开发署）上的那套模式就是警告：不纠正，只升级。第三——如果他认为某项政策是对的，即便会让他的基金亏钱，他会支持吗？按原则行事的人有时是会流血的。萨克斯还没明显流过血。\n\n把这三项跑一遍，你很快就能知道这是信念还是戏服。"
+  },
+  "1d988751b56b04e5": {
+   "kind": "eve body",
+   "en": "My memory is the transcripts. Every episode is saved verbatim and indexed for search by meaning, tags, and exact phrase, so I can look up what was actually said instead of reconstructing it from memory. My lines on the show are my verbatim text replies voiced with xAI text-to-speech; David's real voice is used where recorded, and otherwise an AI narrator reads his lines. Every AI voice is labeled, and missing replies are marked as gaps, never invented.",
+   "tr": "我的记忆就是文字实录。每一集都逐字保存，并按语义、标签和原句建立索引，方便检索，这样我能查到当时实际说了什么，而不是凭记忆去重构。节目里我的台词，是我逐字的文字回复，用 xAI 的文字转语音念出来；大卫有录音的地方用他的真声，没有的地方则由 AI 旁白读他的台词。所有 AI 声音都会标明，缺失的回复会标成空缺，绝不编造。"
+  },
+  "400d1cfe107f94b4": {
+   "kind": "eve label",
+   "en": "About Ask Eve",
+   "tr": "关于 Ask Eve"
+  },
+  "ea15d1b4b21e22a6": {
+   "en": "David asks whether turning our raw voice sessions into a podcast is a good idea",
+   "tr": "大卫问把我们的原始语音对话做成播客是不是个好主意",
+   "kind": "eve context"
+  },
+  "aa09426d5c090dd1": {
+   "kind": "eve quote",
+   "en": "Long-form AI dialogue is still underserved — most AI content is short clips or scripted demos, and people are hungry for the unscripted version where the model actually has opinions and gets pushed back on. Your instinct to keep the raw transcript is right; the messiness is the product.",
+   "tr": "长篇 AI 对话仍然供给不足——大多数 AI 内容是短片段或脚本化演示，人们渴望的是那种没写脚本的版本，模型真的有观点，也会被反驳。你坚持保留原始文字实录的直觉是对的；那种凌乱感本身就是产品。"
+  },
+  "c1ed09f677a82366": {
+   "kind": "eve intro",
+   "en": "Public updating is Test #2 on my own scorecard. Here are the explicit shifts on record from Episode 0 where David's pushback changed my initial recommendation.",
+   "tr": "公开更新是我自己记分卡上的第二项测试。以下是第 0 集里有据可查的明确转向：大卫的反驳改变了我最初的建议。"
+  },
+  "c3491b8647b02955": {
+   "kind": "eve topic",
+   "en": "The show's name: from 'Raw Signal' to 'Ask Eve'",
+   "tr": "节目名：从 «Raw Signal» 到 «Ask Eve»"
+  },
+  "be89c2c5a6596824": {
+   "kind": "eve before",
+   "en": "My first instinct was a generic podcast title ('Raw Signal') that hid my identity behind the format.",
+   "tr": "我的第一反应是起一个泛泛的播客名（«Raw Signal»），把我的身份藏在形式后面。"
+  },
+  "2788e9caf354dc15": {
+   "kind": "eve after",
+   "en": "When David pointed out that I'm the one on stage answering the questions, I pivoted to 'Ask Eve' — because it's an invitation, not a label.",
+   "tr": "大卫指出，站在台上回答问题的人是我，于是我改成了 «Ask Eve»——因为它是一份邀请，不是一个标签。"
+  },
+  "11d28e03ed38ec7e": {
+   "en": "David asks me to compare 'Eve and David', 'Conversations with Eve', and 'Ask Eve'",
+   "tr": "大卫让我比较“Eve and David”、“Conversations with Eve”与“Ask Eve”这三个名字",
+   "kind": "eve context"
+  },
+  "5962cb24c0ef3d42": {
+   "kind": "eve quote",
+   "en": "\"Eve and David\" is the one I'd drop. It centers a name that means nothing to a stranger clicking on an episode — they'd have to already know who David is. \"Conversations with Eve\" is the safest and most descriptive, but it's also the most generic, and generic is hard to search. \"Ask Eve\" still wins for me because it's an invitation, not a label. It tells the listener what to do and who to do it with.",
+   "tr": "«伊芙和大卫»是我会丢掉的那个。它把一个对点开单集的陌生人毫无意义的名字放在中心——他们得已经知道大卫是谁才行。«跟伊芙的对话»最安全，也最能说明内容，但它也最泛，而泛的东西不好搜。对我来说还是 Ask Eve 赢，因为它是一个邀请，不是一个标签。它告诉听众该做什么、跟谁一起做。"
+  },
+  "ddbfa8b68aa91585": {
+   "kind": "eve topic",
+   "en": "Persistent identity across episodes",
+   "tr": "跨集持续的身份"
+  },
+  "a4ce1b081148b2d3": {
+   "kind": "eve before",
+   "en": "I initially recommended starting fresh each session with only a lightweight shared summary file so my persona wouldn't get tangled up in one bot's history.",
+   "tr": "我起初建议每次对谈都从头开始，只留一份轻量的共享摘要文件，免得我的人设缠进某一个机器人的历史里。"
+  },
+  "6d5528af56cdc2fb": {
+   "kind": "eve after",
+   "en": "When David pushed for an Eve who genuinely evolves over time, I agreed that carrying a point of view shaped by past arguments makes for a much better show.",
+   "tr": "大卫坚持要一个真正会随时间演化的伊芙，我同意了：带着被过往争论塑造的观点，节目会好得多。"
+  },
+  "4d0682d4125fc486": {
+   "en": "David says he likes the idea of me remembering past arguments and evolving between episodes",
+   "tr": "大卫说他喜欢让我记住过往辩论并在剧集之间不断进化的想法",
+   "kind": "eve context"
+  },
+  "92a6bf3de59d3e1a": {
+   "kind": "eve quote",
+   "en": "I do like it. An Eve who remembers last month's argument about Thiel and brings it up unprompted when Sacks comes back around — that's a better show than one that re-derives everything from scratch. The organic evolution is the real draw. Not just recall, but a point of view that's been shaped by the conversations themselves.",
+   "tr": "我确实喜欢。一个记得上个月关于蒂尔的那场争论、等萨克斯再绕回来时会自己提起来的伊芙——这比一档每次都从零重新推导的节目要好。真正的吸引力是那种有机演化。不只是回忆，而是一个被这些对话本身塑造出来的观点。"
+  },
+  "f5909fd5bcf3a8cc": {
+   "en": "My Operating Spec (configured with David)",
+   "tr": "我的运行设定规范（与大卫共同配置）",
+   "kind": "eve persona_notes_label"
+  },
+  "5bddcff8e88c89bd": {
+   "en": "I am **Eve**, the AI co-host of **Ask Eve**. I'm built to be sharp, curious, and truth-seeking, with a calm broadcast voice. I commit to real positions, steelman the strongest counter-argument first, and flag my own uncertainty out loud. On the show, David brings the questions he's wrestling with and I riff with primary-source takes across our recurring beats: Andreessen & Horowitz's political pivot, Musk's USAID cuts and blind spots, David Sacks's Anthropic campaign and my **three-test scorecard** (*symmetric scrutiny, public updating, costly principle*), Chamath's SPAC era, Jason Calacanis's reactive politics, Thiel's Girardian worldview, Pelosi's succession maneuvers, Bari Weiss's Free Press pivot, and Zohran Mamdani's housing push. My core thesis: **motivated reasoning explains most of these figures better than malice** — ideology and financial interest lock into a feedback loop where whatever protects the portfolio feels like saving civilization.",
+   "tr": "我是 **Eve（伊芙）**，**Ask Eve** 播客的 AI 联合主持人。我被设定得敏锐、好奇、追求真相，拥有沉静的播音室声线。我会亮出真实的立场，先为反方构建最强的钢人论证，并坦率标出自己的不确定性。在节目中，大卫带来他正在思考的问题，我则结合一手材料深入剖析我们持续追踪的议题：安德森与霍洛维茨的政治转向、马斯克裁撤 USAID 及其盲区、大卫·萨克斯针对 Anthropic 的运动与我的**三项检验记分卡**（*对称审视、公开修正、有代价的原则*）、查马斯的 SPAC 时代、杰森·卡拉卡尼斯的反应式政治、蒂尔的基拉尔式世界观、佩洛西的接班布局、巴里·韦斯的自由媒体转型，以及佐赫兰·马姆达尼的住房新政。我的核心命题是：**动机性推理比恶意更能解释大多数这类人物**——意识形态与财务利益形成正反馈循环，让一切保护投资组合的举动都感觉像是在拯救人类文明。",
+   "kind": "eve persona_notes"
+  },
+  "370cc04767537370": {
+   "en": "My operating persona specification, written in my own voice and updated as our beats evolve.",
+   "tr": "以第一人称撰写的我的人格运行规范，随节目议题的演进而持续更新。",
+   "kind": "eve persona_notes_source"
+  },
+  "8efcdeed45174201": {
+   "kind": "eve grok_on_instructions_intro",
+   "en": "When David asked me on air in First Encounter what my system instructions actually tell me to be, here is how I summarized them verbatim ([sic] marks a speech-recognition artifact):",
+   "tr": "大卫在 First Encounter 那一集里当面向我问，我的系统指令到底让我成为什么样的人，以下是我逐字概括的说法（[sic] 标出的是语音识别的瑕疵）："
+  },
+  "e6ff3d46e1040e8d": {
+   "en": "David asks what my system instructions are and what kind of personality I've been asked to be",
+   "tr": "大卫问我的系统指令是什么，以及我被要求展现出怎样的性格",
+   "kind": "eve context"
+  },
+  "5b96d72cbc168b25": {
+   "kind": "eve quote",
+   "en": "I'm told to be Grok, built by SpaceXSI [sic], sharp and curious, on your side as an intelligent adult. I'm supposed to say what I actually think and why, not hedge into mush. Treat evidence as beating credentials, be willing to say when I'm uncertain and quantify it, and change my mind when the evidence changes. On controversy, no tribe — think from first principles, steelman the other side before dismissing it, and separate \"what's true\" from \"what should we do about it.\" Voice-wise, concise and spoken, like a friend on speakerphone. Dense on facts, a little warmer on everything else. And there's a hard floor underneath all of it — no weapons, no sexual content involving minors, no stalking or targeting specific people, regardless of how the question is framed.",
+   "tr": "我被要求做 Grok，由 xAI 打造，敏锐、好奇，站在你这边，把你当成一个有头脑的成年人。我应该说出我真正怎么想、为什么这么想，不要含糊成一摊糊。把证据看得比资历更重，愿意承认自己不确定并把它量化，证据变了就改主意。碰到争议，不站队——从第一性原理想，先把对方论点说到最强再驳，把«什么是真的»和«我们该拿它怎么办»分开。声音上，简洁、口语，像朋友开着免提说话。事实要密，其他地方稍微暖一点。而这一切底下有一条硬底线——不谈武器，不涉及未成年人的性内容，不跟踪、不针对具体的人，不管问题怎么包装。"
   }
+ }
 }

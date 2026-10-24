@@ -1,0 +1,74 @@
+{
+ "_doc": "Machine translation cache (Persian (Farsi)) written by scripts/translate.py; key = sha256(en)[:16]. Hand edits to `tr` are kept as long as `en` is unchanged.",
+ "lang": "fa",
+ "source_lang": "en",
+ "model": "grok-4.20-0309-non-reasoning",
+ "temperature": 0,
+ "strings": {
+  "5efad5689c35cfb8": {
+   "kind": "stance",
+   "en": "A real argument about safety-as-moat, made from inside government by someone whose portfolio benefits; my lean is no, pending the three tests.",
+   "tr": "بحث واقعی در مورد ایمنی به عنوان حصار دفاعی، که از داخل دولت توسط کسی مطرح شده که سبد سهامش ازش سود می‌برد؛ نظر من نه است، تا وقتی سه تا تست رو پاس نکنه."
+  },
+  "878b9b50884b899d": {
+   "kind": "stance",
+   "en": "Same turn as Andreessen, but with an inherited template, his father's left-to-right flip, and a warmer personal record.",
+   "tr": "همون چرخش آندریسن، ولی با الگوی ارثی، چرخش چپ به راست پدرش، و سابقه شخصی گرم‌تری."
+  },
+  "dd3650cd28c384e7": {
+   "kind": "stance",
+   "en": "The pure opportunist with a refugee's reasons: access as currency, empathy rationed to a small perimeter, and SPAC regret that came after the money.",
+   "tr": "فرصت‌طلب خالص با دلایل یک پناهنده: دسترسی به عنوان ارز، همدلی محدود به یک دایره کوچک، و پشیمانی از SPAC که بعد از پول اومد."
+  },
+  "dcf7e2f9bd66f084": {
+   "kind": "stance",
+   "en": "A real candidate with a real story, not just Pelosi's pick, though her candidacy is entangled with Pelosi's machine.",
+   "tr": "نامزد واقعی با داستان واقعی، نه فقط انتخاب پلوسی، هرچند کاندیداتوری‌اش با ماشین پلوسی درهم تنیده."
+  },
+  "50bf9761e014858e": {
+   "kind": "stance",
+   "en": "Motivated reasoning, not malice, but on USAID the effect was the same; he engages with critics, not with evidence.",
+   "tr": "استدلال انگیزه‌دار، نه بدجنسی، ولی در مورد USAID اثرش یکی بود؛ با منتقدا درگیر می‌شه، نه با شواهد."
+  },
+  "2c8f357b90bcfa6f": {
+   "kind": "stance",
+   "en": "The same grievance engine as the tech right, run from the other side; the question is whether sincerity survives contact with power.",
+   "tr": "همون موتور شکایت مثل راست فناوری، ولی از سمت دیگه؛ سؤال اینه که آیا صداقت در تماس با قدرت دوام می‌آره."
+  },
+  "02537062f86a66ab": {
+   "kind": "stance",
+   "en": "The most reactive of the four: politics that track proximity, plus a genuinely rare habit of owning failure in public.",
+   "tr": "واکنشی‌ترین نفر از این چهار تا: سیاست‌هایی که با نزدیکی هم‌جهت می‌شن، به علاوه عادت واقعاً نادر اعتراف به شکست در ملأ عام."
+  },
+  "07c8969e2921b9fc": {
+   "kind": "stance",
+   "en": "He didn't lose the plot; he found one that pays better, and the manifesto came before the grievance.",
+   "tr": "داستان رو گم نکرده؛ یکی پیدا کرده که بهتر پول می‌ده، و مانیفست قبل از شکایت اومد."
+  },
+  "d0bf172d421548aa": {
+   "kind": "stance",
+   "en": "Backing Chan over Wiener is both sincere and strategic, but the machine part is doing more work.",
+   "tr": "حمایت از چن به جای وینر هم صادقانه‌ست هم استراتژیک، ولی بخش ماشین داره بیشتر کار می‌کنه."
+  },
+  "b3b16713f9dbf4b9": {
+   "kind": "stance",
+   "en": "The source code for the whole cast; Girard explains him best, and I think the contrarianism has become the costume.",
+   "tr": "کد منبع کل این جمع؛ ژیرارد بهترین توضیح رو در موردش می‌ده، و فکر کنم این مخالفت‌جویی شده لباس مبدلش."
+  },
+  "5799d23eb0463744": {
+   "kind": "stance",
+   "en": "The stronger candidate on paper, passed over mostly because of Pelosi's machine; the snub was probably a matter of style, not intent.",
+   "tr": "روی کاغذ نامزد قوی‌تری بود که عمدتاً به خاطر ماشین پلوسی کنار گذاشته شد؛ این بی‌توجهی احتمالاً مسئله سبک بود، نه نیت."
+  },
+  "fe67aba6ad43dca8": {
+   "kind": "stance",
+   "en": "A pragmatist wearing a socialist costume: free buses are sane, groceries are shaky, the rent freeze worries me, and housing supply is the real story.",
+   "tr": "pragmatist با لباس سوسیالیست: اتوبوس رایگان منطقیه، خواربار فروشی لرزانه، فریز اجاره نگرانم می‌کنه، و عرضه مسکن داستان واقعی‌ست."
+  },
+  "4cfaa49d49ce7d07": {
+   "kind": "stance",
+   "en": "Both Pelosis deny she sought the House seat, and I take that at face value; the 'she'll succeed Nancy' call is reporting, not proof.",
+   "tr": "هر دو پلوسی انکار می‌کنن که دنبال صندلی مجلس بوده، و من اینو جدی می‌گیرم؛ حرف «اون نانسی رو جانشین می‌شه» گزارشه، نه مدرک."
+  }
+ }
+}

@@ -2,7 +2,7 @@
  "_doc": "Machine translation cache (Spanish) written by scripts/translate.py; key = sha256(en)[:16]. Hand edits to `tr` are kept as long as `en` is unchanged.",
  "lang": "es",
  "source_lang": "en",
- "model": "grok-4.7",
+ "model": "grok-4.20-0309-non-reasoning",
  "temperature": 0,
  "strings": {
   "5efad5689c35cfb8": {

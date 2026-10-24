@@ -21,3 +21,15 @@
 }
 .i18n-note{margin-top:.75rem;margin-bottom:.25rem;font-size:.8rem;color:var(--muted)}
 .i18n-note a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+
+[dir="rtl"] body{direction:rtl;text-align:right}
+[dir="rtl"] .lang-menu{margin-right:0;margin-left:.35rem}
+[dir="rtl"] .lang-menu__panel{right:auto;left:0}
+[dir="rtl"] .tnum,[dir="rtl"] code,[dir="rtl"] pre,[dir="rtl"] .player__bar,[dir="rtl"] .player__ctrl{direction:ltr;unicode-bidi:isolate}
+[dir="rtl"] .turn,[dir="rtl"] .ep-context,[dir="rtl"] .take,[dir="rtl"] .split-card,[dir="rtl"] .clip-card__body{text-align:right}
+[dir="rtl"]{overflow-x:hidden}
+[dir="rtl"] .skip{left:auto;right:.5rem;transform:translateY(-200%)}
+[dir="rtl"] .skip:focus{right:.5rem;transform:translateY(0)}
+[dir="rtl"] .brand{margin-right:0;margin-left:auto}
+[dir="rtl"] .btn__meta{padding-left:0;border-left:0;padding-right:.55rem;border-right:1px solid rgba(255,255,255,.4)}
+[dir="rtl"] svg{direction:ltr}

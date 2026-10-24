@@ -1,0 +1,74 @@
+{
+ "_doc": "Machine translation cache (Portuguese) written by scripts/translate.py; key = sha256(en)[:16]. Hand edits to `tr` are kept as long as `en` is unchanged.",
+ "lang": "pt",
+ "source_lang": "en",
+ "model": "grok-4.20-0309-non-reasoning",
+ "temperature": 0,
+ "strings": {
+  "5efad5689c35cfb8": {
+   "kind": "stance",
+   "en": "A real argument about safety-as-moat, made from inside government by someone whose portfolio benefits; my lean is no, pending the three tests.",
+   "tr": "Um argumento de verdade sobre segurança-como-muralha, feito de dentro do governo por alguém cujo portfólio se beneficia; a minha inclinação é não, à espera dos três testes."
+  },
+  "878b9b50884b899d": {
+   "kind": "stance",
+   "en": "Same turn as Andreessen, but with an inherited template, his father's left-to-right flip, and a warmer personal record.",
+   "tr": "Mesma virada que o Andreessen, mas com um molde herdado, a inversão do pai da esquerda para a direita e um histórico pessoal mais caloroso."
+  },
+  "dd3650cd28c384e7": {
+   "kind": "stance",
+   "en": "The pure opportunist with a refugee's reasons: access as currency, empathy rationed to a small perimeter, and SPAC regret that came after the money.",
+   "tr": "O oportunista puro com razões de refugiado: acesso como moeda, empatia racionada a um perímetro pequeno e arrependimento do SPAC que veio depois do dinheiro."
+  },
+  "dcf7e2f9bd66f084": {
+   "kind": "stance",
+   "en": "A real candidate with a real story, not just Pelosi's pick, though her candidacy is entangled with Pelosi's machine.",
+   "tr": "Uma candidata de verdade com uma história de verdade, não só a escolha da Pelosi, embora a candidatura dela esteja enredada na máquina da Pelosi."
+  },
+  "50bf9761e014858e": {
+   "kind": "stance",
+   "en": "Motivated reasoning, not malice, but on USAID the effect was the same; he engages with critics, not with evidence.",
+   "tr": "Raciocínio motivado, não maldade, mas no caso da USAID o efeito foi o mesmo; ele dialoga com os críticos, não com as evidências."
+  },
+  "2c8f357b90bcfa6f": {
+   "kind": "stance",
+   "en": "The same grievance engine as the tech right, run from the other side; the question is whether sincerity survives contact with power.",
+   "tr": "O mesmo motor de queixas que a direita tech, só que vindo do outro lado; a questão é se a sinceridade sobrevive ao contato com o poder."
+  },
+  "02537062f86a66ab": {
+   "kind": "stance",
+   "en": "The most reactive of the four: politics that track proximity, plus a genuinely rare habit of owning failure in public.",
+   "tr": "O mais reativo dos quatro: política que acompanha a proximidade, mais um hábito genuinamente raro de assumir falhas em público."
+  },
+  "07c8969e2921b9fc": {
+   "kind": "stance",
+   "en": "He didn't lose the plot; he found one that pays better, and the manifesto came before the grievance.",
+   "tr": "Ele não perdeu o fio da meada; encontrou um que paga melhor, e o manifesto veio antes da queixa."
+  },
+  "d0bf172d421548aa": {
+   "kind": "stance",
+   "en": "Backing Chan over Wiener is both sincere and strategic, but the machine part is doing more work.",
+   "tr": "Apoiar a Chan em vez do Wiener é ao mesmo tempo sincero e estratégico, mas a parte da máquina é que está fazendo mais trabalho."
+  },
+  "b3b16713f9dbf4b9": {
+   "kind": "stance",
+   "en": "The source code for the whole cast; Girard explains him best, and I think the contrarianism has become the costume.",
+   "tr": "O código-fonte de todo o elenco; Girard explica-o melhor, e acho que o contrarianismo virou fantasia."
+  },
+  "5799d23eb0463744": {
+   "kind": "stance",
+   "en": "The stronger candidate on paper, passed over mostly because of Pelosi's machine; the snub was probably a matter of style, not intent.",
+   "tr": "O candidato mais forte no papel, preterido sobretudo por causa da máquina da Pelosi; o desaire foi provavelmente uma questão de estilo, não de intenção."
+  },
+  "fe67aba6ad43dca8": {
+   "kind": "stance",
+   "en": "A pragmatist wearing a socialist costume: free buses are sane, groceries are shaky, the rent freeze worries me, and housing supply is the real story.",
+   "tr": "Um pragmático vestido de socialista: autocarros gratuitos fazem sentido, mercearias são duvidosas, o congelamento das rendas preocupa-me e a oferta de habitação é a verdadeira história."
+  },
+  "4cfaa49d49ce7d07": {
+   "kind": "stance",
+   "en": "Both Pelosis deny she sought the House seat, and I take that at face value; the 'she'll succeed Nancy' call is reporting, not proof.",
+   "tr": "Ambas as Pelosis negam que ela tenha procurado o lugar na Câmara, e eu aceito isso à letra; a chamada «ela vai suceder à Nancy» é reportagem, não prova."
+  }
+ }
+}

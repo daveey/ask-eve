@@ -2054,7 +2054,7 @@ def build(db: Path, out: Path, include_drafts: bool) -> int:
     eps, people = load_site(db, include_drafts)
     splits = load_splits(eps, people)
     _CATALOG_EPS = eps
-    I.plan(sys.modules[__name__], eps, people, ["/", "/people/", "/about/", "/contact/", "/growth/"])
+    I.plan(sys.modules[__name__], eps, people, ["/", "/episodes/", "/people/", "/about/", "/contact/", "/growth/"])
     out.mkdir(parents=True, exist_ok=True)
     feed_eps = F.load(db, include_drafts)
     by_slug = {ep["slug"]: ep for ep in eps}

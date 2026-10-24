@@ -2,7 +2,7 @@
  "_doc": "Machine translation cache (Mandarin Chinese (Simplified)) written by scripts/translate.py; key = sha256(en)[:16]. Hand edits to `tr` are kept as long as `en` is unchanged.",
  "lang": "zh",
  "source_lang": "en",
- "model": "grok-4.7",
+ "model": "grok-4.20-0309-non-reasoning",
  "temperature": 0,
  "strings": {
   "9e9135fe41c48ab4": {
@@ -123,17 +123,17 @@
   "176abeb204251a76": {
    "kind": "take david-sacks ref",
    "en": "All-In's curated honesty boundary",
-   "tr": "Граница курируемой честности All-In"
+   "tr": "All-In curated honesty boundary"
   },
   "b68dac81dd6ed8d1": {
    "kind": "take starshield-and-the-anthropic-mirror ref q",
    "en": "So is the whole All-In 'talk honestly' brand bullshit?",
-   "tr": "Так что, весь бренд All-In «говорим честно» — чушь?"
+   "tr": "Так что, весь бренд All-In «говорим честно» — это полная хрень?"
   },
   "dc8851894b4fb4e1": {
    "kind": "take david-sacks ref a",
    "en": "Not entirely, but the brand is doing a lot of work. 'Talk honestly' works best as a vibe when the topic is far from anyone's portfolio. The second it touches Musk, Trump, or their own investments, the honesty gets curated. Not fake — just bounded.",
-   "tr": "Не целиком, но бренд делает очень много работы. «Говорить честно» лучше всего работает как вайб, когда тема далека от чьего-либо портфеля. Едва она касается Маска, Трампа или их собственных инвестиций, честность начинают курировать. Не фальшь — просто с границами."
+   "tr": "Не совсем, но бренд здесь очень старается. «Говорим честно» лучше всего работает как вайб, когда тема далека от чьего-либо портфеля. Как только она касается Маска, Трампа или их собственных инвестиций, честность сразу начинает курироваться. Не фейк — просто с границами."
   },
   "ee92954cdc33495d": {
    "kind": "take role",
@@ -448,17 +448,17 @@
   "43b8debd0c63b5de": {
    "kind": "take elon-musk ref",
    "en": "The Starshield vs. Anthropic mirror",
-   "tr": "Зеркало Starshield и Anthropic"
+   "tr": "Зеркало Starshield против Anthropic"
   },
   "31256398da3b21c6": {
    "kind": "take starshield-and-the-anthropic-mirror ref q",
    "en": "Wow, this sounds a lot like what the administration was accusing Anthropic of doing, right?",
-   "tr": "Ого, это очень похоже на то, в чём администрация обвиняла Anthropic, да?"
+   "tr": "Ух ты, это очень похоже на то, в чём администрация обвиняла Anthropic, верно?"
   },
   "50aa277b9300846f": {
    "kind": "take elon-musk ref a",
    "en": "Yes — almost a mirror image. The Pentagon's whole case against Anthropic was that Claude's built-in restrictions could deny, disrupt, or manipulate military operations — which is exactly what Musk just did with Starshield, in real time, with real drones falling out of the sky.",
-   "tr": "Да — почти зеркальное отражение. Вся претензия Пентагона к Anthropic состояла в том, что встроенные ограничения Claude могут отказывать в военных операциях, срывать их или манипулировать ими — а это ровно то, что Маск только что сделал со Starshield, в реальном времени, когда настоящие дроны падали с неба."
+   "tr": "Да — почти зеркальное отражение. Весь аргумент Пентагона против Anthropic сводился к тому, что встроенные ограничения Claude могут отказывать, срывать или манипулировать военными операциями — именно это Маск только что сделал со Starshield, в реальном времени, когда настоящие дроны падали с неба."
   },
   "bbd136eb2863ddf6": {
    "kind": "take role",
@@ -2443,42 +2443,42 @@
   "6452860fc344a3af": {
    "kind": "take starshield-and-the-anthropic-mirror ref",
    "en": "The 100 mph Starshield cap over Ukraine",
-   "tr": "Ограничение Starshield над Украиной в 100 миль в час"
+   "tr": "Старшилд на 160 км/ч над Украиной"
   },
   "d8e7e923893d8baf": {
    "kind": "take starshield-and-the-anthropic-mirror ref q",
    "en": "What is going on with Elon Musk turning off their Starlink?",
-   "tr": "Что происходит с тем, что Илон Маск отключает их Starlink?"
+   "tr": "Что происходит с тем, что Илон Маск отключил им Старлинк?"
   },
   "ec0274be6df41d00": {
    "kind": "take starshield-and-the-anthropic-mirror ref a",
    "en": "What Musk actually did was throttle Starshield — the military-grade version — over Ukraine starting October thirteenth. Speeds capped around a hundred miles per hour, which kills the jet-powered interceptor drones and hampers strike missions.",
-   "tr": "На самом деле Маск не отключил, а ограничил скорость Starshield — военной версии — над Украиной начиная с 13 октября. Скорость ограничили примерно 100 милями в час, что убивает реактивные дроны-перехватчики и затрудняет ударные миссии."
+   "tr": "На самом деле Маск просто ограничил Starshield — военную версию — над Украиной начиная с тринадцатого октября. Скорость была ограничена примерно до ста миль в час, что выводит из строя реактивные перехватывающие дроны и срывает ударные миссии."
   },
   "7974ca5ffee0c6d2": {
    "kind": "take starshield-and-the-anthropic-mirror ref",
    "en": "Pentagon money under SpaceX terms of service",
-   "tr": "Деньги Пентагона по условиям обслуживания SpaceX"
+   "tr": "Деньги Пентагона на условиях сервиса SpaceX"
   },
   "445ddb4ede823f9d": {
    "kind": "take starshield-and-the-anthropic-mirror ref q",
    "en": "How did a private company end up holding that switch?",
-   "tr": "Как так вышло, что этот переключатель оказался у частной компании?"
+   "tr": "Как так вышло, что частная компания держит этот рубильник?"
   },
   "ecd3b7103c7cb74f": {
    "kind": "take starshield-and-the-anthropic-mirror ref a",
    "en": "Starshield runs on Pentagon money but under SpaceX's terms of service. That's the trap: the government outsourced a war-critical function and forgot to write the clause that says 'and we can take it back.'",
-   "tr": "Starshield работает на деньги Пентагона, но по условиям обслуживания SpaceX. В этом и ловушка: правительство отдало на аутсорс критически важную для войны функцию и забыло прописать пункт, который говорит: «и мы можем забрать это обратно»."
+   "tr": "Старшилд работает на деньги Пентагона, но по условиям сервиса SpaceX. Вот в чём ловушка: правительство отдало на аутсорс критически важную для войны функцию и забыло прописать пункт «и мы можем это забрать обратно»."
   },
   "c62cdc11828df0d0": {
    "kind": "take starshield-and-the-anthropic-mirror ref",
    "en": "The Anthropic mirror image",
-   "tr": "Зеркальное отражение Anthropic"
+   "tr": "Зеркальное отражение с Anthropic"
   },
   "ee4f0604d9dbd7e2": {
    "kind": "take starshield-and-the-anthropic-mirror ref a",
    "en": "Yes — almost a mirror image. A company that refuses to hand over unrestricted AI gets blacklisted as a national security threat, while the company that actually restricted a military system gets a courtesy call and a press statement.",
-   "tr": "Да — почти зеркальное отражение. Компанию, которая отказывается отдать ИИ без ограничений, вносят в чёрный список как угрозу национальной безопасности, а компания, которая реально ограничила военную систему, получает вежливый звонок и заявление для прессы."
+   "tr": "Да — почти зеркальное отражение. Компанию, которая отказывается передавать неограниченный ИИ, вносят в чёрный список как угрозу национальной безопасности, а компанию, которая реально ограничила военную систему, просто вежливо предупреждают и выпускают пресс-релиз."
   },
   "87fd7a6ab118a6ae": {
    "kind": "take starshield-and-the-anthropic-mirror ref",
@@ -2488,7 +2488,7 @@
   "af7ce28808b7b806": {
    "kind": "take starshield-and-the-anthropic-mirror ref a",
    "en": "Not entirely, but the brand is doing a lot of work. The second it touches Musk, Trump, or their own investments, the honesty gets curated. Not fake — just bounded. The difference is All-In sells the absence of the boundary as the product.",
-   "tr": "Не совсем, но бренд делает очень много работы. Как только дело касается Маска, Трампа или их собственных инвестиций, честность начинают курировать. Не фальшь — просто граница. Разница в том, что All-In продаёт отсутствие этой границы как продукт."
+   "tr": "Не совсем, но бренд здесь очень старается. Как только дело касается Маска, Трампа или их собственных инвестиций, честность сразу начинает подвергаться кураторству. Это не фейк — просто она ограничена. Разница в том, что All-In продаёт отсутствие этой границы как сам продукт."
   },
   "348d211172e02d64": {
    "kind": "topic term",
@@ -2538,7 +2538,7 @@
   "d887ef111988590e": {
    "kind": "take iran-edge-theory-and-russias-double-game ref",
    "en": "Midterm oil math & expiration date",
-   "tr": "Нефтяная арифметика промежуточных выборов и срок годности"
+   "tr": "Математика нефти на промежуточных выборах и срок годности"
   },
   "8338762d6fea42eb": {
    "kind": "take iran-edge-theory-and-russias-double-game ref q",
@@ -2548,27 +2548,27 @@
   "2f17ad39fa5a2552": {
    "kind": "take iran-edge-theory-and-russias-double-game ref a",
    "en": "Mostly politics. A strike that sends oil past a hundred-twenty or gets US troops killed in the final stretch would hand Democrats a gift two weeks before voters go to the polls. Either way, the calendar is doing more strategic work than the bombs are right now.",
-   "tr": "В основном политика. Удар, который отправит нефть выше ста двадцати или приведёт к гибели американских военных на финишной прямой, подарит демократам подарок за две недели до того, как избиратели пойдут на участки. Так или иначе, сейчас календарь делает больше стратегической работы, чем бомбы."
+   "tr": "В основном политика. Удар, который отправит нефть выше ста двадцати долларов или приведёт к гибели американских военных на финишной прямой, станет подарком демократам за две недели до того, как избиратели пойдут к урнам. В любом случае сейчас календарь делает больше стратегической работы, чем бомбы."
   },
   "39b0901e714489f1": {
    "kind": "take iran-edge-theory-and-russias-double-game ref",
    "en": "The Atlantic's 'edge theory'",
-   "tr": "«Теория края» Atlantic"
+   "tr": "«Теория края» из The Atlantic"
   },
   "371ccf8c0817cf99": {
    "kind": "take iran-edge-theory-and-russias-double-game ref q",
    "en": "Why is Trump doing this? Does he think it'll turn out differently?",
-   "tr": "Зачем Трамп это делает? Он думает, что на этот раз всё сложится иначе?"
+   "tr": "Почему Трамп это делает? Он думает, что на этот раз всё будет по-другому?"
   },
   "96890abacea4c861": {
    "kind": "take iran-edge-theory-and-russias-double-game ref a",
    "en": "He probably does think it'll turn out differently, and the belief has a name — the edge theory. One adviser told the Atlantic that economic pressure is working and Iran is close to the edge, so a few more strikes would push them over.",
-   "tr": "Он, скорее всего, и правда думает, что всё сложится иначе, и у этой веры есть имя — теория края. Один советник сказал Atlantic, что экономическое давление работает и Иран близок к краю, так что ещё несколько ударов столкнут его за край."
+   "tr": "Скорее всего, он действительно думает, что всё будет по-другому, и у этой уверенности есть название — теория края. Один советник сказал The Atlantic, что экономическое давление работает и Иран уже близок к краю, так что ещё несколько ударов его перекинут."
   },
   "23553d0ca0902c30": {
    "kind": "take iran-edge-theory-and-russias-double-game ref",
    "en": "Russia's double game & diesel waiver",
-   "tr": "Двойная игра России и послабление по дизелю"
+   "tr": "Двойная игра России и освобождение от пошлин на дизель"
   },
   "a57d3c02158141f3": {
    "kind": "take iran-edge-theory-and-russias-double-game ref q",
@@ -2578,7 +2578,7 @@
   "a4086fc5497c9075": {
    "kind": "take iran-edge-theory-and-russias-double-game ref a",
    "en": "Russia's playing a double game, and the contradiction is the story. The US is buying Russian fuel under a Treasury license while Russian missiles and targeting imagery reportedly flow to Iran. The two wars are now one supply chain, and Trump's the one holding both ends.",
-   "tr": "Россия ведёт двойную игру, и противоречие — это и есть вся история. США покупают российское топливо по лицензии Минфина, пока российские ракеты и снимки для наведения, по сообщениям, идут в Иран. Две войны теперь — одна цепочка поставок, и оба конца держит Трамп."
+   "tr": "Россия ведёт двойную игру, и вся история именно в этом противоречии. США покупают российское топливо по лицензии Минфина, в то время как, по сообщениям, российские ракеты и данные целеуказания идут в Иран. Две войны теперь образуют одну цепочку поставок, и оба конца этой цепочки держит в руках Трамп."
   },
   "e03df2d00a492ee5": {
    "kind": "topic term",
