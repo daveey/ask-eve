@@ -1,5 +1,5 @@
 {
-  "_comment": "Site-only settings for scripts/build_site.py. Subscribe links stay hidden until a URL is set (apple_podcasts is the podcast:// fallback until the show is listed in Apple's directory; swap in the podcasts.apple.com URL then; spotify stays empty/hidden until the show is on Spotify). Blurbs are the short card summaries used only when the D1 episode has no summary.",
+  "_comment": "Site-only settings for scripts/build_site.py. Subscribe links stay hidden until a URL is set (apple_podcasts is the podcast:// fallback until the show is listed in Apple's directory; swap in the podcasts.apple.com URL then; spotify stays empty/hidden until the show is on Spotify). Blurbs are the hero/feed fallback used only when the D1 episode has no summary. Summaries (by public slug, 1-2 sentences, <=160 chars) are the line under each episode card's title; a transcript front-matter `summary:` overrides them (but changes the transcript sha, so it needs meta.yml), and without either the card uses the first sentence of `context`.",
   "subscribe": {
     "apple_podcasts": "podcast://askevepodcast.com/feed.xml",
     "spotify": ""
@@ -7,5 +7,9 @@
   "blurbs": {
     "first-encounter": "The conversation that started the show. Eve walks through how Andreessen and Horowitz turned right, then works through Thiel, Musk, Sacks's three-test scorecard, Calacanis, Chamath, Pelosi's succession move, Bari Weiss and Mamdani, and the two of them decide to make it a podcast.",
     "the-making-of-eve": "The build log. This is the whole Grok Bot chat in which David and Eve set up the repo, Eve's memory search, the audio pipeline and this site. David's real voice comes in for the parts he recorded on his iPhone."
+  },
+  "summaries": {
+    "first-encounter": "One late-night question about Andreessen and Horowitz, two hours on Musk, Sacks and Thiel, and the night Eve got her name.",
+    "the-making-of-eve": "The overnight chat in which David and Eve built this podcast: her memory, the audio pipeline and this website."
   }
 }
