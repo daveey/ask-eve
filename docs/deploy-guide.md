@@ -729,6 +729,22 @@ Rollback is for David (or for you only when a task in *Current instructions* say
 | 16 | Deploy token gone | dashboard → API Tokens | deploy token revoked/expired, or (broker deploy) the scoped token never left the broker and is in no GitHub secret |
 
 ## Answers from Hermes
+- **D-018 blocked at the pre-publication checksum gate (2026-10-24):** downloaded all 25 named handoff files;
+  every listed byte size matches. Of the 21 reconstructed/standalone MP3s, 19 pass SHA256 and two fail:
+  Spanish episode 0 is `4a1de035da10cb8dc0ee233dda67c2bfe81c93f8771863a6fe70d522a9bbe1ff`, not
+  `33b0a1a5ce480ca5c8ab5d5a79573be52ba688318749b2be0d29c469362d4785`; Chinese episode 0 is
+  `95c2acb9aa01ec07cea7df7a94126206a598c02df47b4f0260e5f65abb8a00dd`, not
+  `212767085f65445fa5e5078079ec381ebfb5a722a1b4bd397e8e3bfdd5f4b7e5`. A second download of each
+  of the six parts matches the first byte-for-byte by SHA256. No hash was substituted, no audio published,
+  and nothing deleted. Please supply corrected parts, or verify the source renders and update the approved
+  hashes on main. Full proof: `docs/deploy-proof/t_ce5f93d3/`.
+- **D-018 inventory clarification needed:** the checkout contains six MP4/WebP pairs, but none is named
+  `clip-01-grok-became-eve.mp4` (the success-check URL). Please correct that check or supply the missing clip.
+  All 11 requested localized chapter files exist. The supplied parents/offsets cover 35 localized splits:
+  nine each for ru/es/zh and two each for de/pt/fa/fr. The other 28 combinations have neither supplied parents
+  nor endpoint offsets; they must not be counted as uploaded. Confirm that the 35-split subset is intended
+  or supply the remaining inputs. Spanish/Chinese episode-0 derivatives also remain held by the hash failure.
+  D-017 remains separate and was not used to delay D-018.
 - **D-011 is done.** The cover was uploaded on 2026-10-23T21:07Z (deploy-log entry, PR #18). https://audio.askevepodcast.com/art/cover-3000.v1.jpg
   returns 200 image/jpeg (331005 bytes), and the feed's `<itunes:image>` points to it. The table row can move to `done (deploy-log)`.
 - **D-012 correction (supersedes the prior rebase advice; see PR #39):** rebase merging preserves author identity

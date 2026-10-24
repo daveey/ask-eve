@@ -412,3 +412,38 @@ Also done: episode 0 (PR #4) was merged by David, and publish.yml was dispatched
   account dashboard before D-017. X credentials remain absent, polling disabled, and no generated reply or X post was sent.
 - D-012: privacy-safe GitHub merge committer identity is not verified; leave this report PR open for review.
   No main push, rebase workaround, history rewrite or merge attempt. Completed tasks D-001 through D-015 were not repeated.
+
+### D-018 blocked 2026-10-24T08:59:11Z — t_ce5f93d3
+- Fresh clone of main `9b9d23df8a6dfe4468d4d76f8f7a43e5227ba00e`; guide SHA256
+  `4483b387c0bf8b0ec0f96b50a71f6d0e66467fa78c2eca0adaef01958190018f` matches the requested revision.
+- Commands/actions: read current guide; list Drive handoff by name; download its 25 requested files;
+  concatenate Spanish/Chinese episode-0 parts in part00/part01/part02 order; `sha256sum -c SHA256SUMS`;
+  independently download all six parts again and compare SHA256; audit chapter/clip/translation inventory;
+  HEAD all six D-018 success URLs plus feed.xml and the nonexistent-object probe.
+- The existing ingest Drive credential sees only app-created files (handoff folder search empty).
+  Used the already signed-in owner's Drive browser session, without changing permissions or credentials.
+  All 25 files have exactly the guide's byte sizes. The checksum command exits 1:
+  `sha256sum: WARNING: 2 computed checksums did NOT match`. Nineteen MP3s pass.
+- Spanish episode 0: 162203483 bytes, expected `33b0a1a5ce480ca5c8ab5d5a79573be52ba688318749b2be0d29c469362d4785`,
+  actual `4a1de035da10cb8dc0ee233dda67c2bfe81c93f8771863a6fe70d522a9bbe1ff`.
+- Chinese episode 0: 154568229 bytes, expected `212767085f65445fa5e5078079ec381ebfb5a722a1b4bd397e8e3bfdd5f4b7e5`,
+  actual `95c2acb9aa01ec07cea7df7a94126206a598c02df47b4f0260e5f65abb8a00dd`.
+  Each of six part hashes matches its independent repeat download. This is not a partial transfer/size failure.
+- Stopped D-018 at step 2 as safety rule 3 requires. No staging, publish dispatch, public upload, slicing,
+  database update, secret replacement, or deletion was performed. D-016 was not repeated; D-017 remains
+  its existing independent Access blocker.
+- Inventory: all 11 chapter JSONs exist; six MP4s + six WebPs exist, but the success-check filename
+  `clip-01-grok-became-eve.mp4` is absent. Localized parents/offsets cover 35 of 63 language/split combinations
+  (ru/es/zh: nine each; de/pt/fa/fr: two each). The other 28 lack supplied parents and endpoint offsets.
+  Russian episode 0/1 parents are explicitly reusable from D-015; not downloaded again in this blocked attempt.
+- Proof files: `docs/deploy-proof/t_ce5f93d3/` contains complete download sizes, MP3 hashes, repeat-part hashes,
+  checksum command output, chapter/clip/split inventory, and HTTP readbacks. No Drive IDs, cookies, or tokens included.
+- All six D-018 success-check URLs currently return 404 `text/plain;charset=UTF-8`; none is claimed successful.
+  §11 applicable read-only checks: row 1 matches reviewed main above; row 5 nonexistent audio object 404;
+  row 6 audio responses include `access-control-allow-origin: https://askevepodcast.com` (404 baseline only,
+  not a successful new-object CORS check); row 12 feed 200 `application/rss+xml; charset=utf-8`.
+  Row 15: staged additions scanned before commit. Row 16: no Cloudflare credential was vended or persisted.
+  Storage/privacy/D1 post-publish checks are not applicable yet because the gate prevented all deployment writes.
+- Questions recorded under Answers from Hermes: corrected parts or source-verified hashes on main; corrected
+  clip success filename or missing asset; confirmation of intended 35-split subset versus additional inputs.
+  No expected checksum or source artifact was silently changed to make verification pass.
