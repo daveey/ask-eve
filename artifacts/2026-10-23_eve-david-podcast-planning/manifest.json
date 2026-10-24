@@ -1,14 +1,14 @@
 {
  "stem": "2026-10-23_eve-david-podcast-planning",
- "version": 2,
- "audio_key": "audio/en/2026-10-23_eve-david-podcast-planning.v2.mp3",
- "audio_url": "https://audio.askevepodcast.com/audio/en/2026-10-23_eve-david-podcast-planning.v2.mp3",
- "audio_bytes": 137334489,
- "audio_sha256": "f9c6f70b0af4afde0b6f98bdebec007b0c1af64dd7c5f92525e3c63859d91f28",
+ "version": 3,
+ "audio_key": "audio/en/2026-10-23_eve-david-podcast-planning.v3.mp3",
+ "audio_url": "https://audio.askevepodcast.com/audio/en/2026-10-23_eve-david-podcast-planning.v3.mp3",
+ "audio_bytes": 139459394,
+ "audio_sha256": "93437acd6c8e0989e3b1fd74b019e5e4ab834fa89daad74975509d3710793f86",
  "audio_mime": "audio/mpeg",
- "duration_seconds": 8583,
+ "duration_seconds": 8716,
  "loudness_lufs": -16.4,
- "true_peak_dbfs": -3.8,
+ "true_peak_dbfs": -4.0,
  "id3_chapters": 8,
  "chapters": [
   {
@@ -16,31 +16,31 @@
    "title": "AI-reconstructed audio notice"
   },
   {
-   "startTime": 303.37,
+   "startTime": 305.0,
    "title": "Peter Thiel"
   },
   {
-   "startTime": 669.79,
+   "startTime": 675.29,
    "title": "Elon Musk"
   },
   {
-   "startTime": 2029.35,
+   "startTime": 2058.83,
    "title": "David Sacks"
   },
   {
-   "startTime": 3189.91,
+   "startTime": 3227.7,
    "title": "Jason Calacanis"
   },
   {
-   "startTime": 5024.2,
+   "startTime": 5074.069,
    "title": "Chan & Nancy Pelosi & Scott Wiener"
   },
   {
-   "startTime": 5680.8,
+   "startTime": 5738.049,
    "title": "Bari Weiss"
   },
   {
-   "startTime": 5962.52,
+   "startTime": 6020.749,
    "title": "Zohran Mamdani"
   }
  ],
@@ -53,13 +53,13 @@
   "david_narrator": 152,
   "david_real_share": 0.0,
   "david_real_seconds": 0,
-  "david_narrator_seconds": 959.85,
-  "eve_seconds": 7435.61,
+  "david_narrator_seconds": 1092.4,
+  "eve_seconds": 7435.608,
   "gap_turns": []
  },
  "placeholder_audio": false,
  "tts": "xai_tts voice=eve",
- "narrator": "xai_tts voice=rex",
+ "narrator": "elevenlabs_tts voice=oIYMwdEzgKSOV3gVsAjB model=eleven_v4",
  "missing_turns": [
   79
  ],

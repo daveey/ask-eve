@@ -1,0 +1,67 @@
+{
+ "stem": "2026-10-23_eve-david-podcast-planning",
+ "version": 1,
+ "audio_key": "audio/ru/2026-10-23_eve-david-podcast-planning.v1.mp3",
+ "audio_url": "https://audio.askevepodcast.com/audio/ru/2026-10-23_eve-david-podcast-planning.v1.mp3",
+ "audio_bytes": 155543884,
+ "audio_sha256": "3ac4449e94a03532b1549656cf920bc28e0d9961320dfd58e004eb8de1c239c7",
+ "audio_mime": "audio/mpeg",
+ "duration_seconds": 9721,
+ "loudness_lufs": -16.6,
+ "true_peak_dbfs": -4.3,
+ "id3_chapters": 8,
+ "chapters": [
+  {
+   "startTime": 0.0,
+   "title": "Уведомление об аудио, воссозданном ИИ"
+  },
+  {
+   "startTime": 350.83,
+   "title": "Питер Тиль"
+  },
+  {
+   "startTime": 775.6,
+   "title": "Илон Маск"
+  },
+  {
+   "startTime": 2334.5,
+   "title": "Дэвид Сакс"
+  },
+  {
+   "startTime": 3640.89,
+   "title": "Джейсон Калаканис"
+  },
+  {
+   "startTime": 5702.86,
+   "title": "Чан и Нэнси Пелоси и Скотт Винер"
+  },
+  {
+   "startTime": 6436.68,
+   "title": "Бари Вайс"
+  },
+  {
+   "startTime": 6772.74,
+   "title": "Зохран Мамдани"
+  }
+ ],
+ "recording_method": "tts-reconstructed",
+ "ai_reconstructed": true,
+ "mode": "synthetic",
+ "coverage": {
+  "david_lines": 152,
+  "david_real": 0,
+  "david_narrator": 152,
+  "david_real_share": 0.0,
+  "david_real_seconds": 0.0,
+  "david_narrator_seconds": 1139.2,
+  "eve_seconds": 8393.37,
+  "gap_turns": []
+ },
+ "placeholder_audio": false,
+ "tts": "xai_tts voice=eve lang=ru",
+ "narrator": "elevenlabs_tts voice=oIYMwdEzgKSOV3gVsAjB model=eleven_v4 lang=ru",
+ "missing_turns": [
+  79
+ ],
+ "transcript_sha256": "98509d96f62c0893b4e48206ee6164e2b7003c6082ba49559d9f614fbfcca36b"
+}

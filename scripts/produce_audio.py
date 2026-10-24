@@ -59,7 +59,7 @@ def make_chapters(md: str, timeline: dict, min_gap: float = 120.0) -> list[dict]
                 continue
             tr = tmap[x["i"]]
             clock = (tr.created_at or "")[11:16]
-            words = " ".join(re.sub(r"[\[\]()*_`#>]", "", tr.text).split()[:7])
+            words = "[link removed]" if re.fullmatch(r"\[[^\]]*link[^\]]*\]", tr.text.strip(), re.I) else " ".join(re.sub(r"[\[\]()*_`#>]", "", tr.text).split()[:7])
             nar_id = (timeline.get("narrator") or "").lower()
             nar_label = (
                 "AI-reconstructed, David voice clone"

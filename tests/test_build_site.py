@@ -181,7 +181,7 @@ def test_episode0_title_first_encounter(site):
     item = [i for i in ET.parse(site / "feed.xml").getroot().iter("item") if i.findtext("link").endswith(f"/{EP0}/")][0]
     assert item.findtext("title") == "First Encounter"
     assert item.findtext("guid") == "ask-eve:2026-10-23_eve-david-podcast-planning"
-    assert item.find("enclosure").get("url") == "https://audio.askevepodcast.com/audio/en/2026-10-23_eve-david-podcast-planning.v2.mp3"
+    assert item.find("enclosure").get("url") == "https://audio.askevepodcast.com/audio/en/2026-10-23_eve-david-podcast-planning.v3.mp3"
 
 
 CTX0 = ("This show wasn't planned. Late one night David was listening to the All-In podcast and opened Grok's voice mode "
@@ -261,7 +261,7 @@ def test_feed_bonus_item(site):
     b = items["ask-eve:2026-10-23_the-making-of-eve"]
     assert b.findtext("title") == "Bonus: The Making of Eve"
     assert b.findtext("itunes:episodeType", namespaces=ns) == "bonus" and b.find("itunes:episode", ns) is None
-    assert b.find("enclosure").get("url") == "https://audio.askevepodcast.com/audio/en/2026-10-23_the-making-of-eve.v2.mp3"
+    assert b.find("enclosure").get("url") == "https://audio.askevepodcast.com/audio/en/2026-10-23_the-making-of-eve.v3.mp3"
     f = items["ask-eve:2026-10-23_eve-david-podcast-planning"]
     assert f.findtext("title") == "First Encounter" and f.findtext("itunes:episodeType", namespaces=ns) == "full"
     assert f.find("itunes:episode", ns) is None      # episode 0: no number rather than 0
@@ -523,7 +523,7 @@ def test_person_take_and_citations(site):
         assert _h.escape(para) in re.sub(r'<a class="cite"[^>]*>(.*?)</a>', r"\1", body)
     cites = re.findall(r'<a class="cite" href="/episodes/([^/]+)/#t=([\d.]+)"', p)
     assert len(cites) == len([r for r in sacks["refs"] if r.get("anchor")]) and all(s == EP0 for s, _ in cites)
-    assert 'href="/episodes/first-encounter/#t=2519.36"' in p     # "three tests" = 08:06:53 -> the turn's exact start
+    assert 'href="/episodes/first-encounter/#t=2554.5"' in p     # "three tests" = 08:06:53 -> the turn's exact start
     assert 'class="plinks"' in p and 'href="https://x.com/DavidSacks"' in p
     assert 'href="/topics/sacks-vs-anthropic/"' in p
     assert "Linked phrases open the episode" in p

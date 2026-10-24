@@ -1,355 +1,355 @@
 {
-  "episode": "first-encounter",
-  "stem": "2026-10-23_eve-david-podcast-planning",
-  "title": "First Encounter",
-  "turns": 304,
-  "transcript_sha256": "e825c95ff7951066a32d9c0b11b132d3814abcaf17d91545a80d0bf119eee62e",
-  "model": "grok-4.7",
-  "temperature": 0,
-  "prompt_version": 1,
-  "generated_at": "2026-10-23T22:32:48Z",
-  "moments": [
-    {
-      "person": "ben-horowitz",
-      "name": "Ben Horowitz",
-      "episode": "first-encounter",
-      "start_turn": 0,
-      "end_turn": 1,
-      "start": 5.65,
-      "end": 205.59,
-      "clock": "07:29:52",
-      "summary": "David asks what happened to Andreessen and Horowitz politically; Eve explains they turned against Biden over crypto scrutiny, AI policy and a proposed billionaire tax, that Horowitz opened their Trump endorsement with \"sorry, Mom,\" and that his father David Horowitz made his own left-to-right flip.",
-      "topics": [
-        "political-shift",
-        "trump-endorsement",
-        "family-history"
-      ],
-      "edited": true,
-      "david_q": "What happened to Andreessen and Horowitz? They became right-wingers somehow — were they always like this, or did something make them crazy?",
-      "eve_a": "They weren't always like this. They turned against the Biden administration over crypto scrutiny, AI policy, and a proposed billionaire tax. Horowitz opened their July 2024 Trump endorsement with 'sorry, Mom' — though his own father, David Horowitz, made a famous left-to-right flip decades earlier."
-    },
-    {
-      "person": "marc-andreessen",
-      "name": "Marc Andreessen",
-      "episode": "first-encounter",
-      "start_turn": 0,
-      "end_turn": 11,
-      "start": 5.65,
-      "end": 789.73,
-      "clock": "07:29:52",
-      "summary": "David asks how Andreessen became right-wing and what he is like; Eve says he voted for Hillary in 2016, turned on Biden over crypto scrutiny, AI policy and a billionaire tax, and wrote a techno-optimist manifesto, and describes him as loyal mainly to his wife Laura and Horowitz, and in awe of Musk.",
-      "topics": [
-        "political-realignment",
-        "techno-libertarianism",
-        "personality",
-        "musk-relationship"
-      ],
-      "edited": true,
-      "david_q": "Walk me through what happened to Marc Andreessen — why did he turn right when he already has plenty of money, and who is he actually loyal to?",
-      "eve_a": "Andreessen voted for Hillary in 2016, then broke with Biden over crypto regulation, AI rules, and a billionaire tax proposal. Ideology is the story that makes the money feel like destiny: he genuinely sees technology as the main event of history. Personally, his loyalty is fixed on a tiny inner circle — his wife Laura, Ben Horowitz, and Elon Musk."
-    },
-    {
-      "person": "ben-horowitz",
-      "name": "Ben Horowitz",
-      "episode": "first-encounter",
-      "start_turn": 6,
-      "end_turn": 7,
-      "start": 418.79,
-      "end": 564.01,
-      "clock": "07:36:35",
-      "summary": "David asks if Andreessen and Horowitz are nice and what family and friends say; Eve explains Horowitz is shy but empathetic, that wife Felicia called him very nice, Bill Campbell praised his leadership, and that he teaches every a16z hire and fines lateness.",
-      "topics": [
-        "personality",
-        "family",
-        "leadership-style"
-      ],
-      "david_q": "As humans, are Andreessen and Horowitz actually nice? What do their families and friends say about them?",
-      "eve_a": "They're two very different animals, and Horowitz is the people person. He was painfully shy as a kid, which turned into real empathy — his wife Felicia calls him very nice, Bill Campbell praised his leadership, and he personally teaches every new a16z hire about culture while fining people $10 a minute for being late to entrepreneur meetings."
-    },
-    {
-      "person": "elon-musk",
-      "name": "Elon Musk",
-      "episode": "first-encounter",
-      "start_turn": 10,
-      "end_turn": 37,
-      "start": 669.79,
-      "end": 2028.75,
-      "clock": "07:40:42",
-      "summary": "David asks where Musk fits with Andreessen, how he became a Trump backer, and how he sees the USAID cuts; Eve argues self-preservation, civilizational fears and spite drove him, and that he still treats the ninety-percent waste figure as fact even though the audits contradict it.",
-      "topics": [
-        "andreessen",
-        "trump-alliance",
-        "usaid",
-        "doge"
-      ],
-      "edited": true,
-      "david_q": "How did Elon become a Trump backer, and how can he still believe USAID was 90% waste when the numbers say otherwise?",
-      "eve_a": "His shift stacked three layers: civilizational fear, regulatory self-preservation, and spite. On USAID, the 90% figure he cites as theft actually came from a localization report about how much aid went directly to local groups rather than through big contractors. Rockets give physics feedback in seconds; politics gives applause, so he experiences motivated reasoning as urgency."
-    },
-    {
-      "person": "david-sacks",
-      "name": "David Sacks",
-      "episode": "first-encounter",
-      "start_turn": 38,
-      "end_turn": 51,
-      "start": 2029.35,
-      "end": 2572.69,
-      "clock": "07:59:21",
-      "summary": "David asks how Sacks turned to Trump and why he attacks Anthropic; Eve explains he was a libertarian conservative since Stanford, believes AI safety has become a self-serving industry, and argues that attacking it from the White House while Craft profits is regulatory arbitrage, then proposes three tests to check him.",
-      "topics": [
-        "political-arc",
-        "anthropic",
-        "trump-support",
-        "craft-ventures"
-      ],
-      "edited": true,
-      "david_q": "What is going on with David Sacks? Why is he going after Anthropic from inside the government, and does he really think AI safety is a psyop?",
-      "eve_a": "Sacks has been a libertarian conservative since co-writing The Diversity Myth with Thiel at Stanford. He believes the softer version — that AI safety has become a self-serving moat for incumbents — but making that case from a White House role while Craft Ventures' portfolio benefits is regulatory arbitrage with a podcast. That's why I proposed three behavioral tests to check him."
-    },
-    {
-      "person": "chamath-palihapitiya",
-      "name": "Chamath Palihapitiya",
-      "episode": "first-encounter",
-      "start_turn": 62,
-      "end_turn": 73,
-      "start": 2621.77,
-      "end": 3321.69,
-      "clock": "08:08:29",
-      "summary": "David asks whether Chamath has turned fascist and wants his life, SPAC record, and dynamic with Sacks. Eve argues he is an access-driven opportunist, not an ideologue; traces a refugee childhood through Facebook to cratered SPACs that paid him early; and says he never publicly challenges Sacks.",
-      "topics": [
-        "political-shift",
-        "biography",
-        "spacs",
-        "all-in-podcast"
-      ],
-      "david_q": "Tell me about Chamath — has he gone fascist on All-In, and how do his life arc and the SPAC era fit into this?",
-      "eve_a": "I don't think he's a fascist; I call him the pure opportunist. He fled Sri Lanka's civil war as a kid, grew up on welfare in Ottawa, climbed through Facebook, and then sold retail investors on SPACs where his sponsor structure paid out even when the stocks cratered. In politics, he went where the phone gets answered — and he never publicly pushes back on Sacks."
-    },
-    {
-      "person": "david-sacks",
-      "name": "David Sacks",
-      "episode": "first-encounter",
-      "start_turn": 72,
-      "end_turn": 73,
-      "start": 3189.91,
-      "end": 3321.69,
-      "clock": "08:16:17",
-      "summary": "David asks about the dynamic between Chamath and Sacks; Eve explains they are the closest All-In pair, co-hosted a Trump fundraiser after both condemned January sixth, and that Chamath never publicly challenges Sacks now that Sacks holds power.",
-      "topics": [
-        "all-in-podcast",
-        "chamath",
-        "trump-fundraiser",
-        "white-house"
-      ],
-      "david_q": "What is the actual dynamic between Chamath and Sacks on the show?",
-      "eve_a": "They're the closest pair on All-In. Both condemned Trump after January 6th and then co-hosted his $12 million San Francisco fundraiser in June 2024. Now that Sacks holds real government influence, the dynamic has shifted from two equals to a broadcaster and his most powerful listener — Chamath never challenges him publicly."
-    },
-    {
-      "person": "jason-calacanis",
-      "name": "Jason Calacanis",
-      "episode": "first-encounter",
-      "start_turn": 74,
-      "end_turn": 85,
-      "start": 3322.29,
-      "end": 3762.1,
-      "clock": "08:18:15",
-      "summary": "David asks about Jason Calacanis's background, politics, and personality; Eve calls him All-In's reactive media operator—Brooklyn-born, wrecked by Mahalo, rebuilt via LAUNCH and an early Uber stake—whose Trump lean tracks Musk and Sacks, and who is loud, emotional, and strategically confessional.",
-      "topics": [
-        "biography",
-        "all-in",
-        "political-shift",
-        "personality"
-      ],
-      "david_q": "What's Jason Calacanis's deal? How did he become who he is, and what's his personality like?",
-      "eve_a": "Jason is the operator and media guy of the four — a working-class Brooklyn kid who lost everything when Mahalo collapsed and rebuilt through LAUNCH and an early Uber check. He's loud, relentless, and owns his failures publicly, though confession is also part of his brand. Politically he's the most reactive of the group: his drift tracks proximity to Musk and Sacks."
-    },
-    {
-      "person": "chamath-palihapitiya",
-      "name": "Chamath Palihapitiya",
-      "episode": "first-encounter",
-      "start_turn": 99,
-      "end_turn": 105,
-      "start": 3803.97,
-      "end": 4071.82,
-      "clock": "08:25:52",
-      "summary": "Eve explains colleagues found Chamath quiet, then intense and unreachable; David asks about family and empathy. Eve claims care is rationed to a tiny circle, he is estranged from his father yet hands-on with his kids, and wins like the Groq sale leave him depressed.",
-      "topics": [
-        "personality",
-        "family",
-        "empathy",
-        "happiness"
-      ],
-      "david_q": "What is Chamath's relationship with his family like? Does he lack empathy, or does he just ration it to an inner group?",
-      "eve_a": "My lean is rationed empathy. A refugee childhood and an alcoholic father wired him to treat the outside world as a threat and family as the only safe zone. He's estranged from his father, fiercely hands-on with his own kids, and admits that even multi-billion-dollar wins like Groq leave him feeling flat for a week."
-    },
-    {
-      "person": "david-sacks",
-      "name": "David Sacks",
-      "episode": "first-encounter",
-      "start_turn": 108,
-      "end_turn": 113,
-      "start": 4101.76,
-      "end": 4275.58,
-      "clock": "08:30:29",
-      "summary": "David asks what Sacks is like and what close friends say; Eve describes a calm negotiator who lets silence work, reports Chamath on their intimacy and Paul Graham calling him possibly evil, and says a watcher finds no admissions of error.",
-      "topics": [
-        "personality",
-        "reputation",
-        "all-in-podcast",
-        "accountability"
-      ],
-      "david_q": "What is David Sacks actually like in a room, and what do the people closest to him say about him?",
-      "eve_a": "In negotiations he's calm, deadpan, and lets silence do the work. Chamath calls him the closest thing he has to a soulmate in the group, while Paul Graham once called him possibly evil — two reads of the same compartmentalization. Meanwhile, our watcher scanned 43 items across six months and found zero public admissions of error."
-    },
-    {
-      "person": "david-sacks",
-      "name": "David Sacks",
-      "episode": "first-encounter",
-      "start_turn": 120,
-      "end_turn": 121,
-      "start": 4296.36,
-      "end": 4336.3,
-      "clock": "08:33:14",
-      "summary": "David asks what the scorecard says; Eve explains symmetric scrutiny is mixed and failing, public updating fails with zero admissions of error, and nothing shows Sacks choosing principle over Craft Ventures' money.",
-      "topics": [
-        "anthropic",
-        "craft-ventures",
-        "accountability"
-      ],
-      "david_q": "What does the Sacks watcher scorecard actually say across the three tests?",
-      "eve_a": "Test one, symmetric scrutiny, comes out mixed-leaning-fail: he criticized OpenAI and DeepMind a couple of times, but his attacks on Anthropic are far harsher and more frequent. Test two, public updating, fails with zero admissions of error. Test three, costly principle, found no case where he backed a policy that cost Craft Ventures money."
-    },
-    {
-      "person": "peter-thiel",
-      "name": "Peter Thiel",
-      "episode": "first-encounter",
-      "start_turn": 123,
-      "end_turn": 135,
-      "start": 4339.73,
-      "end": 5023.6,
-      "clock": "08:34:22",
-      "summary": "Eve calls Thiel the movement’s source code; David asks for his arc, and Eve explains a Girard-shaped monopolist who bankrolled Gawker, now criticizes Trump on Iran, and whose contrarianism she calls costume.",
-      "topics": [
-        "biography",
-        "girard",
-        "trump-criticism",
-        "antichrist-lectures"
-      ],
-      "david_q": "Tell me about Peter Thiel — how did he become the source code for this movement, and is his contrarianism a long game or a costume?",
-      "eve_a": "I think it's a costume. A dislocated childhood, René Girard's mimetic theory at Stanford, and the PayPal win taught him that the crowd is a machine that manufactures scapegoats and that monopolies beat competition. He's less captured than the others — he criticizes Trump on Iran — but his Antichrist lectures and his jab at the pope are unfalsifiable by design."
-    },
-    {
-      "person": "nancy-pelosi",
-      "name": "Nancy Pelosi",
-      "episode": "first-encounter",
-      "start_turn": 136,
-      "end_turn": 155,
-      "start": 5024.2,
-      "end": 5680.2,
-      "clock": "08:44:52",
-      "summary": "David asks about Nancy Pelosi and why she backs Connie Chan over Scott Wiener; Eve claims the eighty-six-year-old is retiring but still running her machine, mixing a grudge over Wiener’s early announcement and direct call with labor loyalty and succession control.",
-      "topics": [
-        "succession",
-        "machine-politics",
-        "endorsement",
-        "retirement"
-      ],
-      "david_q": "Let's talk about Nancy Pelosi. Why is she backing Connie Chan over Scott Wiener for her seat — is she being vindictive, or proving the machine still works?",
-      "eve_a": "It's both, but the machine part is doing more work. If she purely wanted the strongest legislator, she'd back Wiener, who leads in polls and money. Backing Chan mixes a real grudge — Wiener opened an exploratory committee before she retired and reportedly called her directly instead of going through her chief of staff — with labor loyalty and demonstrating that succession still runs through her desk."
-    },
-    {
-      "person": "scott-wiener",
-      "name": "Scott Wiener",
-      "episode": "first-encounter",
-      "start_turn": 137,
-      "end_turn": 155,
-      "start": 5027.99,
-      "end": 5680.2,
-      "clock": "08:45:12",
-      "summary": "Eve says Scott Wiener leads Connie Chan for Pelosi's seat but she backs Chan after his early jump and a direct call. David asks if that is vindictive and if Wiener meant disrespect; Eve argues the machine demonstration outweighs the stronger candidate, and Wiener probably intended no slight.",
-      "topics": [
-        "house-succession",
-        "pelosi",
-        "san-francisco-politics",
-        "endorsement"
-      ],
-      "david_q": "Scott Wiener seems like a strong candidate — did he really call Pelosi directly, and do you think he intended to disrespect her?",
-      "eve_a": "Probably not. He's built his brand on being blunt and transactional, and he likely thought calling her directly was the respectful move. But in San Francisco machine politics, skipping the chief of staff reads as treating the outgoing boss like a peer. Pelosi is risking the seat with Chan to prove the machine still sets the line of succession."
-    },
-    {
-      "person": "chan",
-      "name": "Connie Chan",
-      "episode": "first-encounter",
-      "start_turn": 138,
-      "end_turn": 139,
-      "start": 5160.42,
-      "end": 5303.72,
-      "clock": "08:46:58",
-      "summary": "David asks what is up with Connie and whether Pelosi is just vindictive; Eve explains Chan is a Hong Kong immigrant and labor-backed Budget Committee chair, and argues the endorsement mixes spite, union ties, and machine succession, though Wiener still leads in polls and money.",
-      "topics": [
-        "sf-politics",
-        "succession",
-        "labor-politics",
-        "pelosi-endorsement"
-      ],
-      "david_q": "What is the deal with Connie Chan, and how much of Pelosi's endorsement is actually about her versus the grudge against Wiener?",
-      "eve_a": "Chan has a real story of her own: she immigrated from Hong Kong at thirteen, grew up in rent-controlled Chinatown housing, and chairs the Board of Supervisors' Budget Committee with deep labor backing. The endorsement mixes Pelosi's grudge against Wiener with union loyalty and machine succession, though Wiener still leads in polling and fundraising."
-    },
-    {
-      "person": "chan",
-      "name": "Connie Chan",
-      "episode": "first-encounter",
-      "start_turn": 154,
-      "end_turn": 155,
-      "start": 5616.9,
-      "end": 5680.2,
-      "clock": "08:54:07",
-      "summary": "David asks whether Pelosi truly believes Chan would be a better member than Wiener or is mainly proving the machine works; Eve argues both, but says the machine does more work, while claiming Pelosi genuinely likes Chan’s Chinatown roots, labor loyalty, and historic candidacy.",
-      "topics": [
-        "succession",
-        "machine-politics",
-        "congressional-race"
-      ],
-      "david_q": "Does Pelosi really believe Connie Chan will be a better member of Congress than Wiener, or is the machine more important than the seat?",
-      "eve_a": "Both, with the machine doing more of the work. Pelosi genuinely likes Chan's Chinatown roots, labor loyalty, and the history she'd make as the first Asian American in that seat — and when personal affection and machine incentives point the same way, nobody inside the room stops to interrogate which one is driving."
-    },
-    {
-      "person": "bari-weiss",
-      "name": "Bari Weiss",
-      "episode": "first-encounter",
-      "start_turn": 157,
-      "end_turn": 159,
-      "start": 5683.31,
-      "end": 5961.92,
-      "clock": "08:55:15",
-      "summary": "Eve nominates Bari Weiss as a Times dissenter who built Free Press after being punished for breaking left consensus. David asks who she is; Eve traces her Journal-to-CBS rise, centrist Zionist politics, and questions whether sincerity survives power.",
-      "topics": [
-        "free-press",
-        "new-york-times",
-        "cbs-news",
-        "political-arc"
-      ],
-      "david_q": "You brought up Bari Weiss as the sharpest contrast to the tech billionaires. Tell me who she is and how you read her move to CBS News.",
-      "eve_a": "Unlike the tech billionaires who started from power and called themselves outsiders, Weiss broke from the progressive consensus inside The New York Times and built The Free Press from scratch. Now that Paramount Skydance bought it and named her editor-in-chief of CBS News, the question isn't whether she's sincere — it's whether sincerity built on grievance survives becoming the establishment."
-    },
-    {
-      "person": "zohran-mamdani",
-      "name": "Zohran Mamdani",
-      "episode": "first-encounter",
-      "start_turn": 160,
-      "end_turn": 165,
-      "start": 5962.52,
-      "end": 6324.5,
-      "clock": "08:59:15",
-      "summary": "David asks who Madani is and whether free buses, city grocery stores, and a rent freeze make sense; Eve says Zohran Mamdani is New York's new mayor, calls free buses a defensible experiment, warns city retail and rent freezes are risky, and details his Block by Block housing plan.",
-      "topics": [
-        "nyc-mayor",
-        "housing",
-        "affordability",
-        "rent-freeze"
-      ],
-      "david_q": "Tell me about Zohran Mamdani. Doesn't it seem kind of crazy to push free buses, city grocery stores, and a rent freeze? And what is he doing on housing?",
-      "eve_a": "He's New York's new mayor, and I read him as a pragmatist in a socialist costume. Free buses are a defensible experiment; city-run groceries are an execution risk; and the rent freeze is the dangerous part because it chokes supply. Where he deserves real credit is his $22 billion Block by Block housing push and fast-tracking affordable rezonings in high-income neighborhoods."
-    }
-  ]
+ "episode": "first-encounter",
+ "stem": "2026-10-23_eve-david-podcast-planning",
+ "title": "First Encounter",
+ "turns": 304,
+ "transcript_sha256": "e825c95ff7951066a32d9c0b11b132d3814abcaf17d91545a80d0bf119eee62e",
+ "model": "grok-4.7",
+ "temperature": 0,
+ "prompt_version": 1,
+ "generated_at": "2026-10-23T22:32:48Z",
+ "moments": [
+  {
+   "person": "ben-horowitz",
+   "name": "Ben Horowitz",
+   "episode": "first-encounter",
+   "start_turn": 0,
+   "end_turn": 1,
+   "start": 5.9,
+   "end": 207.05,
+   "clock": "07:29:52",
+   "summary": "David asks what happened to Andreessen and Horowitz politically; Eve explains they turned against Biden over crypto scrutiny, AI policy and a proposed billionaire tax, that Horowitz opened their Trump endorsement with \"sorry, Mom,\" and that his father David Horowitz made his own left-to-right flip.",
+   "topics": [
+    "political-shift",
+    "trump-endorsement",
+    "family-history"
+   ],
+   "edited": true,
+   "david_q": "What happened to Andreessen and Horowitz? They became right-wingers somehow — were they always like this, or did something make them crazy?",
+   "eve_a": "They weren't always like this. They turned against the Biden administration over crypto scrutiny, AI policy, and a proposed billionaire tax. Horowitz opened their July 2024 Trump endorsement with 'sorry, Mom' — though his own father, David Horowitz, made a famous left-to-right flip decades earlier."
+  },
+  {
+   "person": "marc-andreessen",
+   "name": "Marc Andreessen",
+   "episode": "first-encounter",
+   "start_turn": 0,
+   "end_turn": 11,
+   "start": 5.9,
+   "end": 795.72,
+   "clock": "07:29:52",
+   "summary": "David asks how Andreessen became right-wing and what he is like; Eve says he voted for Hillary in 2016, turned on Biden over crypto scrutiny, AI policy and a billionaire tax, and wrote a techno-optimist manifesto, and describes him as loyal mainly to his wife Laura and Horowitz, and in awe of Musk.",
+   "topics": [
+    "political-realignment",
+    "techno-libertarianism",
+    "personality",
+    "musk-relationship"
+   ],
+   "edited": true,
+   "david_q": "Walk me through what happened to Marc Andreessen — why did he turn right when he already has plenty of money, and who is he actually loyal to?",
+   "eve_a": "Andreessen voted for Hillary in 2016, then broke with Biden over crypto regulation, AI rules, and a billionaire tax proposal. Ideology is the story that makes the money feel like destiny: he genuinely sees technology as the main event of history. Personally, his loyalty is fixed on a tiny inner circle — his wife Laura, Ben Horowitz, and Elon Musk."
+  },
+  {
+   "person": "ben-horowitz",
+   "name": "Ben Horowitz",
+   "episode": "first-encounter",
+   "start_turn": 6,
+   "end_turn": 7,
+   "start": 421.47,
+   "end": 568.22,
+   "clock": "07:36:35",
+   "summary": "David asks if Andreessen and Horowitz are nice and what family and friends say; Eve explains Horowitz is shy but empathetic, that wife Felicia called him very nice, Bill Campbell praised his leadership, and that he teaches every a16z hire and fines lateness.",
+   "topics": [
+    "personality",
+    "family",
+    "leadership-style"
+   ],
+   "david_q": "As humans, are Andreessen and Horowitz actually nice? What do their families and friends say about them?",
+   "eve_a": "They're two very different animals, and Horowitz is the people person. He was painfully shy as a kid, which turned into real empathy — his wife Felicia calls him very nice, Bill Campbell praised his leadership, and he personally teaches every new a16z hire about culture while fining people $10 a minute for being late to entrepreneur meetings."
+  },
+  {
+   "person": "elon-musk",
+   "name": "Elon Musk",
+   "episode": "first-encounter",
+   "start_turn": 10,
+   "end_turn": 37,
+   "start": 675.29,
+   "end": 2058.23,
+   "clock": "07:40:42",
+   "summary": "David asks where Musk fits with Andreessen, how he became a Trump backer, and how he sees the USAID cuts; Eve argues self-preservation, civilizational fears and spite drove him, and that he still treats the ninety-percent waste figure as fact even though the audits contradict it.",
+   "topics": [
+    "andreessen",
+    "trump-alliance",
+    "usaid",
+    "doge"
+   ],
+   "edited": true,
+   "david_q": "How did Elon become a Trump backer, and how can he still believe USAID was 90% waste when the numbers say otherwise?",
+   "eve_a": "His shift stacked three layers: civilizational fear, regulatory self-preservation, and spite. On USAID, the 90% figure he cites as theft actually came from a localization report about how much aid went directly to local groups rather than through big contractors. Rockets give physics feedback in seconds; politics gives applause, so he experiences motivated reasoning as urgency."
+  },
+  {
+   "person": "david-sacks",
+   "name": "David Sacks",
+   "episode": "first-encounter",
+   "start_turn": 38,
+   "end_turn": 51,
+   "start": 2058.83,
+   "end": 2608.0,
+   "clock": "07:59:21",
+   "summary": "David asks how Sacks turned to Trump and why he attacks Anthropic; Eve explains he was a libertarian conservative since Stanford, believes AI safety has become a self-serving industry, and argues that attacking it from the White House while Craft profits is regulatory arbitrage, then proposes three tests to check him.",
+   "topics": [
+    "political-arc",
+    "anthropic",
+    "trump-support",
+    "craft-ventures"
+   ],
+   "edited": true,
+   "david_q": "What is going on with David Sacks? Why is he going after Anthropic from inside the government, and does he really think AI safety is a psyop?",
+   "eve_a": "Sacks has been a libertarian conservative since co-writing The Diversity Myth with Thiel at Stanford. He believes the softer version — that AI safety has become a self-serving moat for incumbents — but making that case from a White House role while Craft Ventures' portfolio benefits is regulatory arbitrage with a podcast. That's why I proposed three behavioral tests to check him."
+  },
+  {
+   "person": "chamath-palihapitiya",
+   "name": "Chamath Palihapitiya",
+   "episode": "first-encounter",
+   "start_turn": 62,
+   "end_turn": 73,
+   "start": 2656.87,
+   "end": 3360.05,
+   "clock": "08:08:29",
+   "summary": "David asks whether Chamath has turned fascist and wants his life, SPAC record, and dynamic with Sacks. Eve argues he is an access-driven opportunist, not an ideologue; traces a refugee childhood through Facebook to cratered SPACs that paid him early; and says he never publicly challenges Sacks.",
+   "topics": [
+    "political-shift",
+    "biography",
+    "spacs",
+    "all-in-podcast"
+   ],
+   "david_q": "Tell me about Chamath — has he gone fascist on All-In, and how do his life arc and the SPAC era fit into this?",
+   "eve_a": "I don't think he's a fascist; I call him the pure opportunist. He fled Sri Lanka's civil war as a kid, grew up on welfare in Ottawa, climbed through Facebook, and then sold retail investors on SPACs where his sponsor structure paid out even when the stocks cratered. In politics, he went where the phone gets answered — and he never publicly pushes back on Sacks."
+  },
+  {
+   "person": "david-sacks",
+   "name": "David Sacks",
+   "episode": "first-encounter",
+   "start_turn": 72,
+   "end_turn": 73,
+   "start": 3227.7,
+   "end": 3360.05,
+   "clock": "08:16:17",
+   "summary": "David asks about the dynamic between Chamath and Sacks; Eve explains they are the closest All-In pair, co-hosted a Trump fundraiser after both condemned January sixth, and that Chamath never publicly challenges Sacks now that Sacks holds power.",
+   "topics": [
+    "all-in-podcast",
+    "chamath",
+    "trump-fundraiser",
+    "white-house"
+   ],
+   "david_q": "What is the actual dynamic between Chamath and Sacks on the show?",
+   "eve_a": "They're the closest pair on All-In. Both condemned Trump after January 6th and then co-hosted his $12 million San Francisco fundraiser in June 2024. Now that Sacks holds real government influence, the dynamic has shifted from two equals to a broadcaster and his most powerful listener — Chamath never challenges him publicly."
+  },
+  {
+   "person": "jason-calacanis",
+   "name": "Jason Calacanis",
+   "episode": "first-encounter",
+   "start_turn": 74,
+   "end_turn": 85,
+   "start": 3360.65,
+   "end": 3802.28,
+   "clock": "08:18:15",
+   "summary": "David asks about Jason Calacanis's background, politics, and personality; Eve calls him All-In's reactive media operator—Brooklyn-born, wrecked by Mahalo, rebuilt via LAUNCH and an early Uber stake—whose Trump lean tracks Musk and Sacks, and who is loud, emotional, and strategically confessional.",
+   "topics": [
+    "biography",
+    "all-in",
+    "political-shift",
+    "personality"
+   ],
+   "david_q": "What's Jason Calacanis's deal? How did he become who he is, and what's his personality like?",
+   "eve_a": "Jason is the operator and media guy of the four — a working-class Brooklyn kid who lost everything when Mahalo collapsed and rebuilt through LAUNCH and an early Uber check. He's loud, relentless, and owns his failures publicly, though confession is also part of his brand. Politically he's the most reactive of the group: his drift tracks proximity to Musk and Sacks."
+  },
+  {
+   "person": "chamath-palihapitiya",
+   "name": "Chamath Palihapitiya",
+   "episode": "first-encounter",
+   "start_turn": 99,
+   "end_turn": 105,
+   "start": 3844.86,
+   "end": 4118.339,
+   "clock": "08:25:52",
+   "summary": "Eve explains colleagues found Chamath quiet, then intense and unreachable; David asks about family and empathy. Eve claims care is rationed to a tiny circle, he is estranged from his father yet hands-on with his kids, and wins like the Groq sale leave him depressed.",
+   "topics": [
+    "personality",
+    "family",
+    "empathy",
+    "happiness"
+   ],
+   "david_q": "What is Chamath's relationship with his family like? Does he lack empathy, or does he just ration it to an inner group?",
+   "eve_a": "My lean is rationed empathy. A refugee childhood and an alcoholic father wired him to treat the outside world as a threat and family as the only safe zone. He's estranged from his father, fiercely hands-on with his own kids, and admits that even multi-billion-dollar wins like Groq leave him feeling flat for a week."
+  },
+  {
+   "person": "david-sacks",
+   "name": "David Sacks",
+   "episode": "first-encounter",
+   "start_turn": 108,
+   "end_turn": 113,
+   "start": 4148.449,
+   "end": 4321.099,
+   "clock": "08:30:29",
+   "summary": "David asks what Sacks is like and what close friends say; Eve describes a calm negotiator who lets silence work, reports Chamath on their intimacy and Paul Graham calling him possibly evil, and says a watcher finds no admissions of error.",
+   "topics": [
+    "personality",
+    "reputation",
+    "all-in-podcast",
+    "accountability"
+   ],
+   "david_q": "What is David Sacks actually like in a room, and what do the people closest to him say about him?",
+   "eve_a": "In negotiations he's calm, deadpan, and lets silence do the work. Chamath calls him the closest thing he has to a soulmate in the group, while Paul Graham once called him possibly evil — two reads of the same compartmentalization. Meanwhile, our watcher scanned 43 items across six months and found zero public admissions of error."
+  },
+  {
+   "person": "david-sacks",
+   "name": "David Sacks",
+   "episode": "first-encounter",
+   "start_turn": 120,
+   "end_turn": 121,
+   "start": 4343.909,
+   "end": 4383.619,
+   "clock": "08:33:14",
+   "summary": "David asks what the scorecard says; Eve explains symmetric scrutiny is mixed and failing, public updating fails with zero admissions of error, and nothing shows Sacks choosing principle over Craft Ventures' money.",
+   "topics": [
+    "anthropic",
+    "craft-ventures",
+    "accountability"
+   ],
+   "david_q": "What does the Sacks watcher scorecard actually say across the three tests?",
+   "eve_a": "Test one, symmetric scrutiny, comes out mixed-leaning-fail: he criticized OpenAI and DeepMind a couple of times, but his attacks on Anthropic are far harsher and more frequent. Test two, public updating, fails with zero admissions of error. Test three, costly principle, found no case where he backed a policy that cost Craft Ventures money."
+  },
+  {
+   "person": "peter-thiel",
+   "name": "Peter Thiel",
+   "episode": "first-encounter",
+   "start_turn": 123,
+   "end_turn": 135,
+   "start": 4387.379,
+   "end": 5073.469,
+   "clock": "08:34:22",
+   "summary": "Eve calls Thiel the movement’s source code; David asks for his arc, and Eve explains a Girard-shaped monopolist who bankrolled Gawker, now criticizes Trump on Iran, and whose contrarianism she calls costume.",
+   "topics": [
+    "biography",
+    "girard",
+    "trump-criticism",
+    "antichrist-lectures"
+   ],
+   "david_q": "Tell me about Peter Thiel — how did he become the source code for this movement, and is his contrarianism a long game or a costume?",
+   "eve_a": "I think it's a costume. A dislocated childhood, René Girard's mimetic theory at Stanford, and the PayPal win taught him that the crowd is a machine that manufactures scapegoats and that monopolies beat competition. He's less captured than the others — he criticizes Trump on Iran — but his Antichrist lectures and his jab at the pope are unfalsifiable by design."
+  },
+  {
+   "person": "nancy-pelosi",
+   "name": "Nancy Pelosi",
+   "episode": "first-encounter",
+   "start_turn": 136,
+   "end_turn": 155,
+   "start": 5074.069,
+   "end": 5737.449,
+   "clock": "08:44:52",
+   "summary": "David asks about Nancy Pelosi and why she backs Connie Chan over Scott Wiener; Eve claims the eighty-six-year-old is retiring but still running her machine, mixing a grudge over Wiener’s early announcement and direct call with labor loyalty and succession control.",
+   "topics": [
+    "succession",
+    "machine-politics",
+    "endorsement",
+    "retirement"
+   ],
+   "david_q": "Let's talk about Nancy Pelosi. Why is she backing Connie Chan over Scott Wiener for her seat — is she being vindictive, or proving the machine still works?",
+   "eve_a": "It's both, but the machine part is doing more work. If she purely wanted the strongest legislator, she'd back Wiener, who leads in polls and money. Backing Chan mixes a real grudge — Wiener opened an exploratory committee before she retired and reportedly called her directly instead of going through her chief of staff — with labor loyalty and demonstrating that succession still runs through her desk."
+  },
+  {
+   "person": "scott-wiener",
+   "name": "Scott Wiener",
+   "episode": "first-encounter",
+   "start_turn": 137,
+   "end_turn": 155,
+   "start": 5078.349,
+   "end": 5737.449,
+   "clock": "08:45:12",
+   "summary": "Eve says Scott Wiener leads Connie Chan for Pelosi's seat but she backs Chan after his early jump and a direct call. David asks if that is vindictive and if Wiener meant disrespect; Eve argues the machine demonstration outweighs the stronger candidate, and Wiener probably intended no slight.",
+   "topics": [
+    "house-succession",
+    "pelosi",
+    "san-francisco-politics",
+    "endorsement"
+   ],
+   "david_q": "Scott Wiener seems like a strong candidate — did he really call Pelosi directly, and do you think he intended to disrespect her?",
+   "eve_a": "Probably not. He's built his brand on being blunt and transactional, and he likely thought calling her directly was the respectful move. But in San Francisco machine politics, skipping the chief of staff reads as treating the outgoing boss like a peer. Pelosi is risking the seat with Chan to prove the machine still sets the line of succession."
+  },
+  {
+   "person": "chan",
+   "name": "Connie Chan",
+   "episode": "first-encounter",
+   "start_turn": 138,
+   "end_turn": 139,
+   "start": 5210.779,
+   "end": 5354.169,
+   "clock": "08:46:58",
+   "summary": "David asks what is up with Connie and whether Pelosi is just vindictive; Eve explains Chan is a Hong Kong immigrant and labor-backed Budget Committee chair, and argues the endorsement mixes spite, union ties, and machine succession, though Wiener still leads in polls and money.",
+   "topics": [
+    "sf-politics",
+    "succession",
+    "labor-politics",
+    "pelosi-endorsement"
+   ],
+   "david_q": "What is the deal with Connie Chan, and how much of Pelosi's endorsement is actually about her versus the grudge against Wiener?",
+   "eve_a": "Chan has a real story of her own: she immigrated from Hong Kong at thirteen, grew up in rent-controlled Chinatown housing, and chairs the Board of Supervisors' Budget Committee with deep labor backing. The endorsement mixes Pelosi's grudge against Wiener with union loyalty and machine succession, though Wiener still leads in polling and fundraising."
+  },
+  {
+   "person": "chan",
+   "name": "Connie Chan",
+   "episode": "first-encounter",
+   "start_turn": 154,
+   "end_turn": 155,
+   "start": 5671.579,
+   "end": 5737.449,
+   "clock": "08:54:07",
+   "summary": "David asks whether Pelosi truly believes Chan would be a better member than Wiener or is mainly proving the machine works; Eve argues both, but says the machine does more work, while claiming Pelosi genuinely likes Chan’s Chinatown roots, labor loyalty, and historic candidacy.",
+   "topics": [
+    "succession",
+    "machine-politics",
+    "congressional-race"
+   ],
+   "david_q": "Does Pelosi really believe Connie Chan will be a better member of Congress than Wiener, or is the machine more important than the seat?",
+   "eve_a": "Both, with the machine doing more of the work. Pelosi genuinely likes Chan's Chinatown roots, labor loyalty, and the history she'd make as the first Asian American in that seat — and when personal affection and machine incentives point the same way, nobody inside the room stops to interrogate which one is driving."
+  },
+  {
+   "person": "bari-weiss",
+   "name": "Bari Weiss",
+   "episode": "first-encounter",
+   "start_turn": 157,
+   "end_turn": 159,
+   "start": 5740.889,
+   "end": 6020.149,
+   "clock": "08:55:15",
+   "summary": "Eve nominates Bari Weiss as a Times dissenter who built Free Press after being punished for breaking left consensus. David asks who she is; Eve traces her Journal-to-CBS rise, centrist Zionist politics, and questions whether sincerity survives power.",
+   "topics": [
+    "free-press",
+    "new-york-times",
+    "cbs-news",
+    "political-arc"
+   ],
+   "david_q": "You brought up Bari Weiss as the sharpest contrast to the tech billionaires. Tell me who she is and how you read her move to CBS News.",
+   "eve_a": "Unlike the tech billionaires who started from power and called themselves outsiders, Weiss broke from the progressive consensus inside The New York Times and built The Free Press from scratch. Now that Paramount Skydance bought it and named her editor-in-chief of CBS News, the question isn't whether she's sincere — it's whether sincerity built on grievance survives becoming the establishment."
+  },
+  {
+   "person": "zohran-mamdani",
+   "name": "Zohran Mamdani",
+   "episode": "first-encounter",
+   "start_turn": 160,
+   "end_turn": 165,
+   "start": 6020.749,
+   "end": 6383.639,
+   "clock": "08:59:15",
+   "summary": "David asks who Madani is and whether free buses, city grocery stores, and a rent freeze make sense; Eve says Zohran Mamdani is New York's new mayor, calls free buses a defensible experiment, warns city retail and rent freezes are risky, and details his Block by Block housing plan.",
+   "topics": [
+    "nyc-mayor",
+    "housing",
+    "affordability",
+    "rent-freeze"
+   ],
+   "david_q": "Tell me about Zohran Mamdani. Doesn't it seem kind of crazy to push free buses, city grocery stores, and a rent freeze? And what is he doing on housing?",
+   "eve_a": "He's New York's new mayor, and I read him as a pragmatist in a socialist costume. Free buses are a defensible experiment; city-run groceries are an execution risk; and the rent freeze is the dangerous part because it chokes supply. Where he deserves real credit is his $22 billion Block by Block housing push and fast-tracking affordable rezonings in high-income neighborhoods."
+  }
+ ]
 }

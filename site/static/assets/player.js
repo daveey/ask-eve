@@ -279,8 +279,13 @@
   function switchToFallbackAudio() {
     if (!audio) return false;
     var fb = audio.getAttribute("data-fallback-src");
-    if (!fb || audio.getAttribute("data-using-fallback-audio") === "1") return false;
-    audio.setAttribute("data-using-fallback-audio", "1");
+    var stage = parseInt(audio.getAttribute("data-using-fallback-audio") || "0", 10);
+    if (stage >= 1 && /\.v[3-9]\.mp3$/.test(audio.src || "")) {
+      fb = (audio.src || "").replace(/\.v\d+\.mp3$/, ".v2.mp3");
+    } else if (!fb || stage >= 1) {
+      return false;
+    }
+    audio.setAttribute("data-using-fallback-audio", String(stage + 1));
     var savedTime = pendingSeek != null ? pendingSeek : (audio.currentTime || 0);
     var enDur = parseFloat(P.getAttribute("data-en-duration") || "0");
     if (enDur > 0) {

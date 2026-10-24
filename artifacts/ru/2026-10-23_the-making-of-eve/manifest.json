@@ -1,0 +1,41 @@
+{
+ "stem": "2026-10-23_the-making-of-eve",
+ "version": 1,
+ "audio_key": "audio/ru/2026-10-23_the-making-of-eve.v1.mp3",
+ "audio_url": "https://audio.askevepodcast.com/audio/ru/2026-10-23_the-making-of-eve.v1.mp3",
+ "audio_bytes": 42668873,
+ "audio_sha256": "38852c80a76e48113cf255c044a88f2c3b6450145c856f95358229eb471c00d8",
+ "audio_mime": "audio/mpeg",
+ "duration_seconds": 2667,
+ "loudness_lufs": -16.6,
+ "true_peak_dbfs": -4.5,
+ "id3_chapters": 1,
+ "chapters": [
+  {
+   "startTime": 0.0,
+   "title": "Уведомление об аудио, воссозданном ИИ"
+  }
+ ],
+ "recording_method": "tts-reconstructed",
+ "ai_reconstructed": true,
+ "mode": "synthetic",
+ "coverage": {
+  "david_lines": 36,
+  "david_real": 0,
+  "david_narrator": 36,
+  "david_real_share": 0.0,
+  "david_real_seconds": 0.0,
+  "david_narrator_seconds": 831.68,
+  "eve_seconds": 1780.04,
+  "gap_turns": [
+   65,
+   67,
+   69
+  ]
+ },
+ "placeholder_audio": false,
+ "tts": "xai_tts voice=eve lang=ru",
+ "narrator": "elevenlabs_tts voice=oIYMwdEzgKSOV3gVsAjB model=eleven_v4 lang=ru",
+ "missing_turns": [],
+ "transcript_sha256": "3da6590b32864df246c37f613f9df638181db310ebab04b24138aa812a3a5fa0"
+}
