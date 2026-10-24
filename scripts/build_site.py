@@ -31,6 +31,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import render_feed as F  # noqa: E402
 from frontmatter import episode_type, parse_front_matter_block, season  # noqa: E402
 import sqlite_apply  # noqa: E402
+import site_i18n as I  # noqa: E402  translated editions (/ru/...), see scripts/site_i18n.py
 
 ROOT = Path(__file__).resolve().parent.parent
 STATIC = ROOT / "site/static"
@@ -603,19 +604,20 @@ def head_subscribe(cfg: dict) -> str:
 def page(A: Assets, *, title: str, desc: str, path: str, body: str, active: str = "", og_type: str = "website",
          og_slug: str | None = None, ld: dict | None = None, player: str = "", body_cls: str = "",
          linker: "Linker | None" = None) -> str:
-    url = SITE + path
+    url = SITE + I.localize(path)
     full = title if title == "Ask Eve" or title.startswith("Ask Eve") else f"{title} · Ask Eve"
     nav, menu = nav_links(nav_items(), active), nav_links(menu_items(), active)
     subs = head_subscribe(site_cfg())
     ldj = ('<script type="application/ld+json">' + json.dumps(ld).replace("</", "<\\/") + "</script>") if ld else ""
     return f"""<!doctype html>
-<html lang="en">
+<html{I.html_attrs()}>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>{e(full)}</title>
 <meta name="description" content="{e(desc)}">
 <link rel="canonical" href="{e(url)}">
+{I.head_links(A, SITE, path)}
 <link rel="alternate" type="application/rss+xml" title="Ask Eve (RSS)" href="{F.FEED}">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#f6f1e9" media="(prefers-color-scheme: light)">
@@ -647,6 +649,7 @@ def page(A: Assets, *, title: str, desc: str, path: str, body: str, active: str 
     <a class="brand" href="/" aria-label="Ask Eve home">{mark_svg("mark", "h")}<span>Ask Eve</span></a>
     <nav class="site-nav" aria-label="Primary">{nav}</nav>
     {subs}
+    {I.switcher(path)}
     <button class="theme-btn" type="button" data-theme-toggle aria-label="Color theme: system">{icon("theme")}<span class="theme-btn__label">Auto</span></button>
     <details class="menu" data-menu>
       <summary class="menu__btn" aria-label="Menu">{icon("menu")}</summary>
@@ -1500,6 +1503,7 @@ def write(out: Path, rel: str, text: str) -> None:
 
 def build(db: Path, out: Path, include_drafts: bool) -> int:
     eps, people = load_site(db, include_drafts)
+    I.plan(sys.modules[__name__], eps, people, ["/", "/people/", "/about/"])
     out.mkdir(parents=True, exist_ok=True)
     feed_eps = F.load(db, include_drafts)
     by_slug = {ep["slug"]: ep for ep in eps}
@@ -1543,6 +1547,7 @@ def build(db: Path, out: Path, include_drafts: bool) -> int:
         urls.append("/eve/")
     write(out, "about/index.html", about_page(A, cfg))
     write(out, "404.html", not_found(A))
+    urls += I.build(sys.modules[__name__], A, out, eps, people, cfg)
     write(out, "sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
           + "".join(f"  <url><loc>{SITE}{u}</loc></url>\n" for u in urls) + "</urlset>\n")
     write(out, "robots.txt", f"User-agent: *\nAllow: /\nSitemap: {SITE}/sitemap.xml\n")

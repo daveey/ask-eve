@@ -9,6 +9,9 @@
     set: function (k, v) { try { localStorage.setItem(k, v); } catch (e) {} },
     del: function (k) { try { localStorage.removeItem(k); } catch (e) {} }
   };
+  /* UI strings: translated pages carry <html data-i18n='{"English": "translation"}'> (see scripts/site_i18n.py) */
+  var I18N = {}; try { I18N = JSON.parse(root.getAttribute("data-i18n") || "{}"); } catch (e) {}
+  var L = function (s) { return I18N[s] || s; };
   var reduceMotion = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   function clock(s) {
@@ -23,10 +26,10 @@
   function themeLabel() {
     if (!themeBtn) return;
     var t = root.getAttribute("data-theme") || "auto";
-    var names = { auto: "Auto", light: "Light", dark: "Dark" };
+    var names = { auto: L("Auto"), light: L("Light"), dark: L("Dark") };
     var lab = $(".theme-btn__label", themeBtn);
     if (lab) lab.textContent = names[t];
-    themeBtn.setAttribute("aria-label", "Color theme: " + (t === "auto" ? "system" : t) + ". Click to change.");
+    themeBtn.setAttribute("aria-label", L("Color theme: ") + L(t === "auto" ? "system" : t) + L(". Click to change."));
   }
   if (themeBtn) {
     themeLabel();
@@ -43,9 +46,9 @@
   $$("[data-copy-feed]").forEach(function (b) {
     b.addEventListener("click", function () {
       var url = b.getAttribute("data-copy-feed"), old = b.textContent;
-      var done = function () { b.textContent = "Copied"; b.classList.add("is-done"); setTimeout(function () { b.textContent = old; b.classList.remove("is-done"); }, 1800); };
-      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(done, function () { prompt("Feed URL", url); });
-      else prompt("Feed URL", url);
+      var done = function () { b.textContent = L("Copied"); b.classList.add("is-done"); setTimeout(function () { b.textContent = old; b.classList.remove("is-done"); }, 1800); };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(done, function () { prompt(L("Feed URL"), url); });
+      else prompt(L("Feed URL"), url);
     });
   });
 
@@ -146,12 +149,12 @@
   });
   function playLabels(playing) {
     $$("[data-play]").forEach(function (b) {
-      var s = $("span", b); if (s) s.textContent = playing ? "Pause" : "Resume";
+      var s = $("span", b); if (s) s.textContent = playing ? L("Pause") : L("Resume");
       b.setAttribute("aria-pressed", playing ? "true" : "false");
     });
   }
-  audio.addEventListener("play", function () { P.classList.add("is-playing"); toggle.setAttribute("aria-label", "Pause"); show(); playLabels(true); });
-  audio.addEventListener("pause", function () { P.classList.remove("is-playing"); toggle.setAttribute("aria-label", "Play"); playLabels(false); store.set(posKey, String(Math.floor(audio.currentTime))); });
+  audio.addEventListener("play", function () { P.classList.add("is-playing"); toggle.setAttribute("aria-label", L("Pause")); show(); playLabels(true); });
+  audio.addEventListener("pause", function () { P.classList.remove("is-playing"); toggle.setAttribute("aria-label", L("Play")); playLabels(false); store.set(posKey, String(Math.floor(audio.currentTime))); });
   audio.addEventListener("waiting", function () { P.classList.add("is-loading"); });
   audio.addEventListener("playing", function () { P.classList.remove("is-loading"); });
   audio.addEventListener("canplay", function () { P.classList.remove("is-loading"); });
@@ -171,7 +174,7 @@
   function setRate(r) {
     audio.playbackRate = r; audio.defaultPlaybackRate = r;
     speedBtn.textContent = (r % 1 ? String(r) : r) + "×";
-    speedBtn.setAttribute("aria-label", "Playback speed " + r + "x. Click to change.");
+    speedBtn.setAttribute("aria-label", L("Playback speed ") + r + L("x. Click to change."));
     store.set(rateKey, String(r));
   }
   var savedRate = parseFloat(store.get(rateKey));
