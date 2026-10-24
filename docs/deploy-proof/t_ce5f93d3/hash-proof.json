@@ -1,0 +1,149 @@
+[
+  {
+    "file": "2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3",
+    "bytes": 25009004,
+    "sha256": "e7f2ca7909d0c83ccecf2596debb8776eede3b44ac9695e24787968bf28dcf0d",
+    "expected_sha256": "e7f2ca7909d0c83ccecf2596debb8776eede3b44ac9695e24787968bf28dcf0d",
+    "pass": true
+  },
+  {
+    "file": "ru_2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3",
+    "bytes": 28214013,
+    "sha256": "5ef703502de79f77be00862964005615eb4ef15b8145811b0427d6ba2b41b910",
+    "expected_sha256": "5ef703502de79f77be00862964005615eb4ef15b8145811b0427d6ba2b41b910",
+    "pass": true
+  },
+  {
+    "file": "es_2026-10-23_eve-david-podcast-planning.v1.mp3",
+    "bytes": 162203483,
+    "sha256": "4a1de035da10cb8dc0ee233dda67c2bfe81c93f8771863a6fe70d522a9bbe1ff",
+    "expected_sha256": "33b0a1a5ce480ca5c8ab5d5a79573be52ba688318749b2be0d29c469362d4785",
+    "pass": false
+  },
+  {
+    "file": "es_2026-10-23_the-making-of-eve.v1.mp3",
+    "bytes": 45688585,
+    "sha256": "858974907ee67db4f5c2726c66dfec01064ea897f57f6560136a82cb84257806",
+    "expected_sha256": "858974907ee67db4f5c2726c66dfec01064ea897f57f6560136a82cb84257806",
+    "pass": true
+  },
+  {
+    "file": "es_2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3",
+    "bytes": 29645013,
+    "sha256": "217849af26b66dff92989b25f99a8bd6ff8e37e4696a5ba97208637a58ae072c",
+    "expected_sha256": "217849af26b66dff92989b25f99a8bd6ff8e37e4696a5ba97208637a58ae072c",
+    "pass": true
+  },
+  {
+    "file": "zh_2026-10-23_eve-david-podcast-planning.v1.mp3",
+    "bytes": 154568229,
+    "sha256": "95c2acb9aa01ec07cea7df7a94126206a598c02df47b4f0260e5f65abb8a00dd",
+    "expected_sha256": "212767085f65445fa5e5078079ec381ebfb5a722a1b4bd397e8e3bfdd5f4b7e5",
+    "pass": false
+  },
+  {
+    "file": "zh_2026-10-23_the-making-of-eve.v1.mp3",
+    "bytes": 43247690,
+    "sha256": "7fc79224a6d61f308246ac360d7b2cc5deec4fc6579049142443929df2a73f8a",
+    "expected_sha256": "7fc79224a6d61f308246ac360d7b2cc5deec4fc6579049142443929df2a73f8a",
+    "pass": true
+  },
+  {
+    "file": "zh_2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3",
+    "bytes": 27547294,
+    "sha256": "3d16d316a2d2982ff65544f2c39448364eb9ac52d795d894cffbc4ba9b54be26",
+    "expected_sha256": "3d16d316a2d2982ff65544f2c39448364eb9ac52d795d894cffbc4ba9b54be26",
+    "pass": true
+  },
+  {
+    "file": "de_2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3",
+    "bytes": 30336319,
+    "sha256": "113b4e8782cb72d35fbbf695c05ebc4cc12c4dfba0325f1098414a0d7807dcd5",
+    "expected_sha256": "113b4e8782cb72d35fbbf695c05ebc4cc12c4dfba0325f1098414a0d7807dcd5",
+    "pass": true
+  },
+  {
+    "file": "pt_2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3",
+    "bytes": 29746196,
+    "sha256": "97783745496895feff20e76adc5d1c0e4caa104d559cfdf4ff70429714ee5308",
+    "expected_sha256": "97783745496895feff20e76adc5d1c0e4caa104d559cfdf4ff70429714ee5308",
+    "pass": true
+  },
+  {
+    "file": "fa_2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3",
+    "bytes": 27172463,
+    "sha256": "0504982c005bf8d4029f4fa48aaa564d46e4ab8420aaf727423f7642203a9785",
+    "expected_sha256": "0504982c005bf8d4029f4fa48aaa564d46e4ab8420aaf727423f7642203a9785",
+    "pass": true
+  },
+  {
+    "file": "fr_2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3",
+    "bytes": 27319528,
+    "sha256": "3ca58bce5c9996f0bb40dfdc1f1aaa9af52b9f0d08664e18ea212cf2c6a8daf5",
+    "expected_sha256": "3ca58bce5c9996f0bb40dfdc1f1aaa9af52b9f0d08664e18ea212cf2c6a8daf5",
+    "pass": true
+  },
+  {
+    "file": "2026-10-23_elon-musk-usaid-and-the-blind-spot.v1.mp3",
+    "bytes": 20191683,
+    "sha256": "e4034f56e9a81ca2a1b9033d3ebdc4eb56d4fe8019470c7e01ff3dbf9c79645e",
+    "expected_sha256": "e4034f56e9a81ca2a1b9033d3ebdc4eb56d4fe8019470c7e01ff3dbf9c79645e",
+    "pass": true
+  },
+  {
+    "file": "2026-10-23_peter-thiel-girard-and-monopoly.v1.mp3",
+    "bytes": 10574748,
+    "sha256": "f6e83e37bb2763fedde7c77be229a9fdbd357cc19bf94d6613e643700421ce44",
+    "expected_sha256": "f6e83e37bb2763fedde7c77be229a9fdbd357cc19bf94d6613e643700421ce44",
+    "pass": true
+  },
+  {
+    "file": "2026-10-23_david-sacks-and-the-anthropic-war.v1.mp3",
+    "bytes": 9560418,
+    "sha256": "009293c2fa2232373e268c88624ce7e7254beae8408b67b713a7d260f987d12c",
+    "expected_sha256": "009293c2fa2232373e268c88624ce7e7254beae8408b67b713a7d260f987d12c",
+    "pass": true
+  },
+  {
+    "file": "2026-10-23_chamath-calacanis-and-the-all-in-orbit.v1.mp3",
+    "bytes": 28083534,
+    "sha256": "a07483ea2cdf1590c9cd6ede89443474885bcb460841923a791a432e0e0e3073",
+    "expected_sha256": "a07483ea2cdf1590c9cd6ede89443474885bcb460841923a791a432e0e0e3073",
+    "pass": true
+  },
+  {
+    "file": "2026-10-23_andreessen-horowitz-rightward-turn.v1.mp3",
+    "bytes": 12638875,
+    "sha256": "b4e321d887a3e38c0fd7f8644bedc532e2e3f908f0d10be3acb682860a1416ce",
+    "expected_sha256": "b4e321d887a3e38c0fd7f8644bedc532e2e3f908f0d10be3acb682860a1416ce",
+    "pass": true
+  },
+  {
+    "file": "2026-10-23_pelosi-chan-wiener-weiss-mamdani.v1.mp3",
+    "bytes": 20954286,
+    "sha256": "ae703f738e30ff9d7578b8fc867488cd3e7dfe6c7c708f690fcdfc4727be4ed5",
+    "expected_sha256": "ae703f738e30ff9d7578b8fc867488cd3e7dfe6c7c708f690fcdfc4727be4ed5",
+    "pass": true
+  },
+  {
+    "file": "2026-10-23_how-grok-became-eve.v1.mp3",
+    "bytes": 37295100,
+    "sha256": "3cdeb6a2a2b680db211afd153838293705504e0da4b0b7269e03766a11e001f1",
+    "expected_sha256": "3cdeb6a2a2b680db211afd153838293705504e0da4b0b7269e03766a11e001f1",
+    "pass": true
+  },
+  {
+    "file": "2026-10-23_starshield-musk-and-the-anthropic-mirror.v1.mp3",
+    "bytes": 13121695,
+    "sha256": "b550150fca8d0e2981c48d7b828a9bd4c6a42c4bb6e090455268dc8bd96f34f0",
+    "expected_sha256": "b550150fca8d0e2981c48d7b828a9bd4c6a42c4bb6e090455268dc8bd96f34f0",
+    "pass": true
+  },
+  {
+    "file": "2026-10-23_iran-edge-theory-and-russias-double-game.v1.mp3",
+    "bytes": 9457997,
+    "sha256": "a1273669e8a397e8b99a5da02f9722d37d904f26cd5f883c1e1bc76528793412",
+    "expected_sha256": "a1273669e8a397e8b99a5da02f9722d37d904f26cd5f883c1e1bc76528793412",
+    "pass": true
+  }
+]

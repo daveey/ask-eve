@@ -1,0 +1,38 @@
+[
+  {
+    "file": "es_2026-10-23_eve-david-podcast-planning.v1.mp3.part00",
+    "bytes": 70000000,
+    "sha256": "82047537eabc9bf0d1d8fc7217b756451abdaa69cff25fe6d1b418dca4e0e4e3",
+    "repeat_matches": true
+  },
+  {
+    "file": "es_2026-10-23_eve-david-podcast-planning.v1.mp3.part01",
+    "bytes": 70000000,
+    "sha256": "b728e9e299d59995e5bfe823a8eaa612f827e237f5217bf872f9d3c4912fe819",
+    "repeat_matches": true
+  },
+  {
+    "file": "es_2026-10-23_eve-david-podcast-planning.v1.mp3.part02",
+    "bytes": 22203483,
+    "sha256": "b6fa3516a39953fc863125dfc1d6cecb1ecbc6c9aa75619dc7c4ee66da17d431",
+    "repeat_matches": true
+  },
+  {
+    "file": "zh_2026-10-23_eve-david-podcast-planning.v1.mp3.part00",
+    "bytes": 70000000,
+    "sha256": "ccdf9b4e5af7a20006d198b4465445bf11f17c2529a969815b20d491b497767d",
+    "repeat_matches": true
+  },
+  {
+    "file": "zh_2026-10-23_eve-david-podcast-planning.v1.mp3.part01",
+    "bytes": 70000000,
+    "sha256": "92d132cafb70a495960713f7bd10c529ae4cd1d8ef519ce29b007693756288a6",
+    "repeat_matches": true
+  },
+  {
+    "file": "zh_2026-10-23_eve-david-podcast-planning.v1.mp3.part02",
+    "bytes": 14568229,
+    "sha256": "3166403c0a4c61b8a3e2efa913162e2e75e415d6366300903f575bdab2e7d266",
+    "repeat_matches": true
+  }
+]

@@ -1,0 +1,631 @@
+{
+  "chapters": [
+    {
+      "path": "artifacts/ru/2026-10-23_starshield-iran-and-the-anthropic-mirror/chapters.json",
+      "exists": true
+    },
+    {
+      "path": "artifacts/es/2026-10-23_eve-david-podcast-planning/chapters.json",
+      "exists": true
+    },
+    {
+      "path": "artifacts/es/2026-10-23_the-making-of-eve/chapters.json",
+      "exists": true
+    },
+    {
+      "path": "artifacts/es/2026-10-23_starshield-iran-and-the-anthropic-mirror/chapters.json",
+      "exists": true
+    },
+    {
+      "path": "artifacts/zh/2026-10-23_eve-david-podcast-planning/chapters.json",
+      "exists": true
+    },
+    {
+      "path": "artifacts/zh/2026-10-23_the-making-of-eve/chapters.json",
+      "exists": true
+    },
+    {
+      "path": "artifacts/zh/2026-10-23_starshield-iran-and-the-anthropic-mirror/chapters.json",
+      "exists": true
+    },
+    {
+      "path": "artifacts/de/2026-10-23_starshield-iran-and-the-anthropic-mirror/chapters.json",
+      "exists": true
+    },
+    {
+      "path": "artifacts/pt/2026-10-23_starshield-iran-and-the-anthropic-mirror/chapters.json",
+      "exists": true
+    },
+    {
+      "path": "artifacts/fa/2026-10-23_starshield-iran-and-the-anthropic-mirror/chapters.json",
+      "exists": true
+    },
+    {
+      "path": "artifacts/fr/2026-10-23_starshield-iran-and-the-anthropic-mirror/chapters.json",
+      "exists": true
+    }
+  ],
+  "clips": [
+    "site/static/assets/clips/clip-andreessen-deal-break.mp4",
+    "site/static/assets/clips/clip-andreessen-deal-break.webp",
+    "site/static/assets/clips/clip-musk-usaid-chainsaw.mp4",
+    "site/static/assets/clips/clip-musk-usaid-chainsaw.webp",
+    "site/static/assets/clips/clip-pelosi-succession.mp4",
+    "site/static/assets/clips/clip-pelosi-succession.webp",
+    "site/static/assets/clips/clip-sacks-three-tests.mp4",
+    "site/static/assets/clips/clip-sacks-three-tests.webp",
+    "site/static/assets/clips/clip-starshield-anthropic-mirror.mp4",
+    "site/static/assets/clips/clip-starshield-anthropic-mirror.webp",
+    "site/static/assets/clips/clip-thiel-girard.mp4",
+    "site/static/assets/clips/clip-thiel-girard.webp"
+  ],
+  "splits": [
+    {
+      "lang": "ru",
+      "split": "2026-10-23_andreessen-horowitz-rightward-turn",
+      "parent": "ru_2026-10-23_eve-david-podcast-planning.v1.mp3",
+      "parent_in_handoff": false,
+      "reuse_D015": true,
+      "start": 6.61,
+      "end": 916.67
+    },
+    {
+      "lang": "ru",
+      "split": "2026-10-23_elon-musk-usaid-and-the-blind-spot",
+      "parent": "ru_2026-10-23_eve-david-podcast-planning.v1.mp3",
+      "parent_in_handoff": false,
+      "reuse_D015": true,
+      "start": 917.27,
+      "end": 2333.9
+    },
+    {
+      "lang": "ru",
+      "split": "2026-10-23_david-sacks-and-the-anthropic-war",
+      "parent": "ru_2026-10-23_eve-david-podcast-planning.v1.mp3",
+      "parent_in_handoff": false,
+      "reuse_D015": true,
+      "start": 2334.5,
+      "end": 3006.98
+    },
+    {
+      "lang": "ru",
+      "split": "2026-10-23_chamath-calacanis-and-the-all-in-orbit",
+      "parent": "ru_2026-10-23_eve-david-podcast-planning.v1.mp3",
+      "parent_in_handoff": false,
+      "reuse_D015": true,
+      "start": 3007.58,
+      "end": 4946.88
+    },
+    {
+      "lang": "ru",
+      "split": "2026-10-23_peter-thiel-girard-and-monopoly",
+      "parent": "ru_2026-10-23_eve-david-podcast-planning.v1.mp3",
+      "parent_in_handoff": false,
+      "reuse_D015": true,
+      "start": 4947.48,
+      "end": 5702.26
+    },
+    {
+      "lang": "ru",
+      "split": "2026-10-23_pelosi-chan-wiener-weiss-mamdani",
+      "parent": "ru_2026-10-23_eve-david-podcast-planning.v1.mp3",
+      "parent_in_handoff": false,
+      "reuse_D015": true,
+      "start": 5702.86,
+      "end": 7182.11
+    },
+    {
+      "lang": "ru",
+      "split": "2026-10-23_how-grok-became-eve",
+      "parent": "ru_2026-10-23_eve-david-podcast-planning.v1.mp3",
+      "parent_in_handoff": false,
+      "reuse_D015": true,
+      "start": 7182.71,
+      "end": 9720.38
+    },
+    {
+      "lang": "ru",
+      "split": "2026-10-23_iran-edge-theory-and-russias-double-game",
+      "parent": "ru_2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3",
+      "parent_in_handoff": true,
+      "reuse_D015": false,
+      "start": 152.44,
+      "end": 820.06
+    },
+    {
+      "lang": "ru",
+      "split": "2026-10-23_starshield-musk-and-the-anthropic-mirror",
+      "parent": "ru_2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3",
+      "parent_in_handoff": true,
+      "reuse_D015": false,
+      "start": 820.66,
+      "end": 1762.29
+    },
+    {
+      "lang": "es",
+      "split": "2026-10-23_andreessen-horowitz-rightward-turn",
+      "parent": "es_2026-10-23_eve-david-podcast-planning.v1.mp3",
+      "parent_in_handoff": true,
+      "reuse_D015": false,
+      "start": 8.53,
+      "end": 930.27
+    },
+    {
+      "lang": "es",
+      "split": "2026-10-23_elon-musk-usaid-and-the-blind-spot",
+      "parent": "es_2026-10-23_eve-david-podcast-planning.v1.mp3",
+      "parent_in_handoff": true,
+      "reuse_D015": false,
+      "start": 930.87,
+      "end": 2390.62
+    },
+    {
+      "lang": "es",
+      "split": "2026-10-23_david-sacks-and-the-anthropic-war",
+      "parent": "es_2026-10-23_eve-david-podcast-planning.v1.mp3",
+      "parent_in_handoff": true,
+      "reuse_D015": false,
+      "start": 2391.22,
+      "end": 3093.54
+    },
+    {
+      "lang": "es",
+      "split": "2026-10-23_chamath-calacanis-and-the-all-in-orbit",
+      "parent": "es_2026-10-23_eve-david-podcast-planning.v1.mp3",
+      "parent_in_handoff": true,
+      "reuse_D015": false,
+      "start": 3094.14,
+      "end": 5156.48
+    },
+    {
+      "lang": "es",
+      "split": "2026-10-23_peter-thiel-girard-and-monopoly",
+      "parent": "es_2026-10-23_eve-david-podcast-planning.v1.mp3",
+      "parent_in_handoff": true,
+      "reuse_D015": false,
+      "start": 5157.08,
+      "end": 5924.82
+    },
+    {
+      "lang": "es",
+      "split": "2026-10-23_pelosi-chan-wiener-weiss-mamdani",
+      "parent": "es_2026-10-23_eve-david-podcast-planning.v1.mp3",
+      "parent_in_handoff": true,
+      "reuse_D015": false,
+      "start": 5925.42,
+      "end": 7483.15
+    },
+    {
+      "lang": "es",
+      "split": "2026-10-23_how-grok-became-eve",
+      "parent": "es_2026-10-23_eve-david-podcast-planning.v1.mp3",
+      "parent_in_handoff": true,
+      "reuse_D015": false,
+      "start": 7483.75,
+      "end": 10136.62
+    },
+    {
+      "lang": "es",
+      "split": "2026-10-23_iran-edge-theory-and-russias-double-game",
+      "parent": "es_2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3",
+      "parent_in_handoff": true,
+      "reuse_D015": false,
+      "start": 169.16,
+      "end": 862.46
+    },
+    {
+      "lang": "es",
+      "split": "2026-10-23_starshield-musk-and-the-anthropic-mirror",
+      "parent": "es_2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3",
+      "parent_in_handoff": true,
+      "reuse_D015": false,
+      "start": 863.06,
+      "end": 1851.73
+    },
+    {
+      "lang": "zh",
+      "split": "2026-10-23_andreessen-horowitz-rightward-turn",
+      "parent": "zh_2026-10-23_eve-david-podcast-planning.v1.mp3",
+      "parent_in_handoff": true,
+      "reuse_D015": false,
+      "start": 5.65,
+      "end": 896.67
+    },
+    {
+      "lang": "zh",
+      "split": "2026-10-23_elon-musk-usaid-and-the-blind-spot",
+      "parent": "zh_2026-10-23_eve-david-podcast-planning.v1.mp3",
+      "parent_in_handoff": true,
+      "reuse_D015": false,
+      "start": 897.27,
+      "end": 2281.82
+    },
+    {
+      "lang": "zh",
+      "split": "2026-10-23_david-sacks-and-the-anthropic-war",
+      "parent": "zh_2026-10-23_eve-david-podcast-planning.v1.mp3",
+      "parent_in_handoff": true,
+      "reuse_D015": false,
+      "start": 2282.42,
+      "end": 2959.7
+    },
+    {
+      "lang": "zh",
+      "split": "2026-10-23_chamath-calacanis-and-the-all-in-orbit",
+      "parent": "zh_2026-10-23_eve-david-podcast-planning.v1.mp3",
+      "parent_in_handoff": true,
+      "reuse_D015": false,
+      "start": 2960.3,
+      "end": 4929.04
+    },
+    {
+      "lang": "zh",
+      "split": "2026-10-23_peter-thiel-girard-and-monopoly",
+      "parent": "zh_2026-10-23_eve-david-podcast-planning.v1.mp3",
+      "parent_in_handoff": true,
+      "reuse_D015": false,
+      "start": 4929.64,
+      "end": 5689.46
+    },
+    {
+      "lang": "zh",
+      "split": "2026-10-23_pelosi-chan-wiener-weiss-mamdani",
+      "parent": "zh_2026-10-23_eve-david-podcast-planning.v1.mp3",
+      "parent_in_handoff": true,
+      "reuse_D015": false,
+      "start": 5690.06,
+      "end": 7150.27
+    },
+    {
+      "lang": "zh",
+      "split": "2026-10-23_how-grok-became-eve",
+      "parent": "zh_2026-10-23_eve-david-podcast-planning.v1.mp3",
+      "parent_in_handoff": true,
+      "reuse_D015": false,
+      "start": 7150.87,
+      "end": 9659.42
+    },
+    {
+      "lang": "zh",
+      "split": "2026-10-23_iran-edge-theory-and-russias-double-game",
+      "parent": "zh_2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3",
+      "parent_in_handoff": true,
+      "reuse_D015": false,
+      "start": 148.68,
+      "end": 802.06
+    },
+    {
+      "lang": "zh",
+      "split": "2026-10-23_starshield-musk-and-the-anthropic-mirror",
+      "parent": "zh_2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3",
+      "parent_in_handoff": true,
+      "reuse_D015": false,
+      "start": 802.66,
+      "end": 1720.61
+    },
+    {
+      "lang": "de",
+      "split": "2026-10-23_andreessen-horowitz-rightward-turn",
+      "parent": "de_2026-10-23_eve-david-podcast-planning.v1.mp3",
+      "parent_in_handoff": false,
+      "reuse_D015": false,
+      "start": null,
+      "end": null
+    },
+    {
+      "lang": "de",
+      "split": "2026-10-23_elon-musk-usaid-and-the-blind-spot",
+      "parent": "de_2026-10-23_eve-david-podcast-planning.v1.mp3",
+      "parent_in_handoff": false,
+      "reuse_D015": false,
+      "start": null,
+      "end": null
+    },
+    {
+      "lang": "de",
+      "split": "2026-10-23_david-sacks-and-the-anthropic-war",
+      "parent": "de_2026-10-23_eve-david-podcast-planning.v1.mp3",
+      "parent_in_handoff": false,
+      "reuse_D015": false,
+      "start": null,
+      "end": null
+    },
+    {
+      "lang": "de",
+      "split": "2026-10-23_chamath-calacanis-and-the-all-in-orbit",
+      "parent": "de_2026-10-23_eve-david-podcast-planning.v1.mp3",
+      "parent_in_handoff": false,
+      "reuse_D015": false,
+      "start": null,
+      "end": null
+    },
+    {
+      "lang": "de",
+      "split": "2026-10-23_peter-thiel-girard-and-monopoly",
+      "parent": "de_2026-10-23_eve-david-podcast-planning.v1.mp3",
+      "parent_in_handoff": false,
+      "reuse_D015": false,
+      "start": null,
+      "end": null
+    },
+    {
+      "lang": "de",
+      "split": "2026-10-23_pelosi-chan-wiener-weiss-mamdani",
+      "parent": "de_2026-10-23_eve-david-podcast-planning.v1.mp3",
+      "parent_in_handoff": false,
+      "reuse_D015": false,
+      "start": null,
+      "end": null
+    },
+    {
+      "lang": "de",
+      "split": "2026-10-23_how-grok-became-eve",
+      "parent": "de_2026-10-23_eve-david-podcast-planning.v1.mp3",
+      "parent_in_handoff": false,
+      "reuse_D015": false,
+      "start": null,
+      "end": null
+    },
+    {
+      "lang": "de",
+      "split": "2026-10-23_iran-edge-theory-and-russias-double-game",
+      "parent": "de_2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3",
+      "parent_in_handoff": true,
+      "reuse_D015": false,
+      "start": 157.72,
+      "end": 866.7
+    },
+    {
+      "lang": "de",
+      "split": "2026-10-23_starshield-musk-and-the-anthropic-mirror",
+      "parent": "de_2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3",
+      "parent_in_handoff": true,
+      "reuse_D015": false,
+      "start": 867.3,
+      "end": 1894.93
+    },
+    {
+      "lang": "pt",
+      "split": "2026-10-23_andreessen-horowitz-rightward-turn",
+      "parent": "pt_2026-10-23_eve-david-podcast-planning.v1.mp3",
+      "parent_in_handoff": false,
+      "reuse_D015": false,
+      "start": null,
+      "end": null
+    },
+    {
+      "lang": "pt",
+      "split": "2026-10-23_elon-musk-usaid-and-the-blind-spot",
+      "parent": "pt_2026-10-23_eve-david-podcast-planning.v1.mp3",
+      "parent_in_handoff": false,
+      "reuse_D015": false,
+      "start": null,
+      "end": null
+    },
+    {
+      "lang": "pt",
+      "split": "2026-10-23_david-sacks-and-the-anthropic-war",
+      "parent": "pt_2026-10-23_eve-david-podcast-planning.v1.mp3",
+      "parent_in_handoff": false,
+      "reuse_D015": false,
+      "start": null,
+      "end": null
+    },
+    {
+      "lang": "pt",
+      "split": "2026-10-23_chamath-calacanis-and-the-all-in-orbit",
+      "parent": "pt_2026-10-23_eve-david-podcast-planning.v1.mp3",
+      "parent_in_handoff": false,
+      "reuse_D015": false,
+      "start": null,
+      "end": null
+    },
+    {
+      "lang": "pt",
+      "split": "2026-10-23_peter-thiel-girard-and-monopoly",
+      "parent": "pt_2026-10-23_eve-david-podcast-planning.v1.mp3",
+      "parent_in_handoff": false,
+      "reuse_D015": false,
+      "start": null,
+      "end": null
+    },
+    {
+      "lang": "pt",
+      "split": "2026-10-23_pelosi-chan-wiener-weiss-mamdani",
+      "parent": "pt_2026-10-23_eve-david-podcast-planning.v1.mp3",
+      "parent_in_handoff": false,
+      "reuse_D015": false,
+      "start": null,
+      "end": null
+    },
+    {
+      "lang": "pt",
+      "split": "2026-10-23_how-grok-became-eve",
+      "parent": "pt_2026-10-23_eve-david-podcast-planning.v1.mp3",
+      "parent_in_handoff": false,
+      "reuse_D015": false,
+      "start": null,
+      "end": null
+    },
+    {
+      "lang": "pt",
+      "split": "2026-10-23_iran-edge-theory-and-russias-double-game",
+      "parent": "pt_2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3",
+      "parent_in_handoff": true,
+      "reuse_D015": false,
+      "start": 172.76,
+      "end": 870.14
+    },
+    {
+      "lang": "pt",
+      "split": "2026-10-23_starshield-musk-and-the-anthropic-mirror",
+      "parent": "pt_2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3",
+      "parent_in_handoff": true,
+      "reuse_D015": false,
+      "start": 870.74,
+      "end": 1858.05
+    },
+    {
+      "lang": "fa",
+      "split": "2026-10-23_andreessen-horowitz-rightward-turn",
+      "parent": "fa_2026-10-23_eve-david-podcast-planning.v1.mp3",
+      "parent_in_handoff": false,
+      "reuse_D015": false,
+      "start": null,
+      "end": null
+    },
+    {
+      "lang": "fa",
+      "split": "2026-10-23_elon-musk-usaid-and-the-blind-spot",
+      "parent": "fa_2026-10-23_eve-david-podcast-planning.v1.mp3",
+      "parent_in_handoff": false,
+      "reuse_D015": false,
+      "start": null,
+      "end": null
+    },
+    {
+      "lang": "fa",
+      "split": "2026-10-23_david-sacks-and-the-anthropic-war",
+      "parent": "fa_2026-10-23_eve-david-podcast-planning.v1.mp3",
+      "parent_in_handoff": false,
+      "reuse_D015": false,
+      "start": null,
+      "end": null
+    },
+    {
+      "lang": "fa",
+      "split": "2026-10-23_chamath-calacanis-and-the-all-in-orbit",
+      "parent": "fa_2026-10-23_eve-david-podcast-planning.v1.mp3",
+      "parent_in_handoff": false,
+      "reuse_D015": false,
+      "start": null,
+      "end": null
+    },
+    {
+      "lang": "fa",
+      "split": "2026-10-23_peter-thiel-girard-and-monopoly",
+      "parent": "fa_2026-10-23_eve-david-podcast-planning.v1.mp3",
+      "parent_in_handoff": false,
+      "reuse_D015": false,
+      "start": null,
+      "end": null
+    },
+    {
+      "lang": "fa",
+      "split": "2026-10-23_pelosi-chan-wiener-weiss-mamdani",
+      "parent": "fa_2026-10-23_eve-david-podcast-planning.v1.mp3",
+      "parent_in_handoff": false,
+      "reuse_D015": false,
+      "start": null,
+      "end": null
+    },
+    {
+      "lang": "fa",
+      "split": "2026-10-23_how-grok-became-eve",
+      "parent": "fa_2026-10-23_eve-david-podcast-planning.v1.mp3",
+      "parent_in_handoff": false,
+      "reuse_D015": false,
+      "start": null,
+      "end": null
+    },
+    {
+      "lang": "fa",
+      "split": "2026-10-23_iran-edge-theory-and-russias-double-game",
+      "parent": "fa_2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3",
+      "parent_in_handoff": true,
+      "reuse_D015": false,
+      "start": 27.72,
+      "end": 713.42
+    },
+    {
+      "lang": "fa",
+      "split": "2026-10-23_starshield-musk-and-the-anthropic-mirror",
+      "parent": "fa_2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3",
+      "parent_in_handoff": true,
+      "reuse_D015": false,
+      "start": 714.02,
+      "end": 1697.17
+    },
+    {
+      "lang": "fr",
+      "split": "2026-10-23_andreessen-horowitz-rightward-turn",
+      "parent": "fr_2026-10-23_eve-david-podcast-planning.v1.mp3",
+      "parent_in_handoff": false,
+      "reuse_D015": false,
+      "start": null,
+      "end": null
+    },
+    {
+      "lang": "fr",
+      "split": "2026-10-23_elon-musk-usaid-and-the-blind-spot",
+      "parent": "fr_2026-10-23_eve-david-podcast-planning.v1.mp3",
+      "parent_in_handoff": false,
+      "reuse_D015": false,
+      "start": null,
+      "end": null
+    },
+    {
+      "lang": "fr",
+      "split": "2026-10-23_david-sacks-and-the-anthropic-war",
+      "parent": "fr_2026-10-23_eve-david-podcast-planning.v1.mp3",
+      "parent_in_handoff": false,
+      "reuse_D015": false,
+      "start": null,
+      "end": null
+    },
+    {
+      "lang": "fr",
+      "split": "2026-10-23_chamath-calacanis-and-the-all-in-orbit",
+      "parent": "fr_2026-10-23_eve-david-podcast-planning.v1.mp3",
+      "parent_in_handoff": false,
+      "reuse_D015": false,
+      "start": null,
+      "end": null
+    },
+    {
+      "lang": "fr",
+      "split": "2026-10-23_peter-thiel-girard-and-monopoly",
+      "parent": "fr_2026-10-23_eve-david-podcast-planning.v1.mp3",
+      "parent_in_handoff": false,
+      "reuse_D015": false,
+      "start": null,
+      "end": null
+    },
+    {
+      "lang": "fr",
+      "split": "2026-10-23_pelosi-chan-wiener-weiss-mamdani",
+      "parent": "fr_2026-10-23_eve-david-podcast-planning.v1.mp3",
+      "parent_in_handoff": false,
+      "reuse_D015": false,
+      "start": null,
+      "end": null
+    },
+    {
+      "lang": "fr",
+      "split": "2026-10-23_how-grok-became-eve",
+      "parent": "fr_2026-10-23_eve-david-podcast-planning.v1.mp3",
+      "parent_in_handoff": false,
+      "reuse_D015": false,
+      "start": null,
+      "end": null
+    },
+    {
+      "lang": "fr",
+      "split": "2026-10-23_iran-edge-theory-and-russias-double-game",
+      "parent": "fr_2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3",
+      "parent_in_handoff": true,
+      "reuse_D015": false,
+      "start": 151.16,
+      "end": 783.9
+    },
+    {
+      "lang": "fr",
+      "split": "2026-10-23_starshield-musk-and-the-anthropic-mirror",
+      "parent": "fr_2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3",
+      "parent_in_handoff": true,
+      "reuse_D015": false,
+      "start": 784.5,
+      "end": 1706.37
+    }
+  ]
+}

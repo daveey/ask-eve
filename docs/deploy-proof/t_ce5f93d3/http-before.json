@@ -1,0 +1,58 @@
+[
+  {
+    "url": "https://audio.askevepodcast.com/audio/en/2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3",
+    "status": 404,
+    "type": "text/plain;charset=UTF-8",
+    "bytes": null,
+    "cors": "https://askevepodcast.com"
+  },
+  {
+    "url": "https://audio.askevepodcast.com/audio/en/splits/2026-10-23_starshield-musk-and-the-anthropic-mirror.v1.mp3",
+    "status": 404,
+    "type": "text/plain;charset=UTF-8",
+    "bytes": null,
+    "cors": "https://askevepodcast.com"
+  },
+  {
+    "url": "https://audio.askevepodcast.com/clips/clip-01-grok-became-eve.mp4",
+    "status": 404,
+    "type": "text/plain;charset=UTF-8",
+    "bytes": null,
+    "cors": "https://askevepodcast.com"
+  },
+  {
+    "url": "https://audio.askevepodcast.com/audio/es/2026-10-23_eve-david-podcast-planning.v1.mp3",
+    "status": 404,
+    "type": "text/plain;charset=UTF-8",
+    "bytes": null,
+    "cors": "https://askevepodcast.com"
+  },
+  {
+    "url": "https://audio.askevepodcast.com/audio/zh/2026-10-23_eve-david-podcast-planning.v1.mp3",
+    "status": 404,
+    "type": "text/plain;charset=UTF-8",
+    "bytes": null,
+    "cors": "https://askevepodcast.com"
+  },
+  {
+    "url": "https://audio.askevepodcast.com/audio/fa/2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3",
+    "status": 404,
+    "type": "text/plain;charset=UTF-8",
+    "bytes": null,
+    "cors": "https://askevepodcast.com"
+  },
+  {
+    "url": "https://askevepodcast.com/feed.xml",
+    "status": 200,
+    "type": "application/rss+xml; charset=utf-8",
+    "bytes": null,
+    "cors": "*"
+  },
+  {
+    "url": "https://audio.askevepodcast.com/does-not-exist",
+    "status": 404,
+    "type": "text/plain;charset=UTF-8",
+    "bytes": null,
+    "cors": "https://askevepodcast.com"
+  }
+]

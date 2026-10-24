@@ -1,0 +1,22 @@
+2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3: OK
+ru_2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3: OK
+es_2026-10-23_eve-david-podcast-planning.v1.mp3: FAILED
+es_2026-10-23_the-making-of-eve.v1.mp3: OK
+es_2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3: OK
+zh_2026-10-23_eve-david-podcast-planning.v1.mp3: FAILED
+zh_2026-10-23_the-making-of-eve.v1.mp3: OK
+zh_2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3: OK
+de_2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3: OK
+pt_2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3: OK
+fa_2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3: OK
+fr_2026-10-23_starshield-iran-and-the-anthropic-mirror.v1.mp3: OK
+2026-10-23_elon-musk-usaid-and-the-blind-spot.v1.mp3: OK
+2026-10-23_peter-thiel-girard-and-monopoly.v1.mp3: OK
+2026-10-23_david-sacks-and-the-anthropic-war.v1.mp3: OK
+2026-10-23_chamath-calacanis-and-the-all-in-orbit.v1.mp3: OK
+2026-10-23_andreessen-horowitz-rightward-turn.v1.mp3: OK
+2026-10-23_pelosi-chan-wiener-weiss-mamdani.v1.mp3: OK
+2026-10-23_how-grok-became-eve.v1.mp3: OK
+2026-10-23_starshield-musk-and-the-anthropic-mirror.v1.mp3: OK
+2026-10-23_iran-edge-theory-and-russias-double-game.v1.mp3: OK
+sha256sum: WARNING: 2 computed checksums did NOT match
