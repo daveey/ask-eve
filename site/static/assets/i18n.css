@@ -25,7 +25,7 @@
 [dir="rtl"] body{direction:rtl;text-align:right}
 [dir="rtl"] .lang-menu{margin-right:0;margin-left:.35rem}
 [dir="rtl"] .lang-menu__panel{right:auto;left:0}
-[dir="rtl"] .tnum,[dir="rtl"] code,[dir="rtl"] pre,[dir="rtl"] .player__bar,[dir="rtl"] .player__ctrl{direction:ltr;unicode-bidi:isolate}
+[dir="rtl"] .tnum,[dir="rtl"] code,[dir="rtl"] pre,[dir="rtl"] .player__bar,[dir="rtl"] .player__ctrl,[dir="rtl"] .player__scrub,[dir="rtl"] .player__controls,[dir="rtl"] .player__range,[dir="rtl"] .player__extras{direction:ltr;unicode-bidi:isolate}
 [dir="rtl"] .turn,[dir="rtl"] .ep-context,[dir="rtl"] .take,[dir="rtl"] .split-card,[dir="rtl"] .clip-card__body{text-align:right}
 [dir="rtl"]{overflow-x:hidden}
 [dir="rtl"] .skip{left:auto;right:.5rem;transform:translateY(-200%)}

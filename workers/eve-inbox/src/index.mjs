@@ -19,6 +19,7 @@ import {
 } from "./mime.mjs";
 import { verifyAccessRequest } from "./auth.mjs";
 import { renderAdminHtml, renderAdminGateHtml } from "./admin_ui.mjs";
+import { handleAnalyticsRequest } from "./analytics.mjs";
 import {
   getXConnectionStatus,
   startXOAuth2Pkce,
@@ -836,6 +837,13 @@ export default {
   async fetch(request, env, _ctx) {
     const url = new URL(request.url);
     const path = url.pathname;
+
+    // Public first-party PostHog-compatible analytics ingest & metrics endpoints
+    // (Handled BEFORE the /admin Cloudflare Access Zero Trust gate)
+    if (path.startsWith("/ingest/") || path === "/api/metrics" || path === "/api/metrics/") {
+      const analyticsResp = await handleAnalyticsRequest(request, env, _ctx);
+      if (analyticsResp) return analyticsResp;
+    }
 
     if (!path.startsWith("/admin")) {
       return jsonResponse({ error: "not_found" }, 404);

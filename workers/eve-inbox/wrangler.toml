@@ -1,45 +1,39 @@
-# workers/eve-inbox/wrangler.toml — Cloudflare Worker for Ask Eve inbound email + @askevepodcast X mention queue,
-# Grok-4.7 document triage + leak-checked draft replies, and Cloudflare-Access-protected /admin/ console.
-#
-# Deployed by Hermes in task D-016 (see docs/deploy-guide.md).
-# Secrets (set via `npx wrangler@4 secret put <NAME> --config workers/eve-inbox/wrangler.toml`, NEVER committed):
-#   - XAI_API_KEY            : xAI API key for grok-4.7 triage + draft reply generation
-#   - ADMIN_EMAIL            : David's Google login email (from Hermes's private config)
-#   - CF_ACCESS_TEAM_DOMAIN  : Cloudflare Zero Trust team domain (e.g. <team>.cloudflareaccess.com)
-#   - CF_ACCESS_AUD          : Cloudflare Access Application Audience (AUD) tag for askevepodcast.com/admin*
-#   - PRIVATE_LEAK_TERMS     : Comma-separated private blocklist terms (personal emails, addresses, etc.)
-#   - X_CLIENT_ID / X_CLIENT_SECRET : X OAuth 2.0 PKCE app credentials for @askevepodcast (/admin/x/oauth/start)
-#   - OR X_API_KEY / X_API_SECRET / X_ACCESS_TOKEN / X_ACCESS_TOKEN_SECRET : OAuth 1.0a credentials for @askevepodcast
-
 name = "ask-eve-inbox"
 main = "src/index.mjs"
-compatibility_date = "2026-10-01"
+compatibility_date = "2026-04-01"
 workers_dev = false
-preview_urls = false
 
+# Route /admin* (Cloudflare-Access-protected), /ingest* (first-party PostHog-compatible ingest),
+# and /api/metrics* (public aggregated metrics API) on askevepodcast.com
 routes = [
-  { pattern = "askevepodcast.com/admin*", zone_name = "askevepodcast.com" }
+  { pattern = "askevepodcast.com/admin*", zone_name = "askevepodcast.com" },
+  { pattern = "askevepodcast.com/ingest*", zone_name = "askevepodcast.com" },
+  { pattern = "askevepodcast.com/api/metrics*", zone_name = "askevepodcast.com" }
 ]
 
+# Cron trigger: poll public @askevepodcast mentions every 15 minutes and queue leak-checked drafts
 [triggers]
-# Enable mention sync after X credentials are configured.
-crons = []
-
-[vars]
-MASTERS_BUCKET = "ask-eve-masters"
-REPLY_FROM = "eve@askevepodcast.com"
-REPLY_FROM_NAME = "Eve — Ask Eve Podcast"
-XAI_MODEL = "grok-4.7"
-
-[[r2_buckets]]
-binding = "MASTERS"
-bucket_name = "ask-eve-masters"
+crons = ["*/15 * * * *"]
 
 [[d1_databases]]
 binding = "DB"
 database_name = "ask-eve-meta"
 database_id = "__D1_DATABASE_ID__"
-migrations_dir = "../../migrations"
+
+[[r2_buckets]]
+binding = "RAW_BUCKET"
+bucket_name = "ask-eve-masters"
 
 [[send_email]]
 name = "SEND_EMAIL"
+
+[vars]
+ADMIN_EMAIL = "david@dbloom.in"
+GROK_MODEL = "grok-4.7"
+X_ACCOUNT_HANDLE = "askevepodcast"
+X_OAUTH_REDIRECT_URI = "https://askevepodcast.com/admin/x/oauth/callback"
+# Optional upstream PostHog target for dual-forwarding:
+#   - Self-hosted Docker stack (infra/posthog/docker-compose.yml): "https://ph.askevepodcast.com"
+#   - PostHog Cloud free tier fallback: "https://us.i.posthog.com"
+POSTHOG_UPSTREAM_HOST = "https://ph.askevepodcast.com"
+POSTHOG_PROJECT_API_KEY = "phc_askeve_selfhosted_public"

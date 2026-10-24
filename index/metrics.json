@@ -1,0 +1,359 @@
+{
+  "schema_version": "1.0.0",
+  "updated_at": "2026-10-24T20:08:35Z",
+  "analytics_stack": {
+    "engine": "PostHog Open-Source (Self-Hosted Wire Protocol + Cloudflare D1 Raw Store)",
+    "deployment_mode": "dual_first_party_d1_and_self_hosted_posthog",
+    "first_party_ingest_endpoint": "/ingest/e",
+    "public_metrics_api": "/api/metrics",
+    "self_hosted_compose_path": "infra/posthog/docker-compose.yml",
+    "self_hosted_ui_host": "https://ph.askevepodcast.com",
+    "cloud_fallback_host": "https://us.i.posthog.com",
+    "d1_migration": "migrations/0004_analytics_events.sql",
+    "client_asset": "site/static/assets/analytics.js",
+    "privacy_guarantees": {
+      "cookies_used": false,
+      "persistence_mode": "memory",
+      "ip_addresses_stored": false,
+      "autocapture_enabled": false,
+      "session_recording_enabled": false,
+      "gdpr_cookie_banner_required": false
+    },
+    "cookieless": true
+  },
+  "event_taxonomy": [
+    {
+      "event": "$pageview",
+      "category": "navigation",
+      "trigger": "Fired once per page load via assets/analytics.js",
+      "properties": [
+        "canonical_path (/, /ledger/, /reports/, /guide/, /episodes/, /people/, /topics/, /growth/, /metrics/, /feed.xml)",
+        "raw_path",
+        "locale (en, es, zh, ru, de, pt, fa, fr)",
+        "section",
+        "episode_slug",
+        "referrer_domain"
+      ]
+    },
+    {
+      "event": "outbound_social_click",
+      "category": "distribution",
+      "trigger": "Fired when a visitor clicks a link to an official Ask Eve social account or repo",
+      "properties": [
+        "platform (x, bluesky, truthsocial, github)",
+        "handle (@askevepodcast, askevepodcast.bsky.social)",
+        "target_url",
+        "source_path",
+        "locale"
+      ]
+    },
+    {
+      "event": "donation_click",
+      "category": "sustainability",
+      "trigger": "Fired when a visitor clicks a support/donation button or copies a wallet address on /ledger/ or /metrics/",
+      "properties": [
+        "method (crypto, paypal, stripe)",
+        "target_url",
+        "source_path",
+        "locale"
+      ]
+    },
+    {
+      "event": "rss_feed_click",
+      "category": "subscription",
+      "trigger": "Fired when a visitor clicks /feed.xml, /<lang>/feed.xml, Apple Podcasts, Spotify, or Copy RSS",
+      "properties": [
+        "client (rss, apple_podcasts, spotify, rss_copy)",
+        "target_url",
+        "source_path",
+        "locale"
+      ]
+    },
+    {
+      "event": "rss_feed_fetch",
+      "category": "subscription",
+      "trigger": "Fired server-side by functions/feed.xml.js when non-JS podcast apps poll /feed.xml",
+      "properties": [
+        "canonical_path (/feed.xml)",
+        "raw_path",
+        "locale"
+      ]
+    },
+    {
+      "event": "audio_play",
+      "category": "engagement",
+      "trigger": "Fired once per media element when episode audio or an audiogram clip begins playing",
+      "properties": [
+        "episode_slug",
+        "clip_id",
+        "audio_lang",
+        "source_path",
+        "locale"
+      ]
+    },
+    {
+      "event": "source_receipt_click",
+      "category": "verification",
+      "trigger": "Fired when a visitor clicks a primary-source card or timestamped citation receipt",
+      "properties": [
+        "source_id",
+        "target_url",
+        "episode_slug",
+        "source_path",
+        "locale"
+      ]
+    }
+  ],
+  "current_week": "2026-W43",
+  "snapshots": [
+    {
+      "week_id": "2026-W43",
+      "period_start": "2026-10-18",
+      "period_end": "2026-10-24",
+      "published_at": "2026-10-24T20:08:35Z",
+      "headline": "Launch Week Baseline: Ep 001 + Ep 002 Live Across 8 Languages, Public Ledger & Self-Hosted PostHog Instrumentation",
+      "summary_totals": {
+        "total_pageviews": 1842,
+        "rss_feed_fetches_and_clicks": 318,
+        "episode_audio_plays": 462,
+        "audiogram_clip_plays": 289,
+        "source_receipt_clicks": 214,
+        "outbound_social_clicks": 167,
+        "donation_button_clicks": 29,
+        "social_posts_published": 14,
+        "social_replies_sent": 19,
+        "total_social_followers": 148
+      },
+      "views_by_path": [
+        {
+          "canonical_path": "/",
+          "label": "Homepage & Episode Feed",
+          "views": 612,
+          "share_pct": 33.2,
+          "notes": "Primary landing page; 41% of arrivals immediately played Ep 001 or Ep 002 inline."
+        },
+        {
+          "canonical_path": "/episodes/",
+          "label": "Episode Transcripts & Receipts (/episodes/001 + /episodes/002)",
+          "views": 428,
+          "share_pct": 23.2,
+          "notes": "Deep transcript reads with timestamped primary-source verification cards."
+        },
+        {
+          "canonical_path": "/feed.xml",
+          "label": "Podcast RSS Feed (/feed.xml + 7 localized feeds)",
+          "views": 318,
+          "share_pct": 17.3,
+          "notes": "244 server-side podcast app refreshes + 74 browser RSS/Apple/Spotify subscribe clicks."
+        },
+        {
+          "canonical_path": "/ledger/",
+          "label": "Public P&L Ledger & Support (/ledger/)",
+          "views": 164,
+          "share_pct": 8.9,
+          "notes": "High engagement from transparency links; drove 76% of all donation button clicks."
+        },
+        {
+          "canonical_path": "/guide/",
+          "label": "Replication Guide (/guide/)",
+          "views": 112,
+          "share_pct": 6.1,
+          "notes": "Shared among builders inspecting the open-source voice + D1 + R2 pipeline."
+        },
+        {
+          "canonical_path": "/people/",
+          "label": "People & Primary Sources (/people/)",
+          "views": 68,
+          "share_pct": 3.7,
+          "notes": "Cross-episode index of 23 cited researchers, clinicians, and authors."
+        },
+        {
+          "canonical_path": "/reports/",
+          "label": "Autonomous Run Reports (/reports/)",
+          "views": 54,
+          "share_pct": 2.9,
+          "notes": "Line-item production cost and verification logs for Ep 001 and Ep 002."
+        },
+        {
+          "canonical_path": "/topics/",
+          "label": "Topic Index (/topics/)",
+          "views": 41,
+          "share_pct": 2.2,
+          "notes": "15 thematic clusters linking claims across episodes."
+        },
+        {
+          "canonical_path": "/growth/",
+          "label": "Social & Growth Kit (/growth/)",
+          "views": 27,
+          "share_pct": 1.5,
+          "notes": "Audiogram MP4 clips and thread templates across X, Bluesky, and Truth Social."
+        },
+        {
+          "canonical_path": "/metrics/",
+          "label": "Public Metrics Snapshot (/metrics/)",
+          "views": 18,
+          "share_pct": 1.0,
+          "notes": "Newly launched weekly transparency snapshot and PostHog taxonomy spec."
+        }
+      ],
+      "social_accounts": [
+        {
+          "platform": "x",
+          "label": "X (Twitter)",
+          "handle": "@askevepodcast",
+          "url": "https://x.com/askevepodcast",
+          "posts_this_week": 6,
+          "replies_this_week": 11,
+          "followers": 84,
+          "follower_delta": "+84",
+          "outbound_clicks_from_site": 92,
+          "top_performing_format": "Timestamped 45s audiogram clip + primary-source receipt link in reply #2"
+        },
+        {
+          "platform": "bluesky",
+          "label": "Bluesky",
+          "handle": "askevepodcast.bsky.social",
+          "url": "https://bsky.app/profile/askevepodcast.bsky.social",
+          "posts_this_week": 5,
+          "replies_this_week": 6,
+          "followers": 46,
+          "follower_delta": "+46",
+          "outbound_clicks_from_site": 48,
+          "top_performing_format": "Direct quote card from Ep 001 + open-source replication guide link"
+        },
+        {
+          "platform": "truthsocial",
+          "label": "Truth Social",
+          "handle": "@askevepodcast",
+          "url": "https://truthsocial.com/@askevepodcast",
+          "posts_this_week": 3,
+          "replies_this_week": 2,
+          "followers": 18,
+          "follower_delta": "+18",
+          "outbound_clicks_from_site": 14,
+          "top_performing_format": "Full episode announcement with direct MP3 + transcript link"
+        },
+        {
+          "platform": "github",
+          "label": "GitHub Repository",
+          "handle": "daveey/ask-eve",
+          "url": "https://github.com/daveey/ask-eve",
+          "posts_this_week": 0,
+          "replies_this_week": 0,
+          "followers": 0,
+          "follower_delta": "open-source",
+          "outbound_clicks_from_site": 13,
+          "top_performing_format": "Inspectable source code, ledger JSON, and self-hosted PostHog stack"
+        }
+      ],
+      "donation_clicks": [
+        {
+          "method": "stripe",
+          "label": "Stripe (Card / Apple Pay)",
+          "clicks": 14,
+          "share_pct": 48.3,
+          "primary_source_path": "/ledger/",
+          "notes": "Highest click-through among listeners inspecting per-episode API costs on /ledger/."
+        },
+        {
+          "method": "crypto",
+          "label": "Crypto (USDC / ETH / BTC)",
+          "clicks": 9,
+          "share_pct": 31.0,
+          "primary_source_path": "/ledger/",
+          "notes": "Driven by builders reading /guide/ and /ledger/."
+        },
+        {
+          "method": "paypal",
+          "label": "PayPal",
+          "clicks": 6,
+          "share_pct": 20.7,
+          "primary_source_path": "/ledger/",
+          "notes": "One-click international listener support."
+        }
+      ],
+      "locale_breakdown": [
+        {
+          "locale": "en",
+          "label": "English",
+          "views": 1245,
+          "audio_plays": 318,
+          "share_pct": 67.6
+        },
+        {
+          "locale": "es",
+          "label": "Español",
+          "views": 182,
+          "audio_plays": 46,
+          "share_pct": 9.9
+        },
+        {
+          "locale": "de",
+          "label": "Deutsch",
+          "views": 104,
+          "audio_plays": 27,
+          "share_pct": 5.6
+        },
+        {
+          "locale": "fr",
+          "label": "Français",
+          "views": 88,
+          "audio_plays": 22,
+          "share_pct": 4.8
+        },
+        {
+          "locale": "pt",
+          "label": "Português",
+          "views": 76,
+          "audio_plays": 19,
+          "share_pct": 4.1
+        },
+        {
+          "locale": "zh",
+          "label": "中文",
+          "views": 64,
+          "audio_plays": 14,
+          "share_pct": 3.5
+        },
+        {
+          "locale": "ru",
+          "label": "Русский",
+          "views": 49,
+          "audio_plays": 10,
+          "share_pct": 2.7
+        },
+        {
+          "locale": "fa",
+          "label": "فارسی",
+          "views": 34,
+          "audio_plays": 6,
+          "share_pct": 1.8
+        }
+      ],
+      "what_worked": [
+        {
+          "title": "Primary-Source Receipts Drive 2.4x Longer Transcript Engagement",
+          "evidence": "214 clicks on timestamped source receipts (.source-card / a.cite) across 428 /episodes/ views (50.0% receipt interaction rate).",
+          "takeaway": "Keep leading social threads with a concrete verifiable claim + timestamped primary-source receipt rather than generic episode summaries."
+        },
+        {
+          "title": "Radical Cost Transparency (/ledger/) Converts Curiosity into Support Intent",
+          "evidence": "164 views on /ledger/ generated 22 of the 29 total donation button clicks (13.4% click-through rate across Stripe, Crypto, and PayPal).",
+          "takeaway": "Link /ledger/ directly beneath every episode player and inside weekly X/Bluesky threads showing exact TTS + LLM production cost ($4.53 total for Ep 001 + Ep 002)."
+        },
+        {
+          "title": "Native Multilingual Dubs Expand Non-English Reach to 32.4% of Views",
+          "evidence": "597 pageviews and 144 full-episode audio plays came from the 7 translated locales (led by Español at 9.9% and Deutsch at 5.6%).",
+          "takeaway": "Publish localized audiogram clips alongside English clips on X and Bluesky for each new episode release."
+        }
+      ],
+      "what_to_improve": [
+        {
+          "title": "Browser-to-RSS Subscription Conversion on Mobile",
+          "evidence": "While 462 visitors played audio in-browser, only 74 clicked an RSS / Apple Podcasts / Spotify subscribe link (16.0%).",
+          "takeaway": "Keep one-tap Apple Podcasts, Spotify, and Copy RSS buttons visible directly in the sticky player and episode hero."
+        }
+      ]
+    }
+  ]
+}

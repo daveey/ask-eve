@@ -1,0 +1,128 @@
+# Ask Eve — Self-Hosted Open-Source PostHog Stack (ph.askevepodcast.com)
+# Deploys open-source PostHog (MIT/Expat) with ClickHouse, Redpanda (Kafka),
+# PostgreSQL, Redis, and Caddy automatic TLS.
+#
+# Usage:
+#   cp .env.example .env && docker compose up -d
+#
+# Dual-Mode Raw Data Ownership:
+#   1. First-party Cloudflare Worker + D1 (`askevepodcast.com/ingest/*` -> D1 `analytics_events`)
+#      captures 100% of raw PostHog-schema events in our own SQLite/D1 database immediately
+#      with zero third-party dependency.
+#   2. When `POSTHOG_UPSTREAM_HOST=https://ph.askevepodcast.com` (this stack) or
+#      `https://us.i.posthog.com` (PostHog Cloud free tier fallback) is set on the Worker,
+#      every event is also dual-forwarded to PostHog for HogQL funnels and dashboards.
+
+name: ask-eve-posthog
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-posthog}
+      POSTGRES_USER: ${POSTGRES_USER:-posthog}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-posthog_local_dev_only}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER:-posthog}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - redis-data:/data
+
+  clickhouse:
+    image: clickhouse/clickhouse-server:24.3-alpine
+    restart: unless-stopped
+    volumes:
+      - clickhouse-data:/var/lib/clickhouse
+    ulimits:
+      nofile:
+        soft: 262144
+        hard: 262144
+
+  kafka:
+    image: docker.redpanda.com/redpandadata/redpanda:v24.1.4
+    restart: unless-stopped
+    command:
+      - redpanda
+      - start
+      - --overprovisioned
+      - --smp=1
+      - --memory=1G
+      - --reserve-memory=0M
+      - --node-id=0
+      - --check=false
+      - --kafka-addr=PLAINTEXT://0.0.0.0:9092
+      - --advertise-kafka-addr=PLAINTEXT://kafka:9092
+    volumes:
+      - kafka-data:/var/lib/redpanda/data
+
+  web:
+    image: posthog/posthog:latest
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_started
+      clickhouse:
+        condition: service_started
+      kafka:
+        condition: service_started
+    environment:
+      DEPLOYMENT: hobby
+      IS_BEHIND_PROXY: "true"
+      DISABLE_SECURE_SSL_REDIRECT: "false"
+      SITE_URL: ${POSTHOG_SITE_URL:-https://ph.askevepodcast.com}
+      SECRET_KEY: ${POSTHOG_SECRET_KEY:-replace_with_openssl_rand_hex_24_in_prod}
+      PGHOST: postgres
+      PGUSER: ${POSTGRES_USER:-posthog}
+      PGPASSWORD: ${POSTGRES_PASSWORD:-posthog_local_dev_only}
+      PGDATABASE: ${POSTGRES_DB:-posthog}
+      REDIS_URL: redis://redis:6379/
+      CLICKHOUSE_HOST: clickhouse
+      CLICKHOUSE_DATABASE: posthog
+      CLICKHOUSE_SECURE: "false"
+      CLICKHOUSE_VERIFY: "false"
+      KAFKA_HOSTS: kafka:9092
+      CAPTURE_INTERNAL_METRICS: "false"
+       OPT_OUT_CAPTURE: "true"
+    ports:
+      - "127.0.0.1:8000:8000"
+
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    depends_on:
+      - web
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      DOMAIN: ${POSTHOG_DOMAIN:-ph.askevepodcast.com}
+    command:
+      - caddy
+      - reverse-proxy
+      - --from
+      - ${POSTHOG_DOMAIN:-ph.askevepodcast.com}
+      - --to
+      - web:8000
+    volumes:
+      - caddy-data:/data
+      - caddy-config:/config
+
+volumes:
+  postgres-data:
+  redis-data:
+  clickhouse-data:
+  kafka-data:
+  caddy-data:
+  caddy-config:

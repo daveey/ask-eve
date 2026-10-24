@@ -1,6 +1,12 @@
 # Ask Eve
 
-**[askevepodcast.com](https://askevepodcast.com)** · [RSS feed](https://askevepodcast.com/feed.xml) · [How it works](https://askevepodcast.com/about/#how-it-works)
+[![Fork Ask Eve on GitHub](https://img.shields.io/badge/Fork_on_GitHub-daveey%2Fask--eve-111827?style=for-the-badge&logo=github)](https://github.com/daveey/ask-eve/fork)
+[![Live Site](https://img.shields.io/badge/Site-askevepodcast.com-2563eb?style=for-the-badge)](https://askevepodcast.com)
+[![Cloning Guide](https://img.shields.io/badge/Guide-%2Fguide%2F-059669?style=for-the-badge)](https://askevepodcast.com/guide/#cloning-guide)
+[![Public Ledger](https://img.shields.io/badge/Ledger-%2Fledger%2F-d97706?style=for-the-badge)](https://askevepodcast.com/ledger/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-4b5563?style=for-the-badge)](LICENSE)
+
+**[askevepodcast.com](https://askevepodcast.com)** · **[The Making of Eve & Cloning Guide (`/guide/`)](https://askevepodcast.com/guide/)** · **[Public Financial Ledger (`/ledger/`)](https://askevepodcast.com/ledger/)** · **[RSS feed](https://askevepodcast.com/feed.xml)** · **[How it works](https://askevepodcast.com/about/#how-it-works)**
 
 "Ask Eve" is a podcast about tech, power and the people shaping both. David brings the questions and
 Eve, an AI co-host built on a Grok agent, gives real takes: she states opinions, says when
@@ -25,6 +31,47 @@ pipeline, the static site and feed generator, and Eve's local retrieval memory.
 - Unrecovered replies are marked as missing, never invented.
 - Quotes on the site are checked against the transcript at build time and link to their moment.
 - No secrets, private links or personal details in git; keys live only in GitHub Actions and Cloudflare secrets.
+
+## Fork & Stand Up Your Own AI Podcast Host (5-Minute Quickstart)
+
+The entire Ask Eve stack—static site generator, 8-language localization layer (`en`, `ru`, `es`, `zh`, `de`, `pt`, `fa`, `fr`), hybrid audio reconstruction & chapter pipeline, primary-source receipt verification, and public financial ledger—is open source and designed to be forked. Read the full walkthrough at **[askevepodcast.com/guide/#cloning-guide](https://askevepodcast.com/guide/#cloning-guide)**.
+
+### Prerequisites
+- **Python 3.11+** and `sqlite3` (standard library)
+- **`ffmpeg`** on `PATH` (for audio stitching, loudness normalization, and MP3 chapter encoding)
+- **Node.js 20+** (optional, for the Cloudflare upload worker in `workers/upload/`)
+- **API Keys (only when generating new episodes/translations):** `XAI_API_KEY` (TTS & LLM) and `ELEVENLABS_API_KEY` (optional host voice clone)
+
+### Hello World: Build & Serve Your Fork in 5 Minutes
+```bash
+# 1. Fork https://github.com/daveey/ask-eve/fork and clone your fork
+git clone https://github.com/<your-username>/ask-eve.git
+cd ask-eve
+
+# 2. Set up the Python environment
+python3 -m venv .venv
+.venv/bin/pip install -r requirements-dev.txt
+
+# 3. Initialize a local SQLite database from D1 migrations and build the static site
+python3 scripts/build_site.py --out out/site
+
+# 4. Serve locally and open http://localhost:8000
+python3 -m http.server 8000 --directory out/site
+```
+
+### What to Change vs. What to Keep When Forking
+
+| Component | Action | Files / Paths | Details |
+|---|---|---|---|
+| **Persona & Soul** | **Change** | `index/eve.json`, `index/eve-avatars.json`, `AGENTS.md` | Replace Eve's character sheet, worldview traits, avatar SVGs, and system instructions with your new AI co-host's identity. |
+| **Voice Synthesis IDs** | **Change** | `scripts/revoice_eve.py`, `scripts/synthesize_missing_dubs.py` | Configure your TTS voice IDs (xAI TTS voice name, ElevenLabs voice ID, or local TTS model) for both hosts across locales. |
+| **Site Branding & Config** | **Change** | `scripts/build_site.py`, `scripts/render_feed.py`, `site/static/` | Update `SITE`, podcast title, author metadata, color palette in `site/static/assets/site.css`, and cover art in `site/static/`. |
+| **Transcripts & Dossiers** | **Change** | `episodes/*.md`, `index/people.md`, `index/takes.json`, `artifacts/*/sources.json` | Replace with your own episode transcripts, people stances, topic takes, and HTTP-verified primary sources. |
+| **Public Ledger & Support** | **Change** | `index/ledger.json` | Reset the ledger transactions and set your own crypto wallets, PayPal.me, or Stripe links for `/ledger/` and `/reports/`. |
+| **8-Language i18n Engine** | **Keep** | `scripts/site_i18n.py`, `scripts/translate.py`, `i18n/*.json`, `site/static/assets/i18n.css` | Gives your fork automatic localized pages (`/ru/`, `/es/`, `/zh/`, `/de/`, `/pt/`, `/fa/`, `/fr/`), RTL support (`dir="rtl"`), `hreflang` tags, and localized RSS feeds. |
+| **Primary-Source Receipts** | **Keep** | `migrations/0003_sources.sql`, `scripts/d1_upsert.py`, `site/static/assets/player.js` | Keeps inline source badges, character-offset span highlighting, and bidirectional click-to-seek between transcript claims and source cards. |
+| **Ledger & Report Generator** | **Keep** | `scripts/render_guide_ledger.py` | Automatically computes running totals, unit economics (cost per episode/minute), category breakdowns, and `/reports/<YYYY-MM>/` pages from `index/ledger.json`. |
+| **CI Test Gates** | **Keep** | `tests/`, `scripts/verify_live_media.py`, `.github/workflows/test.yml` | Enforces zero broken links, zero untranslated strings, strict audio-locale alignment, D1 foreign-key integrity, and Playwright browser smoke checks on every push. |
 
 ## The site
 Generated by `scripts/build_site.py` (stdlib only) from D1 plus the files in `index/` and `site/`:

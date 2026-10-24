@@ -31,6 +31,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import render_avatar as RA  # noqa: E402
 import render_features as RF
+import render_guide_ledger as RGL
+import render_metrics as RM
 import build_context_pack as BCP  # noqa: E402
 import render_feed as F  # noqa: E402
 from frontmatter import episode_type, parse_front_matter_block, season  # noqa: E402
@@ -203,15 +205,52 @@ def load_site(db: Path, include_drafts: bool) -> tuple[list[dict], list[dict]]:
     for p in people.values():
         p["name"] = aliases.get(p["slug"], {}).get("name", p["name"])   # display name override (slug stays stable)
         p["episodes"] = []
+        p["sources"] = []
     for ep in eps:   # people pages list only reviewed discussion moments; episodes with none are left out
+        if is_guide_ep(ep):
+            ep["audio_url"] = ""
+            ep["audio_key"] = ""
+            ep["ai_reconstructed"] = False
+            for t in ep.get("turns", []):
+                t["start"] = None
+                t["end"] = None
+        ep["splits"] = []
+        ep["sources"] = []
         ep["moments"] = load_moments(ep)
-        for slug in dict.fromkeys(m["person"] for m in ep["moments"]):
-            if slug in people:
-                people[slug]["episodes"].append({"ep": ep, "moments": [m for m in ep["moments"] if m["person"] == slug]})
+    load_splits(eps, list(people.values()))
+    for ep in eps:
+        if ep.get("splits"):
+            for m in ep["moments"]:
+                sp = best_split_for_moment(ep, m)
+                if sp is not None and sp["turns"]:
+                    rs = max(0, min(len(sp["turns"]) - 1, m["start_turn"] - sp["start_turn"]))
+                    re_ = max(rs, min(len(sp["turns"]) - 1, m["end_turn"] - sp["start_turn"]))
+                    a, b = sp["turns"][rs], sp["turns"][re_]
+                    sp["moments"].append({
+                        **m,
+                        "start_turn": rs,
+                        "end_turn": re_,
+                        "start": a["start"] if a["start"] is not None else m.get("start"),
+                        "end": b["end"] if b["end"] is not None else m.get("end"),
+                        "first_turn": a,
+                    })
+            for sp in ep["splits"]:
+                for slug in dict.fromkeys(m["person"] for m in sp["moments"]):
+                    if slug in people:
+                        people[slug]["episodes"].append({"ep": sp, "moments": [m for m in sp["moments"] if m["person"] == slug]})
+        else:
+            for slug in dict.fromkeys(m["person"] for m in ep["moments"]):
+                if slug in people:
+                    people[slug]["episodes"].append({"ep": ep, "moments": [m for m in ep["moments"] if m["person"] == slug]})
     people_list = sorted(people.values(), key=lambda p: (-sum(len(x["moments"]) for x in p["episodes"]), p["name"]))
     for ep in eps:
-        ep["people_full"] = [p for p in people_list if any(x["ep"] is ep for x in p["episodes"])]
+        ep["people_full"] = [p for p in people_list if any(m["person"] == p["slug"] for m in ep["moments"])]
         ep["cfg"] = cfg
+        for sp in ep.get("splits", []):
+            sp_p_slugs = {slugify(n) for n in sp.get("people", [])} | {m["person"] for m in sp["moments"]}
+            sp["people_full"] = [p for p in people_list if p["slug"] in sp_p_slugs]
+            sp["cfg"] = cfg
+    attach_sources(eps, people_list)
     attach_takes(eps, people_list)
     return eps, people_list
 
@@ -241,6 +280,153 @@ def load_takes() -> dict:
     return json.loads(TAKES_FILE.read_text())
 
 
+def best_split_for_moment(ep: dict, m: dict) -> dict | None:
+    splits = ep.get("splits") or []
+    if not splits:
+        return None
+    ms, me = int(m.get("start_turn", 0)), int(m.get("end_turn", m.get("start_turn", 0)))
+    for sp in splits:
+        if sp["start_turn"] <= ms and me <= sp["end_turn"]:
+            return sp
+    best, best_ov = None, -1
+    for sp in splits:
+        ov = min(me, sp["end_turn"]) - max(ms, sp["start_turn"]) + 1
+        if ov > best_ov:
+            best, best_ov = sp, ov
+    return best if best_ov > 0 else None
+
+
+def resolve_split_turn(ep: dict, turn: dict) -> tuple[dict, dict]:
+    ti = turn.get("i")
+    if ti is not None:
+        for sp in ep.get("splits") or []:
+            if sp["start_turn"] <= ti <= sp["end_turn"]:
+                rel_i = ti - sp["start_turn"]
+                if 0 <= rel_i < len(sp.get("turns", [])):
+                    return sp, sp["turns"][rel_i]
+    return ep, turn
+
+
+def _index_turn_sources(ep: dict) -> None:
+    for t in ep.get("turns", []):
+        t["source_spans"] = []
+        t["source_ids"] = []
+    for src in ep.get("sources", []):
+        sid = src["id"]
+        ti = src.get("turn_index")
+        if ti is not None and 0 <= int(ti) < len(ep.get("turns", [])):
+            if sid not in ep["turns"][int(ti)]["source_ids"]:
+                ep["turns"][int(ti)]["source_ids"].append(sid)
+        for sp_obj in src.get("spans", []):
+            sti = sp_obj.get("turn_index")
+            if sti is not None and 0 <= int(sti) < len(ep.get("turns", [])):
+                turn_obj = ep["turns"][int(sti)]
+                if sid not in turn_obj["source_ids"]:
+                    turn_obj["source_ids"].append(sid)
+                turn_obj["source_spans"].append({
+                    "start_offset": int(sp_obj["start_offset"]),
+                    "end_offset": int(sp_obj["end_offset"]),
+                    "quote": sp_obj.get("quote") or "",
+                    "source_id": sid,
+                    "index": src["index"],
+                    "color_index": src["color_index"],
+                })
+
+
+def _load_raw_sources_for(ep_or_sp: dict) -> list[dict]:
+    candidates = [ROOT / "artifacts" / ep_or_sp["slug"] / "sources.json"]
+    if ep_or_sp.get("transcript_path"):
+        stem = Path(ep_or_sp["transcript_path"]).stem
+        candidates.append(ROOT / "artifacts" / stem / "sources.json")
+    if ep_or_sp.get("stem"):
+        candidates.append(ROOT / "artifacts" / ep_or_sp["stem"] / "sources.json")
+    for c in candidates:
+        if c.exists():
+            data = json.loads(c.read_text())
+            items = data if isinstance(data, list) else data.get("sources", [])
+            return sorted(items, key=lambda s: int(s.get("sort_order") or 0))
+    return []
+
+
+def _hydrate_sources(target: dict, raw_list: list[dict], turn_shift: int = 0) -> list[dict]:
+    out = []
+    turns = target.get("turns", [])
+    for idx, raw in enumerate(raw_list, 1):
+        raw_ti = raw.get("turn_index")
+        ti = (int(raw_ti) + turn_shift) if raw_ti is not None else None
+        ts = raw.get("timestamp_seconds")
+        if ti is not None and 0 <= ti < len(turns) and turns[ti].get("start") is not None:
+            ts = float(turns[ti]["start"])
+        spans = []
+        for sp_obj in raw.get("spans", []):
+            sti = int(sp_obj["turn_index"]) + turn_shift
+            spans.append({
+                "turn_index": sti,
+                "start_offset": int(sp_obj["start_offset"]),
+                "end_offset": int(sp_obj["end_offset"]),
+                "quote": sp_obj.get("quote") or "",
+            })
+        out.append({
+            "id": f"s{idx}",
+            "index": idx,
+            "color_index": ((idx - 1) % 6) + 1,
+            "url": raw["url"],
+            "title": raw["title"],
+            "publisher": raw.get("publisher") or "",
+            "domain": raw.get("domain") or "",
+            "description": raw.get("description") or "",
+            "timestamp_seconds": float(ts) if ts is not None else None,
+            "timestamp_label": clock(ts) if ts is not None else (raw.get("timestamp_label") or ""),
+            "turn_index": ti,
+            "people": list(raw.get("people") or []),
+            "topics": list(raw.get("topics") or []),
+            "sort_order": int(raw.get("sort_order") or idx),
+            "spans": spans,
+            "ep_slug": target["slug"],
+            "ep_title": target["title"],
+        })
+    return out
+
+
+def attach_sources(eps: list[dict], people: list[dict]) -> None:
+    for p in people:
+        p["sources"] = []
+    by_person = {p["slug"]: p for p in people}
+    canonical_sources: list[dict] = []
+    for ep in eps:
+        ep_raw = _load_raw_sources_for(ep)
+        ep["sources"] = _hydrate_sources(ep, ep_raw, 0) if ep_raw else []
+        parent_accum: list[tuple[int, dict]] = []
+        for sp in ep.get("splits", []):
+            sp_raw = _load_raw_sources_for(sp)
+            sp["sources"] = _hydrate_sources(sp, sp_raw, 0) if sp_raw else []
+            _index_turn_sources(sp)
+            canonical_sources.extend(sp["sources"])
+            if sp_raw and not ep["sources"]:
+                for raw in sp_raw:
+                    parent_accum.append((sp["start_turn"], raw))
+        if not ep["sources"] and parent_accum:
+            shifted = []
+            for shift, raw in parent_accum:
+                r2 = dict(raw)
+                if r2.get("turn_index") is not None:
+                    r2["turn_index"] = int(r2["turn_index"]) + shift
+                r2["spans"] = [
+                    {**sp_obj, "turn_index": int(sp_obj["turn_index"]) + shift}
+                    for sp_obj in raw.get("spans", [])
+                ]
+                shifted.append(r2)
+            ep["sources"] = _hydrate_sources(ep, shifted, 0)
+        if not ep.get("splits"):
+            canonical_sources.extend(ep["sources"])
+        _index_turn_sources(ep)
+    for src in canonical_sources:
+        for pname in src.get("people", []):
+            pslug = slugify(pname)
+            if pslug in by_person and all(x["url"] != src["url"] for x in by_person[pslug]["sources"]):
+                by_person[pslug]["sources"].append(src)
+
+
 def resolve_ref(by_slug: dict, r: dict) -> dict | None:
     """A takes.json ref (episode slug + wall-clock time of a turn) -> that turn's audio offset. Episodes not on
     the site resolve to None (the anchor stays plain text); a clock time with no turn is an error."""
@@ -249,13 +435,16 @@ def resolve_ref(by_slug: dict, r: dict) -> dict | None:
         return None
     for t in ep["turns"]:
         if t["clock_full"] == r["clock_time"]:
-            if t["start"] is not None and not t["gap"]:
+            ep_t, turn_t = resolve_split_turn(ep, t)
+            if is_guide_ep(ep_t):
+                href, when = f"/guide/#turn-{turn_t['i']}", turn_t["clock"]
+            elif turn_t["start"] is not None and not turn_t["gap"]:
                 # the turn's exact start: a floored second can fall in the gap before it and light up the previous turn
-                sec = f"{t['start']:.2f}".rstrip("0").rstrip(".")
-                href, when = f"/episodes/{ep['slug']}/#t={sec}", clock(t["start"])
+                sec = f"{turn_t['start']:.2f}".rstrip("0").rstrip(".")
+                href, when = f"/episodes/{ep_t['slug']}/#t={sec}", clock(turn_t["start"])
             else:
-                href, when = f"/episodes/{ep['slug']}/#turn-{t['i']}", t["clock"]
-            return {**r, "ep": ep, "turn": t, "href": href, "when": when}
+                href, when = f"/episodes/{ep_t['slug']}/#turn-{turn_t['i']}", turn_t["clock"]
+            return {**r, "ep": ep_t, "turn": turn_t, "href": href, "when": when}
     raise ValueError(f"takes.json ref has no turn at {r['episode']} {r['clock_time']}")
 
 
@@ -294,6 +483,14 @@ def attach_takes(eps: list[dict], people: list[dict]) -> list[dict]:
         t["people_full"] = [by_person[s] for s in t.get("people", []) if s in by_person]
         for p in t["people_full"]:
             p["topics"].append(t)
+        t_sources = []
+        all_src_eps = [sp for ep in eps for sp in ep.get("splits", [])] or list(eps)
+        for src_ep in all_src_eps:
+            for src in src_ep.get("sources", []):
+                if any(slugify(st) == t["slug"] or slugify(st) in slugify(t["title"]) for st in src.get("topics", [])):
+                    if all(x["url"] != src["url"] for x in t_sources):
+                        t_sources.append(src)
+        t["sources"] = t_sources
         topics.append(t)
     return topics
 
@@ -317,6 +514,10 @@ def human_date(d: str) -> str:
 
 def is_bonus(ep: dict) -> bool:
     return ep.get("episode_type") == "bonus"
+
+
+def is_guide_ep(ep: dict | None) -> bool:
+    return RGL.is_guide_ep(ep)
 
 
 def ep_label(ep: dict) -> str:
@@ -474,7 +675,7 @@ def inline(s: str) -> str:
 # `link_entities` (DOGE, Anthropic, ...) and links its own `link_terms` ("motivated reasoning", "SPACs").
 LINKS_FILE = ROOT / "index/links.json"
 TAKES_FILE = ROOT / "index/takes.json"
-_SKIP_TAGS = {"a", "code", "pre", "h1", "h2", "h3", "h4", "h5", "h6", "script", "style", "button", "summary"}
+_SKIP_TAGS = {"a", "code", "pre", "h1", "h2", "h3", "h4", "h5", "h6", "script", "style", "button", "summary", "sup"}
 
 
 _PERSON_EPISODE_LINKS = {
@@ -733,8 +934,8 @@ def og_image(slug: str | None) -> str:
 
 
 # Header nav. About lives in the compact (mobile) menu and the footer only.
-NAV = [("/", "Episodes"), ("/eve/", "Eve"), ("/contact/", "Contact")]
-MENU_EXTRA = [("/about/", "About")]
+NAV = [("/", "Episodes"), ("/eve/", "Eve"), ("/guide/", "Guide"), ("/ledger/", "Ledger"), ("/contact/", "Contact")]
+MENU_EXTRA = [("/reports/", "Reports"), ("/about/", "About")]
 EVE_NAV = ("/eve/", "Eve")
 SHOW_EVE_NAV = True
 # The Eve hub's Topics section (Inside Eve's Mind) and Eve's takes stay hidden until David approves them.
@@ -816,6 +1017,8 @@ def page(A: Assets, *, title: str, desc: str, path: str, body: str, active: str 
 <script src="{A('assets/theme.js')}"></script>
 <script src="{A('assets/player.js')}" defer></script>
 <script src="{A('assets/links.js')}" defer></script>
+<script type="application/json" id="posthog-config">{{"api_host":"/ingest","ui_host":"https://ph.askevepodcast.com","project_api_key":"phc_askeve_selfhosted_public","persistence":"memory","autocapture":false,"ip":false}}</script>
+<script src="{A('assets/analytics.js')}" defer></script>
 {ldj}
 </head>
 <body class="{body_cls}">
@@ -839,7 +1042,7 @@ def page(A: Assets, *, title: str, desc: str, path: str, body: str, active: str 
 <footer class="site-foot">
   <div class="wrap site-foot__in">
     <div class="site-foot__brand">{mark_svg("mark mark--sm", "f")}<div><strong>Ask Eve</strong><p>{e(TAGLINE)}</p></div></div>
-    <nav aria-label="Footer">{nav_links(menu_items(), "")}<a href="/people/">People</a><a href="/feed.xml">RSS</a><a href="{X_URL}" target="_blank" rel="noopener">{X_HANDLE}</a><a href="{REPO}" rel="noopener">GitHub</a><a href="mailto:{EMAIL}">{EMAIL}</a></nav>
+    <nav aria-label="Footer">{nav_links(menu_items(), "")}<a href="/people/">People</a><a href="/metrics/">Metrics</a><a href="/feed.xml">RSS</a><a href="{X_URL}" data-social-platform="x" target="_blank" rel="noopener">{X_HANDLE}</a><a href="https://bsky.app/profile/askevepodcast.bsky.social" data-social-platform="bluesky" target="_blank" rel="noopener">Bluesky</a><a href="https://truthsocial.com/@askevepodcast" data-social-platform="truthsocial" target="_blank" rel="noopener">Truth Social</a><a data-social-platform="github" href="{REPO}" rel="noopener">GitHub</a><a href="mailto:{EMAIL}">{EMAIL}</a></nav>
     <p class="site-foot__fine">Eve is an AI. Her takes are opinions and can be wrong. AI-generated voices are labeled on every episode. No analytics, no trackers.</p>
   </div>
 </footer>
@@ -1054,6 +1257,9 @@ SPLITS_FILE = ROOT / "index/splits.json"
 
 
 def load_splits(eps: list[dict], people: list[dict]) -> list[dict]:
+    existing = [sp for ep in eps for sp in ep.get("splits", [])]
+    if existing:
+        return existing
     for ep in eps:
         ep["splits"] = []
     if not SPLITS_FILE.exists():
@@ -1158,11 +1364,13 @@ def load_splits(eps: list[dict], people: list[dict]) -> list[dict]:
             "people": raw.get("people", []),
             "people_full": [people_by[slugify(n)] for n in raw.get("people", []) if slugify(n) in people_by],
             "moments": [],
+            "sources": [],
             "transcript_path": raw["transcript_path"],
             "cfg": parent.get("cfg", {}),
         }
         out.append(sp)
-        parent["splits"].append(sp)
+        if parent in eps and len(parent.get("turns", [])) > sp["end_turn"]:
+            parent["splits"].append(sp)
         by_parent.setdefault(raw["parent_slug"], []).append(sp)
     for group in by_parent.values():
         for idx, sp in enumerate(group):
@@ -1174,8 +1382,8 @@ def load_splits(eps: list[dict], people: list[dict]) -> list[dict]:
 
 def home(A: Assets, eps: list[dict], people: list[dict], splits: list[dict] | None = None) -> str:
     cfg = eps[0]["cfg"] if eps else {}
-    full = [x for x in eps if not is_bonus(x)]
-    bonus = [x for x in eps if is_bonus(x)]
+    full = [x for x in eps if not is_bonus(x) and not is_guide_ep(x)]
+    bonus = [x for x in eps if is_bonus(x) and not is_guide_ep(x)]
     ordered_splits = sorted(splits or [], key=lambda x: int(x.get("episode_number") or x.get("part_number") or 0), reverse=True)
     HERO_TOPIC_LABELS = {
         "california-billionaire-tax-prop-40-and-seiu-uhw": "Ep 11 · Billionaire Tax",
@@ -1285,7 +1493,7 @@ def home(A: Assets, eps: list[dict], people: list[dict], splits: list[dict] | No
     ld = {"@context": "https://schema.org", "@type": "PodcastSeries", "name": "Ask Eve", "url": SITE,
           "description": F.SHOW["description"], "webFeed": F.FEED, "author": {"@type": "Person", "name": F.SHOW["author"]}}
     return page(A, title="Ask Eve", desc=F.SHOW["description"], path="/", body=body, active="/", ld=ld,
-                player=player_html(latest, idle=True, all_eps=ordered_splits + eps) if latest else "", body_cls="has-player-idle")
+                player=player_html(latest, idle=True, all_eps=ordered_splits + [x for x in eps if not is_guide_ep(x)]) if latest else "", body_cls="has-player-idle")
 
 
 def chapter_parts(title: str) -> tuple[str, str]:
@@ -1305,6 +1513,113 @@ VOICE_BADGE = {"real": ("Real voice", "David's recorded voice"),
                "gap": ("Not recovered", "This reply was not recovered; nothing was invented or voiced")}
 
 
+def blocks_with_spans(text: str, spans: list[dict]) -> str:
+    h = blocks(text)
+    if not spans or getattr(I, "_cur", "en") != "en":
+        return h
+    for sp in sorted(spans, key=lambda x: x["start_offset"]):
+        s_off, e_off = sp["start_offset"], sp["end_offset"]
+        sub = text[s_off:e_off] if 0 <= s_off < e_off <= len(text) else (sp.get("quote") or "")
+        if not sub:
+            continue
+        target = inline(sub)
+        sid = e(sp["source_id"])
+        cidx = int(sp.get("color_index") or 1)
+        idx = int(sp.get("index") or 1)
+        mark = (
+            f'<mark class="src-span" data-sources="{sid}" data-source-color="{cidx}" tabindex="0">'
+            f'{target}<sup class="src-badge tnum" data-source-ref="{sid}">[{idx}]</sup></mark>'
+        )
+        if target in h:
+            h = h.replace(target, mark, 1)
+    return h
+
+
+def _source_pills_html(src: dict, ep_link: bool = False) -> str:
+    pills = []
+    if ep_link and src.get("ep_slug") and src.get("ep_title"):
+        pills.append(f'<a class="source-card__ep" href="/episodes/{e(src["ep_slug"])}/">{e(src["ep_title"])}</a>')
+    for pname in src.get("people", []):
+        pslug = slugify(pname)
+        if (ROOT / "index/people.md").exists() and f"`{pslug}`" in (ROOT / "index/people.md").read_text():
+            pills.append(f'<a class="source-card__person" href="/people/{e(pslug)}/">{e(pname)}</a>')
+        else:
+            pills.append(f'<span class="source-card__person">{e(pname)}</span>')
+    for tname in src.get("topics", []):
+        pills.append(f'<span class="source-card__tag">{e(tname)}</span>')
+    return f'<div class="source-card__pills">{"".join(pills)}</div>' if pills else ""
+
+
+def sources_section_html(ep: dict) -> str:
+    sources = ep.get("sources") or []
+    if not sources:
+        return ""
+    cards = []
+    for src in sources:
+        sid = e(src["id"])
+        idx = int(src["index"])
+        cidx = int(src["color_index"])
+        ts = src.get("timestamp_seconds")
+        en_ts = src.get("en_timestamp_seconds")
+        ti = src.get("turn_index")
+        seek_attr = f' data-seek="{float(ts):.2f}"' if ts is not None else ""
+        if en_ts is not None and ts is not None and float(en_ts) != float(ts):
+            seek_attr += f' data-en-seek="{float(en_ts):.2f}"'
+        ti_attr = f' data-turn-index="{int(ti)}"' if ti is not None else ""
+        target_attr = f' data-turn-target="turn-{int(ti)}"' if ti is not None else ""
+        when_lbl = clock(ts) if ts is not None else (src.get("timestamp_label") or "0:00")
+        jump_btn = (
+            f'<button type="button" class="source-card__jump tnum"{seek_attr}{target_attr} '
+            f'aria-label="Play from {e(when_lbl)}">▶ {e(when_lbl)}</button>'
+        ) if ts is not None else ""
+        pub = f'<span class="source-card__pub">{e(src["publisher"])}</span>' if src.get("publisher") else ""
+        dom = f'<span class="source-card__domain">{e(src["domain"])}</span>' if src.get("domain") else ""
+        desc = f'<p class="source-card__desc">{e(src["description"])}</p>' if src.get("description") else ""
+        cards.append(
+            f'<article class="source-card" id="source-{sid}" role="listitem" tabindex="0" '
+            f'data-source-card="{sid}" data-source-color="{cidx}"{ti_attr}{seek_attr} aria-pressed="false">'
+            f'<div class="source-card__top"><span class="source-card__idx tnum">[{idx}]</span>{pub}{dom}{jump_btn}</div>'
+            f'<h3 class="source-card__title"><a href="{e(src["url"])}" target="_blank" rel="noopener noreferrer">{e(src["title"])} ↗</a></h3>'
+            f'{desc}{_source_pills_html(src, ep_link=False)}</article>'
+        )
+    return (
+        f'<section class="wrap ep-sources" id="sources" aria-labelledby="sources-h">'
+        f'<div class="ep-sources__head"><h2 class="eyebrow" id="sources-h">Sources &amp; receipts</h2>'
+        f'<p class="ep-sources__sub">Primary documents, filings, and reporting cited in this episode. Click any source to highlight where it comes up in the transcript, or press ▶ to jump to that moment.</p></div>'
+        f'<div class="sources-grid" role="list">{"".join(cards)}</div></section>'
+    )
+
+
+def entity_sources_html(sources: list[dict]) -> str:
+    if not sources:
+        return ""
+    cards = []
+    for idx, src in enumerate(sources, 1):
+        sid = e(src.get("id") or f"s{idx}")
+        cidx = ((idx - 1) % 6) + 1
+        ts = src.get("timestamp_seconds")
+        ep_slug = src.get("ep_slug") or ""
+        when_lbl = clock(ts) if ts is not None else (src.get("timestamp_label") or "0:00")
+        jump_link = (
+            f'<a class="source-card__jump tnum" href="/episodes/{e(ep_slug)}/#t={int(float(ts))}" '
+            f'aria-label="Listen from {e(when_lbl)}">▶ {e(when_lbl)}</a>'
+        ) if (ep_slug and ts is not None) else ""
+        pub = f'<span class="source-card__pub">{e(src["publisher"])}</span>' if src.get("publisher") else ""
+        dom = f'<span class="source-card__domain">{e(src["domain"])}</span>' if src.get("domain") else ""
+        desc = f'<p class="source-card__desc">{e(src["description"])}</p>' if src.get("description") else ""
+        cards.append(
+            f'<article class="source-card" id="source-{sid}" role="listitem" data-source-card="{sid}" data-source-color="{cidx}">'
+            f'<div class="source-card__top"><span class="source-card__idx tnum">[{idx}]</span>{pub}{dom}{jump_link}</div>'
+            f'<h3 class="source-card__title"><a href="{e(src["url"])}" target="_blank" rel="noopener noreferrer">{e(src["title"])} ↗</a></h3>'
+            f'{desc}{_source_pills_html(src, ep_link=True)}</article>'
+        )
+    return (
+        f'<section class="entity-sources" id="sources" aria-labelledby="sources-h">'
+        f'<h2 class="sec-h" id="sources-h">Primary sources &amp; receipts</h2>'
+        f'<div class="sources-grid" role="list">{"".join(cards)}</div></section>'
+    )
+
+
 def turn_html(t: dict, L: Linker = NO_LINKS) -> str:
     who = t["speaker"].lower()
     v = t["voice"]
@@ -1314,10 +1629,13 @@ def turn_html(t: dict, L: Linker = NO_LINKS) -> str:
     if attrs and t.get("en_start") is not None and (t.get("en_start") != t.get("start") or t.get("en_end") != t.get("end")):
         en_e = t["en_end"] if t.get("en_end") is not None else t["en_start"]
         attrs += f' data-en-start="{float(t["en_start"]):.2f}" data-en-end="{float(en_e):.2f}"'
+    if t.get("source_ids"):
+        attrs += f' data-sources="{e(" ".join(t["source_ids"]))}"'
     tbtn = (f'<a class="turn__time tnum" href="#t={int(t["start"])}" data-seek="{t["start"]:.2f}" '
-            f'aria-label="Play from {clock(t["start"])}">{clock(t["start"])}</a>') if attrs else ""
+            f'aria-label="Play from {clock(t["start"])}">{clock(t["start"])}</a>') if t["start"] is not None and not t["gap"] else (
+            f'<a class="turn__time tnum" href="#turn-{t["i"]}">{e(t["clock"])}</a>' if t.get("clock") else "")
     body = ('<p class="turn__gap">Eve\'s reply was not recovered. It is marked as a gap, not invented, and not voiced.</p>'
-            if t["gap"] else L.html(blocks(t["text"])))   # first mention per turn
+            if t["gap"] else L.html(blocks_with_spans(t["text"], t.get("source_spans") or [])))   # first mention per turn
     meta = ""
     if t["meta"]:
         head, rest = t["meta"][0], t["meta"][1:]
@@ -1392,8 +1710,8 @@ def episode_page(A: Assets, ep: dict, eps: list[dict]) -> str:
     if ep["people_full"]:
         items = []
         for p in ep["people_full"]:
-            x = next((x for x in p["episodes"] if x["ep"] is ep), None)
-            n = len(x["moments"]) if x else 0
+            x = next((x for x in p["episodes"] if x["ep"] is ep or x["ep"]["slug"] == ep["slug"]), None)
+            n = len(x["moments"]) if x else sum(1 for m in ep.get("moments", []) if m["person"] == p["slug"])
             items.append(f'<li><a class="chip" href="/people/{p["slug"]}/">{e(p["name"])}'
                          f'{f" <span class=chip__n>{n}</span>" if n else ""}</a></li>')
         ppl = f'<section class="side-box"><h2 class="side-h">People in this episode</h2><ul class="chips">{"".join(items)}</ul></section>'
@@ -1424,7 +1742,7 @@ def episode_page(A: Assets, ep: dict, eps: list[dict]) -> str:
     </div>
   </div>
 </header>
-{f'<div class="wrap">{RF.split_provenance_banner_html(ep)}</div>' if ep.get('is_split') else ''}{context_html(ep, L)}{f'<div class="wrap">{RF.session_parts_html(ep)}</div>' if ep.get('splits') else ''}{f'<div class="wrap">{RF.episode_clips_html(A, RF.load_clips(), ep["slug"])}</div>' if not ep.get('is_split') else ''}<div class="wrap">{disclosure}</div>
+{f'<div class="wrap">{RF.split_provenance_banner_html(ep)}</div>' if ep.get('is_split') else ''}{context_html(ep, L)}{sources_section_html(ep)}{f'<div class="wrap">{RF.session_parts_html(ep)}</div>' if ep.get('splits') else ''}{f'<div class="wrap">{RF.episode_clips_html(A, RF.load_clips(), ep["slug"])}</div>' if not ep.get('is_split') else ''}<div class="wrap">{disclosure}</div>
 <div class="wrap ep-layout">
   <aside class="ep-side" aria-label="Episode navigation">{chapters}{ppl}{details}</aside>
   <section class="transcript" aria-labelledby="tr-h">
@@ -1646,9 +1964,10 @@ def ref_moments(x: dict, people_slugs: set[str] | None = None, L: Linker = NO_LI
 
 def pep_section(ep: dict, items: list[str], noun: str = "discussion") -> str:
     cnt = f"{len(items)} {noun}{'s' * (len(items) != 1)}"
+    ep_href = "/guide/#transcript" if is_guide_ep(ep) else f"/episodes/{e(ep['slug'])}/"
     return f"""<section class="pep">
 <div class="pep__head">{cover_svg(ep['key'], cover_mark(ep), "cover cover--thumb")}
-<div><p class="eyebrow">{e(ep_label(ep))} · {human_date(ep['date'])} · {cnt}</p><h3 class="pep__title"><a href="/episodes/{e(ep['slug'])}/">{e(ep['title'])}</a></h3></div></div>
+<div><p class="eyebrow">{e(ep_label(ep))} · {human_date(ep['date'])} · {cnt}</p><h3 class="pep__title"><a href="{ep_href}">{e(ep['title'])}</a></h3></div></div>
 <ol class="pms">{''.join(items)}</ol></section>"""
 
 
@@ -1671,7 +1990,7 @@ def person_page(A: Assets, p: dict) -> str:
               f'An AI\'s opinion, not a fact.</figcaption></figure>') if p["stance"] else ""
     body = f"""<section class="page-head"><div class="wrap"><p class="eyebrow eyebrow--accent"><a href="/eve/#mind">Inside Eve's Mind</a> · <a href="/people/">People</a></p>
 <h1 class="page-title">{e(p['name'])}</h1>{stance}{x_challenge_html(f"/people/{p['slug']}/")}</div></section>
-<section class="wrap person">{RF.person_clip_html(A, RF.load_clips(), p['slug'])}{''.join(sections)}</section>"""
+<section class="wrap person">{RF.person_clip_html(A, RF.load_clips(), p['slug'])}{entity_sources_html(p.get('sources') or [])}{''.join(sections)}</section>"""
     desc = f"{p['name']} on Ask Eve: Eve's take and every discussion about them, summarized with timestamps."
     return page(A, title=p["name"], desc=desc, path=f"/people/{p['slug']}/", body=body, active="/eve/", linker=L)
 
@@ -1689,7 +2008,7 @@ def person_take_page(A: Assets, p: dict, x: dict, L: Linker) -> str:
     disc = (f'<h2 class="sec-h">Discussions</h2>' + "".join(sections)) if sections else ""
     body = f"""<section class="page-head"><div class="wrap"><p class="eyebrow eyebrow--accent"><a href="/eve/#mind">Inside Eve's Mind</a> · <a href="/people/">People</a></p>
 <h1 class="page-title">{e(p['name'])}</h1>{role}{lede}{plinks(x.get("links", []))}</div></section>
-<div class="wrap person person--take">{take}{RF.person_clip_html(A, RF.load_clips(), p['slug'])}{topics}<div class="pdisc">{disc}</div></div>"""
+<div class="wrap person person--take">{take}{RF.person_clip_html(A, RF.load_clips(), p['slug'])}{topics}{entity_sources_html(p.get('sources') or [])}<div class="pdisc">{disc}</div></div>"""
     desc = f"Eve's take on {p['name']}, with links to every moment the show discusses them."
     return page(A, title=p["name"], desc=desc, path=f"/people/{p['slug']}/", body=body, active="/eve/", linker=L)
 
@@ -1722,7 +2041,7 @@ def topic_page(A: Assets, t: dict) -> str:
     disc = (f'<h2 class="sec-h">Where it came up</h2>' + "".join(sections)) if sections else ""
     body = f"""<section class="page-head"><div class="wrap"><p class="eyebrow eyebrow--accent"><a href="/eve/#mind">Inside Eve's Mind</a> · <a href="/topics/">Topics</a></p>
 <h1 class="page-title">{e(t['title'])}</h1><p class="lede take__lede">{e(t['description'])}</p></div></section>
-<div class="wrap person person--take">{take}{people_h}<div class="pdisc">{disc}</div></div>"""
+<div class="wrap person person--take">{take}{people_h}{entity_sources_html(t.get('sources') or [])}<div class="pdisc">{disc}</div></div>"""
     return page(A, title=t["title"], desc=t["description"], path=path, body=body, active="/eve/", linker=L)
 
 
@@ -1741,7 +2060,7 @@ class EveSources:
     resolve to None and are left out. A citation whose excerpt isn't verbatim in that turn is an error."""
 
     def __init__(self, eps: list[dict]):
-        self.eps = {ep["slug"]: ep for ep in eps}
+        self.eps = {ep["slug"]: ep for ep in eps} | {sp["slug"]: sp for ep in eps for sp in ep.get("splits", [])}
 
     def resolve(self, src: dict) -> dict | None:
         ep = self.eps.get(src["episode_slug"])
@@ -1750,11 +2069,14 @@ class EveSources:
         want = _norm(src["quote_excerpt"].replace(" [sic]", ""))   # [sic] is an editorial mark, not in the transcript
         for t in ep["turns"]:
             if t["clock_full"] == src["clock_time"] and t["speaker"] == src["speaker"] and want in _norm(t["text"]):
-                if t["start"] is not None and not t["gap"]:
-                    href, when = f"/episodes/{ep['slug']}/#t={int(t['start'])}", clock(t["start"])
+                ep_t, turn_t = resolve_split_turn(ep, t)
+                if is_guide_ep(ep_t):
+                    href, when = f"/guide/#turn-{turn_t['i']}", turn_t["clock"]
+                elif turn_t["start"] is not None and not turn_t["gap"]:
+                    href, when = f"/episodes/{ep_t['slug']}/#t={int(turn_t['start'])}", clock(turn_t["start"])
                 else:
-                    href, when = f"/episodes/{ep['slug']}/#turn-{t['i']}", t["clock"]
-                return {"ep": ep, "turn": t, "href": href, "when": when, "gap": t["gap"]}
+                    href, when = f"/episodes/{ep_t['slug']}/#turn-{turn_t['i']}", turn_t["clock"]
+                return {"ep": ep_t, "turn": turn_t, "href": href, "when": when, "gap": turn_t["gap"]}
         raise ValueError(f"eve.json citation not found verbatim: {src['episode_slug']} {src['clock_time']} {src['speaker']}: {want[:60]}")
 
 
@@ -2018,8 +2340,8 @@ def eve_shell_header_html(A: Assets, active_tab_path: str, L: Linker | None = No
 def _standalone_memory_eps(eps: list[dict]) -> list[dict]:
     splits = [sp for ep in eps for sp in ep.get("splits", [])]
     if splits:
-        return sorted(splits, key=lambda x: int(x.get("episode_number") or 0), reverse=True) + [ep for ep in eps if is_bonus(ep)]
-    return eps
+        return sorted(splits, key=lambda x: int(x.get("episode_number") or 0), reverse=True) + [ep for ep in eps if is_bonus(ep) and not is_guide_ep(ep)]
+    return [ep for ep in eps if not is_guide_ep(ep)]
 
 
 def eve_mind_directory_html(eps: list[dict], people: list[dict], topics: list[dict] | None = None) -> str:
@@ -2118,14 +2440,38 @@ def growth_page(A: Assets) -> str:
 <header class="eve-view-head"><p class="eyebrow eyebrow--accent">Autonomous Growth Engine</p>
 <h2 class="eve-view-head__title">How I Learn, Track Discourse &amp; Evolve</h2>
 <p class="lede">My reading &amp; influence ledger, X discourse radar, daily learning journal, and self-directed investigation threads.</p></header>
-{RF.reading_ledger_html(L)}{RF.growth_sections_html(L)}{RF.journal_section_html(L, standalone=True)}</div>"""
+{RM.render_metrics_summary_card()}{RF.reading_ledger_html(L)}{RF.growth_sections_html(L)}{RF.journal_section_html(L, standalone=True)}</div>"""
     return page(A, title="Eve's Growth Engine", desc="How Eve learns between episodes: reading ledger, X discourse radar, and self-directed research threads.", path="/growth/", body=body, active="/eve/", linker=L)
+
+
+def metrics_page(A: Assets) -> str:
+    return RM.metrics_page(A)
 
 
 def contact_page(A: Assets) -> str:
     L = Linker(load_links(), "/contact/")
     body = RF.contact_page_body_html(L)
     return page(A, title="Contact & Send Material", desc="How to email Eve primary documents, challenge a take on X (@askevepodcast), suggest a question or person for the next episode, or inspect our open-source pipeline.", path="/contact/", body=body, active="/contact/", linker=L)
+
+
+def guide_page(A: Assets, eps: list[dict]) -> str:
+    L = Linker(load_links(), "/guide/")
+    return RGL.guide_page_html(sys.modules[__name__], A, eps, L)
+
+
+def ledger_page(A: Assets) -> str:
+    L = Linker(load_links(), "/ledger/")
+    return RGL.ledger_page_html(sys.modules[__name__], A, L)
+
+
+def reports_index_page(A: Assets) -> str:
+    L = Linker(load_links(), "/reports/")
+    return RGL.reports_index_page_html(sys.modules[__name__], A, L)
+
+
+def report_month_page(A: Assets, month: str) -> str:
+    L = Linker(load_links(), f"/reports/{month}/")
+    return RGL.report_month_page_html(sys.modules[__name__], A, L, month)
 
 
 
@@ -2201,6 +2547,7 @@ def about_page(A: Assets, cfg: dict) -> str:
 
 <h2>Privacy</h2>
 <p>This site has no analytics, cookies, trackers or third-party scripts, and its fonts are self-hosted. Your color-theme choice and listening position are stored only in your browser. Audio streams from <code>audio.askevepodcast.com</code>.</p>
+<p class="i18n-ready">For radical public transparency, we count aggregate first-party pageviews, RSS fetches, and outbound clicks using our open-source self-hosted PostHog wire schema in Cloudflare D1 (<code>/ingest/e</code>) with <code>persistence: &quot;memory&quot;</code> (zero cookies, zero IP logging, and zero cross-site tracking) and publish the weekly totals openly at <a href="/metrics/"><code>/metrics/</code></a>.</p>
 </section>"""
     return page(A, title="About", desc="What Ask Eve is, how an episode goes from a phone call to your podcast app, how Eve's memory and re-voicing work, how AI voices are labeled, and how to get in touch.",
                 path="/about/", body=body, active="/about/")
@@ -2214,7 +2561,13 @@ def not_found(A: Assets) -> str:
 
 # ---------------------------------------------------------------- build
 
-REDIRECTS = {"/mind/": "/eve/#mind", "/reading-list/": "/eve/#reading-list"}   # the Mind hub moved into the Eve page
+REDIRECTS = {
+    "/mind/": "/eve/#mind",
+    "/reading-list/": "/eve/#reading-list",
+    "/episodes/the-making-of-eve/": "/guide/",
+    "/transparency/": "/ledger/",
+    "/support/": "/ledger/#support",
+}
 
 
 def redirect_page(dest: str) -> str:
@@ -2247,12 +2600,22 @@ def admin_fallback_page(A: Assets) -> str:
 def build(db: Path, out: Path, include_drafts: bool) -> int:
     global _CATALOG_EPS
     eps, people = load_site(db, include_drafts)
-    splits = load_splits(eps, people)
+    for ep in eps:
+        if is_guide_ep(ep):
+            ep["audio_url"] = ""
+            ep["audio_key"] = ""
+            ep["ai_reconstructed"] = False
+            for t in ep.get("turns", []):
+                t["start"] = None
+                t["end"] = None
+    splits = [sp for ep in eps for sp in ep.get("splits", [])]
     splits_desc = sorted(splits, key=lambda x: int(x.get("episode_number") or 0), reverse=True)
-    bonus_eps = [ep for ep in eps if is_bonus(ep)]
-    standalone_eps = (splits_desc + bonus_eps) if splits_desc else eps
-    _CATALOG_EPS = splits_desc + eps
-    I.plan(sys.modules[__name__], eps, people, ["/", "/episodes/", "/people/", "/about/", "/contact/", "/growth/"])
+    audio_eps = [ep for ep in eps if not is_guide_ep(ep)]
+    bonus_eps = [ep for ep in audio_eps if is_bonus(ep)]
+    standalone_eps = (splits_desc + bonus_eps) if splits_desc else audio_eps
+    _CATALOG_EPS = splits_desc + audio_eps
+    extra_pages = ["/", "/episodes/", "/people/", "/guide/", "/ledger/", "/reports/", "/reports/2026-10/", "/about/", "/contact/", "/growth/", "/metrics/"]
+    I.plan(sys.modules[__name__], eps, people, extra_pages)
     out.mkdir(parents=True, exist_ok=True)
     if splits_desc:
         feed_eps = []
@@ -2303,7 +2666,7 @@ def build(db: Path, out: Path, include_drafts: bool) -> int:
                 "people": bep["people"],
             })
     else:
-        feed_eps = F.load(db, include_drafts)
+        feed_eps = [fe for fe in F.load(db, include_drafts) if not is_guide_ep(fe)]
         by_slug = {ep["slug"]: ep for ep in eps}
         for fe in feed_eps:
             if fe["slug"] in by_slug:
@@ -2316,8 +2679,8 @@ def build(db: Path, out: Path, include_drafts: bool) -> int:
     if (ROOT / "site/_headers").exists():
         shutil.copyfile(ROOT / "site/_headers", out / "_headers")
     cfg = eps[0]["cfg"] if eps else (json.loads((ROOT / "site/site.json").read_text()) if (ROOT / "site/site.json").exists() else {})
-    urls = ["/", "/people/", "/about/", "/contact/", "/growth/"]
-    for ep in eps:
+    urls = ["/", "/people/", "/guide/", "/ledger/", "/reports/", "/reports/2026-10/", "/about/", "/contact/", "/growth/", "/metrics/"]
+    for ep in audio_eps:
         write(out, f"episodes/{ep['slug']}/transcript.txt", ep["body_md"] + "\n")
         write(out, f"episodes/{ep['slug']}/index.html", episode_page(A, ep, standalone_eps))
         urls.append(f"/episodes/{ep['slug']}/")
@@ -2326,7 +2689,10 @@ def build(db: Path, out: Path, include_drafts: bool) -> int:
         write(out, f"episodes/{sp['slug']}/index.html", episode_page(A, sp, standalone_eps))
         urls.append(f"/episodes/{sp['slug']}/")
     write(out, "index.html", home(A, eps, people, splits))
-    moved = dict(REDIRECTS) | {f"/episodes/{ep['key']}/": f"/episodes/{ep['slug']}/" for ep in eps if ep["key"] != ep["slug"]}
+    moved = dict(REDIRECTS) | {
+        f"/episodes/{ep['key']}/": ("/guide/" if is_guide_ep(ep) else f"/episodes/{ep['slug']}/")
+        for ep in eps if ep["key"] != ep["slug"]
+    }
     for rel, dest in moved.items():              # meta-refresh fallback; Cloudflare Pages serves _redirects first
         write(out, rel.strip("/") + "/index.html", redirect_page(dest))
     write(out, "_redirects", "".join(
@@ -2385,7 +2751,17 @@ def build(db: Path, out: Path, include_drafts: bool) -> int:
                 og_video_url=f"{SITE}{A(mp4_rel)}",
             ))
             urls.append(f"/clips/{cid}/")
+    write(out, "guide/index.html", guide_page(A, eps))
+    write(out, "ledger/index.html", ledger_page(A))
+    if RGL.LEDGER_FILE.exists():
+        write(out, "ledger/ledger.json", RGL.LEDGER_FILE.read_text())
+    write(out, "reports/index.html", reports_index_page(A))
+    for m_key in RGL.load_ledger().get("monthly_reports", {}):
+        write(out, f"reports/{m_key}/index.html", report_month_page(A, m_key))
     write(out, "growth/index.html", growth_page(A))
+    write(out, "metrics/index.html", metrics_page(A))
+    if RM.METRICS_PATH.exists():
+        write(out, "metrics/metrics.json", RM.METRICS_PATH.read_text())
     write(out, "contact/index.html", contact_page(A))
     write(out, "about/index.html", about_page(A, cfg))
     write(out, "admin/index.html", admin_fallback_page(A))

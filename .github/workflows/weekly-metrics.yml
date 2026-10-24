@@ -1,0 +1,48 @@
+name: weekly-metrics
+
+on:
+  schedule:
+    # Every Sunday at 18:00 UTC: export the weekly PostHog/D1 metrics snapshot to /metrics/
+    - cron: "0 18 * * 0"
+  workflow_dispatch:
+    inputs:
+      week:
+        description: "Optional ISO week ID (e.g. 2026-W43)"
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+
+jobs:
+  publish-snapshot:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: main
+
+      - name: Export weekly metrics snapshot from D1 analytics_events
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          D1_DATABASE_ID: ${{ secrets.D1_DATABASE_ID }}
+          D1_READ_TOKEN: ${{ secrets.D1_READ_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [ -n "${{ github.event.inputs.week }}" ]; then
+            python3 scripts/export_weekly_metrics.py --week "${{ github.event.inputs.week }}"
+          else
+            python3 scripts/export_weekly_metrics.py
+          fi
+
+      - name: Commit updated index/metrics.json if changed
+        run: |
+          set -euo pipefail
+          if ! git diff --quiet index/metrics.json; then
+            git config user.name "ask-eve-bot"
+            git config user.email "podcast@askevepodcast.com"
+            git add index/metrics.json
+            git commit -m "metrics: publish weekly public metrics snapshot"
+            git push origin HEAD:main
+          fi

@@ -1188,3 +1188,70 @@ test("storage failure cannot prevent forwarding; forwarding failure is not swall
   await assert.rejects(worker.email({ ...message, forward: async () => { throw new Error("forward failed"); } }, env, {}), /forward failed/);
   await assert.rejects(worker.email(message, {}, {}), /forwarding is not configured/);
 });
+
+test("First-party PostHog /ingest/e, /ingest/batch, /ingest/decide, and /api/metrics work publicly without Cloudflare Access while /admin stays locked", async () => {
+  const access = await createAccessFixture();
+  const env = createMockEnv(access);
+
+  // 1. /ingest/decide returns PostHog-compatible decide config with autocapture/sessionRecording disabled
+  const decideResp = await worker.fetch(
+    new Request("https://askevepodcast.com/ingest/decide", { method: "POST" }),
+    env,
+    {}
+  );
+  assert.equal(decideResp.status, 200);
+  const decideJson = await decideResp.json();
+  assert.equal(decideJson.sessionRecording, false);
+  assert.equal(decideJson.config.enable_collect_everything, false);
+
+  // 2. /ingest/e accepts allowlisted PostHog taxonomy events without Cloudflare Access JWT
+  const captureResp = await worker.fetch(
+    new Request("https://askevepodcast.com/ingest/e", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        event: "$pageview",
+        distinct_id: "mem_123",
+        properties: {
+          raw_path: "/es/ledger/",
+          referrer_domain: "x.com",
+        },
+      }),
+    }),
+    env,
+    {}
+  );
+  assert.equal(captureResp.status, 200);
+  const captureJson = await captureResp.json();
+  assert.equal(captureJson.status, 1);
+  assert.equal(captureJson.accepted, 1);
+  assert.equal(captureJson.events[0].canonical_path, "/ledger/");
+  assert.equal(captureJson.events[0].locale, "es");
+
+  // 3. /ingest/e rejects unknown/invasive events not in our taxonomy
+  const badResp = await worker.fetch(
+    new Request("https://askevepodcast.com/ingest/e", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        event: "$autocapture_keystroke",
+        distinct_id: "mem_123",
+      }),
+    }),
+    env,
+    {}
+  );
+  assert.equal(badResp.status, 400);
+
+  // 4. /api/metrics returns public JSON with cookieless/zero-PII confirmation
+  const metricsResp = await worker.fetch(
+    new Request("https://askevepodcast.com/api/metrics?days=7"),
+    env,
+    {}
+  );
+  assert.equal(metricsResp.status, 200);
+  const metricsJson = await metricsResp.json();
+  assert.equal(metricsJson.ok, true);
+  assert.equal(metricsJson.privacy.cookieless, true);
+  assert.equal(metricsJson.privacy.ip_stored, false);
+});

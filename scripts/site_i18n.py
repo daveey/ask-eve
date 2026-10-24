@@ -251,6 +251,11 @@ def localize_data(lang: str, eps: list[dict], people: list[dict]) -> tuple[list[
             if not t["gap"]:
                 t["text"] = tr(lang, t["text"])
             t["meta"] = [trm(lang, m) for m in t["meta"]]
+        for src_item in ep.get("sources", []):
+            src_item["en_timestamp_seconds"] = src_item.get("timestamp_seconds")
+            ti = src_item.get("turn_index")
+            if offs and ti is not None and 0 <= int(ti) < len(ep["turns"]) and ep["turns"][int(ti)].get("start") is not None:
+                src_item["timestamp_seconds"] = float(ep["turns"][int(ti)]["start"])
         for m in ep.get("moments", []):
             if offs:
                 if 0 <= m.get("start_turn", -1) < len(ep["turns"]) and ep["turns"][m["start_turn"]]["start"] is not None:
@@ -296,11 +301,31 @@ def localize_data(lang: str, eps: list[dict], people: list[dict]) -> tuple[list[
                     sp["clip_end"] = round(float(e_t), 2)
                     sp["duration_seconds"] = max(1, int(round(sp["clip_end"] - sp["clip_start"])))
                     for idx_t, t in enumerate(sp["turns"]):
+                        t["en_start"] = t.get("start")
+                        t["en_end"] = t.get("end")
                         pt = ep["turns"][sp["start_turn"] + idx_t]
                         if pt.get("start") is not None:
                             t["start"] = round(max(0.0, float(pt["start"]) - sp["clip_start"]), 2)
                             t["end"] = round(max(t["start"], float(pt.get("end") or pt["start"]) - sp["clip_start"]), 2)
             sp["title"] = trm(lang, sp["title"])
+            for src_item in sp.get("sources", []):
+                src_item["ep_title"] = sp["title"]
+                src_item["en_timestamp_seconds"] = src_item.get("timestamp_seconds")
+                ti = src_item.get("turn_index")
+                if offs and ti is not None and 0 <= int(ti) < len(sp["turns"]) and sp["turns"][int(ti)].get("start") is not None:
+                    src_item["timestamp_seconds"] = float(sp["turns"][int(ti)]["start"])
+            for m in sp.get("moments", []):
+                if offs:
+                    if 0 <= m.get("start_turn", -1) < len(sp["turns"]) and sp["turns"][m["start_turn"]]["start"] is not None:
+                        m["start"] = sp["turns"][m["start_turn"]]["start"]
+                    if 0 <= m.get("end_turn", -1) < len(sp["turns"]) and sp["turns"][m["end_turn"]]["end"] is not None:
+                        m["end"] = sp["turns"][m["end_turn"]]["end"]
+                m["summary"] = trm(lang, m["summary"])
+                if m.get("david_q"):
+                    m["david_q"] = trm(lang, m["david_q"])
+                if m.get("eve_a"):
+                    m["eve_a"] = trm(lang, m["eve_a"])
+                m["topics"] = [trm(lang, x) for x in m.get("topics", [])]
             sp["parent_title"] = ep["title"]
             sp["context"] = trm(lang, sp.get("context") or "")
             sp["topics"] = [trm(lang, t) for t in sp.get("topics", [])]
@@ -430,7 +455,9 @@ def _sources_class(B, eps_en: list[dict]):
                 return None
             ep = self.eps[r["ep"]["slug"]]
             t = ep["turns"][r["turn"]["i"]]
-            if t["start"] is not None and not t["gap"]:
+            if getattr(B, "is_guide_ep", lambda _: False)(ep):
+                href, when = f"/guide/#turn-{t['i']}", t["clock"]
+            elif t["start"] is not None and not t["gap"]:
                 href, when = f"/episodes/{ep['slug']}/#t={int(t['start'])}", B.clock(t["start"])
             else:
                 href, when = f"/episodes/{ep['slug']}/#turn-{t['i']}", t["clock"]
@@ -621,21 +648,26 @@ def plan(B, eps: list[dict], people: list[dict], extra: list[str]) -> None:
         paths |= {f"/topics/{t}/" for t in topics if "topic:" + t not in tgaps}
         if topics and not tgaps:
             paths.add("/topics/")
+        tr_ep_slugs: set[str] = set()
         for ep in eps:
             gaps = missing(lang, episode_strings(ep))
             if gaps:
                 print(f"warning: {lang}: {ep['slug']} has {len(gaps)} untranslated strings; no /{lang}/ page "
                       f"(run scripts/translate.py)", file=sys.stderr)
             else:
-                paths.add(f"/episodes/{ep['slug']}/")
+                tr_ep_slugs.add(ep["slug"])
+                if getattr(B, "is_guide_ep", lambda _: False)(ep):
+                    paths.add("/guide/")
+                else:
+                    paths.add(f"/episodes/{ep['slug']}/")
                 for sp in ep.get("splits", []):
                     if not missing(lang, episode_strings(sp)):
                         paths.add(f"/episodes/{sp['slug']}/")
-        if data and published & {ep_path.split("/")[2] for ep_path in paths if ep_path.startswith("/episodes/")}:
+        if data and published & tr_ep_slugs:
             gaps = missing(lang, eve_strings(data, published))
             if gaps:
                 print(f"warning: {lang}: /eve/ has {len(gaps)} untranslated strings; no /{lang}/eve/ page", file=sys.stderr)
-            elif all(f"/episodes/{x}/" in paths for x in published) and not tgaps:   # quotes link into every episode
+            elif all(x in tr_ep_slugs for x in published) and not tgaps:   # quotes link into every episode
                 paths.update({"/eve/", "/eve/mind/", "/eve/journal/", "/eve/reading/", "/eve/soul/"})
                 if (ROOT / "index/eve-avatars.json").exists():
                     paths.add("/eve/avatar/")
@@ -731,7 +763,7 @@ CJK = re.compile(r"[\u4e00-\u9fff]")
 ARABIC = re.compile(r"[\u0600-\u06ff\u0750-\u077f\ufb50-\ufdff\ufe70-\ufeff]")
 VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "source", "track", "wbr"}
 SKIP_TAGS = {"code", "pre", "style"}
-SKIP_CLASSES = {"turn__body", "xl", "i18n-ready", "lang-menu", "lang-menu__name", "lang-menu__panel", "lang-menu__code"}  # translated content, auto-linked names, and native autonym language menu
+SKIP_CLASSES = {"turn__body", "xl", "i18n-ready", "lang-menu", "lang-menu__name", "lang-menu__panel", "lang-menu__code", "source-card__idx", "source-card__pub", "source-card__domain", "source-card__jump", "source-card__title", "source-card__desc", "source-card__person", "source-card__tag", "source-card__ep", "src-badge", "src-span", "guide-prose", "guide-table-wrap", "ledger-table", "ledger-stats", "ledger-banner", "support-grid", "report-card", "ledger-wrap", "metrics-wrap"}  # translated content, auto-linked names, and native autonym language menu
 ATTRS = {"aria-label", "title", "alt", "placeholder", "aria-valuetext"}
 META_CONTENT = {"description", "og:title", "og:description", "twitter:title", "twitter:description"}
 
@@ -948,14 +980,18 @@ def build(B, A, out: Path, eps: list[dict], people: list[dict], cfg: dict) -> li
         if not _paths.get(lang):
             continue
         eps2, people2 = localize_data(lang, eps, people)
+        is_g = getattr(B, "is_guide_ep", lambda _: False)
         splits2 = [sp for ep in eps2 for sp in ep.get("splits", [])]
         splits2_desc = sorted(splits2, key=lambda x: int(x.get("episode_number") or 0), reverse=True)
-        bonus2 = [ep for ep in eps2 if B.is_bonus(ep)]
-        standalone_eps2 = (splits2_desc + bonus2) if splits2_desc else eps2
-        by = {x["slug"]: x for x in eps2} | {sp["slug"]: sp for sp in splits2}
+        audio_eps2 = [ep for ep in eps2 if not is_g(ep)]
+        bonus2 = [ep for ep in audio_eps2 if B.is_bonus(ep)]
+        standalone_eps2 = (splits2_desc + bonus2) if splits2_desc else audio_eps2
+        by = {x["slug"]: x for x in audio_eps2} | {sp["slug"]: sp for sp in splits2}
         pages = [("/", lambda: B.home(A, eps2, people2, splits2)), ("/episodes/", lambda: B.home(A, eps2, people2, splits2)), ("/people/", lambda: B.people_index(A, people2)),
+                 ("/guide/", lambda: B.guide_page(A, eps2)), ("/ledger/", lambda: B.ledger_page(A)),
+                 ("/reports/", lambda: B.reports_index_page(A)), ("/reports/2026-10/", lambda: B.report_month_page(A, "2026-10")),
                  ("/about/", lambda: B.about_page(A, cfg)), ("/contact/", lambda: B.contact_page(A)),
-                 ("/growth/", lambda: B.growth_page(A))]
+                 ("/growth/", lambda: B.growth_page(A)), ("/metrics/", lambda: B.metrics_page(A))]
         pages += [(f"/people/{p['slug']}/", (lambda p=p: B.person_page(A, p))) for p in people2]
         pages += [(f"/episodes/{s}/", (lambda s=s: B.episode_page(A, by[s], standalone_eps2))) for s in by]
         data, tdata = eve_data(B), takes_data(B)
@@ -969,7 +1005,7 @@ def build(B, A, out: Path, eps: list[dict], people: list[dict], cfg: dict) -> li
                   ("/eve/soul/", lambda: B.eve_soul_page(A)),
                   ("/eve/avatar/", lambda lang=lang: B.eve_avatar_page(A, lang=lang))]
         _cur = lang
-        B._CATALOG_EPS = splits2_desc + eps2
+        B._CATALOG_EPS = splits2_desc + audio_eps2
         try:
             if tdata:
                 B.TAKES_FILE = _Mem(json.dumps(localize_takes(lang, tdata, {x["slug"] for x in eps2})))
@@ -987,6 +1023,7 @@ def build(B, A, out: Path, eps: list[dict], people: list[dict], cfg: dict) -> li
                     urls.append(f"/{lang}{path}")
                 if path.startswith("/episodes/") and path != "/episodes/":
                     B.write(out, f"{lang}{path}transcript.txt", by[path.split('/')[2]]["body_md"] + "\n")
+            B.write(out, f"{lang}/episodes/the-making-of-eve/index.html", B.redirect_page(f"/{lang}/guide/"))
             B.write(out, f"{lang}/404.html", translate_html(lang, B.not_found(A), "/", note=False))
             B.write(out, f"{lang}/feed.xml", render_feed(lang, B, [ep for ep in standalone_eps2 if f"/episodes/{ep['slug']}/" in _paths[lang]]))
         finally:

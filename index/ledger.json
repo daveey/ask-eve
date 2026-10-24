@@ -1,0 +1,233 @@
+{
+  "schema_version": "1.0",
+  "status": "sample_placeholder",
+  "is_sample_data": true,
+  "currency": "USD",
+  "updated_at": "2026-10-24",
+  "note": "Sample & placeholder data: cost estimates below reflect initial October 2026 infrastructure, voice synthesis, and AI API runs while final billing invoices are being reconciled. Support & donation endpoints are labeled placeholders awaiting live wallet and merchant verification.",
+  "support_methods": {
+    "crypto": {
+      "label": "Crypto (ETH / Base / USDC)",
+      "network": "Ethereum / Base (ERC-20)",
+      "address": "0x000000000000000000000000000000000000dEaD",
+      "btc_address": "bc1q0000000000000000000000000000000000dead",
+      "is_placeholder": true,
+      "note": "Placeholder wallet address — do not send funds until verified live wallet is published.",
+      "wallets": [
+        {
+          "network": "Ethereum / Base (ERC-20)",
+          "symbol": "ETH / USDC (Base & Mainnet)",
+          "address": "0x000000000000000000000000000000000000dEaD",
+          "note": "Placeholder wallet address — do not send funds until verified live wallet is published."
+        },
+        {
+          "network": "Bitcoin Mainnet",
+          "symbol": "BTC (Native SegWit)",
+          "address": "bc1q0000000000000000000000000000000000dead",
+          "note": "Placeholder BTC address — do not send funds until verified live wallet is published."
+        }
+      ]
+    },
+    "paypal": {
+      "label": "PayPal.me",
+      "url": "https://paypal.me/askevepodcast",
+      "handle": "@askevepodcast",
+      "is_placeholder": true,
+      "note": "Placeholder PayPal.me link pending merchant account activation."
+    },
+    "stripe": {
+      "label": "Stripe Tip / Support",
+      "url": "https://donate.stripe.com/placeholder_askeve",
+      "is_placeholder": true,
+      "note": "Placeholder Stripe checkout link pending live payout configuration."
+    }
+  },
+  "categories": {
+    "domain": {
+      "label": "Domain & DNS",
+      "type": "expense"
+    },
+    "hosting": {
+      "label": "Hosting, Storage & CDN",
+      "type": "expense"
+    },
+    "ai_api": {
+      "label": "AI Model & Research APIs",
+      "type": "expense"
+    },
+    "audio_synthesis": {
+      "label": "Voice Synthesis & Dubbing (8 Locales)",
+      "type": "expense"
+    },
+    "marketing": {
+      "label": "Clips, Transcripts & Distribution",
+      "type": "expense"
+    },
+    "listener_support": {
+      "label": "Listener Support & Contributions",
+      "type": "income"
+    }
+  },
+  "transactions": [
+    {
+      "id": "tx-2026-10-23-001",
+      "date": "2026-10-23",
+      "month": "2026-10",
+      "type": "expense",
+      "category": "domain",
+      "vendor": "Cloudflare Registrar",
+      "description": "askevepodcast.com annual domain registration & DNSSEC",
+      "amount_usd": 10.44,
+      "status": "sample_estimate",
+      "episode_slug": null,
+      "receipt_note": "Annual registration at wholesale Cloudflare Registrar rate (sample estimate)"
+    },
+    {
+      "id": "tx-2026-10-23-002",
+      "date": "2026-10-23",
+      "month": "2026-10",
+      "type": "expense",
+      "category": "hosting",
+      "vendor": "Cloudflare Pages, R2 & D1",
+      "description": "Static site hosting, D1 SQLite metadata index, and R2 multi-locale audio bucket (~9.8 GB storage + zero-egress CDN)",
+      "amount_usd": 5.2,
+      "status": "sample_estimate",
+      "episode_slug": null,
+      "receipt_note": "October 2026 usage estimate across Cloudflare Workers/Pages + R2 storage"
+    },
+    {
+      "id": "tx-2026-10-23-003",
+      "date": "2026-10-23",
+      "month": "2026-10",
+      "type": "expense",
+      "category": "audio_synthesis",
+      "vendor": "xAI TTS & ElevenLabs",
+      "description": "Episode 1 (First Encounter + 7 standalone topic splits) AI voice reconstruction & 8-language dubbing (EN, RU, ES, ZH, DE, PT, FA, FR)",
+      "amount_usd": 68.5,
+      "status": "sample_estimate",
+      "episode_slug": "first-encounter",
+      "receipt_note": "2h 25m master session + 7 standalone splits synthesized across 8 locales"
+    },
+    {
+      "id": "tx-2026-10-23-004",
+      "date": "2026-10-23",
+      "month": "2026-10",
+      "type": "expense",
+      "category": "audio_synthesis",
+      "vendor": "xAI TTS & ElevenLabs",
+      "description": "Episode 2 (Starshield, Iran, and the Anthropic Mirror + 2 splits) voice synthesis & 8-language dubbing",
+      "amount_usd": 24.8,
+      "status": "sample_estimate",
+      "episode_slug": "starshield-iran-and-the-anthropic-mirror",
+      "receipt_note": "Full hybrid reconstruction + 8-language audio tracks"
+    },
+    {
+      "id": "tx-2026-10-24-005",
+      "date": "2026-10-24",
+      "month": "2026-10",
+      "type": "expense",
+      "category": "audio_synthesis",
+      "vendor": "xAI TTS & ElevenLabs",
+      "description": "Episode 3 (California High-Speed Rail & the Billionaire Tax + 2 splits) voice synthesis & 8-language dubbing",
+      "amount_usd": 19.4,
+      "status": "sample_estimate",
+      "episode_slug": "california-high-speed-rail-and-the-billionaire-tax",
+      "receipt_note": "Full hybrid reconstruction + 8-language audio tracks"
+    },
+    {
+      "id": "tx-2026-10-24-006",
+      "date": "2026-10-24",
+      "month": "2026-10",
+      "type": "expense",
+      "category": "ai_api",
+      "vendor": "xAI / Grok & LLM Translation Pipeline",
+      "description": "Live conversational inference, 8-language deterministic transcript/UI translation cache, and primary source verification",
+      "amount_usd": 34.25,
+      "status": "sample_estimate",
+      "episode_slug": null,
+      "receipt_note": "Covers transcript translation, entity dossier extraction, and HTTP receipt verification"
+    },
+    {
+      "id": "tx-2026-10-24-007",
+      "date": "2026-10-24",
+      "month": "2026-10",
+      "type": "expense",
+      "category": "marketing",
+      "vendor": "Open-Source Tooling & Clip Pipeline",
+      "description": "Automated audiogram/chapter packaging & RSS feed syndication setup ($0 paid ad spend)",
+      "amount_usd": 0.0,
+      "status": "sample_estimate",
+      "episode_slug": null,
+      "receipt_note": "Zero paid marketing in October 2026; organic distribution only"
+    },
+    {
+      "id": "tx-2026-10-24-008",
+      "date": "2026-10-24",
+      "month": "2026-10",
+      "type": "contribution",
+      "category": "listener_support",
+      "vendor": "Listener Contributions (Sample Placeholder)",
+      "description": "Initial listener contributions (crypto / PayPal / Stripe endpoints in sample placeholder mode)",
+      "amount_usd": 0.0,
+      "status": "sample_placeholder",
+      "episode_slug": null,
+      "receipt_note": "Payment endpoints are currently placeholders; live contributions begin once wallets are activated"
+    }
+  ],
+  "monthly_reports": {
+    "2026-10": {
+      "month": "2026-10",
+      "title": "October 2026 Expense & Transparency Report",
+      "published_at": "2026-10-24",
+      "status": "sample_placeholder",
+      "planned_budget_usd": {
+        "domain": 12.0,
+        "hosting": 15.0,
+        "ai_api": 50.0,
+        "audio_synthesis": 150.0,
+        "marketing": 25.0
+      },
+      "narrative": [
+        "October 2026 marks the launch of Ask Eve. Every architectural decision this month prioritized permanent public verifiability over recurring SaaS overhead: the site compiles to zero-runtime static HTML deployed on Cloudflare Pages, episode metadata lives in a version-controlled SQLite/D1 schema, and multi-language MP3s stream from Cloudflare R2 with zero egress fees. Because the Making of Eve bonus conversation was converted into a permanent written guide and open-source cloning walkthrough at /guide/, our audio synthesis footprint stayed well under the $150.00 monthly voice budget.",
+        "The largest share of October spending went to multilingual audio reconstruction ($112.70 estimated across Episode 1, Episode 2, Episode 3, and all 11 standalone topic splits across 8 languages: English, Russian, Spanish, Mandarin Chinese, German, Portuguese, Persian/Farsi, and French) followed by LLM inference and primary-source verification ($34.25 estimated). Every number on this report and on /ledger/ is computed at build time from the same canonical index/ledger.json file in the GitHub repository so summary cards and raw transaction rows can never drift out of sync.",
+        "What is coming next in November 2026: finalizing live crypto (ETH/Base/USDC & BTC), PayPal.me, and Stripe listener support endpoints to replace the current launch placeholders, expanding automated primary-source receipt extraction to every historical episode turn, and publishing weekly deep-dive episodes on governance, institutional incentives, and technical systems."
+      ],
+      "total_expenses_usd": 162.59,
+      "total_contributions_usd": 0.0,
+      "net_balance_usd": -162.59,
+      "episodes_published": 11,
+      "languages_supported": 8,
+      "highlights": [
+        "Launched Ask Eve across 8 languages (EN, RU, ES, ZH, DE, PT, FA, FR) with 11 standalone split episodes.",
+        "Converted 'The Making of Eve' into a permanent open-source cloning guide & full transcript at /guide/.",
+        "Published HTTP-verified primary sources & receipts with character-level transcript span highlighting.",
+        "Stood up deterministic public ledger and monthly transparency report pipeline from index/ledger.json."
+      ],
+      "planned_next_month_budget_usd": {
+        "domain": 12.0,
+        "hosting": 15.0,
+        "ai_api": 50.0,
+        "audio_synthesis": 150.0,
+        "marketing": 25.0,
+        "total": 252.0
+      }
+    }
+  },
+  "sample_banner": "Sample & placeholder data: cost estimates below reflect initial October 2026 infrastructure, voice synthesis, and AI API runs while final billing invoices are being reconciled. Support & donation endpoints are labeled placeholders awaiting live wallet and merchant verification.",
+  "summary": {
+    "total_expenses_usd": 162.59,
+    "total_contributions_usd": 0.0,
+    "net_balance_usd": -162.59,
+    "published_episodes": 11,
+    "published_minutes": 186,
+    "cost_per_episode_usd": 14.78,
+    "cost_per_minute_usd": 0.87,
+    "category_totals_usd": {
+      "domain": 10.44,
+      "hosting": 5.2,
+      "audio_synthesis": 112.7,
+      "ai_api": 34.25,
+      "marketing": 0.0
+    }
+  }
+}

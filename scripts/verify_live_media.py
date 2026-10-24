@@ -50,7 +50,7 @@ def collect_urls_from_dist(dist: Path, site_url: str) -> tuple[set[str], set[str
                 errors.append(f"Missing primary <source src=...> in {p.relative_to(dist)}")
                 continue
             url = m_src.group(1)
-            if lang in ("zh", "ru", "es") and f"/audio/{lang}/" not in url:
+            if lang != "en" and f"/audio/{lang}/" not in url:
                 errors.append(f"{lang} episode page {p.relative_to(dist)} does not use /audio/{lang}/ primary track: {url}")
             audio_urls.add(url)
 
@@ -65,7 +65,7 @@ def collect_urls_from_dist(dist: Path, site_url: str) -> tuple[set[str], set[str
         if not enclosures:
             errors.append(f"No <enclosure> tags found in {feed_p.relative_to(dist)}")
         for enc_url in enclosures:
-            if lang in ("zh", "ru", "es") and f"/audio/{lang}/" not in enc_url:
+            if lang != "en" and f"/audio/{lang}/" not in enc_url:
                 errors.append(f"{lang} feed {feed_p.relative_to(dist)} has non-{lang} enclosure: {enc_url}")
             audio_urls.add(enc_url)
 

@@ -54,18 +54,14 @@ def test_every_language_has_localized_episode_pages_with_correct_primary_audio(b
                 assert primary_src.startswith("https://audio.askevepodcast.com/audio/en/"), (
                     f"English episode {slug} has non-English primary audio: {primary_src}"
                 )
-            elif lang in FULL_SYNTH_LANGS:
-                # Specifically assert that /zh/episodes/<slug>/index.html (and ru, es) has /audio/<lang>/... for EVERY episode, NEVER /audio/en/!
+            else:
+                # Require ALL 7 non-English languages (zh, ru, es, de, pt, fa, fr) to use /audio/<lang>/... for EVERY episode, NEVER /audio/en/!
                 assert primary_src.startswith(f"https://audio.askevepodcast.com/audio/{lang}/"), (
                     f"{lang} episode {slug} MUST have primary <source src='https://audio.askevepodcast.com/audio/{lang}/...'>, got: {primary_src}"
                 )
                 assert "/audio/en/" not in primary_src, f"{lang} episode {slug} primary source points to English audio: {primary_src}"
                 assert 'data-fallback-src="https://audio.askevepodcast.com/audio/en/' in html, (
                     f"{lang} episode {slug} must retain English fallback track in data-fallback-src"
-                )
-            elif lang in PARTIAL_SYNTH_LANGS and slug in PARTIAL_SYNTH_SLUGS:
-                assert primary_src.startswith(f"https://audio.askevepodcast.com/audio/{lang}/"), (
-                    f"{lang} episode {slug} MUST have localized primary audio, got: {primary_src}"
                 )
 
 
@@ -141,3 +137,30 @@ def test_clip_jump_links_use_standalone_split_offsets_within_episode_duration():
         assert 0 <= t_sec < sp["duration_seconds"], (
             f"Clip {c['id']} jump offset {t_sec}s is outside {c['episode_slug']} duration {sp['duration_seconds']}s"
         )
+
+
+def test_every_non_english_rss_feed_uses_localized_audio(built_site):
+    """Every non-English RSS feed /<lang>/feed.xml must use /audio/<lang>/ enclosure URLs for every item."""
+    import xml.etree.ElementTree as ET
+    for lang in ("zh", "ru", "es", "de", "pt", "fa", "fr"):
+        feed_path = built_site / lang / "feed.xml"
+        assert feed_path.is_file(), f"Missing RSS feed {feed_path}"
+        root_el = ET.fromstring(feed_path.read_text())
+        items = list(root_el.iter("item"))
+        assert len(items) >= 12
+        for item in items:
+            enc = item.find("enclosure")
+            assert enc is not None
+            url = enc.get("url") or ""
+            assert url.startswith(f"https://audio.askevepodcast.com/audio/{lang}/"), (
+                f"/{lang}/feed.xml item {item.findtext('guid')} has non-{lang} audio URL: {url}"
+            )
+
+
+def test_rtl_scrubber_and_standalone_split_person_citations(built_site):
+    """/fa/people/david-sacks/ must link to standalone split episodes (never first-encounter) and i18n.css must keep .player__scrub LTR."""
+    fa_sacks = (built_site / "fa/people/david-sacks/index.html").read_text()
+    assert "/fa/episodes/david-sacks-and-the-anthropic-war/#t=" in fa_sacks
+    assert "/fa/episodes/first-encounter/#t=" not in fa_sacks
+    i18n_css = (ROOT / "site/static/assets/i18n.css").read_text()
+    assert '[dir="rtl"] .player__scrub' in i18n_css and "direction:ltr" in i18n_css

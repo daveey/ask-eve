@@ -30,7 +30,10 @@ def built(tmp_path_factory):
 
 
 def cached_slugs():
-    return sorted(p.stem for p in (ROOT / "translations" / LANG).glob("*.json") if not p.stem.startswith("_"))
+    return sorted(
+        p.stem for p in (ROOT / "translations" / LANG).glob("*.json")
+        if not p.stem.startswith("_") and p.stem != EP1
+    )
 
 
 class Turns(HTMLParser):
@@ -66,12 +69,10 @@ def test_cache_files_are_well_formed():
 @pytest.mark.parametrize("slug", [EP0, EP1])
 def test_episode_translation_complete(built, slug):
     _, eps, _ = built
-    if slug not in cached_slugs():
-        pytest.skip(f"{slug} not translated")
     assert I.missing(LANG, I.episode_strings(eps[slug])) == []
 
 
-@pytest.mark.parametrize("slug", [EP0, EP1])
+@pytest.mark.parametrize("slug", [EP0])
 def test_transcript_structure_matches_english(built, slug):
     out, eps, _ = built
     if slug not in cached_slugs():
@@ -93,7 +94,7 @@ def test_transcript_structure_matches_english(built, slug):
 
 def test_ru_pages_lang_hreflang_note(built):
     out, eps, people = built
-    paths = ["/", "/people/", "/about/"] + [x for x in ("/eve/", "/topics/") if (out / LANG / x.strip("/") / "index.html").exists()] + [f"/episodes/{s}/" for s in cached_slugs() if s in eps]
+    paths = ["/", "/guide/", "/ledger/", "/reports/", "/people/", "/about/"] + [x for x in ("/eve/", "/topics/") if (out / LANG / x.strip("/") / "index.html").exists()] + [f"/episodes/{s}/" for s in cached_slugs() if s in eps]
     for path in paths:
         h = (out / f"{LANG}{path}index.html").read_text()
         en = (out / f"{path.lstrip('/')}index.html").read_text()
@@ -138,9 +139,11 @@ def test_ru_internal_links_stay_in_edition(built):
     out, eps, _ = built
     h = (out / f"{LANG}/index.html").read_text()
     assert f'href="/{LANG}/episodes/andreessen-horowitz-rightward-turn/"' in h
-    assert f'href="/{LANG}/episodes/the-making-of-eve/"' in h
+    assert f'href="/{LANG}/guide/"' in h and f'href="/{LANG}/ledger/"' in h
     assert f'href="/{LANG}/people/"' in h and f'href="/{LANG}/about/"' in h
     assert f'href="/{LANG}/feed.xml"' in h
+    stub = (out / f"{LANG}/episodes/the-making-of-eve/index.html").read_text()
+    assert f'<meta http-equiv="refresh" content="0; url=/{LANG}/guide/">' in stub
 
 
 def test_no_untranslated_ui_strings(built):
@@ -236,12 +239,17 @@ def test_takes_keep_their_episode_links(built):
     for slug, ep_en in eps.items():
         ep_ru = by_ru[slug]
         def _href(ep_slug, t):
+            if ep_slug == EP1:
+                return f"/guide/#turn-{t['i']}"
             if t["start"] is not None and not t["gap"]:
                 sec = f"{t['start']:.2f}".rstrip("0").rstrip(".")
                 return f"/episodes/{ep_slug}/#t={sec}"
             return f"/episodes/{ep_slug}/#turn-{t['i']}"
         for t_en, t_ru in zip(ep_en["turns"], ep_ru["turns"]):
             en_to_ru_href[_href(slug, t_en)] = f"/{LANG}{_href(slug, t_ru)}"
+        for sp_en, sp_ru in zip(ep_en.get("splits", []), ep_ru.get("splits", [])):
+            for t_en, t_ru in zip(sp_en["turns"], sp_ru["turns"]):
+                en_to_ru_href[_href(sp_en["slug"], t_en)] = f"/{LANG}{_href(sp_ru['slug'], t_ru)}"
     pages = sorted((out / LANG / "topics").glob("*/index.html")) + sorted((out / LANG / "people").glob("*/index.html"))
     checked = 0
     for ru in pages:

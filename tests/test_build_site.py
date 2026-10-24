@@ -46,7 +46,8 @@ def test_pages_exist(site):
 
 
 def test_head_seo(site):
-    for rel, canon in [("index.html", "https://askevepodcast.com/"), (f"episodes/{EP1}/index.html", f"https://askevepodcast.com/episodes/{EP1}/"),
+    for rel, canon in [("index.html", "https://askevepodcast.com/"), ("guide/index.html", "https://askevepodcast.com/guide/"),
+                       ("ledger/index.html", "https://askevepodcast.com/ledger/"), ("reports/index.html", "https://askevepodcast.com/reports/"),
                        ("people/index.html", "https://askevepodcast.com/people/"), ("about/index.html", "https://askevepodcast.com/about/")]:
         h = read(site, rel)
         assert f'<link rel="canonical" href="{canon}">' in h, rel
@@ -60,7 +61,7 @@ def test_home(site):
     h = read(site, "index.html")
     assert 'class="hero"' in h and "data-play" in h and 'id="player"' in h and "is-idle" in h
     assert h.count('class="split-card"') >= 9 and h.count('class="card card--bonus"') == 0
-    assert 'href="/episodes/andreessen-horowitz-rightward-turn/"' in h and f'href="/episodes/{EP1}/"' in h
+    assert 'href="/episodes/andreessen-horowitz-rightward-turn/"' in h and 'href="/guide/"' in h and f'href="/episodes/{EP1}/"' not in h
     assert 'href="/feed.xml"' in h and "Spotify" not in h          # Spotify slot hidden until configured
     assert 'href="/people/david-sacks/"' in h
 
@@ -81,10 +82,9 @@ def test_episode_page(site):
 
 
 def test_hybrid_episode_badges(site):
-    h = read(site, f"episodes/{EP1}/index.html")
-    assert "Hybrid: real and AI voices" in h
-    assert h.count('<span class="vb vb--real"') >= 10 and "vb--narrator" in h and "vb--gap" in h
-    assert "(AI-reconstructed, narrator voice)" not in h       # chapter titles are prettified, label kept as a badge
+    g = read(site, "guide/index.html")
+    assert g.count('<span class="vb vb--real"') >= 10 and "vb--narrator" in g and "vb--gap" in g
+    assert "(AI-reconstructed, narrator voice)" not in g       # chapter titles are prettified, label kept as a badge
 
 
 def test_people_pages(site):
@@ -92,7 +92,7 @@ def test_people_pages(site):
     assert idx.count('class="pcard"') >= 10
     p = read(site, "people/david-sacks/index.html")
     assert 'class="take"' in p and "An AI's opinion, not a fact." in p
-    assert re.search(rf'href="/episodes/{EP0}/#t=\d+"', p)
+    assert re.search(r'href="/episodes/david-sacks-and-the-anthropic-war/#t=\d+"', p)
     assert "<mark>" not in p and "moment__q" not in p          # the old text-match snippets are gone
     assert "discussions ·" in idx or "discussion ·" in idx
 
@@ -111,11 +111,9 @@ def test_person_page_one_block_per_moment(site):
     assert 'class="take__body take__qa"' in p and 'class="pm__qa"' in p
     assert '<span class="qa-spk qa-spk--david">David:</span>' in p and '<span class="qa-spk qa-spk--eve">Eve:</span>' in p
     for m in ms:
-        start = int(m["start"])
-        assert f'href="/episodes/{EP0}/#t={start}"' in p
-        assert f"Listen from {B.clock(m['start'])}" in p and f"{B.clock(m['start'])}–{B.clock(m['end'])}" in p
         assert _h.escape(m["david_q"]) in u and _h.escape(m["eve_a"]) in u
-    assert '<span class="pm__ep">First Encounter</span>' in p
+    assert re.search(r'href="/episodes/david-sacks-and-the-anthropic-war/#t=\d+"', p)
+    assert '<span class="pm__ep">David Sacks &amp; the War on Anthropic</span>' in p
 
 
 def test_people_only_link_episodes_with_moments(site):
@@ -124,8 +122,7 @@ def test_people_only_link_episodes_with_moments(site):
         slug, h = f.parent.name, f.read_text()
         if not any(slug in s for s in by_ep.values()) and "person--take" in h:
             continue      # no indexed discussions yet: the page lists the moments Eve's take cites instead
-        for ep in (EP0, EP1):
-            assert (f'class="pep__title"><a href="/episodes/{ep}/"' in h) == (slug in by_ep[ep]), (slug, ep)
+        assert (f'class="pep__title"><a href="/episodes/{EP1}/"' in h) == (slug in by_ep[EP1]), (slug, EP1)
     for ep in (EP0, EP1):
         h = read(site, f"episodes/{ep}/index.html")
         side = h[h.index("People in this episode"):] if "People in this episode" in h else ""
@@ -233,37 +230,34 @@ def test_bonus_episode_never_featured(site):
     h = read(site, "index.html")
     hero = h[h.index('class="hero"'):h.index('class="show"')]
     assert "Making of Eve" not in hero and "/episodes/california-billionaire-tax-prop-40-and-seiu-uhw/" in hero
-    main = h[h.index('id="eps-h"'):h.index('aria-labelledby="bonus-h"')]
+    main = h[h.index('id="eps-h"'):]
     assert "/episodes/andreessen-horowitz-rightward-turn/" in main and f"/episodes/{EP1}/" not in main
-    bonus = h[h.index('aria-labelledby="bonus-h"'):]
-    bonus = bonus[:bonus.index("</section>")]
-    assert f'href="/episodes/{EP1}/"' in bonus and '<span class="badge badge--bonus">Bonus</span>' in bonus
-    assert "Bonus: The Making of Eve" in bonus and f"/episodes/{EP0}/" not in bonus
+    assert 'aria-labelledby="bonus-h"' not in h
 
 
 def test_bonus_episode_page_badge_and_people_refs(site):
-    h = read(site, f"episodes/{EP1}/index.html")
-    assert '<p class="ep-badges"><span class="badge badge--bonus">Bonus</span></p>' in h
-    assert '<h1 class="ep-title">Bonus: The Making of Eve</h1>' in h and ">BONUS<" in h
-    assert '"episodeNumber": null' in h
+    stub = read(site, f"episodes/{EP1}/index.html")
+    assert '<meta http-equiv="refresh" content="0; url=/guide/">' in stub
+    assert 'href="https://askevepodcast.com/guide/"' in stub
+    g = read(site, "guide/index.html")
+    assert 'id="origin-story"' in g and 'id="cloning-guide"' in g and 'id="transcript"' in g
+    assert "https://github.com/daveey/ask-eve/fork" in g
+    assert 'id="turn-0"' in g and 'id="turn-82"' in g
     assert 'badge--bonus' not in read(site, f"episodes/{EP0}/index.html").split('class="more"')[0]
     # person pages and moments still resolve for full episodes
-    assert f'href="/episodes/{EP0}/#t=' in read(site, "people/david-sacks/index.html")
+    assert 'href="/episodes/david-sacks-and-the-anthropic-war/#t=' in read(site, "people/david-sacks/index.html")
 
 
 def test_feed_bonus_item(site):
     root = ET.fromstring(read(site, "feed.xml"))
     ns = {"itunes": "http://www.itunes.com/dtds/podcast-1.0.dtd"}
     items = {i.findtext("guid"): i for i in root.iter("item")}
-    assert len(items) == 12
-    b = items["ask-eve:2026-10-23_the-making-of-eve"]
-    assert b.findtext("title") == "Bonus: The Making of Eve"
-    assert b.findtext("itunes:episodeType", namespaces=ns) == "bonus" and b.find("itunes:episode", ns) is None
-    assert b.find("enclosure").get("url") == "https://audio.askevepodcast.com/audio/en/2026-10-23_the-making-of-eve.v3.mp3"
+    assert len(items) == 11
+    assert "ask-eve:2026-10-23_the-making-of-eve" not in items
     f = items["ask-eve:2026-10-23_andreessen-horowitz-rightward-turn"]
     assert "Andreessen" in f.findtext("title") and f.findtext("itunes:episodeType", namespaces=ns) == "full"
     assert f.findtext("itunes:episode", namespaces=ns) == "1"
-    for i in items.values():                         # every item, full and bonus, is in season 1
+    for i in items.values():                         # every item is in season 1
         assert i.findtext("itunes:season", namespaces=ns) == "1"
 
 
@@ -297,8 +291,8 @@ def test_front_matter_episode_type():
 
 
 def test_header_subscribe_icons_on_every_page(site):
-    pages = ["index.html", "about/index.html", "people/index.html", "people/david-sacks/index.html",
-             f"episodes/{EP0}/index.html", f"episodes/{EP1}/index.html", "404.html"]
+    pages = ["index.html", "guide/index.html", "ledger/index.html", "reports/index.html", "about/index.html", "people/index.html", "people/david-sacks/index.html",
+             f"episodes/{EP0}/index.html", f"episodes/{EP2}/index.html", "404.html"]
     for rel in pages:
         h = read(site, rel)
         head = h[h.index('<header class="site-head">'):h.index("</header>")]
@@ -320,8 +314,8 @@ def test_head_subscribe_spotify_when_configured():
     import build_site as B
     h = B.head_subscribe({"subscribe": {"spotify": "https://open.spotify.com/show/x", "apple_podcasts": ""}})
     assert 'aria-label="Follow on Spotify"' in h and "hsub--apple" not in h and "hsub--rss" in h
-    assert [x for x, _ in B.nav_items()] == ["/", "/eve/", "/contact/"]
-    assert [x for x, _ in B.menu_items()] == ["/", "/eve/", "/contact/", "/about/"]
+    assert [x for x, _ in B.nav_items()] == ["/", "/eve/", "/guide/", "/ledger/", "/contact/"]
+    assert [x for x, _ in B.menu_items()] == ["/", "/eve/", "/guide/", "/ledger/", "/contact/", "/reports/", "/about/"]
 
 
 # ---------------------------------------------------------------- auto-linking (silent links + menus)
@@ -357,7 +351,7 @@ def test_transcript_sacks_links_to_person_page(site):
 
 
 def test_links_never_inside_code_links_headings_or_disclosure(site):
-    for rel in [f"episodes/{EP0}/index.html", f"episodes/{EP1}/index.html"]:
+    for rel in [f"episodes/{EP0}/index.html", f"episodes/{EP2}/index.html", "guide/index.html"]:
         h = read(site, rel)
         assert not re.search(r"<code>[^<]*<a class=\"xl\"", h)
         assert not re.search(r"<h[1-6][^>]*>[^<]*<a class=\"xl\"", h)
@@ -406,15 +400,16 @@ def test_eve_page_quotes_link_to_their_moment(site):
     data = json.loads((ROOT / "index/eve.json").read_text())
     srcs = re.findall(r'<a class="q__src" href="/episodes/([^/]+)/#(t=\d+|turn-\d+)"', h)
     assert 10 <= len(srcs) <= 16
-    ep0 = read(site, f"episodes/{EP0}/index.html")
+    split_slugs = {sp["slug"] for sp in json.loads((ROOT / "index/splits.json").read_text())["splits"]}
+    ep_gbe = read(site, "episodes/how-grok-became-eve/index.html")
     for slug, frag in srcs:
-        assert slug in (EP0, EP1)
+        assert slug in ({EP0, EP1} | split_slugs)
         if frag.startswith("t="):
             sec = int(frag[2:])
             assert sec >= 0
-    # the exchange answer at 09:14:08 points at the turn that starts at that offset
-    m = re.search(r'id="turn-(\d+)" data-start="([\d.]+)"[^>]*>(?:(?!</li>).)*?Mostly context', ep0, re.S)
-    assert m and f'/episodes/{EP0}/#t={int(float(m.group(2)))}' in h
+    # the exchange answer at 09:14:08 points at the turn that starts at that offset on the standalone split episode
+    m = re.search(r'id="turn-(\d+)" data-start="([\d.]+)"[^>]*>(?:(?!</li>).)*?Mostly context', ep_gbe, re.S)
+    assert m and f'/episodes/how-grok-became-eve/#t={int(float(m.group(2)))}' in h
 
 
 def test_eve_page_hides_pending_episode(site):
@@ -456,7 +451,7 @@ def test_eve_hub_holds_mind(site):
     assert ids[:3] == ["who-eve-is", "mind", "self-assessment"] and ids[-1] == "persona-notes"
     assert 'href="/eve/mind/"' in h and 'href="/eve/journal/"' in h and 'href="/eve/reading/"' in h and 'href="/eve/soul/"' in h
     assert 'id="memories"' in mind_h and 'id="people"' in mind_h and 'id="topics"' in mind_h   # topics approved 2026-10-23
-    assert 'href="/episodes/andreessen-horowitz-rightward-turn/"' in mind_h and 'href="/episodes/the-making-of-eve/"' in mind_h
+    assert 'href="/episodes/andreessen-horowitz-rightward-turn/"' in mind_h
     assert 'href="/people/david-sacks/"' in mind_h and 'href="/people/"' in mind_h
     assert '<nav class="eve-nav" aria-label="On this page">' in h and 'href="#mind"' in h
     assert '<details class="fold' in mind_h and "<script" not in h.split("<footer")[0].split("</header>")[1]
@@ -519,9 +514,10 @@ def test_person_take_and_citations(site):
     body = unlink(p)
     for para in sacks["take"]:                       # every paragraph, verbatim (cite links stripped)
         assert _h.escape(para) in re.sub(r'<a class="cite"[^>]*>(.*?)</a>', r"\1", body)
+    split_slugs = {sp["slug"] for sp in json.loads((ROOT / "index/splits.json").read_text())["splits"]}
     cites = re.findall(r'<a class="cite" href="/episodes/([^/]+)/#t=([\d.]+)"', p)
-    assert len(cites) == len([r for r in sacks["refs"] if r.get("anchor")]) and all(s in (EP0, EP2) for s, _ in cites)
-    assert 'href="/episodes/first-encounter/#t=2554.5"' in p     # "three tests" = 08:06:53 -> the turn's exact start
+    assert len(cites) == len([r for r in sacks["refs"] if r.get("anchor")]) and all(s in ({EP0, EP2} | split_slugs) for s, _ in cites)
+    assert 'href="/episodes/david-sacks-and-the-anthropic-war/#t=416.16"' in p     # "three tests" = 08:06:53 -> split-relative exact start
     assert 'class="plinks"' in p and 'href="https://x.com/DavidSacks"' in p
     assert 'href="/topics/sacks-vs-anthropic/"' in p
     assert "Linked phrases open the episode" in p
@@ -533,8 +529,12 @@ def test_takes_resolve_and_drop_pending(site):
     topics = B.attach_takes(eps, people)
     assert len(topics) >= 16 and sum(1 for p in people if p.get("take")) >= 13
     assert next(p for p in people if p["slug"] == "chan")["take"]
+    valid_prefixes = ("/guide/#",) + tuple(
+        f"/episodes/{slug}/#"
+        for slug in ({EP0, EP2, "california-high-speed-rail-and-the-billionaire-tax"} | {sp["slug"] for sp in json.loads((ROOT / "index/splits.json").read_text())["splits"]})
+    )
     for x in [p["take"] for p in people if p.get("take")] + topics:
-        assert all(r["href"].startswith(("/episodes/first-encounter/#t=", "/episodes/the-making-of-eve/#t=", "/episodes/the-making-of-eve/#turn-", "/episodes/starshield-iran-and-the-anthropic-mirror/#t=", "/episodes/california-high-speed-rail-and-the-billionaire-tax/#t=", "/episodes/california-high-speed-rail-and-the-billionaire-tax/#turn-")) for r in x["refs"])
+        assert all(r["href"].startswith(valid_prefixes) for r in x["refs"])
     raw = (ROOT / "index/takes.json").read_text()
     assert "eve-cant-find-andreessen" not in raw and "pending publication" not in raw and "Episode 2" not in raw
     assert not re.search(r"grok\.com/share|@gmail|canvas", raw)
@@ -545,7 +545,7 @@ def test_topic_pages(site):
     assert idx.count('class="tcard"') >= 16
     t = read(site, "topics/sacks-vs-anthropic/index.html")
     assert 'class="take"' in t and 'href="/people/david-sacks/"' in t
-    assert re.search(r'<a class="pm__listen" href="/episodes/first-encounter/#t=[\d.]+"', t)
+    assert re.search(r'<a class="pm__listen" href="/episodes/david-sacks-and-the-anthropic-war/#t=[\d.]+"', t)
     assert t.count('<a class="cite"') == 4
     assert "/topics/" in read(site, "sitemap.xml") and "/topics/building-ask-eve/" in read(site, "sitemap.xml")
     ep = read(site, f"episodes/{EP0}/index.html")
@@ -565,18 +565,13 @@ def test_take_bad_anchor_raises(site):
 
 
 def test_card_summaries_under_titles(site):
-    """Every episode card (main list + Bonus rows) carries a 1-2 line summary from site.json `summaries`."""
-    import html as _h
+    """Every episode card carries a 1-2 line summary from site.json `summaries`."""
     sums = json.loads((ROOT / "site/site.json").read_text())["summaries"]
     assert all(0 < len(s) <= B.CARD_SUMMARY_MAX for s in sums.values())
     h = read(site, "index.html")
-    main = h[h.index('id="eps-h"'):h.index('aria-labelledby="bonus-h"')]
+    main = h[h.index('id="eps-h"'):]
     assert 'class="split-card__sum"' in main
     assert main.index('class="split-card__title"') < main.index('class="split-card__sum"')
-    bonus = h[h.index('aria-labelledby="bonus-h"'):]
-    bonus = bonus[:bonus.index("</section>")]
-    assert f'<span class="bonus-row__sum">{_h.escape(sums[EP1])}</span>' in bonus
-    assert bonus.index("bonus-row__title") < bonus.index("bonus-row__sum")
 
 
 def test_card_summary_precedence_and_fallback():
@@ -671,7 +666,7 @@ def test_no_utc_or_session_in_ui_chrome(site):
 
 def test_ai_disclosure_is_compact_expandable_details(site):
     """t167u: Episode AI disclosure is a collapsed-by-default <details class="disclosure"> callout."""
-    for slug in ("first-encounter", "andreessen-horowitz-rightward-turn", "the-making-of-eve"):
+    for slug in ("first-encounter", "andreessen-horowitz-rightward-turn", EP2):
         h = read(site, f"episodes/{slug}/index.html")
         assert '<aside class="disclosure-wrap" aria-labelledby="disc-h">' in h
         m = re.search(r'<details class="disclosure disclosure--[\w-]+"[^>]*>', h)
@@ -679,3 +674,61 @@ def test_ai_disclosure_is_compact_expandable_details(site):
         assert '<summary class="disclosure__summary">' in h
         assert '<span class="disclosure__hint">How this audio was made</span>' in h
         assert '<div class="disclosure__body">' in h
+
+
+def test_sources_and_receipts_rendering(site):
+    hsr = read(site, "episodes/california-high-speed-rail-and-cap-and-trade/index.html")
+    assert 'id="sources"' in hsr and "Sources &amp; receipts" in hsr
+    assert hsr.count('class="source-card"') == 6
+    assert hsr.count('class="src-span"') == 7
+    assert hsr.count('class="src-badge tnum"') == 7
+    # Auto-linker inside <mark class="src-span"> still works, while <sup class="src-badge"> is untouched
+    assert 'style="' not in hsr
+    for m in re.finditer(r'<a class="source-card__person" href="([^"]+)"', hsr):
+        rel = m.group(1).strip("/") + "/index.html"
+        assert (site / rel).exists(), rel
+    gavin = read(site, "people/gavin-newsom/index.html")
+    assert "Primary sources &amp; receipts" in gavin
+    assert 'class="source-card"' in gavin
+
+
+def test_guide_ledger_and_reports_pages(site):
+    g = read(site, "guide/index.html")
+    assert 'id="origin-story"' in g
+    assert 'id="cloning-guide"' in g
+    assert 'id="transcript"' in g
+    assert "https://github.com/daveey/ask-eve/fork" in g
+    assert g.count('<li class="turn ') == 83
+
+    l = read(site, "ledger/index.html")
+    assert 'class="ledger-banner"' in l
+    assert "$162.59" in l
+    assert "$0.00" in l
+    assert "-$162.59" in l
+    assert "$14.78" in l
+    assert "$0.87" in l
+    assert 'id="support"' in l
+    assert 'href="/reports/2026-10/"' in l
+    assert 'href="/ledger/ledger.json"' in l
+    lj = json.loads(read(site, "ledger/ledger.json"))
+    assert lj["is_sample_data"] is True
+    assert lj["summary"]["total_expenses_usd"] == 162.59
+
+    r_idx = read(site, "reports/index.html")
+    assert 'href="/reports/2026-10/"' in r_idx
+    r_oct = read(site, "reports/2026-10/index.html")
+    assert "October 2026 Expense &amp; Transparency Report" in r_oct
+    assert "$252.00" in r_oct
+
+    # Redirect stubs & _redirects
+    for stub_rel, target in [
+        ("episodes/the-making-of-eve/index.html", "/guide/"),
+        ("transparency/index.html", "/ledger/"),
+        ("support/index.html", "/ledger/#support"),
+    ]:
+        stub = read(site, stub_rel)
+        assert f'<meta http-equiv="refresh" content="0; url={target}">' in stub
+    redirects = read(site, "_redirects")
+    assert "/episodes/the-making-of-eve/ /guide/ 301" in redirects
+    assert "/transparency/ /ledger/ 301" in redirects
+    assert "/support/ /ledger/#support 301" in redirects

@@ -44,6 +44,11 @@ jobs:
           set -euo pipefail
           cp workers/upload/wrangler.toml /tmp/wrangler-d1.toml
           sed -i "s/__D1_DATABASE_ID__/${D1_DATABASE_ID}/" /tmp/wrangler-d1.toml
+          for mig in migrations/0003_sources.sql migrations/0004_analytics_events.sql; do
+            if [ -f "$mig" ]; then
+              npx --yes wrangler@4 d1 execute ask-eve-meta --remote --file "$mig" --config /tmp/wrangler-d1.toml || true
+            fi
+          done
           for sql in artifacts/*/d1_upsert.sql; do
             stem=$(basename "$(dirname "$sql")")
             slug=$(python3 -c 'import sys; sys.path.insert(0, "scripts"); from frontmatter import public_slug; print(public_slug(sys.argv[1]))' "$stem")
@@ -105,6 +110,12 @@ jobs:
               list(pool.map(sync_one, assets))
           PY
           fi
+
+      - name: Run site and locale integration test gates
+        run: |
+          set -euo pipefail
+          pip install --quiet pytest
+          pytest tests/test_build_site.py tests/test_i18n.py tests/test_metrics.py -q
 
       - name: Build site from D1 (read-only token)
         env:
