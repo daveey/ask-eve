@@ -2,7 +2,7 @@
   "_doc": "Russian UI strings for the /ru/ edition (scripts/site_i18n.py). `strings` maps an English UI string (whitespace-normalized) to Russian; scripts/translate.py --ui adds missing ones, then a human reviews them. `patterns` are full-match regexes: {1} inserts a group, {1|a|b|c} picks the Russian plural form for group 1, {1:t} translates group 1. `names` are the standard Russian spellings of people's names (also given to the translator as a glossary). Content translations live in translations/ru/.",
   "language_name": "Русский",
   "note": {
-    "text": "Это ИИ-перевод с английского. Аудио на английском.",
+    "text": "Это ИИ-перевод с английского. Русская озвучка (ИИ): голос Евы и клонированный голос Дэвида.",
     "link": "Оригинал на английском"
   },
   "transcript_header": "Ask Eve: ИИ-перевод стенограммы с английского. Оригинал: https://askevepodcast.com{url}",
@@ -159,6 +159,10 @@
     [
       "(.+) at (\\d+:\\d{2}(?::\\d{2})?(?: UTC)?)",
       "{1}, {2}"
+    ],
+    [
+      "Language: (.+)",
+      "Язык: {1}"
     ]
   ],
   "names": {
@@ -465,7 +469,9 @@
     "a16z author page": "страница автора на a16z",
     "askevepodcast.com: transcripts, chapters, people and the player.": "askevepodcast.com: стенограммы, главы, люди и плеер.",
     "faster-whisper transcribes David's audio, and fuzzy matching pins each of his transcript lines to the second it was said.": "faster-whisper транскрибирует аудио Дэвида, а нечёткое сопоставление привязывает каждую строку его стенограммы к секунде, когда она была сказана.",
-    "or": "или"
+    "or": "или",
+    "People discussed": "Упомянутые люди",
+    "Full verbatim transcript": "Полная дословная стенограмма"
   },
   "links": {
     "eve_on": "Мнение Евы: {name}",

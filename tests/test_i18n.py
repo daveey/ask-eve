@@ -1,7 +1,9 @@
 """Translated editions (/ru/): structure mirrors the English pages 1:1 and everything comes from the committed cache."""
+import copy
 import json
 import re
 from html.parser import HTMLParser
+from pathlib import Path
 
 import pytest
 
@@ -77,8 +79,12 @@ def test_transcript_structure_matches_english(built, slug):
     en = parse((out / f"episodes/{slug}/index.html").read_text())
     ru = parse((out / f"{LANG}/episodes/{slug}/index.html").read_text())
     assert len(en.turns) == len(eps[slug]["turns"]) > 0
-    assert ru.turns == en.turns            # same segment count, ids, start/end timestamps, speakers, in order
-    assert ru.seeks == en.seeks            # same seek links (#t=N)
+    assert [t[0] for t in ru.turns] == [t[0] for t in en.turns]
+    assert [t[3] for t in ru.turns] == [t[3] for t in en.turns]
+    assert len(ru.seeks) == len(en.seeks)
+    if not I.ep_meta(LANG, slug).get("ru_turn_offsets"):
+        assert ru.turns == en.turns
+        assert ru.seeks == en.seeks
     # plain-text transcript: same turn headers ([hh:mm:ss] speaker) in the same order
     hdr = re.compile(r"^\[(\d{2}:\d{2}:\d{2})\] ", re.M)
     assert hdr.findall((out / f"{LANG}/episodes/{slug}/transcript.txt").read_text()) == \
@@ -96,11 +102,36 @@ def test_ru_pages_lang_hreflang_note(built):
         assert f'<link rel="canonical" href="{B.SITE}/{LANG}{path}">' in h, path
         for doc in (h, en):
             assert f'hreflang="en" href="{B.SITE}{path}"' in doc and f'hreflang="{LANG}" href="{B.SITE}/{LANG}{path}"' in doc
-            assert 'hreflang="x-default"' in doc and 'class="lang-switch"' in doc
+            assert 'hreflang="x-default"' in doc and 'class="lang-menu"' in doc
         assert '<html lang="en"' in en
         assert 'class="wrap i18n-note"' in h and f'href="{path}" hreflang="en"' in h, path
+        assert "Русская озвучка (ИИ): голос Евы и клонированный голос Дэвида" in h, path
         assert CYR.search(h)
         assert "\u2063" not in h and "\u2064" not in h, path     # render-time content markers are stripped
+
+
+def test_lang_menu_dropdown(built, monkeypatch):
+    out, eps, _ = built
+    for s in cached_slugs():
+        path = f"/episodes/{s}/"
+        en = (out / f"episodes/{s}/index.html").read_text()
+        ru = (out / f"{LANG}/episodes/{s}/index.html").read_text()
+        assert '<details class="lang-menu" data-menu>' in en
+        assert '<details class="lang-menu" data-menu>' in ru
+        assert '<span class="lang-menu__cur">EN</span>' in en
+        assert '<span class="lang-menu__cur">RU</span>' in ru
+        assert '<span class="lang-menu__item is-active" lang="en" aria-current="true"><span class="lang-menu__name">English</span><span class="lang-menu__code">EN</span>' in en
+        assert f'<a class="lang-menu__item" href="/{LANG}{path}" hreflang="{LANG}" lang="{LANG}"><span class="lang-menu__name">Русский</span><span class="lang-menu__code">RU</span></a>' in en
+        assert f'<a class="lang-menu__item" href="{path}" hreflang="en" lang="en"><span class="lang-menu__name">English</span><span class="lang-menu__code">EN</span></a>' in ru
+        assert '<span class="lang-menu__item is-active" lang="ru" aria-current="true"><span class="lang-menu__name">Русский</span><span class="lang-menu__code">RU</span>' in ru
+    # Verify menu scales cleanly as additional languages are added
+    monkeypatch.setattr(I, "LANGS", ("ru", "es"))
+    monkeypatch.setitem(I._paths, "es", {"/", "/about/"})
+    monkeypatch.setitem(I._S, "es", {"language_name": "Español"})
+    sw = I.switcher("/about/")
+    assert 'href="/ru/about/" hreflang="ru" lang="ru"' in sw
+    assert 'href="/es/about/" hreflang="es" lang="es"' in sw
+    assert "Español" in sw
 
 
 def test_ru_internal_links_stay_in_edition(built):
@@ -109,21 +140,61 @@ def test_ru_internal_links_stay_in_edition(built):
     for s in cached_slugs():
         assert f'href="/{LANG}/episodes/{s}/"' in h
     assert f'href="/{LANG}/people/"' in h and f'href="/{LANG}/about/"' in h
-    assert 'href="/feed.xml"' in h                    # feed stays the English feed
+    assert f'href="/{LANG}/feed.xml"' in h
 
 
 def test_no_untranslated_ui_strings(built):
     assert I.misses(LANG) == [], I.misses(LANG)[:20]
 
 
-def test_audio_and_feed_unchanged(built):
+def test_ru_audio_and_feed(built):
     out, eps, _ = built
     feed = (out / "feed.xml").read_text()
     assert not CYR.search(feed) and "/ru/" not in feed
+    ru_feed = (out / f"{LANG}/feed.xml").read_text()
+    assert "<language>ru</language>" in ru_feed
+    assert f'href="{B.SITE}/{LANG}/feed.xml"' in ru_feed
+    assert CYR.search(ru_feed)
     for s in cached_slugs():
-        en = re.findall(r'https://audio\.askevepodcast\.com/[^"\s]+', (out / f"episodes/{s}/index.html").read_text())
-        ru = re.findall(r'https://audio\.askevepodcast\.com/[^"\s]+', (out / f"{LANG}/episodes/{s}/index.html").read_text())
-        assert en and sorted(set(ru)) == sorted(set(en))
+        stem = Path(eps[s]["transcript_path"]).stem
+        expected_ru_url = I.ep_meta(LANG, s).get("ru_audio_url") or f"https://audio.askevepodcast.com/audio/ru/{stem}.v1.mp3"
+        en_urls = re.findall(r'https://audio\.askevepodcast\.com/[^"\s]+', (out / f"episodes/{s}/index.html").read_text())
+        ru_urls = re.findall(r'https://audio\.askevepodcast\.com/[^"\s]+', (out / f"{LANG}/episodes/{s}/index.html").read_text())
+        assert en_urls and all("/audio/ru/" not in u for u in en_urls)
+        assert ru_urls and set(ru_urls) == {expected_ru_url}
+        assert f'<enclosure url="{expected_ru_url}"' in ru_feed
+
+
+def test_ru_turn_offsets_and_audio_meta(built, monkeypatch):
+    out, eps, people = built
+    slug = EP0
+    ep = copy.deepcopy(eps[slug])
+    n = len(ep["turns"])
+    offsets = [[round(i * 12.5, 2), round((i + 1) * 12.5, 2)] for i in range(n)]
+    fake_meta = {
+        "ru_audio_url": "https://audio.askevepodcast.com/audio/ru/custom-test.v1.mp3",
+        "ru_duration_s": 1234.4,
+        "ru_audio_bytes": 49376000,
+        "ru_audio_sha256": "deadbeef" * 8,
+        "ru_turn_offsets": offsets,
+    }
+    monkeypatch.setitem(I._M, LANG, {slug: fake_meta})
+    eps2, _ = I.localize_data(LANG, [ep], people)
+    loc_ep = eps2[0]
+    assert loc_ep["audio_url"] == "https://audio.askevepodcast.com/audio/ru/custom-test.v1.mp3"
+    assert loc_ep["duration_seconds"] == 1234
+    assert loc_ep["audio_bytes"] == 49376000
+    assert loc_ep["audio_sha256"] == "deadbeef" * 8
+    first_spoken = next(t for t in loc_ep["turns"] if not t["gap"])
+    assert first_spoken["start"] == round(first_spoken["i"] * 12.5, 2)
+    assert first_spoken["end"] == round((first_spoken["i"] + 1) * 12.5, 2)
+    html = I.translate_html(LANG, B.episode_page(B.Assets(out), loc_ep, eps2), f"/episodes/{slug}/")
+    assert 'src="https://audio.askevepodcast.com/audio/ru/custom-test.v1.mp3"' in html
+    assert f'id="turn-{first_spoken["i"]}" data-start="{first_spoken["start"]:.2f}" data-end="{first_spoken["end"]:.2f}"' in html
+    assert f'href="#t={int(first_spoken["start"])}" data-seek="{first_spoken["start"]:.2f}"' in html
+    feed_xml = I.render_feed(LANG, B, [loc_ep])
+    assert '<enclosure url="https://audio.askevepodcast.com/audio/ru/custom-test.v1.mp3" length="49376000" type="audio/mpeg"/>' in feed_xml
+    assert "<itunes:duration>1234</itunes:duration>" in feed_xml
 
 
 def test_sitemap_lists_ru_pages(built):
@@ -140,6 +211,7 @@ def test_ui_plural_and_patterns():
     assert I.ui(LANG, "11 discussions", record=False) == "11 обсуждений"
     assert I.ui(LANG, "Oct 23, 2026", record=False) == "23 октября 2026"
     assert I.ui(LANG, "1 hr 5 min", record=False) == "1 ч 5 мин"
+    assert I.ui(LANG, "Language: English", record=False) == "Язык: English"
 
 
 def test_no_private_strings_in_translations():
