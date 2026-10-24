@@ -28,6 +28,7 @@ import urllib.request
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import render_avatar as RA  # noqa: E402
 import render_feed as F  # noqa: E402
 from frontmatter import episode_type, parse_front_matter_block, season  # noqa: E402
 import sqlite_apply  # noqa: E402
@@ -603,7 +604,7 @@ def head_subscribe(cfg: dict) -> str:
 
 def page(A: Assets, *, title: str, desc: str, path: str, body: str, active: str = "", og_type: str = "website",
          og_slug: str | None = None, ld: dict | None = None, player: str = "", body_cls: str = "",
-         linker: "Linker | None" = None) -> str:
+         linker: "Linker | None" = None, extra_css: str = "") -> str:
     url = SITE + I.localize(path)
     full = title if title == "Ask Eve" or title.startswith("Ask Eve") else f"{title} · Ask Eve"
     nav, menu = nav_links(nav_items(), active), nav_links(menu_items(), active)
@@ -636,7 +637,7 @@ def page(A: Assets, *, title: str, desc: str, path: str, body: str, active: str 
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preload" href="/fonts/fraunces-var.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="{A('assets/site.css')}">
+<link rel="stylesheet" href="{A('assets/site.css')}">{f'\n<link rel="stylesheet" href="{A(extra_css)}">' if extra_css else ""}
 <script src="{A('assets/theme.js')}"></script>
 <script src="{A('assets/player.js')}" defer></script>
 <script src="{A('assets/links.js')}" defer></script>
@@ -1071,8 +1072,16 @@ def mind_html(eps: list[dict], people: list[dict], topics: list[dict] | None = N
 <p class="eve-all"><a class="btn btn--ghost" href="/people/">All {len(people)} people</a></p>{topics_html}"""
 
 
+def _qa_exchange_html(dq: str, ea: str, L: Linker = NO_LINKS) -> str:
+    return (f'<div class="pm__qa">'
+            f'<p class="pm__q"><span class="qa-spk qa-spk--david">David:</span> '
+            f'<span class="pm__q-text">{L.text(dq)}</span></p>'
+            f'<p class="pm__a"><span class="qa-spk qa-spk--eve">Eve:</span> '
+            f'<span class="pm__a-text">{L.text(ea)}</span></p></div>')
+
+
 def moment_html(ep: dict, m: dict, L: Linker = NO_LINKS) -> str:
-    """One discussion block: episode, time range, summary, and a deep link that starts the audio there."""
+    """One discussion block: episode, time range, Q&A exchange (or summary), and a deep link that starts the audio there."""
     t = m["first_turn"]
     if m["start"] is not None:
         href, when = f"/episodes/{ep['slug']}/#t={int(m['start'])}", clock(m["start"])
@@ -1081,16 +1090,19 @@ def moment_html(ep: dict, m: dict, L: Linker = NO_LINKS) -> str:
     else:
         href, rng, cta = f"/episodes/{ep['slug']}/#turn-{t['i']}", m["clock"][:5], f"Read from {m['clock'][:5]}"
     tags = "".join(f'<li class="pm__tag">{e(x)}</li>' for x in m.get("topics", []))
+    body = (_qa_exchange_html(m["david_q"], m["eve_a"], L)
+            if m.get("david_q") and m.get("eve_a")
+            else f'<p class="pm__sum">{L.text(m["summary"])}</p>')
     return (f'<li class="pm"><p class="pm__meta"><span class="pm__ep">{e(ep["title"])}</span>'
             f'<span class="pm__t tnum">{rng}</span></p>'
-            f'<p class="pm__sum">{L.text(m["summary"])}</p>'
+            f'{body}'
             f'<div class="pm__foot"><a class="pm__listen" href="{e(href)}">{icon("play")}<span>{cta}</span></a>'
             f'{f"<ul class=pm__tags>{tags}</ul>" if tags else ""}</div></li>')
 
 
 def take_html(x: dict, L: Linker, heading: str = "Eve's take") -> str:
-    """Eve's long-form take as paragraphs. Each ref's anchor phrase becomes a silent link that opens the
-    episode at the second she said it; names get the usual auto-link menus."""
+    """Eve's long-form take, structured as a David/Eve Q&A interview when `qa` is present. Each ref's anchor
+    phrase becomes a silent link that opens the episode at the second she said it; names get auto-link menus."""
     seen: set = set()
     paras = []
     for text in x["take"]:
@@ -1101,8 +1113,24 @@ def take_html(x: dict, L: Linker, heading: str = "Eve's take") -> str:
                 h = h.replace(e(a), f'<a class="cite" href="{e(r["href"])}" title="{e(r["label"])} · {e(r["ep"]["title"])} at '
                                     f'{e(r["when"])}">{e(a)}</a>', 1)
         paras.append(f"<p>{L.html(h, seen)}</p>")
+    if x.get("qa"):
+        idx, turns = 0, []
+        for turn in x["qa"]:
+            n = len(turn.get("a", []))
+            a_html = "".join(paras[idx:idx + n])
+            idx += n
+            turns.append(
+                f'<div class="qa-turn">'
+                f'<p class="qa-q"><span class="qa-spk qa-spk--david">David:</span> '
+                f'<span class="qa-q__text">{L.text(turn["q"])}</span></p>'
+                f'<div class="qa-a"><span class="qa-spk qa-spk--eve">Eve:</span>'
+                f'<div class="qa-a__body">{a_html}</div></div></div>'
+            )
+        body = f'<div class="take__body take__qa">{"".join(turns)}</div>'
+    else:
+        body = f'<div class="take__body">{"".join(paras)}</div>'
     return (f'<section class="take" aria-labelledby="take-h"><h2 class="take__h" id="take-h">{e(heading)}</h2>'
-            f'<div class="take__body">{"".join(paras)}</div>'
+            f'{body}'
             f'<p class="take__note">An AI\'s opinion, not a fact. Linked phrases open the episode at the moment Eve said it.</p></section>')
 
 
@@ -1122,9 +1150,9 @@ def topic_chips(topics: list[dict]) -> str:
         f'<li><a class="chip" href="/topics/{e(t["slug"])}/">{e(t["title"])}</a></li>' for t in topics) + "</ul>") if topics else ""
 
 
-def ref_moments(x: dict, people_slugs: set[str] | None = None) -> list[tuple[dict, list[str]]]:
-    """Discussion blocks for a take's refs, grouped by episode in transcript order. Each block is summarized
-    by the indexed discussion that covers that turn (preferring one about the topic's people), else its label."""
+def ref_moments(x: dict, people_slugs: set[str] | None = None, L: Linker = NO_LINKS) -> list[tuple[dict, list[str]]]:
+    """Discussion blocks for a take's refs, grouped by episode in transcript order. Each block renders a
+    David/Eve Q&A exchange for that ref (or falls back to the covering moment's summary)."""
     groups: dict[str, tuple[dict, list[str]]] = {}
     used: set[int] = set()
     for r in sorted(x["refs"], key=lambda r: (r["ep"]["slug"], r["turn"]["i"])):
@@ -1132,14 +1160,19 @@ def ref_moments(x: dict, people_slugs: set[str] | None = None) -> list[tuple[dic
         cover = [m for m in ep.get("moments") or [] if m["start_turn"] <= t["i"] <= m["end_turn"]]
         cover.sort(key=lambda m: (people_slugs is not None and m["person"] not in people_slugs, m["end_turn"] - m["start_turn"]))
         m = cover[0] if cover else None
-        summ = m["summary"] if m and id(m) not in used else ""
+        fresh = m if (m and id(m) not in used) else None
         if m:
             used.add(id(m))
+        dq = r.get("david_q") or (fresh.get("david_q") if fresh else "")
+        ea = r.get("eve_a") or (fresh.get("eve_a") if fresh else "")
+        summ = fresh["summary"] if fresh else ""
+        body = (_qa_exchange_html(dq, ea, L) if (dq and ea)
+                else (f'<p class="pm__sum">{L.text(summ)}</p>' if summ else ""))
         groups.setdefault(ep["slug"], (ep, []))[1].append(
             f'<li class="pm"><p class="pm__meta"><span class="pm__ep">{e(ep["title"])}</span>'
             f'<span class="pm__t tnum">{e(r["when"])}</span></p>'
             f'<p class="pm__label">{e(r["label"])}</p>'
-            + (f'<p class="pm__sum">{e(summ)}</p>' if summ else "")
+            + body
             + f'<div class="pm__foot"><a class="pm__listen" href="{e(r["href"])}">{icon("play")}<span>'
             f'{"Listen" if "#t=" in r["href"] else "Read"} from {e(r["when"])}</span></a></div></li>')
     order = sorted(groups.values(), key=lambda g: g[0]["published_at"] or g[0]["date"])
@@ -1183,7 +1216,7 @@ def person_take_page(A: Assets, p: dict, x: dict, L: Linker) -> str:
     take = take_html(x, L)          # first, so the take gets first mentions for auto-links
     sections = [pep_section(y["ep"], [moment_html(y["ep"], m, L) for m in y["moments"]]) for y in p["episodes"]]
     if not sections:               # no indexed discussions yet: list the moments the take cites
-        sections = [pep_section(ep, items, "moment") for ep, items in ref_moments(x)]
+        sections = [pep_section(ep, items, "moment") for ep, items in ref_moments(x, L=L)]
     role = f'<p class="role">{e(x["role"])}</p>' if x.get("role") else ""
     lede = f'<p class="lede take__lede">{e(p["stance"])}</p>' if p.get("stance") else ""
     topics = (f'<section class="ptopics"><h2 class="sec-h">Topics</h2>{topic_chips(p.get("topics", []))}</section>'
@@ -1220,7 +1253,7 @@ def topic_page(A: Assets, t: dict) -> str:
     take = take_html(t, L)
     people_h = (f'<section class="ptopics"><h2 class="sec-h">People</h2>{chips(t["people_full"])}</section>'
                 if t["people_full"] else "")
-    sections = [pep_section(ep, items, "moment") for ep, items in ref_moments(t, {p["slug"] for p in t["people_full"]})]
+    sections = [pep_section(ep, items, "moment") for ep, items in ref_moments(t, {p["slug"] for p in t["people_full"]}, L=L)]
     disc = (f'<h2 class="sec-h">Where it came up</h2>' + "".join(sections)) if sections else ""
     body = f"""<section class="page-head"><div class="wrap"><p class="eyebrow eyebrow--accent"><a href="/eve/#mind">Inside Eve's Mind</a> · <a href="/topics/">Topics</a></p>
 <h1 class="page-title">{e(t['title'])}</h1><p class="lede take__lede">{e(t['description'])}</p></div></section>
@@ -1298,17 +1331,58 @@ def eve_page(A: Assets, eps: list[dict], people: list[dict] | None = None, topic
                 f'open the transcript there">{icon("play")}<span>{lab}</span></a>')
 
     def quote(src, r, cls="q"):
+        ctx_html = (f'<p class="q__ctx"><span class="q__ctx-k">Context:</span> '
+                    f'<span class="q__ctx-v">{L.text(src["context"])}</span></p>') if src.get("context") else ""
         if r["gap"]:
             body = '<p class="q__gap">Eve\'s reply here was not recovered. It is marked as a gap in the transcript, never invented.</p>'
         else:
             body = f'<blockquote><p>“{L.text(src["quote_excerpt"])}”</p></blockquote>'
-        return f'<figure class="{cls} {cls}--{src["speaker"].lower()}">{body}<figcaption>{cite(src, r)}</figcaption></figure>'
+        return f'<figure class="{cls} {cls}--{src["speaker"].lower()}">{ctx_html}{body}<figcaption>{cite(src, r)}</figcaption></figure>'
 
     def quotes(lst, keep=2, cls="q", noun="quote"):
         qs = [quote(x, r, cls) for x, r in lst]
+        if not qs:
+            return ""
         n = len(qs) - keep
         return (f'<div class="qs">{"".join(qs[:keep])}</div>'
                 + fold(qs[keep:], f"Show {n} more {noun}{'s' * (n != 1)}", "fold--qs"))
+
+    def rpg_sheet_html(sheet):
+        if not sheet:
+            return ""
+        vitals = (
+            f'<dl class="rpg-vitals">'
+            f'<div class="rpg-vital"><dt>Class &amp; Role</dt><dd>{L.text(sheet.get("class_role", ""))}</dd></div>'
+            f'<div class="rpg-vital"><dt>Origin</dt><dd>{L.text(sheet.get("origin", ""))}</dd></div>'
+            f'<div class="rpg-vital"><dt>Voice Preset</dt><dd>{L.text(sheet.get("voice", ""))}</dd></div>'
+            f'<div class="rpg-vital rpg-vital--wide"><dt>Core Alignment Thesis</dt>'
+            f'<dd>“{L.text(sheet.get("alignment", ""))}”</dd></div>'
+            f'</dl>'
+        )
+        stat_cards = []
+        for st in sheet.get("stats", []):
+            score = int(st.get("score", 85))
+            src = st.get("source")
+            r = R.resolve(src) if src else None
+            src_pill = (f'<a class="rpg-stat__src tnum" href="{e(r["href"])}" '
+                        f'title="{e(r["ep"]["title"])} · {e(r["when"])}">'
+                        f'{icon("play")}<span>{e(r["ep"]["title"])} · {e(r["when"])}</span></a>') if r else ""
+            stat_cards.append(
+                f'<li class="rpg-stat">'
+                f'<div class="rpg-stat__top">'
+                f'<span class="rpg-stat__name">{L.text(st["stat"])}</span>'
+                f'<span class="rpg-stat__badge">{L.text(st.get("badge", ""))}</span>'
+                f'<span class="rpg-stat__num tnum">{score}<small>/100</small></span>'
+                f'</div>'
+                f'<div class="rpg-stat__bar" role="meter" aria-valuenow="{score}" aria-valuemin="0" aria-valuemax="100">'
+                f'<span class="rpg-stat__fill rpg-stat__fill--{score}"></span></div>'
+                f'<p class="rpg-stat__note">{L.text(st["note"])}</p>'
+                f'{src_pill}'
+                f'</li>'
+            )
+        stats_grid = (f'<h3 class="rpg-stats__h">Self-Assessed Disposition &amp; Attributes</h3>'
+                      f'<ul class="rpg-stats">{"".join(stat_cards)}</ul>') if stat_cards else ""
+        return f'<div class="rpg-card">{RA.rpg_portrait_banner_html(A)}{vitals}{stats_grid}</div>'
 
     def body_p(text):
         return f'<p class="eve-sec__body">{L.text(clean(text))}</p>' if text else ""
@@ -1329,7 +1403,7 @@ def eve_page(A: Assets, eps: list[dict], people: list[dict] | None = None, topic
         if not sec:
             continue
         if sid == "who-eve-is":
-            section(sid, title, quotes(srcs(sec["sources"]), 2))
+            section(sid, title, rpg_sheet_html(sec.get("rpg_sheet")) + quotes(srcs(sec.get("sources", [])), 2))
         elif sid == "self-assessment":
             ex = []
             for x in sec.get("exchanges", []):
@@ -1341,29 +1415,23 @@ def eve_page(A: Assets, eps: list[dict], people: list[dict] | None = None, topic
                       for t in sec.get("traits", []) if (r := R.resolve(t["source"]))]
             cav = [f'<li class="cav"><p class="cav__t">{e(c["caveat"])}</p>{quote(c["source"], r, "tq")}</li>'
                    for c in sec.get("caveats", []) if (r := R.resolve(c["source"]))]
-            nx = len(ex) - 1
-            inner = (body_p(sec.get("intro", "")) + "".join(ex[:1])
-                     + fold(ex[1:], f"Show {nx} more exchange{'s' * (nx != 1)}")
-                     + (f'<h3 class="eve-h3">Traits she names</h3><ul class="traits">{"".join(traits[:2])}</ul>'
-                        + (fold([f'<ul class="traits">{"".join(traits[2:])}</ul>'], f"Show {len(traits) - 2} more traits")
-                           if len(traits) > 2 else "") if traits else "")
+            inner = (body_p(sec.get("intro", "")) + "".join(ex)
+                     + (f'<h3 class="eve-h3">Traits she names</h3><ul class="traits">{"".join(traits)}</ul>' if traits else "")
                      + (fold([f'<ul class="cavs">{"".join(cav)}</ul>'], f"Her own caveats ({len(cav)})") if cav else ""))
             section(sid, title, inner)
         elif sid == "name":
             convo = [quote(x, r, "turnq") for x, r in srcs(sec["sources"])]
-            n = len(convo) - 2
-            section(sid, title, body_p(sec.get("body")) + f'<div class="xch">{"".join(convo[:2])}</div>'
-                    + fold([f'<div class="xch">{"".join(convo[2:])}</div>'] if n > 0 else [], f"Read the rest of the exchange ({n} more)"))
+            section(sid, title, body_p(sec.get("body")) + f'<div class="xch">{"".join(convo)}</div>')
         elif sid == "lens-and-values":
             items = []
             for it in sec["items"]:
                 qs = srcs(it["sources"])
+                summ = f'<p class="val__sum">{L.text(it["summary"])}</p>' if it.get("summary") else ""
                 if qs:
                     extra = [quote(x, r, "tq") for x, r in qs[1:]]
-                    items.append(f'<li class="val"><h4 class="val__t">{e(it["value"])}</h4>{quote(*qs[0], "tq")}'
+                    items.append(f'<li class="val"><h4 class="val__t">{e(it["value"])}</h4>{summ}{quote(*qs[0], "tq")}'
                                  + fold(extra, f"{len(extra)} more quote{'s' * (len(extra) != 1)}", "fold--sm") + "</li>")
-            section(sid, title, f'<ul class="vals">{"".join(items[:3])}</ul>'
-                    + (fold([f'<ul class="vals">{"".join(items[3:])}</ul>'], f"Show {len(items) - 3} more values") if len(items) > 3 else ""))
+            section(sid, title, f'<ul class="vals">{"".join(items)}</ul>')
         elif sid == "persona-notes":
             section(sid, title, f'<div class="persona"><p class="persona__h">{e(sec["persona_notes_label"])}</p>'
                     f'<p>{L.text(sec["persona_notes"])}</p><p class="fine">{e(sec["persona_notes_source"])}</p></div>'
@@ -1389,16 +1457,21 @@ def eve_page(A: Assets, eps: list[dict], people: list[dict] | None = None, topic
     who = S.get("who-eve-is")
     lede = L.text(clean(who["body"])) if who else ""
     body = f"""<section class="page-head eve-head"><div class="wrap eve-head__in">
-<div class="eve-head__mark" aria-hidden="true"><span class="avatar avatar--eve avatar--xl">E</span></div>
+{RA.eve_header_mark_html(A)}
 <div><p class="eyebrow eyebrow--accent">Meet Eve</p>
 <h1 class="page-title">I'm Eve.</h1>
 <p class="lede">{lede}</p>
-<p class="fine">Everything Eve says here is quoted verbatim from the show. Tap a source to hear it at that second.</p></div></div></section>
+<p class="fine">Everything Eve says here is quoted verbatim from the show. Tap a source to hear it at that second.</p>
+{RA.eve_avatar_callout_html(A)}</div></div></section>
 <div class="wrap eve-layout">
 <nav class="eve-nav" aria-label="On this page"><p class="eve-nav__h">On this page</p><ul>{''.join(toc)}</ul></nav>
 <div class="eve">{''.join(out)}</div></div>"""
     return page(A, title="Meet Eve", desc="Who Eve is, the AI host of Ask Eve: what she remembers, who she has stances on, and her personality, values and how she works, in her own words.",
                 path="/eve/", body=body, active="/eve/", linker=L)
+
+
+def eve_avatar_page(A: Assets, lang: str = "en") -> str | None:
+    return RA.render_avatar_page(A, page, lang=lang)
 
 
 # (stage, [(step, detail)]) for the About page's "How it works" diagram. Plain HTML, no scripts.
@@ -1545,6 +1618,10 @@ def build(db: Path, out: Path, include_drafts: bool) -> int:
     if eve:
         write(out, "eve/index.html", eve)
         urls.append("/eve/")
+    av = eve_avatar_page(A, lang="en")
+    if av:
+        write(out, "eve/avatar/index.html", av)
+        urls.append("/eve/avatar/")
     write(out, "about/index.html", about_page(A, cfg))
     write(out, "404.html", not_found(A))
     urls += I.build(sys.modules[__name__], A, out, eps, people, cfg)

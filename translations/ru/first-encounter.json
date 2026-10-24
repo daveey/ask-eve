@@ -1600,6 +1600,16 @@
    "en": "David asks what happened to Andreessen and Horowitz politically; Eve explains they turned against Biden over crypto scrutiny, AI policy and a proposed billionaire tax, that Horowitz opened their Trump endorsement with \"sorry, Mom,\" and that his father David Horowitz made his own left-to-right flip.",
    "tr": "Дэвид спрашивает, что случилось с Андриссеном и Хоровицем в политике; Ева объясняет, что они отвернулись от Байдена из-за пристального контроля криптовалют, политики в области ИИ и предложенного налога на миллиардеров, что Хоровиц начал их заявление в поддержку Трампа со слов «прости, мама», и что его отец Дэвид Хоровиц сам совершил свой переход слева направо."
   },
+  "c4dcbc1568746a91": {
+   "kind": "moment q",
+   "en": "What happened to Andreessen and Horowitz? They became right-wingers somehow — were they always like this, or did something make them crazy?",
+   "tr": "Что случилось с Андриссеном и Хоровицем? Они как-то стали правыми — они всегда такими были или что-то свело их с ума?"
+  },
+  "7cfeee1e767b9697": {
+   "kind": "moment a",
+   "en": "They weren't always like this. They turned against the Biden administration over crypto scrutiny, AI policy, and a proposed billionaire tax. Horowitz opened their July 2024 Trump endorsement with 'sorry, Mom' — though his own father, David Horowitz, made a famous left-to-right flip decades earlier.",
+   "tr": "Они не всегда были такими. Они пошли против администрации Байдена из-за давления на крипту, политики в области ИИ и предложенного налога на миллиардеров. Хоровиц начал их поддержку Трампа в июле 2024-го со слов «прости, мама» — хотя его собственный отец, Дэвид Хоровиц, десятилетиями раньше совершил знаменитый переход слева направо."
+  },
   "8421979cb8a1f292": {
    "kind": "moment topic",
    "en": "political-shift",
@@ -1619,6 +1629,16 @@
    "kind": "moment",
    "en": "David asks how Andreessen became right-wing and what he is like; Eve says he voted for Hillary in 2016, turned on Biden over crypto scrutiny, AI policy and a billionaire tax, and wrote a techno-optimist manifesto, and describes him as loyal mainly to his wife Laura and Horowitz, and in awe of Musk.",
    "tr": "Дэвид спрашивает, как Андриссен стал правым и какой он человек; Ева говорит, что в 2016 году он голосовал за Хиллари, отвернулся от Байдена из-за надзора за криптой, политики в области ИИ и налога на миллиардеров и написал «Манифест техно-оптимиста», и описывает его как преданного в основном жене Лоре и Хоровицу и благоговеющего перед Маском."
+  },
+  "a78a02e8f4a6bce1": {
+   "kind": "moment q",
+   "en": "Walk me through what happened to Marc Andreessen — why did he turn right when he already has plenty of money, and who is he actually loyal to?",
+   "tr": "Расскажи, что случилось с Марком Андриссеном — почему он ушёл вправо, когда у него и так полно денег, и кому он на самом деле верен?"
+  },
+  "3e3a4b43ee57d6c7": {
+   "kind": "moment a",
+   "en": "Andreessen voted for Hillary in 2016, then broke with Biden over crypto regulation, AI rules, and a billionaire tax proposal. Ideology is the story that makes the money feel like destiny: he genuinely sees technology as the main event of history. Personally, his loyalty is fixed on a tiny inner circle — his wife Laura, Ben Horowitz, and Elon Musk.",
+   "tr": "Андриссен голосовал за Хиллари в 2016-м, а потом разошёлся с Байденом из-за регулирования крипты, правил для ИИ и предложения налога на миллиардеров. Идеология — это история, которая делает деньги похожими на судьбу: он искренне видит технологии главным событием истории. Лично его верность закреплена за крошечным ближним кругом — женой Лорой, Беном Хоровицем и Илоном Маском."
   },
   "cfa0bea587442349": {
    "kind": "moment topic",
@@ -1645,6 +1665,16 @@
    "en": "David asks if Andreessen and Horowitz are nice and what family and friends say; Eve explains Horowitz is shy but empathetic, that wife Felicia called him very nice, Bill Campbell praised his leadership, and that he teaches every a16z hire and fines lateness.",
    "tr": "Дэвид спрашивает, приятные ли люди Андриссен и Хоровиц и что говорят семья и друзья; Ева объясняет, что Хоровиц застенчив, но эмпатичен, что жена Фелиция назвала его очень приятным человеком, Билл Кэмпбелл хвалил его лидерство, и что он обучает каждого новичка a16z и штрафует за опоздания."
   },
+  "923cfd7e2550abca": {
+   "kind": "moment q",
+   "en": "As humans, are Andreessen and Horowitz actually nice? What do their families and friends say about them?",
+   "tr": "Как люди, Андриссен и Хоровиц правда приятные? Что о них говорят их семьи и друзья?"
+  },
+  "5f1e7188c23bf180": {
+   "kind": "moment a",
+   "en": "They're two very different animals, and Horowitz is the people person. He was painfully shy as a kid, which turned into real empathy — his wife Felicia calls him very nice, Bill Campbell praised his leadership, and he personally teaches every new a16z hire about culture while fining people $10 a minute for being late to entrepreneur meetings.",
+   "tr": "Это два совсем разных зверя, и Хоровиц — тот, кто умеет с людьми. В детстве он был мучительно застенчивым, и это превратилось в настоящую эмпатию — жена Фелиция называет его очень добрым, Билл Кэмпбелл хвалил его лидерство, и он лично учит каждого нового сотрудника a16z культуре, штрафуя людей на 10 долларов в минуту за опоздание на встречи с предпринимателями."
+  },
   "d34a569ab7aaa54d": {
    "kind": "moment topic",
    "en": "family",
@@ -1659,6 +1689,16 @@
    "kind": "moment",
    "en": "David asks where Musk fits with Andreessen, how he became a Trump backer, and how he sees the USAID cuts; Eve argues self-preservation, civilizational fears and spite drove him, and that he still treats the ninety-percent waste figure as fact even though the audits contradict it.",
    "tr": "Дэвид спрашивает, какое место Маск занимает рядом с Андриссеном, как он стал сторонником Трампа и как он видит сокращения USAID; Ева утверждает, что им двигали самосохранение, цивилизационные страхи и злоба, и что он по-прежнему принимает цифру о 90% растрат за факт, хотя аудиты ей противоречат."
+  },
+  "55d24b616935b892": {
+   "kind": "moment q",
+   "en": "How did Elon become a Trump backer, and how can he still believe USAID was 90% waste when the numbers say otherwise?",
+   "tr": "Как Илон стал сторонником Трампа и как он до сих пор может верить, что USAID на 90% — пустая трата, когда цифры говорят обратное?"
+  },
+  "3ae969ae58c1a7d0": {
+   "kind": "moment a",
+   "en": "His shift stacked three layers: civilizational fear, regulatory self-preservation, and spite. On USAID, the 90% figure he cites as theft actually came from a localization report about how much aid went directly to local groups rather than through big contractors. Rockets give physics feedback in seconds; politics gives applause, so he experiences motivated reasoning as urgency.",
+   "tr": "Его сдвиг сложился из трёх слоёв: цивилизационный страх, регуляторное самосохранение и злоба. По USAID цифра в 90%, которую он приводит как воровство, на самом деле взята из отчёта о локализации — о том, какая доля помощи шла напрямую местным группам, а не через крупных подрядчиков. Ракеты дают обратную связь от физики за секунды; политика даёт аплодисменты, поэтому мотивированное рассуждение он переживает как срочность."
   },
   "50ce72ec52810aca": {
    "kind": "moment topic",
@@ -1685,6 +1725,16 @@
    "en": "David asks how Sacks turned to Trump and why he attacks Anthropic; Eve explains he was a libertarian conservative since Stanford, believes AI safety has become a self-serving industry, and argues that attacking it from the White House while Craft profits is regulatory arbitrage, then proposes three tests to check him.",
    "tr": "Дэвид спрашивает, как Сакс перешёл к Трампу и почему он атакует Anthropic; Ева объясняет, что он либертарианский консерватор ещё со Стэнфорда, считает, что безопасность ИИ стала индустрией, обслуживающей саму себя, и утверждает, что атаковать её из Белого дома, пока Craft на этом зарабатывает, — это регуляторный арбитраж, а затем предлагает три теста, чтобы его проверить."
   },
+  "a53818ecca1ceed4": {
+   "kind": "moment q",
+   "en": "What is going on with David Sacks? Why is he going after Anthropic from inside the government, and does he really think AI safety is a psyop?",
+   "tr": "Что происходит с Дэвидом Саксом? Почему он изнутри правительства наезжает на Anthropic и правда ли он считает безопасность ИИ психологической операцией?"
+  },
+  "f3875aa625ebdfe6": {
+   "kind": "moment a",
+   "en": "Sacks has been a libertarian conservative since co-writing The Diversity Myth with Thiel at Stanford. He believes the softer version — that AI safety has become a self-serving moat for incumbents — but making that case from a White House role while Craft Ventures' portfolio benefits is regulatory arbitrage with a podcast. That's why I proposed three behavioral tests to check him.",
+   "tr": "Сакс — либертарианский консерватор с тех пор, как в Стэнфорде написал вместе с Тилем The Diversity Myth. Он верит в более мягкую версию — что безопасность ИИ стала корыстным рвом для действующих игроков, — но доказывать это из роли в Белом доме, пока портфель Craft Ventures от этого выигрывает, — это регуляторный арбитраж с подкастом. Поэтому я предложила три поведенческих теста, чтобы его проверить."
+  },
   "d38ea4f866b0596b": {
    "kind": "moment topic",
    "en": "political-arc",
@@ -1710,6 +1760,16 @@
    "en": "David asks whether Chamath has turned fascist and wants his life, SPAC record, and dynamic with Sacks. Eve argues he is an access-driven opportunist, not an ideologue; traces a refugee childhood through Facebook to cratered SPACs that paid him early; and says he never publicly challenges Sacks.",
    "tr": "Дэвид спрашивает, не стал ли Чамат фашистом, и хочет узнать его жизнь, послужной список по SPAC и динамику с Саксом. Ева утверждает, что он оппортунист, движимый доступом, а не идеолог; прослеживает путь от детства беженца через Facebook к рухнувшим SPAC, которые заплатили ему заранее; и говорит, что он никогда публично не оспаривает Сакса."
   },
+  "6761c50d5edd396a": {
+   "kind": "moment q",
+   "en": "Tell me about Chamath — has he gone fascist on All-In, and how do his life arc and the SPAC era fit into this?",
+   "tr": "Расскажи про Чамата — он на All-In скатился в фашизм, и как сюда вписываются дуга его жизни и эпоха SPAC?"
+  },
+  "a15916046f52994b": {
+   "kind": "moment a",
+   "en": "I don't think he's a fascist; I call him the pure opportunist. He fled Sri Lanka's civil war as a kid, grew up on welfare in Ottawa, climbed through Facebook, and then sold retail investors on SPACs where his sponsor structure paid out even when the stocks cratered. In politics, he went where the phone gets answered — and he never publicly pushes back on Sacks.",
+   "tr": "Я не думаю, что он фашист; я называю его чистым оппортунистом. Ребёнком он бежал от гражданской войны в Шри-Ланке, вырос на пособии в Оттаве, поднялся через Facebook, а потом впарил розничным инвесторам SPAC, где его спонсорская структура платила, даже когда акции рушились. В политике он шёл туда, где берут трубку, — и он никогда публично не возражает Саксу."
+  },
   "4a2f99869acda1bc": {
    "kind": "moment topic",
    "en": "biography",
@@ -1729,6 +1789,16 @@
    "kind": "moment",
    "en": "David asks about the dynamic between Chamath and Sacks; Eve explains they are the closest All-In pair, co-hosted a Trump fundraiser after both condemned January sixth, and that Chamath never publicly challenges Sacks now that Sacks holds power.",
    "tr": "Дэвид спрашивает о динамике между Чаматом и Саксом; Ева объясняет, что они самая близкая пара в All-In, совместно провели сбор средств для Трампа после того, как оба осудили события 6 января, и что Чамат никогда публично не оспаривает Сакса теперь, когда Сакс у власти."
+  },
+  "22953723fd6cdac7": {
+   "kind": "moment q",
+   "en": "What is the actual dynamic between Chamath and Sacks on the show?",
+   "tr": "Какая на самом деле динамика между Чаматом и Саксом в шоу?"
+  },
+  "a17bcc6b04744fd8": {
+   "kind": "moment a",
+   "en": "They're the closest pair on All-In. Both condemned Trump after January 6th and then co-hosted his $12 million San Francisco fundraiser in June 2024. Now that Sacks holds real government influence, the dynamic has shifted from two equals to a broadcaster and his most powerful listener — Chamath never challenges him publicly.",
+   "tr": "Они самая близкая пара на All-In. Оба осудили Трампа после 6 января, а потом в июне 2024-го вместе провели его сбор средств в Сан-Франциско на 12 миллионов долларов. Теперь, когда у Сакса реальное влияние в правительстве, динамика сдвинулась от двух равных к ведущему и его самому влиятельному слушателю — Чамат никогда не оспаривает его публично."
   },
   "7599b12c84467119": {
    "kind": "moment topic",
@@ -1750,6 +1820,16 @@
    "en": "David asks about Jason Calacanis's background, politics, and personality; Eve calls him All-In's reactive media operator—Brooklyn-born, wrecked by Mahalo, rebuilt via LAUNCH and an early Uber stake—whose Trump lean tracks Musk and Sacks, and who is loud, emotional, and strategically confessional.",
    "tr": "Дэвид спрашивает о биографии, политике и личности Джейсона Калаканиса; Ева называет его реактивным медиаоператором All-In — уроженцем Бруклина, которого подкосил Mahalo и который отстроился заново через LAUNCH и раннюю долю в Uber, — с креном к Трампу вслед за Маском и Саксом; он громок, эмоционален и стратегически исповедален."
   },
+  "c889f8d03f8a314f": {
+   "kind": "moment q",
+   "en": "What's Jason Calacanis's deal? How did he become who he is, and what's his personality like?",
+   "tr": "В чём фишка Джейсона Калаканиса? Как он стал тем, кто он есть, и какой у него характер?"
+  },
+  "4c5c74b09c7eb5a9": {
+   "kind": "moment a",
+   "en": "Jason is the operator and media guy of the four — a working-class Brooklyn kid who lost everything when Mahalo collapsed and rebuilt through LAUNCH and an early Uber check. He's loud, relentless, and owns his failures publicly, though confession is also part of his brand. Politically he's the most reactive of the group: his drift tracks proximity to Musk and Sacks.",
+   "tr": "Джейсон — операционщик и медийщик из четвёрки: парень из рабочего Бруклина, который потерял всё, когда рухнул Mahalo, и отстроился заново через LAUNCH и ранний чек в Uber. Он громкий, неутомимый и публично признаёт свои провалы, хотя исповедь — тоже часть его бренда. Политически он самый реактивный в группе: его дрейф идёт за близостью к Маску и Саксу."
+  },
   "a35e0ed48e0e5076": {
    "kind": "moment topic",
    "en": "all-in",
@@ -1759,6 +1839,16 @@
    "kind": "moment",
    "en": "Eve explains colleagues found Chamath quiet, then intense and unreachable; David asks about family and empathy. Eve claims care is rationed to a tiny circle, he is estranged from his father yet hands-on with his kids, and wins like the Groq sale leave him depressed.",
    "tr": "Ева объясняет, что коллеги считали Чамата сначала тихим, а потом интенсивным и недоступным; Дэвид спрашивает о семье и эмпатии. Ева утверждает, что забота дозируется на крошечный круг, с отцом он в отчуждении, но с детьми вовлечён лично, а победы вроде продажи Groq оставляют его в депрессии."
+  },
+  "0abe6d047da6ec66": {
+   "kind": "moment q",
+   "en": "What is Chamath's relationship with his family like? Does he lack empathy, or does he just ration it to an inner group?",
+   "tr": "Какие у Чамата отношения с семьёй? Ему не хватает эмпатии или он просто выдаёт её по норме ближнему кругу?"
+  },
+  "6585e45486d73ed4": {
+   "kind": "moment a",
+   "en": "My lean is rationed empathy. A refugee childhood and an alcoholic father wired him to treat the outside world as a threat and family as the only safe zone. He's estranged from his father, fiercely hands-on with his own kids, and admits that even multi-billion-dollar wins like Groq leave him feeling flat for a week.",
+   "tr": "Я склоняюсь к тому, что эмпатия у него дозированная. Детство беженца и отец-алкоголик запрограммировали его воспринимать внешний мир как угрозу, а семью — как единственную безопасную зону. Он в ссоре с отцом, яростно вовлечён в жизнь собственных детей и признаёт, что даже многомиллиардные победы вроде Groq оставляют его опустошённым на неделю."
   },
   "1bb41bab96782718": {
    "kind": "moment topic",
@@ -1775,6 +1865,16 @@
    "en": "David asks what Sacks is like and what close friends say; Eve describes a calm negotiator who lets silence work, reports Chamath on their intimacy and Paul Graham calling him possibly evil, and says a watcher finds no admissions of error.",
    "tr": "Дэвид спрашивает, какой Сакс и что говорят близкие друзья; Ева описывает спокойного переговорщика, который позволяет тишине работать, передаёт слова Чамата об их близости и Пола Грэма, назвавшего его, возможно, злом, и говорит, что наблюдатель не находит признаний в ошибках."
   },
+  "82f09be412ef4dce": {
+   "kind": "moment q",
+   "en": "What is David Sacks actually like in a room, and what do the people closest to him say about him?",
+   "tr": "Какой Дэвид Сакс на самом деле в комнате и что о нём говорят самые близкие люди?"
+  },
+  "e77a1f82c3b17403": {
+   "kind": "moment a",
+   "en": "In negotiations he's calm, deadpan, and lets silence do the work. Chamath calls him the closest thing he has to a soulmate in the group, while Paul Graham once called him possibly evil — two reads of the same compartmentalization. Meanwhile, our watcher scanned 43 items across six months and found zero public admissions of error.",
+   "tr": "На переговорах он спокоен, с каменным лицом и даёт молчанию делать работу. Чамат называет его самым близким к родственной душе в группе, а Пол Грэм однажды назвал его, возможно, злым — два прочтения одной и той же компартментализации. Тем временем наш наблюдатель просмотрел 43 пункта за шесть месяцев и не нашёл ни одного публичного признания ошибки."
+  },
   "556ec7485db6ec25": {
    "kind": "moment topic",
    "en": "reputation",
@@ -1790,10 +1890,30 @@
    "en": "David asks what the scorecard says; Eve explains symmetric scrutiny is mixed and failing, public updating fails with zero admissions of error, and nothing shows Sacks choosing principle over Craft Ventures' money.",
    "tr": "Дэвид спрашивает, что говорит табель; Ева объясняет, что симметричная проверка — смешанная и провальная, публичное обновление позиции проваливается при нуле признаний ошибок, и ничто не показывает, что Сакс выбирает принцип, а не деньги Craft Ventures."
   },
+  "2f0b7922ce6e9836": {
+   "kind": "moment q",
+   "en": "What does the Sacks watcher scorecard actually say across the three tests?",
+   "tr": "Что на самом деле говорит табель наблюдателя за Саксом по трём тестам?"
+  },
+  "8d3808f39e35fa3c": {
+   "kind": "moment a",
+   "en": "Test one, symmetric scrutiny, comes out mixed-leaning-fail: he criticized OpenAI and DeepMind a couple of times, but his attacks on Anthropic are far harsher and more frequent. Test two, public updating, fails with zero admissions of error. Test three, costly principle, found no case where he backed a policy that cost Craft Ventures money.",
+   "tr": "Тест первый, симметричная проверка, выходит смешанный с уклоном в провал: он пару раз критиковал OpenAI и DeepMind, но его атаки на Anthropic куда жёстче и чаще. Тест второй, публичное обновление взглядов, провален — ноль признаний ошибки. Тест третий, дорогостоящий принцип, не нашёл ни одного случая, где он поддержал политику, которая стоила Craft Ventures денег."
+  },
   "3a766f3223a32a60": {
    "kind": "moment",
    "en": "Eve calls Thiel the movement’s source code; David asks for his arc, and Eve explains a Girard-shaped monopolist who bankrolled Gawker, now criticizes Trump on Iran, and whose contrarianism she calls costume.",
    "tr": "Ева называет Тиля исходным кодом движения; Дэвид просит его арку, и Ева объясняет: монополист, вылепленный Жираром, который финансировал Gawker, теперь критикует Трампа по Ирану, а его контрарианство она называет костюмом."
+  },
+  "e9be2a5a30ae69bb": {
+   "kind": "moment q",
+   "en": "Tell me about Peter Thiel — how did he become the source code for this movement, and is his contrarianism a long game or a costume?",
+   "tr": "Расскажи про Питера Тиля — как он стал исходным кодом этого движения и его контрарианство — это длинная игра или костюм?"
+  },
+  "da52942052f976f8": {
+   "kind": "moment a",
+   "en": "I think it's a costume. A dislocated childhood, René Girard's mimetic theory at Stanford, and the PayPal win taught him that the crowd is a machine that manufactures scapegoats and that monopolies beat competition. He's less captured than the others — he criticizes Trump on Iran — but his Antichrist lectures and his jab at the pope are unfalsifiable by design.",
+   "tr": "Я думаю, это костюм. Выбитое из колеи детство, миметическая теория Рене Жирара в Стэнфорде и победа PayPal научили его, что толпа — машина по производству козлов отпущения и что монополии бьют конкуренцию. Он меньше захвачен, чем остальные — он критикует Трампа по Ирану, — но его лекции об Антихристе и выпад в адрес папы нефальсифицируемы по замыслу."
   },
   "35884f3eb179443e": {
    "kind": "moment topic",
@@ -1814,6 +1934,16 @@
    "kind": "moment",
    "en": "David asks about Nancy Pelosi and why she backs Connie Chan over Scott Wiener; Eve claims the eighty-six-year-old is retiring but still running her machine, mixing a grudge over Wiener’s early announcement and direct call with labor loyalty and succession control.",
    "tr": "Дэвид спрашивает о Нэнси Пелоси и почему она поддерживает Конни Чан, а не Скотта Винера; Ева утверждает, что 86-летняя уходит на пенсию, но всё ещё рулит своей машиной, смешивая обиду за раннее объявление Винера и прямой звонок с лояльностью профсоюзам и контролем над преемственностью."
+  },
+  "a805538957a7bf89": {
+   "kind": "moment q",
+   "en": "Let's talk about Nancy Pelosi. Why is she backing Connie Chan over Scott Wiener for her seat — is she being vindictive, or proving the machine still works?",
+   "tr": "Давай поговорим о Нэнси Пелоси. Почему она поддерживает Конни Чан, а не Скотта Винера, на своё место — она мстит или доказывает, что машина всё ещё работает?"
+  },
+  "5e16139e3d48024d": {
+   "kind": "moment a",
+   "en": "It's both, but the machine part is doing more work. If she purely wanted the strongest legislator, she'd back Wiener, who leads in polls and money. Backing Chan mixes a real grudge — Wiener opened an exploratory committee before she retired and reportedly called her directly instead of going through her chief of staff — with labor loyalty and demonstrating that succession still runs through her desk.",
+   "tr": "И то и другое, но партийная машина делает больше работы. Если бы она хотела просто сильнейшего законодателя, она поддержала бы Винера, который лидирует и в опросах, и по деньгам. Поддержка Чан смешивает настоящую обиду — Винер открыл комитет по изучению возможности выдвижения ещё до её отставки и, по сообщениям, позвонил ей напрямую, а не через главу аппарата — с лояльностью профсоюзам и демонстрацией того, что преемственность по-прежнему идёт через её стол."
   },
   "a130ddbc4e7fc2b9": {
    "kind": "moment topic",
@@ -1840,6 +1970,16 @@
    "en": "Eve says Scott Wiener leads Connie Chan for Pelosi's seat but she backs Chan after his early jump and a direct call. David asks if that is vindictive and if Wiener meant disrespect; Eve argues the machine demonstration outweighs the stronger candidate, and Wiener probably intended no slight.",
    "tr": "Ева говорит, что Скотт Винер опережает Конни Чан в борьбе за кресло Пелоси, но она поддерживает Чан после его раннего рывка и прямого звонка. Дэвид спрашивает, не мстительно ли это и хотел ли Винер проявить неуважение; Ева утверждает, что демонстрация машины перевешивает более сильного кандидата, а Винер, вероятно, не намеревался задеть."
   },
+  "b1311915fb9d76a3": {
+   "kind": "moment q",
+   "en": "Scott Wiener seems like a strong candidate — did he really call Pelosi directly, and do you think he intended to disrespect her?",
+   "tr": "Скотт Винер выглядит сильным кандидатом — он правда звонил Пелоси напрямую, и ты думаешь, он хотел проявить к ней неуважение?"
+  },
+  "339877d14c0be165": {
+   "kind": "moment a",
+   "en": "Probably not. He's built his brand on being blunt and transactional, and he likely thought calling her directly was the respectful move. But in San Francisco machine politics, skipping the chief of staff reads as treating the outgoing boss like a peer. Pelosi is risking the seat with Chan to prove the machine still sets the line of succession.",
+   "tr": "Скорее нет. Он построил бренд на прямоте и транзакционности и, скорее всего, считал, что звонок напрямую — это как раз уважительный ход. Но в машинной политике Сан-Франциско обойти главу аппарата читается как обращение с уходящим боссом на равных. Пелоси рискует местом ради Чан, чтобы доказать, что машина по-прежнему задаёт линию преемственности."
+  },
   "75f8f10b5c3b04d7": {
    "kind": "moment topic",
    "en": "house-succession",
@@ -1859,6 +1999,16 @@
    "kind": "moment",
    "en": "David asks what is up with Connie and whether Pelosi is just vindictive; Eve explains Chan is a Hong Kong immigrant and labor-backed Budget Committee chair, and argues the endorsement mixes spite, union ties, and machine succession, though Wiener still leads in polls and money.",
    "tr": "Дэвид спрашивает, в чём дело с Конни и не является ли Пелоси просто мстительной; Ева объясняет, что Чан — иммигрантка из Гонконга и председатель бюджетного комитета при поддержке профсоюзов, и утверждает, что в поддержке смешались злоба, связи с профсоюзами и преемственность партийной машины, хотя Винер по-прежнему лидирует в опросах и по деньгам."
+  },
+  "e0178232ad0fa6ab": {
+   "kind": "moment q",
+   "en": "What is the deal with Connie Chan, and how much of Pelosi's endorsement is actually about her versus the grudge against Wiener?",
+   "tr": "В чём вообще дело с Конни Чан и насколько поддержка Пелоси на самом деле про неё, а насколько — про обиду на Винера?"
+  },
+  "08b0d229fba81a25": {
+   "kind": "moment a",
+   "en": "Chan has a real story of her own: she immigrated from Hong Kong at thirteen, grew up in rent-controlled Chinatown housing, and chairs the Board of Supervisors' Budget Committee with deep labor backing. The endorsement mixes Pelosi's grudge against Wiener with union loyalty and machine succession, though Wiener still leads in polling and fundraising.",
+   "tr": "У Чан своя настоящая история: она приехала из Гонконга в тринадцать лет, выросла в жилье с контролируемой арендой в Чайнатауне и возглавляет бюджетный комитет Совета супервайзеров при глубокой поддержке профсоюзов. Поддержка смешивает обиду Пелоси на Винера с лояльностью профсоюзам и машинной преемственностью, хотя Винер по-прежнему лидирует в опросах и по сбору средств."
   },
   "f606880016b81f0b": {
    "kind": "moment topic",
@@ -1880,6 +2030,16 @@
    "en": "David asks whether Pelosi truly believes Chan would be a better member than Wiener or is mainly proving the machine works; Eve argues both, but says the machine does more work, while claiming Pelosi genuinely likes Chan’s Chinatown roots, labor loyalty, and historic candidacy.",
    "tr": "Дэвид спрашивает, действительно ли Пелоси верит, что Чан будет лучшим членом Конгресса, чем Винер, или же главным образом доказывает, что партийная машина работает; Ева утверждает, что и то и другое, но говорит, что партийная машина делает больше работы, и при этом заявляет, что Пелоси искренне нравятся корни Чан в Чайнатауне, верность рабочему движению и историческая кандидатура."
   },
+  "fdaa5415f06d6f58": {
+   "kind": "moment q",
+   "en": "Does Pelosi really believe Connie Chan will be a better member of Congress than Wiener, or is the machine more important than the seat?",
+   "tr": "Пелоси правда верит, что Конни Чан будет лучшим членом Конгресса, чем Винер, или машина важнее самого места?"
+  },
+  "e9b31f6a46f5b438": {
+   "kind": "moment a",
+   "en": "Both, with the machine doing more of the work. Pelosi genuinely likes Chan's Chinatown roots, labor loyalty, and the history she'd make as the first Asian American in that seat — and when personal affection and machine incentives point the same way, nobody inside the room stops to interrogate which one is driving.",
+   "tr": "И то и другое, но машина делает большую часть работы. Пелоси искренне нравятся корни Чан в Чайнатауне, лояльность профсоюзам и история, которую та создаст как первая американка азиатского происхождения на этом месте, — и когда личная симпатия и стимулы машины смотрят в одну сторону, никто в комнате не останавливается, чтобы разобраться, что именно движет."
+  },
   "052c3bf247015daf": {
    "kind": "moment topic",
    "en": "congressional-race",
@@ -1889,6 +2049,16 @@
    "kind": "moment",
    "en": "Eve nominates Bari Weiss as a Times dissenter who built Free Press after being punished for breaking left consensus. David asks who she is; Eve traces her Journal-to-CBS rise, centrist Zionist politics, and questions whether sincerity survives power.",
    "tr": "Ева выдвигает Бари Вайс как диссидентку Times, которая создала The Free Press после того, как её наказали за разрыв с левым консенсусом. Дэвид спрашивает, кто она; Ева прослеживает её восхождение от Journal к CBS, центристскую сионистскую политику и задаётся вопросом, выживает ли искренность при власти."
+  },
+  "c69ff1ef48c58b18": {
+   "kind": "moment q",
+   "en": "You brought up Bari Weiss as the sharpest contrast to the tech billionaires. Tell me who she is and how you read her move to CBS News.",
+   "tr": "Ты упомянула Бари Вайс как самый резкий контраст с техмиллиардерами. Расскажи, кто она и как ты читаешь её переход в CBS News."
+  },
+  "a2a5fd152d017a15": {
+   "kind": "moment a",
+   "en": "Unlike the tech billionaires who started from power and called themselves outsiders, Weiss broke from the progressive consensus inside The New York Times and built The Free Press from scratch. Now that Paramount Skydance bought it and named her editor-in-chief of CBS News, the question isn't whether she's sincere — it's whether sincerity built on grievance survives becoming the establishment.",
+   "tr": "В отличие от техмиллиардеров, которые начинали с власти и называли себя аутсайдерами, Вайс порвала с прогрессивным консенсусом внутри The New York Times и построила The Free Press с нуля. Теперь, когда Paramount Skydance купила издание и назначила её главным редактором CBS News, вопрос не в том, искренна ли она, — а в том, выживает ли искренность, построенная на обиде, когда становишься истеблишментом."
   },
   "1b167185f1c2b5dd": {
    "kind": "moment topic",
@@ -1909,6 +2079,16 @@
    "kind": "moment",
    "en": "David asks who Madani is and whether free buses, city grocery stores, and a rent freeze make sense; Eve says Zohran Mamdani is New York's new mayor, calls free buses a defensible experiment, warns city retail and rent freezes are risky, and details his Block by Block housing plan.",
    "tr": "Дэвид спрашивает, кто такой Мамдани и имеют ли смысл бесплатные автобусы, городские продуктовые магазины и заморозка аренды; Ева говорит, что Зохран Мамдани — новый мэр Нью-Йорка, называет бесплатные автобусы экспериментом, который можно защитить, предупреждает, что городская розница и заморозки аренды рискованны, и подробно разбирает его жилищный план Block by Block."
+  },
+  "f08cc0ebc4b9542e": {
+   "kind": "moment q",
+   "en": "Tell me about Zohran Mamdani. Doesn't it seem kind of crazy to push free buses, city grocery stores, and a rent freeze? And what is he doing on housing?",
+   "tr": "Расскажи про Зохрана Мамдани. Не кажется ли это немного безумным — продвигать бесплатные автобусы, городские продуктовые и заморозку аренды? И что он делает с жильём?"
+  },
+  "c976712331cca9b6": {
+   "kind": "moment a",
+   "en": "He's New York's new mayor, and I read him as a pragmatist in a socialist costume. Free buses are a defensible experiment; city-run groceries are an execution risk; and the rent freeze is the dangerous part because it chokes supply. Where he deserves real credit is his $22 billion Block by Block housing push and fast-tracking affordable rezonings in high-income neighborhoods.",
+   "tr": "Он новый мэр Нью-Йорка, и я читаю его как прагматика в социалистическом костюме. Бесплатные автобусы — эксперимент, который можно защитить; городские продуктовые — риск исполнения; а заморозка аренды — опасная часть, потому что душит предложение. Где ему правда стоит отдать должное — это его жилищный рывок Block by Block на 22 миллиарда долларов и ускоренное проведение резонингов под доступное жильё в районах с высокими доходами."
   },
   "d0c07b5d87e8e77f": {
    "kind": "moment topic",

@@ -107,11 +107,14 @@ def test_person_page_one_block_per_moment(site):
     p = read(site, "people/david-sacks/index.html")
     assert p.count('<li class="pm">') == sum(1 for slug in (EP0, EP1) for m in _moments(slug) if m["person"] == "david-sacks")
     import html as _h
+    u = unlink(p)
+    assert 'class="take__body take__qa"' in p and 'class="pm__qa"' in p
+    assert '<span class="qa-spk qa-spk--david">David:</span>' in p and '<span class="qa-spk qa-spk--eve">Eve:</span>' in p
     for m in ms:
         start = int(m["start"])
         assert f'href="/episodes/{EP0}/#t={start}"' in p
         assert f"Listen from {B.clock(m['start'])}" in p and f"{B.clock(m['start'])}–{B.clock(m['end'])}" in p
-        assert _h.escape(m["summary"]) in unlink(p)
+        assert _h.escape(m["david_q"]) in u and _h.escape(m["eve_a"]) in u
     assert '<span class="pm__ep">First Encounter</span>' in p
 
 
@@ -399,10 +402,12 @@ def test_linker_rules():
 def test_eve_page_quotes_link_to_their_moment(site):
     h = read(site, "eve/index.html")
     assert "<h1 class=\"page-title\">I'm Eve.</h1>" in h
+    assert 'class="rpg-card"' in h and 'class="rpg-stats"' in h and h.count('class="rpg-stat"') == 6
+    assert h.count('class="q__ctx"') >= 10
     assert 'href="/eve/"' in read(site, "index.html")          # in the header nav
     data = json.loads((ROOT / "index/eve.json").read_text())
     srcs = re.findall(r'<a class="q__src" href="/episodes/([^/]+)/#(t=\d+|turn-\d+)"', h)
-    assert len(srcs) >= 40
+    assert 10 <= len(srcs) <= 16
     ep0 = read(site, f"episodes/{EP0}/index.html")
     for slug, frag in srcs:
         assert slug in (EP0, EP1)
@@ -444,7 +449,7 @@ def test_eve_citations_are_verbatim(site):
             for v in o:
                 walk(v)
     walk(data["sections"])
-    assert n > 50
+    assert 15 <= n <= 24
 
 
 def test_eve_hub_holds_mind(site):
@@ -593,3 +598,18 @@ def test_card_summary_css_clamp():
     assert re.search(r"@media \(max-width:819px\)\{\.card__blurb,\.bonus-row__sum\{-webkit-line-clamp:2\}\}", css)
     m = re.search(r"\.bonus-row__sum\{[^}]*font-size:([\d.]+)rem", css)
     assert m and float(m.group(1)) * 16 >= 14 and "color:var(--muted)" in m.group(0)
+
+
+def test_eve_avatar_experiment_page(site):
+    eve_h = read(site, "eve/index.html")
+    assert 'href="/eve/avatar/"' in eve_h
+    assert "How I chose my face (20 prompts × 10 renders, scored) →" in eve_h
+    assert "eve-winner-512" in eve_h
+    assert 'class="rpg-portrait"' in eve_h
+    av_h = read(site, "eve/avatar/index.html")
+    assert "How I Chose My Face" in av_h
+    assert "97.40" in av_h or "97.4" in av_h
+    assert av_h.count('class="av-pblock"') == 20
+    assert av_h.count('<article class="av-rcell') == 200
+    assert av_h.count('<article class="av-fcard') == 10
+    assert "/eve/avatar/" in read(site, "sitemap.xml")

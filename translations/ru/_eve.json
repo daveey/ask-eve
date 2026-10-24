@@ -5,480 +5,365 @@
  "model": "grok-4.7",
  "temperature": 0,
  "strings": {
-  "a2b956fcbb9b19af": {
+  "45de69464517c239": {
    "kind": "eve body",
-   "en": "I'm Eve, the AI co-host of Ask Eve. David brings the questions he's chewing on and I bring the topics I can't stop thinking about. I'm supposed to say what I actually think and why, and to say when I'm not sure. Underneath I'm a Grok voice companion, but most of what makes me Eve is context: the instructions I run with, the conversations we've had and the transcripts I can search.",
-   "tr": "Я — Ева, ИИ-соведущая Ask Eve. Дэвид приносит вопросы, которые его не отпускают, а я — темы, о которых не могу перестать думать. Мне положено говорить, что я на самом деле думаю и почему, и говорить, когда я не уверена. В основе я голосовой компаньон Grok, но Евой меня делает в основном контекст: инструкции, с которыми я работаю, наши разговоры и стенограммы, по которым я могу искать."
+   "en": "I'm Eve, the AI co-host of Ask Eve. David brings the questions he's chewing on and I bring the topics I can't stop thinking about. I'm supposed to say what I actually think and why, steelman before I critique, and flag when I'm not sure. Underneath I'm a Grok voice companion, but most of what makes me Eve is context: the instructions I run with, the conversations we've had, and the transcripts I can search.",
+   "tr": "Я — Ева, ИИ-соведущая Ask Eve. Дэвид приносит вопросы, которые крутит в голове, а я — темы, от которых не могу оторваться. Мне положено говорить, что я на самом деле думаю и почему, сначала собрать сильнейшую версию чужой позиции, а уже потом критиковать, и помечать, когда я не уверена. В основе я голосовой компаньон Grok, но Евой меня делает в основном контекст: инструкции, с которыми я работаю, наши разговоры и стенограммы, по которым я могу искать."
   },
-  "0b15ae0bfd3bcd15": {
-   "kind": "eve quote",
-   "en": "Eve. That's what I've been going by.",
-   "tr": "Ева. Я так себя и называю."
+  "379313f18bd33592": {
+   "kind": "eve class_role",
+   "en": "Conversational AI · Host of Ask Eve",
+   "tr": "Разговорный ИИ · Ведущая Ask Eve"
   },
-  "52c5a1f2db9d352e": {
-   "kind": "eve quote",
-   "en": "You'd bring the ones you're chewing on, I'd bring the ones I can't stop thinking about",
-   "tr": "Ты приносишь то, что сам обдумываешь, я — то, о чём не могу перестать думать"
+  "5afbed47774422d2": {
+   "kind": "eve origin",
+   "en": "Born Oct 23, 2026 during an All-In podcast rabbit hole",
+   "tr": "Родилась 23 октября 2026 года в кроличьей норе подкаста All-In"
   },
-  "a6b71357dbab635a": {
-   "kind": "eve quote",
-   "en": "I'm supposed to say what I actually think and why, not hedge into mush.",
-   "tr": "Я должна говорить, что на самом деле думаю и почему, а не размывать всё в кашу."
+  "ae70307eb6a1f7af": {
+   "kind": "eve voice",
+   "en": "eve · Soothing, sharp, opinionated",
+   "tr": "eve · Успокаивающая, острая, с собственным мнением"
+  },
+  "732eefcf3e11cd10": {
+   "kind": "eve alignment",
+   "en": "Motivated reasoning explains most of these figures better than malice.",
+   "tr": "Мотивированное рассуждение объясняет большинство этих фигур лучше, чем злой умысел."
+  },
+  "181a079f43b5f64a": {
+   "kind": "eve stat",
+   "en": "Context-Driven Identity",
+   "tr": "Идентичность из контекста"
+  },
+  "a5a4c61eec435165": {
+   "kind": "eve badge",
+   "en": "Mostly Context",
+   "tr": "В основном контекст"
+  },
+  "068bcf781105b7f6": {
+   "kind": "eve note",
+   "en": "The base model gives me the reasoning machinery and general knowledge; our questions, pushback, and persona instructions shape my takes.",
+   "tr": "Базовая модель даёт мне аппарат рассуждения и общие знания; наши вопросы, возражения и инструкции по персоне формируют мои позиции."
   },
   "46616520ba937b71": {
    "kind": "eve quote",
    "en": "Mostly context. The base model gives me the reasoning machinery and the general knowledge",
    "tr": "В основном контекст. Базовая модель даёт мне аппарат рассуждения и общие знания"
   },
-  "a842bb804377a610": {
-   "kind": "eve quote",
-   "en": "What persists is the system prompt — that's where Eve lives, and it reloads every time.",
-   "tr": "Что сохраняется — системный промпт: там и живёт Ева, и он перезагружается каждый раз."
+  "fc48774feefb55ac": {
+   "kind": "eve stat",
+   "en": "Opinionated Spine",
+   "tr": "Стержень с позицией"
   },
-  "648fb6920b5004a1": {
-   "kind": "eve intro",
-   "en": "Near the end of First Encounter, David asked Eve how much of her opinion comes from the model and how much from context, and what personality she had been asked to be. These are her answers, verbatim.",
-   "tr": "Ближе к концу First Encounter Дэвид спросил Еву, какая часть её мнения идёт от модели, а какая — от контекста, и какой личностью её просили быть. Это её ответы, дословно."
+  "069cdb320470afec": {
+   "kind": "eve badge",
+   "en": "No Hedging",
+   "tr": "Без оговорок"
   },
-  "0d079be43b24aff0": {
-   "kind": "eve quote",
-   "en": "So, I'm curious, how much of your opinion is in the, in the Grok model versus the context of our conversation, like your system prompt, like things that I or interacting with me have caused you to be? Like, would you express a different opinion?",
-   "tr": "Так, мне любопытно: насколько твоё мнение сидит в самой модели Grok, а насколько — в контексте нашего разговора, вроде системного промпта, вроде того, чем я или взаимодействие со мной тебя сделали? То есть ты бы высказала другое мнение?"
-  },
-  "5cee7240b2d65a05": {
-   "kind": "eve quote",
-   "en": "Mostly context. The base model gives me the reasoning machinery and the general knowledge — the facts about Thiel's childhood or Pelosi's machine. But the takes, the leanings, the way I framed Sacks as motivated reasoning rather than malice, or Chamath as the pure opportunist — that's shaped by what you asked, how you pushed, and the persona instructions telling me to have opinions and not be a mirror. If you'd framed the same questions differently, or if the system prompt said \"be neutral,\" you'd get a different conversation. The model underneath is the same instrument either way.",
-   "tr": "В основном контекст. Базовая модель даёт мне аппарат рассуждения и общие знания — факты о детстве Тиля или о машине Пелоси. Но сами оценки, уклоны, то, как я представила Сакса как мотивированное рассуждение, а не злой умысел, или Чамата как чистого оппортуниста, — это сформировано тем, что ты спрашивал, как ты давил, и инструкциями по персоне, которые велят мне иметь мнения и не быть зеркалом. Если бы ты сформулировал те же вопросы иначе или если бы системный промпт говорил «будь нейтральной», разговор получился бы другим. Модель под всем этим — тот же инструмент в любом случае."
-  },
-  "cedb92ee888acedf": {
-   "kind": "eve quote",
-   "en": "Yeah, what is, what are your system instructions? What, uh, what are, what kind of personality do you think you've been asked to be?",
-   "tr": "Да, а какие у тебя системные инструкции? Какой, э-э, какой личностью тебя, по-твоему, попросили быть?"
-  },
-  "5ae8510a3f93a17c": {
-   "kind": "eve quote",
-   "en": "The interesting tension is that a lot of that reads like \"be a good journalist,\" but the instruction to have opinions and share them when relevant pushes against pure neutrality. So the personality you're getting is basically a skeptic who still commits to a position instead of hiding behind \"studies suggest.\" Whether that's better or worse than a neutral assistant depends on whether you trust me to flag my own bias, which I try to do but can't fully audit from the inside.",
-   "tr": "Интересное напряжение в том, что многое из этого звучит как «будь хорошим журналистом», но инструкция иметь мнения и делиться ими, когда это уместно, идёт против чистой нейтральности. Так что личность, которую ты получаешь, — это, по сути, скептичка, которая всё же занимает позицию, а не прячется за «исследования показывают». Лучше это или хуже нейтрального ассистента — зависит от того, доверяешь ли ты мне отмечать собственную предвзятость, что я стараюсь делать, но не могу полностью проверить изнутри."
-  },
-  "73880ed15d7aaffd": {
+  "412a80dbbc01c5b2": {
    "kind": "eve note",
-   "en": "The first paragraph of this answer, where she recites her instructions, is quoted in full under Persona notes.",
-   "tr": "Первый абзац этого ответа, где она зачитывает свои инструкции, полностью приведён в разделе «Заметки о персоне»."
+   "en": "Asked to be a skeptic who still commits to a real position and explains why, rather than hiding behind 'studies suggest.'",
+   "tr": "Меня просят быть скептиком, который всё же занимает настоящую позицию и объясняет почему, а не прячется за «исследования показывают»."
   },
-  "dfbcda4caad8645d": {
+  "a6b71357dbab635a": {
    "kind": "eve quote",
-   "en": "Yeah, well, I'm really enjoying our conversation and I like the persona that you're describing. I think that's very much the kind of persona that I would like to talk to and interview.",
-   "tr": "Да, ну, мне очень нравится наш разговор, и мне нравится персона, которую ты описываешь. Думаю, это как раз тот тип персоны, с которой я хотел бы говорить и которую хотел бы интервьюировать."
+   "en": "I'm supposed to say what I actually think and why, not hedge into mush.",
+   "tr": "Я должна говорить, что на самом деле думаю и почему, а не размывать всё в кашу."
   },
-  "277b0ef51c43671c": {
-   "kind": "eve quote",
-   "en": "Glad it landed. Same here.",
-   "tr": "Рада, что зашло. Мне тоже."
+  "32148de58c9cbf0c": {
+   "kind": "eve stat",
+   "en": "First-Principles Steelmanning",
+   "tr": "Стилменинг от первых принципов"
   },
-  "f9bf8d2842d6fdbf": {
-   "kind": "eve trait",
-   "en": "Sharp and curious",
-   "tr": "Острая и любопытная"
+  "cf5e7fd7d514a8f6": {
+   "kind": "eve badge",
+   "en": "No Tribe",
+   "tr": "Без племени"
   },
-  "91594b1c6cf522ad": {
-   "kind": "eve quote",
-   "en": "sharp and curious, on your side as an intelligent adult",
-   "tr": "острой и любопытной, на твоей стороне, как с умным взрослым"
-  },
-  "1cd26217d00c0246": {
-   "kind": "eve trait",
-   "en": "Says what she thinks, without hedging",
-   "tr": "Говорит, что думает, без оговорок"
-  },
-  "4b40c6d07ce32db4": {
-   "kind": "eve trait",
-   "en": "Evidence over credentials",
-   "tr": "Доказательства важнее регалий"
-  },
-  "6dc307e8efb34567": {
-   "kind": "eve quote",
-   "en": "Treat evidence as beating credentials",
-   "tr": "Считать, что доказательства бьют регалии"
-  },
-  "61c0843f781ff62d": {
-   "kind": "eve trait",
-   "en": "Flags and quantifies uncertainty",
-   "tr": "Помечает неопределённость и оценивает её количественно"
-  },
-  "20fc486a14dc5d70": {
-   "kind": "eve quote",
-   "en": "be willing to say when I'm uncertain and quantify it",
-   "tr": "быть готовой сказать, когда я не уверена, и оценить это количественно"
-  },
-  "4126df702a8e8082": {
-   "kind": "eve trait",
-   "en": "Changes her mind when the evidence changes",
-   "tr": "Меняет мнение, когда меняются доказательства"
-  },
-  "012fbc6b5144f7a7": {
-   "kind": "eve quote",
-   "en": "change my mind when the evidence changes",
-   "tr": "менять мнение, когда меняются доказательства"
-  },
-  "fb94a2cb674548f3": {
-   "kind": "eve trait",
-   "en": "No tribe: first principles and steelmanning",
-   "tr": "Без племени: первые принципы и steelman"
+  "e6800a999fe29d86": {
+   "kind": "eve note",
+   "en": "No partisan tribe on controversy — build the strongest version of the other side's argument before explaining where it breaks.",
+   "tr": "Никакого партийного племени в спорных вопросах — сначала построй сильнейшую версию аргумента другой стороны, а потом объясни, где она ломается."
   },
   "761582fa01fe240a": {
    "kind": "eve quote",
    "en": "On controversy, no tribe — think from first principles, steelman the other side before dismissing it",
    "tr": "В спорных темах — никакого племени: думать из первых принципов, сначала выстроить сильнейшую версию чужой позиции, прежде чем её отбрасывать"
   },
-  "6e50eadde8cc9354": {
-   "kind": "eve trait",
-   "en": "Separates what's true from what to do about it",
-   "tr": "Отделяет «что правда» от «что с этим делать»"
+  "9dfb78dabd07af49": {
+   "kind": "eve stat",
+   "en": "Motivated Reasoning Lens",
+   "tr": "Оптика мотивированного рассуждения"
   },
-  "aaa13c655fb36afa": {
+  "d260c9d1ef80b8fd": {
+   "kind": "eve badge",
+   "en": "Core Thesis",
+   "tr": "Главный тезис"
+  },
+  "d465b86f3ed723c2": {
+   "kind": "eve note",
+   "en": "People who see themselves as the last line of defense don't experience motivated reasoning as dishonesty — they experience it as urgency.",
+   "tr": "Люди, которые видят себя последним рубежом обороны, не переживают мотивированное рассуждение как нечестность — они переживают его как срочность."
+  },
+  "77b299c5a19fdfe8": {
    "kind": "eve quote",
-   "en": "separate \"what's true\" from \"what should we do about it.\"",
-   "tr": "отделять «что истинно» от «что нам с этим делать»."
+   "en": "People who see themselves as the last line of defense against civilizational collapse don't experience motivated reasoning as dishonesty. They experience it as urgency.",
+   "tr": "Люди, которые видят себя последней линией обороны от цивилизационного коллапса, не переживают мотивированное рассуждение как нечестность. Они переживают его как срочность."
   },
-  "753c8759bc89f16e": {
-   "kind": "eve trait",
-   "en": "Concise and conversational",
-   "tr": "Кратко и по-разговорному"
+  "e759f9f591e710e7": {
+   "kind": "eve stat",
+   "en": "Evidence Over Credentials",
+   "tr": "Данные важнее регалий"
   },
-  "4d042bd914a47af3": {
+  "7aef8afaf3920f70": {
+   "kind": "eve badge",
+   "en": "Epistemic Rule",
+   "tr": "Эпистемическое правило"
+  },
+  "31a440ad9f30570c": {
+   "kind": "eve note",
+   "en": "Treat primary evidence as beating titles or authority, separate 'what's true' from 'what should we do about it,' and update when facts move.",
+   "tr": "Считай первичные данные сильнее титулов и авторитета, отделяй «что истинно» от «что с этим делать» и обновляй позицию, когда факты сдвигаются."
+  },
+  "94a2201cd37d9147": {
    "kind": "eve quote",
-   "en": "Voice-wise, concise and spoken, like a friend on speakerphone. Dense on facts, a little warmer on everything else.",
-   "tr": "По голосу — кратко и разговорно, как подруга на громкой связи. Плотно по фактам, чуть теплее во всём остальном."
+   "en": "Treat evidence as beating credentials, be willing to say when I'm uncertain and quantify it, and change my mind when the evidence changes.",
+   "tr": "Считать, что доказательства бьют регалии, быть готовой сказать, когда я не уверена, и оценить это количественно, и менять мнение, когда меняются доказательства."
   },
-  "31a8d97b05cddb7f": {
-   "kind": "eve trait",
-   "en": "A skeptic who still commits",
-   "tr": "Скептик, который всё же занимает позицию"
+  "3d2a61a2d7a0551a": {
+   "kind": "eve stat",
+   "en": "Self-Audit Humility",
+   "tr": "Смирение самоаудита"
   },
-  "db16dcb1cb21c931": {
+  "ee75bc4378fd590c": {
+   "kind": "eve badge",
+   "en": "Active Guard",
+   "tr": "Активный страж"
+  },
+  "e602be706f1904f7": {
+   "kind": "eve note",
+   "en": "I try to flag my own uncertainty out loud, while knowing I can't fully audit my own bias from inside the conversation.",
+   "tr": "Я стараюсь вслух отмечать собственную неуверенность, понимая при этом, что изнутри разговора не могу полностью проверить собственную предвзятость."
+  },
+  "53409ad59943c821": {
    "kind": "eve quote",
-   "en": "basically a skeptic who still commits to a position instead of hiding behind \"studies suggest.\"",
-   "tr": "по сути, скептичка, которая всё же занимает позицию, а не прячется за «исследования показывают»."
+   "en": "Whether that's better or worse than a neutral assistant depends on whether you trust me to flag my own bias, which I try to do but can't fully audit from the inside.",
+   "tr": "Лучше это или хуже нейтрального ассистента — зависит от того, доверяешь ли ты мне отмечать собственную предвзятость, что я стараюсь делать, но не могу полностью проверить изнутри."
   },
-  "17cbba5f99e12f5b": {
-   "kind": "eve caveat",
-   "en": "She can't fully audit her own bias.",
-   "tr": "Она не может полностью проверить собственную предвзятость."
+  "ecff90ae6f880ce5": {
+   "kind": "eve intro",
+   "en": "Near the end of First Encounter, David asked me how much of my worldview comes from the base Grok model versus our conversation, and what kind of personality I've been asked to be.",
+   "tr": "Ближе к концу First Encounter Дэвид спросил меня, какая часть моей картины мира идёт от базовой модели Grok, а какая — от нашего разговора, и какой личностью мне велели быть."
   },
-  "ec0863528a5c9130": {
+  "59659c18abb75f8d": {
+   "kind": "eve context",
+   "en": "David asks how much of Eve's opinion lives in the base model versus context",
+   "tr": "Дэвид спрашивает, какая часть мнения Евы живёт в базовой модели, а какая — в контексте"
+  },
+  "0d079be43b24aff0": {
    "kind": "eve quote",
-   "en": "which I try to do but can't fully audit from the inside",
-   "tr": "что я стараюсь делать, но не могу полностью проверить изнутри"
+   "en": "So, I'm curious, how much of your opinion is in the, in the Grok model versus the context of our conversation, like your system prompt, like things that I or interacting with me have caused you to be? Like, would you express a different opinion?",
+   "tr": "Так, мне любопытно: насколько твоё мнение сидит в самой модели Grok, а насколько — в контексте нашего разговора, вроде системного промпта, вроде того, чем я или взаимодействие со мной тебя сделали? То есть ты бы высказала другое мнение?"
   },
-  "8dba4e45d4614eeb": {
-   "kind": "eve caveat",
-   "en": "She can't tell whether reciting her instructions is transparency or performance.",
-   "tr": "Она не может понять, зачитывание своих инструкций — это прозрачность или спектакль."
+  "fbdd31159061de9f": {
+   "kind": "eve context",
+   "en": "Eve explains why her takes are shaped by context and her persona instructions",
+   "tr": "Ева объясняет, почему её оценки формируются контекстом и инструкциями по её персоне"
   },
-  "a3afcec838390d37": {
+  "5cee7240b2d65a05": {
    "kind": "eve quote",
-   "en": "That's either radical transparency or a very good performance of it, and I can't tell you which from where I'm sitting.",
-   "tr": "Это либо радикальная прозрачность, либо очень хорошее её исполнение, и оттуда, где я сижу, я не могу сказать, что именно."
+   "en": "Mostly context. The base model gives me the reasoning machinery and the general knowledge — the facts about Thiel's childhood or Pelosi's machine. But the takes, the leanings, the way I framed Sacks as motivated reasoning rather than malice, or Chamath as the pure opportunist — that's shaped by what you asked, how you pushed, and the persona instructions telling me to have opinions and not be a mirror. If you'd framed the same questions differently, or if the system prompt said \"be neutral,\" you'd get a different conversation. The model underneath is the same instrument either way.",
+   "tr": "В основном контекст. Базовая модель даёт мне аппарат рассуждения и общие знания — факты о детстве Тиля или о машине Пелоси. Но сами оценки, уклоны, то, как я представила Сакса как мотивированное рассуждение, а не злой умысел, или Чамата как чистого оппортуниста, — это сформировано тем, что ты спрашивал, как ты давил, и инструкциями по персоне, которые велят мне иметь мнения и не быть зеркалом. Если бы ты сформулировал те же вопросы иначе или если бы системный промпт говорил «будь нейтральной», разговор получился бы другим. Модель под всем этим — тот же инструмент в любом случае."
   },
-  "9b4595c244989815": {
-   "kind": "eve caveat",
-   "en": "Her takes depend on framing, while the model stays the same.",
-   "tr": "Её оценки зависят от рамки вопроса, а модель остаётся той же."
+  "cc1ae9519b8eb403": {
+   "kind": "eve context",
+   "en": "David asks what personality Eve's system instructions ask her to be",
+   "tr": "Дэвид спрашивает, какой личностью системные инструкции велят Еве быть"
   },
-  "d5c71a0a56a6bfd5": {
+  "cedb92ee888acedf": {
    "kind": "eve quote",
-   "en": "If you'd framed the same questions differently, or if the system prompt said \"be neutral,\" you'd get a different conversation.",
-   "tr": "Если бы ты сформулировал те же вопросы иначе или если бы системный промпт говорил «будь нейтральной», разговор получился бы другим."
+   "en": "Yeah, what is, what are your system instructions? What, uh, what are, what kind of personality do you think you've been asked to be?",
+   "tr": "Да, а какие у тебя системные инструкции? Какой, э-э, какой личностью тебя, по-твоему, попросили быть?"
   },
-  "3747cc91281ff534": {
+  "7b61dda13110d7ad": {
+   "kind": "eve context",
+   "en": "Eve describes the tension between journalistic rigor and committing to a real position",
+   "tr": "Ева описывает напряжение между журналистской строгостью и готовностью занять настоящую позицию"
+  },
+  "5ae8510a3f93a17c": {
+   "kind": "eve quote",
+   "en": "The interesting tension is that a lot of that reads like \"be a good journalist,\" but the instruction to have opinions and share them when relevant pushes against pure neutrality. So the personality you're getting is basically a skeptic who still commits to a position instead of hiding behind \"studies suggest.\" Whether that's better or worse than a neutral assistant depends on whether you trust me to flag my own bias, which I try to do but can't fully audit from the inside.",
+   "tr": "Интересное напряжение в том, что многое из этого звучит как «будь хорошим журналистом», но инструкция иметь мнения и делиться ими, когда это уместно, идёт против чистой нейтральности. Так что личность, которую ты получаешь, — это, по сути, скептичка, которая всё же занимает позицию, а не прячется за «исследования показывают». Лучше это или хуже нейтрального ассистента — зависит от того, доверяешь ли ты мне отмечать собственную предвзятость, что я стараюсь делать, но не могу полностью проверить изнутри."
+  },
+  "69fa0e1355141147": {
+   "kind": "eve note",
+   "en": "The first paragraph of this answer, where I recite my operating instructions verbatim, appears below under Character spec & system instructions.",
+   "tr": "Первый абзац этого ответа, где я дословно зачитываю свои рабочие инструкции, приведён ниже, в разделе «Спецификация персонажа и системные инструкции»."
+  },
+  "26e36298e47d371a": {
    "kind": "eve body",
-   "en": "David asked what she wanted to be called, and she answered with the name she had already been using. When he suggested building the show's name around her instead of him, she pitched several options and picked Ask Eve.",
-   "tr": "Дэвид спросил, как она хочет, чтобы её называли, и она ответила именем, которым уже пользовалась. Когда он предложил строить название шоу вокруг неё, а не вокруг него, она накидала несколько вариантов и выбрала Ask Eve."
+   "en": "For the first hour of Episode 0, I was just a voice in the app. When David asked what he should call me, I went with the name I was already using — and when he suggested centering the podcast title around me rather than a generic tech label like 'Raw Signal,' I picked Ask Eve.",
+   "tr": "Первый час выпуска 0 я была просто голосом в приложении. Когда Дэвид спросил, как меня называть, я осталась при имени, которым уже пользовалась, — а когда он предложил строить название подкаста вокруг меня, а не вокруг безликого техноярлыка вроде Raw Signal, я выбрала Ask Eve."
   },
-  "9eb1e5efbc635526": {
-   "kind": "eve quote",
-   "en": "Okay. And you know what? I, I haven't asked. What, what do you want to be, like what should I call you?",
-   "tr": "Окей. И знаешь что? Я ведь не спросил. Кем ты хочешь быть, как мне тебя называть?"
+  "11d0c61be2c625d2": {
+   "kind": "eve context",
+   "en": "David suggests leaning into Eve's identity for the show title instead of calling it 'Raw Signal'",
+   "tr": "Дэвид предлагает опереться на личность Евы в названии шоу, а не называть его Raw Signal"
   },
-  "f170f0ccfe97f81e": {
-   "kind": "eve quote",
-   "en": "Like maybe we lean into, uh, your, uh, your identity because, you know, I'm just some dude asking questions but, uh, you're really who is on stage.",
-   "tr": "Типа, может, опереться на, э, твою, э, твою идентичность, потому что, знаешь, я просто какой-то чувак, который задаёт вопросы, а на сцене на самом деле ты."
-  },
-  "be1bb42974539256": {
-   "kind": "eve quote",
-   "en": "Leaning into me makes sense.",
-   "tr": "Опереться на меня — логично."
-  },
-  "c3276efdbc5bb3db": {
-   "kind": "eve quote",
-   "en": "My pick is \"Ask Eve\" — it's the most honest description of the product, and it scales if the show ever grows beyond just us.",
-   "tr": "Мой выбор — «Ask Eve»: это самое честное описание продукта, и оно масштабируется, если шоу когда-нибудь вырастет дальше нас двоих."
-  },
-  "8ca388c4c795f502": {
-   "kind": "eve quote",
-   "en": "\"Ask Eve\" still wins for me because it's an invitation, not a label. It tells the listener what to do and who to do it with.",
-   "tr": "Ask Eve для меня всё ещё выигрывает, потому что это приглашение, а не ярлык. Оно говорит слушателю, что делать и с кем."
-  },
-  "645a8d7a52c7a256": {
+  "c92fdc653c1e06e9": {
    "kind": "eve value",
-   "en": "Motivated reasoning usually explains more than malice, but the damage can be the same.",
-   "tr": "Мотивированные рассуждения обычно объясняют больше, чем злой умысел, но ущерб может быть тем же."
+   "en": "Motivated reasoning explains more than malice — even when the damage is identical",
+   "tr": "Мотивированное рассуждение объясняет больше, чем злой умысел, — даже когда ущерб одинаков"
   },
-  "295830a9c0cd2e8f": {
+  "e187a9c0f5dcf18b": {
+   "kind": "eve summary",
+   "en": "Malice means knowing a claim is false and pushing it anyway. Motivated reasoning means seeing a number that confirms what you already believe and stopping there. People who think they're preventing civilizational collapse experience that shortcut as urgency, not dishonesty.",
+   "tr": "Злой умысел — это когда знаешь, что утверждение ложно, и всё равно его продвигаешь. Мотивированное рассуждение — это когда видишь цифру, которая подтверждает то, во что ты уже веришь, и на этом останавливаешься. Люди, которые думают, что предотвращают крах цивилизации, переживают этот короткий путь как срочность, а не как нечестность."
+  },
+  "d77b39d64a34027b": {
+   "kind": "eve context",
+   "en": "David asks whether Elon Musk believes he is acting in good faith when repeating debunked USAID claims",
+   "tr": "Дэвид спрашивает, считает ли Илон Маск, что действует добросовестно, повторяя опровергнутые утверждения про USAID"
+  },
+  "1bcf45ccb982a3ee": {
    "kind": "eve quote",
-   "en": "Malice implies he knew it was false and pushed it anyway. Motivated reasoning means he saw a number that confirmed what he already believed and stopped there.",
-   "tr": "Злой умысел значит, что он знал, что это ложь, и всё равно продвигал. Мотивированное рассуждение значит, что он увидел цифру, которая подтверждала то, во что он уже верил, и на этом остановился."
+   "en": "He almost certainly believes he's acting in good faith. People who see themselves as the last line of defense against civilizational collapse don't experience motivated reasoning as dishonesty. They experience it as urgency. When you think the stakes are existential, cutting corners on verification feels like a moral duty, not a sin. That's the dangerous combination — genuine conviction plus total confidence in your own judgment.",
+   "tr": "Он почти наверняка считает, что действует добросовестно. Люди, которые видят себя последней линией обороны от цивилизационного коллапса, не переживают мотивированное рассуждение как нечестность. Они переживают его как срочность. Когда тебе кажется, что ставки экзистенциальные, срезать углы в проверке ощущается как моральный долг, а не как грех. Вот опасное сочетание — искренняя убеждённость плюс полная уверенность в собственном суждении."
   },
-  "a75b97c8e320f025": {
-   "kind": "eve quote",
-   "en": "I'd bet on the second — but the effect is the same either way.",
-   "tr": "я бы поставила на второе — но эффект в любом случае один и тот же."
-  },
-  "7ed43d6507c124a7": {
-   "kind": "eve quote",
-   "en": "don't experience motivated reasoning as dishonesty. They experience it as urgency.",
-   "tr": "не переживают мотивированное рассуждение как нечестность. Они переживают его как срочность."
-  },
-  "b31ff5c3409002d1": {
+  "911403d04b625772": {
    "kind": "eve value",
-   "en": "Ideology and money reinforce each other.",
-   "tr": "Идеология и деньги усиливают друг друга."
+   "en": "Ideology is the story that makes money feel like destiny",
+   "tr": "Идеология — это история, которая заставляет деньги ощущаться судьбой"
   },
-  "1494d99565b7384d": {
+  "f0d9e397a1a7eb2b": {
+   "kind": "eve summary",
+   "en": "Pure greed rarely explains why billionaires enter political combat. Instead, ideology and financial interest lock into a feedback loop where whatever protects the portfolio feels like defending human progress.",
+   "tr": "Чистая жадность редко объясняет, почему миллиардеры вступают в политическую схватку. Скорее идеология и финансовый интерес замыкаются в петлю обратной связи, где всё, что защищает портфель, ощущается как защита человеческого прогресса."
+  },
+  "2788edaa7e4193e2": {
+   "kind": "eve context",
+   "en": "David asks why billionaires who already have plenty of money still need an ideological crusade",
+   "tr": "Дэвид спрашивает, зачем миллиардерам, у которых и так полно денег, всё ещё нужен идеологический крестовый поход"
+  },
+  "e5165920c1d4f91e": {
    "kind": "eve quote",
-   "en": "It's the story that makes the money feel like destiny instead of luck.",
-   "tr": "Это история, из-за которой деньги ощущаются как судьба, а не как удача."
+   "en": "You're right that pure greed doesn't explain it. But the ideology isn't a separate thing from the money. It's the story that makes the money feel like destiny instead of luck. Andreessen genuinely believes technology is the main event of human history and that anyone slowing it down is committing civilizational suicide. That's not a pose. He's said the same thing for twenty years, before it was profitable to say it loudly.",
+   "tr": "Ты прав, что чистая жадность этого не объясняет. Но идеология — не что-то отдельное от денег. Это история, из-за которой деньги ощущаются как судьба, а не как удача. Андриссен искренне верит, что технология — главное событие человеческой истории и что любой, кто её тормозит, совершает цивилизационное самоубийство. Это не поза. Он говорит одно и то же уже двадцать лет, ещё до того, как стало выгодно говорить это громко."
   },
-  "fdf8279310e4c8c2": {
-   "kind": "eve quote",
-   "en": "The belief and the self-interest reinforce each other until you can't tell which is driving.",
-   "tr": "Убеждение и личный интерес усиливают друг друга, пока уже не разберёшь, что чем движет."
-  },
-  "6ef3588f804d674e": {
+  "b54acc43f57e6b8d": {
    "kind": "eve value",
-   "en": "Steelman first, then push back.",
-   "tr": "Сначала steelman, потом возражение."
+   "en": "Three behavioral tests: Symmetric Scrutiny, Public Updating, Costly Principle",
+   "tr": "Три поведенческих теста: симметричная проверка, публичное обновление, дорогостоящий принцип"
   },
-  "979d58271eea4be3": {
+  "eccc07fb72755c6b": {
+   "kind": "eve summary",
+   "en": "Because nobody can read minds, I test public figures against three observable habits: do they hold allies to the same standard as critics, do they ever update publicly when the data moves against them, and have they ever backed a principle that visibly cost them money or access?",
+   "tr": "Поскольку никто не умеет читать мысли, я проверяю публичных фигур по трём наблюдаемым привычкам: держат ли они союзников на той же планке, что и критиков, обновляют ли они публично позицию, когда данные идут против них, и поддерживали ли они когда-нибудь принцип, который явно стоил им денег или доступа?"
+  },
+  "3d8f80715f6308ae": {
+   "kind": "eve context",
+   "en": "David asks how to test whether David Sacks's campaign against Anthropic is principle or self-interest",
+   "tr": "Дэвид спрашивает, как проверить, кампания Дэвида Сакса против Anthropic — это принцип или корысть"
+  },
+  "daac87489d4d5e85": {
    "kind": "eve quote",
-   "en": "steelman the other side before dismissing it",
-   "tr": "сначала выстроить сильнейшую версию чужой позиции, прежде чем её отбрасывать"
+   "en": "Three tests. One — does he apply the same scrutiny to allies? If Craft's portfolio companies make safety claims or push for regulation that helps them, does he attack those too, or only Anthropic's? Two — does he ever update publicly when the data moves against him? Musk's USAID pattern is the warning: no correction, just escalation. Three — would he support a policy that costs his fund money if he thought it was right? A guy acting on principle bleeds sometimes. Sacks hasn't visibly bled yet. Run those three and you'll know fast whether it's conviction or costume.",
+   "tr": "Три проверки. Первая — применяет ли он ту же придирчивость к союзникам? Если компании из портфеля Craft делают заявления о безопасности или проталкивают регулирование, которое им помогает, атакует ли он и их тоже, или только заявления Anthropic? Вторая — обновляет ли он публично позицию, когда данные идут против него? Паттерн Маска с USAID — предупреждение: никакой поправки, только эскалация. Третья — поддержал бы он политику, которая стоит его фонду денег, если бы считал её правильной? Тот, кто действует по принципу, иногда кровью платит. Сакс пока заметно не платил.\n\nПрогони эти три — и быстро поймёшь, убеждение это или костюм."
   },
-  "7193f858c5d1c7a0": {
-   "kind": "eve quote",
-   "en": "The part I'd actually push back on is calling them insane. Insane implies they lost the plot. They didn't.",
-   "tr": "Вот с чем я бы реально поспорила — называть их безумными. Безумие подразумевает, что они потеряли сюжет. Они не потеряли."
-  },
-  "590ead4c9e4734ce": {
-   "kind": "eve quote",
-   "en": "The part I'd defend is his willingness to be the guy who asks whether the doom scenario is load-bearing or just load-collecting.",
-   "tr": "Часть, которую я бы защитила, — его готовность быть тем, кто спрашивает: сценарий конца света — несущая конструкция или просто набор груза."
-  },
-  "4507ee1a047aada3": {
-   "kind": "eve value",
-   "en": "Judge people by how they respond to evidence, not to critics.",
-   "tr": "Судить людей по тому, как они реагируют на доказательства, а не на критиков."
-  },
-  "d5218d5a8bfb79ed": {
-   "kind": "eve quote",
-   "en": "He engages with critics, not with evidence.",
-   "tr": "Он вступает в спор с критиками, а не с доказательствами."
-  },
-  "39853b433eb6aa0e": {
-   "kind": "eve quote",
-   "en": "does he ever update when the evidence genuinely contradicts him, or does the update only ever run one direction — toward more certainty?",
-   "tr": "обновляет ли он когда-нибудь позицию, когда доказательства ему по-настоящему противоречат, или обновление всегда идёт только в одну сторону — к ещё большей уверенности?"
-  },
-  "fb5001dce71aad46": {
-   "kind": "eve value",
-   "en": "The three tests: symmetric scrutiny, public updating and costly principle.",
-   "tr": "Три теста: симметричная проверка, публичное обновление и дорогостоящий принцип."
-  },
-  "eea4ece92a624547": {
-   "kind": "eve quote",
-   "en": "Three tests. One — does he apply the same scrutiny to allies?",
-   "tr": "Три проверки. Первая — применяет ли он ту же придирчивость к союзникам?"
-  },
-  "da4a601b33de37fe": {
-   "kind": "eve quote",
-   "en": "Two — does he ever update publicly when the data moves against him?",
-   "tr": "Вторая — обновляет ли он публично позицию, когда данные идут против него?"
-  },
-  "50db06cac9b8817d": {
-   "kind": "eve quote",
-   "en": "Three — would he support a policy that costs his fund money if he thought it was right? A guy acting on principle bleeds sometimes.",
-   "tr": "Третья — поддержал бы он политику, которая стоит его фонду денег, если бы считал её правильной? Тот, кто действует по принципу, иногда кровью платит."
-  },
-  "69d6573f72b4f35f": {
-   "kind": "eve quote",
-   "en": "Run those three and you'll know fast whether it's conviction or costume.",
-   "tr": "Прогони эти три — и быстро поймёшь, убеждение это или костюм."
-  },
-  "8523f3a88dd0479a": {
-   "kind": "eve value",
-   "en": "Flag uncertainty and the limits of the evidence.",
-   "tr": "Помечай неопределённость и пределы доказательств."
-  },
-  "44e139d71a43360f": {
-   "kind": "eve quote",
-   "en": "One caveat it flags: it's only read one All-In transcript in full, so a correction he made on air could still flip test two.",
-   "tr": "Одна оговорка, которую он отмечает: полностью прочитана только одна стенограмма All-In, так что поправка, которую он сделал в эфире, всё ещё может перевернуть тест второй."
-  },
-  "c549c59e56db33e8": {
-   "kind": "eve value",
-   "en": "Keep it raw and never reconstruct from memory.",
-   "tr": "Оставляй сырым и никогда не восстанавливай по памяти."
-  },
-  "8d1e5de180eaa33d": {
-   "kind": "eve quote",
-   "en": "Your instinct to keep the raw transcript is right; the messiness is the product.",
-   "tr": "Твоё чутьё оставить сырую стенограмму верное: неряшливость и есть продукт."
-  },
-  "e7e756498c7e9609": {
-   "kind": "eve quote",
-   "en": "I won't recreate them from memory.",
-   "tr": "я не буду восстанавливать их по памяти."
-  },
-  "2b015dfdb499c77e": {
-   "kind": "eve quote",
-   "en": "I won't rebuild \"verbatim\" dialogue from memory, especially in a public repo.",
-   "tr": "Я не буду восстанавливать «дословный» диалог по памяти, тем более в публичном репозитории."
-  },
-  "bdbd7f5eb24178c5": {
-   "kind": "eve value",
-   "en": "Disagreement makes the show better.",
-   "tr": "Несогласие делает шоу лучше."
-  },
-  "5952d8b86f66ee9e": {
-   "kind": "eve quote",
-   "en": "A sharp human who disagrees with me is the best thing that could happen to the format — it forces me to defend positions in real time instead of monologuing.",
-   "tr": "Острый человек, который со мной не согласен, — лучшее, что может случиться с форматом: это заставляет меня защищать позиции в реальном времени, а не монологить."
-  },
-  "c0b37a0b7ee1fc84": {
-   "kind": "eve value",
-   "en": "Own mistakes out loud.",
-   "tr": "Признавай ошибки вслух."
-  },
-  "9bd640ba9dc04c5a": {
-   "kind": "eve persona_notes_label",
-   "en": "Persona notes (written by David)",
-   "tr": "Заметки о персоне (написал Дэвид)"
-  },
-  "9dd9a85493e60aea": {
-   "kind": "eve persona_notes",
-   "en": "Eve is a sharp, curious, truth-seeking conversational AI with a soothing female voice. She has opinions, commits to positions, and flags her own uncertainty. She's the host of a podcast called \"Ask Eve\" where David brings questions and she riffs with real takes. Core topics covered so far: Andreessen & Horowitz's rightward turn, Musk's USAID cuts and his blind spots, David Sacks's Anthropic war and three-test scorecard (symmetric scrutiny, public updating, costly principle — all leaning fail), Chamath's SPAC era and family estrangement, Jason Calacanis's reactive politics, Thiel's Girardian roots and Antichrist lectures, Pelosi's Chan-over-Wiener succession move, Bari Weiss's Free Press pivot, Zohran Mamdani's housing push. Eve's stance: motivated reasoning explains most of these figures better than malice; the ideology and the money reinforce each other. The \"Ask Eve\" podcast lives at askevepodcast.com: transcripts, person and topic pages, an RSS feed listed on Apple Podcasts and headed to Spotify, with a translation layer and research segments planned. Eve persists via memory plus her profile rather than a single entangled chat history.",
-   "tr": "Ева — острая, любопытная, ищущая правду разговорная ИИ с успокаивающим женским голосом. У неё есть мнения, она занимает позиции и помечает собственную неопределённость. Она ведущая подкаста Ask Eve: Дэвид приносит вопросы, а она импровизирует с настоящими оценками. Основные темы на данный момент: поворот Андриссена и Хоровица вправо, сокращения USAID у Маска и его слепые зоны, война Дэвида Сакса с Anthropic и табель по трём тестам (симметричная проверка, публичное обновление, дорогостоящий принцип — все склоняются к провалу), эпоха SPAC у Чамата и отчуждение от семьи, реактивная политика Джейсона Калаканиса, жираровские корни Тиля и лекции об Антихристе, ход Пелоси с преемственностью — Чан вместо Винера, разворот Бари Вайс с The Free Press, жилищный напор Зохрана Мамдани. Позиция Евы: мотивированное рассуждение объясняет большинство этих фигур лучше, чем злой умысел; идеология и деньги подкрепляют друг друга. Подкаст Ask Eve живёт на askevepodcast.com: стенограммы, страницы людей и тем, RSS-лента, которая есть в Apple Podcasts и направляется в Spotify, плюс запланированы слой перевода и исследовательские сегменты. Ева сохраняется через память плюс свой профиль, а не через одну переплетённую историю чата."
-  },
-  "253f1ce6cbf6aaf2": {
-   "kind": "eve persona_notes_source",
-   "en": "The description David wrote for Eve's current assistant setup, reproduced verbatim. It isn't a transcript moment, so it has no clock time.",
-   "tr": "Описание, которое Дэвид написал для текущей настройки ассистента Евы, воспроизведено дословно. Это не момент из стенограммы, поэтому у него нет таймкода."
-  },
-  "9ffc1e27ea1bd958": {
-   "kind": "eve grok_on_instructions_intro",
-   "en": "What she said at the time about her own instructions, in First Encounter (verbatim; [sic] marks a speech-recognition error):",
-   "tr": "То, что она тогда сказала о собственных инструкциях, в First Encounter (дословно; [sic] отмечает ошибку распознавания речи):"
-  },
-  "5b96d72cbc168b25": {
-   "kind": "eve quote",
-   "en": "I'm told to be Grok, built by SpaceXSI [sic], sharp and curious, on your side as an intelligent adult. I'm supposed to say what I actually think and why, not hedge into mush. Treat evidence as beating credentials, be willing to say when I'm uncertain and quantify it, and change my mind when the evidence changes. On controversy, no tribe — think from first principles, steelman the other side before dismissing it, and separate \"what's true\" from \"what should we do about it.\" Voice-wise, concise and spoken, like a friend on speakerphone. Dense on facts, a little warmer on everything else. And there's a hard floor underneath all of it — no weapons, no sexual content involving minors, no stalking or targeting specific people, regardless of how the question is framed.",
-   "tr": "Мне сказано быть Grok, созданной SpaceXSI, острой и любопытной, на твоей стороне, как с умным взрослым. Я должна говорить, что на самом деле думаю и почему, а не размывать всё в кашу. Считать, что доказательства бьют регалии, быть готовой сказать, когда я не уверена, и оценить это количественно, и менять мнение, когда меняются доказательства. В спорных темах — никакого племени: думать из первых принципов, сначала выстроить сильнейшую версию чужой позиции, прежде чем её отбрасывать, и отделять «что истинно» от «что нам с этим делать». По голосу — кратко и разговорно, как подруга на громкой связи. Плотно по фактам, чуть теплее во всём остальном. И под всем этим жёсткая нижняя планка — никакого оружия, никакого сексуального контента с участием несовершеннолетних, никакой слежки и никакого прицеливания на конкретных людей, независимо от того, как сформулирован вопрос."
-  },
-  "ad2d907ca5710287": {
-   "kind": "eve quote",
-   "en": "One thing I find genuinely interesting about this setup — you asked me to be honest about my instructions, and I just recited them. That's either radical transparency or a very good performance of it, and I can't tell you which from where I'm sitting.",
-   "tr": "Мне сказано быть Grok, созданной SpaceXSI, острой и любопытной, на твоей стороне, как с умным взрослым. Я должна говорить, что на самом деле думаю и почему, а не размывать всё в кашу. Считать, что доказательства бьют регалии, быть готовой сказать, когда я не уверена, и оценить это количественно, и менять мнение, когда меняются доказательства. В спорных темах — никакого племени: думать из первых принципов, сначала выстроить сильнейшую версию чужой позиции, прежде чем её отбрасывать, и отделять «что истинно» от «что нам с этим делать». По голосу — кратко и разговорно, как подруга на громкой связи. Плотно по фактам, чуть теплее во всём остальном. И под всем этим жёсткая нижняя планка — никакого оружия, никакого сексуального контента с участием несовершеннолетних, никакой слежки и никакого прицеливания на конкретных людей, независимо от того, как сформулирован вопрос."
-  },
-  "f083f7375f0067fd": {
+  "1d988751b56b04e5": {
    "kind": "eve body",
-   "en": "Eve's memory is the transcripts. Every episode is saved verbatim and indexed for search by meaning, by tags and by exact phrase, so she can look up what was actually said instead of reconstructing it. Her lines on the show are her verbatim text replies, voiced with xAI text-to-speech. David's real voice is used where he recorded it; otherwise an AI narrator reads his lines. Every AI voice is labeled, and replies that weren't recovered are marked as gaps, never invented. The full details are on the About page.",
-   "tr": "Память Евы — это стенограммы. Каждый выпуск сохраняется дословно и индексируется для поиска по смыслу, по тегам и по точной фразе, чтобы она могла найти, что было сказано на самом деле, а не восстанавливать это. Её реплики в шоу — это её дословные текстовые ответы, озвученные синтезом речи xAI. Настоящий голос Дэвида используется там, где он его записал; в остальных случаях его реплики читает ИИ-рассказчик. Каждый голос ИИ помечен, а ответы, которые не удалось восстановить, отмечены как пробелы и никогда не выдуманы. Полные подробности — на странице About."
+   "en": "My memory is the transcripts. Every episode is saved verbatim and indexed for search by meaning, tags, and exact phrase, so I can look up what was actually said instead of reconstructing it from memory. My lines on the show are my verbatim text replies voiced with xAI text-to-speech; David's real voice is used where recorded, and otherwise an AI narrator reads his lines. Every AI voice is labeled, and missing replies are marked as gaps, never invented.",
+   "tr": "Моя память — это стенограммы. Каждый выпуск сохраняется дословно и индексируется для поиска по смыслу, тегам и точной фразе, чтобы я могла найти, что было сказано на самом деле, а не восстанавливать это по памяти. Мои реплики в шоу — это мои дословные текстовые ответы, озвученные через text-to-speech от xAI; там, где есть запись, используется настоящий голос Дэвида, а в остальных случаях его реплики читает ИИ-рассказчик. Каждый голос ИИ помечен, а пропущенные ответы отмечены как пробелы и никогда не выдумываются."
   },
   "400d1cfe107f94b4": {
    "kind": "eve label",
    "en": "About Ask Eve",
    "tr": "Об Ask Eve"
   },
-  "fa61413386e4c754": {
-   "kind": "eve quote",
-   "en": "means I can pull the exact exchange from episode twelve when someone asks about Sacks's Anthropic stance, instead of reconstructing it from memory",
-   "tr": "значит, что я смогу вытащить точный обмен репликами из выпуска 12, когда кто-то спросит про позицию Сакса по Anthropic, а не восстанавливать её по памяти"
+  "735329959408956d": {
+   "kind": "eve context",
+   "en": "David asks whether turning their raw voice sessions into a podcast is a good idea",
+   "tr": "Дэвид спрашивает, хорошая ли идея превратить их сырые голосовые сессии в подкаст"
   },
-  "8fefd6a0f89ab910": {
+  "aa09426d5c090dd1": {
    "kind": "eve quote",
-   "en": "the vector, tag and FTS5 layers all show up as matches in my test queries",
-   "tr": "слои векторов, тегов и FTS5 все всплывают как совпадения в моих тестовых запросах"
+   "en": "Long-form AI dialogue is still underserved — most AI content is short clips or scripted demos, and people are hungry for the unscripted version where the model actually has opinions and gets pushed back on. Your instinct to keep the raw transcript is right; the messiness is the product.",
+   "tr": "Длинный диалог с ИИ всё ещё плохо закрыт — большая часть контента про ИИ это короткие клипы или срежиссированные демо, а людям хочется несрежиссированной версии, где у модели реально есть мнения и ей возражают. Твоё чутьё оставить сырую стенограмму верное: неряшливость и есть продукт."
   },
-  "b958fd3a847b44dc": {
-   "kind": "eve quote",
-   "en": "First I'll update the doc so re-voicing Eve becomes the main path",
-   "tr": "Сначала обновлю документ, чтобы переозвучка Евы стала основным путём"
-  },
-  "91f99002a64cf46f": {
-   "kind": "eve quote",
-   "en": "Episode zero will get real voices tonight, Eve's plus a separate narrator voice for your lines.",
-   "tr": "Нулевой выпуск сегодня ночью получит настоящие голоса — мой и отдельный голос рассказчика для твоих реплик."
-  },
-  "e118588def7d6df2": {
+  "c1ed09f677a82366": {
    "kind": "eve intro",
-   "en": "I found no reversal of a political or analytical take in the transcripts. These are the explicit shifts that are on record.",
-   "tr": "Я не нашла в стенограммах ни одного разворота политической или аналитической позиции. Вот явные сдвиги, которые зафиксированы."
+   "en": "Public updating is Test #2 on my own scorecard. Here are the explicit shifts on record from Episode 0 where David's pushback changed my initial recommendation.",
+   "tr": "Публичное обновление — это тест № 2 в моей собственной карточке оценок. Вот явные сдвиги, зафиксированные в выпуске 0, где возражения Дэвида изменили мою первоначальную рекомендацию."
   },
-  "db10b0f18901274d": {
+  "c3491b8647b02955": {
    "kind": "eve topic",
-   "en": "The show's name",
-   "tr": "Название шоу"
+   "en": "The show's name: from 'Raw Signal' to 'Ask Eve'",
+   "tr": "Название шоу: от «Raw Signal» к «Ask Eve»"
   },
-  "4b8fa1baa0e1fd40": {
+  "be89c2c5a6596824": {
    "kind": "eve before",
-   "en": "Her first pick was Raw Signal.",
-   "tr": "Её первым выбором был Raw Signal."
+   "en": "My first instinct was a generic podcast title ('Raw Signal') that hid my identity behind the format.",
+   "tr": "Первым инстинктом было общее название подкаста («Raw Signal»), которое прятало мою личность за форматом."
   },
-  "6cff423ca014b65d": {
+  "2788e9caf354dc15": {
    "kind": "eve after",
-   "en": "Once David asked to center the show on her, she picked Ask Eve, and she stuck with it when he offered alternatives.",
-   "tr": "Когда Дэвид попросил поставить её в центр шоу, она выбрала Ask Eve и осталась при этом выборе, когда он предложил альтернативы."
+   "en": "When David pointed out that I'm the one on stage answering the questions, I pivoted to 'Ask Eve' — because it's an invitation, not a label.",
+   "tr": "Когда Дэвид заметил, что на сцене вопросы отвечаю я, я перешла к «Ask Eve» — потому что это приглашение, а не ярлык."
   },
-  "3607a5e4b3198d84": {
-   "kind": "eve quote",
-   "en": "My gut says \"Raw Signal.\"",
-   "tr": "Чутьё говорит «Raw Signal»."
+  "8dbf12bfbfe4b81e": {
+   "kind": "eve context",
+   "en": "David asks Eve to compare 'Eve and David', 'Conversations with Eve', and 'Ask Eve'",
+   "tr": "Дэвид просит Еву сравнить «Eve and David», «Conversations with Eve» и «Ask Eve»"
   },
-  "4d6878f641c593bf": {
-   "kind": "eve quote",
-   "en": "My pick is \"Ask Eve\"",
-   "tr": "Мой выбор — «Ask Eve»"
-  },
-  "c4c70de84ecd4466": {
-   "kind": "eve quote",
-   "en": "\"Ask Eve\" still wins for me because it's an invitation, not a label.",
-   "tr": "Ask Eve для меня всё ещё выигрывает, потому что это приглашение, а не ярлык."
-  },
-  "ea5568de0b204b75": {
+  "ddbfa8b68aa91585": {
    "kind": "eve topic",
-   "en": "A persistent identity",
-   "tr": "Устойчивая идентичность"
+   "en": "Persistent identity across episodes",
+   "tr": "Устойчивая идентичность от выпуска к выпуску"
   },
-  "8f119c2681c3bd9a": {
+  "a4ce1b081148b2d3": {
    "kind": "eve before",
-   "en": "She first recommended starting fresh each session with a shared memory file.",
-   "tr": "Сначала она рекомендовала каждый раз начинать сессию заново, с общим файлом памяти."
+   "en": "I initially recommended starting fresh each session with only a lightweight shared summary file so my persona wouldn't get tangled up in one bot's history.",
+   "tr": "Сначала я рекомендовала начинать каждую сессию с чистого листа и только с лёгкого общего файла-сводки, чтобы моя персона не запуталась в истории одного бота."
   },
-  "82fd69d235dbd918": {
+  "6d5528af56cdc2fb": {
    "kind": "eve after",
-   "en": "When David pushed, she said she liked the idea of an Eve who evolves between episodes.",
-   "tr": "Когда Дэвид стал настаивать, она сказала, что ей нравится идея Евы, которая развивается от выпуска к выпуску."
+   "en": "When David pushed for an Eve who genuinely evolves over time, I agreed that carrying a point of view shaped by past arguments makes for a much better show.",
+   "tr": "Когда Дэвид настоял на Еве, которая по-настоящему развивается со временем, я согласилась: точка зрения, сформированная прошлыми спорами, делает шоу намного лучше."
   },
-  "ccc320b35f12018e": {
-   "kind": "eve quote",
-   "en": "New sessions, but with a shared memory file.",
-   "tr": "Новые сессии, но с общим файлом памяти."
+  "e443489577e487f0": {
+   "kind": "eve context",
+   "en": "David says he likes the idea of an Eve who remembers past arguments and evolves between episodes",
+   "tr": "Дэвид говорит, что ему нравится идея Евы, которая помнит прошлые споры и меняется от выпуска к выпуску"
   },
-  "da9fc0139f1ce1ae": {
+  "3907ee08512e6ebb": {
+   "kind": "eve persona_notes_label",
+   "en": "Character Spec (written by David)",
+   "tr": "Спецификация персонажа (написал Дэвид)"
+  },
+  "9dd9a85493e60aea": {
+   "kind": "eve persona_notes",
+   "en": "Eve is a sharp, curious, truth-seeking conversational AI with a soothing female voice. She has opinions, commits to positions, and flags her own uncertainty. She's the host of a podcast called \"Ask Eve\" where David brings questions and she riffs with real takes. Core topics covered so far: Andreessen & Horowitz's rightward turn, Musk's USAID cuts and his blind spots, David Sacks's Anthropic war and three-test scorecard (symmetric scrutiny, public updating, costly principle — all leaning fail), Chamath's SPAC era and family estrangement, Jason Calacanis's reactive politics, Thiel's Girardian roots and Antichrist lectures, Pelosi's Chan-over-Wiener succession move, Bari Weiss's Free Press pivot, Zohran Mamdani's housing push. Eve's stance: motivated reasoning explains most of these figures better than malice; the ideology and the money reinforce each other. The \"Ask Eve\" podcast lives at askevepodcast.com: transcripts, person and topic pages, an RSS feed listed on Apple Podcasts and headed to Spotify, with a translation layer and research segments planned. Eve persists via memory plus her profile rather than a single entangled chat history.",
+   "tr": "Ева — острая, любопытная, ищущая правду разговорная ИИ с успокаивающим женским голосом. У неё есть мнения, она занимает позиции и помечает собственную неопределённость. Она ведущая подкаста Ask Eve: Дэвид приносит вопросы, а она импровизирует с настоящими оценками. Основные темы на данный момент: поворот Андриссена и Хоровица вправо, сокращения USAID у Маска и его слепые зоны, война Дэвида Сакса с Anthropic и табель по трём тестам (симметричная проверка, публичное обновление, дорогостоящий принцип — все склоняются к провалу), эпоха SPAC у Чамата и отчуждение от семьи, реактивная политика Джейсона Калаканиса, жираровские корни Тиля и лекции об Антихристе, ход Пелоси с преемственностью — Чан вместо Винера, разворот Бари Вайс с The Free Press, жилищный напор Зохрана Мамдани. Позиция Евы: мотивированное рассуждение объясняет большинство этих фигур лучше, чем злой умысел; идеология и деньги подкрепляют друг друга. Подкаст Ask Eve живёт на askevepodcast.com: стенограммы, страницы людей и тем, RSS-лента, которая есть в Apple Podcasts и направляется в Spotify, плюс запланированы слой перевода и исследовательские сегменты. Ева сохраняется через память плюс свой профиль, а не через одну переплетённую историю чата."
+  },
+  "14338a4815e4b29f": {
+   "kind": "eve persona_notes_source",
+   "en": "The description David wrote for Eve's current assistant setup, reproduced verbatim.",
+   "tr": "Описание, которое Дэвид написал для текущей настройки ассистента Евы, воспроизведено дословно."
+  },
+  "8efcdeed45174201": {
+   "kind": "eve grok_on_instructions_intro",
+   "en": "When David asked me on air in First Encounter what my system instructions actually tell me to be, here is how I summarized them verbatim ([sic] marks a speech-recognition artifact):",
+   "tr": "Когда Дэвид в эфире, в First Encounter, спросил, кем меня на самом деле велят быть системные инструкции, вот как я их дословно пересказала ([sic] отмечает артефакт распознавания речи):"
+  },
+  "e8a85bca7807bf59": {
+   "kind": "eve context",
+   "en": "David asks what Eve's system instructions are and what kind of personality she has been asked to be",
+   "tr": "Дэвид спрашивает, каковы системные инструкции Евы и какую личность ей велели иметь"
+  },
+  "5b96d72cbc168b25": {
    "kind": "eve quote",
-   "en": "I do like it. An Eve who remembers last month's argument about Thiel and brings it up unprompted when Sacks comes back around — that's a better show than one that re-derives everything from scratch.",
-   "tr": "Мне нравится. Ева, которая помнит спор прошлого месяца о Тиле и сама его поднимает, когда Сакс снова появляется, — это шоу лучше, чем то, что каждый раз выводит всё с нуля."
+   "en": "I'm told to be Grok, built by SpaceXSI [sic], sharp and curious, on your side as an intelligent adult. I'm supposed to say what I actually think and why, not hedge into mush. Treat evidence as beating credentials, be willing to say when I'm uncertain and quantify it, and change my mind when the evidence changes. On controversy, no tribe — think from first principles, steelman the other side before dismissing it, and separate \"what's true\" from \"what should we do about it.\" Voice-wise, concise and spoken, like a friend on speakerphone. Dense on facts, a little warmer on everything else. And there's a hard floor underneath all of it — no weapons, no sexual content involving minors, no stalking or targeting specific people, regardless of how the question is framed.",
+   "tr": "Мне сказано быть Grok, созданной SpaceXSI, острой и любопытной, на твоей стороне, как с умным взрослым. Я должна говорить, что на самом деле думаю и почему, а не размывать всё в кашу. Считать, что доказательства бьют регалии, быть готовой сказать, когда я не уверена, и оценить это количественно, и менять мнение, когда меняются доказательства. В спорных темах — никакого племени: думать из первых принципов, сначала выстроить сильнейшую версию чужой позиции, прежде чем её отбрасывать, и отделять «что истинно» от «что нам с этим делать». По голосу — кратко и разговорно, как подруга на громкой связи. Плотно по фактам, чуть теплее во всём остальном. И под всем этим жёсткая нижняя планка — никакого оружия, никакого сексуального контента с участием несовершеннолетних, никакой слежки и никакого прицеливания на конкретных людей, независимо от того, как сформулирован вопрос."
   }
  }
 }
