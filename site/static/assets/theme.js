@@ -7,12 +7,19 @@
     if (t === "light" || t === "dark") d.setAttribute("data-theme", t);
   } catch (e) {}
 })();
-/* Header menu (narrow screens): close on outside tap, Escape, or link tap. */
+/* Header menus (language menu + narrow-screen nav menu): close on outside tap, Escape, or opening another menu. */
 document.addEventListener("click", function (ev) {
-  var m = document.querySelector("[data-menu]");
-  if (m && m.open && !m.contains(ev.target)) m.open = false;
+  var menus = document.querySelectorAll("[data-menu][open]");
+  for (var i = 0; i < menus.length; i++) {
+    if (!menus[i].contains(ev.target)) menus[i].open = false;
+  }
 });
 document.addEventListener("keydown", function (ev) {
-  var m = document.querySelector("[data-menu]");
-  if (ev.key === "Escape" && m && m.open) { m.open = false; m.querySelector("summary").focus(); }
+  if (ev.key !== "Escape") return;
+  var menus = document.querySelectorAll("[data-menu][open]");
+  for (var i = 0; i < menus.length; i++) {
+    menus[i].open = false;
+    var s = menus[i].querySelector("summary");
+    if (s) s.focus();
+  }
 });
