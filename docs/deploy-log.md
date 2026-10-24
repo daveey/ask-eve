@@ -1,5 +1,18 @@
 # Ask Eve deploy log
 
+### D-017 completed — 2026-10-24 PT
+
+This entry supersedes earlier deferred/blocked D-017 notes below.
+
+- Initialized Cloudflare Access, configured Google identity provider and a restricted admin application, and set `CF_ACCESS_TEAM_DOMAIN` and `CF_ACCESS_AUD` on `ask-eve-inbox`. Credentials and private allowlist are not recorded here.
+- Exercised actual Google sign-in and authenticated `/admin/api/queue`: HTTP 200. Authentication exposed a second defect: the HTML template consumed regex slash escapes, making the generated browser JavaScript invalid and leaving panels loading.
+- Fixed in https://github.com/daveey/ask-eve/pull/51 (main `d11a3cbbcfa3d52494c2b8061ab402ddcc1c4a29`); generated-script regression plus Worker suite: 9 passed, 0 failed.
+- Deployed Worker version `058fdc43-966f-4c25-82b8-155373fa715b`. Authenticated browser reload rendered all three queue counts, with no loading indicator or displayed errors. Queue API returned HTTP 200 and expected data keys. Read-only verification; no reply or X post was sent.
+- Anonymous curl requests to `/admin/` and `/admin/api/queue`: HTTP 302 to authentication. A forged JWT request also returned 302. Python urllib requests were denied with 403. No unauthenticated queue data returned.
+- Detection gap: D-016 correctly decoupled email forwarding, but its fail-closed smoke check was not a usable-admin acceptance test. D-017 completion now requires **both authenticated rendered data and unauthenticated denial**, not merely a login redirect or a safe 503.
+- Why the UI defect escaped: previous tests exercised Worker/API behavior but not the generated browser script. The new regression compiles and executes that script and checks queue initialization and safe-link handling.
+
+
 Entries by David's deploy agent (Hermes). Secrets are never shown; scope/secret **names** only.
 Deploy token: kept in the deploy agent's secret store (scoped to the Ask Eve Cloudflare account only), vended per command, never stored in GitHub.
 
