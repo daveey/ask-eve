@@ -233,3 +233,51 @@ Also done: episode 0 (PR #4) was merged by David, and publish.yml was dispatched
 - notes: this branch was made from a freshly synced clone and pushed without force. D-011 is still done (PR #18): the cover
   at audio.askevepodcast.com/art/cover-3000.v1.jpg returns 200 image/jpeg, 331005 bytes, and is the feed's itunes:image.
   D-014 (v2 MP3s) is new on main and not part of this entry.
+
+### D-014 done 2026-10-24T00:45Z
+- preconditions: D-013 done on Hermes (deploy-log entry above; this clone re-checked: `git cat-file -e e3bb848` -> clean,
+  origin/main 944647d). Audio-v2 PR #35 merged (aea40bb).
+- commands run:
+  - Drive handoff `Ask Eve/_publish-handoff-2026-10-23`: the 3 v2 files found by name in the folder and downloaded through
+    Hermes's browser session signed in as David (same path as D-010). Sizes: part00 70000000, part01 67334489,
+    the-making-of-eve 39762950 (as listed).
+  - `cat <stem>.v2.mp3.part00 <stem>.v2.mp3.part01 > <stem>.v2.mp3` (137334489 bytes) and the guide's `printf … | sha256sum -c -`:
+    ```
+    2026-10-23_eve-david-podcast-planning.v2.mp3: OK
+    2026-10-23_the-making-of-eve.v2.mp3: OK
+    ```
+    Both equal `audio_sha256` in `artifacts/<stem>/manifest.json` on main.
+  - `npx wrangler@4 r2 object put "ask-eve-masters/staging/$s/$s.v2.mp3" --file "$s.v2.mp3" --content-type audio/mpeg --remote`
+    for both stems ("Upload complete."). Read-back `wrangler r2 object get … --remote --pipe | sha256sum`: f9c6f70b…d91f28 (ep 0)
+    and 1d26ff03…68cafe (ep 1).
+  - `gh workflow run publish.yml -R daveey/ask-eve --ref main -f stem=2026-10-23_eve-david-podcast-planning`, waited for it and its
+    site.yml run, then the same for `2026-10-23_the-making-of-eve`.
+- run URLs (all `success`; every step green incl. "Guard - refuse placeholder audio" and "Copy MP3 + chapters … (sha256-verified)"):
+  - ep 0 publish: https://github.com/daveey/ask-eve/actions/runs/40045922677 -> site.yml https://github.com/daveey/ask-eve/actions/runs/40045980867
+  - ep 1 publish: https://github.com/daveey/ask-eve/actions/runs/40046039664 -> site.yml https://github.com/daveey/ask-eve/actions/runs/40046080563
+- curl output:
+  ```
+  $ curl -sI https://audio.askevepodcast.com/audio/en/2026-10-23_eve-david-podcast-planning.v2.mp3
+  HTTP/2 200
+  content-type: audio/mpeg
+  content-length: 137334489        (public object sha256 f9c6f70b…d91f28)
+  $ curl -sI https://audio.askevepodcast.com/audio/en/2026-10-23_the-making-of-eve.v2.mp3
+  HTTP/2 200
+  content-type: audio/mpeg
+  content-length: 39762950         (public object sha256 1d26ff03…68cafe)
+  chapters/en/<stem>.v2.json: 200 application/json+chapters for both; the-making-of-eve chapter at 925.39 s (15:25)
+  reads "… [link removed]", 0 grok.com/share links
+  $ curl -s https://askevepodcast.com/feed.xml | grep -o 'audio/en/[^"]*\.mp3'
+  audio/en/2026-10-23_the-making-of-eve.v2.mp3
+  audio/en/2026-10-23_eve-david-podcast-planning.v2.mp3
+  guids before and after: ask-eve:2026-10-23_the-making-of-eve, ask-eve:2026-10-23_eve-david-podcast-planning (unchanged)
+  enclosure lengths 39762950 / 137334489; <item> count 2; feed.xml 200 application/rss+xml
+  $ curl -s https://askevepodcast.com/episodes/first-encounter/ | grep -c 'v2.mp3'
+  3                                 (v1.mp3: 0; /episodes/the-making-of-eve/: v2 3, v1 0)
+  ```
+- §11 rows touched: #12 site + feed 200 rss+xml (above); audio objects, feed, episode pages and publish runs as above.
+- notes:
+  - The guide's step-5 URL `https://askevepodcast.com/first-encounter/` returns 404; the episode page is
+    `/episodes/first-encounter/` (the feed's `<link>`). Checked there instead.
+  - Nothing was deleted. The v1 objects are still live (`audio/en/2026-10-23_eve-david-podcast-planning.v1.mp3` returns 200);
+    asked David whether to delete them.
